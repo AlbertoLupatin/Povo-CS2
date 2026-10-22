@@ -15,9 +15,11 @@ A recognizable Trento environment, delivered as a **playable multiplayer map in 
 This repository now contains the geographic preparation workspace and the source
 for a first CS2 addon. The Povo terrain, rough building volumes, reference
 materials, collision model, and a provisional Wingman template compile together
-successfully on the tested Windows machine. **The result is not yet a validated
-playable Trento map:** the stock template entities still need to be fitted to the
-campus, navigation is absent, and no in-game or multiplayer round has been run.
+successfully on the tested Windows machine. The map now loads locally, places
+both teams on an open east-side campus corridor, and permits movement over the
+sampled terrain. **The result is still an early playtest blockout:** the stock
+template geometry remains at the centre of the campus, navigation is absent, and
+no complete round or multiplayer session has been validated.
 
 The workspace contains real 0.5 m terrain samples for Povo and Mesiano, a Povo building-surface raster, municipal aerial references, and a Fedora → Windows workflow. The terrain conversion utility prepares a local-metre OBJ from an ASCII elevation grid; it does not create a Hammer map, collision, or game entities. Povo is the first map; Mesiano is retained as a later candidate. Its current sample covers the western approach and only part of the campus, so it must be expanded before modelling that campus.
 

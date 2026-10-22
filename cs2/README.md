@@ -22,6 +22,11 @@ python tools/cs2_project.py compile --target map
 python tools/cs2_project.py sync-from-cs2
 ```
 
+`place-blockout` is the reproducible preparation step: it inserts the pitched
+Povo model and relocates the template's twelve player starts, bomb target, and
+buy zones onto the sampled east-side terrain corridor. Running it again without
+source changes is a no-op.
+
 `doctor` and all geographic preparation commands run on any supported Python
 platform. `deploy`, `compile`, and `sync-from-cs2` require a Windows CS2 Workshop
 Tools installation. Set `CS2_ROOT` or pass `--cs2-root` if Steam is not in a
@@ -39,4 +44,16 @@ Source 2's OBJ import axis order makes the unrotated model stand on edge, so the
 map places `povo_geographic_blockout` at pitch `-90` degrees. Hammer then reports
 the expected approximate bounds of 12,589 × 8,652 × 1,643 units (320 × 220 ×
 42 m), with geographic Z pointing up.
+
+For a direct local diagnostic after deployment and compilation, the Workshop
+Tools engine accepts the packaged map path (including the `.vpk` suffix):
+
+```powershell
+cs2.exe -steam -retail -addon trento_povo -tools `
+  -asset maps/trento_povo.vmap -insecure +map maps/trento_povo.vpk
+```
+
+Using only `+map trento_povo` does not select this local add-on in the tested
+build. This command is a developer playtest path, not the eventual Workshop or
+multiplayer launch flow.
 

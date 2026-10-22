@@ -3,5 +3,6 @@ __pycache__/
 .venv/
 .pytest_cache/
 build/
+steam_appid.txt
 *.blend1
 *.blend2

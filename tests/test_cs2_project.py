@@ -86,6 +86,41 @@ class CS2ProjectTests(unittest.TestCase):
         )
         self.assertEqual(cs2_project.insert_blockout_prop(updated), updated)
 
+    def test_relocate_playtest_entities_is_deterministic_and_idempotent(self):
+        def entity(classname, origin="0 0 0", extra="", brush=False):
+            child = (
+                f'''\n        "CMapMesh"\n        {{\n            "origin" "vector3" "{origin}"\n            "angles" "qangle" "0 0 0"\n        }}'''
+                if brush
+                else ""
+            )
+            return f'''\n"CMapEntity"\n{{{child}\n    "entity_properties" "EditGameClassProps"\n    {{\n        "classname" "string" "{classname}"\n        {extra}\n    }}\n    "origin" "vector3" "{origin}"\n    "angles" "qangle" "0 90 0"\n}}\n'''
+
+        source = "".join(
+            entity(classname)
+            for classname in (
+                ["info_player_counterterrorist"] * 6
+                + ["info_player_terrorist"] * 6
+            )
+        )
+        source += entity("func_bomb_target", "512 640 32", brush=True)
+        for team in ("3", "2", "0"):
+            source += entity(
+                "func_buyzone", "96 -320 32", f'"TeamNum" "string" "{team}"', True
+            )
+
+        updated = cs2_project.relocate_playtest_entities(source)
+
+        for classname, layout in cs2_project.PLAYTEST_SPAWNS.items():
+            for origin, angles in layout:
+                self.assertIn(f'"origin" "vector3" "{origin}"', updated)
+                self.assertIn(f'"angles" "qangle" "{angles}"', updated)
+        self.assertEqual(updated.count(cs2_project.PLAYTEST_OBJECTIVE_ORIGIN), 4)
+        for team in ("3", "2"):
+            self.assertEqual(
+                updated.count(cs2_project.PLAYTEST_BUYZONE_ORIGINS[team]), 2
+            )
+        self.assertEqual(cs2_project.relocate_playtest_entities(updated), updated)
+
     def test_deploy_is_additive_and_records_hashes(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

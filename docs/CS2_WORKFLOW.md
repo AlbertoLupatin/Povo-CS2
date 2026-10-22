@@ -48,6 +48,13 @@ Author/edit world geometry, materials, collision, walkable stairs and slopes, li
 
 Begin with a simple native mode for movement/scale testing. Choose Wingman, standard bomb defusal or another supported mode after the campus footprint is evaluated. Add the mode's required entities, spawns and objectives from current CS2 examples; do not copy legacy CS:GO entity assumptions unchecked.
 
+For the checked-in Povo blockout, run `python tools/cs2_project.py place-blockout`
+before deployment. It deterministically inserts the correctly pitched geographic
+model and places both teams, the bomb target, and the buy zones on the sampled
+east-side terrain corridor. Keep subsequent route choices in that preparation
+step or synchronize reviewed Hammer changes back to Git; do not leave the only
+working placement inside an installed add-on directory.
+
 Bring every major geometry change back into a playable build. Prioritize recognizability, navigability and collision before façade detailing.
 
 ## 4. Test and package

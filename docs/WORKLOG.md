@@ -147,3 +147,61 @@ local bot round before the two-client multiplayer gate.
   Wingman floor and entities, then move the spawns onto verified Povo surfaces and
   confirm collision and movement on the geographic terrain.
 
+## 22 October 2026 — campus spawn correction and live traversal check
+
+### Diagnosis and deterministic layout
+
+- Confirmed that all six Counter-Terrorist starts, all six Terrorist starts, the
+  bomb target, and the buy zones still occupied the stock Wingman layout around
+  the map origin. The geographic model also occupies that origin, which explains
+  the dark, obstructed first spawn rather than a model-orientation regression.
+- Selected a provisional north/south route along the open east side of the Povo
+  terrain. Its local eastings are 70–74 m, beyond the current rough building
+  volumes, while its terrain heights come from vertices in the exported mesh.
+- Added the layout to `tools/cs2_project.py`: twelve starts now have sampled
+  origins and inward-facing angles, and the bomb target and three template buy
+  zones move with them. `place-blockout` applies the model insertion and entity
+  placement in one deterministic VMAP round trip.
+- Added an idempotence/unit test for the entity placement. A second preparation
+  run made no changes, and the full suite passed all 23 tests.
+
+### Build and live evidence
+
+- The first rebuild could not replace `trento_povo.vpk` because the previous CS2
+  tools process still held it open. After preserving the source and closing that
+  process, the same build completed normally: 26 resources compiled, zero
+  failures, in 53 seconds.
+- Rebuilt installed VPK:
+  - Size: 14,577,771 bytes.
+  - Compiler MD5: `4780097beaccb6246e483ff156414a74`.
+  - SHA-256: `e05ab774da45c59ff5e207ee399cdcacfdba26bd051d6781356308b9fe5a31f2`.
+- Confirmed the required local launch form in the tested build:
+  `-addon trento_povo -tools -asset maps/trento_povo.vmap` followed by
+  `map maps/trento_povo.vpk`. The shorter `map trento_povo` form fell back to an
+  empty map. The successful run reported `Spawn Server: trento_povo`, loaded the
+  main and Wingman prefab spawn groups, and created client/server physics.
+- A live Terrorist join landed at
+  `-3927.165 2765.748 431.546`, directly below the configured first-playable
+  start at `-3927.165 2765.748 462.315`. A live Counter-Terrorist join landed at
+  `3789.370 2844.488 397.762`, directly below its configured start at
+  `3789.370 2844.488 428.850`. The roughly 31-unit offset is the intentional
+  spawn clearance above the sampled ground.
+- From the Counter-Terrorist position, two seconds of forward movement changed
+  the live player position to `3311.298 2844.525 393.184`: approximately 478
+  units of unobstructed horizontal travel with a 4.6-unit terrain-height change.
+  This directly verifies that the player is no longer trapped in the original
+  overlapping geometry and that collision supports movement on this corridor.
+- Engine screenshot commands worked, but the background Workshop Tools renderer
+  captured its loading artwork rather than the active hidden game view. Spawn and
+  traversal verification therefore rests on the live client/server console
+  positions above, not on that screenshot.
+
+### Still open
+
+- This is a reliable diagnostic route, not a final balanced layout. Remove or
+  rebuild the remaining stock template geometry, define deliberate paths and
+  boundaries, add a nav seed and navigation mesh, repair lighting/visibility,
+  and complete a local bot round.
+- The two-independent-client match gate, clean-install package check, and direct
+  39.3701-unit calibration-cube measurement are still outstanding.
+

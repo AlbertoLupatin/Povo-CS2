@@ -60,6 +60,36 @@ BLOCKOUT_MODEL = "models/povo/povo_blockout.vmdl"
 # Pitching the placed prop by -90 degrees restores geographic Z as world up.
 BLOCKOUT_ANGLES = "-90 0 0"
 
+# First-playable layout on the open east side of the Povo campus.  These
+# coordinates are sampled from the exported terrain after applying the model's
+# -90 degree pitch and 39.37007874 units-per-metre scale.  Keeping this data in
+# the repository makes the installed VMAP reproducible instead of relying on a
+# one-off Hammer edit.
+PLAYTEST_SPAWNS = {
+    "info_player_counterterrorist": (
+        ("3946.850 2765.748 429.244", "0 180 0"),
+        ("3946.850 2844.488 432.787", "0 180 0"),
+        ("3946.850 2923.228 433.181", "0 180 0"),
+        ("3789.370 2765.748 426.488", "0 180 0"),
+        ("3789.370 2844.488 428.850", "0 180 0"),
+        ("3789.370 2923.228 431.213", "0 180 0"),
+    ),
+    "info_player_terrorist": (
+        ("-3769.685 2765.748 456.803", "0 0 0"),
+        ("-3769.685 2844.488 456.803", "0 0 0"),
+        ("-3769.685 2923.228 455.622", "0 0 0"),
+        ("-3927.165 2765.748 462.315", "0 0 0"),
+        ("-3927.165 2844.488 467.827", "0 0 0"),
+        ("-3927.165 2923.228 466.252", "0 0 0"),
+    ),
+}
+PLAYTEST_OBJECTIVE_ORIGIN = "9.843 2844.488 407.591"
+PLAYTEST_BUYZONE_ORIGINS = {
+    "3": "3868.110 2844.488 430.000",  # Counter-Terrorist
+    "2": "-3848.425 2844.488 462.000",  # Terrorist
+    "0": PLAYTEST_OBJECTIVE_ORIGIN,  # Template 2v2 zone; harmless when disabled.
+}
+
 
 class ProjectError(RuntimeError):
     """An actionable project configuration error."""
@@ -295,6 +325,128 @@ def _matching_bracket(text: str, opening: int) -> int:
     raise ProjectError("Unbalanced element array in VMAP text")
 
 
+def _matching_brace(text: str, opening: int) -> int:
+    """Return the closing brace while ignoring braces inside quoted values."""
+    depth = 0
+    quoted = False
+    escaped = False
+    for position in range(opening, len(text)):
+        character = text[position]
+        if quoted:
+            if escaped:
+                escaped = False
+            elif character == "\\":
+                escaped = True
+            elif character == '"':
+                quoted = False
+            continue
+        if character == '"':
+            quoted = True
+        elif character == "{":
+            depth += 1
+        elif character == "}":
+            depth -= 1
+            if depth == 0:
+                return position
+    raise ProjectError("Unbalanced entity block in VMAP text")
+
+
+def _replace_entity_transform(
+    block: str, origin: str, angles: str | None = None
+) -> str:
+    """Move an entity and any brush children sharing its local origin."""
+
+    def replace_vector(match: re.Match[str], desired: str) -> str:
+        current_values = tuple(float(value) for value in match.group(2).split())
+        desired_values = tuple(float(value) for value in desired.split())
+        if len(current_values) == len(desired_values) and all(
+            abs(current - target) <= 0.001
+            for current, target in zip(current_values, desired_values)
+        ):
+            return match.group(0)
+        return f"{match.group(1)}{desired}{match.group(3)}"
+
+    updated, origin_count = re.subn(
+        r'("origin"\s+"vector3"\s+")([^"]+)(")',
+        lambda match: replace_vector(match, origin),
+        block,
+    )
+    if not origin_count:
+        raise ProjectError("VMAP entity has no origin transform")
+    if angles is not None:
+        updated, angle_count = re.subn(
+            r'("angles"\s+"qangle"\s+")([^"]+)(")',
+            lambda match: replace_vector(match, angles),
+            updated,
+        )
+        if not angle_count:
+            raise ProjectError("VMAP entity has no angle transform")
+    return updated
+
+
+def relocate_playtest_entities(text: str) -> str:
+    """Move Wingman spawns and volumes onto the open Povo east-side route."""
+    entity_pattern = re.compile(r'(?m)^[ \t]*"CMapEntity"[ \t]*$')
+    class_pattern = re.compile(r'"classname"\s+"string"\s+"([^"]+)"')
+    team_pattern = re.compile(r'"TeamNum"\s+"string"\s+"([^"]+)"')
+    spawn_indices = {classname: 0 for classname in PLAYTEST_SPAWNS}
+    replacements: list[tuple[int, int, str]] = []
+    objective_count = 0
+    buyzone_teams: set[str] = set()
+
+    for match in entity_pattern.finditer(text):
+        opening = text.find("{", match.end())
+        if opening < 0:
+            raise ProjectError("VMAP entity has no opening brace")
+        closing = _matching_brace(text, opening)
+        block = text[match.start() : closing + 1]
+        class_match = class_pattern.search(block)
+        if not class_match:
+            continue
+        classname = class_match.group(1)
+        updated = block
+
+        if classname in PLAYTEST_SPAWNS:
+            index = spawn_indices[classname]
+            layout = PLAYTEST_SPAWNS[classname]
+            if index >= len(layout):
+                raise ProjectError(f"VMAP has too many {classname} entities")
+            origin, angles = layout[index]
+            updated = _replace_entity_transform(block, origin, angles)
+            spawn_indices[classname] += 1
+        elif classname == "func_bomb_target":
+            updated = _replace_entity_transform(block, PLAYTEST_OBJECTIVE_ORIGIN)
+            objective_count += 1
+        elif classname == "func_buyzone":
+            team_match = team_pattern.search(block)
+            if team_match and team_match.group(1) in PLAYTEST_BUYZONE_ORIGINS:
+                team = team_match.group(1)
+                updated = _replace_entity_transform(
+                    block, PLAYTEST_BUYZONE_ORIGINS[team]
+                )
+                buyzone_teams.add(team)
+
+        if updated != block:
+            replacements.append((match.start(), closing + 1, updated))
+
+    for classname, layout in PLAYTEST_SPAWNS.items():
+        if spawn_indices[classname] != len(layout):
+            raise ProjectError(
+                f"VMAP has {spawn_indices[classname]} {classname} entities; "
+                f"expected {len(layout)}"
+            )
+    if objective_count != 1:
+        raise ProjectError(f"VMAP has {objective_count} bomb targets; expected 1")
+    missing_buyzones = set(PLAYTEST_BUYZONE_ORIGINS) - buyzone_teams
+    if missing_buyzones:
+        rendered = ", ".join(sorted(missing_buyzones))
+        raise ProjectError(f"VMAP is missing buy zones for team values: {rendered}")
+
+    for start, end, replacement in reversed(replacements):
+        text = text[:start] + replacement + text[end:]
+    return text
+
+
 def insert_blockout_prop(text: str, model: str = BLOCKOUT_MODEL) -> str:
     """Insert the Povo prop_static into a keyvalues2 VMAP document."""
     if f'"model" "string" "{model}"' in text:
@@ -391,7 +543,7 @@ def insert_blockout_prop(text: str, model: str = BLOCKOUT_MODEL) -> str:
 
 
 def place_blockout(cs2_root: Path, repo_root: Path = REPO_ROOT) -> bool:
-    """Round-trip the binary VMAP and add the geographic model deterministically."""
+    """Round-trip the VMAP and prepare the geographic first-playable layout."""
     converter = cs2_root / "game" / "bin" / "win64" / "dmxconvert.exe"
     source_map = (
         repo_root / "cs2" / "content" / ADDON_NAME / "maps" / "trento_povo.vmap"
@@ -422,7 +574,7 @@ def place_blockout(cs2_root: Path, repo_root: Path = REPO_ROOT) -> bool:
         if to_text.returncode:
             raise ProjectError("dmxconvert could not decode the source VMAP")
         original = text_map.read_text(encoding="utf-8")
-        updated = insert_blockout_prop(original)
+        updated = relocate_playtest_entities(insert_blockout_prop(original))
         if updated == original:
             return False
         text_map.write_text(updated, encoding="utf-8", newline="\n")
@@ -537,7 +689,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     subparsers.add_parser(
         "place-blockout",
-        help="insert the compiled Povo geographic model into the Wingman source map",
+        help="insert Povo and place the Wingman entities on sampled campus terrain",
     )
     sync_parser = subparsers.add_parser(
         "sync-from-cs2", help="copy Hammer/ModelDoc source edits back into Git"
