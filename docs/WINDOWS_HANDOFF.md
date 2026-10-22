@@ -1,5 +1,18 @@
 # Povo CS2: Windows import and first-playable handoff
 
+## Verified state on 22 October 2026
+
+The Workshop Tools are installed and the repository now deploys a `trento_povo`
+addon through `tools/cs2_project.py`. ModelDoc successfully compiles the Povo OBJ
+at 39.37007874 Hammer units per metre with provisional render materials and mesh
+collision. The Wingman source map contains that model and compiles to a local VPK
+with GPU lighting on the Intel Arc 130T. See [the worklog](WORKLOG.md) for hashes,
+warnings, and exact limitations.
+
+The steps below remain acceptance criteria where they have not been superseded by
+that verified build. Hammer inspection, calibration measurement, nav/spawn/objective
+placement, an in-game round, packaging, and multiplayer testing are still open.
+
 Target: Polo Ferrari, Povo; a compact campus map for small-team play. The OBJ assets
 are geographic working material. They are **not a playable map**, and importing a
 render mesh does not establish working collision or multiplayer.

@@ -1,0 +1,15 @@
+Layer0
+{
+	shader "csgo_complex.vfx"
+
+	// Geographic alignment reference, not a release-quality ground material.
+	TextureColor "materials/trento/povo/orthophoto_reference.png"
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_flModelTintAmount "1.000"
+
+	SystemAttributes
+	{
+		PhysicsSurfaceProperties "default"
+	}
+}
+

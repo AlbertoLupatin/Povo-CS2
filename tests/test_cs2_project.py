@@ -1,0 +1,128 @@
+import importlib.util
+import json
+from pathlib import Path
+import tempfile
+import unittest
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SPEC = importlib.util.spec_from_file_location(
+    "cs2_project", ROOT / "tools" / "cs2_project.py"
+)
+cs2_project = importlib.util.module_from_spec(SPEC)
+assert SPEC.loader is not None
+SPEC.loader.exec_module(cs2_project)
+
+
+class CS2ProjectTests(unittest.TestCase):
+    def make_cs2_root(self, root: Path) -> Path:
+        cs2 = root / "cs2-install"
+        (cs2 / "content" / "csgo").mkdir(parents=True)
+        (cs2 / "game" / "csgo").mkdir(parents=True)
+        (cs2 / "game" / "csgo" / "gameinfo.gi").write_text("game", encoding="utf-8")
+        compiler = cs2 / "game" / "bin" / "win64" / "resourcecompiler.exe"
+        compiler.parent.mkdir(parents=True)
+        compiler.write_bytes(b"compiler")
+        return cs2
+
+    def make_repo(self, root: Path) -> Path:
+        repo = root / "repo"
+        content = repo / "cs2" / "content" / cs2_project.ADDON_NAME
+        game = repo / "cs2" / "game" / cs2_project.ADDON_NAME
+        (content / "maps").mkdir(parents=True)
+        (content / "maps" / "trento_povo.vmap").write_bytes(b"vmap")
+        game.mkdir(parents=True)
+        (game / "addoninfo.txt").write_text("addon", encoding="utf-8")
+        for source, _destination in cs2_project.GENERATED_CONTENT:
+            path = repo / source
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(str(source).encode("utf-8"))
+        return repo
+
+    def test_parse_steam_library_paths_deduplicates(self):
+        text = r'''
+        "path" "C:\\Program Files (x86)\\Steam"
+        "path" "D:\\Games\\SteamLibrary"
+        "path" "D:\\Games\\SteamLibrary"
+        '''
+        self.assertEqual(
+            cs2_project.parse_steam_library_paths(text),
+            [Path(r"C:\Program Files (x86)\Steam"), Path(r"D:\Games\SteamLibrary")],
+        )
+
+    def test_explicit_cs2_root_is_discovered(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            cs2 = self.make_cs2_root(Path(temporary))
+            self.assertEqual(cs2_project.discover_cs2_root(cs2), cs2.resolve())
+
+    def test_insert_blockout_prop_is_deterministic_and_idempotent(self):
+        source = '''
+"$prefix_element$"
+{
+    "map_asset_references" "string_array"
+    [
+        "materials/example.vmat"
+    ]
+}
+"CMapRootElement"
+{
+    "world" "CMapWorld"
+    {
+        "nodeID" "int" "3"
+        "children" "element_array"
+        [
+        ]
+    }
+}
+'''
+        updated = cs2_project.insert_blockout_prop(source)
+        self.assertIn(
+            f'"model" "string" "{cs2_project.BLOCKOUT_MODEL}"', updated
+        )
+        self.assertIn(f'"{cs2_project.BLOCKOUT_MODEL}",', updated)
+        self.assertIn('"nodeID" "int" "4"', updated)
+        self.assertEqual(cs2_project.insert_blockout_prop(updated), updated)
+
+    def test_deploy_is_additive_and_records_hashes(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            cs2 = self.make_cs2_root(root)
+            repo = self.make_repo(root)
+            installed = (
+                cs2
+                / "content"
+                / "csgo_addons"
+                / cs2_project.ADDON_NAME
+                / "keep.txt"
+            )
+            installed.parent.mkdir(parents=True)
+            installed.write_text("keep", encoding="utf-8")
+
+            records = cs2_project.deploy(cs2, repo_root=repo)
+
+            self.assertTrue(installed.is_file())
+            deployed_map = installed.parent / "maps" / "trento_povo.vmap"
+            self.assertEqual(deployed_map.read_bytes(), b"vmap")
+            manifest = json.loads(
+                (installed.parent / "trento_deploy_manifest.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(manifest["addon"], cs2_project.ADDON_NAME)
+            self.assertTrue(records)
+            self.assertTrue(all(record["sha256"] for record in records))
+
+    def test_deploy_dry_run_writes_nothing(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            cs2 = self.make_cs2_root(root)
+            repo = self.make_repo(root)
+            records = cs2_project.deploy(cs2, repo_root=repo, dry_run=True)
+            target = cs2 / "content" / "csgo_addons" / cs2_project.ADDON_NAME
+            self.assertTrue(records)
+            self.assertFalse(target.exists())
+
+
+if __name__ == "__main__":
+    unittest.main()
+

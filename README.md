@@ -12,7 +12,12 @@ A recognizable Trento environment, delivered as a **playable multiplayer map in 
 
 ## Current status
 
-This is the project foundation and geographic preparation workspace. **There is no compiled or playable CS2 map yet.**
+This repository now contains the geographic preparation workspace and the source
+for a first CS2 addon. The Povo terrain, rough building volumes, reference
+materials, collision model, and a provisional Wingman template compile together
+successfully on the tested Windows machine. **The result is not yet a validated
+playable Trento map:** the stock template entities still need to be fitted to the
+campus, navigation is absent, and no in-game or multiplayer round has been run.
 
 The workspace contains real 0.5 m terrain samples for Povo and Mesiano, a Povo building-surface raster, municipal aerial references, and a Fedora → Windows workflow. The terrain conversion utility prepares a local-metre OBJ from an ASCII elevation grid; it does not create a Hammer map, collision, or game entities. Povo is the first map; Mesiano is retained as a later candidate. Its current sample covers the western approach and only part of the campus, so it must be expanded before modelling that campus.
 
@@ -34,6 +39,9 @@ Start with [the map design brief](docs/MAP_DESIGN.md), [the data-source register
 | `tools/build_povo_blockout.py` | Assemble the Povo terrain, reference texture and rough building volumes |
 | `docs/TERRAIN_TOOL.md` | Terrain converter usage and limitations |
 | `docs/WINDOWS_HANDOFF.md` | Import calibration, Hammer compilation and multiplayer checks |
+| `cs2/` | Versioned `trento_povo` addon source, model definition and materials |
+| `tools/cs2_project.py` | Cross-platform checks plus Windows deploy/compile/sync commands |
+| `docs/WORKLOG.md` | Durable decisions, build evidence, warnings and remaining gates |
 
 ## First milestone
 

@@ -1,0 +1,6 @@
+"AddonInfo"
+{
+	"IsTemplate"	"0"
+	"IsPlayable"	"1"
+}
+
