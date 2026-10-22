@@ -1,0 +1,349 @@
+{
+  "format_version": 1,
+  "title": "Povo - Polo Ferrari geographic blockout v0.1",
+  "status": "Intermediate geographic reference mesh; not compiled, playable, or game validated",
+  "config": {
+    "path": "config/povo_blockout.json",
+    "sha256": "ca0ed9410c2d6a1c312cc1f9596bf5ede1af142ab8d91eb9b36775deac123460"
+  },
+  "sources": {
+    "dtm": {
+      "path": "data/raw/terrain/5h666051035_DTM.asc",
+      "sha256": "63deffb68da8cf2c48db13e2aed30e1694cd453b3a51fc2edc4d1e7d869f4a63",
+      "columns": 1000,
+      "rows": 1000,
+      "resolution_metres": 0.5,
+      "sample_center_bounds": [
+        666000.25,
+        5103500.25,
+        666499.75,
+        5103999.75
+      ],
+      "cell_edge_bounds": [
+        666000.0,
+        5103500.0,
+        666500.0,
+        5104000.0
+      ],
+      "nodata_value": -9999.0
+    },
+    "dbm": {
+      "path": "data/raw/terrain/5h666051035_DBM.asc",
+      "sha256": "950f0ca857e2118b771b968ca3575bb8194615a1784b4811486947f4da6d270c",
+      "columns": 1000,
+      "rows": 1000,
+      "resolution_metres": 0.5,
+      "sample_center_bounds": [
+        666000.25,
+        5103500.25,
+        666499.75,
+        5103999.75
+      ],
+      "cell_edge_bounds": [
+        666000.0,
+        5103500.0,
+        666500.0,
+        5104000.0
+      ],
+      "nodata_value": -9999.0
+    },
+    "orthophoto": {
+      "path": "data/reference/povo_ortho_2024.png",
+      "sha256": "aa3217e94d2039a6657d530431986d1bbe6f22b1c985bc453a85d0d978f7d82b",
+      "pixel_dimensions": [
+        1000,
+        1000
+      ],
+      "bounds": [
+        666000.0,
+        5103500.0,
+        666500.0,
+        5104000.0
+      ],
+      "output_copy": "orthophoto_reference.png"
+    }
+  },
+  "coordinate_transform": {
+    "declared_horizontal_crs": "EPSG:25832 per PAT tile index; source lineage ETRF2000 epoch 2008.0 / ETRS89",
+    "declared_vertical_datum": "ITALGEO 2005 orthometric metres per PAT metadata",
+    "declarations_verified_by_builder": false,
+    "units": "metres",
+    "origin": [
+      666250.0,
+      5103800.0,
+      370.0
+    ],
+    "axes": {
+      "x": "east",
+      "y": "north",
+      "z": "up"
+    },
+    "formula": "local = source - origin; no reprojection, scaling, rotation, or datum conversion"
+  },
+  "terrain": {
+    "requested_bounds": [
+      666150.0,
+      5103650.0,
+      666350.0,
+      5103950.0
+    ],
+    "cropped_sample_center_bounds": [
+      666150.25,
+      5103650.25,
+      666349.75,
+      5103949.75
+    ],
+    "cropped_columns": 400,
+    "cropped_rows": 600,
+    "sampling_step": 4,
+    "nominal_mesh_spacing_metres": 2.0,
+    "boundary_rule": "Keep all outer sample rows and columns; last interval may be shorter",
+    "uv_formula": "u=(easting-west)/(east-west); v=(northing-south)/(north-south), using full orthophoto bounds",
+    "uv_orientation": "OBJ v=0 south / image bottom; v=1 north / image top",
+    "statistics": {
+      "vertices": 15251,
+      "triangles": 30000,
+      "skipped_triangles": 0,
+      "sampled_rows": 151,
+      "sampled_columns": 101
+    },
+    "sampled_local_bounds": [
+      [
+        -99.75,
+        -149.75,
+        -24.58
+      ],
+      [
+        99.75,
+        149.75,
+        17.16
+      ]
+    ],
+    "sampled_source_bounds": [
+      [
+        666150.25,
+        5103650.25,
+        345.42
+      ],
+      [
+        666349.75,
+        5103949.75,
+        387.16
+      ]
+    ]
+  },
+  "building_modules": [
+    {
+      "id": "povo2_west",
+      "bounds": [
+        666227.0,
+        5103810.0,
+        666244.0,
+        5103912.0
+      ],
+      "base_elevation": 366.0,
+      "roof_elevation": 386.96,
+      "evidence": "Approximate north core envelope; median DBM roof sample for main north block."
+    },
+    {
+      "id": "povo2_east",
+      "bounds": [
+        666257.0,
+        5103810.0,
+        666275.0,
+        5103912.0
+      ],
+      "base_elevation": 366.0,
+      "roof_elevation": 386.96,
+      "evidence": "Same north core envelope; east side of open courtyard."
+    },
+    {
+      "id": "povo2_north",
+      "bounds": [
+        666244.0,
+        5103889.0,
+        666257.0,
+        5103912.0
+      ],
+      "base_elevation": 366.0,
+      "roof_elevation": 386.96,
+      "evidence": "North end of approximate roof ring."
+    },
+    {
+      "id": "povo2_south",
+      "bounds": [
+        666244.0,
+        5103810.0,
+        666257.0,
+        5103833.0
+      ],
+      "base_elevation": 366.0,
+      "roof_elevation": 386.96,
+      "evidence": "South end of approximate roof ring."
+    },
+    {
+      "id": "povo1_west",
+      "bounds": [
+        666227.0,
+        5103697.0,
+        666240.0,
+        5103780.0
+      ],
+      "base_elevation": 371.0,
+      "roof_elevation": 386.84,
+      "evidence": "Approximate south core envelope; median DBM roof sample for main south block."
+    },
+    {
+      "id": "povo1_east",
+      "bounds": [
+        666257.0,
+        5103697.0,
+        666274.0,
+        5103780.0
+      ],
+      "base_elevation": 371.0,
+      "roof_elevation": 386.84,
+      "evidence": "Same south core envelope; east side of open courtyard."
+    },
+    {
+      "id": "povo1_north",
+      "bounds": [
+        666240.0,
+        5103754.0,
+        666257.0,
+        5103780.0
+      ],
+      "base_elevation": 371.0,
+      "roof_elevation": 386.84,
+      "evidence": "North end of approximate roof ring."
+    },
+    {
+      "id": "povo1_south",
+      "bounds": [
+        666240.0,
+        5103697.0,
+        666257.0,
+        5103724.0
+      ],
+      "base_elevation": 371.0,
+      "roof_elevation": 386.84,
+      "evidence": "South end of approximate roof ring."
+    },
+    {
+      "id": "povo1_east_low_volume",
+      "bounds": [
+        666286.0,
+        5103690.0,
+        666302.0,
+        5103787.0
+      ],
+      "base_elevation": 372.0,
+      "roof_elevation": 382.49,
+      "evidence": "Approximate lower eastern volume; median sampled DBM surface, detailed openings unmodelled."
+    },
+    {
+      "id": "povo1_east_connector",
+      "bounds": [
+        666274.0,
+        5103723.0,
+        666286.0,
+        5103732.0
+      ],
+      "base_elevation": 372.0,
+      "roof_elevation": 382.49,
+      "evidence": "Approximate connection visible in aerial/DBM; same roof-height assumption as low volume."
+    },
+    {
+      "id": "povo2_southeast_annex",
+      "bounds": [
+        666275.0,
+        5103820.0,
+        666301.0,
+        5103845.0
+      ],
+      "base_elevation": 368.0,
+      "roof_elevation": 382.16,
+      "evidence": "Simplified southeastern annex; DBM median in nearby sampled rectangle. Roof terraces and entrances need reconstruction."
+    },
+    {
+      "id": "povo2_northeast_annex",
+      "bounds": [
+        666275.0,
+        5103877.0,
+        666301.0,
+        5103892.0
+      ],
+      "base_elevation": 368.0,
+      "roof_elevation": 382.31,
+      "evidence": "Simplified northeastern annex; DBM median in nearby sampled rectangle. Roof terraces and entrances need reconstruction."
+    },
+    {
+      "id": "bridge_reference_slab",
+      "bounds": [
+        666266.5,
+        5103780.0,
+        666270.0,
+        5103810.0
+      ],
+      "base_elevation": 384.69,
+      "roof_elevation": 385.69,
+      "evidence": "DBM median bridge surface 385.69 m; 1 m slab depth assumed for orientation only. Not a verified walkable floor or interior."
+    }
+  ],
+  "calibration": {
+    "object": "calibration_1m",
+    "local_minimum": [
+      -120.0,
+      -170.0,
+      0.0
+    ],
+    "dimensions_metres": [
+      1,
+      1,
+      1
+    ],
+    "purpose": "Staging-only scale check outside the campus; delete before game packaging"
+  },
+  "attribution": {
+    "terrain_and_building_heights": "Derived from LiDAR DTM/DBM PAT 2014 / 2018, Provincia Autonoma di Trento - Servizio Geologico, CC BY 4.0. Cropped, subsampled, translated to local coordinates; building roof heights summarized and volumes approximated.",
+    "terrain_and_building_heights_licence": "https://creativecommons.org/licenses/by/4.0/",
+    "terrain_source": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h666051035_DTM.asc",
+    "building_surface_source": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h666051035_DBM.asc",
+    "orthophoto": "Comune di Trento, Ortofoto 2024, flight 28-29 August 2024, CC0 1.0 Universal. Resampled WMS extract used for geographic reference and approximate roof-envelope tracing.",
+    "orthophoto_metadata": "https://gis.comune.trento.it/api/config/2/qdjango/42",
+    "orthophoto_licence": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  "config_note": "A 200 x 300 m survey blockout, not a final playable boundary. Rectangular modules approximate roof envelopes inspected in the 2024 municipal orthophoto and PAT DBM. These are not cadastral footprints or architectural measurements. Courtyard gaps are retained. Heights summarize mixed-date roof surfaces; base levels are buried construction assumptions. The bridge slab thickness is assumed. No interiors, openings, stairs, collision or CS2 entities are authored.",
+  "limitations": [
+    "Rectangular building modules are approximate volumes, not surveyed footprints or architectural models.",
+    "Roof elevations and buried bases come from explicit configuration; DBM is checked for grid alignment, not automatically interpreted.",
+    "The orthophoto is a reference overlay: aerial roofs remain visible on underlying ground; this is not a finished ground texture.",
+    "Outer cell edges are not mesh vertices. NoData triangles and coarse quads spanning hidden NoData are omitted.",
+    "DTM decimation cannot establish walkable steps, ramps, entrances, or retaining-wall geometry.",
+    "No interiors, collision setup, player clipping, navigation, lighting bake, CS2 entities, or compiled map are provided."
+  ],
+  "statistics": {
+    "vertices": 15363,
+    "triangles": 30168,
+    "building_modules": 13,
+    "objects": 15
+  },
+  "artifacts": {
+    "povo_blockout.obj": {
+      "sha256": "987e98befbce69da73c842bdc139370593b5493fc1ad7e7529011c9358818d11",
+      "bytes": 1588516
+    },
+    "povo_blockout.mtl": {
+      "sha256": "67eb2b449314734b0d75a4ec453360e1f1b380b8808fd0e7ae957461f8b04e68",
+      "bytes": 323
+    },
+    "orthophoto_reference.png": {
+      "sha256": "aa3217e94d2039a6657d530431986d1bbe6f22b1c985bc453a85d0d978f7d82b",
+      "bytes": 2030447
+    },
+    "CREDITS.txt": {
+      "sha256": "e6b88b0b60c0c8735628752d2f840d80179687bb6ba2ce1e70db057689e2fadd",
+      "bytes": 1291
+    }
+  }
+}

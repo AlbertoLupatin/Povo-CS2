@@ -1,0 +1,14 @@
+Povo - Polo Ferrari geographic blockout
+
+Source attribution and licences:
+{
+  "terrain_and_building_heights": "Derived from LiDAR DTM/DBM PAT 2014 / 2018, Provincia Autonoma di Trento - Servizio Geologico, CC BY 4.0. Cropped, subsampled, translated to local coordinates; building roof heights summarized and volumes approximated.",
+  "terrain_and_building_heights_licence": "https://creativecommons.org/licenses/by/4.0/",
+  "terrain_source": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h666051035_DTM.asc",
+  "building_surface_source": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h666051035_DBM.asc",
+  "orthophoto": "Comune di Trento, Ortofoto 2024, flight 28-29 August 2024, CC0 1.0 Universal. Resampled WMS extract used for geographic reference and approximate roof-envelope tracing.",
+  "orthophoto_metadata": "https://gis.comune.trento.it/api/config/2/qdjango/42",
+  "orthophoto_licence": "https://creativecommons.org/publicdomain/zero/1.0/"
+}
+
+Changes: DTM cropped and decimated to a local-metre terrain mesh; orthophoto copied intact and UV-mapped; approximate rectangular building volumes added using configured roof elevations and assumed bases. No interiors or playable CS2 map included. Original evidence and hashes: provenance.json.

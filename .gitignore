@@ -3,6 +3,5 @@ __pycache__/
 .venv/
 .pytest_cache/
 build/
-exports/
 *.blend1
 *.blend2
