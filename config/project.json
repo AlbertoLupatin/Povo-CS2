@@ -1,0 +1,20 @@
+{
+  "name": "Real-World Trento FPS Map",
+  "decision_date": "2026-10-22",
+  "target_game": "Counter-Strike 2",
+  "deliverable": "Playable multiplayer map package with editable source assets",
+  "preparation_platform": "Fedora 44",
+  "build_platform": "Windows with CS2 Workshop Tools",
+  "first_experience": "Detailed campus area for small-team matches",
+  "selected_campus": "Povo - Polo Ferrari",
+  "game_mode": null,
+  "player_count": null,
+  "playable_boundary": null,
+  "candidate_campuses": ["Povo - Polo Ferrari", "Mesiano - engineering campus"],
+  "working_crs": "EPSG:25832",
+  "working_units": "metres",
+  "vertical_datum": "ITALGEO 2005 orthometric heights, as declared by PAT source metadata",
+  "local_origin": [666250, 5103800, 370],
+  "hammer_import_scale": null,
+  "status": "Povo geographic blockout preparation; Windows toolchain and in-game validation pending"
+}

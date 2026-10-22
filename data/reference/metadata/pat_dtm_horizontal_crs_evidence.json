@@ -1,0 +1,29 @@
+{
+  "source_url": "https://siat.provincia.tn.it/geoserver/wfs?service=WFS&version=1.0.0&request=GetFeature&typeName=stem%3Ainqlid2014_dtm_asc&bbox=666001%2C5103501%2C666499%2C5103999&maxFeatures=5&outputFormat=application%2Fjson",
+  "retrieved_at_utc": "2026-10-22T12:37:22.862528+00:00",
+  "response_file": "pat_povo_dtm_tile_index.json",
+  "sha256": "8e19fe3c15ede3af13b60e50484b65f991813fb1b9161a7f0c7fd5b9a648c684",
+  "bytes": 585,
+  "request_srs_name": null,
+  "response_crs": "EPSG:25832",
+  "matched_tile": "5h666051035",
+  "response_extent_m": [
+    666000,
+    5103500,
+    666500,
+    5104000
+  ],
+  "source_raster_extent_m": [
+    666000,
+    5103500,
+    666500,
+    5104000
+  ],
+  "interpretation": "The official native-CRS WFS index identifies exactly this ASC tile and the same grid bounds as its ASC header. Its CRS is ETRS89 / UTM zone 32N (EPSG:25832). This supports using EPSG:25832 as the project horizontal working CRS for the tile. Preserve the dataset lineage statement about ETRF2000 at epoch 2008.0 separately; the index does not resolve the metadata distinction between the ETRS89 ensemble and the specific ETRF2000 realization.",
+  "dataset_metadata_crs": "EPSG:4258 (geographic ETRS89, not a projected raster CRS)",
+  "dataset_lineage_statement": "Sistema di riferimento: realizzazione ETRF2000 - all'epoca 2008.0 - del Sistema di riferimento geodetico europeo ETRS89. Le quote ortometriche sono riferite al modello geoidico ITALGEO 2005.",
+  "vertical_note": "Do not interpret the ASC Z values as ellipsoidal height or apply a geoid correction; use source orthometric metres with a documented local offset.",
+  "supporting_map_configuration_url": "https://siat.provincia.tn.it/stem/js/OptionsStem.js",
+  "supporting_map_configuration_excerpt": "projection : new OpenLayers.Projection(\"EPSG:25832\"),",
+  "precision_note": "The map/index CRS is verified; no claim is made that the source ASC carries a formal CRS definition or that the exact ETRF2000 realization is EPSG:25832."
+}

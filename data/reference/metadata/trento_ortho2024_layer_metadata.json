@@ -1,0 +1,90 @@
+{
+  "source_url": "https://gis.comune.trento.it/api/config/2/qdjango/42",
+  "source_page_url": "https://gis.comune.trento.it/it/map/cartografia-generale/qdjango/42/",
+  "retrieved_at_utc": "2026-10-22T12:37:22.862176+00:00",
+  "complete_response_sha256": "a9e870d09867089f3941e7c98ec6108705f8d08732745eee1871c374d1737765",
+  "complete_response_bytes": 142113,
+  "extraction_note": "Unmodified layer object selected from layers[] by name == Ortofoto 2024; metadata.abstract contains the licence, pixel size and flight dates. Other layers omitted.",
+  "layer": {
+    "id": "_66531a7e_d149_449b_a32e_eecd72670c57",
+    "name": "Ortofoto 2024",
+    "origname": "ortofoto_2024_cf5e1dff_05de_4491_adf4_031968e3c48e",
+    "geometrytype": null,
+    "crs": {
+      "epsg": 25832,
+      "proj4": "+proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
+      "geographic": false,
+      "axisinverted": false,
+      "extent": [
+        0,
+        0,
+        8388608,
+        8388608
+      ]
+    },
+    "title": "Ortofoto 2024",
+    "scalebasedvisibility": false,
+    "minscale": 100000000,
+    "maxscale": 0,
+    "servertype": "QGIS",
+    "exclude_from_legend": true,
+    "exclude_from_toc": false,
+    "not_show_attributes_table": true,
+    "download": false,
+    "download_xls": false,
+    "download_gpx": false,
+    "download_csv": false,
+    "download_gpkg": false,
+    "download_pdf": false,
+    "editor_form_structure": null,
+    "styles": [
+      {
+        "name": "default",
+        "current": true
+      }
+    ],
+    "max_preview_fields": 3,
+    "fields": [],
+    "infoformat": "text/plain",
+    "infourl": "",
+    "bbox": {
+      "minx": 655950.0,
+      "miny": 5092950.0,
+      "maxx": 670050.0,
+      "maxy": 5114050.0
+    },
+    "capabilities": 3,
+    "source": {
+      "type": "wms",
+      "contextualWMSLegend": "0",
+      "crs": "EPSG:25832",
+      "dpiMode": "7",
+      "featureCount": "10",
+      "format": "image/jpeg",
+      "layers": "ortofoto_2024_cf5e1dff_05de_4491_adf4_031968e3c48e",
+      "styles": "",
+      "tilePixelRatio": "0",
+      "url": "https://gis.comune.trento.it/qgis/ortofoto",
+      "external": true
+    },
+    "infoformats": [
+      "text/plain",
+      "text/html"
+    ],
+    "metadata": {
+      "title": "Ortofoto 2024",
+      "attributes": [],
+      "crs": [],
+      "dataurl": {},
+      "metadataurl": {},
+      "attribution": {},
+      "abstract": "Comune di Trento - Foto aerea ad alta risoluzione, 1 pixel = 10 centimetri - gsd 10cm,  volo 28-29 agosto 2024 - Creative Commons CC0 1.0 Universal "
+    },
+    "ows": [
+      "WMS"
+    ],
+    "opacity": 100,
+    "qtimeseries": null,
+    "multilayer": 10
+  }
+}

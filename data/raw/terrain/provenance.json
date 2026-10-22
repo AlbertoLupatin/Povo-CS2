@@ -1,0 +1,63 @@
+{
+  "dataset": "LiDAR DTM - Modello Digitale del Terreno - PAT 2014 / 2018",
+  "provider": "Provincia Autonoma di Trento - Servizio Geologico",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "metadata_url": "https://siatservices.provincia.tn.it/geonetwork/srv/api/records/p_TN:79c6cdf0-c73a-46ba-870c-704bf4e27ac3/formatters/xml",
+  "metadata_file": "pat_dtm_2014_2018_metadata.xml",
+  "accessed_at_utc": "2026-10-22T12:19:12.033895+00:00",
+  "source_datum_statement": "ETRF2000 realization at epoch 2008.0 of ETRS89; orthometric heights referenced to ITALGEO 2005.",
+  "crs_note": "ASC headers contain projected coordinates but no CRS. Do not infer an EPSG code from the ASC header alone; preserve source datum statement and verify projected CRS before integration.",
+  "source_resolution_metres": 0.5,
+  "tile_edge_length_metres": 500,
+  "files": [
+    {
+      "area": "povo",
+      "file": "5h666051035_DTM.asc",
+      "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h666051035_DTM.asc",
+      "bytes": 7002105,
+      "sha256": "63deffb68da8cf2c48db13e2aed30e1694cd453b3a51fc2edc4d1e7d869f4a63",
+      "http_last_modified": "Mon, 12 Feb 2018 17:05:37 GMT",
+      "asc_header": [
+        "ncols 1000",
+        "nrows 1000",
+        "xllcenter 666000.25",
+        "yllcenter 5103500.25",
+        "cellsize 0.50",
+        "nodata_value -9999.00"
+      ],
+      "validation": {
+        "rows": 1000,
+        "columns": 1000,
+        "valid_cells": 1000000,
+        "nodata_cells": 0,
+        "minimum_orthometric_elevation_metres": 327.63,
+        "maximum_orthometric_elevation_metres": 408.39
+      }
+    },
+    {
+      "area": "mesiano",
+      "file": "5h665051035_DTM.asc",
+      "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h665051035_DTM.asc",
+      "bytes": 7002105,
+      "sha256": "aaa4eba8b7fa818faa5e325f4967cc33a6af693da4f6b7090c973d90d35a3bdd",
+      "http_last_modified": "Mon, 12 Feb 2018 17:02:38 GMT",
+      "asc_header": [
+        "ncols 1000",
+        "nrows 1000",
+        "xllcenter 665000.25",
+        "yllcenter 5103500.25",
+        "cellsize 0.50",
+        "nodata_value -9999.00"
+      ],
+      "validation": {
+        "rows": 1000,
+        "columns": 1000,
+        "valid_cells": 1000000,
+        "nodata_cells": 0,
+        "minimum_orthometric_elevation_metres": 206.88,
+        "maximum_orthometric_elevation_metres": 306.43
+      }
+    }
+  ]
+}

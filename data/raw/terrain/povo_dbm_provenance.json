@@ -1,0 +1,23 @@
+{
+  "provider": "Provincia Autonoma di Trento - Servizio Geologico",
+  "dataset": "LiDAR DBM - Modello Digitale delle superfici degli edifici - PAT 2014 / 2018",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h666051035_DBM.asc",
+  "metadata_url": "https://siatservices.provincia.tn.it/geonetwork/srv/api/records/p_TN:ee78298d-818c-492b-bdeb-07a2ef173716/formatters/xml",
+  "metadata_file": "pat_dbm_2014_2018_metadata.xml",
+  "accessed_at_utc": "2026-10-22T12:35:14.382229+00:00",
+  "file": "5h666051035_DBM.asc",
+  "bytes": 7002105,
+  "sha256": "950f0ca857e2118b771b968ca3575bb8194615a1784b4811486947f4da6d270c",
+  "http_last_modified": "Wed, 14 Feb 2018 13:01:46 GMT",
+  "columns": 1000,
+  "rows": 1000,
+  "cellsize": 0.5,
+  "southwest_sample_center": [
+    666000.25,
+    5103500.25
+  ],
+  "valid_cells": 1000000,
+  "note": "Surface raster, not a building footprint, model or interior; projected CRS verification pending. Height reference per source metadata: ETRF2000 epoch2008 / ETRS89 horizontal, ITALGEO2005 orthometric heights."
+}
