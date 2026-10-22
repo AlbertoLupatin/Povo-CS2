@@ -46,6 +46,9 @@ tool results, limitations, and work that affects the installed CS2 addon.
 - Added GitHub Actions coverage for Windows, Ubuntu, and macOS. Valve compilation
   remains Windows-only, while geographic generation, validation, and deployment
   logic remain ordinary Python with no third-party dependencies.
+- The first GitHub Actions run passed on all three operating systems. The workflow
+  was then moved to the current major versions of the official checkout and
+  Python setup actions after GitHub reported Node.js 20 deprecation annotations.
 
 ### CS2 addon source and compilation
 
