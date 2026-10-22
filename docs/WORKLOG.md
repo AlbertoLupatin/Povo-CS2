@@ -100,3 +100,50 @@ spawns, bombsite, nav seed, visibility bounds, and lightmap-resolution volume wi
 a compact route network fitted to the Povo terrain. Then compile and complete a
 local bot round before the two-client multiplayer gate.
 
+## 22 October 2026 — first Hammer inspection and axis correction
+
+- Confirmed the Steam client was signed in as the user's existing account and
+  launched the already-installed Counter-Strike 2 Workshop Tools. No software was
+  installed and no authentication was automated.
+- Selected the `trento_povo` addon and opened `maps/trento_povo.vmap` in Hammer.
+- Selected the `povo_geographic_blockout` `prop_static` through Hammer's Outliner.
+  At its original `0 0 0` angles, Hammer reported bounds of approximately
+  1,643 × 8,652 × 12,589 units: the geographic north extent was vertical, so the
+  campus stood on edge.
+- Set the placed prop to pitch `-90` degrees. Hammer then reported approximately
+  12,589 × 8,652 × 1,643 units, equivalent to the intended 320 × 220 × 42 m
+  geographic extent after the 39.37007874 units-per-metre conversion. The aerial
+  terrain rendered face-up and the campus footprint became horizontal in both
+  perspective and top views.
+- Framed the corrected model in all views and visually confirmed that the stock
+  Wingman template occupies only a small central portion of the full campus. This
+  reinforces the existing requirement to rebuild the gameplay boundary, spawns,
+  objective, visibility, lighting, and navigation around a deliberately selected
+  campus route rather than treating the whole reference mesh as playable space.
+- Saved in Hammer and synchronized the installed VMAP back to the repository.
+  Decoding the saved binary with Valve's `dmxconvert.exe` confirmed origin
+  `0 0 0`, angles `-90 0 0`, and scale `1 1 1` for the Povo prop.
+- Updated the deterministic VMAP insertion helper and its unit test so a newly
+  seeded map receives the verified `-90 0 0` axis correction automatically.
+- Redeployed and rebuilt the corrected map successfully: 26 resources compiled,
+  zero failures, in 2 minutes 32 seconds. The output VPK is 14,577,648 bytes with
+  SHA-256 `2e43aae92fcfbe3d56a4f0d7eba14c8a5f6db8851c1b7e4339471b791276ce08`.
+  The build again included 30,000 terrain triangles, 156 building triangles, and
+  the calibration cube; the known missing sky/detail resource, lightmap-volume,
+  visibility-boundary, and nav-seed warnings remain.
+- Launched the compiled VPK through Hammer's `Run (Skip Build)` path. The map
+  reached team selection, accepted a Counter-Terrorist join, spawned the player
+  with the normal HUD and weapon, and accepted weapon input without crashing.
+  The spawn view was dark and heavily obstructed because the stock Wingman floor,
+  buildings, spawn, and the geographic model still intersect at the shared map
+  origin. This validates the launch path but does not yet validate walking on the
+  geographic terrain. The local playtest and Hammer build dialog were then closed.
+
+### Remaining validation
+
+- The full model bounds and upward terrain are verified, but the isolated 1 m
+  calibration cube still needs a direct 39.3701-unit measurement in Hammer.
+- Choose the compact campus routes, remove or relocate the overlapping stock
+  Wingman floor and entities, then move the spawns onto verified Povo surfaces and
+  confirm collision and movement on the geographic terrain.
+

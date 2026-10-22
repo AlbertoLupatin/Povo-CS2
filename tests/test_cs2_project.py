@@ -81,6 +81,9 @@ class CS2ProjectTests(unittest.TestCase):
         )
         self.assertIn(f'"{cs2_project.BLOCKOUT_MODEL}",', updated)
         self.assertIn('"nodeID" "int" "4"', updated)
+        self.assertIn(
+            f'"angles" "qangle" "{cs2_project.BLOCKOUT_ANGLES}"', updated
+        )
         self.assertEqual(cs2_project.insert_blockout_prop(updated), updated)
 
     def test_deploy_is_additive_and_records_hashes(self):

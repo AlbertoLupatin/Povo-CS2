@@ -56,6 +56,9 @@ SYNC_GAME = (
     Path("cfg/maps/trento_povo.cfg"),
 )
 BLOCKOUT_MODEL = "models/povo/povo_blockout.vmdl"
+# Source 2's OBJ importer exposes the export's Z-up axes as (Z, X, Y).
+# Pitching the placed prop by -90 degrees restores geographic Z as world up.
+BLOCKOUT_ANGLES = "-90 0 0"
 
 
 class ProjectError(RuntimeError):
@@ -378,7 +381,7 @@ def insert_blockout_prop(text: str, model: str = BLOCKOUT_MODEL) -> str:
 \t\t\t\t"hitNormal" "vector3" "0 0 1"
 \t\t\t\t"isProceduralEntity" "bool" "0"
 \t\t\t\t"origin" "vector3" "0 0 0"
-\t\t\t\t"angles" "qangle" "0 0 0"
+\t\t\t\t"angles" "qangle" "{BLOCKOUT_ANGLES}"
 \t\t\t\t"scales" "vector3" "1 1 1"
 \t\t\t\t"transformLocked" "bool" "0"
 \t\t\t\t"force_hidden" "bool" "0"

@@ -35,4 +35,8 @@ and commit after an editor session so source changes are preserved in GitHub.
 The Povo OBJ uses metres with east `+X`, north `+Y`, and up `+Z`. ModelDoc applies
 `39.37007874` once to convert metres to Source/Hammer inches. The 1 m calibration
 cube must measure 39.3701 Hammer units before that mapping is accepted in game.
+Source 2's OBJ import axis order makes the unrotated model stand on edge, so the
+map places `povo_geographic_blockout` at pitch `-90` degrees. Hammer then reports
+the expected approximate bounds of 12,589 × 8,652 × 1,643 units (320 × 220 ×
+42 m), with geographic Z pointing up.
 
