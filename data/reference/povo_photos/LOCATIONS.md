@@ -36,3 +36,5 @@ Source credits and image hashes remain in manifest.json and CREDITS.md.
 | P024 | [P024_Povo1_courtyard_facing_South_winter.jpeg](images/P024_Povo1_courtyard_facing_South_winter.jpeg) | Povo 1 outdoor area facing south, winter, as named by user | Dimensions and exact positions not measured |
 
 P018–P024 were supplied later on 23 October. “Courtyard” in a filename can refer to the external campus spaces; it does not establish the central indoor-plan courtyard location. P017 was moved by the user into `images/` without changing its bytes.
+
+Later user clarification: P022's room is unknown; A223 reuses its style as a modelling choice. P020/A224 has continuous rows, 1 m clear at each side, with windows behind the seats opposite the board. P007 supplies the stair appearance; its exact core and floor-to-floor step count remain unknown.

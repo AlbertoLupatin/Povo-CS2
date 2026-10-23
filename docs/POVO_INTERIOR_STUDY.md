@@ -20,12 +20,12 @@ solid campus massing, and does not add a playable route to the Wingman arena.
 - Ground entrance opening only. Upper-floor access is provisional and checked
   from an assumed stair-landing approach; no upper exterior entry is invented.
 - Two generated tile placeholders for general floor/circulation, plus original
-  wood-look and perforated-ceiling textures for the A224 pilot. Repeating metric
+  wood-look and perforated-ceiling textures for the A224/A223 prototypes. Repeating metric
   UVs use the provisional 0.6 m repeat. Reference photos establish the appearance
   family; texture patterns and exact colours are approximate.
 
-The study currently has 563 closed component boxes and 6,756 triangles, including
-a furnished A224 pilot with a ceiling, fixtures and west-facing window opening.
+The study currently has 1,338 closed component boxes and 16,056 triangles, including
+two furnished rooms with ceilings, fixtures and west-facing rear window openings.
 It has no functional breakable glass, navigation, lighting bake or CS2 entities.
 The source mesh has not been compiled or traversed in the game.
 
@@ -74,7 +74,8 @@ Outputs go to `exports/povo1_interior_study/`:
 - `povo1_interior_study.obj` and `.mtl`: geometry and material assignments.
 - `floor_room.png`, `floor_circulation.png`: original generated tile patterns.
 - `floor_wood.png`, `ceiling_panel.png`: original generated pilot finish patterns.
-- `classroom_A224.png`: optional room/ceiling cutaway and finish swatches.
+- `classroom_A224.png`, `classroom_A223.png`: cutaways, top views with side-clearance
+  dimensions and finish swatches.
 - `review.svg`: labelled north-up room/corridor/courtyard diagram at the footprint's aspect ratio.
 - `provenance.json`, `CREDITS.txt`: inputs, source image hashes, parameters, levels,
   statistics and output hashes.
@@ -88,6 +89,7 @@ ImageMagick for the SVG raster:
 ```sh
 python tools/render_interior_preview.py
 python tools/render_classroom_preview.py
+python tools/render_classroom_preview.py --room a223
 magick -background none exports/povo1_interior_study/review.svg exports/povo1_interior_study/review.png
 ```
 
@@ -114,14 +116,17 @@ assumptions, not a claim about CS2 player physics. It expands obstacles and void
 by half the envelope width and searches the remaining connected floor cells.
 
 The current mesh reaches all 16 ground stations (entrance, five circulation
-points, ten rooms) and all 30 upper stations (assumed landing approach, four
-circulation points, 25 rooms). These are independent horizontal checks; they do
+points, ten rooms) and all 32 upper stations (assumed landing approach, four
+circulation points, 23 empty-room centres and both side aisles in each furnished
+room). These are independent horizontal checks; they do
 not establish a route between floors. Outputs in `exports/povo1_interior_audit/`
-include a JSON report and north-up reachability maps. Exported A224 furniture
+include a JSON report and north-up reachability maps. Exported classroom furniture
 and ceiling fixtures participate in this check; jumps, real engine collision,
-navigation and game traversal remain outside it. The pilot remains reachable
-through its door and central aisle. Only named stations are checked, not access
-to every seat or every point on the floor.
+navigation and game traversal remain outside it. Both furnished rooms remain reachable
+through their doors and 1 m side passages. Named side-aisle stations replace
+centre points occupied by continuous rows. Only named stations are checked, not
+access to every seat or every point on the floor. Crouched cover, bullet
+penetration and engine collision remain Windows gameplay checks.
 
 ## Room photos and reusable fit-out
 
@@ -130,36 +135,48 @@ set of furniture, lights, floor/wall/ceiling materials and window components.
 Adapt desk rows and spacing to each room. A conventional classroom, computer
 room and lecture hall may need different arrangements. A photo of one ordinary
 classroom is enough to start the common kit; it cannot establish every room's
-exact layout. A224 now contains the first reusable kit; other rooms remain
+exact layout. A224 and A223 now reuse the kit; other rooms remain
 unfurnished.
 
 The seven new photos are P018–P024. P020 shows A224's tall framed west-facing
 windows, dark desktops, wooden seats, light wood-look floor, suspended perforated
 panels, recessed light grids and ventilation cassettes. P021 (A208) supports the
 common floor/furniture/ceiling style and shows a projector and teaching board.
-P022 shows a board and pull-down screen, but its room number is unknown. Its
-teaching-wall style is a provisional common-kit reference, not verified for A224.
-P019 supplies westward exterior context; P018/P023/P024 show outdoor passages,
-paving and facades. A filename's “courtyard” does not establish the central plan
-courtyard; exact exterior placement remains to be aligned.
+P022 shows a board and pull-down screen. The user does not know its room;
+its style is assigned to the existing A223 footprint by design choice. This is
+not an identification of P022 as A223. P019 supplies westward exterior context;
+P018/P023/P024 show outdoor passages, paving and facades. A filename's “courtyard”
+does not establish the central plan courtyard; exterior placement remains to be
+aligned.
 
-The pilot has 24 placeholder seats, a teaching desk, board/screen, ceiling grid
-fixtures, ventilation units, projector, floor and ceiling finishes, and framed
-glazing. The outside wall is cut around an actual rectangular window opening,
-leaving a sill and head. Glass has an OBJ/MTL opacity hint; the offline opaque
-renderer omits it for the cutaway. No CS2 transparent/breakable material or
-interaction has been built. Furniture dimensions, layout, count, lighting
-positions, sill/head heights, bay count and teaching-wall orientation remain
-estimates. Light fixtures are geometry only, not game lights.
+The user corrected the A224 layout: continuous desk/seat rows across the room,
+leaving 1 m clear at both side walls, with windows behind the seated students
+opposite the blackboard. The template is rotated accordingly: windows west,
+blackboard east. There is no central break in the desktop rows. A223 repeats
+this layout as the requested additional room in the shared style.
 
-`classroom_fitout` in the study configuration selects the pilot and its editable
-north/south teaching side, central aisle and row pitch. A224's door fraction was
-refined toward the north end from its source plan, still approximately. The kit
-leaves a transverse passage to that side door. Its current pilot range requires
-a west exterior classroom at least 6 × 6 m, with at least 2.8 m wall height. Other
-room types will need their own arrangements before expansion. The wall builder
-also keeps courtyard material spans local, so aligned classroom walls retain
-their own finish.
+Each current room has 45 estimated seats in five continuous rows. The seat
+count, row pitch, desktop/seat heights, fixture positions, window dimensions and
+bay count remain modelling estimates. The 1 m side passages are measured from
+the inside wall faces to each row's end, including the current wall thickness.
+The rows are intended as crouched cover; actual CS2 crouch visibility, collision and
+bullet behaviour remain untested. Photos and user feedback establish the style
+and layout; they do not establish ballistic properties.
+
+`classroom_fitouts` selects the rooms, teaching/window sides, side clearance and
+row pitch. The template requires opposite teaching/window walls, an exterior
+window wall, a room at least 6 × 6 m and at least 2.8 m wall height. The source-plan
+doors of A224 and A223 are placed approximately near their north ends. A teaching
+board across the doorway is rejected. Other room types will need their own
+arrangements. Courtyard material spans remain local so aligned classroom walls
+retain their own finish.
+
+Both rooms have a teaching desk, board/screen, suspended ceiling, grid fixtures,
+vents, projector, wood-look floor and framed glazing. Actual rectangular window
+openings preserve sill/head wall sections. Glass has only an OBJ/MTL opacity
+hint; the opaque offline renderer omits panes for cutaway views. No CS2 break
+interaction or transparent material has been built. Fixtures are geometry,
+without game lighting. No people or source-image pixels are included.
 
 Photo originals are retained unchanged, with hashes and supplied filenames in
 `data/reference/povo_photos/manifest.json`. The builder validates the three used
@@ -168,11 +185,28 @@ photo or catalogue. No people, screens or photograph pixels are used in generate
 textures. Original authorship/licences were not supplied for these new images;
 they remain working references.
 
-The most useful next reference is a photo showing A224's entrance and teaching
-wall together. Also identify P022's room, and confirm whether the teaching wall
-is left or right when facing A224's windows. A known door width or floor-tile
-size would help scale. Prefer 1× for details; 0.5× can show a whole small room.
-No scan is needed for this step.
+## Existing red stair reference
+
+P007 already establishes red treads and landings, dark nosing strips, metal
+horizontal-bar railings, and white walls/columns. No replacement photo is needed
+for that appearance. It does not identify which of the four registered stair
+cores it shows, the full step count between A1xx and A2xx, or measured landing
+heights. The view is oblique and lower steps are obscured, so those values are
+not inferred as measurements. Stair flights have not been built yet.
+
+A nearest room number is enough to identify the relevant core approximately:
+
+| Core in the registered upper plan | Nearby rooms |
+| --- | --- |
+| Southwest | A208 / A221 |
+| Northwest | A224 / LAB |
+| Southeast | A204 / A212 |
+| Northeast | A203 / A209 |
+
+If available, the step count between the two floors and the core location would
+resolve the main geometry questions. A photo from one landing toward the next
+could help if counting is easier that way; no scan is required. Until then,
+storey heights, stair openings and landing margins remain provisional.
 
 ## Next refinement
 

@@ -570,7 +570,7 @@
     },
     "references": {
       "manifest": "data/reference/povo_photos/manifest.json",
-      "manifest_sha256": "d33158af07a729c09bc1d851ed11fae61e0221f2d7cda4eab79b593483a68a95",
+      "manifest_sha256": "fc55205b710f37ec668ac5403c9a80ca4e452cc22e87ab5eb48175cf8c482707",
       "images": [
         {
           "id": "P001",
@@ -988,7 +988,7 @@
       "bytes": 2030447
     },
     "CREDITS.txt": {
-      "sha256": "062151804d5d1ee35b397a42ceb1d0bae36b48d2d9ff5648a5779277d941f7e1",
+      "sha256": "f5743bbc004a533d214f0d2f11bdb89fe7771baec6afb8f9be1e29f1499cf4fc",
       "bytes": 21933
     },
     "povo_blockout_collision.obj": {

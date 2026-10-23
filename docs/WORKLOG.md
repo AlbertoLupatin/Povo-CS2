@@ -4,6 +4,36 @@ This is the durable record of material project actions. Git history remains the
 authoritative record of file-level changes; this log records decisions, local
 tool results, limitations, and work that affects the installed CS2 addon.
 
+## 23 October 2026 — User-corrected classroom layout and P022-style second room
+
+- Applied the user's A224 correction: continuous rows spanning the room with
+  1 m clear at both finished side-wall faces. Removed the old split row layout.
+  Rotated the teaching/seating arrangement so west windows are behind students,
+  opposite the east blackboard. Kept seat heights, row pitch, counts and fixture
+  dimensions explicitly estimated. Each current room has five rows / 45 seats.
+- Reused the kit in A223 as the additional P022-style room requested by the user.
+  The user does not know P022's room; A223 is a design assignment, not a photo
+  identification. Recorded that distinction in configuration and photo metadata.
+  Refined A223's approximate source-plan door toward the north end and rejected
+  a front-wall teaching board that overlaps a doorway.
+- Generalized the kit to cardinal teaching directions with opposite rear glazing
+  and multiple registered targets. Added regression checks for continuous tops,
+  exact 1 m side gaps, rear windows/front board, chair direction, inconsistent
+  orientation, blocked front doors and duplicate targets. All 68 tests pass.
+- The clearance audit now checks both side aisles in furnished rooms instead of
+  centres occupied by the continuous rows. All 16 ground and 32 upper stations
+  pass. Actual crouched cover, shooting/penetration and CS2 collision remain
+  Windows validation work; this is an offline source model only.
+- Added a dimensional top view and refreshed actual-mesh cutaways for both
+  A224 and A223. Regenerated the whole-interior preview, room plan, audit maps
+  and source provenance. The interior is 1,338 boxes / 16,056 triangles.
+- Reinspected P007, the existing red stair photo. It establishes red steps and
+  landings, dark nosing, horizontal metal rails and white walls/columns. No new
+  photograph is required for appearance. The stair core identity, full step
+  count between A1xx/A2xx and landing heights remain unknown. Asked for a nearby
+  room number and rough step count, and documented the four core/room pairings.
+  Stair flights and their vertical game route are not yet built.
+
 ## 23 October 2026 — New photos and first furnished A224 pilot
 
 - Inspected and registered seven user-supplied photos, P018–P024. Preserved their

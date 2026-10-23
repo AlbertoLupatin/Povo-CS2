@@ -170,6 +170,11 @@ def run_audit(config_path,asset_dir,output,*,root=ROOT,cell=.1,width=.85,height=
             a,b,c,d=corridor['bounds']
             stations.append({'id':corridor['id'],'point':local_point((a+c)/2,(b+d)/2,alignment['geographic_bounds'],origin)})
         for room in rooms:
+            exported=next(r for r in level['rooms'] if r['id']==room['id'])
+            if isinstance(exported.get('fitout'),dict):
+                for i,point in enumerate(exported['fitout']['audit_points_local_metres']):
+                    stations.append({'id':room['id']+f'_side_aisle_{i+1}','point':point})
+                continue
             a,b,c,d=room['bounds']
             stations.append({'id':room['id'],'point':local_point((a+c)/2,(b+d)/2,alignment['geographic_bounds'],origin)})
         report,free,visited=audit_level(boxes,{'id':level['id'],'floor_elevation_local':level['floor_elevation_metres']-origin[2]},stations,
@@ -181,7 +186,7 @@ def run_audit(config_path,asset_dir,output,*,root=ROOT,cell=.1,width=.85,height=
             'limitations':['Envelope dimensions are audit assumptions, not a claim about CS2 player physics.',
                            'Grid sampling is conservative for rectangular supports and expanded box obstacles.',
                            'No diagonal movement, jumps, stairs, vertical routes or engine collision/nav are validated.',
-                           'Named room centres are checked; exported pilot furniture is included, real engine collision is not.',
+                           'Empty-room centres and both furnished-room side aisles are checked; real engine collision is not.',
                            'Upper floor starts at an assumed landing approach; no exterior entry or link between floors is proven.']}
     names=[*maps,'report.json','review.svg']
     if any((output/name).is_symlink() or (output/name).is_dir() for name in names):

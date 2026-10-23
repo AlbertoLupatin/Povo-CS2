@@ -345,11 +345,12 @@ def review_svg(config, alignment):
             parts.append(f'<text x="{px+8}" y="{py-12}" font-size="14">Entrance</text>')
         parts.append(f'<text x="{x+w+20}" y="{y+22}" font-size="19">N ↑</text>')
         parts.append(f'<text x="{x}" y="{y+h+32}" font-size="17">Building outline: approximately 47 × 83 m</text>')
-        detail='A224 pilot furnished' if index==1 and config.get('classroom_fitout') else 'unfurnished'
+        targets=[f['room'].upper() for f in config.get('classroom_fitouts',[]) if f['level']==level['id']]
+        detail='/'.join(targets)+' furnished' if targets else 'unfurnished'
         parts.append(f'<text x="{x}" y="{y+h+58}" font-size="15">{len(rooms)} named rooms · {detail} · estimated heights</text>')
     parts.extend(['<text x="45" y="1040" font-size="18">White wall gaps = door openings. Orange = stair reservations; stair flights are not built.</text>',
-                  '<text x="45" y="1075" font-size="17">Grey = other floor area awaiting subdivision (study areas, toilets, service spaces). Ceiling in A224 only.</text>',
-                  '<text x="45" y="1110" font-size="17">A224 has a photo-guided pilot fit-out; furniture positions, dimensions and teaching side remain provisional.</text>',
+                  '<text x="45" y="1075" font-size="17">Grey = floor area awaiting subdivision. A224/A223: continuous rows, 1 m side aisles, windows behind seats.</text>',
+                  '<text x="45" y="1110" font-size="17">A223 reuses P022 style by design choice; the photographed room remains unidentified. Heights and counts estimated.</text>',
                   '</g></svg>'])
     return "\n".join(parts)+"\n"
 

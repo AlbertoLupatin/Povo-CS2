@@ -240,6 +240,11 @@
         "date": "2026-10-23",
         "evidence": "User confirmed the image set and corrected filenames in images/",
         "reviewed_filename": "P007_povo1_red_internal_stairwell.jpg"
+      },
+      "stair_observations": {
+        "appearance": "Red treads and landings, dark nosing, horizontal metal rails, white walls and cylindrical columns",
+        "unknown": "Which registered stair core, full step count between floors, landing heights",
+        "use": "Existing photo sufficient for appearance; not measured stair geometry"
       }
     },
     {
@@ -566,7 +571,13 @@
       "bytes": 272861,
       "sha256": "fce6e299578e819c97f3bb6f09bf640796a56baab38010c20f2163aa4976671d",
       "name_status": "User-supplied filename",
-      "received_date": "2026-10-23"
+      "received_date": "2026-10-23",
+      "user_layout_correction": {
+        "date": "2026-10-23",
+        "row_style": "Continuous rows across the room, 1 m clear to each side wall",
+        "window_relation": "Behind the seats, opposite the blackboard",
+        "remaining_estimates": "Seat count, furniture and fixture dimensions, row pitch"
+      }
     },
     {
       "id": "P021",
@@ -600,7 +611,13 @@
       "bytes": 151892,
       "sha256": "ec8477276cdb47814a619a226ae32c04c84c21ccee17dad63e96dc659d144cd1",
       "name_status": "User-supplied filename",
-      "received_date": "2026-10-23"
+      "received_date": "2026-10-23",
+      "user_clarification": {
+        "date": "2026-10-23",
+        "room_identity": "Unknown to user",
+        "approved_use": "Create another room in this style",
+        "implementation_choice": "A223 uses this style; this is not identification of the photo location"
+      }
     },
     {
       "id": "P023",

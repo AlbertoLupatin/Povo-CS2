@@ -152,7 +152,7 @@ class InteriorStudyTests(unittest.TestCase):
         result=audit.run_audit(self.config_path,self.output,self.root/'audit',root=self.root)
         self.assertEqual(result['status'],'passed')
         self.assertEqual(len(result['levels']),2)
-        self.assertEqual([len(level['stations']) for level in result['levels']],[16,30])
+        self.assertEqual([len(level['stations']) for level in result['levels']],[16,32])
         self.assertGreater(len(audit.read_box_mesh(self.output/'povo1_interior_study.obj')),164)
         svg=(self.root/'audit/review.svg').read_text()
         self.assertIn('data:image/png;base64,',svg)
@@ -229,8 +229,40 @@ class InteriorStudyTests(unittest.TestCase):
 
     def test_pilot_cannot_silently_move_to_an_interior_room_or_nonclassroom(self):
         for target in ('lab','a217'):
-            config=copy.deepcopy(self.config);config['classroom_fitout']['room']=target
+            config=copy.deepcopy(self.config);config['classroom_fitouts'][0]['room']=target
             with self.subTest(room=target),self.assertRaises(ValueError):
+                interior.build_boxes(config,self.alignment,self.origin)
+
+    def test_corrected_rows_span_the_room_with_one_metre_side_aisles_and_rear_windows(self):
+        boxes,levels=interior.build_boxes(self.config,self.alignment,self.origin)
+        half=self.config['wall_thickness_metres']/2
+        for identifier in ('a224','a223'):
+            room=next(r for r in levels[1]['rooms'] if r['id']==identifier)
+            x0,y0,x1,y1=room['footprint_local_metres']
+            prefix='academic_first_room_'+identifier+'_'
+            rows=[b for b in boxes if b[0].startswith(prefix+'desk_row_') and b[0].endswith('_top')]
+            self.assertTrue(rows)
+            for _,lo,hi,_ in rows:
+                self.assertAlmostEqual(lo[1]-(y0+half),1.0)
+                self.assertAlmostEqual((y1-half)-hi[1],1.0)
+                self.assertLess(lo[1],(y0+y1)/2)
+                self.assertGreater(hi[1],(y0+y1)/2)
+            glass=next(b for b in boxes if b[0]==prefix+'window_glass')
+            board=next(b for b in boxes if b[0]==prefix+'board')
+            self.assertLess(glass[2][0],min(b[1][0] for b in rows))
+            self.assertGreater(board[1][0],max(b[2][0] for b in rows))
+            chair=next(b for b in boxes if b[0]==prefix+'chair_0_0_back')
+            self.assertLess(chair[2][0],rows[0][1][0])
+        duplicate=self.config['classroom_fitouts'][1]
+        self.assertIn('not identification',duplicate['location_status'])
+
+    def test_impossible_window_orientation_and_blocked_front_door_are_rejected(self):
+        for case in ('window','door','duplicate'):
+            config=copy.deepcopy(self.config)
+            if case=='window':config['classroom_fitouts'][0]['teaching_side']='south'
+            if case=='door':next(r for r in config['levels'][1]['rooms'] if r['id']=='a224')['door_fraction']=.5
+            if case=='duplicate':config['classroom_fitouts'].append(copy.deepcopy(config['classroom_fitouts'][0]))
+            with self.subTest(case=case),self.assertRaises(ValueError):
                 interior.build_boxes(config,self.alignment,self.origin)
 
     def test_clearance_audit_accounts_for_width_and_door_headers(self):

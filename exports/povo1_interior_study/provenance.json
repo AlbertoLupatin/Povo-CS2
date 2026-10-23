@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "status": "Separate offline study; not deployed to the CS2 arena",
-  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 now has a photo-guided pilot fit-out; its furniture arrangement, seat count, dimensions and teaching side remain provisional. Other rooms are unfurnished.",
+  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 has user-corrected continuous rows with 1 m side aisles and rear windows opposite the board. A223 repeats this kit as a chosen P022-style room, not a claimed photo location. Seat counts, fixture dimensions, floor spacing and remaining details are estimates. Other rooms are unfurnished.",
   "origin": [
     666250,
     5103800,
@@ -1190,9 +1190,10 @@
             460
           ],
           "door_side": "v_max",
-          "door_fraction": 0.5,
+          "door_fraction": 0.85,
           "door_width_metres": 1.2,
           "kind": "classroom",
+          "door_placement_note": "Approximate north-end door from the source plan, matching the adjacent room arrangement; not measured",
           "bounds": [
             0.49944506104328523,
             0.0,
@@ -1210,7 +1211,118 @@
             7.830188679508865
           ],
           "approximate_area_square_metres": 67.886975638477,
-          "fitout": "Unfurnished; shared photo-guided kit planned"
+          "fitout": {
+            "seats": 45,
+            "window_bays": 7,
+            "rows": [
+              {
+                "id": 0,
+                "bounds_local_metres": [
+                  [
+                    -16.53009708742611,
+                    -60.45605993349105,
+                    8.330000000000023
+                  ],
+                  [
+                    -16.08009708742611,
+                    -54.80587125398219,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 1,
+                "bounds_local_metres": [
+                  [
+                    -17.630097087426112,
+                    -60.45605993349105,
+                    8.330000000000023
+                  ],
+                  [
+                    -17.180097087426113,
+                    -54.80587125398219,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 2,
+                "bounds_local_metres": [
+                  [
+                    -18.73009708742611,
+                    -60.45605993349105,
+                    8.330000000000023
+                  ],
+                  [
+                    -18.28009708742611,
+                    -54.80587125398219,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 3,
+                "bounds_local_metres": [
+                  [
+                    -19.83009708742611,
+                    -60.45605993349105,
+                    8.330000000000023
+                  ],
+                  [
+                    -19.380097087426112,
+                    -54.80587125398219,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 4,
+                "bounds_local_metres": [
+                  [
+                    -20.930097087426113,
+                    -60.45605993349105,
+                    8.330000000000023
+                  ],
+                  [
+                    -20.48009708742611,
+                    -54.80587125398219,
+                    8.370000000000022
+                  ]
+                ]
+              }
+            ],
+            "status": "Continuous rows, 1 m side clearances and rear windows confirmed by user; other dimensions and seat count estimated",
+            "teaching_side": "east",
+            "window_side": "west",
+            "side_aisle_metres": 1.0,
+            "reference_ids": [
+              "P022",
+              "P020"
+            ],
+            "location_status": "P022 style assigned to A223 by design choice; not identification of the photographed room",
+            "audit_points_local_metres": [
+              [
+                -22.25,
+                -60.95605993349105
+              ],
+              [
+                -22.25,
+                -54.30587125398219
+              ]
+            ]
+          },
+          "window_opening_local_metres": [
+            [
+              -23.2,
+              -61.09605993349105,
+              7.720000000000023
+            ],
+            [
+              -22.8,
+              -54.16587125398219,
+              10.340000000000023
+            ]
+          ]
         },
         {
           "id": "a224",
@@ -1244,14 +1356,104 @@
           ],
           "approximate_area_square_metres": 67.886975638477,
           "fitout": {
-            "seats": 24,
+            "seats": 45,
             "window_bays": 7,
-            "status": "Photo-guided pilot; dimensions, seat count, teaching side and placement provisional",
-            "teaching_side": "south",
+            "rows": [
+              {
+                "id": 0,
+                "bounds_local_metres": [
+                  [
+                    -16.53009708742611,
+                    -52.62587125398218,
+                    8.330000000000023
+                  ],
+                  [
+                    -16.08009708742611,
+                    -46.975682574473325,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 1,
+                "bounds_local_metres": [
+                  [
+                    -17.630097087426112,
+                    -52.62587125398218,
+                    8.330000000000023
+                  ],
+                  [
+                    -17.180097087426113,
+                    -46.975682574473325,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 2,
+                "bounds_local_metres": [
+                  [
+                    -18.73009708742611,
+                    -52.62587125398218,
+                    8.330000000000023
+                  ],
+                  [
+                    -18.28009708742611,
+                    -46.975682574473325,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 3,
+                "bounds_local_metres": [
+                  [
+                    -19.83009708742611,
+                    -52.62587125398218,
+                    8.330000000000023
+                  ],
+                  [
+                    -19.380097087426112,
+                    -46.975682574473325,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 4,
+                "bounds_local_metres": [
+                  [
+                    -20.930097087426113,
+                    -52.62587125398218,
+                    8.330000000000023
+                  ],
+                  [
+                    -20.48009708742611,
+                    -46.975682574473325,
+                    8.370000000000022
+                  ]
+                ]
+              }
+            ],
+            "status": "Continuous rows, 1 m side clearances and rear windows confirmed by user; other dimensions and seat count estimated",
+            "teaching_side": "east",
+            "window_side": "west",
+            "side_aisle_metres": 1.0,
             "reference_ids": [
               "P020",
               "P021",
               "P022"
+            ],
+            "location_status": "A224 confirmed by user",
+            "audit_points_local_metres": [
+              [
+                -22.25,
+                -53.12587125398218
+              ],
+              [
+                -22.25,
+                -46.475682574473325
+              ]
             ]
           },
           "window_opening_local_metres": [
@@ -1373,14 +1575,14 @@
     }
   ],
   "statistics": {
-    "boxes": 563,
-    "vertices": 4504,
-    "triangles": 6756
+    "boxes": 1338,
+    "vertices": 10704,
+    "triangles": 16056
   },
   "inputs": {
     "configuration": {
       "file": "config/povo1_interior_study.json",
-      "sha256": "c971778eece7d612fee798a41cae115b7d20af46a49f165dedc42d0ba97d4f0c"
+      "sha256": "a851d86196df0ece84379ee234210bc846d30a6bc28724db492a9c24b729deb6"
     },
     "alignment": {
       "file": "config/povo1_plan_alignment.json",
@@ -1392,7 +1594,7 @@
     },
     "photo_manifest": {
       "file": "data/reference/povo_photos/manifest.json",
-      "sha256": "d33158af07a729c09bc1d851ed11fae61e0221f2d7cda4eab79b593483a68a95"
+      "sha256": "fc55205b710f37ec668ac5403c9a80ca4e452cc22e87ab5eb48175cf8c482707"
     }
   },
   "source_profiles": [
@@ -1599,8 +1801,8 @@
   ],
   "artifacts": {
     "povo1_interior_study.obj": {
-      "sha256": "bc43d1c3a9ab3e4fedcd99caf3ce78e37aae677cae40034c07ea7571fea05a1f",
-      "bytes": 546926
+      "sha256": "dd586d6f70bca035426a845a0420ca6fe35b0d7b4d5ec80aba36f1f478dd941c",
+      "bytes": 1342699
     },
     "povo1_interior_study.mtl": {
       "sha256": "76630908a03641b44cb93a420fafecf3f8631d588e473ffb64e8f212f8b905a4",
@@ -1615,8 +1817,8 @@
       "bytes": 582
     },
     "review.svg": {
-      "sha256": "6854acf3761daacc28248cd4606588392a424b5641575ff59f4cb91b6acf77a2",
-      "bytes": 19368
+      "sha256": "c357dd894711758e899e59737361d977269d281382afc46bc2d848e46ecec29f",
+      "bytes": 19373
     },
     "CREDITS.txt": {
       "sha256": "2a56846a86856ab0176f9ef12bfa7e65d7d4f6ad9de2940340d3d1fff4224711",

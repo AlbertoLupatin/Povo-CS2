@@ -127,7 +127,7 @@
 <path d="M 873.7864077669904 596.7970576428082 L 873.7864077669904 607.0098236002551" stroke="#ffffff" stroke-width="4"/>
 <rect x="800.0" y="501.94358514180465" width="73.7864077669903" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
 <text x="836.8932038834952" y="539.2635369683803" text-anchor="middle" font-size="13" font-weight="bold">A223</text>
-<path d="M 873.7864077669904 530.1571539896569 L 873.7864077669904 540.3699199471038" stroke="#ffffff" stroke-width="4"/>
+<path d="M 873.7864077669904 506.8331877110539 L 873.7864077669904 517.0459536685007" stroke="#ffffff" stroke-width="4"/>
 <rect x="800.0" y="435.3036814886533" width="73.7864077669903" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
 <text x="836.8932038834952" y="472.623633315229" text-anchor="middle" font-size="13" font-weight="bold">A224</text>
 <path d="M 873.7864077669904 440.19328405790253 L 873.7864077669904 450.4060500153493" stroke="#ffffff" stroke-width="4"/>
@@ -143,8 +143,8 @@
 <rect x="1135.0960545340909" y="373.58974662074377" width="52.13798801910055" height="48.94797741732705" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
 <text x="1220" y="237" font-size="19">N ↑</text>
 <text x="800" y="953.3829787234042" font-size="17">Building outline: approximately 47 × 83 m</text>
-<text x="800" y="979.3829787234042" font-size="15">25 named rooms · A224 pilot furnished · estimated heights</text>
+<text x="800" y="979.3829787234042" font-size="15">25 named rooms · A224/A223 furnished · estimated heights</text>
 <text x="45" y="1040" font-size="18">White wall gaps = door openings. Orange = stair reservations; stair flights are not built.</text>
-<text x="45" y="1075" font-size="17">Grey = other floor area awaiting subdivision (study areas, toilets, service spaces). Ceiling in A224 only.</text>
-<text x="45" y="1110" font-size="17">A224 has a photo-guided pilot fit-out; furniture positions, dimensions and teaching side remain provisional.</text>
+<text x="45" y="1075" font-size="17">Grey = floor area awaiting subdivision. A224/A223: continuous rows, 1 m side aisles, windows behind seats.</text>
+<text x="45" y="1110" font-size="17">A223 reuses P022 style by design choice; the photographed room remains unidentified. Heights and counts estimated.</text>
 </g></svg>

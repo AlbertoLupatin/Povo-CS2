@@ -2,7 +2,7 @@
   "format_version": 1,
   "status": "passed",
   "scope": "Horizontal clearance through the exported axis-aligned box mesh, using a configurable standing envelope",
-  "mesh_sha256": "bc43d1c3a9ab3e4fedcd99caf3ce78e37aae677cae40034c07ea7571fea05a1f",
+  "mesh_sha256": "dd586d6f70bca035426a845a0420ca6fe35b0d7b4d5ec80aba36f1f478dd941c",
   "levels": [
     {
       "id": "academic_ground",
@@ -188,8 +188,8 @@
         24.0,
         -20.0
       ],
-      "walkable_cells": 265239,
-      "reachable_cells": 265239,
+      "walkable_cells": 259631,
+      "reachable_cells": 259631,
       "stations": [
         {
           "id": "landing_approach",
@@ -435,19 +435,37 @@
           "reachable_from_entrance": true
         },
         {
-          "id": "a223",
+          "id": "a223_side_aisle_1",
           "point_local_metres": [
-            -18.665048543713056,
-            -57.63096559420228
+            -22.25,
+            -60.95605993349105
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
         },
         {
-          "id": "a224",
+          "id": "a223_side_aisle_2",
           "point_local_metres": [
-            -18.665048543713056,
-            -49.800776914693415
+            -22.25,
+            -54.30587125398219
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a224_side_aisle_1",
+          "point_local_metres": [
+            -22.25,
+            -53.12587125398218
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a224_side_aisle_2",
+          "point_local_metres": [
+            -22.25,
+            -46.475682574473325
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -469,7 +487,7 @@
     "Envelope dimensions are audit assumptions, not a claim about CS2 player physics.",
     "Grid sampling is conservative for rectangular supports and expanded box obstacles.",
     "No diagonal movement, jumps, stairs, vertical routes or engine collision/nav are validated.",
-    "Named room centres are checked; exported pilot furniture is included, real engine collision is not.",
+    "Empty-room centres and both furnished-room side aisles are checked; real engine collision is not.",
     "Upper floor starts at an assumed landing approach; no exterior entry or link between floors is proven."
   ]
 }

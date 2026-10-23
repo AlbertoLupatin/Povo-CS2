@@ -51,7 +51,7 @@ def main():
         image=plt.imread(args.asset_dir/(name+".png"))
         ax.imshow(np.tile(image,(4,4,1)));ax.set_axis_off()
         ax.set_title(label,fontsize=12,color="#193441")
-    fig.text(.045,.08,"A224 pilot furnished; its ceiling and glass hidden for this cutaway. Stair flights are still pending.",fontsize=13,color="#193441")
+    fig.text(.045,.08,"A224/A223 furnished; ceilings and glass hidden for this cutaway. Stair flights are still pending.",fontsize=13,color="#193441")
     fig.text(.045,.045,"Swatches show the generated 0.6 m tile materials. Geometry preview uses flat colors. This study is not deployed to CS2.",fontsize=11,color="#54707b")
     args.output.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(args.output,dpi=140,facecolor=fig.get_facecolor())

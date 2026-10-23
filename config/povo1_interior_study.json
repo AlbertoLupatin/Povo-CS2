@@ -3,7 +3,7 @@
   "alignment": "config/povo1_plan_alignment.json",
   "campus_config": "config/povo_blockout.json",
   "status": "Separate offline study; not deployed to the CS2 arena",
-  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 now has a photo-guided pilot fit-out; its furniture arrangement, seat count, dimensions and teaching side remain provisional. Other rooms are unfurnished.",
+  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 has user-corrected continuous rows with 1 m side aisles and rear windows opposite the board. A223 repeats this kit as a chosen P022-style room, not a claimed photo location. Seat counts, fixture dimensions, floor spacing and remaining details are estimates. Other rooms are unfurnished.",
   "reference_elevation_metres": 374.0,
   "floor_thickness_metres": 0.22,
   "wall_height_metres": 2.9,
@@ -580,9 +580,10 @@
             460
           ],
           "door_side": "v_max",
-          "door_fraction": 0.5,
+          "door_fraction": 0.85,
           "door_width_metres": 1.2,
-          "kind": "classroom"
+          "kind": "classroom",
+          "door_placement_note": "Approximate north-end door from the source plan, matching the adjacent room arrangement; not measured"
         },
         {
           "id": "a224",
@@ -629,13 +630,35 @@
       "P022"
     ]
   },
-  "classroom_fitout": {
-    "level": "academic_first",
-    "room": "a224",
-    "teaching_side": "south",
-    "window_side": "west",
-    "aisle_width_metres": 1.3,
-    "row_pitch_metres": 1.1,
-    "placement_status": "Estimated arrangement pending user teaching-wall confirmation; no measured furniture dimensions"
-  }
+  "classroom_fitouts": [
+    {
+      "level": "academic_first",
+      "room": "a224",
+      "teaching_side": "east",
+      "window_side": "west",
+      "side_aisle_metres": 1.0,
+      "row_pitch_metres": 1.1,
+      "reference_ids": [
+        "P020",
+        "P021",
+        "P022"
+      ],
+      "location_status": "A224 confirmed by user",
+      "placement_status": "User-confirmed continuous rows and 1 m side aisles; windows behind seating opposite board; other dimensions and count provisional"
+    },
+    {
+      "level": "academic_first",
+      "room": "a223",
+      "teaching_side": "east",
+      "window_side": "west",
+      "side_aisle_metres": 1.0,
+      "row_pitch_metres": 1.1,
+      "reference_ids": [
+        "P022",
+        "P020"
+      ],
+      "location_status": "P022 style assigned to A223 by design choice; not identification of the photographed room",
+      "placement_status": "User-confirmed continuous rows and 1 m side aisles; windows behind seating opposite board; other dimensions and count provisional"
+    }
+  ]
 }
