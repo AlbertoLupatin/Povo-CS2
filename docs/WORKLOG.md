@@ -4,6 +4,55 @@ This is the durable record of material project actions. Git history remains the
 authoritative record of file-level changes; this log records decisions, local
 tool results, limitations, and work that affects the installed CS2 addon.
 
+## 23 October 2026 — Confirmed 66-photo walk, bridge floors and identified A215
+
+- Imported all 66 user-supplied WeTransfer JPEGs, 307.9 MB total, byte-for-byte
+  into `data/reference/povo_photos/walk_2026-10-23/originals/`. Preserved exported
+  filenames; catalogue IDs P025–P090 map photo 66 through photo 01. All 90 photo
+  and plan hashes pass. These JPEGs are not claimed to be original HEIC files.
+- Saved native camera/EXIF/Apple/GPS metadata, excluding transient download
+  filesystem fields. All 66 report iPhone 17 Pro, 5712 × 4284 source pixels,
+  capture time, lens, GPS and magnetic heading; 26 main-lens and 40 ultrawide
+  images. Accuracy fields remain attached. GPS/headings are clues, not an indoor
+  survey. Prepared and inspected six chronological review sheets with stable
+  source numbers and individual-photo links; route notes now reflect the user.
+- Recorded the full narrated sequence in `config/povo_circulation.json`.
+  The bridge connects Povo 2 floor 1 to Povo 1 floor 2. The user clarified this
+  floor equivalence; no other cross-building height equality is inferred.
+  Added the named-level binding to exterior bridge metadata without moving it.
+- User confirmed that photos 39–38 use a different stairwell near A212/A213
+  (southeast) than photos 51–47 near A209/A216 (northeast). Recorded separate
+  1→ground and 2→1 connections. Povo 2 stair cores remain spatially unregistered.
+  A215 is identified in 44–43; 42–41 remain A211 or A212. Photo 40/14 contextual
+  inferences and overlapping entrance/outward wording for 16 remain explicit.
+- Added `tools/povo_circulation.py` and a labelled connection diagram. It checks
+  complete photo coverage, named-level connectivity, bridge floor identity,
+  distinct red stair cores and source hashes. It propagates only the confirmed
+  bridge equality. Povo 2 ground and −1 elevations remain null. Existing Povo 1
+  prototype/scenery estimates imply unequal 3.6 / 4.89 m rises; the report flags
+  this for calibration rather than claiming measured heights or hiding it.
+- Corrected current floor labels: A2xx is Povo 1 floor 1; earlier P016/P017
+  floor-number filenames remain historical source names. The interior study
+  still contains Povo 1 ground/floor 1 only; bridge floor 2, Povo 2 interiors,
+  physical flights and vertical traversal are not built in that OBJ.
+- Added an A215 fit-out in its smaller registered courtyard-side footprint,
+  with three estimated rows / 27 seats and an actual courtyard-wall window cut.
+  Improved the shared desk kit with dark modesty panels, shared pedestals, floor
+  feet and seat beams from the high-resolution images. Panel perforation is an
+  original generated texture. A215's opposite glazing/external metal stair view
+  is recorded as background evidence; the detailed external stair is unbuilt.
+- The clearance check caught a tight rear passage in the small A215 template.
+  Adjusted estimated first-row position, pitch and chair depth while retaining
+  three rows and side access. All 16 ground and 33 floor-1 stations now pass.
+  The study is 1,080 boxes / 12,960 triangles; fewer repeated legs offset the
+  additional furnished room. Game crouch/ballistic/engine behaviour is untested.
+- All 73 unit tests pass. Added regression coverage for A215 courtyard openings,
+  rows/panels, bridge identity/elevation propagation, unknown Povo 2 heights,
+  photo coverage, ambiguous room identity, distinct stair cores and stale photos.
+  Regenerated and visually inspected A215 and existing classroom previews,
+  the floor review, clearance heatmaps and the connection diagram. Exterior
+  visual OBJ and arena collision remain byte-identical; Windows work is pending.
+
 ## 23 October 2026 — User-corrected classroom layout and P022-style second room
 
 - Applied the user's A224 correction: continuous rows spanning the room with

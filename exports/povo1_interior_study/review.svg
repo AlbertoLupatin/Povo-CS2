@@ -53,7 +53,7 @@
 <text x="520" y="237" font-size="19">N ↑</text>
 <text x="100" y="953.3829787234042" font-size="17">Building outline: approximately 47 × 83 m</text>
 <text x="100" y="979.3829787234042" font-size="15">10 named rooms · unfurnished · estimated heights</text>
-<text x="800" y="180" font-size="23" font-weight="bold">UPPER / A201–A224 + LAB</text>
+<text x="800" y="180" font-size="23" font-weight="bold">FLOOR 1 / A201–A224 + LAB</text>
 <rect x="800" y="215.0" width="400" height="706.3829787234042" fill="#d9dedf" stroke="#193441" stroke-width="1.5" />
 <rect x="873.7864077669904" y="333.3838288426571" width="21.747572815533978" height="466.4793255720594" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
 <rect x="873.7864077669904" y="333.3838288426571" width="326.2135922330097" height="23.519965995229843" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
@@ -103,7 +103,7 @@
 <path d="M 1102.9126213592233 596.7970576428082 L 1102.9126213592233 607.0098236002551" stroke="#ffffff" stroke-width="4"/>
 <rect x="1060.1941747572816" y="501.94358514180465" width="42.71844660194173" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
 <text x="1081.5533980582525" y="539.2635369683803" text-anchor="middle" font-size="13" font-weight="bold">A215</text>
-<path d="M 1102.9126213592233 530.1571539896569 L 1102.9126213592233 540.3699199471038" stroke="#ffffff" stroke-width="4"/>
+<path d="M 1102.9126213592233 506.8331877110539 L 1102.9126213592233 517.0459536685007" stroke="#ffffff" stroke-width="4"/>
 <rect x="1060.1941747572816" y="435.3036814886533" width="42.71844660194173" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
 <text x="1081.5533980582525" y="472.623633315229" text-anchor="middle" font-size="13" font-weight="bold">A216</text>
 <path d="M 1102.9126213592233 463.5172503365056 L 1102.9126213592233 473.73001629395236" stroke="#ffffff" stroke-width="4"/>
@@ -143,8 +143,8 @@
 <rect x="1135.0960545340909" y="373.58974662074377" width="52.13798801910055" height="48.94797741732705" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
 <text x="1220" y="237" font-size="19">N ↑</text>
 <text x="800" y="953.3829787234042" font-size="17">Building outline: approximately 47 × 83 m</text>
-<text x="800" y="979.3829787234042" font-size="15">25 named rooms · A224/A223 furnished · estimated heights</text>
+<text x="800" y="979.3829787234042" font-size="15">25 named rooms · A224/A223/A215 furnished · estimated heights</text>
 <text x="45" y="1040" font-size="18">White wall gaps = door openings. Orange = stair reservations; stair flights are not built.</text>
-<text x="45" y="1075" font-size="17">Grey = floor area awaiting subdivision. A224/A223: continuous rows, 1 m side aisles, windows behind seats.</text>
-<text x="45" y="1110" font-size="17">A223 reuses P022 style by design choice; the photographed room remains unidentified. Heights and counts estimated.</text>
+<text x="45" y="1075" font-size="17">Grey = floor awaiting subdivision. A224/A223/A215 furnished; 1 m side aisles. Heights and counts estimated.</text>
+<text x="45" y="1110" font-size="17">Povo 1 ground and floor 1 shown. Bridge is on floor 2, still unbuilt. A211/A212 photo identity remains uncertain.</text>
 </g></svg>

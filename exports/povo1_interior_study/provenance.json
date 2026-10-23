@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "status": "Separate offline study; not deployed to the CS2 arena",
-  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 has user-corrected continuous rows with 1 m side aisles and rear windows opposite the board. A223 repeats this kit as a chosen P022-style room, not a claimed photo location. Seat counts, fixture dimensions, floor spacing and remaining details are estimates. Other rooms are unfurnished.",
+  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 has user-corrected continuous rows with 1 m side aisles and rear windows opposite the board. A223 repeats this kit as a chosen P022-style room, not a claimed photo location. Seat counts, fixture dimensions, floor spacing and remaining details are estimates. Other rooms are unfurnished. A215 is identified from walk photos 44\u201343 and now furnished; photos 42\u201341 remain A211 or A212. Bridge joins the unbuilt Povo 1 floor 2 to Povo 2 floor 1; this study still contains only Povo 1 ground and floor 1.",
   "origin": [
     666250,
     5103800,
@@ -16,7 +16,8 @@
         "plan": "piano terra",
         "lift": "-1",
         "stair_diagram": "0",
-        "room_group": "A101-A110"
+        "room_group": "A101-A110",
+        "user_confirmed_floor": 0
       },
       "voids_local_metres": [
         [
@@ -441,7 +442,8 @@
         "plan": "primo piano",
         "lift": "0",
         "stair_diagram": "1",
-        "room_group": "A201-A224"
+        "room_group": "A201-A224",
+        "user_confirmed_floor": 1
       },
       "voids_local_metres": [
         [
@@ -934,9 +936,10 @@
             1050
           ],
           "door_side": "v_max",
-          "door_fraction": 0.5,
+          "door_fraction": 0.85,
           "door_width_metres": 1.2,
           "kind": "classroom",
+          "door_placement_note": "Approximate plan position near the north end of the hall-facing wall, not a measured opening",
           "bounds": [
             0.49944506104328523,
             0.6504854368932039,
@@ -954,7 +957,97 @@
             7.830188679508865
           ],
           "approximate_area_square_metres": 39.30298589668001,
-          "fitout": "Unfurnished; shared photo-guided kit planned"
+          "fitout": {
+            "seats": 27,
+            "window_bays": 7,
+            "rows": [
+              {
+                "id": 0,
+                "bounds_local_metres": [
+                  [
+                    11.092233009752817,
+                    -60.45605993349105,
+                    8.330000000000023
+                  ],
+                  [
+                    11.542233009752817,
+                    -54.80587125398219,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 1,
+                "bounds_local_metres": [
+                  [
+                    10.042233009752817,
+                    -60.45605993349105,
+                    8.330000000000023
+                  ],
+                  [
+                    10.492233009752818,
+                    -54.80587125398219,
+                    8.370000000000022
+                  ]
+                ]
+              },
+              {
+                "id": 2,
+                "bounds_local_metres": [
+                  [
+                    8.992233009752816,
+                    -60.45605993349105,
+                    8.330000000000023
+                  ],
+                  [
+                    9.442233009752817,
+                    -54.80587125398219,
+                    8.370000000000022
+                  ]
+                ]
+              }
+            ],
+            "status": "Continuous rows, 1 m side clearances and rear windows confirmed by user; other dimensions and seat count estimated",
+            "teaching_side": "east",
+            "window_side": "west",
+            "side_aisle_metres": 1.0,
+            "reference_ids": [
+              "P047",
+              "P048"
+            ],
+            "location_status": "A215 identified by the user in photos 44\u201343; footprint from registered plan; furniture dimensions estimated",
+            "window_context": {
+              "reference_ids": [
+                "P047",
+                "P048"
+              ],
+              "observed": "Opposite glazed courtyard wing and external metal stair visible through the windows",
+              "status": "Background evidence recorded; detailed outside stair geometry not yet reconstructed"
+            },
+            "wall_face_inset_metres": 0.09,
+            "audit_points_local_metres": [
+              [
+                8.322815533960238,
+                -60.95605993349105
+              ],
+              [
+                8.322815533960238,
+                -54.30587125398219
+              ]
+            ]
+          },
+          "window_opening_local_metres": [
+            [
+              7.372815533960238,
+              -61.09605993349105,
+              7.720000000000023
+            ],
+            [
+              7.772815533960238,
+              -54.16587125398219,
+              10.340000000000023
+            ]
+          ]
         },
         {
           "id": "a216",
@@ -1300,6 +1393,8 @@
               "P020"
             ],
             "location_status": "P022 style assigned to A223 by design choice; not identification of the photographed room",
+            "window_context": "Not yet reconstructed",
+            "wall_face_inset_metres": 0.09,
             "audit_points_local_metres": [
               [
                 -22.25,
@@ -1445,6 +1540,8 @@
               "P022"
             ],
             "location_status": "A224 confirmed by user",
+            "window_context": "Not yet reconstructed",
+            "wall_face_inset_metres": 0.09,
             "audit_points_local_metres": [
               [
                 -22.25,
@@ -1575,26 +1672,26 @@
     }
   ],
   "statistics": {
-    "boxes": 1338,
-    "vertices": 10704,
-    "triangles": 16056
+    "boxes": 1080,
+    "vertices": 8640,
+    "triangles": 12960
   },
   "inputs": {
     "configuration": {
       "file": "config/povo1_interior_study.json",
-      "sha256": "a851d86196df0ece84379ee234210bc846d30a6bc28724db492a9c24b729deb6"
+      "sha256": "554a5744e23db8fa82f553a3470bf4749c7c7ff196ddadd8115deaec3792065f"
     },
     "alignment": {
       "file": "config/povo1_plan_alignment.json",
-      "sha256": "11611d1f8923ed0fe70539d6f78d7e9e4a73c7d2954b787cb0b203527cdcd28d"
+      "sha256": "cc3646846d82a3854e473598c501b9e89f5e30927676588cee66622aa8ec62a1"
     },
     "campus": {
       "file": "config/povo_blockout.json",
-      "sha256": "637e8f26e8abbff4c26f7695a7a4a52eca81d17e13dc15e8c802773d1e74202a"
+      "sha256": "b20b8ea5739f81f55f0ea6a03a86828ba433ffcd1e32ebae0e4e7f5a6b74cb67"
     },
     "photo_manifest": {
       "file": "data/reference/povo_photos/manifest.json",
-      "sha256": "fc55205b710f37ec668ac5403c9a80ca4e452cc22e87ab5eb48175cf8c482707"
+      "sha256": "1eb5aa415322524bb68a1f6c9909dbe61c1aac59807cde2019bae2ff9c66e901"
     }
   },
   "source_profiles": [
@@ -1611,7 +1708,8 @@
         "plan": "piano terra",
         "lift": "-1",
         "stair_diagram": "0",
-        "room_group": "A101-A110"
+        "room_group": "A101-A110",
+        "user_confirmed_floor": 0
       },
       "entry": [
         1030,
@@ -1699,7 +1797,8 @@
         "plan": "primo piano",
         "lift": "0",
         "stair_diagram": "1",
-        "room_group": "A201-A224"
+        "room_group": "A201-A224",
+        "user_confirmed_floor": 1
       },
       "entry": [
         1030,
@@ -1797,16 +1896,44 @@
       "sha256": "ec8477276cdb47814a619a226ae32c04c84c21ccee17dad63e96dc659d144cd1",
       "description": "Povo 1 classroom, room number not supplied",
       "license": "Not supplied; reference use, not deployed as a texture"
+    },
+    {
+      "id": "P047",
+      "file": "data/reference/povo_photos/walk_2026-10-23/originals/image00044.jpeg",
+      "sha256": "56c84d5bbf8bca54a000dcfe43572346b6ca643841a27fa0cd2ad776b4d21b33",
+      "description": "Classroom A215",
+      "license": "Not supplied; architectural reference, not a game texture"
+    },
+    {
+      "id": "P048",
+      "file": "data/reference/povo_photos/walk_2026-10-23/originals/image00043.jpeg",
+      "sha256": "59978e78488251f98170f37d0988eae609d24733cb10c2452d7dc0e473b108dc",
+      "description": "Classroom A215",
+      "license": "Not supplied; architectural reference, not a game texture"
+    },
+    {
+      "id": "P049",
+      "file": "data/reference/povo_photos/walk_2026-10-23/originals/image00042.jpeg",
+      "sha256": "eb81436cf9254875ccdb8f85b8ebeaa388b3fa6597e4fe5be3c926e98f6d817f",
+      "description": "Classroom A211 or A212; user is unsure",
+      "license": "Not supplied; architectural reference, not a game texture"
+    },
+    {
+      "id": "P050",
+      "file": "data/reference/povo_photos/walk_2026-10-23/originals/image00041.jpeg",
+      "sha256": "8c85c9191969d0329fb9834f523bf23e74384413086f05ecd57cf2725f012958",
+      "description": "Classroom A211 or A212; user is unsure",
+      "license": "Not supplied; architectural reference, not a game texture"
     }
   ],
   "artifacts": {
     "povo1_interior_study.obj": {
-      "sha256": "dd586d6f70bca035426a845a0420ca6fe35b0d7b4d5ec80aba36f1f478dd941c",
-      "bytes": 1342699
+      "sha256": "4efb67d92b7c9eed1407241f43322649722b8573d060b835a5868e137c5992a6",
+      "bytes": 1071184
     },
     "povo1_interior_study.mtl": {
-      "sha256": "76630908a03641b44cb93a420fafecf3f8631d588e473ffb64e8f212f8b905a4",
-      "bytes": 1150
+      "sha256": "14d8445c783b4baa7291039e8f460fdd82aca0c7d8f7799ec873133fdbd77fe3",
+      "bytes": 1208
     },
     "floor_room.png": {
       "sha256": "8397efdb1383567a5e0c66686dc5e79a4997f9484ccfb1a9c256ec383780cb6c",
@@ -1817,12 +1944,12 @@
       "bytes": 582
     },
     "review.svg": {
-      "sha256": "c357dd894711758e899e59737361d977269d281382afc46bc2d848e46ecec29f",
-      "bytes": 19373
+      "sha256": "fcd1bd8f1d90c763479c0669a67f556216060e9e738d70ebc6cd8b7305ea22d6",
+      "bytes": 19380
     },
     "CREDITS.txt": {
-      "sha256": "2a56846a86856ab0176f9ef12bfa7e65d7d4f6ad9de2940340d3d1fff4224711",
-      "bytes": 802
+      "sha256": "9413629f783ce4fedc4d80d73d542c336df6ea92f910df1ff6e61db3bea42326",
+      "bytes": 917
     },
     "floor_wood.png": {
       "sha256": "eb60928bf80e25b422a68681a900a8356d70c705cc7d01af6faba7169bc06ed1",
@@ -1830,6 +1957,10 @@
     },
     "ceiling_panel.png": {
       "sha256": "26fcc159be9bf0589cc5c0ccd3921ba0dc1a445f1a1fd8efd30a2f541f5ced7e",
+      "bytes": 698
+    },
+    "desk_panel.png": {
+      "sha256": "bfd419d937a875264ae80f846ab62c868190d6d1c26de65311dea4f53c17356a",
       "bytes": 698
     }
   }

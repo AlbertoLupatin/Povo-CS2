@@ -2,7 +2,7 @@
   "format_version": 1,
   "status": "passed",
   "scope": "Horizontal clearance through the exported axis-aligned box mesh, using a configurable standing envelope",
-  "mesh_sha256": "dd586d6f70bca035426a845a0420ca6fe35b0d7b4d5ec80aba36f1f478dd941c",
+  "mesh_sha256": "4efb67d92b7c9eed1407241f43322649722b8573d060b835a5868e137c5992a6",
   "levels": [
     {
       "id": "academic_ground",
@@ -188,8 +188,8 @@
         24.0,
         -20.0
       ],
-      "walkable_cells": 259631,
-      "reachable_cells": 259631,
+      "walkable_cells": 257130,
+      "reachable_cells": 257130,
       "stations": [
         {
           "id": "landing_approach",
@@ -363,10 +363,19 @@
           "reachable_from_entrance": true
         },
         {
-          "id": "a215",
+          "id": "a215_side_aisle_1",
           "point_local_metres": [
-            10.08252427179832,
-            -57.63096559420228
+            8.322815533960238,
+            -60.95605993349105
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a215_side_aisle_2",
+          "point_local_metres": [
+            8.322815533960238,
+            -54.30587125398219
           ],
           "has_clearance": true,
           "reachable_from_entrance": true

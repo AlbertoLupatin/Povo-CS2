@@ -1,0 +1,397 @@
+{
+  "format_version": 1,
+  "photo_manifest": "data/reference/povo_photos/manifest.json",
+  "batch_directory": "data/reference/povo_photos/walk_2026-10-23",
+  "source": "User-described walk, 23 October 2026",
+  "source_numbering": "image00066.jpeg first; image00001.jpeg last",
+  "segments": [
+    {
+      "id": "povo2_stairs_0_1",
+      "photos": [
+        66,
+        65,
+        64
+      ],
+      "building": "povo2",
+      "floor": null,
+      "description": "Stairs from Povo 2 floor 0 to floor 1",
+      "evidence": "User route description, 2026-10-23",
+      "from_floor": 0,
+      "to_floor": 1
+    },
+    {
+      "id": "povo2_bridge_approach",
+      "photos": [
+        63,
+        62,
+        61
+      ],
+      "building": "povo2",
+      "floor": 1,
+      "description": "Corridors from the stair exit to the bridge",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "bridge_povo2_to_povo1",
+      "photos": [
+        60,
+        59,
+        58,
+        57,
+        56
+      ],
+      "building": "bridge",
+      "floor": null,
+      "description": "Bridge from Povo 2 floor 1 to Povo 1 floor 2",
+      "evidence": "User route description, 2026-10-23",
+      "from_level": "povo2_1",
+      "to_level": "povo1_2",
+      "views": {
+        "58": "right",
+        "59": "right",
+        "57": "left"
+      }
+    },
+    {
+      "id": "povo1_bridge_corridor",
+      "photos": [
+        55,
+        54,
+        53,
+        52
+      ],
+      "building": "povo1",
+      "floor": 2,
+      "description": "Povo 1 corridor after bridge",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "povo1_northeast_stairs",
+      "photos": [
+        51,
+        50,
+        49,
+        48,
+        47
+      ],
+      "building": "povo1",
+      "floor": null,
+      "description": "Red stairwell near A209/A216, descending from floor 2",
+      "evidence": "User route description, 2026-10-23",
+      "from_floor": 2,
+      "to_floor": 1,
+      "core": "stair_northeast"
+    },
+    {
+      "id": "povo1_northeast_exit",
+      "photos": [
+        46
+      ],
+      "building": "povo1",
+      "floor": 1,
+      "description": "Door exiting the red stairwell; user notes same door style as Povo 2",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "povo1_east_corridor",
+      "photos": [
+        45
+      ],
+      "building": "povo1",
+      "floor": 1,
+      "description": "From A209 left / A216 right toward A212 / A213",
+      "evidence": "User route description, 2026-10-23",
+      "room_landmarks": [
+        "A209",
+        "A216",
+        "A212",
+        "A213"
+      ]
+    },
+    {
+      "id": "a215",
+      "photos": [
+        44,
+        43
+      ],
+      "building": "povo1",
+      "floor": 1,
+      "description": "Classroom A215",
+      "evidence": "User route description, 2026-10-23",
+      "room": "A215",
+      "background_note": "User requests retaining window background; opposite glazed wing and external stair visible"
+    },
+    {
+      "id": "a211_or_a212",
+      "photos": [
+        42,
+        41
+      ],
+      "building": "povo1",
+      "floor": 1,
+      "description": "Classroom A211 or A212; user is unsure",
+      "evidence": "User route description, 2026-10-23",
+      "possible_rooms": [
+        "A211",
+        "A212"
+      ],
+      "room_identity_status": "Unresolved; do not assign an exact room",
+      "background_note": "User requests retaining the outside background"
+    },
+    {
+      "id": "povo1_corridor_before_southeast_stairs",
+      "photos": [
+        40
+      ],
+      "building": "povo1",
+      "floor": 1,
+      "description": "Corridor between classroom and second red stairwell",
+      "evidence": "User route description, 2026-10-23",
+      "evidence_note": "Inferred from adjacent confirmed route batches; photo 40 was not explicitly described"
+    },
+    {
+      "id": "povo1_southeast_stairs",
+      "photos": [
+        39,
+        38
+      ],
+      "building": "povo1",
+      "floor": null,
+      "description": "Different red stairwell near A212/A213, floor 1 to ground",
+      "evidence": "User route description, 2026-10-23",
+      "from_floor": 1,
+      "to_floor": 0,
+      "core": "stair_southeast",
+      "core_confirmation": "User explicitly confirmed this is different from photos 51–47"
+    },
+    {
+      "id": "povo1_entrance",
+      "photos": [
+        37,
+        36,
+        35
+      ],
+      "building": "povo1",
+      "floor": 0,
+      "description": "Leaving Povo 1 through the entrance",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "povo1_entrance_right",
+      "photos": [
+        34
+      ],
+      "building": "outdoors",
+      "floor": null,
+      "description": "Looking right in front of Povo 1 entrance",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "povo1_external_stairs",
+      "photos": [
+        33,
+        32,
+        31
+      ],
+      "building": "outdoors",
+      "floor": null,
+      "description": "Climbing the external stairs to leave Povo 1",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "povo1_external_top",
+      "photos": [
+        30
+      ],
+      "building": "outdoors",
+      "floor": null,
+      "description": "At the top outside Povo 1 entrance, looking toward Povo 2",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "walk_to_povo2",
+      "photos": [
+        29,
+        28,
+        27,
+        26,
+        25
+      ],
+      "building": "outdoors",
+      "floor": null,
+      "description": "Walking from Povo 1 toward Povo 2",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "povo2_entrance_outyard",
+      "photos": [
+        24,
+        23,
+        22,
+        21,
+        20,
+        19,
+        18
+      ],
+      "building": "outdoors",
+      "floor": null,
+      "description": "Povo 2 entrance and outdoor yard",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "povo2_entrance_hall",
+      "photos": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "building": "povo2",
+      "floor": 0,
+      "description": "Povo 2 entrance hall",
+      "evidence": "User route description, 2026-10-23",
+      "direction_note": "User describes 17–16 as entrance and 15–16 as looking outside; 16 has overlapping wording. Photo 14 visually shows outside-facing doors but was not explicitly numbered in the route."
+    },
+    {
+      "id": "povo2_reception",
+      "photos": [
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "building": "povo2",
+      "floor": 0,
+      "description": "Povo 2 entrance / reception and corridor",
+      "evidence": "User route description, 2026-10-23"
+    },
+    {
+      "id": "povo2_stairs_0_minus1",
+      "photos": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "building": "povo2",
+      "floor": null,
+      "description": "Povo 2 stairs from ground to -1",
+      "evidence": "User route description, 2026-10-23",
+      "from_floor": 0,
+      "to_floor": -1
+    },
+    {
+      "id": "povo2_minus1_corridor",
+      "photos": [
+        3,
+        2,
+        1
+      ],
+      "building": "povo2",
+      "floor": -1,
+      "description": "Povo 2 basement corridor",
+      "evidence": "User route description, 2026-10-23"
+    }
+  ],
+  "bridge_connection": {
+    "from_level": "povo2_1",
+    "to_level": "povo1_2",
+    "relation": "same_elevation",
+    "status": "User confirmed; does not establish other floor elevations"
+  },
+  "levels": [
+    {
+      "id": "povo1_0",
+      "building": "povo1",
+      "floor": 0
+    },
+    {
+      "id": "povo1_1",
+      "building": "povo1",
+      "floor": 1
+    },
+    {
+      "id": "povo1_2",
+      "building": "povo1",
+      "floor": 2
+    },
+    {
+      "id": "povo2_minus1",
+      "building": "povo2",
+      "floor": -1
+    },
+    {
+      "id": "povo2_0",
+      "building": "povo2",
+      "floor": 0
+    },
+    {
+      "id": "povo2_1",
+      "building": "povo2",
+      "floor": 1
+    }
+  ],
+  "stair_connections": [
+    {
+      "id": "povo1_ne_2_to_1",
+      "from_level": "povo1_2",
+      "to_level": "povo1_1",
+      "building": "povo1",
+      "core": "stair_northeast",
+      "photos": [
+        51,
+        50,
+        49,
+        48,
+        47
+      ]
+    },
+    {
+      "id": "povo1_se_1_to_0",
+      "from_level": "povo1_1",
+      "to_level": "povo1_0",
+      "building": "povo1",
+      "core": "stair_southeast",
+      "photos": [
+        39,
+        38
+      ]
+    },
+    {
+      "id": "povo2_0_to_1",
+      "from_level": "povo2_0",
+      "to_level": "povo2_1",
+      "building": "povo2",
+      "core": null,
+      "photos": [
+        66,
+        65,
+        64
+      ]
+    },
+    {
+      "id": "povo2_0_to_minus1",
+      "from_level": "povo2_0",
+      "to_level": "povo2_minus1",
+      "building": "povo2",
+      "core": null,
+      "photos": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ]
+    }
+  ],
+  "caveats": [
+    "Only Povo 2 floor 1 = Povo 1 floor 2 is confirmed as a cross-building elevation relation.",
+    "Floor-to-floor rises, absolute heights and full step counts are not measured.",
+    "Photo 40 and 14 interpretations are contextual inferences, not explicit user identifications.",
+    "Photo 16 has overlapping entrance/outward wording; keep it flagged.",
+    "A211/A212 remains ambiguous.",
+    "GPS horizontal accuracy and magnetic headings are clues, not indoor survey measurements."
+  ]
+}

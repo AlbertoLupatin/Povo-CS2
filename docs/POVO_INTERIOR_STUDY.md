@@ -20,12 +20,12 @@ solid campus massing, and does not add a playable route to the Wingman arena.
 - Ground entrance opening only. Upper-floor access is provisional and checked
   from an assumed stair-landing approach; no upper exterior entry is invented.
 - Two generated tile placeholders for general floor/circulation, plus original
-  wood-look and perforated-ceiling textures for the A224/A223 prototypes. Repeating metric
+  wood-look and perforated-ceiling textures for the A224/A223/A215 prototypes. Repeating metric
   UVs use the provisional 0.6 m repeat. Reference photos establish the appearance
   family; texture patterns and exact colours are approximate.
 
-The study currently has 1,338 closed component boxes and 16,056 triangles, including
-two furnished rooms with ceilings, fixtures and west-facing rear window openings.
+The study currently has 1,080 closed component boxes and 12,960 triangles, including
+three furnished rooms with ceilings, fixtures and west-facing rear window openings.
 It has no functional breakable glass, navigation, lighting bake or CS2 entities.
 The source mesh has not been compiled or traversed in the game.
 
@@ -74,7 +74,7 @@ Outputs go to `exports/povo1_interior_study/`:
 - `povo1_interior_study.obj` and `.mtl`: geometry and material assignments.
 - `floor_room.png`, `floor_circulation.png`: original generated tile patterns.
 - `floor_wood.png`, `ceiling_panel.png`: original generated pilot finish patterns.
-- `classroom_A224.png`, `classroom_A223.png`: cutaways, top views with side-clearance
+- `classroom_A224.png`, `classroom_A223.png`, `classroom_A215.png`: cutaways, top views with side-clearance
   dimensions and finish swatches.
 - `review.svg`: labelled north-up room/corridor/courtyard diagram at the footprint's aspect ratio.
 - `provenance.json`, `CREDITS.txt`: inputs, source image hashes, parameters, levels,
@@ -90,6 +90,7 @@ ImageMagick for the SVG raster:
 python tools/render_interior_preview.py
 python tools/render_classroom_preview.py
 python tools/render_classroom_preview.py --room a223
+python tools/render_classroom_preview.py --room a215
 magick -background none exports/povo1_interior_study/review.svg exports/povo1_interior_study/review.png
 ```
 
@@ -116,13 +117,13 @@ assumptions, not a claim about CS2 player physics. It expands obstacles and void
 by half the envelope width and searches the remaining connected floor cells.
 
 The current mesh reaches all 16 ground stations (entrance, five circulation
-points, ten rooms) and all 32 upper stations (assumed landing approach, four
-circulation points, 23 empty-room centres and both side aisles in each furnished
+points, ten rooms) and all 33 floor-1 stations (assumed landing approach, four
+circulation points, 22 empty-room centres and both side aisles in each furnished
 room). These are independent horizontal checks; they do
 not establish a route between floors. Outputs in `exports/povo1_interior_audit/`
 include a JSON report and north-up reachability maps. Exported classroom furniture
 and ceiling fixtures participate in this check; jumps, real engine collision,
-navigation and game traversal remain outside it. Both furnished rooms remain reachable
+navigation and game traversal remain outside it. All three furnished rooms remain reachable
 through their doors and 1 m side passages. Named side-aisle stations replace
 centre points occupied by continuous rows. Only named stations are checked, not
 access to every seat or every point on the floor. Crouched cover, bullet
@@ -135,7 +136,7 @@ set of furniture, lights, floor/wall/ceiling materials and window components.
 Adapt desk rows and spacing to each room. A conventional classroom, computer
 room and lecture hall may need different arrangements. A photo of one ordinary
 classroom is enough to start the common kit; it cannot establish every room's
-exact layout. A224 and A223 now reuse the kit; other rooms remain
+exact layout. A224, A223 and A215 now reuse the kit; other rooms remain
 unfurnished.
 
 The seven new photos are P018–P024. P020 shows A224's tall framed west-facing
@@ -155,7 +156,7 @@ opposite the blackboard. The template is rotated accordingly: windows west,
 blackboard east. There is no central break in the desktop rows. A223 repeats
 this layout as the requested additional room in the shared style.
 
-Each current room has 45 estimated seats in five continuous rows. The seat
+A224/A223 have 45 estimated seats in five rows. A215 has 27 estimated seats in three rows. The seat
 count, row pitch, desktop/seat heights, fixture positions, window dimensions and
 bay count remain modelling estimates. The 1 m side passages are measured from
 the inside wall faces to each row's end, including the current wall thickness.
@@ -165,13 +166,13 @@ and layout; they do not establish ballistic properties.
 
 `classroom_fitouts` selects the rooms, teaching/window sides, side clearance and
 row pitch. The template requires opposite teaching/window walls, an exterior
-window wall, a room at least 6 × 6 m and at least 2.8 m wall height. The source-plan
+window wall, a room at least 6 m wide × 4.5 m deep and at least 2.8 m wall height. The source-plan
 doors of A224 and A223 are placed approximately near their north ends. A teaching
 board across the doorway is rejected. Other room types will need their own
 arrangements. Courtyard material spans remain local so aligned classroom walls
 retain their own finish.
 
-Both rooms have a teaching desk, board/screen, suspended ceiling, grid fixtures,
+The furnished rooms have a teaching desk, board/screen, suspended ceiling, grid fixtures,
 vents, projector, wood-look floor and framed glazing. Actual rectangular window
 openings preserve sill/head wall sections. Glass has only an OBJ/MTL opacity
 hint; the opaque offline renderer omits panes for cutaway views. No CS2 break
@@ -179,7 +180,7 @@ interaction or transparent material has been built. Fixtures are geometry,
 without game lighting. No people or source-image pixels are included.
 
 Photo originals are retained unchanged, with hashes and supplied filenames in
-`data/reference/povo_photos/manifest.json`. The builder validates the three used
+`data/reference/povo_photos/manifest.json`. The builder validates all used
 photos and records their hashes and the manifest hash. The audit rejects a stale
 photo or catalogue. No people, screens or photograph pixels are used in generated
 textures. Original authorship/licences were not supplied for these new images;
@@ -203,10 +204,12 @@ A nearest room number is enough to identify the relevant core approximately:
 | Southeast | A204 / A212 |
 | Northeast | A203 / A209 |
 
-If available, the step count between the two floors and the core location would
-resolve the main geometry questions. A photo from one landing toward the next
-could help if counting is easier that way; no scan is required. Until then,
-storey heights, stair openings and landing margins remain provisional.
+The later walk locates the two used red stairwells: photos 51–47 are near
+A209/A216 (northeast core), from Povo 1 floor 2 to floor 1; photos 39–38 are near
+A212/A213 (southeast core), from floor 1 to ground. The user confirmed they are
+different stairwells. The new photos provide clearer appearance and flight views.
+Complete riser counts and metric landing heights remain unmeasured; flights are
+not built in the source yet. See [the circulation review](POVO_CIRCULATION.md).
 
 ## Next refinement
 
@@ -215,3 +218,23 @@ and finishes. A known doorway dimension, step height/depth and flight counts
 can replace the provisional clearances and floor spacing. Then refine the chosen
 small interior route, build its stairs and collision, remove overlapping solid
 massing in that section, and validate it in Windows before exposing it to players.
+
+## Identified A215 and window context
+
+Walk photos 44–43 identify A215. It uses its smaller courtyard-side plan footprint,
+with a real window cut through the courtyard wall. Continuous desk fronts now
+have dark modesty panels, shared pedestal supports, floor feet and a seat beam,
+instead of independent table/chair legs at every place. A215 shows three rows;
+seat count, depth and furniture dimensions are estimates. The desk-panel
+perforation texture is generated, not extracted from a photograph.
+
+The outside view shows opposite glazing and a metal external stair. These are
+recorded in A215's `window_context`, with the high-resolution references retained;
+that detailed exterior stair is not yet modelled. Photos 42–41 are A211 or A212,
+so they remain an ambiguous scene rather than being assigned to one room. Their
+window/background evidence is retained for later alignment.
+
+The existing study still contains only Povo 1 ground / floor 1. The bridge is
+on the currently unbuilt floor 2; Povo 2 interiors and physical vertical stair
+connections are not present in this OBJ. The new circulation graph records the
+correct floor relation independently of these incomplete geometry assets.

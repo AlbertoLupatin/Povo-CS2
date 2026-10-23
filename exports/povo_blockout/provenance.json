@@ -4,7 +4,7 @@
   "status": "Geographic and gameplay blockout source; CS2 validation is recorded separately",
   "config": {
     "path": "config/povo_blockout.json",
-    "sha256": "637e8f26e8abbff4c26f7695a7a4a52eca81d17e13dc15e8c802773d1e74202a"
+    "sha256": "b20b8ea5739f81f55f0ea6a03a86828ba433ffcd1e32ebae0e4e7f5a6b74cb67"
   },
   "sources": {
     "dtm": {
@@ -556,6 +556,11 @@
         }
       ],
       "bridge": {
+        "connected_levels": [
+          "povo2_1",
+          "povo1_2"
+        ],
+        "connection_source": "config/povo_circulation.json; user-confirmed floors, metric elevations remain estimated",
         "building": "bridge_reference_slab",
         "deck_elevation": 382.49,
         "roof_elevation": 385.69,
@@ -570,7 +575,7 @@
     },
     "references": {
       "manifest": "data/reference/povo_photos/manifest.json",
-      "manifest_sha256": "fc55205b710f37ec668ac5403c9a80ca4e452cc22e87ab5eb48175cf8c482707",
+      "manifest_sha256": "1eb5aa415322524bb68a1f6c9909dbe61c1aac59807cde2019bae2ff9c66e901",
       "images": [
         {
           "id": "P001",
@@ -988,7 +993,7 @@
       "bytes": 2030447
     },
     "CREDITS.txt": {
-      "sha256": "f5743bbc004a533d214f0d2f11bdb89fe7771baec6afb8f9be1e29f1499cf4fc",
+      "sha256": "9b05a2225b392aa293374b66021bc5fc6aacd83079c1629c987e1e29948fe249",
       "bytes": 21933
     },
     "povo_blockout_collision.obj": {

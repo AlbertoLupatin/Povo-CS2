@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1050">
+<rect width="1500" height="1050" fill="#edf1f2"/>
+<g font-family="DejaVu Sans, sans-serif" fill="#193441">
+<text x="45" y="55" font-size="30" font-weight="bold">POVO / CONFIRMED WALK CONNECTIONS</text>
+<text x="45" y="95" font-size="18">Connections and named floors confirmed by the user. Diagram spacing is not a height measurement.</text>
+<text x="130" y="150" font-size="26" font-weight="bold">POVO 1</text>
+<text x="1080" y="150" font-size="26" font-weight="bold">POVO 2</text>
+<polyline points="260,245 1200,245" fill="none" stroke="#438e9c" stroke-width="9" stroke-dasharray=""/>
+<text x="710" y="185" text-anchor="middle" font-size="20" font-weight="bold">BRIDGE / photos 60–56</text>
+<text x="710" y="215" text-anchor="middle" font-size="20" font-weight="bold">Povo 2 floor 1 = Povo 1 floor 2</text>
+<polyline points="260,245 260,500" fill="none" stroke="#a64f4d" stroke-width="5" stroke-dasharray=""/>
+<polyline points="310,500 310,765" fill="none" stroke="#c97b42" stroke-width="5" stroke-dasharray=""/>
+<polyline points="1200,245 1200,675" fill="none" stroke="#69767c" stroke-width="5" stroke-dasharray="8 6"/>
+<polyline points="1200,675 1200,870" fill="none" stroke="#69767c" stroke-width="5" stroke-dasharray="8 6"/>
+<text x="335" y="345" font-size="18">NE red stairwell / A209–A216</text>
+<text x="335" y="373" font-size="16">Photos 51–47: floor 2 → 1</text>
+<text x="365" y="615" font-size="18">SE red stairwell / A212–A213</text>
+<text x="365" y="643" font-size="16">Photos 39–38: floor 1 → ground</text>
+<text x="815" y="470" font-size="18">Povo 2 stairs / photos 66–64</text>
+<text x="815" y="498" font-size="16">Floor 0 → 1; metric rise unknown</text>
+<text x="810" y="790" font-size="18">Povo 2 stairs / photos 08–04</text>
+<text x="810" y="818" font-size="16">Ground → −1; core not located</text>
+<rect x="140" y="740" width="240" height="50" rx="8" fill="#ffffff" stroke="#193441" stroke-width="2"/>
+<text x="260" y="772" text-anchor="middle" font-size="22">Ground / 0</text>
+<rect x="140" y="475" width="240" height="50" rx="8" fill="#ffffff" stroke="#193441" stroke-width="2"/>
+<text x="260" y="507" text-anchor="middle" font-size="22">Floor 1</text>
+<rect x="140" y="220" width="240" height="50" rx="8" fill="#ffffff" stroke="#193441" stroke-width="2"/>
+<text x="260" y="252" text-anchor="middle" font-size="22">Floor 2</text>
+<rect x="1080" y="845" width="240" height="50" rx="8" fill="#ffffff" stroke="#193441" stroke-width="2"/>
+<text x="1200" y="877" text-anchor="middle" font-size="22">Floor -1</text>
+<rect x="1080" y="650" width="240" height="50" rx="8" fill="#ffffff" stroke="#193441" stroke-width="2"/>
+<text x="1200" y="682" text-anchor="middle" font-size="22">Ground / 0</text>
+<rect x="1080" y="220" width="240" height="50" rx="8" fill="#ffffff" stroke="#193441" stroke-width="2"/>
+<text x="1200" y="252" text-anchor="middle" font-size="22">Floor 1</text>
+<text x="45" y="970" font-size="18">A215 = photos 44–43. Photos 42–41 = A211 OR A212; exact room remains unresolved.</text>
+<text x="45" y="1005" font-size="18">Only the bridge floors are equated across buildings. Povo 2 ground and basement heights remain unassigned.</text>
+</g></svg>

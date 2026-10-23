@@ -1,7 +1,8 @@
 Povo 1 room and circulation study. Plan reference: https://github.com/agusmeroli/mappe-povo
 Plans are marked unofficial; no redistribution licence established in the inspected source tree.
 Geometry is a coarse, assumption-labelled study; no source-image pixels are used as game textures.
-A224 fit-out appearance references user-supplied P020/P021/P022. Room identity for P022 is unknown.
+Classroom appearance references catalogue IDs in provenance.json, including the user-identified A215 walk photos.
+P022 room identity is unknown; walk photos 42–41 are A211 or A212. Neither is silently identified.
 No people, screen text or source-image pixels are reproduced in generated assets.
 Wood-look floor, ceiling and furniture colors are approximate; generated texture patterns are original.
 Furniture arrangement, count, glazing and fixture dimensions are provisional. No functional breakable glass is built.

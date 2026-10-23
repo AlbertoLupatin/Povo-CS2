@@ -58,3 +58,8 @@ illum 1
 newmtl projection_screen
 Kd 0.9176470588235294 0.9176470588235294 0.8784313725490196
 illum 1
+
+newmtl desk_panel
+Kd 1 1 1
+illum 1
+map_Kd desk_panel.png

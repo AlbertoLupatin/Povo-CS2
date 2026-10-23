@@ -51,7 +51,7 @@ def panel(ax,boxes,view,title):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--asset-dir',type=Path,default=Path('exports/povo1_interior_study'))
-    parser.add_argument('--room',default='a224',choices=('a224','a223'))
+    parser.add_argument('--room',default='a224',choices=('a224','a223','a215'))
     parser.add_argument('--output',type=Path)
     args=parser.parse_args()
     provenance=json.loads((args.asset_dir/'provenance.json').read_text())
@@ -76,18 +76,21 @@ def main():
         room_boxes.append((name,a,b,material))
     fig=plt.figure(figsize=(16,10),facecolor='#edf1f2')
     fig.text(.04,.95,room['label']+' / CORRECTED CLASSROOM LAYOUT',fontsize=25,weight='bold',color='#193441')
-    subtitle='User-confirmed A224 arrangement; counts and other dimensions estimated' if args.room=='a224' else 'P022-style room assigned to A223; photographed room location remains unknown'
+    subtitles={'a224':'User-confirmed A224 arrangement; counts and other dimensions estimated',
+               'a223':'P022-style room assigned to A223; photographed room location remains unknown',
+               'a215':'A215 identified in walk photos 44–43; courtyard window background recorded; dimensions estimated'}
+    subtitle=subtitles[args.room]
     fig.text(.04,.91,subtitle,fontsize=12,color='#54707b')
     panel(fig.add_axes([.025,.3,.62,.54]),room_boxes,(43,130),'Continuous rows / ceiling and side walls hidden')
     ax=fig.add_axes([.69,.34,.275,.45])
     ax.set_facecolor('#edf1f2')
     order={'floor_room':0,'floor_wood':1,'wall':2,'courtyard_wall':2}
     for name,lo,hi,material in sorted(plan_boxes,key=lambda b:order.get(b[3],3)):
-        if material not in ('floor_room','floor_wood','wall','courtyard_wall','desk_dark','seat_wood','teaching_board','projection_screen','window_frame'):continue
+        if material not in ('floor_room','floor_wood','wall','courtyard_wall','desk_dark','desk_panel','seat_wood','teaching_board','projection_screen','window_frame'):continue
         color=np.array(COLORS[material])/255
         ax.add_patch(Rectangle(lo[:2],hi[0]-lo[0],hi[1]-lo[1],facecolor=color,edgecolor='none'))
     # The clear metre is measured between finished wall face and row end.
-    half=.09;aisle=room['fitout']['side_aisle_metres']
+    half=room['fitout']['wall_face_inset_metres'];aisle=room['fitout']['side_aisle_metres']
     for low,high in ((y0+half,y0+half+aisle),(y1-half-aisle,y1-half)):
         ax.add_patch(Rectangle((x0+half,low),x1-x0-2*half,high-low,facecolor='#65aebc',alpha=.25))
         xx=(x0+x1)/2

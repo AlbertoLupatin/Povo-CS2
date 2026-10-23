@@ -23,7 +23,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ("povo1_interior_study.obj", "povo1_interior_study.mtl",
            "floor_room.png", "floor_circulation.png", "review.svg",
-           "provenance.json", "CREDITS.txt", "floor_wood.png", "ceiling_panel.png")
+           "provenance.json", "CREDITS.txt", "floor_wood.png", "ceiling_panel.png", "desk_panel.png")
 COLORS = {"floor_room": (183, 180, 167), "floor_circulation": (201, 207, 204),
           "wall": (220, 219, 208), "courtyard_wall": (70, 103, 105), **FITOUT_COLORS}
 
@@ -314,7 +314,7 @@ def review_svg(config, alignment):
         def draw_rect(rect,fill,stroke="none",extra=""):
             a,b,d,e=rect;px,py=point(d,b)
             return f'<rect x="{px}" y="{py}" width="{(e-b)*w}" height="{(d-a)*h}" fill="{fill}" stroke="{stroke}" stroke-width="1.5" {extra}/>'
-        title='GROUND / A101–A110' if index==0 else 'UPPER / A201–A224 + LAB'
+        title='GROUND / A101–A110' if index==0 else 'FLOOR 1 / A201–A224 + LAB'
         parts.append(f'<text x="{x}" y="{y-35}" font-size="23" font-weight="bold">{title}</text>')
         parts.append(draw_rect((0,0,1,1),'#d9dedf','#193441'))
         for c in circulation:parts.append(draw_rect(c['bounds'],'#8dbbc8'))
@@ -349,8 +349,8 @@ def review_svg(config, alignment):
         detail='/'.join(targets)+' furnished' if targets else 'unfurnished'
         parts.append(f'<text x="{x}" y="{y+h+58}" font-size="15">{len(rooms)} named rooms · {detail} · estimated heights</text>')
     parts.extend(['<text x="45" y="1040" font-size="18">White wall gaps = door openings. Orange = stair reservations; stair flights are not built.</text>',
-                  '<text x="45" y="1075" font-size="17">Grey = floor area awaiting subdivision. A224/A223: continuous rows, 1 m side aisles, windows behind seats.</text>',
-                  '<text x="45" y="1110" font-size="17">A223 reuses P022 style by design choice; the photographed room remains unidentified. Heights and counts estimated.</text>',
+                  '<text x="45" y="1075" font-size="17">Grey = floor awaiting subdivision. A224/A223/A215 furnished; 1 m side aisles. Heights and counts estimated.</text>',
+                  '<text x="45" y="1110" font-size="17">Povo 1 ground and floor 1 shown. Bridge is on floor 2, still unbuilt. A211/A212 photo identity remains uncertain.</text>',
                   '</g></svg>'])
     return "\n".join(parts)+"\n"
 
@@ -407,10 +407,10 @@ def build_study(config_path,output,*,root=ROOT,force=False):
         mtl=[]
         for name,color in COLORS.items():
             mtl.append(f"newmtl {name}\nKd {' '.join(str(v/255) for v in color)}\nillum 1\n")
-            if name.startswith("floor_") or name=='ceiling_panel':
+            if name.startswith("floor_") or name in ('ceiling_panel','desk_panel'):
                 # White multiplier keeps generated tile colors unchanged.
                 mtl[-1]=f"newmtl {name}\nKd 1 1 1\nillum 1\nmap_Kd {name}.png\n"
-                pattern={'floor_wood':'wood','ceiling_panel':'perforated'}.get(name,'tile')
+                pattern={'floor_wood':'wood','ceiling_panel':'perforated','desk_panel':'perforated'}.get(name,'tile')
                 (stage/(name+".png")).write_bytes(tile_png(color,pattern))
             if name=='window_glass':mtl[-1]+='d 0.18\n'
         (stage/OUTPUTS[1]).write_text("\n".join(mtl),encoding="utf-8")
@@ -418,7 +418,8 @@ def build_study(config_path,output,*,root=ROOT,force=False):
         (stage/"CREDITS.txt").write_text("Povo 1 room and circulation study. Plan reference: https://github.com/agusmeroli/mappe-povo\n"
             "Plans are marked unofficial; no redistribution licence established in the inspected source tree.\n"
             "Geometry is a coarse, assumption-labelled study; no source-image pixels are used as game textures.\n"
-            "A224 fit-out appearance references user-supplied P020/P021/P022. Room identity for P022 is unknown.\n"
+            "Classroom appearance references catalogue IDs in provenance.json, including the user-identified A215 walk photos.\n"
+            "P022 room identity is unknown; walk photos 42–41 are A211 or A212. Neither is silently identified.\n"
             "No people, screen text or source-image pixels are reproduced in generated assets.\n"
             "Wood-look floor, ceiling and furniture colors are approximate; generated texture patterns are original.\n"
             "Furniture arrangement, count, glazing and fixture dimensions are provisional. No functional breakable glass is built.\n"

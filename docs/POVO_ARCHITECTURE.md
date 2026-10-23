@@ -83,13 +83,13 @@ within the northing range of the existing east connector module (5103723-5103732
 
 Keep the numbering conventions separate:
 
-| Room group | Room-plan label | Lift label on room plan | Stair-diagram label | User image name |
+| Room group | Room-plan label | Lift label on room plan | Stair-diagram label | Confirmed Povo 1 floor |
 | --- | --- | --- | --- | --- |
-| A1xx | piano terra | -1 | 0 | P016, floor1 |
-| A2xx | primo piano | 0 | 1 | P017, floor2 |
+| A1xx | piano terra | -1 | 0 | Ground / 0 |
+| A2xx | primo piano | 0 | 1 | Floor 1 |
 
 These labels describe references to the same room groups; none gives an absolute
-floor elevation. The user images are preserved as supplied. The small P016 image
+floor elevation. The later user walk confirms A2xx on Povo 1 floor 1 and the bridge on floor 2. Earlier P016/P017 filename floor numbers are historical names, not current floor identities. The user images are preserved as supplied. The small P016 image
 is useful for context but should not be used to estimate detailed dimensions.
 
 ## What would help next
@@ -100,9 +100,10 @@ entrance/corridor geometry. It uses provisional heights and floor finishes and
 is excluded from CS2 deployment. This exterior pass still retains solid building
 massing; opening a playable interior requires a later integration step.
 
-Nothing additional is required to continue exterior refinement. The next useful
-field evidence is one entrance-to-corridor scan or photo sequence, one known
-doorway/corridor dimension, and a view identifying a bridge landing and floor
-label. Those would help establish floor elevations, clearances and connections
-before opening an interior route in the actual map. A Windows compile and local
-playtest remain the next way to validate the current source changes.
+The 66-photo walk now identifies the bridge, both red stairwells, entrances,
+classroom A215 and exterior approaches. [The route review](POVO_CIRCULATION.md)
+records these connections and the remaining uncertainty. The bridge binds
+Povo 2 floor 1 to Povo 1 floor 2; absolute heights and metric rises are still
+unmeasured. A215's outside view includes the opposite glazed courtyard wing and
+an external metal stair, retained as background evidence for later modelling.
+Windows compilation and in-game validation remain pending.

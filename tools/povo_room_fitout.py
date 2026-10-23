@@ -11,6 +11,7 @@ COLORS = {
     'window_frame': (154, 162, 161), 'window_glass': (151, 196, 210),
     'ceiling_panel': (217, 217, 204), 'light_diffuser': (245, 243, 216),
     'teaching_board': (74, 83, 79), 'projection_screen': (234, 234, 224),
+    'desk_panel': (45, 49, 47),
 }
 
 
@@ -50,8 +51,8 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
         value=settings.get(key)
         if type(value) not in (int,float) or not math.isfinite(value) or value<=0:
             raise ValueError('Fit-out dimensions must be finite and positive')
-    if width < 6 or depth < 6 or wall_height < 2.8:
-        raise ValueError('Classroom kit needs at least a 6 x 6 m room and 2.8 m height')
+    if width < 6 or depth < 4.5 or wall_height < 2.8:
+        raise ValueError('Classroom kit needs at least 6 m width, 4.5 m depth and 2.8 m height')
     aisle,pitch=settings['side_aisle_metres'],settings['row_pitch_metres']
     if not .85<=aisle<=2 or not 1.05<=pitch<=1.8:
         raise ValueError('Fit-out aisle/row spacing is outside the supported range')
@@ -93,6 +94,7 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
     box('screen',(width/2-1,.16,1.25),(width/2+1,.19,2.55),'projection_screen')
     box('screen_case',(width/2-1.08,.13,2.55),(width/2+1.08,.23,2.63),'window_frame')
     box('teaching_desk_top',(width/2-.7,.45,.74),(width/2+.7,1.0,.79),'desk_dark')
+    box('teaching_desk_front',(width/2-.65,.45,.014),(width/2+.65,.50,.74),'desk_dark')
     for index,dx in enumerate((-.61,.61)):
         box(f'teaching_desk_leg{index}',(width/2+dx-.025,.5,.014),(width/2+dx+.025,.95,.74),'metal_dark')
 
@@ -110,23 +112,32 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
     if door_depth<.05 and abs(door_cross-width/2)<2+room['door_width_metres']/2:
         raise ValueError('Teaching board overlaps the front-wall doorway; refine its plan position')
     side_door=.05<door_depth<depth-.05
-    rows=[];seats=0;row=0;cy=1.75
-    while cy+.9 < depth-.65:
-        if not side_door or not (cy+.9>door_depth-.6 and cy<door_depth+.6):
+    first_row=settings.get('first_row_metres',1.75)
+    if type(first_row) not in (int,float) or not math.isfinite(first_row) or first_row<1.05:
+        raise ValueError('First row must be finite and leave teaching-wall space')
+    chair_back=settings.get('chair_back_offset_metres',.88)
+    rear_clearance=settings.get('rear_clearance_metres',.65)
+    if type(chair_back) not in (int,float) or not math.isfinite(chair_back) or not .75<=chair_back<=1.0 or type(rear_clearance) not in (int,float) or not math.isfinite(rear_clearance) or rear_clearance<.65:
+        raise ValueError('Unsupported chair depth or rear clearance')
+    rows=[];seats=0;row=0;cy=first_row
+    while cy+chair_back < depth-rear_clearance:
+        if not side_door or not (cy+chair_back>door_depth-.6 and cy<door_depth+.6):
             name=f'desk_row_{row}'
             box(name+'_top',(start,cy,.73),(end,cy+.45,.77),'desk_dark')
+            box(name+'_front_panel',(start+.1,cy+.04,.18),(end-.1,cy+.075,.72),'desk_panel')
+            supports=max(2,math.ceil((end-start)/1.25))
+            for support in range(supports):
+                cx=start+.2+(end-start-.4)*support/(supports-1)
+                box(name+f'_support_{support}',(cx-.04,cy+.18,.044),(cx+.04,cy+.26,.73),'metal_dark')
+                box(name+f'_foot_{support}',(cx-.07,cy+.05,.014),(cx+.07,cy+chair_back-.05,.044),'metal_dark')
+            box(name+'_seat_beam',(start+.1,cy+chair_back-.23,.14),(end-.1,cy+chair_back-.15,.20),'metal_dark')
             rows.append(dict(id=row,bounds_local_metres=bounds((start,cy,.73),(end,cy+.45,.77))))
             for seat in range(seat_count):
                 cx=start+(seat+.5)*seat_pitch
-                for ix,dx in enumerate((-.23,.23)):
-                    for iy,dy in enumerate((.06,.39)):
-                        box(name+f'_leg_{seat}_{ix}_{iy}',(cx+dx-.017,cy+dy-.017,.014),(cx+dx+.017,cy+dy+.017,.73),'metal_dark')
                 chair=f'chair_{row}_{seat}'
-                box(chair+'_seat',(cx-.215,cy+.49,.44),(cx+.215,cy+.86,.475),'seat_wood')
-                box(chair+'_back',(cx-.215,cy+.84,.475),(cx+.215,cy+.88,.89),'seat_wood')
-                for ix,dx in enumerate((-.18,.18)):
-                    for iy,dy in enumerate((.53,.82)):
-                        box(chair+f'_leg_{ix}_{iy}',(cx+dx-.014,cy+dy-.014,.014),(cx+dx+.014,cy+dy+.014,.44),'metal_dark')
+                box(chair+'_seat',(cx-.215,cy+chair_back-.39,.44),(cx+.215,cy+chair_back-.02,.475),'seat_wood')
+                box(chair+'_back',(cx-.215,cy+chair_back-.04,.475),(cx+.215,cy+chair_back,.89),'seat_wood')
+                box(chair+'_stem',(cx-.025,cy+chair_back-.21,.20),(cx+.025,cy+chair_back-.16,.44),'metal_dark')
                 seats+=1
         row+=1;cy+=pitch
     sill,head=.12,wall_height-.16
@@ -142,6 +153,8 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
         status='Continuous rows, 1 m side clearances and rear windows confirmed by user; other dimensions and seat count estimated',
         teaching_side=side,window_side=settings['window_side'],side_aisle_metres=aisle,
         reference_ids=settings['reference_ids'],location_status=settings['location_status'],
+        window_context=settings.get('window_context','Not yet reconstructed'),
+        wall_face_inset_metres=inner,
         audit_points_local_metres=[point(inner+aisle/2,depth-.75),point(width-inner-aisle/2,depth-.75)])
 
 
@@ -163,13 +176,18 @@ def apply_fitouts(config, levels, boxes, origin):
         if room['kind']!='classroom':raise ValueError('Kit requires an ordinary classroom')
         if settings.get('window_side') not in exterior:raise ValueError('Unknown window side')
         index,edge=exterior[settings['window_side']]
-        if not math.isclose(room['bounds'][index],edge,abs_tol=1e-9):
-            raise ValueError('Window wall must adjoin the exterior building perimeter')
+        a,b,c,d=level['courtyard'];u0,v0,u1,v1=room['bounds']
+        court_edges={'west':math.isclose(v0,d,abs_tol=1e-9) and a<=u0<u1<=c,
+                     'east':math.isclose(v1,b,abs_tol=1e-9) and a<=u0<u1<=c,
+                     'south':math.isclose(u0,c,abs_tol=1e-9) and b<=v0<v1<=d,
+                     'north':math.isclose(u1,a,abs_tol=1e-9) and b<=v0<v1<=d}
+        if not math.isclose(room['bounds'][index],edge,abs_tol=1e-9) and not court_edges[settings['window_side']]:
+            raise ValueError('Window wall must adjoin the outside or open courtyard')
         z=level['floor_elevation_metres']-origin[2]
         additions,opening,record=classroom_kit(level,room,z,config['wall_height_metres'],config['wall_thickness_metres'],settings)
         rebuilt=[]
         for b in result:
-            rebuilt.extend(subtract_box(b,opening) if b[0].startswith(level['id']+'_') and b[3]=='wall' else [b])
+            rebuilt.extend(subtract_box(b,opening) if b[0].startswith(level['id']+'_') and b[3] in ('wall','courtyard_wall') else [b])
         room['fitout']=record;room['window_opening_local_metres']=opening
         result=rebuilt+additions
     return result

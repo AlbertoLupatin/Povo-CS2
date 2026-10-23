@@ -152,7 +152,7 @@ class InteriorStudyTests(unittest.TestCase):
         result=audit.run_audit(self.config_path,self.output,self.root/'audit',root=self.root)
         self.assertEqual(result['status'],'passed')
         self.assertEqual(len(result['levels']),2)
-        self.assertEqual([len(level['stations']) for level in result['levels']],[16,32])
+        self.assertEqual([len(level['stations']) for level in result['levels']],[16,33])
         self.assertGreater(len(audit.read_box_mesh(self.output/'povo1_interior_study.obj')),164)
         svg=(self.root/'audit/review.svg').read_text()
         self.assertIn('data:image/png;base64,',svg)
@@ -215,6 +215,19 @@ class InteriorStudyTests(unittest.TestCase):
             for _,other_lo,other_hi,_ in pieces[i+1:]:
                 self.assertFalse(all(max(lo[a],other_lo[a])<min(hi[a],other_hi[a]) for a in range(3)))
             self.assertFalse(all(max(lo[a],hole[0][a])<min(hi[a],hole[1][a]) for a in range(3)))
+
+    def test_identified_a215_has_three_rows_panels_and_a_real_courtyard_window(self):
+        boxes,levels=interior.build_boxes(self.config,self.alignment,self.origin)
+        room=next(r for r in levels[1]['rooms'] if r['id']=='a215')
+        self.assertEqual(len(room['fitout']['rows']),3)
+        self.assertEqual(room['fitout']['seats'],27)
+        x0,y0,_x1,y1=room['footprint_local_metres']
+        z=levels[1]['floor_elevation_metres']-self.origin[2]
+        opaque=[b for b in boxes if b[3] in ('wall','courtyard_wall')]
+        self.assertFalse(any(self.contains_box(b,(x0,(y0+y1)/2,z+1)) for b in opaque))
+        panels=[b for b in boxes if b[0].startswith('academic_first_room_a215_desk_row_') and b[3]=='desk_panel']
+        self.assertEqual(len(panels),3)
+        self.assertIn('external metal stair',room['fitout']['window_context']['observed'])
 
     def test_photo_change_requires_catalogue_update_and_rebuild(self):
         self.build()

@@ -3,7 +3,7 @@
   "alignment": "config/povo1_plan_alignment.json",
   "campus_config": "config/povo_blockout.json",
   "status": "Separate offline study; not deployed to the CS2 arena",
-  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 has user-corrected continuous rows with 1 m side aisles and rear windows opposite the board. A223 repeats this kit as a chosen P022-style room, not a claimed photo location. Seat counts, fixture dimensions, floor spacing and remaining details are estimates. Other rooms are unfurnished.",
+  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 has user-corrected continuous rows with 1 m side aisles and rear windows opposite the board. A223 repeats this kit as a chosen P022-style room, not a claimed photo location. Seat counts, fixture dimensions, floor spacing and remaining details are estimates. Other rooms are unfurnished. A215 is identified from walk photos 44\u201343 and now furnished; photos 42\u201341 remain A211 or A212. Bridge joins the unbuilt Povo 1 floor 2 to Povo 2 floor 1; this study still contains only Povo 1 ground and floor 1.",
   "reference_elevation_metres": 374.0,
   "floor_thickness_metres": 0.22,
   "wall_height_metres": 2.9,
@@ -211,7 +211,8 @@
           "kind": "classroom"
         }
       ],
-      "external_entrance": true
+      "external_entrance": true,
+      "user_floor": 0
     },
     {
       "id": "academic_first",
@@ -468,9 +469,10 @@
             1050
           ],
           "door_side": "v_max",
-          "door_fraction": 0.5,
+          "door_fraction": 0.85,
           "door_width_metres": 1.2,
-          "kind": "classroom"
+          "kind": "classroom",
+          "door_placement_note": "Approximate plan position near the north end of the hall-facing wall, not a measured opening"
         },
         {
           "id": "a216",
@@ -619,7 +621,8 @@
       "audit_start_pixels": [
         900,
         488
-      ]
+      ],
+      "user_floor": 1
     }
   ],
   "photo_reference": {
@@ -627,7 +630,11 @@
     "ids": [
       "P020",
       "P021",
-      "P022"
+      "P022",
+      "P047",
+      "P048",
+      "P049",
+      "P050"
     ]
   },
   "classroom_fitouts": [
@@ -659,6 +666,31 @@
       ],
       "location_status": "P022 style assigned to A223 by design choice; not identification of the photographed room",
       "placement_status": "User-confirmed continuous rows and 1 m side aisles; windows behind seating opposite board; other dimensions and count provisional"
+    },
+    {
+      "level": "academic_first",
+      "room": "a215",
+      "teaching_side": "east",
+      "window_side": "west",
+      "side_aisle_metres": 1.0,
+      "row_pitch_metres": 1.05,
+      "first_row_metres": 1.05,
+      "reference_ids": [
+        "P047",
+        "P048"
+      ],
+      "location_status": "A215 identified by the user in photos 44\u201343; footprint from registered plan; furniture dimensions estimated",
+      "placement_status": "Three rows sized to the smaller A215 footprint; count and exact spacing estimated",
+      "window_context": {
+        "reference_ids": [
+          "P047",
+          "P048"
+        ],
+        "observed": "Opposite glazed courtyard wing and external metal stair visible through the windows",
+        "status": "Background evidence recorded; detailed outside stair geometry not yet reconstructed"
+      },
+      "chair_back_offset_metres": 0.78,
+      "rear_clearance_metres": 0.95
     }
   ]
 }

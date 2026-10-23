@@ -14,7 +14,8 @@
     "Floor labels are retained separately: user filenames floor1/floor2, academic ground/first, lift -1/0 and stairs 0/1.",
     "Absolute floor elevations and stair riser/tread dimensions are unknown.",
     "Repository identifies its plans as unofficial; licence is not established.",
-    "Room/corridor shapes are references; no interior collision or route change is deployed."
+    "Room/corridor shapes are references; no interior collision or route change is deployed.",
+    "User walk places A2xx rooms on Povo 1 floor 1, with bridge on floor 2. Earlier user filename floor1/floor2 is retained only as source history, not current floor identity."
   ],
   "profiles": [
     {
@@ -30,7 +31,8 @@
         "plan": "piano terra",
         "lift": "-1",
         "stair_diagram": "0",
-        "room_group": "A101-A110"
+        "room_group": "A101-A110",
+        "user_confirmed_floor": 0
       },
       "entry": [
         1030,
@@ -118,7 +120,8 @@
         "plan": "primo piano",
         "lift": "0",
         "stair_diagram": "1",
-        "room_group": "A201-A224"
+        "room_group": "A201-A224",
+        "user_confirmed_floor": 1
       },
       "entry": [
         1030,

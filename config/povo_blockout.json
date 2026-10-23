@@ -51,6 +51,8 @@
       {"id":"povo2_annex_east", "building":"povo2_southeast_annex", "face":"east", "style":"curtain_wall", "bays":11, "rows":3, "bottom_elevation":377.4, "top_elevation":381.85, "frame_width":0.075, "depth":0.06, "edge_margin":0.4, "reference_ids":["P010","P011"], "placement_note":"Glass annex appearance confirmed as Povo 2; exact correspondence to this footprint and panel count are still approximate."}
     ],
     "bridge": {
+      "connected_levels":["povo2_1","povo1_2"],
+      "connection_source":"config/povo_circulation.json; user-confirmed floors, metric elevations remain estimated",
       "building":"bridge_reference_slab",
       "deck_elevation":382.49,
       "roof_elevation":385.69,

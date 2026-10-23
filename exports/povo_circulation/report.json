@@ -1,0 +1,25 @@
+{
+  "status": "confirmed_connectivity_validated",
+  "scope": "Named-level graph and existing estimate consistency; not game traversal",
+  "estimated_elevations_metres": {
+    "povo1_0": 374.0,
+    "povo1_1": 377.6,
+    "povo1_2": 382.49,
+    "povo2_minus1": null,
+    "povo2_0": null,
+    "povo2_1": 382.49
+  },
+  "elevation_note": "Existing prototype/scenery estimates only; unknown heights remain null. Bridge equality is user-confirmed, absolute heights are not.",
+  "povo1_estimated_rises_metres": {
+    "0_to_1": 3.6,
+    "1_to_2": 4.89
+  },
+  "metric_rise_warning": "Independent prototype and bridge estimates imply unequal Povo 1 rises. Do not freeze stairs or bake collision until heights are calibrated.",
+  "verified_walk_photos": 66,
+  "inputs": {
+    "config/povo_circulation.json": "e9290af8e5b3042351d6676522a0eed01d49a0b78d40f0a9db40821ff3cc394b",
+    "config/povo_blockout.json": "b20b8ea5739f81f55f0ea6a03a86828ba433ffcd1e32ebae0e4e7f5a6b74cb67",
+    "config/povo1_interior_study.json": "554a5744e23db8fa82f553a3470bf4749c7c7ff196ddadd8115deaec3792065f",
+    "data/reference/povo_photos/manifest.json": "1eb5aa415322524bb68a1f6c9909dbe61c1aac59807cde2019bae2ff9c66e901"
+  }
+}

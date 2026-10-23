@@ -38,3 +38,33 @@ Source credits and image hashes remain in manifest.json and CREDITS.md.
 P018–P024 were supplied later on 23 October. “Courtyard” in a filename can refer to the external campus spaces; it does not establish the central indoor-plan courtyard location. P017 was moved by the user into `images/` without changing its bytes.
 
 Later user clarification: P022's room is unknown; A223 reuses its style as a modelling choice. P020/A224 has continuous rows, 1 m clear at each side, with windows behind the seats opposite the board. P007 supplies the stair appearance; its exact core and floor-to-floor step count remain unknown.
+
+## Confirmed walk, photos 66 → 01
+
+The full route is in `config/povo_circulation.json`; catalogue IDs P025–P090 retain the exported source filenames under `walk_2026-10-23/originals/`.
+
+| Photos | Building / floor / route |
+| --- | --- |
+| 66–64 | Stairs from Povo 2 floor 0 to floor 1 |
+| 63–61 | Corridors from the stair exit to the bridge |
+| 60–56 | Bridge from Povo 2 floor 1 to Povo 1 floor 2 |
+| 55–52 | Povo 1 corridor after bridge |
+| 51–47 | Red stairwell near A209/A216, descending from floor 2 |
+| 46 | Door exiting the red stairwell; user notes same door style as Povo 2 |
+| 45 | From A209 left / A216 right toward A212 / A213 |
+| 44–43 | Classroom A215 |
+| 42–41 | Classroom A211 or A212; user is unsure |
+| 40 | Corridor between classroom and second red stairwell |
+| 39–38 | Different red stairwell near A212/A213, floor 1 to ground |
+| 37–35 | Leaving Povo 1 through the entrance |
+| 34 | Looking right in front of Povo 1 entrance |
+| 33–31 | Climbing the external stairs to leave Povo 1 |
+| 30 | At the top outside Povo 1 entrance, looking toward Povo 2 |
+| 29–25 | Walking from Povo 1 toward Povo 2 |
+| 24–18 | Povo 2 entrance and outdoor yard |
+| 17–14 | Povo 2 entrance hall |
+| 13–9 | Povo 2 entrance / reception and corridor |
+| 8–4 | Povo 2 stairs from ground to -1 |
+| 3–1 | Povo 2 basement corridor |
+
+The A209/A216 and A212/A213 stairwells are confirmed different cores. Photo 40 and 14 context is inferred, and 16 has overlapping entrance/outward wording. A211 versus A212 is unresolved. No metric storey heights are established by the floor-number equivalence.
