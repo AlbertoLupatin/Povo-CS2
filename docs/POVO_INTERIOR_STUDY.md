@@ -19,12 +19,14 @@ solid campus massing, and does not add a playable route to the Wingman arena.
   Doorways are gaps below lintels, without door leaves or gameplay interaction.
 - Ground entrance opening only. Upper-floor access is provisional and checked
   from an assumed stair-landing approach; no upper exterior entry is invented.
-- Two generated, repeating tile textures with consistent metric UVs: warm grey
-  for general floor area and pale grey for circulation. These are placeholders,
-  not observations of the actual campus finishes.
+- Two generated tile placeholders for general floor/circulation, plus original
+  wood-look and perforated-ceiling textures for the A224 pilot. Repeating metric
+  UVs use the provisional 0.6 m repeat. Reference photos establish the appearance
+  family; texture patterns and exact colours are approximate.
 
-The study currently has 164 closed component boxes and 1,968 triangles. It has
-no ceilings, props, breakable glass, navigation, lighting bake, or CS2 entities.
+The study currently has 563 closed component boxes and 6,756 triangles, including
+a furnished A224 pilot with a ceiling, fixtures and west-facing window opening.
+It has no functional breakable glass, navigation, lighting bake or CS2 entities.
 The source mesh has not been compiled or traversed in the game.
 
 ## Assumptions and source limits
@@ -71,6 +73,8 @@ Outputs go to `exports/povo1_interior_study/`:
 
 - `povo1_interior_study.obj` and `.mtl`: geometry and material assignments.
 - `floor_room.png`, `floor_circulation.png`: original generated tile patterns.
+- `floor_wood.png`, `ceiling_panel.png`: original generated pilot finish patterns.
+- `classroom_A224.png`: optional room/ceiling cutaway and finish swatches.
 - `review.svg`: labelled north-up room/corridor/courtyard diagram at the footprint's aspect ratio.
 - `provenance.json`, `CREDITS.txt`: inputs, source image hashes, parameters, levels,
   statistics and output hashes.
@@ -83,6 +87,7 @@ ImageMagick for the SVG raster:
 
 ```sh
 python tools/render_interior_preview.py
+python tools/render_classroom_preview.py
 magick -background none exports/povo1_interior_study/review.svg exports/povo1_interior_study/review.png
 ```
 
@@ -112,8 +117,11 @@ The current mesh reaches all 16 ground stations (entrance, five circulation
 points, ten rooms) and all 30 upper stations (assumed landing approach, four
 circulation points, 25 rooms). These are independent horizontal checks; they do
 not establish a route between floors. Outputs in `exports/povo1_interior_audit/`
-include a JSON report and north-up reachability maps. Furniture, jumps, real
-collision, navigation and game traversal remain outside this check.
+include a JSON report and north-up reachability maps. Exported A224 furniture
+and ceiling fixtures participate in this check; jumps, real engine collision,
+navigation and game traversal remain outside it. The pilot remains reachable
+through its door and central aisle. Only named stations are checked, not access
+to every seat or every point on the floor.
 
 ## Room photos and reusable fit-out
 
@@ -122,13 +130,49 @@ set of furniture, lights, floor/wall/ceiling materials and window components.
 Adapt desk rows and spacing to each room. A conventional classroom, computer
 room and lecture hall may need different arrangements. A photo of one ordinary
 classroom is enough to start the common kit; it cannot establish every room's
-exact layout. All rooms are currently unfurnished.
+exact layout. A224 now contains the first reusable kit; other rooms remain
+unfurnished.
 
-For one representative classroom, provide the room number, one view from each
-of its four corners, and views showing the windows, teaching wall, floor and
-ceiling (these can overlap the corner views). Prefer 1× for details and use
-0.5× to capture a whole small room when needed. A known door width or floor-tile
-size would help check scale. No scan is required.
+The seven new photos are P018–P024. P020 shows A224's tall framed west-facing
+windows, dark desktops, wooden seats, light wood-look floor, suspended perforated
+panels, recessed light grids and ventilation cassettes. P021 (A208) supports the
+common floor/furniture/ceiling style and shows a projector and teaching board.
+P022 shows a board and pull-down screen, but its room number is unknown. Its
+teaching-wall style is a provisional common-kit reference, not verified for A224.
+P019 supplies westward exterior context; P018/P023/P024 show outdoor passages,
+paving and facades. A filename's “courtyard” does not establish the central plan
+courtyard; exact exterior placement remains to be aligned.
+
+The pilot has 24 placeholder seats, a teaching desk, board/screen, ceiling grid
+fixtures, ventilation units, projector, floor and ceiling finishes, and framed
+glazing. The outside wall is cut around an actual rectangular window opening,
+leaving a sill and head. Glass has an OBJ/MTL opacity hint; the offline opaque
+renderer omits it for the cutaway. No CS2 transparent/breakable material or
+interaction has been built. Furniture dimensions, layout, count, lighting
+positions, sill/head heights, bay count and teaching-wall orientation remain
+estimates. Light fixtures are geometry only, not game lights.
+
+`classroom_fitout` in the study configuration selects the pilot and its editable
+north/south teaching side, central aisle and row pitch. A224's door fraction was
+refined toward the north end from its source plan, still approximately. The kit
+leaves a transverse passage to that side door. Its current pilot range requires
+a west exterior classroom at least 6 × 6 m, with at least 2.8 m wall height. Other
+room types will need their own arrangements before expansion. The wall builder
+also keeps courtyard material spans local, so aligned classroom walls retain
+their own finish.
+
+Photo originals are retained unchanged, with hashes and supplied filenames in
+`data/reference/povo_photos/manifest.json`. The builder validates the three used
+photos and records their hashes and the manifest hash. The audit rejects a stale
+photo or catalogue. No people, screens or photograph pixels are used in generated
+textures. Original authorship/licences were not supplied for these new images;
+they remain working references.
+
+The most useful next reference is a photo showing A224's entrance and teaching
+wall together. Also identify P022's room, and confirm whether the teaching wall
+is left or right when facing A224's windows. A known door width or floor-tile
+size would help scale. Prefer 1× for details; 0.5× can show a whole small room.
+No scan is needed for this step.
 
 ## Next refinement
 

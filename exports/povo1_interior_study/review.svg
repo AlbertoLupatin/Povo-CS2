@@ -52,7 +52,7 @@
 <text x="508" y="660.2720731832665" font-size="14">Entrance</text>
 <text x="520" y="237" font-size="19">N ↑</text>
 <text x="100" y="953.3829787234042" font-size="17">Building outline: approximately 47 × 83 m</text>
-<text x="100" y="979.3829787234042" font-size="16">10 named rooms · unfurnished · heights estimated</text>
+<text x="100" y="979.3829787234042" font-size="15">10 named rooms · unfurnished · estimated heights</text>
 <text x="800" y="180" font-size="23" font-weight="bold">UPPER / A201–A224 + LAB</text>
 <rect x="800" y="215.0" width="400" height="706.3829787234042" fill="#d9dedf" stroke="#193441" stroke-width="1.5" />
 <rect x="873.7864077669904" y="333.3838288426571" width="21.747572815533978" height="466.4793255720594" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
@@ -130,7 +130,7 @@
 <path d="M 873.7864077669904 530.1571539896569 L 873.7864077669904 540.3699199471038" stroke="#ffffff" stroke-width="4"/>
 <rect x="800.0" y="435.3036814886533" width="73.7864077669903" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
 <text x="836.8932038834952" y="472.623633315229" text-anchor="middle" font-size="13" font-weight="bold">A224</text>
-<path d="M 873.7864077669904 463.5172503365056 L 873.7864077669904 473.73001629395236" stroke="#ffffff" stroke-width="4"/>
+<path d="M 873.7864077669904 440.19328405790253 L 873.7864077669904 450.4060500153493" stroke="#ffffff" stroke-width="4"/>
 <rect x="800.0" y="215.0" width="153.7864077669903" height="118.38382884265712" fill="#c2b3d5" stroke="#5a6268" stroke-width="1.5" />
 <text x="876.8932038834952" y="278.1919144213286" text-anchor="middle" font-size="13" font-weight="bold">LAB</text>
 <path d="M 871.7868209047717 333.3838288426571 L 881.9995868622186 333.3838288426571" stroke="#ffffff" stroke-width="4"/>
@@ -143,8 +143,8 @@
 <rect x="1135.0960545340909" y="373.58974662074377" width="52.13798801910055" height="48.94797741732705" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
 <text x="1220" y="237" font-size="19">N ↑</text>
 <text x="800" y="953.3829787234042" font-size="17">Building outline: approximately 47 × 83 m</text>
-<text x="800" y="979.3829787234042" font-size="16">25 named rooms · unfurnished · heights estimated</text>
+<text x="800" y="979.3829787234042" font-size="15">25 named rooms · A224 pilot furnished · estimated heights</text>
 <text x="45" y="1040" font-size="18">White wall gaps = door openings. Orange = stair reservations; stair flights are not built.</text>
-<text x="45" y="1075" font-size="17">Grey = other floor area awaiting subdivision (study areas, toilets, service spaces). No ceilings yet.</text>
-<text x="45" y="1110" font-size="17">Approximate footprints traced from unofficial plans. Shared finishes will be refined using your room photos.</text>
+<text x="45" y="1075" font-size="17">Grey = other floor area awaiting subdivision (study areas, toilets, service spaces). Ceiling in A224 only.</text>
+<text x="45" y="1110" font-size="17">A224 has a photo-guided pilot fit-out; furniture positions, dimensions and teaching side remain provisional.</text>
 </g></svg>

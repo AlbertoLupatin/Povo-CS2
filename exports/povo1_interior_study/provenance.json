@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "status": "Separate offline study; not deployed to the CS2 arena",
-  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. Rooms are unfurnished pending representative classroom photos.",
+  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 now has a photo-guided pilot fit-out; its furniture arrangement, seat count, dimensions and teaching side remain provisional. Other rooms are unfurnished.",
   "origin": [
     666250,
     5103800,
@@ -1222,9 +1222,10 @@
             460
           ],
           "door_side": "v_max",
-          "door_fraction": 0.5,
+          "door_fraction": 0.85,
           "door_width_metres": 1.2,
           "kind": "classroom",
+          "door_placement_note": "Approximately near the north end in the source plan; not a measured location",
           "bounds": [
             0.5937846836847946,
             0.0,
@@ -1242,7 +1243,29 @@
             7.830188679508865
           ],
           "approximate_area_square_metres": 67.886975638477,
-          "fitout": "Unfurnished; shared photo-guided kit planned"
+          "fitout": {
+            "seats": 24,
+            "window_bays": 7,
+            "status": "Photo-guided pilot; dimensions, seat count, teaching side and placement provisional",
+            "teaching_side": "south",
+            "reference_ids": [
+              "P020",
+              "P021",
+              "P022"
+            ]
+          },
+          "window_opening_local_metres": [
+            [
+              -23.2,
+              -53.26587125398218,
+              7.720000000000023
+            ],
+            [
+              -22.8,
+              -46.335682574473324,
+              10.340000000000023
+            ]
+          ]
         },
         {
           "id": "lab",
@@ -1350,14 +1373,14 @@
     }
   ],
   "statistics": {
-    "boxes": 164,
-    "vertices": 1312,
-    "triangles": 1968
+    "boxes": 563,
+    "vertices": 4504,
+    "triangles": 6756
   },
   "inputs": {
     "configuration": {
       "file": "config/povo1_interior_study.json",
-      "sha256": "d5cc2c3b74dd274562a2710dabd73637a4ba5fe6558914826633510377ebe9b6"
+      "sha256": "c971778eece7d612fee798a41cae115b7d20af46a49f165dedc42d0ba97d4f0c"
     },
     "alignment": {
       "file": "config/povo1_plan_alignment.json",
@@ -1366,6 +1389,10 @@
     "campus": {
       "file": "config/povo_blockout.json",
       "sha256": "637e8f26e8abbff4c26f7695a7a4a52eca81d17e13dc15e8c802773d1e74202a"
+    },
+    "photo_manifest": {
+      "file": "data/reference/povo_photos/manifest.json",
+      "sha256": "d33158af07a729c09bc1d851ed11fae61e0221f2d7cda4eab79b593483a68a95"
     }
   },
   "source_profiles": [
@@ -1547,14 +1574,37 @@
     }
   ],
   "deployment": "Excluded from cs2_project deploy; no arena collision changes",
+  "photo_sources": [
+    {
+      "id": "P020",
+      "file": "data/reference/povo_photos/images/P020_room_A224_reference1.jpeg",
+      "sha256": "fce6e299578e819c97f3bb6f09bf640796a56baab38010c20f2163aa4976671d",
+      "description": "Classroom A224",
+      "license": "Not supplied; reference use, not deployed as a texture"
+    },
+    {
+      "id": "P021",
+      "file": "data/reference/povo_photos/images/P021_A208_reference2.jpeg",
+      "sha256": "130e3dbb2f09fc500bc3d28ed85b0276705bcffbac1c11e58d3b3cd512df89e4",
+      "description": "Classroom A208",
+      "license": "Not supplied; reference use, not deployed as a texture"
+    },
+    {
+      "id": "P022",
+      "file": "data/reference/povo_photos/images/P022_Povo1_room_reference3.jpeg",
+      "sha256": "ec8477276cdb47814a619a226ae32c04c84c21ccee17dad63e96dc659d144cd1",
+      "description": "Povo 1 classroom, room number not supplied",
+      "license": "Not supplied; reference use, not deployed as a texture"
+    }
+  ],
   "artifacts": {
     "povo1_interior_study.obj": {
-      "sha256": "7e7ffe354a1b6236a9b14f4480e6a0542c98500b547efd3168d7f16e42c5315c",
-      "bytes": 143293
+      "sha256": "bc43d1c3a9ab3e4fedcd99caf3ce78e37aae677cae40034c07ea7571fea05a1f",
+      "bytes": 546926
     },
     "povo1_interior_study.mtl": {
-      "sha256": "ef9da381cd37573dc0322de8f39a48caf5d48e0cc5659de10852b7ed668747d0",
-      "bytes": 301
+      "sha256": "76630908a03641b44cb93a420fafecf3f8631d588e473ffb64e8f212f8b905a4",
+      "bytes": 1150
     },
     "floor_room.png": {
       "sha256": "8397efdb1383567a5e0c66686dc5e79a4997f9484ccfb1a9c256ec383780cb6c",
@@ -1565,12 +1615,20 @@
       "bytes": 582
     },
     "review.svg": {
-      "sha256": "c1d63806bd33b8865e145df56dda4ba0ae24ac4c1d7f72dc5fa9973a8a89d005",
-      "bytes": 19354
+      "sha256": "6854acf3761daacc28248cd4606588392a424b5641575ff59f4cb91b6acf77a2",
+      "bytes": 19368
     },
     "CREDITS.txt": {
-      "sha256": "be01a13b6887db1e5900f39f99a010243b630221dba73ba55962090d7256434c",
-      "bytes": 499
+      "sha256": "2a56846a86856ab0176f9ef12bfa7e65d7d4f6ad9de2940340d3d1fff4224711",
+      "bytes": 802
+    },
+    "floor_wood.png": {
+      "sha256": "eb60928bf80e25b422a68681a900a8356d70c705cc7d01af6faba7169bc06ed1",
+      "bytes": 14062
+    },
+    "ceiling_panel.png": {
+      "sha256": "26fcc159be9bf0589cc5c0ccd3921ba0dc1a445f1a1fd8efd30a2f541f5ced7e",
+      "bytes": 698
     }
   }
 }

@@ -144,6 +144,13 @@ def run_audit(config_path,asset_dir,output,*,root=ROOT,cell=.1,width=.85,height=
     for role,file in (('configuration',config_path),('alignment',root/config['alignment']),('campus',root/config['campus_config'])):
         if hashlib.sha256(file.read_bytes()).hexdigest()!=provenance['inputs'][role]['sha256']:
             raise ValueError('Study source changed; rebuild the interior study before auditing')
+    if 'photo_manifest' in provenance['inputs']:
+        record=provenance['inputs']['photo_manifest']
+        if hashlib.sha256((root/record['file']).read_bytes()).hexdigest()!=record['sha256']:
+            raise ValueError('Photo manifest changed; rebuild the interior study before auditing')
+    for record in provenance.get('photo_sources',[]):
+        if hashlib.sha256((root/record['file']).read_bytes()).hexdigest()!=record['sha256']:
+            raise ValueError('Photo source changed; rebuild the interior study before auditing')
     mesh=asset_dir/'povo1_interior_study.obj'
     if hashlib.sha256(mesh.read_bytes()).hexdigest()!=provenance['artifacts'][mesh.name]['sha256']:
         raise ValueError('Study OBJ differs from its recorded artifact hash')
@@ -174,7 +181,7 @@ def run_audit(config_path,asset_dir,output,*,root=ROOT,cell=.1,width=.85,height=
             'limitations':['Envelope dimensions are audit assumptions, not a claim about CS2 player physics.',
                            'Grid sampling is conservative for rectangular supports and expanded box obstacles.',
                            'No diagonal movement, jumps, stairs, vertical routes or engine collision/nav are validated.',
-                           'Named room centres are checked; furniture and real engine collision are not included.',
+                           'Named room centres are checked; exported pilot furniture is included, real engine collision is not.',
                            'Upper floor starts at an assumed landing approach; no exterior entry or link between floors is proven.']}
     names=[*maps,'report.json','review.svg']
     if any((output/name).is_symlink() or (output/name).is_dir() for name in names):

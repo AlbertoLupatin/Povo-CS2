@@ -3,7 +3,7 @@
   "alignment": "config/povo1_plan_alignment.json",
   "campus_config": "config/povo_blockout.json",
   "status": "Separate offline study; not deployed to the CS2 arena",
-  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. Rooms are unfurnished pending representative classroom photos.",
+  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. A224 now has a photo-guided pilot fit-out; its furniture arrangement, seat count, dimensions and teaching side remain provisional. Other rooms are unfurnished.",
   "reference_elevation_metres": 374.0,
   "floor_thickness_metres": 0.22,
   "wall_height_metres": 2.9,
@@ -594,9 +594,10 @@
             460
           ],
           "door_side": "v_max",
-          "door_fraction": 0.5,
+          "door_fraction": 0.85,
           "door_width_metres": 1.2,
-          "kind": "classroom"
+          "kind": "classroom",
+          "door_placement_note": "Approximately near the north end in the source plan; not a measured location"
         },
         {
           "id": "lab",
@@ -619,5 +620,22 @@
         488
       ]
     }
-  ]
+  ],
+  "photo_reference": {
+    "manifest": "data/reference/povo_photos/manifest.json",
+    "ids": [
+      "P020",
+      "P021",
+      "P022"
+    ]
+  },
+  "classroom_fitout": {
+    "level": "academic_first",
+    "room": "a224",
+    "teaching_side": "south",
+    "window_side": "west",
+    "aisle_width_metres": 1.3,
+    "row_pitch_metres": 1.1,
+    "placement_status": "Estimated arrangement pending user teaching-wall confirmation; no measured furniture dimensions"
+  }
 }

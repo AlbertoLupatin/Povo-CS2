@@ -43,8 +43,8 @@ unchanged. See [the architecture and plan review](docs/POVO_ARCHITECTURE.md).
 
 A separate [Povo 1 interior study](docs/POVO_INTERIOR_STUDY.md) now provides two
 provisional floor levels, 35 named room footprints with walls and doorways,
-courtyard/stair openings, corridors, and generated tile materials. Its dimensions remain adjustable while field photos
-are collected. This study is excluded from the CS2 deployment and playable arena.
+courtyard/stair openings, corridors, and a first furnished A224 pilot guided by
+the new classroom photos. Furniture placement and dimensions remain provisional. This study is excluded from the CS2 deployment and playable arena.
 
 The workspace contains real 0.5 m terrain samples for Povo and Mesiano, a Povo building-surface raster, municipal aerial references, and a Fedora → Windows workflow. The terrain conversion utility prepares a local-metre OBJ from an ASCII elevation grid; it does not create a Hammer map, collision, or game entities. Povo is the first map; Mesiano is retained as a later candidate. Its current sample covers the western approach and only part of the campus, so it must be expanded before modelling that campus.
 

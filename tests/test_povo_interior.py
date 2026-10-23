@@ -8,6 +8,7 @@ import unittest
 
 from tools import build_povo_interior as interior
 from tools import audit_povo_interior as audit
+from tools import povo_room_fitout as fitout
 
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -33,6 +34,14 @@ class InteriorStudyTests(unittest.TestCase):
         for name,data in ((self.config['alignment'],self.alignment),(self.config['campus_config'],self.campus)):
             file=self.root/name;file.parent.mkdir(parents=True,exist_ok=True)
             file.write_text(json.dumps(data))
+        photo_manifest=self.root/self.config['photo_reference']['manifest']
+        source=json.loads((ROOT/self.config['photo_reference']['manifest']).read_text())
+        photos=[]
+        for entry in source['images']:
+            if entry['id'] not in self.config['photo_reference']['ids']:continue
+            photo=photo_manifest.parent/entry['file'];photo.parent.mkdir(parents=True,exist_ok=True)
+            photo.write_bytes(png);entry['sha256']=hashlib.sha256(png).hexdigest();photos.append(entry)
+        photo_manifest.write_text(json.dumps({'images':photos}))
 
     def build(self,force=False):
         self.config_path.write_text(json.dumps(self.config))
@@ -144,7 +153,7 @@ class InteriorStudyTests(unittest.TestCase):
         self.assertEqual(result['status'],'passed')
         self.assertEqual(len(result['levels']),2)
         self.assertEqual([len(level['stations']) for level in result['levels']],[16,30])
-        self.assertEqual(len(audit.read_box_mesh(self.output/'povo1_interior_study.obj')),164)
+        self.assertGreater(len(audit.read_box_mesh(self.output/'povo1_interior_study.obj')),164)
         svg=(self.root/'audit/review.svg').read_text()
         self.assertIn('data:image/png;base64,',svg)
 
@@ -180,6 +189,49 @@ class InteriorStudyTests(unittest.TestCase):
         x,y=interior.local_point(a[2],(a[1]+a[3])/2,self.alignment['geographic_bounds'],self.origin)
         z=levels[0]['floor_elevation_metres']-self.origin[2]+1
         self.assertEqual(sum(self.contains_box(box,(x,y,z)) for box in boxes),1)
+
+    def test_pilot_window_cuts_the_real_wall_and_furniture_stays_in_its_room(self):
+        boxes,levels=interior.build_boxes(self.config,self.alignment,self.origin)
+        level=levels[1];room=next(r for r in level['rooms'] if r['id']=='a224')
+        x0,y0,x1,y1=room['footprint_local_metres'];z=level['floor_elevation_metres']-self.origin[2]
+        walls=[b for b in boxes if b[3] in ('wall','courtyard_wall')]
+        self.assertFalse(any(self.contains_box(b,(x0,(y0+y1)/2,z+1)) for b in walls))
+        self.assertTrue(any(self.contains_box(b,(x0,(y0+y1)/2,z+.05)) for b in walls))
+        self.assertTrue(any(self.contains_box(b,(x0,(y0+y1)/2,z+2.85)) for b in walls))
+        furniture=[b for b in boxes if b[0].startswith('academic_first_room_a224_') and b[3] in ('desk_dark','seat_wood')]
+        self.assertTrue(furniture)
+        for _name,lo,hi,_material in furniture:
+            self.assertTrue(x0<lo[0]<hi[0]<x1 and y0<lo[1]<hi[1]<y1)
+        self.assertGreater(room['fitout']['seats'],0)
+        self.assertTrue(any(b[3]=='ceiling_panel' for b in boxes))
+        self.assertTrue(any(b[3]=='floor_wood' for b in boxes))
+
+    def test_window_subtraction_preserves_solid_volume_and_has_no_overlaps(self):
+        box=('wall',(0,0,0),(3,4,5),'wall');hole=((1,1,1),(2,3,4))
+        pieces=fitout.subtract_box(box,hole)
+        def volume(lo,hi):return (hi[0]-lo[0])*(hi[1]-lo[1])*(hi[2]-lo[2])
+        self.assertEqual(sum(volume(lo,hi) for _,lo,hi,_ in pieces),54)
+        for i,(_,lo,hi,_) in enumerate(pieces):
+            for _,other_lo,other_hi,_ in pieces[i+1:]:
+                self.assertFalse(all(max(lo[a],other_lo[a])<min(hi[a],other_hi[a]) for a in range(3)))
+            self.assertFalse(all(max(lo[a],hole[0][a])<min(hi[a],hole[1][a]) for a in range(3)))
+
+    def test_photo_change_requires_catalogue_update_and_rebuild(self):
+        self.build()
+        photo_path=self.root/self.config['photo_reference']['manifest']
+        entry=json.loads(photo_path.read_text())['images'][0]
+        (photo_path.parent/entry['file']).write_bytes(b'changed photo')
+        before=(self.output/'povo1_interior_study.obj').read_bytes()
+        with self.assertRaisesRegex(ValueError,'Photo reference hash mismatch'):self.build(force=True)
+        self.assertEqual((self.output/'povo1_interior_study.obj').read_bytes(),before)
+        with self.assertRaisesRegex(ValueError,'Photo source changed'):
+            audit.run_audit(self.config_path,self.output,self.root/'audit',root=self.root)
+
+    def test_pilot_cannot_silently_move_to_an_interior_room_or_nonclassroom(self):
+        for target in ('lab','a217'):
+            config=copy.deepcopy(self.config);config['classroom_fitout']['room']=target
+            with self.subTest(room=target),self.assertRaises(ValueError):
+                interior.build_boxes(config,self.alignment,self.origin)
 
     def test_clearance_audit_accounts_for_width_and_door_headers(self):
         boxes=[('ground_slab_0',(0,0,-.2),(10,10,0),'floor_room'),

@@ -4,6 +4,50 @@ This is the durable record of material project actions. Git history remains the
 authoritative record of file-level changes; this log records decisions, local
 tool results, limitations, and work that affects the installed CS2 addon.
 
+## 23 October 2026 — New photos and first furnished A224 pilot
+
+- Inspected and registered seven user-supplied photos, P018–P024. Preserved their
+  original bytes/names, recorded hashes, descriptions and source uncertainty,
+  and refreshed the reference contact sheet. Reconciled the user's relocation
+  of P017 into `images/` as a byte-identical move. All 24 catalogue hashes pass.
+- P020 (A224) establishes tall framed glazing, a transom, dark desk tops, wooden
+  seating, a light wood-look floor, perforated suspended ceiling, recessed light
+  grids and ventilation cassettes. P021 (A208) adds a projector/board reference;
+  P022 shows a teaching board and projection screen but lacks a room number.
+  P019 supplies a westward exterior view. Outdoor P018/P023/P024 are reference
+  for later alignment; “courtyard” filenames are not assumed to locate the
+  central plan courtyard. No game season was selected from seasonal photos.
+- Added `tools/povo_room_fitout.py` and integrated a parameterized A224 pilot in
+  the existing interior mesh. It includes 24 estimated seats/desks, a teaching
+  desk, board/screen, ceiling panels, grid lights, vents, projector and window
+  framing. A real opening is subtracted from the west wall, preserving the sill
+  and head. OBJ/MTL glass has an opacity hint; there are no CS2 glass materials,
+  break interactions, game lights, people or copied photo pixels in this model.
+- Furniture count/placement, bay count, material colours, all fixture dimensions
+  and teaching-wall orientation remain estimates. The room's door fraction was
+  refined approximately toward its north end from the source plan. A central
+  aisle and transverse passage are reserved. Only A224 is furnished so far;
+  other ordinary rooms can reuse an adjusted kit after validation. Computer
+  rooms and the auditorium still need their own arrangements.
+- Added original generated wood-look/perforation textures with metric UVs.
+  Fixed wall material propagation so a collinear courtyard wall does not tint
+  unrelated classroom spans. The study is now 563 boxes / 6,756 triangles.
+  Recorded the three used photo hashes and catalogue hash; the builder/audit
+  reject stale photos. Refreshed exterior provenance for the catalogue update;
+  the exterior OBJ and arena collision remain byte-identical.
+- Added and visually inspected `classroom_A224.png`, rendered from the actual
+  exported mesh with clearly labelled cutaway and ceiling views. Regenerated
+  the whole-interior preview, room plan and clearance heatmaps. The clearance
+  audit includes furniture/fixtures and still reaches all 16 ground and 30 upper
+  stations independently. It does not validate in-game traversal or stairs.
+- All 66 unit tests pass, including new checks for opening volume, actual window
+  cuts/furniture bounds, changed-photo rejection and invalid pilot locations.
+  `git diff --check` passes. Windows integration/testing remains pending.
+- Asked the user for P022's room number and the teaching-wall side in A224.
+  Pending that optional answer, the south teaching side is explicitly provisional.
+  The next useful photo shows A224's entrance and teaching wall together; stair
+  views with both landings would help establish the floor connection.
+
 ## 23 October 2026 — Individual Povo 1 rooms and offline checks
 
 - Clarified the interior/exterior split after the user found the circulation

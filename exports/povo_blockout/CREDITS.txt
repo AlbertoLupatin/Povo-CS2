@@ -16,7 +16,7 @@ Changes: DTM cropped and decimated to a local-metre terrain mesh; orthophoto cop
 Photographic references for the exterior detail pass:
 {
   "manifest": "data/reference/povo_photos/manifest.json",
-  "manifest_sha256": "8d99a0cebbe20ee67a62f2fe1bee769562bb9dcc30f24dfc7ab1913faa8a5610",
+  "manifest_sha256": "d33158af07a729c09bc1d851ed11fae61e0221f2d7cda4eab79b593483a68a95",
   "images": [
     {
       "id": "P001",

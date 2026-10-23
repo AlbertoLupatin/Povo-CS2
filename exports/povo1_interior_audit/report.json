@@ -2,7 +2,7 @@
   "format_version": 1,
   "status": "passed",
   "scope": "Horizontal clearance through the exported axis-aligned box mesh, using a configurable standing envelope",
-  "mesh_sha256": "7e7ffe354a1b6236a9b14f4480e6a0542c98500b547efd3168d7f16e42c5315c",
+  "mesh_sha256": "bc43d1c3a9ab3e4fedcd99caf3ce78e37aae677cae40034c07ea7571fea05a1f",
   "levels": [
     {
       "id": "academic_ground",
@@ -188,8 +188,8 @@
         24.0,
         -20.0
       ],
-      "walkable_cells": 268006,
-      "reachable_cells": 268006,
+      "walkable_cells": 265239,
+      "reachable_cells": 265239,
       "stations": [
         {
           "id": "landing_approach",
@@ -469,7 +469,7 @@
     "Envelope dimensions are audit assumptions, not a claim about CS2 player physics.",
     "Grid sampling is conservative for rectangular supports and expanded box obstacles.",
     "No diagonal movement, jumps, stairs, vertical routes or engine collision/nav are validated.",
-    "Named room centres are checked; furniture and real engine collision are not included.",
+    "Named room centres are checked; exported pilot furniture is included, real engine collision is not.",
     "Upper floor starts at an assumed landing approach; no exterior entry or link between floors is proven."
   ]
 }

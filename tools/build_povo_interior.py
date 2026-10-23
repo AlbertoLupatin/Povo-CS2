@@ -15,15 +15,17 @@ import zlib
 
 try:
     from .build_povo_blockout import write_box
+    from .povo_room_fitout import COLORS as FITOUT_COLORS, apply_fitouts
 except ImportError:
     from build_povo_blockout import write_box
+    from povo_room_fitout import COLORS as FITOUT_COLORS, apply_fitouts
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ("povo1_interior_study.obj", "povo1_interior_study.mtl",
            "floor_room.png", "floor_circulation.png", "review.svg",
-           "provenance.json", "CREDITS.txt")
+           "provenance.json", "CREDITS.txt", "floor_wood.png", "ceiling_panel.png")
 COLORS = {"floor_room": (183, 180, 167), "floor_circulation": (201, 207, 204),
-          "wall": (220, 219, 208), "courtyard_wall": (70, 103, 105)}
+          "wall": (220, 219, 208), "courtyard_wall": (70, 103, 105), **FITOUT_COLORS}
 
 
 def rectangle(value):
@@ -196,8 +198,8 @@ def build_boxes(config, alignment, origin):
             a=local_point(*start,bounds,origin); b=local_point(*end,bounds,origin)
             axis=0 if a[0]!=b[0] else 1
             key=(axis,round(a[1-axis],8))
-            record=walls.setdefault(key,dict(name=f'{name}_{label}',spans=[],gaps=[],material=material))
-            if material=='courtyard_wall':record['material']=material
+            record=walls.setdefault(key,dict(name=f'{name}_{label}',spans=[],gaps=[],court_spans=[]))
+            if material=='courtyard_wall':record['court_spans'].append((a[axis],b[axis]))
             record['spans'].append((a[axis],b[axis]))
             length=b[axis]-a[axis]
             for centre in gaps:
@@ -230,6 +232,17 @@ def build_boxes(config, alignment, origin):
                 else:result.append((lo,hi))
             return result
         for (axis,constant),record in walls.items():
+            def material_at(position):
+                return 'courtyard_wall' if any(a<=position<=b for a,b in record['court_spans']) else 'wall'
+            def emit_span(label,start,end):
+                # Material changes along a collinear wall must not tint unrelated
+                # classroom walls just because they align with a courtyard edge.
+                low,high=start[axis],end[axis]
+                stops=sorted({low,high,*(v for a,b in record['court_spans'] for v in (a,b) if low<v<high)})
+                for k,(a,b) in enumerate(zip(stops,stops[1:])):
+                    minimum,maximum=list(start),list(end)
+                    minimum[axis],maximum[axis]=a,b
+                    solid_wall(label+f'_material{k}',minimum,maximum,z,material_at((a+b)/2))
             for i,(low,high) in enumerate(union(record['spans'])):
                 cuts=[(a,b) for a,b in union(record['gaps']) if a>=low and b<=high]
                 start=[constant,constant];end=[constant,constant]
@@ -239,26 +252,35 @@ def build_boxes(config, alignment, origin):
                 for j,(a,b) in enumerate(cuts):
                     if a>cursor:
                         end[axis]=a;start[axis]=cursor
-                        solid_wall(record['name']+f'_{i}_{j}',start,end,z,record['material'])
+                        emit_span(record['name']+f'_{i}_{j}',start,end)
                     minimum=list(start);maximum=list(end)
                     minimum[axis]=a;maximum[axis]=b
                     minimum[1-axis]-=config['wall_thickness_metres']/2
                     maximum[1-axis]+=config['wall_thickness_metres']/2
-                    slab(record['name']+f'_header_{i}_{j}',(*minimum,*maximum),z+config['door_height_metres'],z+config['wall_height_metres'],record['material'])
+                    slab(record['name']+f'_header_{i}_{j}',(*minimum,*maximum),z+config['door_height_metres'],z+config['wall_height_metres'],material_at((a+b)/2))
                     cursor=b
                 if cursor<high:
                     start[axis]=cursor;end[axis]=high
-                    solid_wall(record['name']+f'_{i}_tail',start,end,z,record['material'])
+                    emit_span(record['name']+f'_{i}_tail',start,end)
         level_records.append({"id":name,"floor_elevation_metres":z+origin[2],"labels":profile["labels"],"voids_local_metres":holes,
                               "rooms":room_records,"circulation":circulation,"courtyard":courtyard,
                               "external_entrance":level["external_entrance"],"vertical_connection":"Stair opening reserved; no stair flights or traversable connection yet"})
-    return boxes, level_records
+    return apply_fitouts(config,level_records,boxes,origin), level_records
 
 
-def tile_png(color):
+def tile_png(color, pattern='tile'):
     size=256
-    raw=b"".join(b"\0"+b"".join(bytes(tuple(max(0,c-32) for c in color) if x==0 or y==0 else color)
-                                for x in range(size)) for y in range(size))
+    def pixel(x,y):
+        if pattern=='wood':
+            board=x//64
+            seam=x%64==0 or (y+(board%2)*128)%256==0
+            grain=round(3*math.sin(x*.9+math.sin(y*.09))+2*math.sin(x*.24+y*.015))
+            offset=-25 if seam else grain+(board%3-1)*5
+        elif pattern=='perforated':
+            offset=-75 if x%8==2 and y%8==2 else (-22 if x==0 or y==0 else 0)
+        else:offset=-32 if x==0 or y==0 else 0
+        return bytes(max(0,min(255,c+offset)) for c in color)
+    raw=b"".join(b"\0"+b"".join(pixel(x,y) for x in range(size)) for y in range(size))
     def chunk(kind,data):
         return struct.pack(">I",len(data))+kind+data+struct.pack(">I",zlib.crc32(kind+data))
     return b"\x89PNG\r\n\x1a\n"+chunk(b"IHDR",struct.pack(">IIBBBBB",size,size,8,2,0,0,0))+chunk(b"IDAT",zlib.compress(raw,9))+chunk(b"IEND",b"")
@@ -323,10 +345,11 @@ def review_svg(config, alignment):
             parts.append(f'<text x="{px+8}" y="{py-12}" font-size="14">Entrance</text>')
         parts.append(f'<text x="{x+w+20}" y="{y+22}" font-size="19">N ↑</text>')
         parts.append(f'<text x="{x}" y="{y+h+32}" font-size="17">Building outline: approximately 47 × 83 m</text>')
-        parts.append(f'<text x="{x}" y="{y+h+58}" font-size="16">{len(rooms)} named rooms · unfurnished · heights estimated</text>')
+        detail='A224 pilot furnished' if index==1 and config.get('classroom_fitout') else 'unfurnished'
+        parts.append(f'<text x="{x}" y="{y+h+58}" font-size="15">{len(rooms)} named rooms · {detail} · estimated heights</text>')
     parts.extend(['<text x="45" y="1040" font-size="18">White wall gaps = door openings. Orange = stair reservations; stair flights are not built.</text>',
-                  '<text x="45" y="1075" font-size="17">Grey = other floor area awaiting subdivision (study areas, toilets, service spaces). No ceilings yet.</text>',
-                  '<text x="45" y="1110" font-size="17">Approximate footprints traced from unofficial plans. Shared finishes will be refined using your room photos.</text>',
+                  '<text x="45" y="1075" font-size="17">Grey = other floor area awaiting subdivision (study areas, toilets, service spaces). Ceiling in A224 only.</text>',
+                  '<text x="45" y="1110" font-size="17">A224 has a photo-guided pilot fit-out; furniture positions, dimensions and teaching side remain provisional.</text>',
                   '</g></svg>'])
     return "\n".join(parts)+"\n"
 
@@ -342,6 +365,21 @@ def build_study(config_path,output,*,root=ROOT,force=False):
     campus=json.loads(campus_path.read_text(encoding="utf-8"))
     targets={(output/name).resolve() for name in OUTPUTS}
     inputs=[config_path,alignment_path,campus_path,*(root/p["source_file"] for p in alignment["profiles"])]
+    photo_sources=[]
+    photo_manifest=None
+    if config.get('photo_reference'):
+        photo_manifest=root/config['photo_reference']['manifest']
+        photos=json.loads(photo_manifest.read_text(encoding='utf-8'))['images']
+        inputs.append(photo_manifest)
+        for identifier in config['photo_reference']['ids']:
+            matching=[p for p in photos if p['id']==identifier]
+            if len(matching)!=1:raise ValueError('Missing or duplicate photo reference ID')
+            photo=matching[0];file=photo_manifest.parent/photo['file']
+            if not file.resolve().is_relative_to(root.resolve()):raise ValueError('Photo reference outside project')
+            if hashlib.sha256(file.read_bytes()).hexdigest()!=photo['sha256']:raise ValueError('Photo reference hash mismatch')
+            inputs.append(file)
+            photo_sources.append(dict(id=identifier,file=str(file.relative_to(root)),sha256=photo['sha256'],
+                description=photo['description'],license=photo.get('license','Not supplied')))
     if any(file.resolve() in targets for file in inputs):raise ValueError("Generated files must not replace inputs")
     for profile in alignment["profiles"]:
         image=root/profile["source_file"]
@@ -354,6 +392,10 @@ def build_study(config_path,output,*,root=ROOT,force=False):
                               "sha256":hashlib.sha256(file.read_bytes()).hexdigest()}
                         for name,file in (("configuration",config_path),("alignment",alignment_path),("campus",campus_path))},
               "source_profiles":alignment["profiles"],"deployment":"Excluded from cs2_project deploy; no arena collision changes"}
+    if photo_manifest:
+        metadata['inputs']['photo_manifest']={'file':str(photo_manifest.relative_to(root)),
+            'sha256':hashlib.sha256(photo_manifest.read_bytes()).hexdigest()}
+    metadata['photo_sources']=photo_sources
     output.parent.mkdir(parents=True,exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".povo-interior-",dir=output.parent) as temporary:
         stage=Path(temporary)
@@ -364,16 +406,21 @@ def build_study(config_path,output,*,root=ROOT,force=False):
         mtl=[]
         for name,color in COLORS.items():
             mtl.append(f"newmtl {name}\nKd {' '.join(str(v/255) for v in color)}\nillum 1\n")
-            if name.startswith("floor_"):
+            if name.startswith("floor_") or name=='ceiling_panel':
                 # White multiplier keeps generated tile colors unchanged.
                 mtl[-1]=f"newmtl {name}\nKd 1 1 1\nillum 1\nmap_Kd {name}.png\n"
-                (stage/(name+".png")).write_bytes(tile_png(color))
+                pattern={'floor_wood':'wood','ceiling_panel':'perforated'}.get(name,'tile')
+                (stage/(name+".png")).write_bytes(tile_png(color,pattern))
+            if name=='window_glass':mtl[-1]+='d 0.18\n'
         (stage/OUTPUTS[1]).write_text("\n".join(mtl),encoding="utf-8")
         (stage/"review.svg").write_text(review_svg(config,alignment),encoding="utf-8")
         (stage/"CREDITS.txt").write_text("Povo 1 room and circulation study. Plan reference: https://github.com/agusmeroli/mappe-povo\n"
             "Plans are marked unofficial; no redistribution licence established in the inspected source tree.\n"
             "Geometry is a coarse, assumption-labelled study; no source-image pixels are used as game textures.\n"
-            "Tile patterns and material colors are original generated placeholders, not observed campus finishes.\n"
+            "A224 fit-out appearance references user-supplied P020/P021/P022. Room identity for P022 is unknown.\n"
+            "No people, screen text or source-image pixels are reproduced in generated assets.\n"
+            "Wood-look floor, ceiling and furniture colors are approximate; generated texture patterns are original.\n"
+            "Furniture arrangement, count, glazing and fixture dimensions are provisional. No functional breakable glass is built.\n"
             "Source locations and hashes are recorded in provenance.json; do not treat floor heights or doors as measured.\n",encoding="utf-8")
         metadata["artifacts"]={name:{"sha256":hashlib.sha256((stage/name).read_bytes()).hexdigest(),"bytes":(stage/name).stat().st_size}
                                for name in OUTPUTS if name!="provenance.json"}

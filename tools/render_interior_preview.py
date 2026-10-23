@@ -35,7 +35,7 @@ def main():
                                          ("academic_first","Upper level / assumed +3.6 m"))):
         faces,colors=[],[]
         for name,triangles in groups.items():
-            if name.startswith(level+"_"):
+            if name.startswith(level+"_") and '_ceiling_' not in name and materials[name]!='window_glass':
                 faces.extend(triangles)
                 colors.extend([np.array(COLORS[materials[name]])/255]*len(triangles))
         triangles=vertices[np.array(faces)]
@@ -51,7 +51,7 @@ def main():
         image=plt.imread(args.asset_dir/(name+".png"))
         ax.imshow(np.tile(image,(4,4,1)));ax.set_axis_off()
         ax.set_title(label,fontsize=12,color="#193441")
-    fig.text(.045,.08,"Courtyard void on both levels; four reserved stair openings upstairs. No flights or ceilings yet.",fontsize=13,color="#193441")
+    fig.text(.045,.08,"A224 pilot furnished; its ceiling and glass hidden for this cutaway. Stair flights are still pending.",fontsize=13,color="#193441")
     fig.text(.045,.045,"Swatches show the generated 0.6 m tile materials. Geometry preview uses flat colors. This study is not deployed to CS2.",fontsize=11,color="#54707b")
     args.output.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(args.output,dpi=140,facecolor=fig.get_facecolor())

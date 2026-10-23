@@ -163,6 +163,48 @@ User-supplied Povo 1 plan; filename floor1; small reference image. Source and li
 
 ## P017
 
-File: [P017_povo1_floor2_planimetry.png](P017_povo1_floor2_planimetry.png)
+File: [P017_povo1_floor2_planimetry.png](images/P017_povo1_floor2_planimetry.png)
 
 User-supplied Povo 1 plan; filename floor2; A2xx room layout. Source and licence not supplied. Original image retained as reference.
+
+## P018
+
+File: [P018_povo1_courtyard_facing_right.jpeg](images/P018_povo1_courtyard_facing_right.jpeg)
+
+Povo 1 external campus passage, facing right as named by user. Supplied by the user; original photographer, capture date and licence not supplied. Retained unchanged as architectural reference; not used as a game texture.
+
+## P019
+
+File: [P019_povo1_view_from_A224_looking_west.jpeg](images/P019_povo1_view_from_A224_looking_west.jpeg)
+
+View west from A224, as named by user. Supplied by the user; original photographer, capture date and licence not supplied. Retained unchanged as architectural reference; not used as a game texture.
+
+## P020
+
+File: [P020_room_A224_reference1.jpeg](images/P020_room_A224_reference1.jpeg)
+
+Classroom A224. Supplied by the user; original photographer, capture date and licence not supplied. Retained unchanged as architectural reference; not used as a game texture.
+
+## P021
+
+File: [P021_A208_reference2.jpeg](images/P021_A208_reference2.jpeg)
+
+Classroom A208. Supplied by the user; original photographer, capture date and licence not supplied. Retained unchanged as architectural reference; not used as a game texture.
+
+## P022
+
+File: [P022_Povo1_room_reference3.jpeg](images/P022_Povo1_room_reference3.jpeg)
+
+Povo 1 classroom, room number not supplied. Supplied by the user; original photographer, capture date and licence not supplied. Retained unchanged as architectural reference; not used as a game texture.
+
+## P023
+
+File: [P023_Povo1_courtyard_facing_South_summer.jpeg](images/P023_Povo1_courtyard_facing_South_summer.jpeg)
+
+Povo 1 outdoor area facing south, summer, as named by user. Supplied by the user; original photographer, capture date and licence not supplied. Retained unchanged as architectural reference; not used as a game texture.
+
+## P024
+
+File: [P024_Povo1_courtyard_facing_South_winter.jpeg](images/P024_Povo1_courtyard_facing_South_winter.jpeg)
+
+Povo 1 outdoor area facing south, winter, as named by user. Supplied by the user; original photographer, capture date and licence not supplied. Retained unchanged as architectural reference; not used as a game texture.

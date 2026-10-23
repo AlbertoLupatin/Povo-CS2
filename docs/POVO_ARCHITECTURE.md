@@ -17,7 +17,9 @@ pass. Exact window counts, positions, dimensions and floor levels are estimates.
   bay/row counts, photographic IDs and a note about placement uncertainty.
 - `data/reference/povo_photos/manifest.json` records the user-reviewed photographs,
   sources, licences, file paths, and hashes. The two user-supplied plans are P016
-  and P017; their original filenames and file locations are retained.
+  and P017; original filenames and file history are retained. P017 was moved by
+  the user into `images/` without changing its bytes. P018–P024 add classroom and
+  exterior views; see [the interior study](POVO_INTERIOR_STUDY.md) for the A224 pilot.
 - `tools/povo_architecture.py` generates closed visual components in local metres.
   `build_povo_blockout.py` adds them to the existing visual OBJ and records their
   assumptions and photographic credits in the export provenance. It verifies

@@ -26,4 +26,13 @@ Source credits and image hashes remain in manifest.json and CREDITS.md.
 | P014 | [P014_povo2_internal_corridor.jpg](images/P014_povo2_internal_corridor.jpg) | Povo 2 internal corridor | |
 | P015 | [P015_povo1_povo2_connecting_bridge_interior.jpg](images/P015_povo1_povo2_connecting_bridge_interior.jpg) | Interior of connecting bridge | |
 | P016 | [P016_povo1_floor1_planimetry.jpg](images/P016_povo1_floor1_planimetry.jpg) | User-supplied Povo 1 plan; filename floor1; small reference image | Floor numbers retained as supplied; reconcile with academic/lift numbering |
-| P017 | [P017_povo1_floor2_planimetry.png](P017_povo1_floor2_planimetry.png) | User-supplied Povo 1 plan; filename floor2; A2xx room layout | Floor numbers retained as supplied; reconcile with academic/lift numbering |
+| P017 | [P017_povo1_floor2_planimetry.png](images/P017_povo1_floor2_planimetry.png) | User-supplied Povo 1 plan; filename floor2; A2xx room layout | Floor numbers retained as supplied; reconcile with academic/lift numbering |
+| P018 | [P018_povo1_courtyard_facing_right.jpeg](images/P018_povo1_courtyard_facing_right.jpeg) | Povo 1 external campus passage, facing right as named by user | Dimensions and exact positions not measured |
+| P019 | [P019_povo1_view_from_A224_looking_west.jpeg](images/P019_povo1_view_from_A224_looking_west.jpeg) | View west from A224, as named by user | Dimensions and exact positions not measured |
+| P020 | [P020_room_A224_reference1.jpeg](images/P020_room_A224_reference1.jpeg) | Classroom A224 | Dimensions and exact positions not measured |
+| P021 | [P021_A208_reference2.jpeg](images/P021_A208_reference2.jpeg) | Classroom A208 | Dimensions and exact positions not measured |
+| P022 | [P022_Povo1_room_reference3.jpeg](images/P022_Povo1_room_reference3.jpeg) | Povo 1 classroom, room number not supplied | Room number needed |
+| P023 | [P023_Povo1_courtyard_facing_South_summer.jpeg](images/P023_Povo1_courtyard_facing_South_summer.jpeg) | Povo 1 outdoor area facing south, summer, as named by user | Dimensions and exact positions not measured |
+| P024 | [P024_Povo1_courtyard_facing_South_winter.jpeg](images/P024_Povo1_courtyard_facing_South_winter.jpeg) | Povo 1 outdoor area facing south, winter, as named by user | Dimensions and exact positions not measured |
+
+P018–P024 were supplied later on 23 October. “Courtyard” in a filename can refer to the external campus spaces; it does not establish the central indoor-plan courtyard location. P017 was moved by the user into `images/` without changing its bytes.
