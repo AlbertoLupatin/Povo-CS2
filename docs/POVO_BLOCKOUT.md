@@ -55,10 +55,17 @@ Bases, bridge depth, and gaps remain modelling assumptions. A `calibration_1m`
 cube at local `(-120, -170, 0)` is solely for import-scale checks and should be
 removed from the finished game scene.
 
-The checked-in export currently contains 30,624 visual triangles and 38 gameplay
+The checked-in export currently contains 41,724 visual triangles and 38 gameplay
 volumes (six cover boxes plus a segmented perimeter). Its 2,304-triangle cropped
 collision export feeds ModelDoc physics and CS2 nav generation. CS2 entities,
 lighting, navigation seeding, and packaging remain in the VMAP workflow rather
 than this geographic export. The blockout still has no detailed entrances,
 stairs, interiors, final materials, or release radar artwork. Continue with
 [the Windows handoff](WINDOWS_HANDOFF.md) and [the CS2 workflow](CS2_WORKFLOW.md).
+
+The optional `architecture` configuration now adds 926 visual detail components:
+photo-guided facade grids/window patterns and a bridge structure. It checks the
+referenced photo hashes and adds source credits to provenance. Facade dimensions
+and deck height remain estimates; the original arena collision is unchanged.
+See [the architecture/plan review](POVO_ARCHITECTURE.md) for source limitations,
+material behaviour, previews, and the newly registered Povo 1 interior plans.

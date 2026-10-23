@@ -12,3 +12,386 @@ Source attribution and licences:
 }
 
 Changes: DTM cropped and decimated to a local-metre terrain mesh; orthophoto copied intact and UV-mapped; approximate rectangular building volumes added using configured roof elevations and assumed bases; configured gameplay cover and segmented boundary volumes fitted to the terrain. No interiors or compiled CS2 map included. Original evidence and hashes: provenance.json.
+
+Photographic references for the exterior detail pass:
+{
+  "manifest": "data/reference/povo_photos/manifest.json",
+  "manifest_sha256": "8d99a0cebbe20ee67a62f2fe1bee769562bb9dcc30f24dfc7ab1913faa8a5610",
+  "images": [
+    {
+      "id": "P001",
+      "file": "images/P001_povo1_construction_overview_2010.jpg",
+      "description": "Povo 1 construction overview, 2010",
+      "source_title": "File:Trento-university-science-faculty-2010.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Trento-university-science-faculty-2010.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Trento-university-science-faculty-2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Robiminer",
+      "date": "2010-06-01",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "changes": "Original JPEG downloaded unchanged",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 3648,
+      "height": 2736,
+      "sha256": "cf3acd9ba604b32c43900261c9c96f9f8b2c8b9c0ee7f79814b70e1bae618486",
+      "bytes": 2662754,
+      "original_download_filename": "P001.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "filename_history": [
+        {
+          "file": "images/P001_povo1_probable_construction_overview_2010.jpg",
+          "reason": "Replaced by user-corrected filename on 2026-10-23"
+        }
+      ],
+      "catalogue_description_before_user_review": "Campus exterior, 2010; identify the facade",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P001_povo1_construction_overview_2010.jpg"
+      }
+    },
+    {
+      "id": "P002",
+      "file": "images/P002_povo1_street_glass_facade_2011.jpg",
+      "description": "Povo 1 street-facing glass facade, 2011",
+      "source_title": "File:The facade of the new building of the Science Faculty, Polo \"Fabio Ferrari\". - panoramio.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:The_facade_of_the_new_building_of_the_Science_Faculty,_Polo_%22Fabio_Ferrari%22._-_panoramio.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/The_facade_of_the_new_building_of_the_Science_Faculty%2C_Polo_%22Fabio_Ferrari%22._-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Vítor E. Silva Souza",
+      "date": "13 July 2011 (original upload date)",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "changes": "Original JPEG downloaded unchanged",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 2048,
+      "height": 1536,
+      "sha256": "d95c9a0176b26f2ee6673d815fdf102b674622728a0b71cbfeb3353a667a2525",
+      "bytes": 655549,
+      "original_download_filename": "P002.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "filename_history": [
+        {
+          "file": "images/P002_povo1_probable_street_glass_facade_2011.jpg",
+          "reason": "Replaced by user-corrected filename on 2026-10-23"
+        }
+      ],
+      "catalogue_description_before_user_review": "Polo Ferrari facade, 2011; identify the facade",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P002_povo1_street_glass_facade_2011.jpg"
+      }
+    },
+    {
+      "id": "P003",
+      "file": "images/P003_povo1_glass_facade_window_frames_facing_internal_building.jpg",
+      "description": "Povo 1 window framing facing the internal building",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 130,
+      "printed_page": 128,
+      "image_on_page": 1,
+      "author": "Archivio UniTrento / Alessio Coser",
+      "date": "2010",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 853,
+      "height": 1167,
+      "sha256": "a0d86f18b899290d692de5471fb9d90c140393181d4115ac35ed5bc0f51abbac",
+      "bytes": 162496,
+      "original_download_filename": "P003.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "filename_history": [
+        {
+          "file": "images/P003_povo1_glass_facade_window_frames.jpg",
+          "reason": "Replaced by user-corrected filename on 2026-10-23"
+        }
+      ],
+      "catalogue_description_before_user_review": "Povo 1 glazed facade / window framing",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P003_povo1_glass_facade_window_frames_facing_internal_building.jpg"
+      }
+    },
+    {
+      "id": "P004",
+      "file": "images/P004_povo1_glass_facade_at_night_winter.jpg",
+      "description": "Povo 1 glass facade at night in winter",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 131,
+      "printed_page": 129,
+      "image_on_page": 1,
+      "author": "Archivio UniTrento / Alessio Coser",
+      "date": "2010",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 855,
+      "height": 560,
+      "sha256": "4ac33724c5f61b9261924487e400cdbb7e1bfc51508cb7fbb7f5f6140716fc7a",
+      "bytes": 132044,
+      "original_download_filename": "P004.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "filename_history": [
+        {
+          "file": "images/P004_povo1_glass_facade_at_night.jpg",
+          "reason": "Replaced by user-corrected filename on 2026-10-23"
+        }
+      ],
+      "catalogue_description_before_user_review": "Povo 1 glazed facade at night",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P004_povo1_glass_facade_at_night_winter.jpg"
+      }
+    },
+    {
+      "id": "P005",
+      "file": "images/P005_povo1_courtyard_glass_facade.jpg",
+      "description": "Povo 1 courtyard and facade",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 131,
+      "printed_page": 129,
+      "image_on_page": 2,
+      "author": "Archivio UniTrento / Alessio Coser",
+      "date": "2010",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 855,
+      "height": 560,
+      "sha256": "e0d736210f50e8256bbaec523043d3f1e1e7e8b80ca2c5d49f5883672f0b9493",
+      "bytes": 123777,
+      "original_download_filename": "P005.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P005_povo1_courtyard_glass_facade.jpg"
+      }
+    },
+    {
+      "id": "P006",
+      "file": "images/P006_povo1_courtyard_external_stairs_winter.jpg",
+      "description": "Povo 1 courtyard and external stairs in winter",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 132,
+      "printed_page": 130,
+      "image_on_page": 1,
+      "author": "Archivio UniTrento / Alessio Coser",
+      "date": "2010",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 855,
+      "height": 558,
+      "sha256": "0ed6084a70e6590596bb0a14f547e29128682ed63144fab17e0c041843076642",
+      "bytes": 121826,
+      "original_download_filename": "P006.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "filename_history": [
+        {
+          "file": "images/P006_povo1_courtyard_external_stairs.jpg",
+          "reason": "Replaced by user-corrected filename on 2026-10-23"
+        }
+      ],
+      "catalogue_description_before_user_review": "Povo 1 courtyard and external steps",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P006_povo1_courtyard_external_stairs_winter.jpg"
+      }
+    },
+    {
+      "id": "P009",
+      "file": "images/P009_povo2_exterior_overview.jpg",
+      "description": "Povo 2 exterior overview",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 139,
+      "printed_page": 137,
+      "image_on_page": 1,
+      "author": "Archivio UniTrento / Alessio Coser",
+      "date": "2020",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 855,
+      "height": 560,
+      "sha256": "a53bf9ce729a21bcb8fabdcb9cfb1a7fe0e146bea1846e5b8e48ece85c81140f",
+      "bytes": 164391,
+      "original_download_filename": "P009.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P009_povo2_exterior_overview.jpg"
+      }
+    },
+    {
+      "id": "P010",
+      "file": "images/P010_povo2_glass_facade_landscaping.jpg",
+      "description": "Povo 2 glass facade and landscaping",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 140,
+      "printed_page": 138,
+      "image_on_page": 1,
+      "author": "Archivio UniTrento; individual photographer not captioned on this page",
+      "date": "Not specified on page",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 856,
+      "height": 1168,
+      "sha256": "b70ff17fb5247841e81377dc3709f67bfea4615c91ff2913b3339ca4f5da7d55",
+      "bytes": 173682,
+      "original_download_filename": "P010.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "filename_history": [
+        {
+          "file": "images/P010_povo2_probable_glass_facade_landscaping.jpg",
+          "reason": "Replaced by user-corrected filename on 2026-10-23"
+        }
+      ],
+      "catalogue_description_before_user_review": "Povo 2 glazed exterior and planting; caption not provided",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P010_povo2_glass_facade_landscaping.jpg"
+      }
+    },
+    {
+      "id": "P011",
+      "file": "images/P011_povo2_street_facing_facade.jpg",
+      "description": "Povo 2 street-facing volumes and facade",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 141,
+      "printed_page": 139,
+      "image_on_page": 1,
+      "author": "Archivio UniTrento / Alessio Coser",
+      "date": "2015-2020",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 855,
+      "height": 560,
+      "sha256": "cdd53faa1d9072be61b0cf0f72828780bebba0069b7ed7dd0cc49ecf1024faf5",
+      "bytes": 114604,
+      "original_download_filename": "P011.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P011_povo2_street_facing_facade.jpg"
+      }
+    },
+    {
+      "id": "P012",
+      "file": "images/P012_povo2_courtyard_terrace.jpg",
+      "description": "Povo 2 courtyard / terrace",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 141,
+      "printed_page": 139,
+      "image_on_page": 2,
+      "author": "Archivio UniTrento / Alessio Coser",
+      "date": "2015-2020",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 851,
+      "height": 560,
+      "sha256": "a3693dd32e8777e639969f8d4572f2a082bf34e08dfa63f005c9be3c89df1aa2",
+      "bytes": 94608,
+      "original_download_filename": "P012.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P012_povo2_courtyard_terrace.jpg"
+      }
+    },
+    {
+      "id": "P013",
+      "file": "images/P013_povo1_povo2_connecting_bridge_exterior.jpg",
+      "description": "Bridge connecting Povo 1 and Povo 2",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 142,
+      "printed_page": 140,
+      "image_on_page": 1,
+      "author": "Archivio UniTrento / Alessio Coser",
+      "date": "2020",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 855,
+      "height": 558,
+      "sha256": "1d2741dba924702725c33f71c6bd3f232dedf04dec7de63fddd308f3e5df1dcc",
+      "bytes": 95555,
+      "original_download_filename": "P013.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P013_povo1_povo2_connecting_bridge_exterior.jpg"
+      }
+    },
+    {
+      "id": "P015",
+      "file": "images/P015_povo1_povo2_connecting_bridge_interior.jpg",
+      "description": "Interior of connecting bridge",
+      "source_title": "Un campus tra le Alpi. Vivere e studiare a Trento (Universita degli Studi di Trento, 2023)",
+      "source_page": "https://iris.unitn.it/retrieve/handle/11572/397169/760631/0639_22_EdificiUNITN_web.pdf",
+      "pdf_page": 143,
+      "printed_page": 141,
+      "image_on_page": 1,
+      "author": "Archivio UniTrento / Alessio Coser",
+      "date": "2020",
+      "license": "CC BY-SA 4.0 (digital edition declaration, PDF page 6)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "JPEG image extracted from the PDF; page layout removed; captions retained in this manifest",
+      "location_status": "Building and depicted feature reviewed by user; use only the orientation/floor information explicitly supplied",
+      "width": 853,
+      "height": 558,
+      "sha256": "1718eaf0e87643e300c5a15bdec5f47f3eede41f6e6200aa1864871191b802c0",
+      "bytes": 111989,
+      "original_download_filename": "P015.jpg",
+      "name_status": "User-reviewed filename",
+      "location_confidence": "User-confirmed building/feature; exact metric placement still requires alignment",
+      "user_review": {
+        "date": "2026-10-23",
+        "evidence": "User confirmed the image set and corrected filenames in images/",
+        "reviewed_filename": "P015_povo1_povo2_connecting_bridge_interior.jpg"
+      }
+    }
+  ]
+}
+Changes: facade grids, stone/window bands and bridge components modelled using estimated dimensions. No source photograph pixels are used as game textures. Preserve photographic source credits and licences.

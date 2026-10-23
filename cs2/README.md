@@ -15,10 +15,11 @@ Use the cross-platform project command from the repository root:
 
 ```sh
 python tools/cs2_project.py doctor
+python tools/build_povo_radar.py --force
 python tools/cs2_project.py place-blockout
 python tools/cs2_project.py deploy
 python tools/cs2_project.py compile --target model
-python tools/cs2_project.py compile --target map
+python tools/cs2_project.py compile --target all
 python tools/cs2_project.py sync-from-cs2
 ```
 
@@ -35,6 +36,12 @@ discovered library.
 
 `compile --target map` intentionally compiles the ModelDoc source before the map;
 Valve's map compiler can otherwise reuse stale model collision and materials.
+
+`compile --target all` also compiles the generated radar textures after the map
+and restores their matching overview last. `compile --target radar` updates just
+the loose radar resources. This does not add them to an already-built map VPK;
+Windows compilation, runtime alignment and packaged inclusion still need the
+checks in [the radar workflow](../docs/POVO_RADAR.md).
 
 Deployment is additive: it updates project-owned files but does not delete other
 files from the installed addon. Hammer and ModelDoc save into the installed

@@ -274,3 +274,121 @@ local bot round before the two-client multiplayer gate.
   architecture/materials and representative balance sessions remain release
   work; this checkpoint is not the claimed finished map.
 
+## 23 October 2026 — Linux continuation and schematic radar source
+
+### Recovered baseline
+
+- Confirmed local `main` was clean at the start and matches GitHub's only branch
+  at `26ee052e450b2c0d6258444bdd6cea23ff93a1ad`, the compact arena commit from
+  Windows. No remote changes needed to be imported.
+- Read the Windows build/runtime evidence and ran all 26 baseline tests.
+  `doctor` finds the geographic/addon sources ready on Fedora; the Windows
+  Workshop Tools are unavailable in this session.
+
+### Radar source and build workflow
+
+- Added `tools/build_povo_radar.py`, using only the Python standard library. It
+  generates a transparent 1024-pixel schematic radar, two explicitly named VTEX
+  sources, overview coordinates/markers, an annotated SVG review, source/output
+  hashes, and credits under `exports/povo_radar/`.
+- Reused the geographic generator's perimeter segments and configured cover
+  footprints. Starts/objective come from the existing verified placement code.
+  The transform preserves world X=north and world Y=east, so geographic north
+  points right and east points up. A 7 m margin yields a 144 m square and
+  5.536417323 Hammer units per pixel without stretching the narrow arena.
+- The runtime image includes an A at the objective origin. The separate review
+  adds twelve start dots, cover heights, compass labels, and a 10 m scale bar;
+  its PNG was rendered with ImageMagick and visually inspected. The schematic
+  does not infer nav connectivity, buy-zone bounds, or plantable trigger extents.
+- Extended additive deployment to install the image/VTEX sources in addon content
+  and the generated overview in addon game resources. `doctor` now checks all
+  deployment inputs, including the cropped collision and radar files.
+- Added `compile --target radar`. The full `--target all` sequence builds model,
+  map, then radar textures and restores the generated overview last, because map
+  compilation can regenerate its own radar assets. Input preflight happens before
+  launching the first compiler. `--target map` retains its previous behavior.
+- Documented generation, compile order, coordinate alignment, and Windows checks
+  in `docs/POVO_RADAR.md` and linked it from the main workflows.
+
+### Verification and remaining gates
+
+- All 34 unit tests pass on Python 3.14.8: the 26 baseline tests plus eight tests
+  covering radar coordinate handedness/known CT coordinates, square scaling,
+  perimeter coverage, PNG CRC/dimensions/transparency/cover colors, deterministic
+  exports, failed-input preservation, deployment, and compiler ordering/failure.
+- Deployed the real repository source into a temporary simulated CS2 tree:
+  18 file hashes verified, dry-run wrote nothing, and a second deployment reported
+  every file unchanged. All seven generator-owned radar files match a clean
+  rebuild byte for byte. `git diff --check` passed.
+- No Valve compiler or game runtime was executed. The VTEX schema and generated
+  lookup names need confirmation in the installed CS2 build. Compiling loose
+  textures after a map **does not insert them into its existing VPK**; final
+  packaged inclusion and a clean-install radar check remain required.
+- The completed bot round, buy/plant/defuse, restart, performance, direct cube
+  measurement, and two-independent-client match gates remain open. This change
+  supplies reviewable radar source, not a newly verified playable Windows build.
+
+## 23 October 2026 — photographic references and user identification
+
+- Collected 15 architectural reference JPEGs in `data/reference/povo_photos/`,
+  with source credits, licence records, original image hashes, and a contact
+  sheet. Sources comprise two Wikimedia photographs and thirteen image extracts
+  from the university's 2023 campus publication. These are research references;
+  they have not been incorporated into game textures or new map geometry.
+- The user reviewed the set and corrected six filenames: P001, P002, P003, P004,
+  P006, and P010. Synchronized the manifest, credit links, location worksheet,
+  and contact sheet with the actual filenames. All 15 JPEG hashes still match.
+- P001/P002 are confirmed as Povo 1 and P010 as Povo 2. P003 faces the internal
+  building; P004/P006 depict winter conditions. These notes do not establish
+  cardinal viewing directions, floor levels, dimensions, or a game-map season.
+- LiDAR capture is deferred until the user can try it. The photographic set now
+  includes stairwell, library, corridor, and connecting-bridge references, but
+  does not establish a complete measured internal floor plan.
+
+## 23 October 2026 — first exterior detail pass and Povo 1 plan registration
+
+- Added optional architectural configuration and `tools/povo_architecture.py`.
+  Eight facade sections now use photo-guided glazing grids or stone/window
+  patterns. The bridge placeholder is replaced visually by a deck, roof, posts
+  and louvers. The export contains 926 architectural components and 41,724 total
+  visual triangles. Bay counts, floor/window dimensions and facade assignment are
+  estimates recorded per section, not measurements inferred as fact.
+- Added four opaque material sources and their ModelDoc remaps; all nine OBJ
+  materials resolve to repository-owned material sources. Glazing is a teal
+  placeholder, without transparency or breakage. New details remain outside the
+  gameplay collision export; its bytes match the previous Windows baseline and
+  still describe 2,304 triangles. No new interior routes are deployed.
+- The bridge roof retains the earlier 385.69 m DBM estimate. Its 382.49 m deck is
+  estimated 3.2 m below the roof, rather than treating the old roof-height slab
+  as an accessible floor. The bridge is still scenery pending measured landing
+  and floor relationships.
+- Added photograph hash verification and reference/assumption records to the
+  geographic export. Regenerated the visual OBJ, material library, provenance,
+  credits and radar metadata. Updated the full-campus preview and added an
+  architectural close-up renderer with a depth buffer for thin facade layers.
+  The resulting source-mesh preview was visually inspected.
+- Registered the user's P016/P017 plan images without moving or changing their
+  original files. Downloaded the two PDFs, two floor-plan PNGs and README from
+  `agusmeroli/mappe-povo`; retained URL/hash provenance and the inspected tree SHA.
+  The repository describes these as unofficial maps; no licence file was listed.
+  Downloaded plans remain reference material outside the deployment pipeline.
+- Inspected/rendered the staircase PDF and both room plans. Their north-right,
+  east-down orientation is recorded in `config/povo1_plan_alignment.json`.
+  Provisional alignment to the existing 47 x 83 m core identifies four stair
+  regions and an entrance near E666274/N5103726, matching the northing range of
+  the existing east connector. This fit uses the approximate footprint and does
+  not independently establish surveyed dimensions.
+- Preserved distinct numbering conventions: A1xx/A2xx academic ground/first,
+  lift labels -1/0 in the room plans, stair labels 0/1, and user filenames
+  floor1/floor2. Absolute floor elevations and riser/tread sizes remain unknown.
+  Annotated reviews are in `exports/povo_plan_review/`; workflow and limitations
+  are documented in `docs/POVO_ARCHITECTURE.md`.
+- All 39 unit tests pass, including five new geometry/provenance checks. A real
+  source deployment into a temporary tree verified 22 file hashes and reported
+  every file unchanged on a second deployment. All 17 image hashes match their
+  registered originals; `doctor` and `git diff --check` pass.
+- No Windows compilation, in-game material inspection, performance test, or new
+  multiplayer evidence was produced. An entrance/corridor scan, one known
+  dimension, and a bridge landing/floor identification are the next useful field
+  evidence; they do not block further exterior modelling.
+

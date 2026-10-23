@@ -14,8 +14,10 @@ import tempfile
 
 try:
     from .asc_to_obj import Grid, finite, read_grid, write_mesh
+    from .povo_architecture import architecture_boxes, material_library, validate_architecture
 except ImportError:  # Direct invocation: python3 tools/build_povo_blockout.py
     from asc_to_obj import Grid, finite, read_grid, write_mesh
+    from povo_architecture import architecture_boxes, material_library, validate_architecture
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -156,6 +158,9 @@ def validate_config(config):
             cover.append(entry)
         gameplay["cover"] = cover
     config["gameplay"] = gameplay
+    architecture = validate_architecture(config.get("architecture"), buildings)
+    if architecture is not None:
+        config["architecture"] = architecture
     return config
 
 
@@ -353,6 +358,28 @@ def build_blockout(config_path, output, *, root=None, force=False):
         raise ValueError("Output must be a directory, not a file or symlink")
     raw_config = config_path.read_bytes()
     config = validate_config(json.loads(raw_config))
+    architectural_boxes = architecture_boxes(config)
+    architecture = config.get("architecture")
+    photo_record = None
+    if architecture:
+        photo_manifest = root / architecture["reference_manifest"]
+        photo_record = json.loads(photo_manifest.read_text(encoding="utf-8"))
+        photos = {entry["id"]: entry for entry in photo_record["images"]}
+        used_ids = {identifier for facade in architecture["facades"] for identifier in facade["reference_ids"]}
+        if architecture.get("bridge"):
+            used_ids.update(architecture["bridge"]["reference_ids"])
+        if not used_ids <= photos.keys():
+            raise ValueError("Architecture refers to unknown photo IDs")
+        used_photos = []
+        for identifier in sorted(used_ids):
+            photo = photos[identifier]
+            image = photo_manifest.parent / photo["file"]
+            if hashlib.sha256(image.read_bytes()).hexdigest() != photo["sha256"]:
+                raise ValueError(f"Reference photo hash mismatch: {identifier}")
+            used_photos.append(photo)
+        photo_record = {"manifest": safe_path(photo_manifest, root),
+                        "manifest_sha256": hashlib.sha256(photo_manifest.read_bytes()).hexdigest(),
+                        "images": used_photos}
     sources = {key: root / config[key] for key in ("dtm", "dbm", "orthophoto")}
     targets = {(output / name).resolve() for name in OUTPUT_FILES}
     if any(path.resolve() in targets for path in (*sources.values(), config_path)):
@@ -411,6 +438,16 @@ def build_blockout(config_path, output, *, root=None, force=False):
             "No interiors, navigation, lighting bake, CS2 entities, or compiled map are provided by this geographic builder.",
         ],
     }
+    if architecture:
+        metadata["architecture"] = {
+            "configuration": architecture,
+            "references": photo_record,
+            "detail_parts": len(architectural_boxes),
+            "triangles": len(architectural_boxes) * 12,
+            "collision": "Visual only; arena collision export is unchanged",
+            "glass": "Opaque teal placeholder panels; no breakable or transparent glass",
+            "accuracy": "Photo-guided appearance; facade placement, bay spacing, floor heights and bridge deck elevation are estimates",
+        }
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".povo-blockout-", dir=output.parent) as temporary:
         staged = Path(temporary)
@@ -425,11 +462,22 @@ def build_blockout(config_path, output, *, root=None, force=False):
                 [value + origin[axis] for axis, value in enumerate(extent)]
                 for extent in (textured.minimum, textured.maximum)]
             vertices, triangles = terrain_stats["vertices"], terrain_stats["triangles"]
+            replaced_module = architecture.get("bridge", {}).get("building") if architecture else None
+            massing_count = 0
             for building in config["buildings"]:
+                if building["id"] == replaced_module:
+                    continue
                 west, south, east, north = building["bounds"]
                 minimum = (west - origin[0], south - origin[1], building["base_elevation"] - origin[2])
                 maximum = (east - origin[0], north - origin[1], building["roof_elevation"] - origin[2])
                 added_vertices, added_triangles = write_box(stream, building["id"], minimum, maximum, vertices)
+                vertices += added_vertices
+                triangles += added_triangles
+                massing_count += 1
+            for identifier, minimum, maximum, material in architectural_boxes:
+                added_vertices, added_triangles = write_box(
+                    stream, identifier, minimum, maximum, vertices, material=material
+                )
                 vertices += added_vertices
                 triangles += added_triangles
             gameplay_boxes = gameplay_volume_boxes(config["gameplay"], terrain, origin)
@@ -453,7 +501,7 @@ def build_blockout(config_path, output, *, root=None, force=False):
                 "triangles": triangles + added_triangles,
                 "building_modules": len(config["buildings"]),
                 "gameplay_volumes": gameplay_volumes,
-                "objects": len(config["buildings"]) + gameplay_volumes + 2,
+                "objects": massing_count + len(architectural_boxes) + gameplay_volumes + 2,
             }
         if config["gameplay"]:
             west, south, east, north = config["gameplay"]["playable_bounds"]
@@ -513,6 +561,9 @@ def build_blockout(config_path, output, *, root=None, force=False):
             "newmtl gameplay_cover\nKa 0.2 0.2 0.2\nKd 0.32 0.48 0.62\nKs 0 0 0\nillum 1\n\n"
             "newmtl gameplay_boundary\nKa 0.1 0.1 0.1\nKd 0.16 0.19 0.22\nKs 0 0 0\nillum 1\n\n"
             "newmtl calibration\nKa 0.2 0.2 0.2\nKd 0.75 0.45 0.18\nKs 0 0 0\nillum 1\n", encoding="utf-8")
+        if architectural_boxes:
+            with (staged / OUTPUT_FILES[1]).open("a", encoding="utf-8") as stream:
+                stream.write(material_library())
         (staged / OUTPUT_FILES[2]).write_bytes(image_bytes)
         (staged / "CREDITS.txt").write_text(
             "Povo - Polo Ferrari geographic blockout\n\n"
@@ -522,6 +573,12 @@ def build_blockout(config_path, output, *, root=None, force=False):
             "configured gameplay cover and segmented boundary volumes fitted to the terrain. "
             "No interiors or compiled CS2 map included. Original evidence and hashes: provenance.json.\n",
             encoding="utf-8")
+        if architecture:
+            with (staged / "CREDITS.txt").open("a", encoding="utf-8") as stream:
+                stream.write("\nPhotographic references for the exterior detail pass:\n")
+                stream.write(json.dumps(photo_record, indent=2, ensure_ascii=False) + "\n")
+                stream.write("Changes: facade grids, stone/window bands and bridge components modelled using estimated dimensions. "
+                             "No source photograph pixels are used as game textures. Preserve photographic source credits and licences.\n")
         metadata["artifacts"] = {name: {"sha256": hashlib.sha256((staged / name).read_bytes()).hexdigest(),
                                         "bytes": (staged / name).stat().st_size} for name in OUTPUT_FILES if name != "provenance.json"}
         (staged / OUTPUT_FILES[3]).write_text(json.dumps(metadata, indent=2, allow_nan=False) + "\n", encoding="utf-8")

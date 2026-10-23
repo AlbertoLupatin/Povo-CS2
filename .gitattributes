@@ -1,2 +1,4 @@
 *.vmap binary
+# Preserve the downloaded reference README byte-for-byte with its provenance.
+data/reference/povo_plans/mappe-povo/README.md -whitespace
 

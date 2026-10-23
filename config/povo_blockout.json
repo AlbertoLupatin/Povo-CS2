@@ -37,6 +37,29 @@
       {"id":"cover_north_east", "bounds":[666319,5103832,666324,5103837], "height_metres":2.0, "reason":"Full-height cover interrupts the eastern north-to-site sightline."}
     ]
   },
+  "architecture": {
+    "reference_manifest": "data/reference/povo_photos/manifest.json",
+    "assumptions": "Exterior detail pass based on user-reviewed photographs. Existing approximate module footprints and DBM roof heights are retained. Cardinal facade assignment, exact bay counts, window dimensions and floor levels are design estimates, not measurements. Opaque panel placeholders do not create breakable glass or access to interiors. The bridge roof follows the previous DBM estimate; its deck is estimated 3.2 m below the roof.",
+    "facades": [
+      {"id":"povo1_low_east", "building":"povo1_east_low_volume", "face":"east", "style":"curtain_wall", "bays":42, "rows":3, "bottom_elevation":378.4, "top_elevation":382.15, "frame_width":0.075, "depth":0.06, "edge_margin":0.4, "reference_ids":["P002","P004"], "placement_note":"Street-facing appearance from P002; assigning this treatment to the module east face and using a continuous 42-bay grid are approximate."},
+      {"id":"povo1_low_west", "building":"povo1_east_low_volume", "face":"west", "style":"curtain_wall", "bays":42, "rows":3, "bottom_elevation":378.4, "top_elevation":382.15, "frame_width":0.075, "depth":0.06, "edge_margin":0.4, "reference_ids":["P005","P006"], "placement_note":"Courtyard glass treatment. Exact setbacks, doors, stairs and bay interruptions have not been reconstructed."},
+      {"id":"povo1_low_south", "building":"povo1_east_low_volume", "face":"south", "style":"curtain_wall", "bays":7, "rows":3, "bottom_elevation":378.4, "top_elevation":382.15, "frame_width":0.075, "depth":0.06, "edge_margin":0.4, "reference_ids":["P001","P002"], "placement_note":"Return of the glass facade inferred from overall exterior views; count and exact south-face placement remain approximate."},
+      {"id":"povo1_core_east", "building":"povo1_east", "face":"east", "style":"stone_windows", "bays":28, "rows":3, "bottom_elevation":374.0, "top_elevation":386.4, "frame_width":0.06, "depth":0.06, "edge_margin":0.6, "reference_ids":["P001","P003"], "placement_note":"Light stone and narrow-window rhythm visible in the reviewed photographs; uniform three-row treatment and exact elevations are estimates."},
+      {"id":"povo1_core_courtyard", "building":"povo1_east", "face":"west", "style":"stone_windows", "bays":28, "rows":3, "bottom_elevation":374.0, "top_elevation":386.4, "frame_width":0.06, "depth":0.06, "edge_margin":0.6, "reference_ids":["P003","P005"], "placement_note":"P003 is user-labelled as facing the internal building. Applying its stone/window language to this courtyard-facing module is an approximate placement, not a confirmed camera pose."},
+      {"id":"povo2_core_east", "building":"povo2_east", "face":"east", "style":"stone_windows", "bays":34, "rows":3, "bottom_elevation":374.2, "top_elevation":386.5, "frame_width":0.06, "depth":0.06, "edge_margin":0.6, "reference_ids":["P009","P011"], "placement_note":"Stone piers and vertical windows inferred from Povo 2 exterior views. Bay count and storey elevations are provisional."},
+      {"id":"povo2_core_courtyard", "building":"povo2_east", "face":"west", "style":"stone_windows", "bays":34, "rows":3, "bottom_elevation":374.2, "top_elevation":386.5, "frame_width":0.06, "depth":0.06, "edge_margin":0.6, "reference_ids":["P011","P012"], "placement_note":"Courtyard-facing application of the reviewed Povo 2 material language; exact facade geometry and floor levels are unmeasured."},
+      {"id":"povo2_annex_east", "building":"povo2_southeast_annex", "face":"east", "style":"curtain_wall", "bays":11, "rows":3, "bottom_elevation":377.4, "top_elevation":381.85, "frame_width":0.075, "depth":0.06, "edge_margin":0.4, "reference_ids":["P010","P011"], "placement_note":"Glass annex appearance confirmed as Povo 2; exact correspondence to this footprint and panel count are still approximate."}
+    ],
+    "bridge": {
+      "building":"bridge_reference_slab",
+      "deck_elevation":382.49,
+      "roof_elevation":385.69,
+      "post_spacing":3.0,
+      "louver_spacing":0.24,
+      "reference_ids":["P013","P015"],
+      "placement_note":"Replace the old solid reference slab with a visual deck, roof, posts and horizontal louvers. Roof elevation follows the existing DBM estimate; deck, clearance and structural spacing are assumptions. This is scenery outside arena collision, not a verified accessible route."
+    }
+  },
   "buildings": [
     {"id":"povo2_west", "bounds":[666227,5103810,666244,5103912], "base_elevation":366, "roof_elevation":386.96, "evidence":"Approximate north core envelope; median DBM roof sample for main north block."},
     {"id":"povo2_east", "bounds":[666257,5103810,666275,5103912], "base_elevation":366, "roof_elevation":386.96, "evidence":"Same north core envelope; east side of open courtyard."},

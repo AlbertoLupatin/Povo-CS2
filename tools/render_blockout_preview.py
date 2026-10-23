@@ -19,8 +19,8 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 import numpy as np
 
 
-def read_obj(path):
-    vertices, groups, current = [], {}, "default"
+def read_obj(path, *, with_materials=False):
+    vertices, groups, current, materials = [], {}, "default", {}
     for line in path.read_text().splitlines():
         parts = line.split()
         if not parts:
@@ -29,12 +29,15 @@ def read_obj(path):
             vertices.append([float(v) for v in parts[1:4]])
         elif parts[0] == "o":
             current = parts[1]
+        elif parts[0] == "usemtl":
+            materials[current] = parts[1]
         elif parts[0] == "f":
             face = [int(v.split("/")[0]) - 1 for v in parts[1:]]
             if len(face) != 3:
                 raise ValueError("Expected triangulated OBJ")
             groups.setdefault(current, []).append(face)
-    return np.array(vertices), groups
+    result = (np.array(vertices), groups)
+    return (*result, materials) if with_materials else result
 
 
 def main():
@@ -44,7 +47,7 @@ def main():
     parser.add_argument("--output", type=Path, default=Path("exports/povo_blockout/preview.png"))
     args = parser.parse_args()
     config = json.loads(args.config.read_text())
-    vertices, groups = read_obj(args.asset_dir / "povo_blockout.obj")
+    vertices, groups, materials = read_obj(args.asset_dir / "povo_blockout.obj", with_materials=True)
     origin = np.array(config["origin"])
     bounds = config["terrain_bounds"]
     ortho_bounds = config["orthophoto_bounds"]
@@ -72,7 +75,11 @@ def main():
     left.text(666190,5103668,"50 m",color="white",ha="center",fontsize=9)
     right = fig.add_axes([.405, .16, .57, .70], projection="3d", facecolor="#f2f4f5")
     terrain_faces = []
-    architecture_faces = []
+    architecture_faces, architecture_colors = [], []
+    palette = {"building_mass": (.65,.63,.59), "facade_glazing": (.16,.32,.35),
+               "facade_frame": (.70,.74,.73), "facade_stone": (.78,.75,.65),
+               "facade_dark": (.15,.18,.20), "gameplay_cover": (.32,.48,.62),
+               "gameplay_boundary": (.16,.19,.22)}
     for name, faces in groups.items():
         if "calibration" in name:
             continue
@@ -80,6 +87,7 @@ def main():
             terrain_faces.extend(faces)
         else:
             architecture_faces.extend(faces)
+            architecture_colors.extend([palette.get(materials.get(name), (.65,.63,.59))] * len(faces))
     if not terrain_faces:
         raise ValueError("No terrain object found in exported OBJ")
     triangles = vertices[np.array(terrain_faces)]
@@ -97,11 +105,11 @@ def main():
         normals /= np.maximum(np.linalg.norm(normals,axis=1)[:,None],1e-12)
         intensity = .65 + .35*np.clip(normals @ np.array([-.4,-.4,.8246]),0,1)
         building_colors = np.ones((len(architecture),4))
-        building_colors[:,:3] = np.array([.90,.92,.92])*intensity[:,None]
+        building_colors[:,:3] = np.array(architecture_colors)*intensity[:,None]
         combined = np.concatenate([triangles,architecture])
         colors = np.concatenate([colors,building_colors])
         edges = np.concatenate([edges,np.tile([.33,.39,.42,1],(len(architecture),1))])
-        widths = np.concatenate([widths,np.full(len(architecture),.3)])
+        widths = np.concatenate([widths,np.full(len(architecture),.05)])
     # One collection lets mplot3d sort building and terrain triangles together.
     right.add_collection3d(Poly3DCollection(combined,facecolors=colors,edgecolors=edges,linewidths=widths))
     right.set_xlim(bounds[0]-origin[0],bounds[2]-origin[0])
@@ -113,8 +121,8 @@ def main():
     right.set_ylabel("North (m)",labelpad=8,fontsize=9)
     right.set_zlabel("Height above 370 m (m)",labelpad=8,fontsize=8)
     right.tick_params(labelsize=8)
-    right.set_title("Exported terrain and rough building volumes",fontsize=11,pad=10)
-    fig.text(.055,.105,"Measured terrain; approximate architecture. No interiors, gameplay collision, or compiled CS2 map.",fontsize=12,weight="bold",color="#192d3b")
+    right.set_title("Exported terrain and photo-guided exterior detail",fontsize=11,pad=10)
+    fig.text(.055,.105,"Measured terrain; estimated architectural detail. Offline source preview; CS2 validation pending.",fontsize=12,weight="bold",color="#192d3b")
     fig.text(.055,.065,"Sources: PAT LiDAR DTM/DBM 2014–2018 (CC BY 4.0); Comune di Trento orthophoto 2024 (CC0).\nTerrain sampled at 2 m for this blockout. Source elevation cells: 0.5 m. Vertical exaggeration: none.",fontsize=10,color="#4b5962",linespacing=1.5)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(args.output,dpi=140,facecolor=fig.get_facecolor())

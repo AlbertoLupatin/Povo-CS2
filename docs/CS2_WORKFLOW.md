@@ -53,8 +53,9 @@ deployment:
 
 ```sh
 python tools/build_povo_blockout.py --force
+python tools/build_povo_radar.py --force
 python tools/cs2_project.py place-blockout
-python tools/cs2_project.py compile --target map
+python tools/cs2_project.py compile --target all
 ```
 
 `place-blockout` deterministically inserts the pitched geographic model, removes
@@ -65,6 +66,11 @@ The map compile now refreshes the ModelDoc model first because Valve's map-only
 compiler otherwise consumes stale model physics/material output. Keep route
 choices in these reproducible sources or synchronize reviewed Hammer changes
 back to Git; never leave the only working copy inside the installed addon.
+
+The radar generator adds schematic artwork and matching overview coordinates.
+The full compile builds its textures after the map and restores the overview;
+the compiled radar is still loose addon content until packaged and verified.
+Follow [the radar workflow](POVO_RADAR.md) for runtime alignment and VPK checks.
 
 Bring every major geometry change back into a playable build. Prioritize recognizability, navigability and collision before façade detailing.
 

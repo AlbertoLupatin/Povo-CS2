@@ -27,6 +27,12 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_STEAM_INSTALL = Path(
     r"C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive"
 )
+RADAR_DIRECTORY = Path("panorama/images/overheadmaps")
+RADAR_TEXTURES = (
+    RADAR_DIRECTORY / "trento_povo_radar_tga.vtex",
+    RADAR_DIRECTORY / "trento_povo_radar_spectate_tga.vtex",
+)
+RADAR_OVERVIEW = Path("resource/overviews/trento_povo.txt")
 
 GENERATED_CONTENT = (
     (Path("exports/povo_blockout/povo_blockout.obj"), Path(
@@ -44,6 +50,13 @@ GENERATED_CONTENT = (
     (Path("exports/povo_blockout/orthophoto_reference.png"), Path(
         "materials/trento/povo/orthophoto_reference.png"
     )),
+    (Path("exports/povo_radar/trento_povo_radar.png"),
+     RADAR_DIRECTORY / "trento_povo_radar.png"),
+    *((Path("exports/povo_radar") / texture.name, texture)
+      for texture in RADAR_TEXTURES),
+)
+GENERATED_GAME = (
+    (Path("exports/povo_radar/trento_povo.txt"), RADAR_OVERVIEW),
 )
 
 # Files that Hammer/ModelDoc may update and that belong back in the repository.
@@ -55,6 +68,9 @@ SYNC_CONTENT = (
     Path("materials/trento/povo/gameplay_cover.vmat"),
     Path("materials/trento/povo/gameplay_boundary.vmat"),
     Path("materials/trento/povo/calibration.vmat"),
+    *(Path(f"materials/trento/povo/{name}.vmat") for name in (
+        "facade_glazing", "facade_frame", "facade_stone", "facade_dark"
+    )),
 )
 SYNC_GAME = (
     Path("addoninfo.txt"),
@@ -279,6 +295,13 @@ def deploy(
         _copy_file(
             repo_root / relative_source,
             content_target / relative_target,
+            dry_run=dry_run,
+            records=records,
+        )
+    for relative_source, relative_target in GENERATED_GAME:
+        _copy_file(
+            repo_root / relative_source,
+            game_target / relative_target,
             dry_run=dry_run,
             records=records,
         )
@@ -1042,6 +1065,7 @@ def doctor(repo_root: Path = REPO_ROOT, cs2_root: Path | None = None) -> int:
         / "models"
         / "povo"
         / "povo_blockout.vmdl",
+        *(repo_root / source for source, _target in (*GENERATED_CONTENT, *GENERATED_GAME)),
     ]
     missing = [str(path) for path in required if not path.is_file()]
     print(f"Platform: {platform.platform()}")
@@ -1069,8 +1093,10 @@ def doctor(repo_root: Path = REPO_ROOT, cs2_root: Path | None = None) -> int:
     return 0
 
 
-def compile_resources(cs2_root: Path, target: str) -> int:
-    content_target, _ = _installed_targets(cs2_root)
+def compile_resources(
+    cs2_root: Path, target: str, *, repo_root: Path = REPO_ROOT
+) -> int:
+    content_target, game_target = _installed_targets(cs2_root)
     compiler = cs2_root / "game" / "bin" / "win64" / "resourcecompiler.exe"
     game_directory = cs2_root / "game" / "csgo"
     resources: list[Path] = []
@@ -1080,10 +1106,19 @@ def compile_resources(cs2_root: Path, target: str) -> int:
         resources.append(content_target / "models" / "povo" / "povo_blockout.vmdl")
     if target in ("map", "all"):
         resources.append(content_target / "maps" / "trento_povo.vmap")
+    # Map builds can regenerate their own radar. Custom textures must compile
+    # afterward, and the corresponding overview must be restored last.
+    if target in ("radar", "all"):
+        resources.extend(content_target / texture for texture in RADAR_TEXTURES)
 
     for resource in resources:
         if not resource.is_file():
             raise ProjectError(f"Deploy before compiling; missing {resource}")
+    overview_source = repo_root / "exports/povo_radar/trento_povo.txt"
+    if target in ("radar", "all") and not overview_source.is_file():
+        raise ProjectError(f"Generate radar before compiling; missing {overview_source}")
+
+    for resource in resources:
         command = [
             str(compiler),
             "-nop4",
@@ -1097,6 +1132,12 @@ def compile_resources(cs2_root: Path, target: str) -> int:
         completed = subprocess.run(command, check=False)
         if completed.returncode:
             return completed.returncode
+    if target in ("radar", "all"):
+        records: list[dict[str, str]] = []
+        _copy_file(overview_source, game_target / RADAR_OVERVIEW,
+                   dry_run=False, records=records)
+        _print_records(records)
+        print("Radar compiled as loose addon resources; verify VPK inclusion on Windows.")
     return 0
 
 
@@ -1116,10 +1157,11 @@ def build_parser() -> argparse.ArgumentParser:
         "compile", help="deploy and compile Source 2 resources"
     )
     compile_parser.add_argument(
-        "--target", choices=("model", "map", "all"), default="all"
+        "--target", choices=("model", "map", "radar", "all"), default="all"
     )
     compile_parser.add_argument(
-        "--no-deploy", action="store_true", help="compile the installed copy as-is"
+        "--no-deploy", action="store_true",
+        help="skip initial deployment; radar builds still restore the generated overview",
     )
     subparsers.add_parser(
         "place-blockout",

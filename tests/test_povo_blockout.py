@@ -243,6 +243,51 @@ class PovoBlockoutTests(unittest.TestCase):
             self.export(force=True)
         self.assertEqual(current, {p.name: p.read_bytes() for p in self.output.iterdir()})
 
+    def configure_architecture(self):
+        self.config["architecture"] = {
+            "reference_manifest": "photos.json", "assumptions": "Synthetic estimated facade",
+            "facades": [{"id": "campus_east", "building": "campus", "face": "east",
+                         "style": "curtain_wall", "bays": 2, "rows": 3,
+                         "bottom_elevation": 10, "top_elevation": 19,
+                         "frame_width": .03, "depth": .05, "edge_margin": .1,
+                         "reference_ids": ["P001"], "placement_note": "Synthetic east face"}],
+        }
+        (self.root / "photos.json").write_text(json.dumps({"images": [{
+            "id": "P001", "file": "image.png",
+            "sha256": hashlib.sha256((self.root / "image.png").read_bytes()).hexdigest(),
+            "author": "Synthetic fixture", "license": "Synthetic test image",
+        }]}))
+
+    def test_architecture_adds_visual_mesh_without_changing_collision(self):
+        self.export()
+        collision = (self.output / "povo_blockout_collision.obj").read_bytes()
+        self.configure_architecture()
+        result = self.export(force=True)
+        self.assertEqual((self.output / "povo_blockout_collision.obj").read_bytes(), collision)
+        self.assertEqual(result["architecture"]["detail_parts"], 9)
+        vertices, _, objects = self.read_mesh()
+        self.assertIn("arch_campus_east_0000", objects)
+        for name, faces in objects.items():
+            if not name.startswith("arch_"): continue
+            self.assertEqual(len(faces), 12)
+            xs = [vertices[ref[0] - 1][0] for face in faces for ref in face]
+            self.assertGreater(min(xs), 1)  # Outside the original east plane.
+        self.assertIn("newmtl facade_glazing", (self.output / "povo_blockout.mtl").read_text())
+        self.assertIn("Synthetic fixture", (self.output / "CREDITS.txt").read_text())
+
+    def test_changed_or_unknown_photo_reference_does_not_replace_export(self):
+        self.configure_architecture()
+        self.export()
+        original = (self.output / "povo_blockout.obj").read_bytes()
+        self.config["architecture"]["facades"][0]["reference_ids"] = ["P999"]
+        with self.assertRaisesRegex(ValueError, "unknown photo"):
+            self.export(force=True)
+        self.config["architecture"]["facades"][0]["reference_ids"] = ["P001"]
+        (self.root / "image.png").write_bytes(b"modified photograph")
+        with self.assertRaisesRegex(ValueError, "hash mismatch"):
+            self.export(force=True)
+        self.assertEqual((self.output / "povo_blockout.obj").read_bytes(), original)
+
 
 if __name__ == "__main__":
     unittest.main()

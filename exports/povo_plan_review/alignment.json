@@ -1,0 +1,197 @@
+{
+  "format_version": 1,
+  "status": "Reference alignment only; not deployed interior geometry",
+  "geographic_bounds": [
+    666227,
+    5103697,
+    666274,
+    5103780
+  ],
+  "formula": "E=west+(pixel_y-top)/(bottom-top)*(east-west); N=south+(pixel_x-left)/(right-left)*(north-south)",
+  "orientation": "Source image right=north, down=east; rotate counterclockwise for north-up display",
+  "limitations": [
+    "Registration is fitted to the approximate existing core footprint, not a survey.",
+    "Floor labels are retained separately: user filenames floor1/floor2, academic ground/first, lift -1/0 and stairs 0/1.",
+    "Absolute floor elevations and stair riser/tread dimensions are unknown.",
+    "Repository identifies its plans as unofficial; licence is not established.",
+    "Room/corridor shapes are references; no interior collision or route change is deployed."
+  ],
+  "profiles": [
+    {
+      "id": "academic_ground",
+      "file": "Povo 1 mappa piano0.png",
+      "outer": [
+        446,
+        254,
+        2102,
+        1196
+      ],
+      "labels": {
+        "plan": "piano terra",
+        "lift": "-1",
+        "stair_diagram": "0",
+        "room_group": "A101-A110"
+      },
+      "entry": [
+        1030,
+        1196
+      ],
+      "source_file": "data/reference/povo_plans/mappe-povo/Povo 1 mappa piano0.png",
+      "sha256": "d759b7606f197d88cc18d15742e4e48f3fd81f0e3766bf2d8309dd89def882a4",
+      "features": [
+        {
+          "id": "stair_southwest",
+          "pixel_bounds": [
+            780,
+            254,
+            960,
+            420
+          ],
+          "approximate_geographic_bounds": [
+            666227.0,
+            5103713.740338164,
+            666235.2823779193,
+            5103722.762077294
+          ]
+        },
+        {
+          "id": "stair_northwest",
+          "pixel_bounds": [
+            1590,
+            254,
+            1764,
+            420
+          ],
+          "approximate_geographic_bounds": [
+            666227.0,
+            5103754.338164251,
+            666235.2823779193,
+            5103763.0591787435
+          ]
+        },
+        {
+          "id": "stair_southeast",
+          "pixel_bounds": [
+            780,
+            1020,
+            960,
+            1196
+          ],
+          "approximate_geographic_bounds": [
+            666265.2186836518,
+            5103713.740338164,
+            666274.0,
+            5103722.762077294
+          ]
+        },
+        {
+          "id": "stair_northeast",
+          "pixel_bounds": [
+            1590,
+            1020,
+            1764,
+            1196
+          ],
+          "approximate_geographic_bounds": [
+            666265.2186836518,
+            5103754.338164251,
+            666274.0,
+            5103763.0591787435
+          ]
+        }
+      ],
+      "entrance_geographic": [
+        666274.0,
+        5103726.270531401
+      ]
+    },
+    {
+      "id": "academic_first",
+      "file": "Povo 1 mappa piano1.png",
+      "outer": [
+        400,
+        270,
+        2202,
+        1300
+      ],
+      "labels": {
+        "plan": "primo piano",
+        "lift": "0",
+        "stair_diagram": "1",
+        "room_group": "A201-A224"
+      },
+      "entry": [
+        1030,
+        1300
+      ],
+      "source_file": "data/reference/povo_plans/mappe-povo/Povo 1 mappa piano1.png",
+      "sha256": "96a90f7144a96500ac0ab965f1b84a77fb781d105164752372c48a56cd6b5866",
+      "features": [
+        {
+          "id": "stair_southwest",
+          "pixel_bounds": [
+            770,
+            270,
+            960,
+            460
+          ],
+          "approximate_geographic_bounds": [
+            666227.0,
+            5103714.042175361,
+            666235.6699029126,
+            5103722.793562708
+          ]
+        },
+        {
+          "id": "stair_northwest",
+          "pixel_bounds": [
+            1640,
+            270,
+            1830,
+            460
+          ],
+          "approximate_geographic_bounds": [
+            666227.0,
+            5103754.1143174255,
+            666235.6699029126,
+            5103762.865704772
+          ]
+        },
+        {
+          "id": "stair_southeast",
+          "pixel_bounds": [
+            770,
+            1100,
+            960,
+            1300
+          ],
+          "approximate_geographic_bounds": [
+            666264.8737864078,
+            5103714.042175361,
+            666274.0,
+            5103722.793562708
+          ]
+        },
+        {
+          "id": "stair_northeast",
+          "pixel_bounds": [
+            1640,
+            1100,
+            1830,
+            1300
+          ],
+          "approximate_geographic_bounds": [
+            666264.8737864078,
+            5103754.1143174255,
+            666274.0,
+            5103762.865704772
+          ]
+        }
+      ],
+      "entrance_geographic": [
+        666274.0,
+        5103726.017758046
+      ]
+    }
+  ]
+}

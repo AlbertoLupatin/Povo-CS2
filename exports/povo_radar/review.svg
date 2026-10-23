@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900">
+<rect width="1280" height="900" fill="#111e25"/>
+<g font-family="DejaVu Sans, sans-serif" fill="#e9eeeb">
+<text x="64" y="74" font-size="16" letter-spacing="3" fill="#8ea8ad">TRENTO / WINGMAN BLOCKOUT</text>
+<text x="64" y="124" font-size="38" font-weight="bold">POVO · EAST FORECOURT</text>
+<text x="64" y="162" font-size="18" fill="#a7b9bd">25 × 130 m · Six cover volumes · Twelve configured starts</text>
+<g transform="translate(64 -40) scale(1.125)">
+<rect id="floor" x="49.778" y="423.111" width="924.444" height="177.778" fill="#627177"/>
+<rect id="boundary_west_01" x="49.778" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_02" x="120.889" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_03" x="192.000" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_04" x="263.111" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_05" x="334.222" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_06" x="405.333" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_07" x="476.444" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_08" x="547.556" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_09" x="618.667" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_10" x="689.778" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_11" x="760.889" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_12" x="832.000" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_west_13" x="903.111" y="598.756" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_01" x="49.778" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_02" x="120.889" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_03" x="192.000" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_04" x="263.111" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_05" x="334.222" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_06" x="405.333" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_07" x="476.444" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_08" x="547.556" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_09" x="618.667" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_10" x="689.778" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_11" x="760.889" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_12" x="832.000" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_east_13" x="903.111" y="420.978" width="71.111" height="4.267" fill="#d7e2dc"/>
+<rect id="boundary_south_01" x="47.644" y="529.778" width="4.267" height="71.111" fill="#d7e2dc"/>
+<rect id="boundary_south_02" x="47.644" y="458.667" width="4.267" height="71.111" fill="#d7e2dc"/>
+<rect id="boundary_south_03" x="47.644" y="423.111" width="4.267" height="35.556" fill="#d7e2dc"/>
+<rect id="boundary_north_01" x="972.089" y="529.778" width="4.267" height="71.111" fill="#d7e2dc"/>
+<rect id="boundary_north_02" x="972.089" y="458.667" width="4.267" height="71.111" fill="#d7e2dc"/>
+<rect id="boundary_north_03" x="972.089" y="423.111" width="4.267" height="35.556" fill="#d7e2dc"/>
+<rect id="cover_south_west" x="263.111" y="544.000" width="35.556" height="35.556" fill="#e3d6ae"/>
+<rect id="cover_south_east" x="355.556" y="465.778" width="35.556" height="35.556" fill="#a7beb4"/>
+<rect id="cover_mid_west" x="469.333" y="536.889" width="42.667" height="42.667" fill="#a7beb4"/>
+<rect id="cover_mid_east" x="547.556" y="458.667" width="42.667" height="42.667" fill="#a7beb4"/>
+<rect id="cover_north_west" x="640.000" y="544.000" width="35.556" height="35.556" fill="#a7beb4"/>
+<rect id="cover_north_east" x="739.556" y="465.778" width="35.556" height="35.556" fill="#e3d6ae"/>
+<circle cx="919.111" cy="570.667" r="4" fill="#82b9e3" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="919.111" cy="528.000" r="4" fill="#82b9e3" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="919.111" cy="478.222" r="4" fill="#82b9e3" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="890.667" cy="570.667" r="4" fill="#82b9e3" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="890.667" cy="528.000" r="4" fill="#82b9e3" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="890.667" cy="478.222" r="4" fill="#82b9e3" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="133.333" cy="570.667" r="4" fill="#e8bb74" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="133.333" cy="528.000" r="4" fill="#e8bb74" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="133.333" cy="478.222" r="4" fill="#e8bb74" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="104.889" cy="570.667" r="4" fill="#e8bb74" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="104.889" cy="528.000" r="4" fill="#e8bb74" stroke="#14222a" stroke-width="1.5"/>
+<circle cx="104.889" cy="478.222" r="4" fill="#e8bb74" stroke="#14222a" stroke-width="1.5"/>
+<text x="119.111" y="650" text-anchor="middle" font-size="16" fill="#e8bb74">T / SOUTH</text>
+<text x="904.889" y="650" text-anchor="middle" font-size="16" fill="#82b9e3">CT / NORTH</text>
+<circle cx="510.222" cy="520.889" r="16" fill="#14222a" stroke="#f2d591" stroke-width="2"/>
+<text x="510.222" y="526.889" text-anchor="middle" font-size="18" font-weight="bold" fill="#f2d591">A</text>
+<path d="M280.889,579.556 V655" stroke="#71888e" stroke-width="1"/>
+<text x="280.889" y="675" text-anchor="middle" font-size="14" fill="#b6c5c8">2 m</text>
+<path d="M373.333,465.778 V383" stroke="#71888e" stroke-width="1"/>
+<text x="373.333" y="375" text-anchor="middle" font-size="14" fill="#b6c5c8">1.2 m</text>
+<path d="M490.667,579.556 V655" stroke="#71888e" stroke-width="1"/>
+<text x="490.667" y="675" text-anchor="middle" font-size="14" fill="#b6c5c8">1.5 m</text>
+<path d="M568.889,458.667 V383" stroke="#71888e" stroke-width="1"/>
+<text x="568.889" y="375" text-anchor="middle" font-size="14" fill="#b6c5c8">1.5 m</text>
+<path d="M657.778,579.556 V655" stroke="#71888e" stroke-width="1"/>
+<text x="657.778" y="675" text-anchor="middle" font-size="14" fill="#b6c5c8">1.2 m</text>
+<path d="M757.333,465.778 V383" stroke="#71888e" stroke-width="1"/>
+<text x="757.333" y="375" text-anchor="middle" font-size="14" fill="#b6c5c8">2 m</text>
+</g>
+<text x="64" y="266" font-size="16" fill="#a7b9bd">GEOGRAPHIC NORTH →</text>
+<text x="1216" y="266" text-anchor="end" font-size="16" fill="#a7b9bd">EAST ↑</text>
+<path d="M64,716 v-8 m0,4 h80.000 m0,-4 v8" stroke="#e9eeeb" stroke-width="2"/>
+<text x="64" y="742" font-size="14">10 m</text>
+<rect x="64" y="786" width="14" height="14" fill="#a7beb4"/>
+<text x="90" y="798" font-size="15">Cover 1.2–1.5 m</text>
+<rect x="300" y="786" width="14" height="14" fill="#e3d6ae"/>
+<text x="326" y="798" font-size="15">Cover 2 m</text>
+<text x="64" y="846" font-size="14" fill="#8ea8ad">Schematic of configured geometry. A marks the objective origin; trigger extents and walkability need in-game checks.</text>
+</g></svg>

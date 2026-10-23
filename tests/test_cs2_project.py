@@ -34,7 +34,7 @@ class CS2ProjectTests(unittest.TestCase):
         (content / "maps" / "trento_povo.vmap").write_bytes(b"vmap")
         game.mkdir(parents=True)
         (game / "addoninfo.txt").write_text("addon", encoding="utf-8")
-        for source, _destination in cs2_project.GENERATED_CONTENT:
+        for source, _destination in (*cs2_project.GENERATED_CONTENT, *cs2_project.GENERATED_GAME):
             path = repo / source
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(str(source).encode("utf-8"))
@@ -224,6 +224,9 @@ class CS2ProjectTests(unittest.TestCase):
             self.assertTrue(installed.is_file())
             deployed_map = installed.parent / "maps" / "trento_povo.vmap"
             self.assertEqual(deployed_map.read_bytes(), b"vmap")
+            for source, destination in cs2_project.GENERATED_GAME:
+                deployed = cs2 / "game/csgo_addons" / cs2_project.ADDON_NAME / destination
+                self.assertEqual(deployed.read_bytes(), (repo / source).read_bytes())
             manifest = json.loads(
                 (installed.parent / "trento_deploy_manifest.json").read_text(
                     encoding="utf-8"
@@ -242,6 +245,63 @@ class CS2ProjectTests(unittest.TestCase):
             target = cs2 / "content" / "csgo_addons" / cs2_project.ADDON_NAME
             self.assertTrue(records)
             self.assertFalse(target.exists())
+            self.assertFalse((cs2 / "game/csgo_addons" / cs2_project.ADDON_NAME).exists())
+
+    def test_all_compile_preflights_radar_before_starting_model_build(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            cs2 = self.make_cs2_root(root)
+            repo = self.make_repo(root)
+            cs2_project.deploy(cs2, repo_root=repo)
+            content, _game = cs2_project._installed_targets(cs2)
+            model = content / "models/povo/povo_blockout.vmdl"
+            model.parent.mkdir(parents=True, exist_ok=True)
+            model.write_text("model")
+            (content / cs2_project.RADAR_TEXTURES[-1]).unlink()
+            with mock.patch.object(cs2_project.subprocess, "run") as run:
+                with self.assertRaisesRegex(cs2_project.ProjectError, "Deploy before compiling"):
+                    cs2_project.compile_resources(cs2, "all", repo_root=repo)
+            run.assert_not_called()
+
+    def test_all_compile_restores_custom_radar_after_map_generation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            cs2 = self.make_cs2_root(root)
+            repo = self.make_repo(root)
+            content, game = cs2_project._installed_targets(cs2)
+            model = content / "models/povo/povo_blockout.vmdl"
+            model.parent.mkdir(parents=True)
+            model.write_text("model", encoding="utf-8")
+            cs2_project.deploy(cs2, repo_root=repo)
+            calls = []
+
+            def compile_and_generate(command, check):
+                resource = Path(command[-1])
+                calls.append(resource)
+                if resource.suffix == ".vmap":
+                    (game / cs2_project.RADAR_OVERVIEW).write_text("auto-generated overview")
+                return mock.Mock(returncode=0)
+
+            with mock.patch.object(cs2_project.subprocess, "run", side_effect=compile_and_generate):
+                self.assertEqual(cs2_project.compile_resources(cs2, "all", repo_root=repo), 0)
+            self.assertEqual(calls, [model, content / "maps/trento_povo.vmap",
+                                     *(content / texture for texture in cs2_project.RADAR_TEXTURES)])
+            self.assertEqual((game / cs2_project.RADAR_OVERVIEW).read_bytes(),
+                             (repo / "exports/povo_radar/trento_povo.txt").read_bytes())
+
+    def test_radar_compile_failure_stops_and_does_not_replace_overview(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            cs2 = self.make_cs2_root(root)
+            repo = self.make_repo(root)
+            cs2_project.deploy(cs2, repo_root=repo)
+            _content, game = cs2_project._installed_targets(cs2)
+            overview = game / cs2_project.RADAR_OVERVIEW
+            overview.write_text("existing overview")
+            with mock.patch.object(cs2_project.subprocess, "run", return_value=mock.Mock(returncode=7)) as run:
+                self.assertEqual(cs2_project.compile_resources(cs2, "radar", repo_root=repo), 7)
+            self.assertEqual(run.call_count, 1)
+            self.assertEqual(overview.read_text(), "existing overview")
 
 
 if __name__ == "__main__":

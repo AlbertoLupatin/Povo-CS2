@@ -21,6 +21,12 @@ Direct calibration-cube measurement, a completed bot round, buy/bomb behavior,
 visual/performance inspection, clean installation, and independent-client
 multiplayer testing are still open.
 
+Linux continuation now supplies schematic radar sources in `exports/povo_radar/`
+and a `compile --target radar` path. The full `--target all` build orders model,
+map, then radar and restores the matching overview. These radar resources have
+not been compiled in Windows or added to a verified VPK. Follow
+[the radar workflow](POVO_RADAR.md) before claiming that gate complete.
+
 Target: Polo Ferrari, Povo; a compact campus map for small-team play. The OBJ assets
 are geographic working material. They are **not a playable map**, and importing a
 render mesh does not establish working collision or multiplayer.

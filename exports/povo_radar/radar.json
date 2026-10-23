@@ -1,0 +1,68 @@
+{
+  "format_version": 1,
+  "image_size": [
+    1024,
+    1024
+  ],
+  "status": "Generated source; Valve compilation, in-game alignment and packaging unverified",
+  "config_sha256": "637e8f26e8abbff4c26f7695a7a4a52eca81d17e13dc15e8c802773d1e74202a",
+  "layout_source_sha256": "17e91509036a9b768e274c8c2c4d84d3fc06bcfb37327a31ef864ba496c6168f",
+  "units_per_metre": 39.37007874,
+  "padding_metres": 7.0,
+  "transform": "world_x=(northing-N0)*units; world_y=(easting-E0)*units; pixel_x=(world_x-pos_x)/scale; pixel_y=(pos_y-world_y)/scale",
+  "geographic_north_in_image": "right",
+  "overview": {
+    "pos_x": -2834.6456692799998,
+    "pos_y": 5492.12598423,
+    "scale": 5.5364173228124995,
+    "rotate": 0,
+    "zoom": 1.0
+  },
+  "markers_pixels": {
+    "CTSpawn": [
+      904.8889159126826,
+      525.62962915369
+    ],
+    "TSpawn": [
+      119.11108408731737,
+      525.62962915369
+    ],
+    "bombA": [
+      510.2221354666596,
+      520.8888376870044
+    ]
+  },
+  "limitations": [
+    "Schematic rectangular ground; not a navmesh or terrain-height rendering.",
+    "A marks the objective origin, not verified plantable trigger bounds.",
+    "Review spawn dots are omitted from the runtime image.",
+    "Map compilation can overwrite loose radar assets; compile/install radar afterward.",
+    "Loose addon files do not prove that the map VPK contains the radar."
+  ],
+  "artifacts": {
+    "trento_povo_radar.png": {
+      "sha256": "0180aadce90e8bbf8e37bcc61f7ea8d441cbe54579e35a8e6a0d31d415c895ff",
+      "bytes": 5720
+    },
+    "trento_povo_radar_tga.vtex": {
+      "sha256": "8b5f41db3c181ede533e72f09205197a0b7c48cf95a05e7f0df5d77afe08961f",
+      "bytes": 777
+    },
+    "trento_povo_radar_spectate_tga.vtex": {
+      "sha256": "8b5f41db3c181ede533e72f09205197a0b7c48cf95a05e7f0df5d77afe08961f",
+      "bytes": 777
+    },
+    "trento_povo.txt": {
+      "sha256": "e0f340cc728c429e774f4653a2d462d191d174fdae61db2eba070abdef494ea9",
+      "bytes": 425
+    },
+    "review.svg": {
+      "sha256": "2b5e1e8181f1ec6f2bb212f08176121328f884a9fae9c4785c764bbde2b0ceb3",
+      "bytes": 7577
+    },
+    "CREDITS.txt": {
+      "sha256": "faa0b56a9a1e746148df33212764fc9b1405df16c6d06ef8878fa051c5b2be3a",
+      "bytes": 1061
+    }
+  }
+}

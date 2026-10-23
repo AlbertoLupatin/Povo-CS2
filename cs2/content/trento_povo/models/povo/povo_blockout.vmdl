@@ -33,6 +33,22 @@
 								from = "calibration"
 								to = "materials/trento/povo/calibration.vmat"
 							},
+							{
+								from = "facade_glazing"
+								to = "materials/trento/povo/facade_glazing.vmat"
+							},
+							{
+								from = "facade_frame"
+								to = "materials/trento/povo/facade_frame.vmat"
+							},
+							{
+								from = "facade_stone"
+								to = "materials/trento/povo/facade_stone.vmat"
+							},
+							{
+								from = "facade_dark"
+								to = "materials/trento/povo/facade_dark.vmat"
+							},
 						]
 						use_global_default = false
 						global_default_material = ""

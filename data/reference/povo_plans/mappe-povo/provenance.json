@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/agusmeroli/mappe-povo",
+  "tree_sha": "d69969fc587347d1bc879fc0211dddeab9d15bdf",
+  "retrieved_at_utc": "2026-10-23T09:24:23.275336+00:00",
+  "license": "No licence file was listed in the inspected repository tree; reference use recorded separately from distributable game assets",
+  "files": [
+    {
+      "repository_path": "Povo 1 mappa scale.pdf",
+      "local_file": "Povo 1 mappa scale.pdf",
+      "url": "https://raw.githubusercontent.com/agusmeroli/mappe-povo/main/Povo%201%20mappa%20scale.pdf",
+      "sha256": "4ddd51b4d93b75951519d5e78c594c7f80c41476dd34b9beab76503f2c08b8d8",
+      "bytes": 316166
+    },
+    {
+      "repository_path": "Povo 1 mappa aule.pdf",
+      "local_file": "Povo 1 mappa aule.pdf",
+      "url": "https://raw.githubusercontent.com/agusmeroli/mappe-povo/main/Povo%201%20mappa%20aule.pdf",
+      "sha256": "1b128650c6d332f18d2199e993a47a1f118fb6dffa63e07fb918a37de87a45d9",
+      "bytes": 772051
+    },
+    {
+      "repository_path": "SVG and PNG/Povo 1 mappa piano0.png",
+      "local_file": "Povo 1 mappa piano0.png",
+      "url": "https://raw.githubusercontent.com/agusmeroli/mappe-povo/main/SVG%20and%20PNG/Povo%201%20mappa%20piano0.png",
+      "sha256": "d759b7606f197d88cc18d15742e4e48f3fd81f0e3766bf2d8309dd89def882a4",
+      "bytes": 514387
+    },
+    {
+      "repository_path": "SVG and PNG/Povo 1 mappa piano1.png",
+      "local_file": "Povo 1 mappa piano1.png",
+      "url": "https://raw.githubusercontent.com/agusmeroli/mappe-povo/main/SVG%20and%20PNG/Povo%201%20mappa%20piano1.png",
+      "sha256": "96a90f7144a96500ac0ab965f1b84a77fb781d105164752372c48a56cd6b5866",
+      "bytes": 529933
+    },
+    {
+      "repository_path": "README.md",
+      "local_file": "README.md",
+      "url": "https://raw.githubusercontent.com/agusmeroli/mappe-povo/main/README.md",
+      "sha256": "abe8f620d77abe72e87f1b39bcfb0c3fe59757fb790ab9d8029bc72791d42657",
+      "bytes": 440
+    }
+  ]
+}

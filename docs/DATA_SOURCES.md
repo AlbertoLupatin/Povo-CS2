@@ -57,7 +57,22 @@ Do not start by importing an entire city dataset into the game editor. Clip the 
 - [Piazza Duomo research dataset](https://doi.org/10.5281/zenodo.18493751): a future city-centre lead. The [university catalogue](https://research.aalto.fi/en/datasets/public-works-in-nineteenth-century-trento-a-fair-dataset-of-urban/) lists CC BY 4.0 point-cloud GLBs and surveyed drawings. Files have not been inspected and are not game-ready assets.
 - [FBK NeRFBK](https://github.com/3DOM-FBK/NeRFBK/blob/master/README.md): Duomo photography and reconstruction data, CC BY-NC-SA 4.0. Keep outside the core asset pipeline until those restrictions are compatible with intended distribution.
 
-No source currently establishes complete, accurate campus interiors. Use selected documented rooms only, and label assumptions.
+The user-reviewed photographic set in `data/reference/povo_photos/` now includes
+facades, courtyard/stairwell/library views, and the connecting bridge inside and
+out. Its manifest preserves individual sources, author credits, licences, hashes,
+and user filename corrections. P016/P017 are user-supplied plan images with
+upstream source/licence not specified.
+
+The user also supplied the [mappe-povo repository](https://github.com/agusmeroli/mappe-povo).
+Two PDFs and two floor-plan PNGs are retained under
+`data/reference/povo_plans/mappe-povo/` with provenance. The README calls these
+unofficial maps and cites an earlier classroom-map source. No licence file was
+listed in the inspected tree. They establish useful room groups, stair positions
+and route relationships, but not surveyed dimensions or absolute floor heights.
+See [the architecture/plan review](POVO_ARCHITECTURE.md) for the provisional fit
+to the campus footprint and the distinct academic/lift/stair floor labels.
+
+No source currently establishes complete, measured campus interiors. Use selected documented rooms only, and label assumptions.
 
 ## Google Maps and Street View
 
