@@ -1,5 +1,13 @@
 # CS2 development workflow
 
+For the current Windows continuation, start with
+[WINDOWS_RESUME.md](WINDOWS_RESUME.md). It contains the latest source state,
+confirmed floor connections, photo locations, backup steps and executable project
+commands. The Windows toolchain and compact arena baseline already compiled and
+loaded; the setup sequence below is a recovery/reference checklist, not a request
+to repeat a completed installation. Latest Linux source changes still need their
+own Windows build and runtime validation.
+
 ## Why CS2
 
 The user selected CS2 and has access to Windows for editing and compilation. It fits the chosen compact, small-team campus scope and supplies the FPS systems. Valve supports map uploads, offline Workshop testing and community-server hosting through the [Maps Workshop](https://store.steampowered.com/news/posts/?appids=730&enddate=1699055103&feed=steam_community_announcements).
@@ -16,7 +24,7 @@ QGIS, Blender and GDAL command-line tools were not found in this shell. No appli
 
 The restricted shell's Vulkan probe saw only the software renderer and could not access the desktop display. This is **not a benchmark or a diagnosis of the host graphics driver**. Test hardware acceleration in the actual desktop/Windows session.
 
-Valve states that [Workshop Tools are Windows-only](https://github.com/ValveSoftware/csgo-osx-linux/issues/3266). Its [Hammer announcement](https://store.steampowered.com/news/posts/?appids=730&enddate=1686088105&feed=steam_community_announcements) requires ray-tracing-capable graphics for full lighting/preview functionality. Windows access resolves the OS constraint; successful compilation on the intended GPU remains to be tested.
+Valve states that [Workshop Tools are Windows-only](https://github.com/ValveSoftware/csgo-osx-linux/issues/3266). Its [Hammer announcement](https://store.steampowered.com/news/posts/?appids=730&enddate=1686088105&feed=steam_community_announcements) requires ray-tracing-capable graphics for full lighting/preview functionality. The later Windows checkpoint successfully compiled the compact arena with GPU lighting on the intended Intel Arc hardware; the latest source has not yet been rebuilt there.
 
 ## 1. Prove the Windows toolchain
 

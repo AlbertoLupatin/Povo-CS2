@@ -4,6 +4,29 @@ This is the durable record of material project actions. Git history remains the
 authoritative record of file-level changes; this log records decisions, local
 tool results, limitations, and work that affects the installed CS2 addon.
 
+## 23 October 2026 — Windows resume documentation and approved full-data push
+
+- The reconstruction checkpoint is `34ac930`, with the 66-photo archive,
+  camera/GPS metadata, confirmed walk, bridge binding and A215 refinement.
+  Its initial push was blocked by automatic approval review pending explicit
+  authorization for the photo/location payload. The user then explicitly
+  instructed: "Push everything, I'll continue from the Windows side" after the
+  request identifying all full-resolution photos and GPS/camera metadata.
+- Added `docs/WINDOWS_RESUME.md` as the current detailed operational handoff.
+  It covers preserving Git/installed-addon edits, pulling all source photos,
+  known compiled baseline versus source-only changes, exact photo/floor/core
+  facts, unresolved metric heights, source ownership, standard-library checks,
+  optional previews, deterministic placement, real deployment/compile commands,
+  a staged interior integration plan, package/radar/gameplay gates and source
+  sync. It does not claim the offline interior is already deployed or walkable.
+- Replaced stale Windows handoff text that still described the toolchain and
+  VMAP/compiler workflow as unverified. Linked the resume guide prominently
+  from README and the general CS2 workflow. Historical build evidence remains
+  in earlier log entries rather than being overwritten as current results.
+- Documentation commands were checked against the current parser/deployment/
+  sync implementation. No new application code or geometry changed in this
+  documentation pass; the prior 73 passing tests remain the source baseline.
+
 ## 23 October 2026 — Confirmed 66-photo walk, bridge floors and identified A215
 
 - Imported all 66 user-supplied WeTransfer JPEGs, 307.9 MB total, byte-for-byte

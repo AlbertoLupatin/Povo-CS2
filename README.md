@@ -1,5 +1,9 @@
 # Real-World Trento FPS Map
 
+**Continuing on Windows:** read [the current resume guide](docs/WINDOWS_RESUME.md)
+first. It covers the full photo archive, confirmed floor/stair connections,
+installed-addon backups, build commands and the next reconstruction steps.
+
 A recognizable Trento environment, delivered as a **playable multiplayer map in Counter-Strike 2**. CS2 supplies movement, weapons, combat, and multiplayer.
 
 ## Decisions confirmed on 22 October 2026
@@ -74,7 +78,8 @@ Start with [the map design brief](docs/MAP_DESIGN.md), [the data-source register
 | `docs/POVO_ARCHITECTURE.md` | Exterior detail, plan alignment and remaining measurement needs |
 | `docs/POVO_INTERIOR_STUDY.md` | Separate two-level interior study, assumptions and rebuild commands |
 | `docs/TERRAIN_TOOL.md` | Terrain converter usage and limitations |
-| `docs/WINDOWS_HANDOFF.md` | Import calibration, Hammer compilation and multiplayer checks |
+| `docs/WINDOWS_RESUME.md` | Current detailed Windows continuation, backups, photos, geometry priorities and commands |
+| `docs/WINDOWS_HANDOFF.md` | Entry point linking to the current resume guide and verified state |
 | `cs2/` | Versioned `trento_povo` addon source, model definition and materials |
 | `tools/cs2_project.py` | Cross-platform checks plus Windows deploy/compile/sync commands |
 | `docs/WORKLOG.md` | Durable decisions, build evidence, warnings and remaining gates |
