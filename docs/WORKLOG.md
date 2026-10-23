@@ -205,3 +205,72 @@ local bot round before the two-client multiplayer gate.
 - The two-independent-client match gate, clean-install package check, and direct
   39.3701-unit calibration-cube measurement are still outstanding.
 
+## 23 October 2026 — compact Wingman arena, navigation, and production rebuild
+
+### Reproducible arena source
+
+- Replaced the diagnostic corridor with an explicit 25 × 130 m Wingman envelope
+  on the east forecourt: E666305–666330, N5103735–5103865.
+- Extended `config/povo_blockout.json` and `tools/build_povo_blockout.py` with six
+  terrain-fitted cover boxes and a 3.2 m high, 0.6 m thick segmented perimeter.
+  Generated output now contains 30,624 visual triangles and 38 gameplay volumes.
+- Added `povo_blockout_collision.obj`, cropped one metre outside the arena. It
+  contains 1,309 vertices and 2,304 triangles and excludes the distant building
+  modules. ModelDoc now uses it for physics while retaining the complete campus
+  model for presentation. This reduced nav input from 30,178 to 2,314 triangles.
+- Added distinct cover and boundary materials. The first map-only retry exposed
+  that Valve reused the previous compiled model; `compile --target map` now
+  compiles ModelDoc first so collision/material changes cannot silently go stale.
+
+### Deterministic VMAP preparation
+
+- Removed the remaining stock Wingman room and placeholder helper entities while
+  preserving its proven mode entities and sky shell.
+- Normalized the conditional template buy zones, moved all twelve starts and the
+  bomb target into the compact arena, and moved the intro/end cameras with them.
+- Added a deterministic nav seed, combined light-probe volume, outdoor
+  soundscape, two minimap boundary points, a fitted lightmap-resolution volume,
+  and a larger sky/visibility shell using the valid 65-degree sky resource.
+- `place-blockout` successfully round-tripped the binary VMAP and two subsequent
+  runs reported `unchanged`, establishing idempotence.
+- Added generator/config validation, collision-export coverage, lightmap-volume
+  insertion coverage, and model-before-map compilation coverage. The complete
+  suite contains 26 passing tests.
+
+### Compile and runtime evidence
+
+- The final rebuild completed 25 map resources with zero failures in 57 seconds;
+  the explicit ModelDoc prerequisite compiled separately in one second.
+- Nav generation consumed 2,314 collision triangles, removed disconnected
+  islands, produced 503 nav areas, and completed tactical metadata in roughly
+  1.2 seconds after recast. The nav resource is 114,568 bytes.
+- Lighting baked a 4096 × 4096 atlas and the probe atlas successfully. The new
+  lightmap-resolution volume removed the earlier missing-volume warning.
+- Packaged VPK:
+  - Size: 9,312,611 bytes.
+  - Compiler MD5: `bc240457e022f88a741e7dfc2cb4463b`.
+  - SHA-256: `52e7292dd29db1cb17d918aa5d1d799dc6c3505f6b56a98645f808c01aea7b1f`.
+- Launched through Workshop Tools with `-addon trento_povo -tools -asset
+  maps/trento_povo.vmap` and `+map maps/trento_povo.vpk`. CS2 loaded spawngroup
+  `trento_povo`, placed the human at the configured CT forecourt start
+  (`2253.937 2568.898 328.200` after ground settlement), and reported three live
+  bots. This proves package loading, spawn placement, and bot population against
+  the generated nav mesh; it does not yet prove a completed round.
+
+### Known warnings and next gates
+
+- ModelDoc still reports duplicate imported OBJ bone names. The map compiler also
+  reports the stock optional `scripts/detail_prop_types.vdata_c` as missing and
+  emits the expected unsigned-VPK warning without Valve signing keys.
+- The full 200 × 300 m reference terrain is intentionally outside much of the
+  compact combat PVS and lightmap-density volume; it is aggregated as backdrop.
+  Runtime visual/performance inspection must decide how much of that backdrop to
+  retain or further simplify.
+- The 1 m calibration cube is still present for direct Hammer measurement and
+  must be removed from a release asset afterward.
+- Resume with an active-window visual review, a complete bot round, CT/T buy
+  checks, bomb plant/defuse and restart checks, radar artwork, frame-time capture,
+  clean-install packaging, and a two-independent-client match. Detailed
+  architecture/materials and representative balance sessions remain release
+  work; this checkpoint is not the claimed finished map.
+

@@ -7,19 +7,26 @@ A recognizable Trento environment, delivered as a **playable multiplayer map in 
 - **Game:** CS2. Windows is available for Hammer editing and compilation.
 - **First release:** one detailed campus area for small-team matches.
 - **Preparation workstation:** Fedora 44, Intel Core Ultra 5 225H, integrated Intel graphics, 32 GB RAM.
-- **Selected campus:** Polo Ferrari in Povo. A 200 × 300 m geographic blockout covers the two main buildings; the final playable boundary and game mode remain open.
+- **Selected campus:** Polo Ferrari in Povo. A 200 × 300 m geographic blockout surrounds a compact 25 × 130 m east-forecourt Wingman arena.
 - **Later scope:** separate Mesiano, Povo, and central-Trento maps before considering connecting streets.
 
 ## Current status
 
-This repository now contains the geographic preparation workspace and the source
-for a first CS2 addon. The Povo terrain, rough building volumes, reference
-materials, collision model, and a provisional Wingman template compile together
-successfully on the tested Windows machine. The map now loads locally, places
-both teams on an open east-side campus corridor, and permits movement over the
-sampled terrain. **The result is still an early playtest blockout:** the stock
-template geometry remains at the centre of the campus, navigation is absent, and
-no complete round or multiplayer session has been validated.
+As of 23 October 2026, this repository contains a reproducible geographic and
+gameplay blockout for a first CS2 addon. The generated east-forecourt arena has
+terrain-fitted perimeter collision, six cover volumes, twelve relocated starts,
+buy zones, a bomb target, lighting/probe support, minimap bounds, and generated
+navigation. The stock Wingman room has been removed while its proven mode
+entities are retained. Visual geography and arena-only collision are separate,
+so the full campus remains visible without making bots navigate the entire crop.
+
+The current Windows build completes with zero resource failures, produces a
+9,312,611-byte VPK, and loads in CS2 as `trento_povo` with 503 nav areas. A human
+spawned at the intended CT start and three bots joined the live listen server.
+**This is a functional first-playable blockout, not a finished release:** a full
+bot round, objective/buy-zone checks, visual/performance review, clean-install
+test, and two-independent-client match remain to be completed. Detailed campus
+architecture, materials, radar artwork, sound, and final balance are also open.
 
 The workspace contains real 0.5 m terrain samples for Povo and Mesiano, a Povo building-surface raster, municipal aerial references, and a Fedora → Windows workflow. The terrain conversion utility prepares a local-metre OBJ from an ASCII elevation grid; it does not create a Hammer map, collision, or game entities. Povo is the first map; Mesiano is retained as a later candidate. Its current sample covers the western approach and only part of the campus, so it must be expanded before modelling that campus.
 

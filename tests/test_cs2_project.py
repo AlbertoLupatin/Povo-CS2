@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -120,6 +121,88 @@ class CS2ProjectTests(unittest.TestCase):
                 updated.count(cs2_project.PLAYTEST_BUYZONE_ORIGINS[team]), 2
             )
         self.assertEqual(cs2_project.relocate_playtest_entities(updated), updated)
+
+    def test_insert_lightmap_resolution_volume_is_deterministic_and_idempotent(self):
+        source = '''
+"$prefix_element$"
+{
+    "map_asset_references" "string_array"
+    [
+        "materials/tools_postprocess_volume.vmat"
+    ]
+}
+"CMapRootElement"
+{
+    "world" "CMapWorld"
+    {
+        "nodeID" "int" "1"
+        "children" "element_array"
+        [
+            "CMapEntity"
+            {
+                "id" "elementid" "10000000-0000-0000-0000-000000000000"
+                "nodeID" "int" "2"
+                "referenceID" "uint64" "0x1"
+                "children" "element_array"
+                [
+                    "CMapMesh"
+                    {
+                        "id" "elementid" "20000000-0000-0000-0000-000000000000"
+                        "nodeID" "int" "3"
+                        "referenceID" "uint64" "0x2"
+                        "material" "string" "materials/models/props_junk/trashclusters01.vmat"
+                        "meshData" "DmElement"
+                        {
+                            "id" "elementid" "30000000-0000-0000-0000-000000000000"
+                        }
+                        "origin" "vector3" "1 2 3"
+                        "angles" "qangle" "1 2 3"
+                        "scales" "vector3" "1 1 1"
+                    }
+                ]
+                "entity_properties" "EditGameClassProps"
+                {
+                    "id" "elementid" "40000000-0000-0000-0000-000000000000"
+                    "classname" "string" "post_processing_volume"
+                }
+                "origin" "vector3" "1 2 3"
+                "angles" "qangle" "0 0 0"
+                "scales" "vector3" "1 1 1"
+            }
+        ]
+    }
+}
+'''
+        updated = cs2_project.insert_lightmap_resolution_volume(source)
+        self.assertEqual(updated.count(cs2_project.LIGHTMAP_RESOLUTION_MATERIAL), 2)
+        self.assertEqual(updated.count('"CMapMesh"'), 2)
+        self.assertIn('"nodeID" "int" "4"', updated)
+        self.assertIn(f'"origin" "vector3" "{cs2_project.PLAYTEST_CENTER}"', updated)
+        self.assertEqual(
+            cs2_project.insert_lightmap_resolution_volume(updated), updated
+        )
+
+    def test_map_compile_refreshes_model_before_map(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            cs2 = self.make_cs2_root(Path(temporary))
+            content = (
+                cs2 / "content" / "csgo_addons" / cs2_project.ADDON_NAME
+            )
+            model = content / "models" / "povo" / "povo_blockout.vmdl"
+            map_source = content / "maps" / "trento_povo.vmap"
+            model.parent.mkdir(parents=True)
+            map_source.parent.mkdir(parents=True)
+            model.write_text("model", encoding="utf-8")
+            map_source.write_text("map", encoding="utf-8")
+            calls = []
+
+            def record(command, check):
+                calls.append(Path(command[-1]))
+                return mock.Mock(returncode=0)
+
+            with mock.patch.object(cs2_project.subprocess, "run", side_effect=record):
+                self.assertEqual(cs2_project.compile_resources(cs2, "map"), 0)
+            self.assertEqual(calls, [model, map_source])
 
     def test_deploy_is_additive_and_records_hashes(self):
         with tempfile.TemporaryDirectory() as temporary:

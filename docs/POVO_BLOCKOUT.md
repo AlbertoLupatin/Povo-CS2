@@ -16,12 +16,15 @@ The default configuration is `config/povo_blockout.json`; outputs go to
 `exports/povo_blockout/`. Use `--config`, `--output`, and optionally `--root` to
 change locations. Input paths are relative to the configuration directory's
 parent unless `--root` is provided. An existing output directory is rejected;
-`--force` replaces the five generated files after validation and preserves other
+`--force` replaces the six generated files after validation and preserves other
 files in that directory.
 
 The generated folder contains:
 
-- `povo_blockout.obj`: terrain, separate rectangular building modules, and a 1 m scale cube.
+- `povo_blockout.obj`: full terrain, building modules, terrain-fitted gameplay
+  cover/perimeter, and a 1 m scale cube.
+- `povo_blockout_collision.obj`: arena-only terrain and gameplay volumes for
+  physics/nav; it deliberately excludes the distant building modules.
 - `povo_blockout.mtl`: neutral building colors and the terrain reference material.
 - `orthophoto_reference.png`: an unchanged copy of the full orthophoto extract.
 - `provenance.json`: input/config/output hashes, coordinate declarations, sampled extents, resolution, module assumptions, and limitations.
@@ -44,7 +47,7 @@ west is U=0, east U=1, south V=0, and north V=1. The aerial imagery is an alignm
 reference: photographed roofs remain visible on the terrain beneath the volume
 models. It is unsuitable as a finished ground material.
 
-Each configured module becomes a closed rectangular box with eight vertices and
+Each configured building or gameplay module becomes a closed rectangular box with eight vertices and
 twelve outward-facing triangles. These are approximate roof-envelope volumes,
 not surveyed building outlines. Their explicit roof elevations are recorded;
 the builder checks DBM alignment but does not infer buildings from the raster.
@@ -52,7 +55,10 @@ Bases, bridge depth, and gaps remain modelling assumptions. A `calibration_1m`
 cube at local `(-120, -170, 0)` is solely for import-scale checks and should be
 removed from the finished game scene.
 
-This export has no detailed entrances, stairs, interiors, collision setup,
-navigation, spawn/objective entities, lighting bake, or compiled CS2 map. Continue
-with [the Windows handoff](WINDOWS_HANDOFF.md) and [the CS2 workflow](CS2_WORKFLOW.md)
-to author and validate an actual playable map.
+The checked-in export currently contains 30,624 visual triangles and 38 gameplay
+volumes (six cover boxes plus a segmented perimeter). Its 2,304-triangle cropped
+collision export feeds ModelDoc physics and CS2 nav generation. CS2 entities,
+lighting, navigation seeding, and packaging remain in the VMAP workflow rather
+than this geographic export. The blockout still has no detailed entrances,
+stairs, interiors, final materials, or release radar artwork. Continue with
+[the Windows handoff](WINDOWS_HANDOFF.md) and [the CS2 workflow](CS2_WORKFLOW.md).

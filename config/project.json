@@ -1,6 +1,7 @@
 {
   "name": "Real-World Trento FPS Map",
   "decision_date": "2026-10-22",
+  "last_verified_date": "2026-10-23",
   "target_game": "Counter-Strike 2",
   "deliverable": "Playable multiplayer map package with editable source assets",
   "preparation_platform": "Cross-platform Python; tested on Fedora 44 and Windows 11",
@@ -9,12 +10,17 @@
   "selected_campus": "Povo - Polo Ferrari",
   "game_mode": "Wingman bomb defusal (provisional first-playable blockout)",
   "player_count": 4,
-  "playable_boundary": null,
+  "playable_boundary": {
+    "description": "Compact east-forecourt Wingman first-playable envelope",
+    "bounds_epsg_25832": [666305, 5103735, 666330, 5103865],
+    "size_metres": [25, 130],
+    "release_status": "Requires played-round balance validation"
+  },
   "candidate_campuses": ["Povo - Polo Ferrari", "Mesiano - engineering campus"],
   "working_crs": "EPSG:25832",
   "working_units": "metres",
   "vertical_datum": "ITALGEO 2005 orthometric heights, as declared by PAT source metadata",
   "local_origin": [666250, 5103800, 370],
   "hammer_import_scale": 39.37007874,
-  "status": "CS2 addon and Povo geographic model compile successfully; Hammer layout, navigation and in-game validation pending"
+  "status": "Functional first-playable blockout: deterministic arena source, split visual/collision meshes, lighting, 503-area nav, live CT spawn and three bots verified; complete round, objective/buy, visual/performance, clean-install and two-client gates remain"
 }

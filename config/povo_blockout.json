@@ -18,7 +18,25 @@
     "orthophoto_metadata": "https://gis.comune.trento.it/api/config/2/qdjango/42",
     "orthophoto_licence": "https://creativecommons.org/publicdomain/zero/1.0/"
   },
-  "note": "A 200 x 300 m survey blockout, not a final playable boundary. Rectangular modules approximate roof envelopes inspected in the 2024 municipal orthophoto and PAT DBM. These are not cadastral footprints or architectural measurements. Courtyard gaps are retained. Heights summarize mixed-date roof surfaces; base levels are buried construction assumptions. The bridge slab thickness is assumed. No interiors, openings, stairs, collision or CS2 entities are authored.",
+  "note": "A 200 x 300 m survey blockout containing a compact east-forecourt Wingman envelope. Rectangular modules approximate roof envelopes inspected in the 2024 municipal orthophoto and PAT DBM. These are not cadastral footprints or architectural measurements. Courtyard gaps are retained. Heights summarize mixed-date roof surfaces; base levels are buried construction assumptions. The bridge slab thickness is assumed. Gameplay cover and boundaries are explicit design additions rather than measured campus features. No interiors, openings, stairs or CS2 entities are authored here.",
+  "gameplay": {
+    "mode": "Wingman",
+    "playable_bounds": [666305, 5103735, 666330, 5103865],
+    "boundary": {
+      "height_metres": 3.2,
+      "thickness_metres": 0.6,
+      "segment_length_metres": 10,
+      "reason": "Segmented perimeter walls make the first-playable east forecourt explicit and follow the sloping DTM without creating one oversized floating wall."
+    },
+    "cover": [
+      {"id":"cover_south_west", "bounds":[666308,5103765,666313,5103770], "height_metres":2.0, "reason":"Full-height cover interrupts the western south-to-site sightline."},
+      {"id":"cover_south_east", "bounds":[666319,5103778,666324,5103783], "height_metres":1.2, "reason":"Low cover supports a second eastern approach without duplicating the western lane."},
+      {"id":"cover_mid_west", "bounds":[666308,5103794,666314,5103800], "height_metres":1.5, "reason":"Central chest-height cover creates a disengagement point before the objective."},
+      {"id":"cover_mid_east", "bounds":[666319,5103805,666325,5103811], "height_metres":1.5, "reason":"Offset central cover prevents a direct spawn-to-spawn sightline through the east lane."},
+      {"id":"cover_north_west", "bounds":[666308,5103818,666313,5103823], "height_metres":1.2, "reason":"Low cover mirrors the south-east option while preserving asymmetric terrain."},
+      {"id":"cover_north_east", "bounds":[666319,5103832,666324,5103837], "height_metres":2.0, "reason":"Full-height cover interrupts the eastern north-to-site sightline."}
+    ]
+  },
   "buildings": [
     {"id":"povo2_west", "bounds":[666227,5103810,666244,5103912], "base_elevation":366, "roof_elevation":386.96, "evidence":"Approximate north core envelope; median DBM roof sample for main north block."},
     {"id":"povo2_east", "bounds":[666257,5103810,666275,5103912], "base_elevation":366, "roof_elevation":386.96, "evidence":"Same north core envelope; east side of open courtyard."},

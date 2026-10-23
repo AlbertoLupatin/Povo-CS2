@@ -23,14 +23,18 @@ python tools/cs2_project.py sync-from-cs2
 ```
 
 `place-blockout` is the reproducible preparation step: it inserts the pitched
-Povo model and relocates the template's twelve player starts, bomb target, and
-buy zones onto the sampled east-side terrain corridor. Running it again without
-source changes is a no-op.
+Povo model; removes stock-room geometry/helpers; relocates the twelve starts,
+bomb target, buy zones, and cameras; and adds the fitted sky, post-processing,
+lightmap resolution, probe, nav, soundscape, and minimap support. Running it
+again without source changes is a no-op.
 
 `doctor` and all geographic preparation commands run on any supported Python
 platform. `deploy`, `compile`, and `sync-from-cs2` require a Windows CS2 Workshop
 Tools installation. Set `CS2_ROOT` or pass `--cs2-root` if Steam is not in a
 discovered library.
+
+`compile --target map` intentionally compiles the ModelDoc source before the map;
+Valve's map compiler can otherwise reuse stale model collision and materials.
 
 Deployment is additive: it updates project-owned files but does not delete other
 files from the installed addon. Hammer and ModelDoc save into the installed

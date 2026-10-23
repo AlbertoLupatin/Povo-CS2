@@ -1,10 +1,10 @@
 {
   "format_version": 1,
   "title": "Povo - Polo Ferrari geographic blockout v0.1",
-  "status": "Intermediate geographic reference mesh; not compiled, playable, or game validated",
+  "status": "Geographic and gameplay blockout source; CS2 validation is recorded separately",
   "config": {
     "path": "config/povo_blockout.json",
-    "sha256": "ca0ed9410c2d6a1c312cc1f9596bf5ede1af142ab8d91eb9b36775deac123460"
+    "sha256": "8ea96177a8c56c6a02912af80d764aab4332c8e54a2e4155ebd8eb6c5587fc1c"
   },
   "sources": {
     "dtm": {
@@ -290,6 +290,89 @@
       "evidence": "DBM median bridge surface 385.69 m; 1 m slab depth assumed for orientation only. Not a verified walkable floor or interior."
     }
   ],
+  "gameplay": {
+    "mode": "Wingman",
+    "playable_bounds": [
+      666305.0,
+      5103735.0,
+      666330.0,
+      5103865.0
+    ],
+    "boundary": {
+      "height_metres": 3.2,
+      "thickness_metres": 0.6,
+      "segment_length_metres": 10.0,
+      "reason": "Segmented perimeter walls make the first-playable east forecourt explicit and follow the sloping DTM without creating one oversized floating wall."
+    },
+    "cover": [
+      {
+        "id": "cover_south_west",
+        "bounds": [
+          666308.0,
+          5103765.0,
+          666313.0,
+          5103770.0
+        ],
+        "height_metres": 2.0,
+        "reason": "Full-height cover interrupts the western south-to-site sightline."
+      },
+      {
+        "id": "cover_south_east",
+        "bounds": [
+          666319.0,
+          5103778.0,
+          666324.0,
+          5103783.0
+        ],
+        "height_metres": 1.2,
+        "reason": "Low cover supports a second eastern approach without duplicating the western lane."
+      },
+      {
+        "id": "cover_mid_west",
+        "bounds": [
+          666308.0,
+          5103794.0,
+          666314.0,
+          5103800.0
+        ],
+        "height_metres": 1.5,
+        "reason": "Central chest-height cover creates a disengagement point before the objective."
+      },
+      {
+        "id": "cover_mid_east",
+        "bounds": [
+          666319.0,
+          5103805.0,
+          666325.0,
+          5103811.0
+        ],
+        "height_metres": 1.5,
+        "reason": "Offset central cover prevents a direct spawn-to-spawn sightline through the east lane."
+      },
+      {
+        "id": "cover_north_west",
+        "bounds": [
+          666308.0,
+          5103818.0,
+          666313.0,
+          5103823.0
+        ],
+        "height_metres": 1.2,
+        "reason": "Low cover mirrors the south-east option while preserving asymmetric terrain."
+      },
+      {
+        "id": "cover_north_east",
+        "bounds": [
+          666319.0,
+          5103832.0,
+          666324.0,
+          5103837.0
+        ],
+        "height_metres": 2.0,
+        "reason": "Full-height cover interrupts the eastern north-to-site sightline."
+      }
+    ]
+  },
   "calibration": {
     "object": "calibration_1m",
     "local_minimum": [
@@ -313,37 +396,55 @@
     "orthophoto_metadata": "https://gis.comune.trento.it/api/config/2/qdjango/42",
     "orthophoto_licence": "https://creativecommons.org/publicdomain/zero/1.0/"
   },
-  "config_note": "A 200 x 300 m survey blockout, not a final playable boundary. Rectangular modules approximate roof envelopes inspected in the 2024 municipal orthophoto and PAT DBM. These are not cadastral footprints or architectural measurements. Courtyard gaps are retained. Heights summarize mixed-date roof surfaces; base levels are buried construction assumptions. The bridge slab thickness is assumed. No interiors, openings, stairs, collision or CS2 entities are authored.",
+  "config_note": "A 200 x 300 m survey blockout containing a compact east-forecourt Wingman envelope. Rectangular modules approximate roof envelopes inspected in the 2024 municipal orthophoto and PAT DBM. These are not cadastral footprints or architectural measurements. Courtyard gaps are retained. Heights summarize mixed-date roof surfaces; base levels are buried construction assumptions. The bridge slab thickness is assumed. Gameplay cover and boundaries are explicit design additions rather than measured campus features. No interiors, openings, stairs or CS2 entities are authored here.",
   "limitations": [
     "Rectangular building modules are approximate volumes, not surveyed footprints or architectural models.",
     "Roof elevations and buried bases come from explicit configuration; DBM is checked for grid alignment, not automatically interpreted.",
     "The orthophoto is a reference overlay: aerial roofs remain visible on underlying ground; this is not a finished ground texture.",
     "Outer cell edges are not mesh vertices. NoData triangles and coarse quads spanning hidden NoData are omitted.",
     "DTM decimation cannot establish walkable steps, ramps, entrances, or retaining-wall geometry.",
-    "No interiors, collision setup, player clipping, navigation, lighting bake, CS2 entities, or compiled map are provided."
+    "No interiors, navigation, lighting bake, CS2 entities, or compiled map are provided by this geographic builder."
   ],
   "statistics": {
-    "vertices": 15363,
-    "triangles": 30168,
+    "vertices": 15667,
+    "triangles": 30624,
     "building_modules": 13,
-    "objects": 15
+    "gameplay_volumes": 38,
+    "objects": 53
+  },
+  "collision": {
+    "requested_bounds": [
+      666304.0,
+      5103734.0,
+      666331.0,
+      5103866.0
+    ],
+    "sampling_step": 4,
+    "vertices": 1309,
+    "triangles": 2304,
+    "gameplay_volumes": 38,
+    "purpose": "Simplified arena-only physics and navigation mesh"
   },
   "artifacts": {
     "povo_blockout.obj": {
-      "sha256": "987e98befbce69da73c842bdc139370593b5493fc1ad7e7529011c9358818d11",
-      "bytes": 1588516
+      "sha256": "11bc95cf999921d78489f8c03e250779dc4b983b29c3e3555ffd4b30cfccd1c9",
+      "bytes": 1666364
     },
     "povo_blockout.mtl": {
-      "sha256": "67eb2b449314734b0d75a4ec453360e1f1b380b8808fd0e7ae957461f8b04e68",
-      "bytes": 323
+      "sha256": "bb73f78b592900a0a625f7ed94369accfde75dab4e38c0b0bb43cc97f7c3afc7",
+      "bytes": 503
     },
     "orthophoto_reference.png": {
       "sha256": "aa3217e94d2039a6657d530431986d1bbe6f22b1c985bc453a85d0d978f7d82b",
       "bytes": 2030447
     },
     "CREDITS.txt": {
-      "sha256": "e6b88b0b60c0c8735628752d2f840d80179687bb6ba2ce1e70db057689e2fadd",
-      "bytes": 1291
+      "sha256": "6bb11c998c1a571c165fbb9c1bb97e2c6557c022a10d714e550186445bbe806c",
+      "bytes": 1385
+    },
+    "povo_blockout_collision.obj": {
+      "sha256": "02452ec4ec9abadde1373ed88c8081f792f289c4a75408bf440dab8ec7db81b1",
+      "bytes": 63611
     }
   }
 }

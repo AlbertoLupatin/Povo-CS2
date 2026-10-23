@@ -48,12 +48,23 @@ Author/edit world geometry, materials, collision, walkable stairs and slopes, li
 
 Begin with a simple native mode for movement/scale testing. Choose Wingman, standard bomb defusal or another supported mode after the campus footprint is evaluated. Add the mode's required entities, spawns and objectives from current CS2 examples; do not copy legacy CS:GO entity assumptions unchecked.
 
-For the checked-in Povo blockout, run `python tools/cs2_project.py place-blockout`
-before deployment. It deterministically inserts the correctly pitched geographic
-model and places both teams, the bomb target, and the buy zones on the sampled
-east-side terrain corridor. Keep subsequent route choices in that preparation
-step or synchronize reviewed Hammer changes back to Git; do not leave the only
-working placement inside an installed add-on directory.
+For the checked-in Povo blockout, regenerate exports and prepare the VMAP before
+deployment:
+
+```sh
+python tools/build_povo_blockout.py --force
+python tools/cs2_project.py place-blockout
+python tools/cs2_project.py compile --target map
+```
+
+`place-blockout` deterministically inserts the pitched geographic model, removes
+stock-room placeholders, normalizes the Wingman buy zones, relocates starts and
+the bomb target, fits the sky/post-processing/lightmap volumes, and adds nav,
+probe, soundscape, and minimap support. A repeated run must report `unchanged`.
+The map compile now refreshes the ModelDoc model first because Valve's map-only
+compiler otherwise consumes stale model physics/material output. Keep route
+choices in these reproducible sources or synchronize reviewed Hammer changes
+back to Git; never leave the only working copy inside the installed addon.
 
 Bring every major geometry change back into a playable build. Prioritize recognizability, navigability and collision before façade detailing.
 

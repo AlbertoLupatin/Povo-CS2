@@ -1,17 +1,25 @@
 # Povo CS2: Windows import and first-playable handoff
 
-## Verified state on 22 October 2026
+## Verified state on 23 October 2026
 
-The Workshop Tools are installed and the repository now deploys a `trento_povo`
-addon through `tools/cs2_project.py`. ModelDoc successfully compiles the Povo OBJ
-at 39.37007874 Hammer units per metre with provisional render materials and mesh
-collision. The Wingman source map contains that model and compiles to a local VPK
-with GPU lighting on the Intel Arc 130T. See [the worklog](WORKLOG.md) for hashes,
-warnings, and exact limitations.
+The Workshop Tools are installed and the repository deploys a `trento_povo`
+addon through `tools/cs2_project.py`. ModelDoc compiles the full Povo visual OBJ
+at 39.37007874 Hammer units per metre and a separate arena-only collision OBJ.
+The deterministic VMAP preparation removes the stock room, fits the sky and
+post-processing shell, adds lightmap/probe/nav/minimap support, and relocates the
+Wingman entities into the compact east forecourt. GPU lighting and a 503-area nav
+mesh compile successfully on the Intel Arc 130T.
 
-The steps below remain acceptance criteria where they have not been superseded by
-that verified build. Hammer inspection, calibration measurement, nav/spawn/objective
-placement, an in-game round, packaging, and multiplayer testing are still open.
+The packaged map loads as `trento_povo`; a human reached the configured CT start
+and three bots joined its listen server. The latest local VPK is 9,312,611 bytes
+with SHA-256
+`52e7292dd29db1cb17d918aa5d1d799dc6c3505f6b56a98645f808c01aea7b1f`.
+See [the worklog](WORKLOG.md) for exact build evidence and limitations.
+
+The steps below remain acceptance criteria where they have not been superseded.
+Direct calibration-cube measurement, a completed bot round, buy/bomb behavior,
+visual/performance inspection, clean installation, and independent-client
+multiplayer testing are still open.
 
 Target: Polo Ferrari, Povo; a compact campus map for small-team play. The OBJ assets
 are geographic working material. They are **not a playable map**, and importing a

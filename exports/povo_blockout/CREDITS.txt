@@ -11,4 +11,4 @@ Source attribution and licences:
   "orthophoto_licence": "https://creativecommons.org/publicdomain/zero/1.0/"
 }
 
-Changes: DTM cropped and decimated to a local-metre terrain mesh; orthophoto copied intact and UV-mapped; approximate rectangular building volumes added using configured roof elevations and assumed bases. No interiors or playable CS2 map included. Original evidence and hashes: provenance.json.
+Changes: DTM cropped and decimated to a local-metre terrain mesh; orthophoto copied intact and UV-mapped; approximate rectangular building volumes added using configured roof elevations and assumed bases; configured gameplay cover and segmented boundary volumes fitted to the terrain. No interiors or compiled CS2 map included. Original evidence and hashes: provenance.json.

@@ -35,6 +35,9 @@ GENERATED_CONTENT = (
     (Path("exports/povo_blockout/povo_blockout.mtl"), Path(
         "models/povo/povo_blockout.mtl"
     )),
+    (Path("exports/povo_blockout/povo_blockout_collision.obj"), Path(
+        "models/povo/povo_blockout_collision.obj"
+    )),
     (Path("exports/povo_blockout/orthophoto_reference.png"), Path(
         "models/povo/orthophoto_reference.png"
     )),
@@ -49,6 +52,8 @@ SYNC_CONTENT = (
     Path("models/povo/povo_blockout.vmdl"),
     Path("materials/trento/povo/terrain_reference.vmat"),
     Path("materials/trento/povo/building_blockout.vmat"),
+    Path("materials/trento/povo/gameplay_cover.vmat"),
+    Path("materials/trento/povo/gameplay_boundary.vmat"),
     Path("materials/trento/povo/calibration.vmat"),
 )
 SYNC_GAME = (
@@ -60,34 +65,58 @@ BLOCKOUT_MODEL = "models/povo/povo_blockout.vmdl"
 # Pitching the placed prop by -90 degrees restores geographic Z as world up.
 BLOCKOUT_ANGLES = "-90 0 0"
 
-# First-playable layout on the open east side of the Povo campus.  These
-# coordinates are sampled from the exported terrain after applying the model's
-# -90 degree pitch and 39.37007874 units-per-metre scale.  Keeping this data in
-# the repository makes the installed VMAP reproducible instead of relying on a
-# one-off Hammer edit.
+# Compact Wingman layout in the Povo east forecourt. These coordinates are
+# sampled from the exported terrain after applying the model's -90 degree pitch
+# and 39.37007874 units-per-metre scale. The paired north/south starts feed two
+# cover-separated approaches inside the generated boundary.
 PLAYTEST_SPAWNS = {
     "info_player_counterterrorist": (
-        ("3946.850 2765.748 429.244", "0 180 0"),
-        ("3946.850 2844.488 432.787", "0 180 0"),
-        ("3946.850 2923.228 433.181", "0 180 0"),
-        ("3789.370 2765.748 426.488", "0 180 0"),
-        ("3789.370 2844.488 428.850", "0 180 0"),
-        ("3789.370 2923.228 431.213", "0 180 0"),
+        ("2253.937 2332.677 369.008", "0 180 0"),
+        ("2253.937 2568.898 356.409", "0 180 0"),
+        ("2253.937 2844.488 417.827", "0 180 0"),
+        ("2096.457 2332.677 371.764", "0 180 0"),
+        ("2096.457 2568.898 360.740", "0 180 0"),
+        ("2096.457 2844.488 421.370", "0 180 0"),
     ),
     "info_player_terrorist": (
-        ("-3769.685 2765.748 456.803", "0 0 0"),
-        ("-3769.685 2844.488 456.803", "0 0 0"),
-        ("-3769.685 2923.228 455.622", "0 0 0"),
-        ("-3927.165 2765.748 462.315", "0 0 0"),
-        ("-3927.165 2844.488 467.827", "0 0 0"),
-        ("-3927.165 2923.228 466.252", "0 0 0"),
+        ("-2096.457 2332.677 392.630", "0 0 0"),
+        ("-2096.457 2568.898 380.819", "0 0 0"),
+        ("-2096.457 2844.488 441.843", "0 0 0"),
+        ("-2253.937 2332.677 401.685", "0 0 0"),
+        ("-2253.937 2568.898 389.087", "0 0 0"),
+        ("-2253.937 2844.488 446.961", "0 0 0"),
     ),
 }
-PLAYTEST_OBJECTIVE_ORIGIN = "9.843 2844.488 407.591"
+PLAYTEST_OBJECTIVE_ORIGIN = "-9.843 2608.268 358.772"
 PLAYTEST_BUYZONE_ORIGINS = {
-    "3": "3868.110 2844.488 430.000",  # Counter-Terrorist
-    "2": "-3848.425 2844.488 462.000",  # Terrorist
+    "3": "2175.197 2568.898 360.740",  # Counter-Terrorist
+    "2": "-2175.197 2568.898 384.756",  # Terrorist
     "0": PLAYTEST_OBJECTIVE_ORIGIN,  # Template 2v2 zone; harmless when disabled.
+}
+PLAYTEST_NAV_ORIGIN = "-9.843 2608.268 342.772"
+PLAYTEST_CENTER = "0 2608.268 600"
+PLAYTEST_SKYBOX_ORIGIN = "0 0 400"
+PLAYTEST_SKYBOX_SCALES = "10 8 16"
+PLAYTEST_POSTPROCESS_SCALES = "170 40 30"
+PLAYTEST_MINIMAP_CORNERS = (
+    "-2559.055 2165.354 250",
+    "2559.055 3149.606 900",
+)
+VALID_SKY_MATERIAL = (
+    "materials/skybox/skymodel_hosekwilkie_ref/"
+    "skymodel_hosekwilkie_albedo_0_30_turbidity_02_0_elevation_65_0.vmat"
+)
+LIGHTMAP_RESOLUTION_MATERIAL = "materials/tools/toolslightmapres.vmat"
+POSTPROCESS_VOLUME_MESH_MATERIAL = (
+    "materials/models/props_junk/trashclusters01.vmat"
+)
+TEMPLATE_ENTITY_CLASSES_TO_REMOVE = {
+    "func_brush",
+    "func_clip_vphysics",
+    "func_nav_blocker",
+    "logic_auto",
+    "logic_script",
+    "point_worldtext",
 }
 
 
@@ -352,7 +381,10 @@ def _matching_brace(text: str, opening: int) -> int:
 
 
 def _replace_entity_transform(
-    block: str, origin: str, angles: str | None = None
+    block: str,
+    origin: str,
+    angles: str | None = None,
+    scales: str | None = None,
 ) -> str:
     """Move an entity and any brush children sharing its local origin."""
 
@@ -381,11 +413,387 @@ def _replace_entity_transform(
         )
         if not angle_count:
             raise ProjectError("VMAP entity has no angle transform")
+    if scales is not None:
+        updated, scale_count = re.subn(
+            r'("scales"\s+"vector3"\s+")([^"]+)(")',
+            lambda match: replace_vector(match, scales),
+            updated,
+        )
+        if not scale_count:
+            raise ProjectError("VMAP entity has no scale transform")
     return updated
 
 
+def _element_span(text: str, start: int, closing: int) -> tuple[int, int]:
+    """Include a VMAP array element's optional comma and following newline."""
+    end = closing + 1
+    while end < len(text) and text[end] in " \t":
+        end += 1
+    if end < len(text) and text[end] == ",":
+        end += 1
+    if text.startswith("\r\n", end):
+        end += 2
+    elif end < len(text) and text[end] == "\n":
+        end += 1
+    return start, end
+
+
+def _entity_ranges(text: str) -> list[tuple[int, int, str, str]]:
+    """Return entity block ranges, class names, and source blocks."""
+    ranges = []
+    pattern = re.compile(r'(?m)^[ \t]*"CMapEntity"[ \t]*$')
+    class_pattern = re.compile(r'"classname"\s+"string"\s+"([^"]+)"')
+    for match in pattern.finditer(text):
+        opening = text.find("{", match.end())
+        if opening < 0:
+            raise ProjectError("VMAP entity has no opening brace")
+        closing = _matching_brace(text, opening)
+        block = text[match.start() : closing + 1]
+        class_match = class_pattern.search(block)
+        ranges.append(
+            (match.start(), closing + 1, class_match.group(1) if class_match else "", block)
+        )
+    return ranges
+
+
+def normalize_template_buyzones(text: str) -> str:
+    """Turn the template's conditional 2v2 volume into the real T buy zone."""
+    replacements = []
+    for start, end, classname, block in _entity_ranges(text):
+        if classname != "func_buyzone":
+            continue
+        team_match = re.search(r'("TeamNum"\s+"string"\s+")([^"]+)(")', block)
+        if not team_match:
+            continue
+        team = team_match.group(2)
+        has_mesh = '"CMapMesh"' in block
+        desired = "2" if team == "0" and has_mesh else "0" if team == "2" and not has_mesh else team
+        updated = block
+        if desired != team:
+            updated = (
+                updated[: team_match.start(2)]
+                + desired
+                + updated[team_match.end(2) :]
+            )
+        if desired == "2":
+            updated = re.sub(
+                r'("targetname"\s+"string"\s+")([^"]*)(")',
+                r'\1\3',
+                updated,
+                count=1,
+            )
+        if updated != block:
+            replacements.append((start, end, updated))
+    for start, end, replacement in reversed(replacements):
+        text = text[:start] + replacement + text[end:]
+    return text
+
+
+def remove_template_placeholders(text: str) -> str:
+    """Remove sample-room geometry and editor helpers, preserving its sky shell."""
+    entities = _entity_ranges(text)
+    removals = []
+    for start, end, classname, _ in entities:
+        if classname in TEMPLATE_ENTITY_CLASSES_TO_REMOVE:
+            opening = text.find("{", start, end)
+            closing = _matching_brace(text, opening)
+            removals.append(_element_span(text, start, closing))
+
+    entity_spans = [(start, end) for start, end, _, _ in entities]
+    mesh_pattern = re.compile(r'(?m)^[ \t]*"CMapMesh"[ \t]*$')
+    for match in mesh_pattern.finditer(text):
+        if any(start <= match.start() < end for start, end in entity_spans):
+            continue
+        opening = text.find("{", match.end())
+        if opening < 0:
+            raise ProjectError("VMAP mesh has no opening brace")
+        closing = _matching_brace(text, opening)
+        block = text[match.start() : closing + 1]
+        retained_materials = (
+            "materials/tools/toolsskybox.vmat",
+            LIGHTMAP_RESOLUTION_MATERIAL,
+        )
+        if not any(material in block for material in retained_materials):
+            removals.append(_element_span(text, match.start(), closing))
+
+    for start, end in sorted(removals, reverse=True):
+        text = text[:start] + text[end:]
+    children_open = _world_children_opening(text)
+    children_close = _matching_bracket(text, children_open)
+    children = text[children_open + 1 : children_close]
+    children = re.sub(r",(\s*)$", r"\1", children)
+    text = text[: children_open + 1] + children + text[children_close:]
+    return text
+
+
+def configure_playtest_environment(text: str) -> str:
+    """Fit the retained sky shell and exposure volume to the Povo arena."""
+    text = re.sub(
+        r'materials/skybox/skymodel_hosekwilkie_ref/'
+        r'skymodel_hosekwilkie_albedo_0_30_turbidity_02_0_elevation_\d+_0\.vmat',
+        VALID_SKY_MATERIAL,
+        text,
+    )
+    replacements = []
+    postprocess_count = 0
+    for start, end, classname, block in _entity_ranges(text):
+        if classname == "post_processing_volume":
+            updated = _replace_entity_transform(
+                block,
+                PLAYTEST_CENTER,
+                scales=PLAYTEST_POSTPROCESS_SCALES,
+            )
+            replacements.append((start, end, updated))
+            postprocess_count += 1
+    if postprocess_count != 1:
+        raise ProjectError(
+            f"VMAP has {postprocess_count} post-processing volumes; expected 1"
+        )
+    for start, end, replacement in reversed(replacements):
+        text = text[:start] + replacement + text[end:]
+
+    sky_matches = []
+    for match in re.finditer(r'(?m)^[ \t]*"CMapMesh"[ \t]*$', text):
+        opening = text.find("{", match.end())
+        closing = _matching_brace(text, opening)
+        block = text[match.start() : closing + 1]
+        if "materials/tools/toolsskybox.vmat" in block:
+            sky_matches.append((match.start(), closing + 1, block))
+    if len(sky_matches) != 1:
+        raise ProjectError(f"VMAP has {len(sky_matches)} sky shells; expected 1")
+    start, end, block = sky_matches[0]
+    updated = _replace_entity_transform(
+        block,
+        PLAYTEST_SKYBOX_ORIGIN,
+        scales=PLAYTEST_SKYBOX_SCALES,
+    )
+    return text[:start] + updated + text[end:]
+
+
+def _ensure_map_asset_reference(text: str, asset: str) -> str:
+    """Add one source asset to the VMAP header without duplicating it."""
+    references_at = text.find('"map_asset_references" "string_array"')
+    if references_at < 0:
+        raise ProjectError("VMAP has no map_asset_references array")
+    opening = text.find("[", references_at)
+    closing = _matching_bracket(text, opening)
+    body = text[opening + 1 : closing]
+    if re.search(rf'"{re.escape(asset)}"', body):
+        return text
+    has_entries = bool(re.search(r'"[^"]+"', body))
+    addition = f'\n\t\t"{asset}"' + ("," if has_entries else "")
+    return text[: opening + 1] + addition + text[opening + 1 :]
+
+
+def insert_lightmap_resolution_volume(text: str) -> str:
+    """Clone the proven volume mesh as the arena's lightmap density control."""
+    token = "lightmap-resolution"
+    stable_id = uuid.uuid5(uuid.NAMESPACE_URL, f"trento-povo:{token}:0")
+    if str(stable_id) in text:
+        return text
+
+    postprocess_blocks = [
+        block
+        for _, _, classname, block in _entity_ranges(text)
+        if classname == "post_processing_volume"
+    ]
+    if len(postprocess_blocks) != 1:
+        raise ProjectError(
+            f"VMAP has {len(postprocess_blocks)} post-processing volumes; expected 1"
+        )
+    postprocess = postprocess_blocks[0]
+    mesh_match = re.search(r'(?m)^[ \t]*"CMapMesh"[ \t]*$', postprocess)
+    if not mesh_match:
+        raise ProjectError("Post-processing volume has no CMapMesh child")
+    mesh_opening = postprocess.find("{", mesh_match.end())
+    mesh_closing = _matching_brace(postprocess, mesh_opening)
+    mesh = postprocess[mesh_match.start() : mesh_closing + 1]
+    if POSTPROCESS_VOLUME_MESH_MATERIAL not in mesh:
+        raise ProjectError("Post-processing mesh does not use the expected material")
+
+    id_index = 0
+
+    def replace_id(_match: re.Match[str]) -> str:
+        nonlocal id_index
+        replacement = uuid.uuid5(
+            uuid.NAMESPACE_URL, f"trento-povo:{token}:{id_index}"
+        )
+        id_index += 1
+        return f'"id" "elementid" "{replacement}"'
+
+    mesh = re.sub(r'"id"\s+"elementid"\s+"[^"]+"', replace_id, mesh)
+    if id_index == 0:
+        raise ProjectError("Post-processing mesh has no element IDs")
+    node_ids = [int(value) for value in re.findall(r'"nodeID"\s+"int"\s+"(\d+)"', text)]
+    mesh, node_count = re.subn(
+        r'("nodeID"\s+"int"\s+")\d+("\s*)',
+        rf'\g<1>{max(node_ids, default=1) + 1}\2',
+        mesh,
+        count=1,
+    )
+    if node_count != 1:
+        raise ProjectError("Post-processing mesh has no nodeID")
+    reference_id = stable_id.int & ((1 << 64) - 1)
+    mesh, reference_count = re.subn(
+        r'("referenceID"\s+"uint64"\s+")0x[0-9a-fA-F]+(")',
+        rf'\g<1>0x{reference_id:x}\2',
+        mesh,
+        count=1,
+    )
+    if reference_count != 1:
+        raise ProjectError("Post-processing mesh has no referenceID")
+    mesh = mesh.replace(
+        POSTPROCESS_VOLUME_MESH_MATERIAL, LIGHTMAP_RESOLUTION_MATERIAL
+    )
+    mesh = _replace_entity_transform(
+        mesh,
+        PLAYTEST_CENTER,
+        angles="0 0 0",
+        scales=PLAYTEST_POSTPROCESS_SCALES,
+    )
+
+    text = _ensure_map_asset_reference(text, LIGHTMAP_RESOLUTION_MATERIAL)
+    children_open = _world_children_opening(text)
+    insertion = "\n" + mesh + ","
+    return text[: children_open + 1] + insertion + text[children_open + 1 :]
+
+
+def _world_children_opening(text: str) -> int:
+    world_at = text.find('"world" "CMapWorld"')
+    if world_at < 0:
+        raise ProjectError("VMAP has no CMapWorld")
+    children_at = text.find('"children" "element_array"', world_at)
+    if children_at < 0:
+        raise ProjectError("CMapWorld has no children array")
+    opening = text.find("[", children_at)
+    _matching_bracket(text, opening)
+    return opening
+
+
+def _insert_point_entity(
+    text: str,
+    token: str,
+    classname: str,
+    origin: str,
+    properties: tuple[tuple[str, str], ...] = (),
+) -> str:
+    """Insert one deterministic point entity unless its stable ID already exists."""
+    entity_id = uuid.uuid5(uuid.NAMESPACE_URL, f"trento-povo:{token}")
+    if str(entity_id) in text:
+        return text
+    relay_id = uuid.uuid5(uuid.NAMESPACE_URL, f"trento-povo:{token}:relay")
+    properties_id = uuid.uuid5(uuid.NAMESPACE_URL, f"trento-povo:{token}:properties")
+    reference_id = entity_id.int & ((1 << 64) - 1)
+    node_ids = [int(value) for value in re.findall(r'"nodeID"\s+"int"\s+"(\d+)"', text)]
+    node_id = max(node_ids, default=1) + 1
+    rendered_properties = "".join(
+        f'\n\t\t\t\t\t"{key}" "string" "{value}"' for key, value in properties
+    )
+    entity = f'''
+\t\t\t"CMapEntity"
+\t\t\t{{
+\t\t\t\t"id" "elementid" "{entity_id}"
+\t\t\t\t"nodeID" "int" "{node_id}"
+\t\t\t\t"referenceID" "uint64" "0x{reference_id:x}"
+\t\t\t\t"children" "element_array" [ ]
+\t\t\t\t"variableTargetKeys" "string_array" [ ]
+\t\t\t\t"variableNames" "string_array" [ ]
+\t\t\t\t"relayPlugData" "DmePlugList"
+\t\t\t\t{{
+\t\t\t\t\t"id" "elementid" "{relay_id}"
+\t\t\t\t\t"names" "string_array" [ ]
+\t\t\t\t\t"dataTypes" "int_array" [ ]
+\t\t\t\t\t"plugTypes" "int_array" [ ]
+\t\t\t\t\t"descriptions" "string_array" [ ]
+\t\t\t\t}}
+\t\t\t\t"connectionsData" "element_array" [ ]
+\t\t\t\t"entity_properties" "EditGameClassProps"
+\t\t\t\t{{
+\t\t\t\t\t"id" "elementid" "{properties_id}"
+\t\t\t\t\t"classname" "string" "{classname}"{rendered_properties}
+\t\t\t\t}}
+\t\t\t\t"hitNormal" "vector3" "0 0 1"
+\t\t\t\t"isProceduralEntity" "bool" "0"
+\t\t\t\t"origin" "vector3" "{origin}"
+\t\t\t\t"angles" "qangle" "0 0 0"
+\t\t\t\t"scales" "vector3" "1 1 1"
+\t\t\t\t"transformLocked" "bool" "0"
+\t\t\t\t"force_hidden" "bool" "0"
+\t\t\t\t"editorOnly" "bool" "0"
+\t\t\t}},'''
+    opening = _world_children_opening(text)
+    return text[: opening + 1] + entity + text[opening + 1 :]
+
+
+def insert_gameplay_support_entities(text: str) -> str:
+    """Add navigation, light probes, sound, and radar bounds for the arena."""
+    specs = (
+        (
+            "nav-seed",
+            "point_nav_walkable",
+            PLAYTEST_NAV_ORIGIN,
+            (("vscripts", ""), ("targetname", "trento_nav_seed")),
+        ),
+        (
+            "light-probe",
+            "env_combined_light_probe_volume",
+            PLAYTEST_CENTER,
+            (
+                ("targetname", "trento_light_probe"),
+                ("vscripts", ""),
+                ("StartDisabled", "0"),
+                ("cubemaptexture", ""),
+                ("bakenearz", "2.0"),
+                ("bakefarz", "4096.0"),
+                ("lightgroup", ""),
+                ("moveable", "0"),
+                ("lightprobetexture", ""),
+                ("box_mins", "-2700 -650 -400"),
+                ("box_maxs", "2700 650 700"),
+                ("voxel_size", "64.0"),
+                ("flood_fill", "1"),
+                ("voxelize", "1"),
+                ("light_probe_volume_from_cubemap", "0"),
+                ("storage", "-1"),
+                ("indoor_outdoor_level", "0"),
+                ("edge_fade_dists", "0 32 0"),
+                ("clientSideEntity", "1"),
+            ),
+        ),
+        (
+            "soundscape",
+            "env_soundscape",
+            PLAYTEST_CENTER,
+            (
+                ("vscripts", ""),
+                ("targetname", "trento_outdoors"),
+                ("StartDisabled", "0"),
+                ("radius", "6000"),
+                ("soundscape", "Nothing"),
+                ("enablesoundevent", "1"),
+                ("soundevent", "ambient_example.outdoors"),
+            ),
+        ),
+        (
+            "minimap-min",
+            "cs_minimap_boundary",
+            PLAYTEST_MINIMAP_CORNERS[0],
+            (),
+        ),
+        (
+            "minimap-max",
+            "cs_minimap_boundary",
+            PLAYTEST_MINIMAP_CORNERS[1],
+            (),
+        ),
+    )
+    for token, classname, origin, properties in specs:
+        text = _insert_point_entity(text, token, classname, origin, properties)
+    return text
+
+
 def relocate_playtest_entities(text: str) -> str:
-    """Move Wingman spawns and volumes onto the open Povo east-side route."""
+    """Move Wingman spawns, cameras, and volumes into the compact Povo arena."""
     entity_pattern = re.compile(r'(?m)^[ \t]*"CMapEntity"[ \t]*$')
     class_pattern = re.compile(r'"classname"\s+"string"\s+"([^"]+)"')
     team_pattern = re.compile(r'"TeamNum"\s+"string"\s+"([^"]+)"')
@@ -413,6 +821,12 @@ def relocate_playtest_entities(text: str) -> str:
                 raise ProjectError(f"VMAP has too many {classname} entities")
             origin, angles = layout[index]
             updated = _replace_entity_transform(block, origin, angles)
+            updated = re.sub(
+                r'("targetname"\s+"string"\s+")spawnpoints\.2v2(")',
+                r'\1\2',
+                updated,
+                count=1,
+            )
             spawn_indices[classname] += 1
         elif classname == "func_bomb_target":
             updated = _replace_entity_transform(block, PLAYTEST_OBJECTIVE_ORIGIN)
@@ -425,6 +839,18 @@ def relocate_playtest_entities(text: str) -> str:
                     block, PLAYTEST_BUYZONE_ORIGINS[team]
                 )
                 buyzone_teams.add(team)
+        elif classname == "counterterrorist_wingman_intro":
+            updated = _replace_entity_transform(
+                block, PLAYTEST_BUYZONE_ORIGINS["3"], "0 180 0"
+            )
+        elif classname == "terrorist_wingman_intro":
+            updated = _replace_entity_transform(
+                block, PLAYTEST_BUYZONE_ORIGINS["2"], "0 0 0"
+            )
+        elif classname == "end_of_match":
+            updated = _replace_entity_transform(
+                block, PLAYTEST_OBJECTIVE_ORIGIN, "0 90 0"
+            )
 
         if updated != block:
             replacements.append((match.start(), closing + 1, updated))
@@ -574,7 +1000,13 @@ def place_blockout(cs2_root: Path, repo_root: Path = REPO_ROOT) -> bool:
         if to_text.returncode:
             raise ProjectError("dmxconvert could not decode the source VMAP")
         original = text_map.read_text(encoding="utf-8")
-        updated = relocate_playtest_entities(insert_blockout_prop(original))
+        updated = insert_blockout_prop(original)
+        updated = normalize_template_buyzones(updated)
+        updated = relocate_playtest_entities(updated)
+        updated = remove_template_placeholders(updated)
+        updated = configure_playtest_environment(updated)
+        updated = insert_lightmap_resolution_volume(updated)
+        updated = insert_gameplay_support_entities(updated)
         if updated == original:
             return False
         text_map.write_text(updated, encoding="utf-8", newline="\n")
@@ -642,7 +1074,9 @@ def compile_resources(cs2_root: Path, target: str) -> int:
     compiler = cs2_root / "game" / "bin" / "win64" / "resourcecompiler.exe"
     game_directory = cs2_root / "game" / "csgo"
     resources: list[Path] = []
-    if target in ("model", "all"):
+    # The map compiler consumes the last compiled VMDL and does not reliably
+    # rebuild a changed ModelDoc dependency. Always refresh it before a map.
+    if target in ("model", "map", "all"):
         resources.append(content_target / "models" / "povo" / "povo_blockout.vmdl")
     if target in ("map", "all"):
         resources.append(content_target / "maps" / "trento_povo.vmap")

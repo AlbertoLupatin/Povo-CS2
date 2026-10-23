@@ -128,7 +128,64 @@ class PovoBlockoutTests(unittest.TestCase):
             self.assertEqual(entry["sha256"], hashlib.sha256((self.output / filename).read_bytes()).hexdigest())
         self.assertEqual(record["attribution"], self.config["attribution"])
         self.assertFalse(record["coordinate_transform"]["declarations_verified_by_builder"])
-        self.assertEqual(result["statistics"], {"vertices": 20, "triangles": 26, "building_modules": 1, "objects": 3})
+        self.assertEqual(
+            result["statistics"],
+            {
+                "vertices": 20,
+                "triangles": 26,
+                "building_modules": 1,
+                "gameplay_volumes": 0,
+                "objects": 3,
+            },
+        )
+
+    def test_gameplay_cover_and_segmented_boundary_follow_terrain(self):
+        self.config["gameplay"] = {
+            "mode": "Wingman",
+            "playable_bounds": [101.5, 201.5, 103.5, 203.5],
+            "boundary": {
+                "height_metres": 2,
+                "thickness_metres": 0.25,
+                "segment_length_metres": 1,
+                "reason": "Synthetic player boundary",
+            },
+            "cover": [
+                {
+                    "id": "test_cover",
+                    "bounds": [102, 202, 103, 203],
+                    "height_metres": 1,
+                    "reason": "Synthetic sightline break",
+                }
+            ],
+        }
+
+        result = self.export()
+        vertices, _, objects = self.read_mesh()
+
+        self.assertIn("test_cover", objects)
+        self.assertIn("boundary_west_01", objects)
+        self.assertIn("boundary_north_02", objects)
+        cover_indices = {
+            ref[0] for face in objects["test_cover"] for ref in face
+        }
+        self.assertEqual(
+            tuple(min(vertices[index - 1][axis] for index in cover_indices) for axis in range(3)),
+            (0, 0, -0.5),
+        )
+        self.assertEqual(
+            tuple(max(vertices[index - 1][axis] for index in cover_indices) for axis in range(3)),
+            (1, 1, 1),
+        )
+        self.assertEqual(result["statistics"]["gameplay_volumes"], 9)
+        self.assertEqual(result["statistics"]["objects"], 12)
+        collision = (self.output / "povo_blockout_collision.obj").read_text()
+        self.assertIn("o collision_terrain", collision)
+        self.assertIn("o test_cover", collision)
+        self.assertNotIn("o campus", collision)
+        self.assertEqual(result["collision"]["gameplay_volumes"], 9)
+        materials = (self.output / "povo_blockout.mtl").read_text()
+        self.assertIn("newmtl gameplay_cover", materials)
+        self.assertIn("newmtl gameplay_boundary", materials)
 
     def test_invalid_config_publishes_nothing(self):
         initial = json.loads(json.dumps(self.config))
@@ -140,6 +197,13 @@ class PovoBlockoutTests(unittest.TestCase):
             {"buildings": [{**initial["buildings"][0], "bounds": [100, 200, 103, 203]}]},
             {"buildings": [{**initial["buildings"][0], "id": "bad\no injected"}]},
             {"buildings": initial["buildings"] * 2},
+            {"gameplay": {"mode": "Wingman"}},
+            {"gameplay": {
+                "mode": "Wingman", "playable_bounds": [100, 200, 105, 205],
+                "boundary": {"height_metres": 0, "thickness_metres": 1,
+                             "segment_length_metres": 1, "reason": "invalid"},
+                "cover": [],
+            }},
         ]
         for values in cases:
             with self.subTest(values=values):

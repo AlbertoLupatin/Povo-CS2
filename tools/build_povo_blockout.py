@@ -19,8 +19,16 @@ except ImportError:  # Direct invocation: python3 tools/build_povo_blockout.py
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_FILES = ("povo_blockout.obj", "povo_blockout.mtl", "orthophoto_reference.png", "provenance.json", "CREDITS.txt")
+OUTPUT_FILES = (
+    "povo_blockout.obj",
+    "povo_blockout.mtl",
+    "orthophoto_reference.png",
+    "provenance.json",
+    "CREDITS.txt",
+    "povo_blockout_collision.obj",
+)
 CALIBRATION_MINIMUM = (-120.0, -170.0, 0.0)
+GAMEPLAY_MATERIALS = {"cover": "gameplay_cover", "boundary": "gameplay_boundary"}
 
 
 def numbers(value, length, label):
@@ -85,6 +93,69 @@ def validate_config(config):
             raise ValueError(f"{identifier} evidence must be nonempty text")
         buildings.append(entry)
     config["buildings"] = buildings
+    gameplay = config.get("gameplay")
+    if gameplay is not None:
+        if not isinstance(gameplay, dict) or not {
+            "mode", "playable_bounds", "boundary", "cover"
+        } <= gameplay.keys():
+            raise ValueError(
+                "gameplay needs mode, playable_bounds, boundary, and cover"
+            )
+        gameplay = dict(gameplay)
+        if not isinstance(gameplay["mode"], str) or not gameplay["mode"].strip():
+            raise ValueError("gameplay mode must be nonempty text")
+        gameplay["playable_bounds"] = bounds(
+            gameplay["playable_bounds"], "gameplay playable_bounds"
+        )
+        if not contains(config["terrain_bounds"], gameplay["playable_bounds"]):
+            raise ValueError("gameplay playable_bounds must fit inside terrain_bounds")
+        boundary = gameplay["boundary"]
+        if not isinstance(boundary, dict) or not {
+            "height_metres", "thickness_metres", "segment_length_metres", "reason"
+        } <= boundary.keys():
+            raise ValueError(
+                "gameplay boundary needs height, thickness, segment length, and reason"
+            )
+        boundary = dict(boundary)
+        for key in ("height_metres", "thickness_metres", "segment_length_metres"):
+            boundary[key] = finite(boundary[key], f"gameplay boundary {key}")
+            if boundary[key] <= 0:
+                raise ValueError(f"gameplay boundary {key} must be positive")
+        if not isinstance(boundary["reason"], str) or not boundary["reason"].strip():
+            raise ValueError("gameplay boundary reason must be nonempty text")
+        gameplay["boundary"] = boundary
+        if not isinstance(gameplay["cover"], list):
+            raise ValueError("gameplay cover must be a list")
+        cover = []
+        for entry in gameplay["cover"]:
+            if not isinstance(entry, dict) or not {
+                "id", "bounds", "height_metres", "reason"
+            } <= entry.keys():
+                raise ValueError(
+                    "Each gameplay cover needs id, bounds, height_metres, and reason"
+                )
+            entry = dict(entry)
+            identifier = entry["id"]
+            if (
+                not isinstance(identifier, str)
+                or not re.fullmatch(r"[A-Za-z][A-Za-z0-9_-]*", identifier)
+                or identifier in seen
+            ):
+                raise ValueError("Gameplay cover IDs must be unique safe OBJ names")
+            seen.add(identifier)
+            entry["bounds"] = bounds(entry["bounds"], f"{identifier} bounds")
+            if not contains(gameplay["playable_bounds"], entry["bounds"]):
+                raise ValueError(f"{identifier} bounds must fit inside playable_bounds")
+            entry["height_metres"] = finite(
+                entry["height_metres"], f"{identifier} height_metres"
+            )
+            if entry["height_metres"] <= 0:
+                raise ValueError(f"{identifier} height_metres must be positive")
+            if not isinstance(entry["reason"], str) or not entry["reason"].strip():
+                raise ValueError(f"{identifier} reason must be nonempty text")
+            cover.append(entry)
+        gameplay["cover"] = cover
+    config["gameplay"] = gameplay
     return config
 
 
@@ -169,6 +240,95 @@ def write_box(stream, identifier, minimum, maximum, vertex_offset, material="bui
     return 8, 12
 
 
+def elevation_range(grid, requested_bounds):
+    """Return finite terrain heights whose sample centres fall in the bounds."""
+    west, south, east, north = requested_bounds
+    values = []
+    for row in range(grid.rows):
+        y = grid.y_center + (grid.rows - 1 - row) * grid.cellsize
+        if not south <= y <= north:
+            continue
+        for column in range(grid.cols):
+            x = grid.x_center + column * grid.cellsize
+            if not west <= x <= east:
+                continue
+            value = grid.values[row * grid.cols + column]
+            if value != grid.nodata and math.isfinite(value):
+                values.append(value)
+    if not values:
+        raise ValueError("Gameplay volume contains no finite terrain samples")
+    return min(values), max(values)
+
+
+def boundary_segments(playable_bounds, boundary):
+    """Yield short axis-aligned boundary boxes that follow sloped terrain."""
+    west, south, east, north = playable_bounds
+    thickness = boundary["thickness_metres"]
+    length = boundary["segment_length_metres"]
+
+    def intervals(start, stop):
+        current = start
+        while current < stop:
+            following = min(current + length, stop)
+            yield current, following
+            current = following
+
+    for side, x in (("west", west), ("east", east)):
+        for index, (y0, y1) in enumerate(intervals(south, north), 1):
+            yield (
+                f"boundary_{side}_{index:02d}",
+                (x - thickness / 2, y0, x + thickness / 2, y1),
+            )
+    for side, y in (("south", south), ("north", north)):
+        for index, (x0, x1) in enumerate(intervals(west, east), 1):
+            yield (
+                f"boundary_{side}_{index:02d}",
+                (x0, y - thickness / 2, x1, y + thickness / 2),
+            )
+
+
+def gameplay_volume_boxes(gameplay, terrain, origin):
+    """Resolve configured gameplay volumes to terrain-fitted local boxes."""
+    if not gameplay:
+        return []
+    volumes = [
+        (entry["id"], entry["bounds"], entry["height_metres"], "cover")
+        for entry in gameplay["cover"]
+    ]
+    volumes.extend(
+        (
+            identifier,
+            volume_bounds,
+            gameplay["boundary"]["height_metres"],
+            "boundary",
+        )
+        for identifier, volume_bounds in boundary_segments(
+            gameplay["playable_bounds"], gameplay["boundary"]
+        )
+    )
+    boxes = []
+    for identifier, volume_bounds, height, role in volumes:
+        terrain_minimum, terrain_maximum = elevation_range(terrain, volume_bounds)
+        west, south, east, north = volume_bounds
+        boxes.append(
+            (
+                identifier,
+                (
+                    west - origin[0],
+                    south - origin[1],
+                    terrain_minimum - origin[2] - 0.5,
+                ),
+                (
+                    east - origin[0],
+                    north - origin[1],
+                    terrain_maximum - origin[2] + height,
+                ),
+                GAMEPLAY_MATERIALS[role],
+            )
+        )
+    return boxes
+
+
 def safe_path(path, root):
     """Record project paths without exposing a workstation home directory."""
     try:
@@ -212,7 +372,7 @@ def build_blockout(config_path, output, *, root=None, force=False):
     metadata = {
         "format_version": 1,
         "title": config.get("title", "Povo - Polo Ferrari geographic blockout"),
-        "status": "Intermediate geographic reference mesh; not compiled, playable, or game validated",
+        "status": "Geographic and gameplay blockout source; CS2 validation is recorded separately",
         "config": {"path": safe_path(config_path, root), "sha256": hashlib.sha256(raw_config).hexdigest()},
         "sources": {"dtm": raster_record(sources["dtm"], dtm, root),
                     "dbm": raster_record(sources["dbm"], dbm, root),
@@ -236,6 +396,7 @@ def build_blockout(config_path, output, *, root=None, force=False):
                     "uv_formula": "u=(easting-west)/(east-west); v=(northing-south)/(north-south), using full orthophoto bounds",
                     "uv_orientation": "OBJ v=0 south / image bottom; v=1 north / image top"},
         "building_modules": config["buildings"],
+        "gameplay": config["gameplay"],
         "calibration": {"object": "calibration_1m", "local_minimum": CALIBRATION_MINIMUM,
                         "dimensions_metres": [1, 1, 1],
                         "purpose": "Staging-only scale check outside the campus; delete before game packaging"},
@@ -247,7 +408,7 @@ def build_blockout(config_path, output, *, root=None, force=False):
             "The orthophoto is a reference overlay: aerial roofs remain visible on underlying ground; this is not a finished ground texture.",
             "Outer cell edges are not mesh vertices. NoData triangles and coarse quads spanning hidden NoData are omitted.",
             "DTM decimation cannot establish walkable steps, ramps, entrances, or retaining-wall geometry.",
-            "No interiors, collision setup, player clipping, navigation, lighting bake, CS2 entities, or compiled map are provided.",
+            "No interiors, navigation, lighting bake, CS2 entities, or compiled map are provided by this geographic builder.",
         ],
     }
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -271,23 +432,95 @@ def build_blockout(config_path, output, *, root=None, force=False):
                 added_vertices, added_triangles = write_box(stream, building["id"], minimum, maximum, vertices)
                 vertices += added_vertices
                 triangles += added_triangles
+            gameplay_boxes = gameplay_volume_boxes(config["gameplay"], terrain, origin)
+            for identifier, minimum, maximum, material in gameplay_boxes:
+                added_vertices, added_triangles = write_box(
+                    stream,
+                    identifier,
+                    minimum,
+                    maximum,
+                    vertices,
+                    material=material,
+                )
+                vertices += added_vertices
+                triangles += added_triangles
+            gameplay_volumes = len(gameplay_boxes)
             added_vertices, added_triangles = write_box(stream, "calibration_1m", CALIBRATION_MINIMUM,
                                                         tuple(value + 1 for value in CALIBRATION_MINIMUM),
                                                         vertices, material="calibration")
-            metadata["statistics"] = {"vertices": vertices + added_vertices, "triangles": triangles + added_triangles,
-                                      "building_modules": len(config["buildings"]), "objects": len(config["buildings"]) + 2}
+            metadata["statistics"] = {
+                "vertices": vertices + added_vertices,
+                "triangles": triangles + added_triangles,
+                "building_modules": len(config["buildings"]),
+                "gameplay_volumes": gameplay_volumes,
+                "objects": len(config["buildings"]) + gameplay_volumes + 2,
+            }
+        if config["gameplay"]:
+            west, south, east, north = config["gameplay"]["playable_bounds"]
+            terrain_west, terrain_south, terrain_east, terrain_north = config[
+                "terrain_bounds"
+            ]
+            collision_bounds = (
+                max(terrain_west, west - 1),
+                max(terrain_south, south - 1),
+                min(terrain_east, east + 1),
+                min(terrain_north, north + 1),
+            )
+        else:
+            collision_bounds = config["terrain_bounds"]
+        collision_terrain = crop_grid(dtm, collision_bounds)
+        with (staged / "povo_blockout_collision.obj").open(
+            "w", encoding="utf-8"
+        ) as stream:
+            stream.write(
+                "# Povo gameplay collision. Metres: east X, north Y, up Z.\n"
+                "mtllib povo_blockout.mtl\n"
+                "o collision_terrain\n"
+                "usemtl terrain_reference\n"
+                "s off\n"
+            )
+            collision_stats = write_mesh(
+                stream,
+                collision_terrain,
+                origin,
+                config["sampling_step"],
+            )
+            collision_vertices = collision_stats["vertices"]
+            collision_triangles = collision_stats["triangles"]
+            for identifier, minimum, maximum, material in gameplay_boxes:
+                added_vertices, added_triangles = write_box(
+                    stream,
+                    identifier,
+                    minimum,
+                    maximum,
+                    collision_vertices,
+                    material=material,
+                )
+                collision_vertices += added_vertices
+                collision_triangles += added_triangles
+        metadata["collision"] = {
+            "requested_bounds": collision_bounds,
+            "sampling_step": config["sampling_step"],
+            "vertices": collision_vertices,
+            "triangles": collision_triangles,
+            "gameplay_volumes": len(gameplay_boxes),
+            "purpose": "Simplified arena-only physics and navigation mesh",
+        }
         (staged / OUTPUT_FILES[1]).write_text(
             "# Neutral massing and orthophoto reference material; no game material definitions.\n"
             "newmtl terrain_reference\nKa 0.2 0.2 0.2\nKd 1 1 1\nKs 0 0 0\nillum 1\nmap_Kd orthophoto_reference.png\n\n"
             "newmtl building_mass\nKa 0.2 0.2 0.2\nKd 0.65 0.63 0.59\nKs 0 0 0\nillum 1\n\n"
+            "newmtl gameplay_cover\nKa 0.2 0.2 0.2\nKd 0.32 0.48 0.62\nKs 0 0 0\nillum 1\n\n"
+            "newmtl gameplay_boundary\nKa 0.1 0.1 0.1\nKd 0.16 0.19 0.22\nKs 0 0 0\nillum 1\n\n"
             "newmtl calibration\nKa 0.2 0.2 0.2\nKd 0.75 0.45 0.18\nKs 0 0 0\nillum 1\n", encoding="utf-8")
         (staged / OUTPUT_FILES[2]).write_bytes(image_bytes)
         (staged / "CREDITS.txt").write_text(
             "Povo - Polo Ferrari geographic blockout\n\n"
             "Source attribution and licences:\n" + json.dumps(metadata["attribution"], indent=2, ensure_ascii=False) + "\n\n"
             "Changes: DTM cropped and decimated to a local-metre terrain mesh; orthophoto copied intact and UV-mapped; "
-            "approximate rectangular building volumes added using configured roof elevations and assumed bases. "
-            "No interiors or playable CS2 map included. Original evidence and hashes: provenance.json.\n",
+            "approximate rectangular building volumes added using configured roof elevations and assumed bases; "
+            "configured gameplay cover and segmented boundary volumes fitted to the terrain. "
+            "No interiors or compiled CS2 map included. Original evidence and hashes: provenance.json.\n",
             encoding="utf-8")
         metadata["artifacts"] = {name: {"sha256": hashlib.sha256((staged / name).read_bytes()).hexdigest(),
                                         "bytes": (staged / name).stat().st_size} for name in OUTPUT_FILES if name != "provenance.json"}
@@ -311,8 +544,11 @@ def main():
     except (ValueError, OSError, UnicodeError) as exc:
         parser.exit(2, f"error: {exc}\n")
     stats = metadata["statistics"]
-    print(f"Wrote {args.output}: {stats['vertices']} vertices, {stats['triangles']} triangles, "
-          f"{stats['building_modules']} approximate building modules; CS2 import and validation pending")
+    print(
+        f"Wrote {args.output}: {stats['vertices']} vertices, "
+        f"{stats['triangles']} triangles, {stats['building_modules']} approximate "
+        f"building modules, {stats['gameplay_volumes']} gameplay volumes"
+    )
 
 
 if __name__ == "__main__":

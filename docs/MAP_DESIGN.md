@@ -8,7 +8,10 @@ The deliverable is an installable, playable map package plus editable map source
 
 The user selected a detailed campus area for small-team matches as the first experience.
 The user selected CS2 as the host game and can use Windows for editing and compilation.
-The user selected Povo's Polo Ferrari as the first campus. The game mode and final playable boundary remain undecided.
+The user selected Povo's Polo Ferrari as the first campus. Wingman is the current
+first-playable mode. Its explicit blockout boundary is the 25 × 130 m east
+forecourt at E666305–666330, N5103735–5103865; played rounds must still determine
+whether that boundary becomes the balanced release layout.
 Use QGIS and Blender on Fedora 44 for geographic preparation and modeling, then Hammer on Windows.
 Prove this source-to-game workflow before committing to detailed production assets.
 
