@@ -106,12 +106,12 @@ def review_svg(config):
 
 def build(config_path, output, *, root=ROOT):
     config_path,output,root=Path(config_path).resolve(),Path(output),Path(root).resolve()
-    config=json.loads(config_path.read_text());validate(config)
+    config=json.loads(config_path.read_text(encoding='utf-8'));validate(config)
     campus_path=root/'config/povo_blockout.json';interior_path=root/'config/povo1_interior_study.json'
-    campus=json.loads(campus_path.read_text());interior=json.loads(interior_path.read_text())
+    campus=json.loads(campus_path.read_text(encoding='utf-8'));interior=json.loads(interior_path.read_text(encoding='utf-8'))
     if campus['architecture']['bridge'].get('connected_levels')!=['povo2_1','povo1_2']:
         raise ValueError('Exterior bridge must bind the confirmed named floors')
-    manifest_path=root/config['photo_manifest'];manifest=json.loads(manifest_path.read_text())
+    manifest_path=root/config['photo_manifest'];manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
     photos=[p for p in manifest['images'] if 'walk_photo_number' in p]
     if len(photos)!=66 or {p['walk_photo_number'] for p in photos}!=set(range(1,67)):
         raise ValueError('Photo catalogue must contain the complete walk')
@@ -132,7 +132,8 @@ def build(config_path, output, *, root=ROOT):
     inputs={p.resolve() for p in (config_path,campus_path,interior_path,manifest_path)}
     if any(p.resolve() in inputs for p in targets):raise ValueError('Outputs cannot replace inputs')
     output.mkdir(parents=True,exist_ok=True)
-    targets[0].write_text(json.dumps(report,indent=2)+'\n');targets[1].write_text(review_svg(config))
+    targets[0].write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    targets[1].write_text(review_svg(config),encoding='utf-8')
     return report
 
 

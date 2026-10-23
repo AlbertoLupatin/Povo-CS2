@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 class CirculationTests(unittest.TestCase):
     def setUp(self):
-        self.config=json.loads((ROOT/'config/povo_circulation.json').read_text())
+        self.config=json.loads((ROOT/'config/povo_circulation.json').read_text(encoding='utf-8'))
 
     def test_confirmed_walk_covers_all_photos_and_uses_different_red_stair_cores(self):
         levels=circulation.validate(self.config)
@@ -42,16 +42,16 @@ class CirculationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);(root/'config').mkdir()
             config=copy.deepcopy(self.config);config['photo_manifest']='photos/manifest.json'
-            config_path=root/'config/povo_circulation.json';config_path.write_text(json.dumps(config))
+            config_path=root/'config/povo_circulation.json';config_path.write_text(json.dumps(config),encoding='utf-8')
             for name in ('povo_blockout.json','povo1_interior_study.json'):
                 (root/'config'/name).write_bytes((ROOT/'config'/name).read_bytes())
             photos=root/'photos';photos.mkdir();image=photos/'fixture.jpeg';image.write_bytes(b'synthetic photo bytes')
             entries=[dict(id=f'P{25+i:03d}',file='fixture.jpeg',walk_photo_number=66-i,sha256=hashlib.sha256(image.read_bytes()).hexdigest()) for i in range(66)]
-            (photos/'manifest.json').write_text(json.dumps({'images':entries}))
+            (photos/'manifest.json').write_text(json.dumps({'images':entries}),encoding='utf-8')
             result=circulation.build(config_path,root/'review',root=root)
             self.assertEqual(result['verified_walk_photos'],66)
             self.assertIsNone(result['estimated_elevations_metres']['povo2_0'])
-            svg=(root/'review/review.svg').read_text()
+            svg=(root/'review/review.svg').read_text(encoding='utf-8')
             self.assertIn('Povo 2 floor 1 = Povo 1 floor 2',svg)
             image.write_bytes(b'changed')
             with self.assertRaisesRegex(ValueError,'hash mismatch'):
