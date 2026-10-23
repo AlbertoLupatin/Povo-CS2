@@ -1,4 +1,4 @@
-Povo 1 interior circulation study. Plan reference: https://github.com/agusmeroli/mappe-povo
+Povo 1 room and circulation study. Plan reference: https://github.com/agusmeroli/mappe-povo
 Plans are marked unofficial; no redistribution licence established in the inspected source tree.
 Geometry is a coarse, assumption-labelled study; no source-image pixels are used as game textures.
 Tile patterns and material colors are original generated placeholders, not observed campus finishes.

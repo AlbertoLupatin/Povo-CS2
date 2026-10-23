@@ -1,38 +1,150 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">
-<rect width="1200" height="850" fill="#edf1f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1150" viewBox="0 0 1400 1150">
+<rect width="1400" height="1150" fill="#edf1f2"/>
 <g font-family="DejaVu Sans, sans-serif" fill="#193441">
-<text x="45" y="58" font-size="30" font-weight="bold">POVO 1 / INTERIOR CIRCULATION STUDY</text>
-<text x="45" y="94" font-size="17">Simplified plan topology. Two provisional levels; stair flights and measured heights pending.</text>
-<text x="100" y="135" font-size="21">academic_ground (+0 m estimate)</text>
-<rect x="100" y="155" width="310" height="547.4468085106383" fill="#b7b4a7" stroke="#193441" stroke-width="3"/>
-<rect x="155.8" y="248.06595744680854" width="21.700000000000003" height="361.31489361702126" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="155.8" y="248.06595744680854" width="201.49999999999997" height="32.84680851063827" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="335.6" y="248.06595744680854" width="21.699999999999985" height="361.31489361702126" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="155.8" y="576.5340425531915" width="201.49999999999997" height="32.8468085106383" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="348.0" y="483.468085106383" width="61.999999999999986" height="38.321276595744685" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="208.5" y="324.7085106382979" width="93.00000000000001" height="208.02978723404254" fill="#edf1f2" stroke="#466769" stroke-width="2" />
-<text x="255.0" y="428.72340425531917" text-anchor="middle" font-size="13">COURTYARD</text>
-<text x="255.0" y="448.72340425531917" text-anchor="middle" font-size="12">OPEN VOID</text>
-<rect x="109.8936170212766" y="542.4203412504272" width="34.84121606345883" height="39.71785383556591" fill="none" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
-<rect x="109.8936170212766" y="276.6309487130097" width="34.84121606345883" height="37.73435090609054" fill="none" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
-<rect x="361.9742964265343" y="542.4203412504272" width="38.132086552189094" height="39.71785383556591" fill="none" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
-<rect x="361.9742964265343" y="276.6309487130097" width="38.132086552189094" height="37.73435090609054" fill="none" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
-<text x="424" y="177" font-size="18">N ↑</text>
-<text x="680" y="135" font-size="21">academic_first (+3.6 m estimate)</text>
-<rect x="680" y="155" width="310" height="547.4468085106383" fill="#b7b4a7" stroke="#193441" stroke-width="3"/>
-<rect x="735.8" y="248.06595744680854" width="21.700000000000003" height="361.31489361702126" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="735.8" y="248.06595744680854" width="201.49999999999997" height="32.84680851063827" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="915.6" y="248.06595744680854" width="21.699999999999985" height="361.31489361702126" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="735.8" y="576.5340425531915" width="201.49999999999997" height="32.8468085106383" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="928.0" y="483.468085106383" width="61.999999999999986" height="38.321276595744685" fill="#87b5bc" stroke="none" stroke-width="2" />
-<rect x="788.5" y="324.7085106382979" width="93.00000000000001" height="208.02978723404254" fill="#edf1f2" stroke="#466769" stroke-width="2" />
-<text x="835.0" y="428.72340425531917" text-anchor="middle" font-size="13">COURTYARD</text>
-<text x="835.0" y="448.72340425531917" text-anchor="middle" font-size="12">OPEN VOID</text>
-<rect x="689.8936170212766" y="542.2126714976387" width="37.39723197655118" height="37.93468250457117" fill="#edf1f2" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
-<rect x="689.8936170212766" y="277.90705363107645" width="37.39723197655118" height="37.93468249842847" fill="#edf1f2" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
-<rect x="939.6994422639204" y="542.2126714976387" width="40.40694071480292" height="37.93468250457117" fill="#edf1f2" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
-<rect x="939.6994422639204" y="277.90705363107645" width="40.40694071480292" height="37.93468249842847" fill="#edf1f2" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
-<text x="1004" y="177" font-size="18">N ↑</text>
-<text x="45" y="755" font-size="17">Blue: connected circulation footprint. Beige: schematic floor area, not fully reconstructed rooms.</text>
-<text x="45" y="789" font-size="16">North up, east right; aspect ratio preserved. Orange: reserved stair regions. Not deployed to CS2.</text>
+<text x="45" y="55" font-size="30" font-weight="bold">POVO 1 / ROOMS INSIDE THE BUILDING</text>
+<text x="45" y="94" font-size="19">Two floors of the same building. Interior study only; separate from the outdoor CS2 map.</text>
+<text x="45" y="130" font-size="17">Blue = corridors · beige = classrooms · purple = computer rooms / lab · green = open courtyard</text>
+<text x="100" y="180" font-size="23" font-weight="bold">GROUND / A101–A110</text>
+<rect x="100" y="215.0" width="400" height="706.3829787234042" fill="#d9dedf" stroke="#193441" stroke-width="1.5" />
+<rect x="161.99575371549895" y="335.28985507246375" width="29.723991507431002" height="464.9501490389557" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
+<rect x="100.0" y="335.28985507246375" width="400.0" height="23.887347106588575" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
+<rect x="404.0339702760085" y="335.28985507246375" width="25.47770700636942" height="464.9501490389557" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
+<rect x="100.0" y="778.9120156233939" width="400.0" height="25.593586185630585" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
+<rect x="416.77282377919323" y="638.1472916024256" width="83.22717622080677" height="51.18717237126117" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
+<rect x="100.0" y="215.0" width="163.90658174097666" height="120.28985507246375" fill="#dcc298" stroke="#5a6268" stroke-width="1.5" />
+<text x="181.95329087048833" y="279.14492753623193" text-anchor="middle" font-size="13" font-weight="bold">A101</text>
+<path d="M 176.84690789176491 335.28985507246375 L 187.05967384921175 335.28985507246375" stroke="#ffffff" stroke-width="4"/>
+<rect x="263.90658174097666" y="215.0" width="101.91082802547768" height="120.28985507246375" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="314.8619957537155" y="279.14492753623193" text-anchor="middle" font-size="13" font-weight="bold">A102</text>
+<path d="M 309.75561277499213 335.28985507246375 L 319.9683787324389 335.28985507246375" stroke="#ffffff" stroke-width="4"/>
+<rect x="395.54140127388536" y="804.5056018090245" width="104.45859872611467" height="116.8773769143797" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="447.77070063694265" y="866.9442902662144" text-anchor="middle" font-size="13" font-weight="bold">A103</text>
+<path d="M 442.66431765821926 804.5056018090245 L 452.87708361566604 804.5056018090245" stroke="#ffffff" stroke-width="4"/>
+<rect x="297.02760084925694" y="804.5056018090245" width="98.51380042462843" height="116.8773769143797" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="346.2845010615711" y="866.9442902662144" text-anchor="middle" font-size="13" font-weight="bold">A104</text>
+<path d="M 341.17811808284773 804.5056018090245 L 351.3908840402945 804.5056018090245" stroke="#ffffff" stroke-width="4"/>
+<rect x="199.36305732484078" y="804.5056018090245" width="97.66454352441613" height="116.8773769143797" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="248.19532908704883" y="866.9442902662144" text-anchor="middle" font-size="13" font-weight="bold">A105</text>
+<path d="M 243.08894610832542 804.5056018090245 L 253.30171206577225 804.5056018090245" stroke="#ffffff" stroke-width="4"/>
+<rect x="100.0" y="804.5056018090245" width="99.36305732484077" height="116.8773769143797" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="149.6815286624204" y="866.9442902662144" text-anchor="middle" font-size="13" font-weight="bold">A106</text>
+<path d="M 144.57514568369697 804.5056018090245 L 154.7879116411438 804.5056018090245" stroke="#ffffff" stroke-width="4"/>
+<rect x="238.4288747346072" y="702.9843766060233" width="87.47346072186836" height="75.92763901737072" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="282.1656050955414" y="744.9481961147086" text-anchor="middle" font-size="13" font-weight="bold">A107</text>
+<path d="M 277.05922211681803 778.9120156233939 L 287.2719880742648 778.9120156233939" stroke="#ffffff" stroke-width="4"/>
+<rect x="238.4288747346072" y="359.1772021790523" width="87.47346072186836" height="74.22139993832872" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="282.1656050955414" y="400.2879021482167" text-anchor="middle" font-size="13" font-weight="bold">A108</text>
+<path d="M 277.05922211681803 359.1772021790523 L 287.2719880742648 359.1772021790523" stroke="#ffffff" stroke-width="4"/>
+<rect x="100.0" y="569.8977284407442" width="61.995753715498935" height="89.57755164970706" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="130.99787685774947" y="618.6865042655977" text-anchor="middle" font-size="13" font-weight="bold">A109</text>
+<path d="M 161.99575371549895 609.5801212868743 L 161.99575371549895 619.7928872443212" stroke="#ffffff" stroke-width="4"/>
+<rect x="100.0" y="470.0827423167849" width="61.995753715498935" height="99.81498612395926" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="130.99787685774947" y="523.9902353787645" text-anchor="middle" font-size="13" font-weight="bold">A110</text>
+<path d="M 161.99575371549895 514.8838524000411 L 161.99575371549895 525.096618357488" stroke="#ffffff" stroke-width="4"/>
+<rect x="238.4288747346072" y="433.3986021173811" width="119.7452229299363" height="269.5857744886422" fill="#b8d1bc" stroke="#466769" stroke-width="1.5" />
+<text x="298.3014861995754" y="568.1914893617021" text-anchor="middle" font-size="16">COURTYARD</text>
+<text x="298.3014861995754" y="591.1914893617021" text-anchor="middle" font-size="16">OPEN TO SKY</text>
+<rect x="112.76595744680851" y="714.8972145166803" width="44.95640782381785" height="51.24884365879472" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
+<rect x="112.76595744680851" y="371.9431596296899" width="44.95640782381785" height="48.68948504011682" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
+<rect x="438.0313502277862" y="714.8972145166803" width="49.20269232540528" height="51.24884365879472" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
+<rect x="438.0313502277862" y="371.9431596296899" width="49.20269232540528" height="48.68948504011682" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
+<path d="M 580 672.2720731832665 L 504 672.2720731832665 l 12 -7 m -12 7 l 12 7" fill="none" stroke="#193441" stroke-width="2"/>
+<text x="508" y="660.2720731832665" font-size="14">Entrance</text>
+<text x="520" y="237" font-size="19">N ↑</text>
+<text x="100" y="953.3829787234042" font-size="17">Building outline: approximately 47 × 83 m</text>
+<text x="100" y="979.3829787234042" font-size="16">10 named rooms · unfurnished · heights estimated</text>
+<text x="800" y="180" font-size="23" font-weight="bold">UPPER / A201–A224 + LAB</text>
+<rect x="800" y="215.0" width="400" height="706.3829787234042" fill="#d9dedf" stroke="#193441" stroke-width="1.5" />
+<rect x="873.7864077669904" y="333.3838288426571" width="21.747572815533978" height="466.4793255720594" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
+<rect x="873.7864077669904" y="333.3838288426571" width="326.2135922330097" height="23.519965995229843" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
+<rect x="1102.9126213592233" y="333.3838288426571" width="23.300970873786397" height="466.4793255720594" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
+<rect x="800.0" y="776.3431884194865" width="400.0" height="27.4399603277682" fill="#8dbbc8" stroke="none" stroke-width="1.5" />
+<rect x="953.7864077669904" y="215.0" width="92.42718446601943" height="118.38382884265712" fill="#c2b3d5" stroke="#5a6268" stroke-width="1.5" />
+<text x="1000.0" y="278.1919144213286" text-anchor="middle" font-size="13" font-weight="bold">A201</text>
+<path d="M 994.8936170212766 333.3838288426571 L 1005.1063829787234 333.3838288426571" stroke="#ffffff" stroke-width="4"/>
+<rect x="1046.2135922330096" y="215.0" width="79.99999999999999" height="118.38382884265712" fill="#c2b3d5" stroke="#5a6268" stroke-width="1.5" />
+<text x="1086.2135922330096" y="278.1919144213286" text-anchor="middle" font-size="13" font-weight="bold">A202</text>
+<path d="M 1081.1072092542863 333.3838288426571 L 1091.319975211733 333.3838288426571" stroke="#ffffff" stroke-width="4"/>
+<rect x="1126.2135922330096" y="215.0" width="73.78640776699031" height="118.38382884265712" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1163.106796116505" y="278.1919144213286" text-anchor="middle" font-size="13" font-weight="bold">A203</text>
+<path d="M 1158.0004131377816 333.3838288426571 L 1168.2131790952283 333.3838288426571" stroke="#ffffff" stroke-width="4"/>
+<rect x="1126.2135922330096" y="803.7831487472548" width="73.78640776699031" height="117.59982997614944" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1163.106796116505" y="866.5830637353296" text-anchor="middle" font-size="13" font-weight="bold">A204</text>
+<path d="M 1158.0004131377816 803.7831487472548 L 1168.2131790952283 803.7831487472548" stroke="#ffffff" stroke-width="4"/>
+<rect x="1046.2135922330096" y="803.7831487472548" width="79.99999999999999" height="117.59982997614944" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1086.2135922330096" y="866.5830637353296" text-anchor="middle" font-size="13" font-weight="bold">A205</text>
+<path d="M 1081.1072092542863 803.7831487472548 L 1091.319975211733 803.7831487472548" stroke="#ffffff" stroke-width="4"/>
+<rect x="953.0097087378641" y="803.7831487472548" width="93.20388349514563" height="117.59982997614944" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="999.6116504854369" y="866.5830637353296" text-anchor="middle" font-size="13" font-weight="bold">A206</text>
+<path d="M 994.5052675067135 803.7831487472548 L 1004.7180334641604 803.7831487472548" stroke="#ffffff" stroke-width="4"/>
+<rect x="869.9029126213592" y="803.7831487472548" width="83.10679611650485" height="117.59982997614944" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="911.4563106796116" y="866.5830637353296" text-anchor="middle" font-size="13" font-weight="bold">A207</text>
+<path d="M 906.3499277008882 803.7831487472548 L 916.5626936583351 803.7831487472548" stroke="#ffffff" stroke-width="4"/>
+<rect x="800.0" y="803.7831487472548" width="69.90291262135922" height="117.59982997614944" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="834.9514563106796" y="866.5830637353296" text-anchor="middle" font-size="13" font-weight="bold">A208</text>
+<path d="M 829.8450733319562 803.7831487472548 L 840.0578392894031 803.7831487472548" stroke="#ffffff" stroke-width="4"/>
+<rect x="1126.2135922330096" y="435.3036814886533" width="73.78640776699031" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1163.106796116505" y="472.623633315229" text-anchor="middle" font-size="13" font-weight="bold">A209</text>
+<path d="M 1126.2135922330096 463.5172503365056 L 1126.2135922330096 473.73001629395236" stroke="#ffffff" stroke-width="4"/>
+<rect x="1126.2135922330096" y="501.94358514180465" width="73.78640776699031" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1163.106796116505" y="539.2635369683803" text-anchor="middle" font-size="13" font-weight="bold">A210</text>
+<path d="M 1126.2135922330096 530.1571539896569 L 1126.2135922330096 540.3699199471038" stroke="#ffffff" stroke-width="4"/>
+<rect x="1126.2135922330096" y="568.5834887949559" width="73.78640776699031" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1163.106796116505" y="605.9034406215317" text-anchor="middle" font-size="13" font-weight="bold">A211</text>
+<path d="M 1126.2135922330096 596.7970576428082 L 1126.2135922330096 607.0098236002551" stroke="#ffffff" stroke-width="4"/>
+<rect x="1126.2135922330096" y="635.2233924481072" width="73.78640776699031" height="66.63990365315136" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1163.106796116505" y="672.5433442746829" text-anchor="middle" font-size="13" font-weight="bold">A212</text>
+<path d="M 1126.2135922330096 663.4369612959595 L 1126.2135922330096 673.6497272534064" stroke="#ffffff" stroke-width="4"/>
+<rect x="1060.1941747572816" y="635.2233924481072" width="42.71844660194173" height="66.63990365315136" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1081.5533980582525" y="672.5433442746829" text-anchor="middle" font-size="13" font-weight="bold">A213</text>
+<path d="M 1102.9126213592233 663.4369612959595 L 1102.9126213592233 673.6497272534064" stroke="#ffffff" stroke-width="4"/>
+<rect x="1060.1941747572816" y="568.5834887949559" width="42.71844660194173" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1081.5533980582525" y="605.9034406215317" text-anchor="middle" font-size="13" font-weight="bold">A214</text>
+<path d="M 1102.9126213592233 596.7970576428082 L 1102.9126213592233 607.0098236002551" stroke="#ffffff" stroke-width="4"/>
+<rect x="1060.1941747572816" y="501.94358514180465" width="42.71844660194173" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1081.5533980582525" y="539.2635369683803" text-anchor="middle" font-size="13" font-weight="bold">A215</text>
+<path d="M 1102.9126213592233 530.1571539896569 L 1102.9126213592233 540.3699199471038" stroke="#ffffff" stroke-width="4"/>
+<rect x="1060.1941747572816" y="435.3036814886533" width="42.71844660194173" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="1081.5533980582525" y="472.623633315229" text-anchor="middle" font-size="13" font-weight="bold">A216</text>
+<path d="M 1102.9126213592233 463.5172503365056 L 1102.9126213592233 473.73001629395236" stroke="#ffffff" stroke-width="4"/>
+<rect x="895.5339805825242" y="435.3036814886533" width="44.27184466019418" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="917.6699029126214" y="472.623633315229" text-anchor="middle" font-size="13" font-weight="bold">A217</text>
+<path d="M 895.5339805825242 463.5172503365056 L 895.5339805825242 473.73001629395236" stroke="#ffffff" stroke-width="4"/>
+<rect x="895.5339805825242" y="501.94358514180465" width="44.27184466019418" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="917.6699029126214" y="539.2635369683803" text-anchor="middle" font-size="13" font-weight="bold">A218</text>
+<path d="M 895.5339805825242 530.1571539896569 L 895.5339805825242 540.3699199471038" stroke="#ffffff" stroke-width="4"/>
+<rect x="895.5339805825242" y="568.5834887949559" width="44.27184466019418" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="917.6699029126214" y="605.9034406215317" text-anchor="middle" font-size="13" font-weight="bold">A219</text>
+<path d="M 895.5339805825242 596.7970576428082 L 895.5339805825242 607.0098236002551" stroke="#ffffff" stroke-width="4"/>
+<rect x="895.5339805825242" y="635.2233924481072" width="44.27184466019418" height="66.63990365315136" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="917.6699029126214" y="672.5433442746829" text-anchor="middle" font-size="13" font-weight="bold">A220</text>
+<path d="M 895.5339805825242 663.4369612959595 L 895.5339805825242 673.6497272534064" stroke="#ffffff" stroke-width="4"/>
+<rect x="800.0" y="635.2233924481072" width="73.7864077669903" height="66.63990365315136" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="836.8932038834952" y="672.5433442746829" text-anchor="middle" font-size="13" font-weight="bold">A221</text>
+<path d="M 873.7864077669904 663.4369612959595 L 873.7864077669904 673.6497272534064" stroke="#ffffff" stroke-width="4"/>
+<rect x="800.0" y="568.5834887949559" width="73.7864077669903" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="836.8932038834952" y="605.9034406215317" text-anchor="middle" font-size="13" font-weight="bold">A222</text>
+<path d="M 873.7864077669904 596.7970576428082 L 873.7864077669904 607.0098236002551" stroke="#ffffff" stroke-width="4"/>
+<rect x="800.0" y="501.94358514180465" width="73.7864077669903" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="836.8932038834952" y="539.2635369683803" text-anchor="middle" font-size="13" font-weight="bold">A223</text>
+<path d="M 873.7864077669904 530.1571539896569 L 873.7864077669904 540.3699199471038" stroke="#ffffff" stroke-width="4"/>
+<rect x="800.0" y="435.3036814886533" width="73.7864077669903" height="66.63990365315132" fill="#e4d9ba" stroke="#5a6268" stroke-width="1.5" />
+<text x="836.8932038834952" y="472.623633315229" text-anchor="middle" font-size="13" font-weight="bold">A224</text>
+<path d="M 873.7864077669904 463.5172503365056 L 873.7864077669904 473.73001629395236" stroke="#ffffff" stroke-width="4"/>
+<rect x="800.0" y="215.0" width="153.7864077669903" height="118.38382884265712" fill="#c2b3d5" stroke="#5a6268" stroke-width="1.5" />
+<text x="876.8932038834952" y="278.1919144213286" text-anchor="middle" font-size="13" font-weight="bold">LAB</text>
+<path d="M 871.7868209047717 333.3838288426571 L 881.9995868622186 333.3838288426571" stroke="#ffffff" stroke-width="4"/>
+<rect x="939.8058252427185" y="435.3036814886533" width="120.38834951456312" height="266.55961461260534" fill="#b8d1bc" stroke="#466769" stroke-width="1.5" />
+<text x="1000.0" y="568.5834887949559" text-anchor="middle" font-size="16">COURTYARD</text>
+<text x="1000.0" y="591.5834887949559" text-anchor="middle" font-size="16">OPEN TO SKY</text>
+<rect x="812.7659574468086" y="714.6292535453401" width="48.254492872969266" height="48.94797742525312" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
+<rect x="812.7659574468086" y="373.58974662074377" width="48.254492872969266" height="48.94797741732705" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
+<rect x="1135.0960545340909" y="714.6292535453401" width="52.13798801910055" height="48.94797742525312" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
+<rect x="1135.0960545340909" y="373.58974662074377" width="52.13798801910055" height="48.94797741732705" fill="#f2d3aa" stroke="#c07b23" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="1220" y="237" font-size="19">N ↑</text>
+<text x="800" y="953.3829787234042" font-size="17">Building outline: approximately 47 × 83 m</text>
+<text x="800" y="979.3829787234042" font-size="16">25 named rooms · unfurnished · heights estimated</text>
+<text x="45" y="1040" font-size="18">White wall gaps = door openings. Orange = stair reservations; stair flights are not built.</text>
+<text x="45" y="1075" font-size="17">Grey = other floor area awaiting subdivision (study areas, toilets, service spaces). No ceilings yet.</text>
+<text x="45" y="1110" font-size="17">Approximate footprints traced from unofficial plans. Shared finishes will be refined using your room photos.</text>
 </g></svg>

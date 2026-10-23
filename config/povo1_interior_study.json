@@ -1,9 +1,9 @@
 {
-  "title": "Povo 1 interior circulation study",
+  "title": "Povo 1 room and circulation study",
   "alignment": "config/povo1_plan_alignment.json",
   "campus_config": "config/povo_blockout.json",
   "status": "Separate offline study; not deployed to the CS2 arena",
-  "assumptions": "Coarse circulation and partition layout guided by the registered plans. Shared normalized layout is simplified between levels. Absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Stair regions reserve openings with an assumed landing margin; no flights are built until photographs and measurements establish their arrangement.",
+  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. Rooms are unfurnished pending representative classroom photos.",
   "reference_elevation_metres": 374.0,
   "floor_thickness_metres": 0.22,
   "wall_height_metres": 2.9,
@@ -11,23 +11,613 @@
   "door_height_metres": 2.15,
   "tile_pitch_metres": 0.6,
   "stair_opening_inset_metres": 1.5,
-  "courtyard": [0.31, 0.35, 0.69, 0.65],
   "levels": [
-    {"id": "academic_ground", "height_offset_metres": 0, "stair_openings": false},
-    {"id": "academic_first", "height_offset_metres": 3.6, "stair_openings": true}
-  ],
-  "circulation": [
-    {"id": "west_corridor", "bounds": [0.17, 0.18, 0.83, 0.25]},
-    {"id": "north_corridor", "bounds": [0.77, 0.18, 0.83, 0.83]},
-    {"id": "east_corridor", "bounds": [0.17, 0.76, 0.83, 0.83]},
-    {"id": "south_corridor", "bounds": [0.17, 0.18, 0.23, 0.83]},
-    {"id": "entrance_lobby", "bounds": [0.33, 0.80, 0.40, 1.0]}
-  ],
-  "partitions": [
-    {"id": "south_room_edge", "start": [0.17, 0], "end": [0.17, 1], "door_centres": [0.12, 0.34, 0.56, 0.85], "door_width_metres": 1.2},
-    {"id": "north_room_edge", "start": [0.83, 0], "end": [0.83, 1], "door_centres": [0.32, 0.67, 0.92], "door_width_metres": 1.2},
-    {"id": "study_west_edge", "start": [0.23, 0.25], "end": [0.77, 0.25], "door_centres": [0.5], "door_width_metres": 1.6},
-    {"id": "reception_edge", "start": [0.23, 0.76], "end": [0.77, 0.76], "door_centres": [0.25, 0.75], "door_width_metres": 1.2},
-    {"id": "lobby_edge", "start": [0.23, 0.83], "end": [0.77, 0.83], "door_centres": [0.25], "door_width_metres": 3.0}
+    {
+      "id": "academic_ground",
+      "height_offset_metres": 0,
+      "stair_openings": false,
+      "courtyard_pixels": [
+        958,
+        580,
+        1590,
+        862
+      ],
+      "circulation": [
+        {
+          "id": "west_corridor",
+          "pixel_bounds": [
+            730,
+            400,
+            1820,
+            470
+          ]
+        },
+        {
+          "id": "north_corridor",
+          "pixel_bounds": [
+            1764,
+            254,
+            1820,
+            1196
+          ]
+        },
+        {
+          "id": "east_corridor",
+          "pixel_bounds": [
+            730,
+            970,
+            1820,
+            1030
+          ]
+        },
+        {
+          "id": "south_corridor",
+          "pixel_bounds": [
+            720,
+            254,
+            780,
+            1196
+          ]
+        },
+        {
+          "id": "entrance_lobby",
+          "pixel_bounds": [
+            990,
+            1000,
+            1110,
+            1196
+          ]
+        }
+      ],
+      "rooms": [
+        {
+          "id": "a101",
+          "label": "A101",
+          "pixel_bounds": [
+            1820,
+            254,
+            2102,
+            640
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "auditorium"
+        },
+        {
+          "id": "a102",
+          "label": "A102",
+          "pixel_bounds": [
+            1820,
+            640,
+            2102,
+            880
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a103",
+          "label": "A103",
+          "pixel_bounds": [
+            446,
+            950,
+            720,
+            1196
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a104",
+          "label": "A104",
+          "pixel_bounds": [
+            446,
+            718,
+            720,
+            950
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a105",
+          "label": "A105",
+          "pixel_bounds": [
+            446,
+            488,
+            720,
+            718
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a106",
+          "label": "A106",
+          "pixel_bounds": [
+            446,
+            254,
+            720,
+            488
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a107",
+          "label": "A107",
+          "pixel_bounds": [
+            780,
+            580,
+            958,
+            786
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a108",
+          "label": "A108",
+          "pixel_bounds": [
+            1590,
+            580,
+            1764,
+            786
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a109",
+          "label": "A109",
+          "pixel_bounds": [
+            1060,
+            254,
+            1270,
+            400
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a110",
+          "label": "A110",
+          "pixel_bounds": [
+            1270,
+            254,
+            1504,
+            400
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        }
+      ],
+      "external_entrance": true
+    },
+    {
+      "id": "academic_first",
+      "height_offset_metres": 3.6,
+      "stair_openings": true,
+      "courtyard_pixels": [
+        960,
+        630,
+        1640,
+        940
+      ],
+      "circulation": [
+        {
+          "id": "west_corridor",
+          "pixel_bounds": [
+            710,
+            460,
+            1900,
+            516
+          ]
+        },
+        {
+          "id": "north_corridor",
+          "pixel_bounds": [
+            1840,
+            460,
+            1900,
+            1300
+          ]
+        },
+        {
+          "id": "east_corridor",
+          "pixel_bounds": [
+            710,
+            1050,
+            1900,
+            1110
+          ]
+        },
+        {
+          "id": "south_corridor",
+          "pixel_bounds": [
+            700,
+            270,
+            770,
+            1300
+          ]
+        }
+      ],
+      "rooms": [
+        {
+          "id": "a201",
+          "label": "A201",
+          "pixel_bounds": [
+            1900,
+            666,
+            2202,
+            904
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "computer"
+        },
+        {
+          "id": "a202",
+          "label": "A202",
+          "pixel_bounds": [
+            1900,
+            904,
+            2202,
+            1110
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "computer"
+        },
+        {
+          "id": "a203",
+          "label": "A203",
+          "pixel_bounds": [
+            1900,
+            1110,
+            2202,
+            1300
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a204",
+          "label": "A204",
+          "pixel_bounds": [
+            400,
+            1110,
+            700,
+            1300
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a205",
+          "label": "A205",
+          "pixel_bounds": [
+            400,
+            904,
+            700,
+            1110
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a206",
+          "label": "A206",
+          "pixel_bounds": [
+            400,
+            664,
+            700,
+            904
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a207",
+          "label": "A207",
+          "pixel_bounds": [
+            400,
+            450,
+            700,
+            664
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a208",
+          "label": "A208",
+          "pixel_bounds": [
+            400,
+            270,
+            700,
+            450
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a209",
+          "label": "A209",
+          "pixel_bounds": [
+            1470,
+            1110,
+            1640,
+            1300
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a210",
+          "label": "A210",
+          "pixel_bounds": [
+            1300,
+            1110,
+            1470,
+            1300
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a211",
+          "label": "A211",
+          "pixel_bounds": [
+            1130,
+            1110,
+            1300,
+            1300
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a212",
+          "label": "A212",
+          "pixel_bounds": [
+            960,
+            1110,
+            1130,
+            1300
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a213",
+          "label": "A213",
+          "pixel_bounds": [
+            960,
+            940,
+            1130,
+            1050
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a214",
+          "label": "A214",
+          "pixel_bounds": [
+            1130,
+            940,
+            1300,
+            1050
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a215",
+          "label": "A215",
+          "pixel_bounds": [
+            1300,
+            940,
+            1470,
+            1050
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a216",
+          "label": "A216",
+          "pixel_bounds": [
+            1470,
+            940,
+            1640,
+            1050
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a217",
+          "label": "A217",
+          "pixel_bounds": [
+            1470,
+            516,
+            1640,
+            630
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a218",
+          "label": "A218",
+          "pixel_bounds": [
+            1300,
+            516,
+            1470,
+            630
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a219",
+          "label": "A219",
+          "pixel_bounds": [
+            1130,
+            516,
+            1300,
+            630
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a220",
+          "label": "A220",
+          "pixel_bounds": [
+            960,
+            516,
+            1130,
+            630
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a221",
+          "label": "A221",
+          "pixel_bounds": [
+            960,
+            270,
+            1130,
+            460
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a222",
+          "label": "A222",
+          "pixel_bounds": [
+            1130,
+            270,
+            1300,
+            460
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a223",
+          "label": "A223",
+          "pixel_bounds": [
+            1300,
+            270,
+            1470,
+            460
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "a224",
+          "label": "A224",
+          "pixel_bounds": [
+            1470,
+            270,
+            1640,
+            460
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom"
+        },
+        {
+          "id": "lab",
+          "label": "LAB",
+          "pixel_bounds": [
+            1900,
+            270,
+            2202,
+            666
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "laboratory"
+        }
+      ],
+      "external_entrance": false,
+      "audit_start_pixels": [
+        900,
+        488
+      ]
+    }
   ]
 }

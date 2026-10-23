@@ -4,6 +4,44 @@ This is the durable record of material project actions. Git history remains the
 authoritative record of file-level changes; this log records decisions, local
 tool results, limitations, and work that affects the installed CS2 addon.
 
+## 23 October 2026 — Individual Povo 1 rooms and offline checks
+
+- Clarified the interior/exterior split after the user found the circulation
+  overview confusing. The outdoor addon still uses solid building masses; the
+  separate interior study is preparation for replacing a chosen part of that
+  massing and connecting entrances. It is not a deployed indoor game route.
+- Traced approximate individual room rectangles from each registered plan:
+  A101–A110 on the ground level, A201–A224 plus LAB upstairs. Each level now has
+  its own courtyard/circulation/room layout. Source pixel footprints, room names,
+  simplified door sides and approximate local dimensions/areas are retained in
+  configuration/provenance. These are unofficial-plan estimates, not a survey.
+- Built classroom walls and real door gaps/lintels. Merged shared collinear wall
+  spans to avoid duplicate walls between adjoining rooms. Removed the cloned
+  upper external entry because that position crosses A212 in the upper plan;
+  access through stairs remains to be established. The study has 164 component
+  boxes and 1,968 triangles. Rooms are unfurnished; a common photo-guided kit
+  will be adapted to individual footprints rather than copying one room's shape.
+- Replaced the ambiguous review with two clearly labelled north-up room plans,
+  building outline, corridors, courtyard, stair reservations and entrance.
+  Regenerated and visually inspected the plan, actual mesh preview and clearance
+  heatmaps. Grey service/study areas still need subdivision; ceilings, window
+  openings, stairs, props and gameplay interactions remain unfinished.
+- Added an actual-exported-OBJ horizontal clearance audit with source/mesh hash
+  checks. At the provisional 0.85 m width / 1.9 m height / 0.1 m grid, all ground
+  stations (16) and upper stations (30) are reachable from their separate starts,
+  including every named room centre. This does not validate real CS2 physics,
+  vertical traversal, engine collision/nav or furnished rooms.
+- Added a read-only VPK v1/v2 reader and final-radar package checker while Windows
+  is unavailable. It checks required entries, overview fields and streamed CRCs;
+  full entry CRC verification is optional. Synthetic tests cover malformed data,
+  split/preload payloads, missing radar and overview mismatches. Three temporary
+  upstream preload/single/split fixtures passed every payload CRC. A CS2 signature
+  fixture parsed but its absent numbered chunk prevented payload verification.
+  No current project VPK was available for this check; no signatures or full
+  custom dependency closure are claimed. See `docs/CS2_PACKAGE_CHECK.md`.
+- All 62 unit tests pass; `git diff --check` passes. The outdoor source,
+  collision, VMAP, deployment list and Windows build remain unchanged.
+
 ## 22 October 2026 — Windows continuation and first compiled Povo addon
 
 ### Repository and baseline

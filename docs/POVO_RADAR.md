@@ -113,6 +113,9 @@ was cross-checked against a [texture-tool author's implementation](https://githu
    update the already-built map VPK.** Inspect final packaged contents and perform
    the existing clean-install test without the loose development addon. A local
    loose-file test does not establish package validation.
+   The read-only [package checker](CS2_PACKAGE_CHECK.md) now checks radar entries,
+   overview alignment and entry CRCs in the actual VPK. Run it after packaging;
+   its result supplements the clean-install and in-game checks.
 5. Record compiler output, screenshots, CS2 build, package hash, and results in
    `WORKLOG.md`. The existing bot-round, buy/plant/defuse, performance, calibration,
    and two-independent-client gates still apply.

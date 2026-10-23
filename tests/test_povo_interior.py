@@ -7,6 +7,7 @@ import tempfile
 import unittest
 
 from tools import build_povo_interior as interior
+from tools import audit_povo_interior as audit
 
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -118,9 +119,9 @@ class InteriorStudyTests(unittest.TestCase):
     def test_invalid_route_height_and_door_dimensions_are_rejected(self):
         for case in ('disconnected','height','door','stair','nan'):
             config=copy.deepcopy(self.config)
-            if case=='disconnected':config['circulation'][0]['bounds']=[.01,.01,.04,.04]
+            if case=='disconnected':config['levels'][0]['circulation'][0]['pixel_bounds']=[1000,500,1100,530]
             if case=='height':config['levels'][1]['height_offset_metres']=2
-            if case=='door':config['partitions'][0]['door_width_metres']=100
+            if case=='door':config['levels'][0]['rooms'][0]['door_width_metres']=100
             if case=='stair':config['stair_opening_inset_metres']=5
             if case=='nan':config['tile_pitch_metres']=float('nan')
             with self.subTest(case=case),self.assertRaises(ValueError):
@@ -136,6 +137,83 @@ class InteriorStudyTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'hash mismatch'):self.build(force=True)
         self.assertEqual((self.output/'povo1_interior_study.obj').read_bytes(),original)
         self.assertEqual((self.output/'notes.txt').read_text(),'Keep this field note')
+
+    def test_exported_mesh_clearance_audit_reaches_both_levels_circulation(self):
+        self.build()
+        result=audit.run_audit(self.config_path,self.output,self.root/'audit',root=self.root)
+        self.assertEqual(result['status'],'passed')
+        self.assertEqual(len(result['levels']),2)
+        self.assertEqual([len(level['stations']) for level in result['levels']],[16,30])
+        self.assertEqual(len(audit.read_box_mesh(self.output/'povo1_interior_study.obj')),164)
+        svg=(self.root/'audit/review.svg').read_text()
+        self.assertIn('data:image/png;base64,',svg)
+
+    def test_room_inventory_varies_by_floor_and_doors_are_actual_mesh_openings(self):
+        boxes,levels=interior.build_boxes(self.config,self.alignment,self.origin)
+        self.assertEqual({r['label'] for r in levels[0]['rooms']},{f'A{i}' for i in range(101,111)})
+        self.assertEqual({r['label'] for r in levels[1]['rooms']},{f'A{i}' for i in range(201,225)}|{'LAB'})
+        for level in levels:
+            z=level['floor_elevation_metres']-self.origin[2]
+            self.assertGreater(len({tuple(r['approximate_dimensions_metres']) for r in level['rooms']}),1)
+            for room in level['rooms']:
+                a,b,c,d=room['bounds'];fraction=room['door_fraction'];side=room['door_side']
+                u,v=(a if side=='u_min' else c,b+(d-b)*fraction) if side.startswith('u_') else (a+(c-a)*fraction,b if side=='v_min' else d)
+                x,y=interior.local_point(u,v,self.alignment['geographic_bounds'],self.origin)
+                with self.subTest(room=room['label']):
+                    self.assertFalse(any(self.contains_box(box,(x,y,z+1)) for box in boxes))
+                    self.assertTrue(any(self.contains_box(box,(x,y,z+2.5)) for box in boxes))
+        # The first floor's former cloned exterior entrance now crosses A212;
+        # it must remain a closed outer wall until the real access is established.
+        p=self.alignment['profiles'][1];u=(p['entry'][0]-p['outer'][0])/(p['outer'][2]-p['outer'][0])
+        x,y=interior.local_point(u,1,self.alignment['geographic_bounds'],self.origin)
+        z=levels[1]['floor_elevation_metres']-self.origin[2]
+        self.assertTrue(any(self.contains_box(box,(x,y,z+1)) for box in boxes))
+
+    def test_overlapping_rooms_and_shared_wall_duplicates_are_rejected_or_merged(self):
+        config=copy.deepcopy(self.config)
+        config['levels'][0]['rooms'][0]['pixel_bounds']=config['levels'][0]['rooms'][1]['pixel_bounds']
+        with self.assertRaisesRegex(ValueError,'overlap'):interior.build_boxes(config,self.alignment,self.origin)
+        boxes,levels=interior.build_boxes(self.config,self.alignment,self.origin)
+        rooms={r['label']:r for r in levels[0]['rooms']}
+        a=rooms['A109']['bounds'];b=rooms['A110']['bounds']
+        self.assertEqual(a[2],b[0])
+        x,y=interior.local_point(a[2],(a[1]+a[3])/2,self.alignment['geographic_bounds'],self.origin)
+        z=levels[0]['floor_elevation_metres']-self.origin[2]+1
+        self.assertEqual(sum(self.contains_box(box,(x,y,z)) for box in boxes),1)
+
+    def test_clearance_audit_accounts_for_width_and_door_headers(self):
+        boxes=[('ground_slab_0',(0,0,-.2),(10,10,0),'floor_room'),
+               ('ground_wall_0',(4.9,0,0),(5.1,4.4,2.9),'wall'),
+               ('ground_wall_1',(4.9,5.6,0),(5.1,10,2.9),'wall'),
+               ('ground_header',(4.9,4.4,2.15),(5.1,5.6,2.9),'wall')]
+        level={'id':'ground','floor_elevation_local':0}
+        stations=[{'id':'entrance','point':(1,5)},{'id':'destination','point':(9,5)}]
+        report,*_=audit.audit_level(boxes,level,stations)
+        self.assertEqual(report['status'],'passed')
+        for params in ({'width':1.4},{'height':2.3}):
+            report,*_=audit.audit_level(boxes,level,stations,**params)
+            self.assertEqual(report['status'],'failed')
+            self.assertFalse(report['stations'][1]['reachable_from_entrance'])
+
+    def test_clearance_audit_cannot_cross_an_actual_missing_floor_strip(self):
+        boxes=[('ground_slab_0',(0,0,-.2),(4.9,10,0),'floor_room'),
+               ('ground_slab_1',(5.1,0,-.2),(10,10,0),'floor_room')]
+        level={'id':'ground','floor_elevation_local':0}
+        stations=[{'id':'entrance','point':(1,5)},{'id':'destination','point':(9,5)}]
+        report,*_=audit.audit_level(boxes,level,stations)
+        self.assertEqual(report['status'],'failed')
+        self.assertTrue(report['stations'][1]['has_clearance'])
+        self.assertFalse(report['stations'][1]['reachable_from_entrance'])
+
+    def test_clearance_audit_rejects_stale_sources_and_output_over_source_assets(self):
+        self.build()
+        with self.assertRaisesRegex(ValueError,'separate directory'):
+            audit.run_audit(self.config_path,self.output,self.output,root=self.root)
+        self.config_path.write_text(self.config_path.read_text()+'\n')
+        with self.assertRaisesRegex(ValueError,'rebuild'):
+            audit.run_audit(self.config_path,self.output,self.root/'audit',root=self.root)
+        with self.assertRaisesRegex(ValueError,'half the standing width'):
+            audit.audit_level([],{'id':'ground','floor_elevation_local':0},[],cell=1)
 
 
 if __name__=='__main__':unittest.main()

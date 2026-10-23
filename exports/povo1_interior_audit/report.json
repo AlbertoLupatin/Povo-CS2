@@ -1,0 +1,475 @@
+{
+  "format_version": 1,
+  "status": "passed",
+  "scope": "Horizontal clearance through the exported axis-aligned box mesh, using a configurable standing envelope",
+  "mesh_sha256": "7e7ffe354a1b6236a9b14f4480e6a0542c98500b547efd3168d7f16e42c5315c",
+  "levels": [
+    {
+      "id": "academic_ground",
+      "status": "passed",
+      "floor_elevation_local": 4.0,
+      "standing_width_metres": 0.85,
+      "standing_height_metres": 1.9,
+      "cell_metres": 0.1,
+      "grid_dimensions": [
+        470,
+        830
+      ],
+      "grid_bounds_local": [
+        -23.0,
+        -103.0,
+        24.0,
+        -20.0
+      ],
+      "walkable_cells": 303689,
+      "reachable_cells": 303689,
+      "stations": [
+        {
+          "id": "entrance",
+          "point_local_metres": [
+            23.199999999953434,
+            -73.72946859896183
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "west_corridor",
+          "point_local_metres": [
+            -13.96921443741303,
+            -61.44987922720611
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "north_corridor",
+          "point_local_metres": [
+            0.5,
+            -35.537439613603055
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "east_corridor",
+          "point_local_metres": [
+            14.22080679400824,
+            -61.44987922720611
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "south_corridor",
+          "point_local_metres": [
+            0.5,
+            -87.7632850240916
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "entrance_lobby",
+          "point_local_metres": [
+            19.11040339700412,
+            -72.72705314029008
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a101",
+          "point_local_metres": [
+            -13.370488322689198,
+            -27.067028985358775
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a102",
+          "point_local_metres": [
+            2.246284501045011,
+            -27.067028985358775
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a103",
+          "point_local_metres": [
+            17.863057324895635,
+            -96.13345410581678
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a104",
+          "point_local_metres": [
+            5.938428874709643,
+            -96.13345410581678
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a105",
+          "point_local_metres": [
+            -5.5870488323271275,
+            -96.13345410581678
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a106",
+          "point_local_metres": [
+            -17.162420382141136,
+            -96.13345410581678
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a107",
+          "point_local_metres": [
+            -1.5955414013005793,
+            -81.79891304392368
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a108",
+          "point_local_metres": [
+            -1.5955414013005793,
+            -41.301328502595425
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a109",
+          "point_local_metres": [
+            -19.35774946922902,
+            -66.96316425129771
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a110",
+          "point_local_metres": [
+            -19.35774946922902,
+            -55.83635265659541
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        }
+      ],
+      "vertical_traversal": "not checked; stair flights are absent"
+    },
+    {
+      "id": "academic_first",
+      "status": "passed",
+      "floor_elevation_local": 7.600000000000023,
+      "standing_width_metres": 0.85,
+      "standing_height_metres": 1.9,
+      "cell_metres": 0.1,
+      "grid_dimensions": [
+        470,
+        830
+      ],
+      "grid_bounds_local": [
+        -23.0,
+        -103.0,
+        24.0,
+        -20.0
+      ],
+      "walkable_cells": 268006,
+      "reachable_cells": 268006,
+      "stations": [
+        {
+          "id": "landing_approach",
+          "point_local_metres": [
+            -13.052427184418775,
+            -79.97003329638392
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "west_corridor",
+          "point_local_metres": [
+            -13.052427184418775,
+            -61.315760266035795
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "north_corridor",
+          "point_local_metres": [
+            4.8349514562869444,
+            -35.29189789108932
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "east_corridor",
+          "point_local_metres": [
+            13.961165048531257,
+            -61.315760266035795
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "south_corridor",
+          "point_local_metres": [
+            0.5,
+            -87.56992230843753
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a201",
+          "point_local_metres": [
+            0.5,
+            -26.955049944110215
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a202",
+          "point_local_metres": [
+            10.630097087356262,
+            -26.955049944110215
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a203",
+          "point_local_metres": [
+            19.665048543713056,
+            -26.955049944110215
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a204",
+          "point_local_metres": [
+            19.665048543713056,
+            -96.09100998844951
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a205",
+          "point_local_metres": [
+            10.630097087356262,
+            -96.09100998844951
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a206",
+          "point_local_metres": [
+            0.45436893205624074,
+            -96.09100998844951
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a207",
+          "point_local_metres": [
+            -9.903883495135233,
+            -96.09100998844951
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a208",
+          "point_local_metres": [
+            -18.893203883548267,
+            -96.09100998844951
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a209",
+          "point_local_metres": [
+            19.665048543713056,
+            -49.800776914693415
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a210",
+          "point_local_metres": [
+            19.665048543713056,
+            -57.63096559420228
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a211",
+          "point_local_metres": [
+            19.665048543713056,
+            -65.46115427277982
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a212",
+          "point_local_metres": [
+            19.665048543713056,
+            -73.29134295228869
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a213",
+          "point_local_metres": [
+            10.08252427179832,
+            -73.29134295228869
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a214",
+          "point_local_metres": [
+            10.08252427179832,
+            -65.46115427277982
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a215",
+          "point_local_metres": [
+            10.08252427179832,
+            -57.63096559420228
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a216",
+          "point_local_metres": [
+            10.08252427179832,
+            -49.800776914693415
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a217",
+          "point_local_metres": [
+            -9.173786407802254,
+            -49.800776914693415
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a218",
+          "point_local_metres": [
+            -9.173786407802254,
+            -57.63096559420228
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a219",
+          "point_local_metres": [
+            -9.173786407802254,
+            -65.46115427277982
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a220",
+          "point_local_metres": [
+            -9.173786407802254,
+            -73.29134295228869
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a221",
+          "point_local_metres": [
+            -18.665048543713056,
+            -73.29134295228869
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a222",
+          "point_local_metres": [
+            -18.665048543713056,
+            -65.46115427277982
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a223",
+          "point_local_metres": [
+            -18.665048543713056,
+            -57.63096559420228
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "a224",
+          "point_local_metres": [
+            -18.665048543713056,
+            -49.800776914693415
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "lab",
+          "point_local_metres": [
+            -13.965048543643206,
+            -26.955049944110215
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        }
+      ],
+      "vertical_traversal": "not checked; stair flights are absent"
+    }
+  ],
+  "limitations": [
+    "Envelope dimensions are audit assumptions, not a claim about CS2 player physics.",
+    "Grid sampling is conservative for rectangular supports and expanded box obstacles.",
+    "No diagonal movement, jumps, stairs, vertical routes or engine collision/nav are validated.",
+    "Named room centres are checked; furniture and real engine collision are not included.",
+    "Upper floor starts at an assumed landing approach; no exterior entry or link between floors is proven."
+  ]
+}

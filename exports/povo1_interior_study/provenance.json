@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "status": "Separate offline study; not deployed to the CS2 arena",
-  "assumptions": "Coarse circulation and partition layout guided by the registered plans. Shared normalized layout is simplified between levels. Absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Stair regions reserve openings with an assumed landing margin; no flights are built until photographs and measurements establish their arrangement.",
+  "assumptions": "Room footprints are manually approximated from the two registered, unofficial plan images. Each floor has its own layout. The 47 x 83 m alignment, absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Door sides follow the plan; centres and widths are simplified. Stair regions reserve openings with an assumed landing margin; no flights are built. Rooms are unfurnished pending representative classroom photos.",
   "origin": [
     666250,
     5103800,
@@ -20,12 +20,418 @@
       },
       "voids_local_metres": [
         [
-          -6.550000000046566,
-          -77.26999999955297,
-          7.550000000046566,
-          -45.730000000447035
+          -6.734607218648307,
+          -77.33816425129771,
+          7.335456475615501,
+          -45.66183574870229
         ]
       ],
+      "rooms": [
+        {
+          "id": "a101",
+          "label": "A101",
+          "pixel_bounds": [
+            1820,
+            254,
+            2102,
+            640
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "auditorium",
+          "bounds": [
+            0.8297101449275363,
+            0.0,
+            1.0,
+            0.40976645435244163
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -34.13405797071755,
+            -3.740976645378396,
+            -20.0
+          ],
+          "approximate_dimensions_metres": [
+            19.259023354621604,
+            14.13405797071755
+          ],
+          "approximate_area_square_metres": 272.2081525536249,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a102",
+          "label": "A102",
+          "pixel_bounds": [
+            1820,
+            640,
+            2102,
+            880
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.8297101449275363,
+            0.40976645435244163,
+            1.0,
+            0.6645435244161358
+          ],
+          "footprint_local_metres": [
+            -3.740976645378396,
+            -34.13405797071755,
+            8.233545647584833,
+            -20.0
+          ],
+          "approximate_dimensions_metres": [
+            11.97452229296323,
+            14.13405797071755
+          ],
+          "approximate_area_square_metres": 169.24859226039192,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a103",
+          "label": "A103",
+          "pixel_bounds": [
+            446,
+            950,
+            720,
+            1196
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.0,
+            0.7388535031847133,
+            0.16545893719806765,
+            1.0
+          ],
+          "footprint_local_metres": [
+            11.726114649674855,
+            -103.0,
+            24.0,
+            -89.26690821256489
+          ],
+          "approximate_dimensions_metres": [
+            12.273885350325145,
+            13.733091787435114
+          ],
+          "approximate_area_square_metres": 168.5583941044704,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a104",
+          "label": "A104",
+          "pixel_bounds": [
+            446,
+            718,
+            720,
+            950
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.0,
+            0.49256900212314225,
+            0.16545893719806765,
+            0.7388535031847133
+          ],
+          "footprint_local_metres": [
+            0.15074309974443167,
+            -103.0,
+            11.726114649674855,
+            -89.26690821256489
+          ],
+          "approximate_dimensions_metres": [
+            11.575371549930423,
+            13.733091787435114
+          ],
+          "approximate_area_square_metres": 158.96563996885956,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a105",
+          "label": "A105",
+          "pixel_bounds": [
+            446,
+            488,
+            720,
+            718
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.0,
+            0.2484076433121019,
+            0.16545893719806765,
+            0.49256900212314225
+          ],
+          "footprint_local_metres": [
+            -11.324840764282271,
+            -103.0,
+            0.15074309974443167,
+            -89.26690821256489
+          ],
+          "approximate_dimensions_metres": [
+            11.475583864026703,
+            13.733091787435114
+          ],
+          "approximate_area_square_metres": 157.59524651908802,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a106",
+          "label": "A106",
+          "pixel_bounds": [
+            446,
+            254,
+            720,
+            488
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.0,
+            0.0,
+            0.16545893719806765,
+            0.2484076433121019
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -103.0,
+            -11.324840764282271,
+            -89.26690821256489
+          ],
+          "approximate_dimensions_metres": [
+            11.675159235717729,
+            13.733091787435114
+          ],
+          "approximate_area_square_metres": 160.33603341703235,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a107",
+          "label": "A107",
+          "pixel_bounds": [
+            780,
+            580,
+            958,
+            786
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.20169082125603865,
+            0.346072186836518,
+            0.30917874396135264,
+            0.564755838641189
+          ],
+          "footprint_local_metres": [
+            -6.734607218648307,
+            -86.25966183561832,
+            3.5435244161635637,
+            -77.33816425129771
+          ],
+          "approximate_dimensions_metres": [
+            10.27813163481187,
+            8.921497584320605
+          ],
+          "approximate_area_square_metres": 91.69632655130329,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a108",
+          "label": "A108",
+          "pixel_bounds": [
+            1590,
+            580,
+            1764,
+            786
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.6908212560386473,
+            0.346072186836518,
+            0.7958937198067633,
+            0.564755838641189
+          ],
+          "footprint_local_metres": [
+            -6.734607218648307,
+            -45.66183574870229,
+            3.5435244161635637,
+            -36.94082125648856
+          ],
+          "approximate_dimensions_metres": [
+            10.27813163481187,
+            8.721014492213726
+          ],
+          "approximate_area_square_metres": 89.63573494007468,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a109",
+          "label": "A109",
+          "pixel_bounds": [
+            1060,
+            254,
+            1270,
+            400
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.37077294685990336,
+            0.0,
+            0.4975845410628019,
+            0.15498938428874734
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -72.22584541048855,
+            -15.71549893845804,
+            -61.70048309210688
+          ],
+          "approximate_dimensions_metres": [
+            7.28450106154196,
+            10.525362318381667
+          ],
+          "approximate_area_square_metres": 76.672012981365,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a110",
+          "label": "A110",
+          "pixel_bounds": [
+            1270,
+            254,
+            1504,
+            400
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.4975845410628019,
+            0.0,
+            0.6388888888888888,
+            0.15498938428874734
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -61.70048309210688,
+            -15.71549893845804,
+            -49.97222222201526
+          ],
+          "approximate_dimensions_metres": [
+            7.28450106154196,
+            11.728260870091617
+          ],
+          "approximate_area_square_metres": 85.43452875822341,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        }
+      ],
+      "circulation": [
+        {
+          "id": "west_corridor",
+          "pixel_bounds": [
+            730,
+            400,
+            1820,
+            470
+          ],
+          "bounds": [
+            0.17149758454106281,
+            0.15498938428874734,
+            0.8297101449275363,
+            0.22929936305732485
+          ]
+        },
+        {
+          "id": "north_corridor",
+          "pixel_bounds": [
+            1764,
+            254,
+            1820,
+            1196
+          ],
+          "bounds": [
+            0.7958937198067633,
+            0.0,
+            0.8297101449275363,
+            1.0
+          ]
+        },
+        {
+          "id": "east_corridor",
+          "pixel_bounds": [
+            730,
+            970,
+            1820,
+            1030
+          ],
+          "bounds": [
+            0.17149758454106281,
+            0.7600849256900213,
+            0.8297101449275363,
+            0.8237791932059448
+          ]
+        },
+        {
+          "id": "south_corridor",
+          "pixel_bounds": [
+            720,
+            254,
+            780,
+            1196
+          ],
+          "bounds": [
+            0.16545893719806765,
+            0.0,
+            0.20169082125603865,
+            1.0
+          ]
+        },
+        {
+          "id": "entrance_lobby",
+          "pixel_bounds": [
+            990,
+            1000,
+            1110,
+            1196
+          ],
+          "bounds": [
+            0.3285024154589372,
+            0.7919320594479831,
+            0.40096618357487923,
+            1.0
+          ]
+        }
+      ],
+      "courtyard": [
+        0.30917874396135264,
+        0.346072186836518,
+        0.6908212560386473,
+        0.6454352441613588
+      ],
+      "external_entrance": true,
       "vertical_connection": "Stair opening reserved; no stair flights or traversable connection yet"
     },
     {
@@ -39,10 +445,10 @@
       },
       "voids_local_metres": [
         [
-          -6.550000000046566,
-          -77.26999999955297,
-          7.550000000046566,
-          -45.730000000447035
+          -6.572815533960238,
+          -77.20643729157746,
+          7.572815533960238,
+          -45.88568257447332
         ],
         [
           -21.5,
@@ -69,18 +475,889 @@
           -38.6342952279374
         ]
       ],
+      "rooms": [
+        {
+          "id": "a201",
+          "label": "A201",
+          "pixel_bounds": [
+            1900,
+            666,
+            2202,
+            904
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "computer",
+          "bounds": [
+            0.832408435072142,
+            0.3844660194174757,
+            1.0,
+            0.6155339805825243
+          ],
+          "footprint_local_metres": [
+            -4.930097087402828,
+            -33.91009988915175,
+            5.930097087402828,
+            -20.0
+          ],
+          "approximate_dimensions_metres": [
+            10.860194174805656,
+            13.910099889151752
+          ],
+          "approximate_area_square_metres": 151.06638578713066,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a202",
+          "label": "A202",
+          "pixel_bounds": [
+            1900,
+            904,
+            2202,
+            1110
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "computer",
+          "bounds": [
+            0.832408435072142,
+            0.6155339805825243,
+            1.0,
+            0.8155339805825242
+          ],
+          "footprint_local_metres": [
+            5.930097087402828,
+            -33.91009988915175,
+            15.330097087426111,
+            -20.0
+          ],
+          "approximate_dimensions_metres": [
+            9.400000000023283,
+            13.910099889151752
+          ],
+          "approximate_area_square_metres": 130.75493895835035,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a203",
+          "label": "A203",
+          "pixel_bounds": [
+            1900,
+            1110,
+            2202,
+            1300
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.832408435072142,
+            0.8155339805825242,
+            1.0,
+            1.0
+          ],
+          "footprint_local_metres": [
+            15.330097087426111,
+            -33.91009988915175,
+            24.0,
+            -20.0
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            13.910099889151752
+          ],
+          "approximate_area_square_metres": 120.5992155431505,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a204",
+          "label": "A204",
+          "pixel_bounds": [
+            400,
+            1110,
+            700,
+            1300
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.0,
+            0.8155339805825242,
+            0.16648168701442842,
+            1.0
+          ],
+          "footprint_local_metres": [
+            15.330097087426111,
+            -103.0,
+            24.0,
+            -89.18201997783035
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            13.81798002216965
+          ],
+          "approximate_area_square_metres": 119.80054524009645,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a205",
+          "label": "A205",
+          "pixel_bounds": [
+            400,
+            904,
+            700,
+            1110
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.0,
+            0.6155339805825243,
+            0.16648168701442842,
+            0.8155339805825242
+          ],
+          "footprint_local_metres": [
+            5.930097087402828,
+            -103.0,
+            15.330097087426111,
+            -89.18201997783035
+          ],
+          "approximate_dimensions_metres": [
+            9.400000000023283,
+            13.81798002216965
+          ],
+          "approximate_area_square_metres": 129.88901220871642,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a206",
+          "label": "A206",
+          "pixel_bounds": [
+            400,
+            664,
+            700,
+            904
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.0,
+            0.3825242718446602,
+            0.16648168701442842,
+            0.6155339805825243
+          ],
+          "footprint_local_metres": [
+            -5.021359223290347,
+            -103.0,
+            5.930097087402828,
+            -89.18201997783035
+          ],
+          "approximate_dimensions_metres": [
+            10.951456310693175,
+            13.81798002216965
+          ],
+          "approximate_area_square_metres": 151.32700451482202,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a207",
+          "label": "A207",
+          "pixel_bounds": [
+            400,
+            450,
+            700,
+            664
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.0,
+            0.17475728155339806,
+            0.16648168701442842,
+            0.3825242718446602
+          ],
+          "footprint_local_metres": [
+            -14.786407766980119,
+            -103.0,
+            -5.021359223290347,
+            -89.18201997783035
+          ],
+          "approximate_dimensions_metres": [
+            9.765048543689772,
+            13.81798002216965
+          ],
+          "approximate_area_square_metres": 134.9332456922221,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a208",
+          "label": "A208",
+          "pixel_bounds": [
+            400,
+            270,
+            700,
+            450
+          ],
+          "door_side": "u_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.0,
+            0.0,
+            0.16648168701442842,
+            0.17475728155339806
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -103.0,
+            -14.786407766980119,
+            -89.18201997783035
+          ],
+          "approximate_dimensions_metres": [
+            8.213592233019881,
+            13.81798002216965
+          ],
+          "approximate_area_square_metres": 113.49525338611652,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a209",
+          "label": "A209",
+          "pixel_bounds": [
+            1470,
+            1110,
+            1640,
+            1300
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.5937846836847946,
+            0.8155339805825242,
+            0.6881243063263041,
+            1.0
+          ],
+          "footprint_local_metres": [
+            15.330097087426111,
+            -53.715871253982186,
+            24.0,
+            -45.88568257447332
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 67.886975638477,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a210",
+          "label": "A210",
+          "pixel_bounds": [
+            1300,
+            1110,
+            1470,
+            1300
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.49944506104328523,
+            0.8155339805825242,
+            0.5937846836847946,
+            1.0
+          ],
+          "footprint_local_metres": [
+            15.330097087426111,
+            -61.54605993349105,
+            24.0,
+            -53.715871253982186
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 67.886975638477,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a211",
+          "label": "A211",
+          "pixel_bounds": [
+            1130,
+            1110,
+            1300,
+            1300
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.4051054384017758,
+            0.8155339805825242,
+            0.49944506104328523,
+            1.0
+          ],
+          "footprint_local_metres": [
+            15.330097087426111,
+            -69.37624861299992,
+            24.0,
+            -61.54605993349105
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 67.886975638477,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a212",
+          "label": "A212",
+          "pixel_bounds": [
+            960,
+            1110,
+            1130,
+            1300
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.31076581576026635,
+            0.8155339805825242,
+            0.4051054384017758,
+            1.0
+          ],
+          "footprint_local_metres": [
+            15.330097087426111,
+            -77.20643729157746,
+            24.0,
+            -69.37624861299992
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            7.830188678577542
+          ],
+          "approximate_area_square_metres": 67.88697563040252,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a213",
+          "label": "A213",
+          "pixel_bounds": [
+            960,
+            940,
+            1130,
+            1050
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.31076581576026635,
+            0.6504854368932039,
+            0.4051054384017758,
+            0.7572815533980582
+          ],
+          "footprint_local_metres": [
+            7.572815533960238,
+            -77.20643729157746,
+            12.592233009752817,
+            -69.37624861299992
+          ],
+          "approximate_dimensions_metres": [
+            5.019417475792579,
+            7.830188678577542
+          ],
+          "approximate_area_square_metres": 39.30298589200532,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a214",
+          "label": "A214",
+          "pixel_bounds": [
+            1130,
+            940,
+            1300,
+            1050
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.4051054384017758,
+            0.6504854368932039,
+            0.49944506104328523,
+            0.7572815533980582
+          ],
+          "footprint_local_metres": [
+            7.572815533960238,
+            -69.37624861299992,
+            12.592233009752817,
+            -61.54605993349105
+          ],
+          "approximate_dimensions_metres": [
+            5.019417475792579,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 39.30298589668001,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a215",
+          "label": "A215",
+          "pixel_bounds": [
+            1300,
+            940,
+            1470,
+            1050
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.49944506104328523,
+            0.6504854368932039,
+            0.5937846836847946,
+            0.7572815533980582
+          ],
+          "footprint_local_metres": [
+            7.572815533960238,
+            -61.54605993349105,
+            12.592233009752817,
+            -53.715871253982186
+          ],
+          "approximate_dimensions_metres": [
+            5.019417475792579,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 39.30298589668001,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a216",
+          "label": "A216",
+          "pixel_bounds": [
+            1470,
+            940,
+            1640,
+            1050
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.5937846836847946,
+            0.6504854368932039,
+            0.6881243063263041,
+            0.7572815533980582
+          ],
+          "footprint_local_metres": [
+            7.572815533960238,
+            -53.715871253982186,
+            12.592233009752817,
+            -45.88568257447332
+          ],
+          "approximate_dimensions_metres": [
+            5.019417475792579,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 39.30298589668001,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a217",
+          "label": "A217",
+          "pixel_bounds": [
+            1470,
+            516,
+            1640,
+            630
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.5937846836847946,
+            0.23883495145631067,
+            0.6881243063263041,
+            0.34951456310679613
+          ],
+          "footprint_local_metres": [
+            -11.774757281527855,
+            -53.715871253982186,
+            -6.572815533960238,
+            -45.88568257447332
+          ],
+          "approximate_dimensions_metres": [
+            5.201941747567616,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 40.73218538326851,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a218",
+          "label": "A218",
+          "pixel_bounds": [
+            1300,
+            516,
+            1470,
+            630
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.49944506104328523,
+            0.23883495145631067,
+            0.5937846836847946,
+            0.34951456310679613
+          ],
+          "footprint_local_metres": [
+            -11.774757281527855,
+            -61.54605993349105,
+            -6.572815533960238,
+            -53.715871253982186
+          ],
+          "approximate_dimensions_metres": [
+            5.201941747567616,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 40.73218538326851,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a219",
+          "label": "A219",
+          "pixel_bounds": [
+            1130,
+            516,
+            1300,
+            630
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.4051054384017758,
+            0.23883495145631067,
+            0.49944506104328523,
+            0.34951456310679613
+          ],
+          "footprint_local_metres": [
+            -11.774757281527855,
+            -69.37624861299992,
+            -6.572815533960238,
+            -61.54605993349105
+          ],
+          "approximate_dimensions_metres": [
+            5.201941747567616,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 40.73218538326851,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a220",
+          "label": "A220",
+          "pixel_bounds": [
+            960,
+            516,
+            1130,
+            630
+          ],
+          "door_side": "v_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.31076581576026635,
+            0.23883495145631067,
+            0.4051054384017758,
+            0.34951456310679613
+          ],
+          "footprint_local_metres": [
+            -11.774757281527855,
+            -77.20643729157746,
+            -6.572815533960238,
+            -69.37624861299992
+          ],
+          "approximate_dimensions_metres": [
+            5.201941747567616,
+            7.830188678577542
+          ],
+          "approximate_area_square_metres": 40.73218537842383,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a221",
+          "label": "A221",
+          "pixel_bounds": [
+            960,
+            270,
+            1130,
+            460
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.31076581576026635,
+            0.0,
+            0.4051054384017758,
+            0.18446601941747573
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -77.20643729157746,
+            -14.330097087426111,
+            -69.37624861299992
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            7.830188678577542
+          ],
+          "approximate_area_square_metres": 67.88697563040252,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a222",
+          "label": "A222",
+          "pixel_bounds": [
+            1130,
+            270,
+            1300,
+            460
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.4051054384017758,
+            0.0,
+            0.49944506104328523,
+            0.18446601941747573
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -69.37624861299992,
+            -14.330097087426111,
+            -61.54605993349105
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 67.886975638477,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a223",
+          "label": "A223",
+          "pixel_bounds": [
+            1300,
+            270,
+            1470,
+            460
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.49944506104328523,
+            0.0,
+            0.5937846836847946,
+            0.18446601941747573
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -61.54605993349105,
+            -14.330097087426111,
+            -53.715871253982186
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 67.886975638477,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "a224",
+          "label": "A224",
+          "pixel_bounds": [
+            1470,
+            270,
+            1640,
+            460
+          ],
+          "door_side": "v_max",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "classroom",
+          "bounds": [
+            0.5937846836847946,
+            0.0,
+            0.6881243063263041,
+            0.18446601941747573
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -53.715871253982186,
+            -14.330097087426111,
+            -45.88568257447332
+          ],
+          "approximate_dimensions_metres": [
+            8.669902912573889,
+            7.830188679508865
+          ],
+          "approximate_area_square_metres": 67.886975638477,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        },
+        {
+          "id": "lab",
+          "label": "LAB",
+          "pixel_bounds": [
+            1900,
+            270,
+            2202,
+            666
+          ],
+          "door_side": "u_min",
+          "door_fraction": 0.5,
+          "door_width_metres": 1.2,
+          "kind": "laboratory",
+          "bounds": [
+            0.832408435072142,
+            0.0,
+            1.0,
+            0.3844660194174757
+          ],
+          "footprint_local_metres": [
+            -23.0,
+            -33.91009988915175,
+            -4.930097087402828,
+            -20.0
+          ],
+          "approximate_dimensions_metres": [
+            18.069902912597172,
+            13.910099889151752
+          ],
+          "approximate_area_square_metres": 251.35415450150083,
+          "fitout": "Unfurnished; shared photo-guided kit planned"
+        }
+      ],
+      "circulation": [
+        {
+          "id": "west_corridor",
+          "pixel_bounds": [
+            710,
+            460,
+            1900,
+            516
+          ],
+          "bounds": [
+            0.17203107658157601,
+            0.18446601941747573,
+            0.832408435072142,
+            0.23883495145631067
+          ]
+        },
+        {
+          "id": "north_corridor",
+          "pixel_bounds": [
+            1840,
+            460,
+            1900,
+            1300
+          ],
+          "bounds": [
+            0.7991120976692564,
+            0.18446601941747573,
+            0.832408435072142,
+            1.0
+          ]
+        },
+        {
+          "id": "east_corridor",
+          "pixel_bounds": [
+            710,
+            1050,
+            1900,
+            1110
+          ],
+          "bounds": [
+            0.17203107658157601,
+            0.7572815533980582,
+            0.832408435072142,
+            0.8155339805825242
+          ]
+        },
+        {
+          "id": "south_corridor",
+          "pixel_bounds": [
+            700,
+            270,
+            770,
+            1300
+          ],
+          "bounds": [
+            0.16648168701442842,
+            0.0,
+            0.20532741398446172,
+            1.0
+          ]
+        }
+      ],
+      "courtyard": [
+        0.31076581576026635,
+        0.34951456310679613,
+        0.6881243063263041,
+        0.6504854368932039
+      ],
+      "external_entrance": false,
       "vertical_connection": "Stair opening reserved; no stair flights or traversable connection yet"
     }
   ],
   "statistics": {
-    "boxes": 100,
-    "vertices": 800,
-    "triangles": 1200
+    "boxes": 164,
+    "vertices": 1312,
+    "triangles": 1968
   },
   "inputs": {
     "configuration": {
       "file": "config/povo1_interior_study.json",
-      "sha256": "28c6a6db77049b21422d78eaa60d1b7f77039b031212fd6147f139cccb654d88"
+      "sha256": "d5cc2c3b74dd274562a2710dabd73637a4ba5fe6558914826633510377ebe9b6"
     },
     "alignment": {
       "file": "config/povo1_plan_alignment.json",
@@ -272,8 +1549,8 @@
   "deployment": "Excluded from cs2_project deploy; no arena collision changes",
   "artifacts": {
     "povo1_interior_study.obj": {
-      "sha256": "6f9121ebc1f30951a0eef14cfc3dfe7971cbf8f73913915df4e5ce7dceb15233",
-      "bytes": 77127
+      "sha256": "7e7ffe354a1b6236a9b14f4480e6a0542c98500b547efd3168d7f16e42c5315c",
+      "bytes": 143293
     },
     "povo1_interior_study.mtl": {
       "sha256": "ef9da381cd37573dc0322de8f39a48caf5d48e0cc5659de10852b7ed668747d0",
@@ -288,11 +1565,11 @@
       "bytes": 582
     },
     "review.svg": {
-      "sha256": "d86f7fe17204587cd9424816b45c834ae3a9c40f6006c63ebad1281fa63eded8",
-      "bytes": 4684
+      "sha256": "c1d63806bd33b8865e145df56dda4ba0ae24ac4c1d7f72dc5fa9973a8a89d005",
+      "bytes": 19354
     },
     "CREDITS.txt": {
-      "sha256": "94b214861bf2137874ef5e1274c4b44ccbc55ffa6aae214574feae925a3208f1",
+      "sha256": "be01a13b6887db1e5900f39f99a010243b630221dba73ba55962090d7256434c",
       "bytes": 499
     }
   }

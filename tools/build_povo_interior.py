@@ -78,6 +78,20 @@ def connected(rectangles):
     return len(seen) == len(rectangles)
 
 
+def level_layout(level, alignment):
+    """Resolve manually traced source pixels through this floor's registration."""
+    profile = next(p for p in alignment['profiles'] if p['id'] == level['id'])
+    x0,y0,x1,y1 = profile['outer']
+    def normalized(pixels):
+        if not isinstance(pixels,list) or len(pixels)!=4 or any(type(v) not in (int,float) or not math.isfinite(v) for v in pixels):
+            raise ValueError('Need four finite source pixel bounds')
+        a,b,c,d=pixels
+        return rectangle(((a-x0)/(x1-x0),(b-y0)/(y1-y0),(c-x0)/(x1-x0),(d-y0)/(y1-y0)))
+    return (normalized(level['courtyard_pixels']),
+            [dict(c,bounds=normalized(c['pixel_bounds'])) for c in level['circulation']],
+            [dict(r,bounds=normalized(r['pixel_bounds'])) for r in level['rooms']])
+
+
 def validate(config, alignment):
     geographic = alignment.get("geographic_bounds")
     if not isinstance(geographic, list) or len(geographic) != 4 or any(type(v) not in (int,float) or not math.isfinite(v) for v in geographic) or not (geographic[0]<geographic[2] and geographic[1]<geographic[3]):
@@ -89,46 +103,42 @@ def validate(config, alignment):
             raise ValueError(f"{key} must be finite and positive where applicable")
     if config["wall_height_metres"] <= config["door_height_metres"]:
         raise ValueError("Door height must be below wall height")
-    rectangle(config["courtyard"])
-    circulation = config.get("circulation")
-    if not isinstance(circulation, list) or not circulation:
-        raise ValueError("Need circulation rectangles")
-    seen = set()
-    for entry in [*circulation, *config.get("partitions", []), *config.get("levels", [])]:
-        identifier = entry.get("id")
-        if not isinstance(identifier, str) or not re.fullmatch(r"[a-z][a-z0-9_]*", identifier) or identifier in seen:
-            raise ValueError("Study IDs must be unique safe names")
-        seen.add(identifier)
-    rects = [rectangle(c["bounds"]) for c in circulation]
-    if not connected(rects):
-        raise ValueError("Circulation rectangles must form a connected route")
-    if any(intersects(r, config["courtyard"]) for r in rects):
-        raise ValueError("Circulation must not cover the courtyard")
     profiles = {p["id"] for p in alignment["profiles"]}
     previous = None
+    seen = set()
     if not config.get("levels"):
         raise ValueError("Need at least one study level")
     for level in config["levels"]:
         height = level.get("height_offset_metres")
-        if level["id"] not in profiles or type(height) not in (int, float) or not math.isfinite(height):
-            raise ValueError("Level must have an alignment profile and finite height offset")
-        if type(level.get("stair_openings")) is not bool:
-            raise ValueError("stair_openings must be a boolean")
+        if level["id"] not in profiles or level['id'] in seen or type(height) not in (int, float) or not math.isfinite(height):
+            raise ValueError("Level must have a unique alignment profile and finite height offset")
+        seen.add(level['id'])
+        if type(level.get("stair_openings")) is not bool or type(level.get('external_entrance')) is not bool:
+            raise ValueError("stair_openings and external_entrance must be booleans")
         if previous is not None and height-previous <= config["wall_height_metres"]+config["floor_thickness_metres"]:
             raise ValueError("Level spacing must clear the walls and upper slab")
         previous = height
-    for wall in config.get("partitions", []):
-        for key in ("start", "end"):
-            point = wall.get(key)
-            if not isinstance(point, list) or len(point) != 2 or any(type(v) not in (int,float) or not math.isfinite(v) or not 0 <= v <= 1 for v in point):
-                raise ValueError("Wall endpoints must be normalized points")
-        start, end = wall["start"], wall["end"]
-        if (start[0] == end[0]) == (start[1] == end[1]) or any(a > b for a,b in zip(start,end)):
-            raise ValueError("Walls must be positive, axis-aligned segments")
-        if type(wall.get("door_width_metres")) not in (int,float) or not math.isfinite(wall["door_width_metres"]) or wall["door_width_metres"] <= 0:
-            raise ValueError("Door width must be finite and positive")
-        if not isinstance(wall.get("door_centres"), list) or any(type(v) not in (int,float) or not math.isfinite(v) or not 0 < v < 1 for v in wall["door_centres"]):
-            raise ValueError("Door centres must be fractions between zero and one")
+        court, circulation, rooms = level_layout(level,alignment)
+        rects = [c['bounds'] for c in circulation]
+        if not rects or not connected(rects):
+            raise ValueError("Circulation rectangles must form a connected route")
+        if any(intersects(r,court) for r in rects):
+            raise ValueError("Circulation must not cover the courtyard")
+        ids=set()
+        for entry in [*circulation,*rooms]:
+            identifier=entry.get('id')
+            if not isinstance(identifier,str) or not re.fullmatch(r'[a-z][a-z0-9_]*',identifier) or identifier in ids:
+                raise ValueError('Each floor needs unique safe room/circulation IDs')
+            ids.add(identifier)
+        for i,room in enumerate(rooms):
+            if intersects(room['bounds'],court) or any(intersects(room['bounds'],r) for r in rects) or any(intersects(room['bounds'],r['bounds']) for r in rooms[i+1:]):
+                raise ValueError('Rooms must not overlap other rooms, circulation or courtyard')
+            if room.get('door_side') not in ('u_min','u_max','v_min','v_max'):
+                raise ValueError('Unknown room door side')
+            for key in ('door_fraction','door_width_metres'):
+                v=room.get(key)
+                if type(v) not in (int,float) or not math.isfinite(v) or v<=0 or (key=='door_fraction' and v>=1):
+                    raise ValueError('Door fraction and width must be finite and positive; fraction below one')
     return config
 
 
@@ -137,34 +147,23 @@ def build_boxes(config, alignment, origin):
     validate(config, alignment)
     bounds = alignment["geographic_bounds"]
     whole = local_rectangle((0,0,1,1), bounds, origin)
-    court = local_rectangle(config["courtyard"], bounds, origin)
     boxes, level_records = [], []
 
     def slab(name, rect, bottom, top, material):
         boxes.append((name, (rect[0],rect[1],bottom), (rect[2],rect[3],top), material))
 
-    def wall(name, start, end, z, openings, width, material="wall"):
-        axis = 0 if start[0] != end[0] else 1
-        length = end[axis]-start[axis]
-        gaps = sorted((centre*length-width/2, centre*length+width/2) for centre in openings)
-        if any(a <= 0 or b >= length for a,b in gaps) or any(a[1] >= b[0] for a,b in zip(gaps,gaps[1:])):
-            raise ValueError("Door openings must fit the wall without overlap")
-        thickness = config["wall_thickness_metres"]
-        def piece(index, low, high, bottom, top):
-            minimum, maximum = list(start), list(end)
-            minimum[axis] = start[axis]+low; maximum[axis] = start[axis]+high
-            minimum[1-axis] -= thickness/2; maximum[1-axis] += thickness/2
-            slab(name+f"_{index:02d}", (*minimum,*maximum), bottom, top, material)
-        cursor = 0
-        for i,(low,high) in enumerate(gaps):
-            piece(i*2,cursor,low,z,z+config["wall_height_metres"])
-            piece(i*2+1,low,high,z+config["door_height_metres"],z+config["wall_height_metres"])
-            cursor=high
-        piece(len(gaps)*2,cursor,length,z,z+config["wall_height_metres"])
+    def solid_wall(name,start,end,z,material):
+        axis=0 if start[0]!=end[0] else 1
+        minimum,maximum=list(start),list(end)
+        minimum[1-axis]-=config['wall_thickness_metres']/2
+        maximum[1-axis]+=config['wall_thickness_metres']/2
+        slab(name,(*minimum,*maximum),z,z+config['wall_height_metres'],material)
 
     for level in config["levels"]:
         name = level["id"]
         z = config["reference_elevation_metres"]+level["height_offset_metres"]-origin[2]
+        courtyard,circulation,rooms=level_layout(level,alignment)
+        court=local_rectangle(courtyard,bounds,origin)
         holes = [court]
         profile = next(p for p in alignment["profiles"] if p["id"] == name)
         if level["stair_openings"]:
@@ -175,30 +174,84 @@ def build_boxes(config, alignment, origin):
                 if rect[0]>=rect[2] or rect[1]>=rect[3]:
                     raise ValueError("Stair opening inset consumes the reserved opening")
                 holes.append(rect)
-        paths=[local_rectangle(c["bounds"],bounds,origin) for c in config["circulation"]]
+        paths=[local_rectangle(c["bounds"],bounds,origin) for c in circulation]
         if any(intersects(path,hole) for path in paths for hole in holes):
             raise ValueError("A reserved floor opening intersects the traced circulation")
+        if any(intersects(local_rectangle(r["bounds"],bounds,origin),hole) for r in rooms for hole in holes):
+            raise ValueError("Room footprint crosses a reserved floor opening")
         for i,rect in enumerate(subtract_rectangles(whole,holes)):
             slab(f"{name}_slab_{i:03d}",rect,z-config["floor_thickness_metres"],z,"floor_room")
         # Overlapping finish rectangles are partitioned so there are no coplanar
         # faces or doubled floor tiles where corridor surfaces meet.
         previous_paths=[]
-        for path_spec,path in zip(config["circulation"],paths):
+        for path_spec,path in zip(circulation,paths):
             for i,rect in enumerate(subtract_rectangles(path,previous_paths)):
                 slab(f"{name}_{path_spec['id']}_{i:03d}",rect,z,z+.012,"floor_circulation")
             previous_paths.append(path)
+        # Collect collinear wall spans, then merge them before cutting door gaps.
+        # Adjacent classrooms share one wall, including where a room meets the
+        # outer shell or courtyard; no coincident duplicate wall boxes.
+        walls={}
+        def add_wall(label,start,end,gaps=(),width=1.2,material='wall'):
+            a=local_point(*start,bounds,origin); b=local_point(*end,bounds,origin)
+            axis=0 if a[0]!=b[0] else 1
+            key=(axis,round(a[1-axis],8))
+            record=walls.setdefault(key,dict(name=f'{name}_{label}',spans=[],gaps=[],material=material))
+            if material=='courtyard_wall':record['material']=material
+            record['spans'].append((a[axis],b[axis]))
+            length=b[axis]-a[axis]
+            for centre in gaps:
+                low,high=a[axis]+centre*length-width/2,a[axis]+centre*length+width/2
+                if low<=a[axis] or high>=b[axis]:raise ValueError('Door openings must fit the wall without overlap')
+                record['gaps'].append((low,high))
         perimeter=[((0,0),(0,1)),((1,0),(1,1)),((0,0),(1,0)),((0,1),(1,1))]
         entry=(profile["entry"][0]-profile["outer"][0])/(profile["outer"][2]-profile["outer"][0])
         for i,(start,end) in enumerate(perimeter):
-            wall(f"{name}_outer_{i}",local_point(*start,bounds,origin),local_point(*end,bounds,origin),z,[entry] if i==3 else [],2.2)
-        u0,v0,u1,v1=config["courtyard"]
+            add_wall(f'outer_{i}',start,end,[entry] if i==3 and level['external_entrance'] else [],2.2)
+        u0,v0,u1,v1=courtyard
         for i,(start,end) in enumerate([((u0,v0),(u0,v1)),((u1,v0),(u1,v1)),((u0,v0),(u1,v0)),((u0,v1),(u1,v1))]):
-            wall(f"{name}_court_{i}",local_point(*start,bounds,origin),local_point(*end,bounds,origin),z,[],1,"courtyard_wall")
-        for partition in config.get("partitions",[]):
-            wall(f"{name}_{partition['id']}",local_point(*partition["start"],bounds,origin),local_point(*partition["end"],bounds,origin),z,
-                 partition["door_centres"],partition["door_width_metres"])
+            add_wall(f'court_{i}',start,end,material='courtyard_wall')
+        room_records=[]
+        for room in rooms:
+            a,b,c,d=room['bounds']
+            sides={'u_min':((a,b),(a,d)),'u_max':((c,b),(c,d)),
+                   'v_min':((a,b),(c,b)),'v_max':((a,d),(c,d))}
+            for side,(start,end) in sides.items():
+                add_wall(f"room_{room['id']}_{side}",start,end,[room['door_fraction']] if side==room['door_side'] else [],room['door_width_metres'])
+            rect=local_rectangle(room['bounds'],bounds,origin)
+            room_records.append(dict(room,footprint_local_metres=rect,
+                approximate_dimensions_metres=[rect[2]-rect[0],rect[3]-rect[1]],
+                approximate_area_square_metres=(rect[2]-rect[0])*(rect[3]-rect[1]),
+                fitout='Unfurnished; shared photo-guided kit planned'))
+        def union(intervals):
+            result=[]
+            for lo,hi in sorted(intervals):
+                if result and lo<=result[-1][1]+1e-7:result[-1]=(result[-1][0],max(hi,result[-1][1]))
+                else:result.append((lo,hi))
+            return result
+        for (axis,constant),record in walls.items():
+            for i,(low,high) in enumerate(union(record['spans'])):
+                cuts=[(a,b) for a,b in union(record['gaps']) if a>=low and b<=high]
+                start=[constant,constant];end=[constant,constant]
+                start[axis]=low;end[axis]=high
+                # Solid spans flank each variable-width door; a lintel bridges it.
+                cursor=low
+                for j,(a,b) in enumerate(cuts):
+                    if a>cursor:
+                        end[axis]=a;start[axis]=cursor
+                        solid_wall(record['name']+f'_{i}_{j}',start,end,z,record['material'])
+                    minimum=list(start);maximum=list(end)
+                    minimum[axis]=a;maximum[axis]=b
+                    minimum[1-axis]-=config['wall_thickness_metres']/2
+                    maximum[1-axis]+=config['wall_thickness_metres']/2
+                    slab(record['name']+f'_header_{i}_{j}',(*minimum,*maximum),z+config['door_height_metres'],z+config['wall_height_metres'],record['material'])
+                    cursor=b
+                if cursor<high:
+                    start[axis]=cursor;end[axis]=high
+                    solid_wall(record['name']+f'_{i}_tail',start,end,z,record['material'])
         level_records.append({"id":name,"floor_elevation_metres":z+origin[2],"labels":profile["labels"],"voids_local_metres":holes,
-                              "vertical_connection":"Stair opening reserved; no stair flights or traversable connection yet"})
+                              "rooms":room_records,"circulation":circulation,"courtyard":courtyard,
+                              "external_entrance":level["external_entrance"],"vertical_connection":"Stair opening reserved; no stair flights or traversable connection yet"})
     return boxes, level_records
 
 
@@ -224,36 +277,56 @@ class TexturedWriter:
 
 
 def review_svg(config, alignment):
-    parts=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">',
-           '<rect width="1200" height="850" fill="#edf1f2"/>',
+    parts=['<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1150" viewBox="0 0 1400 1150">',
+           '<rect width="1400" height="1150" fill="#edf1f2"/>',
            '<g font-family="DejaVu Sans, sans-serif" fill="#193441">',
-           '<text x="45" y="58" font-size="30" font-weight="bold">POVO 1 / INTERIOR CIRCULATION STUDY</text>',
-           '<text x="45" y="94" font-size="17">Simplified plan topology. Two provisional levels; stair flights and measured heights pending.</text>']
+           '<text x="45" y="55" font-size="30" font-weight="bold">POVO 1 / ROOMS INSIDE THE BUILDING</text>',
+           '<text x="45" y="94" font-size="19">Two floors of the same building. Interior study only; separate from the outdoor CS2 map.</text>',
+           '<text x="45" y="130" font-size="17">Blue = corridors · beige = classrooms · purple = computer rooms / lab · green = open courtyard</text>']
     west,south,east,north=alignment["geographic_bounds"]
     for index,level in enumerate(config["levels"]):
-        x,y,w=100+index*580,155,310
+        courtyard,circulation,rooms=level_layout(level,alignment)
+        x,y,w=100+index*700,215,400
         h=w*(north-south)/(east-west)
+        def point(u,v):return (x+v*w,y+(1-u)*h)
         def draw_rect(rect,fill,stroke="none",extra=""):
-            a,b,d,e=rect
-            return f'<rect x="{x+b*w}" y="{y+(1-d)*h}" width="{(e-b)*w}" height="{(d-a)*h}" fill="{fill}" stroke="{stroke}" stroke-width="2" {extra}/>'
-        parts.append(f'<text x="{x}" y="{y-20}" font-size="21">{escape(level["id"])} (+{level["height_offset_metres"]:g} m estimate)</text>')
-        parts.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="#b7b4a7" stroke="#193441" stroke-width="3"/>')
-        for c in config["circulation"]:
-            parts.append(draw_rect(c["bounds"],"#87b5bc"))
-        a,b,d,e=config["courtyard"]
-        parts.extend([draw_rect(config["courtyard"],"#edf1f2","#466769"),
-                      f'<text x="{x+(b+e)*w/2}" y="{y+(1-(a+d)/2)*h}" text-anchor="middle" font-size="13">COURTYARD</text>',
-                      f'<text x="{x+(b+e)*w/2}" y="{y+(1-(a+d)/2)*h+20}" text-anchor="middle" font-size="12">OPEN VOID</text>'])
-        profile=next(p for p in alignment["profiles"] if p["id"]==level["id"])
-        for feature in profile["features"]:
-            fw,fs,fe,fn=feature["approximate_geographic_bounds"]
-            inset=config["stair_opening_inset_metres"]
-            rect=((fs+inset-south)/(north-south),(fw+inset-west)/(east-west),
-                  (fn-inset-south)/(north-south),(fe-inset-west)/(east-west))
-            parts.append(draw_rect(rect,"#edf1f2" if level["stair_openings"] else "none","#d99042",'stroke-dasharray="5 3"'))
-        parts.append(f'<text x="{x+w+14}" y="{y+22}" font-size="18">N ↑</text>')
-    parts.extend(['<text x="45" y="755" font-size="17">Blue: connected circulation footprint. Beige: schematic floor area, not fully reconstructed rooms.</text>',
-                  '<text x="45" y="789" font-size="16">North up, east right; aspect ratio preserved. Orange: reserved stair regions. Not deployed to CS2.</text>',
+            a,b,d,e=rect;px,py=point(d,b)
+            return f'<rect x="{px}" y="{py}" width="{(e-b)*w}" height="{(d-a)*h}" fill="{fill}" stroke="{stroke}" stroke-width="1.5" {extra}/>'
+        title='GROUND / A101–A110' if index==0 else 'UPPER / A201–A224 + LAB'
+        parts.append(f'<text x="{x}" y="{y-35}" font-size="23" font-weight="bold">{title}</text>')
+        parts.append(draw_rect((0,0,1,1),'#d9dedf','#193441'))
+        for c in circulation:parts.append(draw_rect(c['bounds'],'#8dbbc8'))
+        for room in rooms:
+            a,b,c,d=room['bounds']
+            color={'computer':'#c2b3d5','laboratory':'#c2b3d5','auditorium':'#dcc298'}.get(room['kind'],'#e4d9ba')
+            parts.append(draw_rect(room['bounds'],color,'#5a6268'))
+            px,py=point((a+c)/2,(b+d)/2)
+            parts.append(f'<text x="{px}" y="{py+4}" text-anchor="middle" font-size="13" font-weight="bold">{escape(room["label"])}</text>')
+            f=room['door_fraction'];side=room['door_side']
+            u,v=(a if side=='u_min' else c,b+(d-b)*f) if side.startswith('u_') else (a+(c-a)*f,b if side=='v_min' else d)
+            px,py=point(u,v);half=room['door_width_metres']*w/(east-west)/2
+            dx,dy=(half,0) if side.startswith('u_') else (0,half)
+            parts.append(f'<path d="M {px-dx} {py-dy} L {px+dx} {py+dy}" stroke="#ffffff" stroke-width="4"/>')
+        a,b,c,d=courtyard
+        parts.append(draw_rect(courtyard,'#b8d1bc','#466769'))
+        px,py=point((a+c)/2,(b+d)/2)
+        for dy,label in [(0,'COURTYARD'),(23,'OPEN TO SKY')]:
+            parts.append(f'<text x="{px}" y="{py+dy}" text-anchor="middle" font-size="16">{label}</text>')
+        profile=next(p for p in alignment['profiles'] if p['id']==level['id'])
+        for feature in profile['features']:
+            fw,fs,fe,fn=feature['approximate_geographic_bounds'];inset=config['stair_opening_inset_metres']
+            rect=((fs+inset-south)/(north-south),(fw+inset-west)/(east-west),(fn-inset-south)/(north-south),(fe-inset-west)/(east-west))
+            parts.append(draw_rect(rect,'#f2d3aa','#c07b23','stroke-dasharray="5 3"'))
+        if level['external_entrance']:
+            u=(profile['entry'][0]-profile['outer'][0])/(profile['outer'][2]-profile['outer'][0]);px,py=point(u,1)
+            parts.append(f'<path d="M {px+80} {py} L {px+4} {py} l 12 -7 m -12 7 l 12 7" fill="none" stroke="#193441" stroke-width="2"/>')
+            parts.append(f'<text x="{px+8}" y="{py-12}" font-size="14">Entrance</text>')
+        parts.append(f'<text x="{x+w+20}" y="{y+22}" font-size="19">N ↑</text>')
+        parts.append(f'<text x="{x}" y="{y+h+32}" font-size="17">Building outline: approximately 47 × 83 m</text>')
+        parts.append(f'<text x="{x}" y="{y+h+58}" font-size="16">{len(rooms)} named rooms · unfurnished · heights estimated</text>')
+    parts.extend(['<text x="45" y="1040" font-size="18">White wall gaps = door openings. Orange = stair reservations; stair flights are not built.</text>',
+                  '<text x="45" y="1075" font-size="17">Grey = other floor area awaiting subdivision (study areas, toilets, service spaces). No ceilings yet.</text>',
+                  '<text x="45" y="1110" font-size="17">Approximate footprints traced from unofficial plans. Shared finishes will be refined using your room photos.</text>',
                   '</g></svg>'])
     return "\n".join(parts)+"\n"
 
@@ -297,7 +370,7 @@ def build_study(config_path,output,*,root=ROOT,force=False):
                 (stage/(name+".png")).write_bytes(tile_png(color))
         (stage/OUTPUTS[1]).write_text("\n".join(mtl),encoding="utf-8")
         (stage/"review.svg").write_text(review_svg(config,alignment),encoding="utf-8")
-        (stage/"CREDITS.txt").write_text("Povo 1 interior circulation study. Plan reference: https://github.com/agusmeroli/mappe-povo\n"
+        (stage/"CREDITS.txt").write_text("Povo 1 room and circulation study. Plan reference: https://github.com/agusmeroli/mappe-povo\n"
             "Plans are marked unofficial; no redistribution licence established in the inspected source tree.\n"
             "Geometry is a coarse, assumption-labelled study; no source-image pixels are used as game textures.\n"
             "Tile patterns and material colors are original generated placeholders, not observed campus finishes.\n"
