@@ -1,0 +1,299 @@
+{
+  "format_version": 1,
+  "status": "Separate offline study; not deployed to the CS2 arena",
+  "assumptions": "Coarse circulation and partition layout guided by the registered plans. Shared normalized layout is simplified between levels. Absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Stair regions reserve openings with an assumed landing margin; no flights are built until photographs and measurements establish their arrangement.",
+  "origin": [
+    666250,
+    5103800,
+    370
+  ],
+  "coordinate_system": "Local metres; east +X, north +Y, up +Z; same origin as campus",
+  "levels": [
+    {
+      "id": "academic_ground",
+      "floor_elevation_metres": 374.0,
+      "labels": {
+        "plan": "piano terra",
+        "lift": "-1",
+        "stair_diagram": "0",
+        "room_group": "A101-A110"
+      },
+      "voids_local_metres": [
+        [
+          -6.550000000046566,
+          -77.26999999955297,
+          7.550000000046566,
+          -45.730000000447035
+        ]
+      ],
+      "vertical_connection": "Stair opening reserved; no stair flights or traversable connection yet"
+    },
+    {
+      "id": "academic_first",
+      "floor_elevation_metres": 377.6,
+      "labels": {
+        "plan": "primo piano",
+        "lift": "0",
+        "stair_diagram": "1",
+        "room_group": "A201-A224"
+      },
+      "voids_local_metres": [
+        [
+          -6.550000000046566,
+          -77.26999999955297,
+          7.550000000046566,
+          -45.730000000447035
+        ],
+        [
+          -21.5,
+          -84.4578246390447,
+          -15.830097087426111,
+          -78.70643729157746
+        ],
+        [
+          -21.5,
+          -44.38568257447332,
+          -15.830097087426111,
+          -38.6342952279374
+        ],
+        [
+          16.373786407755688,
+          -84.4578246390447,
+          22.5,
+          -78.70643729157746
+        ],
+        [
+          16.373786407755688,
+          -44.38568257447332,
+          22.5,
+          -38.6342952279374
+        ]
+      ],
+      "vertical_connection": "Stair opening reserved; no stair flights or traversable connection yet"
+    }
+  ],
+  "statistics": {
+    "boxes": 100,
+    "vertices": 800,
+    "triangles": 1200
+  },
+  "inputs": {
+    "configuration": {
+      "file": "config/povo1_interior_study.json",
+      "sha256": "28c6a6db77049b21422d78eaa60d1b7f77039b031212fd6147f139cccb654d88"
+    },
+    "alignment": {
+      "file": "config/povo1_plan_alignment.json",
+      "sha256": "11611d1f8923ed0fe70539d6f78d7e9e4a73c7d2954b787cb0b203527cdcd28d"
+    },
+    "campus": {
+      "file": "config/povo_blockout.json",
+      "sha256": "637e8f26e8abbff4c26f7695a7a4a52eca81d17e13dc15e8c802773d1e74202a"
+    }
+  },
+  "source_profiles": [
+    {
+      "id": "academic_ground",
+      "file": "Povo 1 mappa piano0.png",
+      "outer": [
+        446,
+        254,
+        2102,
+        1196
+      ],
+      "labels": {
+        "plan": "piano terra",
+        "lift": "-1",
+        "stair_diagram": "0",
+        "room_group": "A101-A110"
+      },
+      "entry": [
+        1030,
+        1196
+      ],
+      "source_file": "data/reference/povo_plans/mappe-povo/Povo 1 mappa piano0.png",
+      "sha256": "d759b7606f197d88cc18d15742e4e48f3fd81f0e3766bf2d8309dd89def882a4",
+      "features": [
+        {
+          "id": "stair_southwest",
+          "pixel_bounds": [
+            780,
+            254,
+            960,
+            420
+          ],
+          "approximate_geographic_bounds": [
+            666227.0,
+            5103713.740338164,
+            666235.2823779193,
+            5103722.762077294
+          ]
+        },
+        {
+          "id": "stair_northwest",
+          "pixel_bounds": [
+            1590,
+            254,
+            1764,
+            420
+          ],
+          "approximate_geographic_bounds": [
+            666227.0,
+            5103754.338164251,
+            666235.2823779193,
+            5103763.0591787435
+          ]
+        },
+        {
+          "id": "stair_southeast",
+          "pixel_bounds": [
+            780,
+            1020,
+            960,
+            1196
+          ],
+          "approximate_geographic_bounds": [
+            666265.2186836518,
+            5103713.740338164,
+            666274.0,
+            5103722.762077294
+          ]
+        },
+        {
+          "id": "stair_northeast",
+          "pixel_bounds": [
+            1590,
+            1020,
+            1764,
+            1196
+          ],
+          "approximate_geographic_bounds": [
+            666265.2186836518,
+            5103754.338164251,
+            666274.0,
+            5103763.0591787435
+          ]
+        }
+      ],
+      "entrance_geographic": [
+        666274.0,
+        5103726.270531401
+      ]
+    },
+    {
+      "id": "academic_first",
+      "file": "Povo 1 mappa piano1.png",
+      "outer": [
+        400,
+        270,
+        2202,
+        1300
+      ],
+      "labels": {
+        "plan": "primo piano",
+        "lift": "0",
+        "stair_diagram": "1",
+        "room_group": "A201-A224"
+      },
+      "entry": [
+        1030,
+        1300
+      ],
+      "source_file": "data/reference/povo_plans/mappe-povo/Povo 1 mappa piano1.png",
+      "sha256": "96a90f7144a96500ac0ab965f1b84a77fb781d105164752372c48a56cd6b5866",
+      "features": [
+        {
+          "id": "stair_southwest",
+          "pixel_bounds": [
+            770,
+            270,
+            960,
+            460
+          ],
+          "approximate_geographic_bounds": [
+            666227.0,
+            5103714.042175361,
+            666235.6699029126,
+            5103722.793562708
+          ]
+        },
+        {
+          "id": "stair_northwest",
+          "pixel_bounds": [
+            1640,
+            270,
+            1830,
+            460
+          ],
+          "approximate_geographic_bounds": [
+            666227.0,
+            5103754.1143174255,
+            666235.6699029126,
+            5103762.865704772
+          ]
+        },
+        {
+          "id": "stair_southeast",
+          "pixel_bounds": [
+            770,
+            1100,
+            960,
+            1300
+          ],
+          "approximate_geographic_bounds": [
+            666264.8737864078,
+            5103714.042175361,
+            666274.0,
+            5103722.793562708
+          ]
+        },
+        {
+          "id": "stair_northeast",
+          "pixel_bounds": [
+            1640,
+            1100,
+            1830,
+            1300
+          ],
+          "approximate_geographic_bounds": [
+            666264.8737864078,
+            5103754.1143174255,
+            666274.0,
+            5103762.865704772
+          ]
+        }
+      ],
+      "entrance_geographic": [
+        666274.0,
+        5103726.017758046
+      ]
+    }
+  ],
+  "deployment": "Excluded from cs2_project deploy; no arena collision changes",
+  "artifacts": {
+    "povo1_interior_study.obj": {
+      "sha256": "6f9121ebc1f30951a0eef14cfc3dfe7971cbf8f73913915df4e5ce7dceb15233",
+      "bytes": 77127
+    },
+    "povo1_interior_study.mtl": {
+      "sha256": "ef9da381cd37573dc0322de8f39a48caf5d48e0cc5659de10852b7ed668747d0",
+      "bytes": 301
+    },
+    "floor_room.png": {
+      "sha256": "8397efdb1383567a5e0c66686dc5e79a4997f9484ccfb1a9c256ec383780cb6c",
+      "bytes": 582
+    },
+    "floor_circulation.png": {
+      "sha256": "baefed662fbb8bd6a1d6b5e78f1747a191e66cdae5952db8765086be5ba2b92d",
+      "bytes": 582
+    },
+    "review.svg": {
+      "sha256": "d86f7fe17204587cd9424816b45c834ae3a9c40f6006c63ebad1281fa63eded8",
+      "bytes": 4684
+    },
+    "CREDITS.txt": {
+      "sha256": "94b214861bf2137874ef5e1274c4b44ccbc55ffa6aae214574feae925a3208f1",
+      "bytes": 499
+    }
+  }
+}

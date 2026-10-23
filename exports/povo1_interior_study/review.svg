@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">
+<rect width="1200" height="850" fill="#edf1f2"/>
+<g font-family="DejaVu Sans, sans-serif" fill="#193441">
+<text x="45" y="58" font-size="30" font-weight="bold">POVO 1 / INTERIOR CIRCULATION STUDY</text>
+<text x="45" y="94" font-size="17">Simplified plan topology. Two provisional levels; stair flights and measured heights pending.</text>
+<text x="100" y="135" font-size="21">academic_ground (+0 m estimate)</text>
+<rect x="100" y="155" width="310" height="547.4468085106383" fill="#b7b4a7" stroke="#193441" stroke-width="3"/>
+<rect x="155.8" y="248.06595744680854" width="21.700000000000003" height="361.31489361702126" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="155.8" y="248.06595744680854" width="201.49999999999997" height="32.84680851063827" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="335.6" y="248.06595744680854" width="21.699999999999985" height="361.31489361702126" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="155.8" y="576.5340425531915" width="201.49999999999997" height="32.8468085106383" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="348.0" y="483.468085106383" width="61.999999999999986" height="38.321276595744685" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="208.5" y="324.7085106382979" width="93.00000000000001" height="208.02978723404254" fill="#edf1f2" stroke="#466769" stroke-width="2" />
+<text x="255.0" y="428.72340425531917" text-anchor="middle" font-size="13">COURTYARD</text>
+<text x="255.0" y="448.72340425531917" text-anchor="middle" font-size="12">OPEN VOID</text>
+<rect x="109.8936170212766" y="542.4203412504272" width="34.84121606345883" height="39.71785383556591" fill="none" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
+<rect x="109.8936170212766" y="276.6309487130097" width="34.84121606345883" height="37.73435090609054" fill="none" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
+<rect x="361.9742964265343" y="542.4203412504272" width="38.132086552189094" height="39.71785383556591" fill="none" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
+<rect x="361.9742964265343" y="276.6309487130097" width="38.132086552189094" height="37.73435090609054" fill="none" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="424" y="177" font-size="18">N ↑</text>
+<text x="680" y="135" font-size="21">academic_first (+3.6 m estimate)</text>
+<rect x="680" y="155" width="310" height="547.4468085106383" fill="#b7b4a7" stroke="#193441" stroke-width="3"/>
+<rect x="735.8" y="248.06595744680854" width="21.700000000000003" height="361.31489361702126" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="735.8" y="248.06595744680854" width="201.49999999999997" height="32.84680851063827" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="915.6" y="248.06595744680854" width="21.699999999999985" height="361.31489361702126" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="735.8" y="576.5340425531915" width="201.49999999999997" height="32.8468085106383" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="928.0" y="483.468085106383" width="61.999999999999986" height="38.321276595744685" fill="#87b5bc" stroke="none" stroke-width="2" />
+<rect x="788.5" y="324.7085106382979" width="93.00000000000001" height="208.02978723404254" fill="#edf1f2" stroke="#466769" stroke-width="2" />
+<text x="835.0" y="428.72340425531917" text-anchor="middle" font-size="13">COURTYARD</text>
+<text x="835.0" y="448.72340425531917" text-anchor="middle" font-size="12">OPEN VOID</text>
+<rect x="689.8936170212766" y="542.2126714976387" width="37.39723197655118" height="37.93468250457117" fill="#edf1f2" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
+<rect x="689.8936170212766" y="277.90705363107645" width="37.39723197655118" height="37.93468249842847" fill="#edf1f2" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
+<rect x="939.6994422639204" y="542.2126714976387" width="40.40694071480292" height="37.93468250457117" fill="#edf1f2" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
+<rect x="939.6994422639204" y="277.90705363107645" width="40.40694071480292" height="37.93468249842847" fill="#edf1f2" stroke="#d99042" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="1004" y="177" font-size="18">N ↑</text>
+<text x="45" y="755" font-size="17">Blue: connected circulation footprint. Beige: schematic floor area, not fully reconstructed rooms.</text>
+<text x="45" y="789" font-size="16">North up, east right; aspect ratio preserved. Orange: reserved stair regions. Not deployed to CS2.</text>
+</g></svg>

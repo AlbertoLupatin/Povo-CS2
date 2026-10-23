@@ -1,0 +1,17 @@
+newmtl floor_room
+Kd 1 1 1
+illum 1
+map_Kd floor_room.png
+
+newmtl floor_circulation
+Kd 1 1 1
+illum 1
+map_Kd floor_circulation.png
+
+newmtl wall
+Kd 0.8627450980392157 0.8588235294117647 0.8156862745098039
+illum 1
+
+newmtl courtyard_wall
+Kd 0.27450980392156865 0.403921568627451 0.4117647058823529
+illum 1

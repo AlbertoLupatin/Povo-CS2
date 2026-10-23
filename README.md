@@ -41,6 +41,11 @@ provided Povo 1 plans are catalogued with their assumptions. This 41,724-triangl
 visual source has not been compiled in Windows; the arena collision remains
 unchanged. See [the architecture and plan review](docs/POVO_ARCHITECTURE.md).
 
+A separate [Povo 1 interior study](docs/POVO_INTERIOR_STUDY.md) now provides two
+provisional floor levels, courtyard/stair openings, corridor and entrance geometry,
+and generated tile materials. Its dimensions remain adjustable while field photos
+are collected. This study is excluded from the CS2 deployment and playable arena.
+
 The workspace contains real 0.5 m terrain samples for Povo and Mesiano, a Povo building-surface raster, municipal aerial references, and a Fedora → Windows workflow. The terrain conversion utility prepares a local-metre OBJ from an ASCII elevation grid; it does not create a Hammer map, collision, or game entities. Povo is the first map; Mesiano is retained as a later candidate. Its current sample covers the western approach and only part of the campus, so it must be expanded before modelling that campus.
 
 Start with [the map design brief](docs/MAP_DESIGN.md), [the data-source register](docs/DATA_SOURCES.md), and [the CS2 workflow](docs/CS2_WORKFLOW.md).
@@ -62,6 +67,7 @@ Start with [the map design brief](docs/MAP_DESIGN.md), [the data-source register
 | `tools/build_povo_radar.py` | Generate radar artwork, overview coordinates and an annotated review |
 | `docs/POVO_RADAR.md` | Radar generation, Windows compilation and packaging checks |
 | `docs/POVO_ARCHITECTURE.md` | Exterior detail, plan alignment and remaining measurement needs |
+| `docs/POVO_INTERIOR_STUDY.md` | Separate two-level interior study, assumptions and rebuild commands |
 | `docs/TERRAIN_TOOL.md` | Terrain converter usage and limitations |
 | `docs/WINDOWS_HANDOFF.md` | Import calibration, Hammer compilation and multiplayer checks |
 | `cs2/` | Versioned `trento_povo` addon source, model definition and materials |

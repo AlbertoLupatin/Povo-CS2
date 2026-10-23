@@ -1,0 +1,33 @@
+{
+  "title": "Povo 1 interior circulation study",
+  "alignment": "config/povo1_plan_alignment.json",
+  "campus_config": "config/povo_blockout.json",
+  "status": "Separate offline study; not deployed to the CS2 arena",
+  "assumptions": "Coarse circulation and partition layout guided by the registered plans. Shared normalized layout is simplified between levels. Absolute elevations, floor spacing, wall/door dimensions and finishes are provisional. Stair regions reserve openings with an assumed landing margin; no flights are built until photographs and measurements establish their arrangement.",
+  "reference_elevation_metres": 374.0,
+  "floor_thickness_metres": 0.22,
+  "wall_height_metres": 2.9,
+  "wall_thickness_metres": 0.18,
+  "door_height_metres": 2.15,
+  "tile_pitch_metres": 0.6,
+  "stair_opening_inset_metres": 1.5,
+  "courtyard": [0.31, 0.35, 0.69, 0.65],
+  "levels": [
+    {"id": "academic_ground", "height_offset_metres": 0, "stair_openings": false},
+    {"id": "academic_first", "height_offset_metres": 3.6, "stair_openings": true}
+  ],
+  "circulation": [
+    {"id": "west_corridor", "bounds": [0.17, 0.18, 0.83, 0.25]},
+    {"id": "north_corridor", "bounds": [0.77, 0.18, 0.83, 0.83]},
+    {"id": "east_corridor", "bounds": [0.17, 0.76, 0.83, 0.83]},
+    {"id": "south_corridor", "bounds": [0.17, 0.18, 0.23, 0.83]},
+    {"id": "entrance_lobby", "bounds": [0.33, 0.80, 0.40, 1.0]}
+  ],
+  "partitions": [
+    {"id": "south_room_edge", "start": [0.17, 0], "end": [0.17, 1], "door_centres": [0.12, 0.34, 0.56, 0.85], "door_width_metres": 1.2},
+    {"id": "north_room_edge", "start": [0.83, 0], "end": [0.83, 1], "door_centres": [0.32, 0.67, 0.92], "door_width_metres": 1.2},
+    {"id": "study_west_edge", "start": [0.23, 0.25], "end": [0.77, 0.25], "door_centres": [0.5], "door_width_metres": 1.6},
+    {"id": "reception_edge", "start": [0.23, 0.76], "end": [0.77, 0.76], "door_centres": [0.25, 0.75], "door_width_metres": 1.2},
+    {"id": "lobby_edge", "start": [0.23, 0.83], "end": [0.77, 0.83], "door_centres": [0.25], "door_width_metres": 3.0}
+  ]
+}

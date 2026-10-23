@@ -392,3 +392,35 @@ local bot round before the two-client multiplayer gate.
   dimension, and a bridge landing/floor identification are the next useful field
   evidence; they do not block further exterior modelling.
 
+## 23 October 2026 — GitHub checkpoint and independent interior study
+
+- At the user's request, committed all exterior/radar work, reviewed photographs,
+  original reference sources and plan alignments as `e2e9a5c` and pushed `main`
+  to GitHub. The source README's original trailing whitespace is preserved using
+  a narrowly scoped Git attribute rather than changing its recorded source bytes.
+- Continued with a separate Povo 1 circulation study in
+  `config/povo1_interior_study.json` and `tools/build_povo_interior.py`. It exports
+  two floor levels, an open courtyard on both, four reserved upper stair openings,
+  simplified corridor/lobby finishes and wall/door-gap geometry. It contains 100
+  boxes and 1,200 triangles, using the same local-metre origin as the campus.
+- Ground reference 374.0 m, upper offset +3.6 m, wall/door clearances, tile size,
+  partition positions and stair landing margins are explicitly provisional.
+  Both levels share a coarse circulation layout rather than claiming a complete
+  reconstruction of their different room arrangements. No stair flights,
+  ceilings, room inventory, gameplay entities, or vertical navigation are built.
+- Added original generated tile PNGs and repeating metric OBJ UVs. The warm/pale
+  grey finishes are placeholders for refinement from the user's upcoming photos.
+  Added a north-up aspect-correct review and rendered the exported mesh and finish
+  swatches with `tools/render_interior_preview.py`; visually inspected both.
+- The interior study remains outside the deployment source list and does not
+  alter the current campus mesh, arena collision, navigation, or package. Source
+  plan hashes, per-level labels, assumptions, statistics and artifact hashes are
+  recorded in its provenance. A failed regeneration preserves existing output.
+- All 47 unit tests pass. Eight added checks cover subtraction of overlapping
+  voids, coordinate orientation, actual courtyard/stair slab holes, entrance gap
+  and lintel geometry, adjustable floor spacing, OBJ UV/material/hash consistency,
+  invalid route/dimension rejection, and failed-generation preservation.
+- Windows compilation and in-game validation remain pending. The next interior
+  refinements depend on entrance/stair views and measured reference dimensions;
+  those will replace estimates before gameplay integration.
+

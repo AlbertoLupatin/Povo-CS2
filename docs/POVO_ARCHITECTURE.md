@@ -92,6 +92,12 @@ is useful for context but should not be used to estimate detailed dimensions.
 
 ## What would help next
 
+A separate [interior circulation study](POVO_INTERIOR_STUDY.md) now prepares two
+adjustable levels, courtyard voids, reserved upper stair openings, and schematic
+entrance/corridor geometry. It uses provisional heights and floor finishes and
+is excluded from CS2 deployment. This exterior pass still retains solid building
+massing; opening a playable interior requires a later integration step.
+
 Nothing additional is required to continue exterior refinement. The next useful
 field evidence is one entrance-to-corridor scan or photo sequence, one known
 doorway/corridor dimension, and a view identifying a bridge landing and floor
