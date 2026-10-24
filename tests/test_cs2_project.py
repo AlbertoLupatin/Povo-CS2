@@ -89,8 +89,10 @@ class CS2ProjectTests(unittest.TestCase):
 
     def test_relocate_playtest_entities_is_deterministic_and_idempotent(self):
         def entity(classname, origin="0 0 0", extra="", brush=False):
+            positions = ' '.join(f'"{x} {y} {z}"' for x in (-224, 224)
+                                 for y in (-64, 64) for z in (-32, 32))
             child = (
-                f'''\n        "CMapMesh"\n        {{\n            "origin" "vector3" "{origin}"\n            "angles" "qangle" "0 0 0"\n        }}'''
+                f'''\n        "CMapMesh"\n        {{\n            "origin" "vector3" "{origin}"\n            "angles" "qangle" "0 0 0"\n            "name" "string" "position:0"\n            "data" "vector3_array" [ {positions} ]\n        }}'''
                 if brush
                 else ""
             )
@@ -121,6 +123,25 @@ class CS2ProjectTests(unittest.TestCase):
                 updated.count(cs2_project.PLAYTEST_BUYZONE_ORIGINS[team]), 2
             )
         self.assertEqual(cs2_project.relocate_playtest_entities(updated), updated)
+
+    def test_buyzone_bounds_contain_all_starts_and_player_clearance(self):
+        half = cs2_project.PLAYTEST_BUYZONE_HALF_EXTENTS
+        for team, classname in (('3', 'info_player_counterterrorist'),
+                                ('2', 'info_player_terrorist')):
+            center = tuple(map(float, cs2_project.PLAYTEST_BUYZONE_ORIGINS[team].split()))
+            for origin, _angles in cs2_project.PLAYTEST_SPAWNS[classname]:
+                position = tuple(map(float, origin.split()))
+                for i, margin in enumerate((16, 16, 72)):
+                    self.assertLess(abs(position[i] - center[i]) + margin, half[i])
+
+    def test_skewed_template_trigger_is_centered_and_resize_is_idempotent(self):
+        source = '"name" "string" "position:0" "data" "vector3_array" [ ' + ' '.join(
+            f'"{x} {y} {z}"' for x in (-28, 20) for y in (-88, -40)
+            for z in (-36, 12)) + ' ]'
+        sized = cs2_project.resize_trigger_mesh(source, (256, 420, 180))
+        self.assertIn('"-256 -420 -180"', sized)
+        self.assertIn('"256 420 180"', sized)
+        self.assertEqual(cs2_project.resize_trigger_mesh(sized, (256, 420, 180)), sized)
 
     def test_insert_lightmap_resolution_volume_is_deterministic_and_idempotent(self):
         source = '''

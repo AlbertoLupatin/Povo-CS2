@@ -1,0 +1,370 @@
+{
+  "status": "passed",
+  "levels": [
+    {
+      "id": "p2_parking",
+      "status": "passed",
+      "floor_elevation_local": -3.2,
+      "standing_width_metres": 0.82,
+      "standing_height_metres": 1.85,
+      "cell_metres": 0.1,
+      "grid_dimensions": [
+        360,
+        320
+      ],
+      "grid_bounds_local": [
+        7,
+        10,
+        43,
+        42
+      ],
+      "walkable_cells": 87936,
+      "reachable_cells": 87524,
+      "stations": [
+        {
+          "id": "stair_approach",
+          "point_local_metres": [
+            23.8,
+            39.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "aisle_west",
+          "point_local_metres": [
+            9,
+            25
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "aisle_east",
+          "point_local_metres": [
+            41,
+            25
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "aisle_centre",
+          "point_local_metres": [
+            26,
+            25
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "north_east_bays",
+          "point_local_metres": [
+            37,
+            39
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "north_west_bays",
+          "point_local_metres": [
+            12,
+            39
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "stair_landing",
+          "point_local_metres": [
+            26.2,
+            39.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        }
+      ],
+      "vertical_traversal": "See separate supported stair-path envelope checks"
+    },
+    {
+      "id": "p2_basement",
+      "status": "passed",
+      "floor_elevation_local": 0.4,
+      "standing_width_metres": 0.82,
+      "standing_height_metres": 1.85,
+      "cell_metres": 0.1,
+      "grid_dimensions": [
+        214,
+        325
+      ],
+      "grid_bounds_local": [
+        10,
+        32,
+        31.4,
+        64.5
+      ],
+      "walkable_cells": 11804,
+      "reachable_cells": 11804,
+      "stations": [
+        {
+          "id": "stair_approach",
+          "point_local_metres": [
+            23.8,
+            39.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "corridor_mid",
+          "point_local_metres": [
+            23.25,
+            45
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "corridor_south",
+          "point_local_metres": [
+            23.25,
+            34
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "right_turn_from_stairs",
+          "point_local_metres": [
+            23.25,
+            63
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "cross_corridor",
+          "point_local_metres": [
+            17,
+            63
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "cross_corridor_end",
+          "point_local_metres": [
+            11.5,
+            63
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "stair_landing",
+          "point_local_metres": [
+            26.2,
+            39.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        }
+      ],
+      "vertical_traversal": "See separate supported stair-path envelope checks"
+    },
+    {
+      "id": "p2_ground",
+      "status": "passed",
+      "floor_elevation_local": 4.0,
+      "standing_width_metres": 0.82,
+      "standing_height_metres": 1.85,
+      "cell_metres": 0.1,
+      "grid_dimensions": [
+        279,
+        520
+      ],
+      "grid_bounds_local": [
+        3.5,
+        -10,
+        31.4,
+        42
+      ],
+      "walkable_cells": 90482,
+      "reachable_cells": 79742,
+      "stations": [
+        {
+          "id": "entrance",
+          "point_local_metres": [
+            8,
+            28
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "reception_front",
+          "point_local_metres": [
+            19.5,
+            29
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "left_corridor",
+          "point_local_metres": [
+            10,
+            36
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "stair_approach",
+          "point_local_metres": [
+            23.8,
+            39.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "tables_front",
+          "point_local_metres": [
+            17,
+            24.8
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "tables_back",
+          "point_local_metres": [
+            17,
+            -9
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b111_door",
+          "point_local_metres": [
+            21,
+            22.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b111_centre",
+          "point_local_metres": [
+            25.0,
+            21.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b112_door",
+          "point_local_metres": [
+            21,
+            13.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b112_centre",
+          "point_local_metres": [
+            25.0,
+            12.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b113_door",
+          "point_local_metres": [
+            21,
+            4.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b113_centre",
+          "point_local_metres": [
+            25.0,
+            3.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b114_door",
+          "point_local_metres": [
+            21,
+            -4.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b114_centre",
+          "point_local_metres": [
+            25.0,
+            -5.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "stair_landing",
+          "point_local_metres": [
+            26.2,
+            39.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        }
+      ],
+      "vertical_traversal": "See separate supported stair-path envelope checks"
+    },
+    {
+      "id": "p2_first",
+      "status": "passed",
+      "floor_elevation_local": 7.6,
+      "standing_width_metres": 0.82,
+      "standing_height_metres": 1.85,
+      "cell_metres": 0.1,
+      "grid_dimensions": [
+        66,
+        44
+      ],
+      "grid_bounds_local": [
+        24.8,
+        37.6,
+        31.4,
+        42
+      ],
+      "walkable_cells": 1912,
+      "reachable_cells": 1912,
+      "stations": [
+        {
+          "id": "draft_stair_landing",
+          "point_local_metres": [
+            26.2,
+            39.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        }
+      ],
+      "vertical_traversal": "See separate supported stair-path envelope checks"
+    }
+  ],
+  "stair_samples": 75,
+  "stair_failures": [],
+  "limitations": "Standalone draft box geometry only. The upper landing is checked locally; connection to the separately edited first floor is not validated. CS2 compilation, collision, navigation and walking remain to be tested."
+}

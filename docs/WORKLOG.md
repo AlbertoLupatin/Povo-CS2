@@ -608,3 +608,423 @@ local bot round before the two-client multiplayer gate.
   refinements depend on entrance/stair views and measured reference dimensions;
   those will replace estimates before gameplay integration.
 
+
+## 23 October 2026 — Windows pull and updated exterior/radar build
+
+- Fast-forwarded the clean Windows `main` from `26ee052` to GitHub `2acf729`
+  (eight commits), including the full photo archive and reconstruction sources.
+- Preserved both installed addon trees under the ignored local directory
+  `build/windows-resume-backup-20261023-162008/`. All existing editable files in
+  the sync list matched `26ee052`; the new facade materials were not installed.
+  No unsynchronized edits in those files needed merging before deployment.
+- All 73 tests pass on Windows 11 / Python 3.15.1. `doctor` reports ready sources
+  and finds the installed compiler. Circulation validation verifies all 66 walk
+  photos and the confirmed bridge floor relation. Its platform-specific report
+  is saved locally as `build/windows-circulation-report.json`; the tracked Linux
+  report was retained to avoid incidental path/checkout-line-ending hash churn.
+- Deterministic VMAP preparation reported `unchanged`. Deployed the new source
+  and ran `compile --target all` with CS2 Workshop Tools build `26144732`.
+  Model compilation completed with the existing duplicate imported bone warning;
+  the map compiled 29 resources with zero failures in 1 minute 46 seconds.
+  The generated navigation still contains 503 areas. Both custom radar textures
+  then compiled successfully as 1024 x 1024 BGRA8888 resources, with zero failures.
+- Full compiler output is in the ignored `build/windows-resume-compile.log`.
+  The new installed map VPK is 9,521,788 bytes, SHA256
+  `12bdcc031525fdbbc4529fe2a5e64830a35ecc1a18f32ce2b98c5fbbf36c3e1d`.
+- Ran `verify_cs2_package.py --full-crc`: all 31 existing entries pass CRC checks,
+  but the overall radar check fails because both custom radar textures and the
+  generated overview are missing from the package. They are present as loose
+  addon files only. The report is `build/windows-package-check.json`.
+- Next validation work is to include custom radar/overview in the distributable
+  package, verify radar alignment and the updated facade materials in game, then
+  complete gameplay/clean-install/independent-client gates. No game was launched
+  during this continuation. Interior geometry is still an offline study and was
+  not installed or made playable by this build.
+
+## 23 October 2026 — portable map packaging and runtime load
+
+- Added `tools/package_cs2.py` to package the existing successful Windows compile
+  into a separate map VPK using the standalone VPKEdit 4.4.2 CLI. The packager
+  preserves original map entries and adds the custom model, all nine materials,
+  generated terrain/default textures, map config, radar and overview. Full photo
+  archives and offline interiors remain excluded. Third-party tools/dependencies
+  are local under ignored `build/tools/`; no global install was required.
+- The first VPKEdit output passed per-entry CRCs, staged byte hashes and its own
+  checksums, but CS2 rejected its Source 1 MD5 chunk table (`Chunk hash not found`,
+  expected type 1). Compared the compiler's 1 MiB chunk layout and the upstream
+  ValvePak BLAKE3 enum/verification implementation. Added the CS2 BLAKE3-128 table,
+  rebuilt the three footer MD5 checksums and retained the unsigned descriptor.
+  A recomputed BLAKE3 fraction matches the original Valve compiler's hash.
+- A subsequent engine launch reached server/client physics, but logged a missing
+  `trento_povo_radar_psd.vtex_c` lookup. The installed stock Dust II radar uses the
+  same PSD suffix. Added normal/spectator PSD aliases from the compiled TGA bytes,
+  and extended the package checker to require both lookup variants.
+- Final artifact: `build/package/trento_povo.vpk`, 10,623,229 bytes, 51 entries,
+  SHA256 `549edf5423049e52b05a2667e21df5683b40cf6752f5e894d2ad750fa8618187`.
+  All entries match their staged SHA256s and pass CRC checks; the overview matches
+  the generated source. Package/asset/packer provenance is recorded locally in
+  `build/package/trento_povo.json`; the independent radar check is `radar-check.json`.
+- Installed the packaged artifact in the existing addon, preserving the original
+  compiler-only package as `build/package/compiler-trento_povo.vpk`. The final
+  16:47 local launch logs `Spawn Server: trento_povo`, a loopback connection,
+  server/client physics and `OnSwitchLoopModeFinished( game : success )`.
+  No missing overhead-map texture or fatal chunk-hash error appears in this run.
+  Log snapshot: `build/package/windows-load-test.log`. The tools/game process
+  was left open for local inspection.
+- All 79 tests pass on Windows. Six packaging tests cover unsigned CS2 trailers,
+  missing assets/stale overview, corrupt input, preservation on packer failure or
+  dropped entries, installed-package protection, and BLAKE3/checksum rebuilding.
+  The optional BLAKE3 test is skipped when that packaging dependency is absent.
+- This is a successful packaged-map load, not a visual/performance or gameplay
+  acceptance result. Existing optional detail-resource, missing cubemap-array,
+  and missing loading-screen/icon warnings remain. The next checks are visual
+  radar alignment, traversal/objectives/a full round, clean installation without
+  loose addon assets, and two independent clients. No new interior geometry or
+  playable staircase route was added.
+
+## 23 October 2026 — accepted outdoor playtest and campus reconstruction design
+
+- Corrected the relocated buy volumes: the inherited CT box was narrow and the
+  T box was small/off-centre. Trigger meshes now use centred local half-extents
+  (256, 420, 180) Hammer units. The bomb trigger uses (196, 300, 140) to span
+  uneven terrain. Preserved vertex topology and verified repeated preparation
+  is unchanged. Tests cover all starts plus player clearance and skewed-box fitting.
+- Rebuilt the map with zero resource failures, packaged the changes and launched
+  an isolated addon containing only addon metadata and the VPK. A live Terrorist
+  purchase was recorded; no custom Povo asset or radar lookup failures were seen.
+  Diagnostics and normal-round reset commands are in `build/gameplay/`.
+- After receiving the manual buy/movement/radar/plant/defuse/round checklist, the
+  user reported “All good”. Record this as user acceptance of that outdoor
+  playtest, not automated completion of each objective or a second-client test.
+- Added `config/povo_campus_route.json` and `docs/POVO_CAMPUS_ROUTE.md`. The first
+  reconstruction is the real Povo 1 entrance → southeast stair → A215/east hall,
+  then the floor-1 corridor loop and A223/A224. Replace overlapping solid massing,
+  reconcile glazing and add real materials/interior lighting before integration.
+- The full campus route follows the narrated walk through the separate northeast
+  stair, Povo 1 floor 2, bridge, Povo 2 floor 1 and its ground entrance, returning
+  outside. Bridge equality and unknown Povo 2 heights/core locations are retained.
+  The 374.0 / 377.6 / 382.49 m estimates are not a measured storey stack.
+- Objectives/spawns for the campus layout remain undecided until the vertical
+  route and two useful approaches work. The courtyard is a visual anchor; access
+  through a new door/window is not implied. No new stair or interior geometry
+  was created by this design checkpoint. All 81 source tests pass on Windows.
+
+## 23 October 2026 — playable two-floor Povo 1 campus
+
+- Implemented the accepted footprints in the separate `trento_povo_campus`
+  map, preserving the user-tested outdoor `trento_povo` map. Ground A101/A102
+  along the outer north wing are sealed per the user's clarification. Ground
+  A103–A106 repeat the A103 room family; A107–A110 repeat the A101 family.
+  All 25 existing upper room footprints are open: 33 playable rooms overall.
+- Added classroom rows/boards/windows/wood floors/ceiling fixtures, courtyard
+  glazing, real ceilings, interior lights, room labels, a bounded entrance
+  landing and a 20-riser southeast switchback stair. Povo 2 and the bridge
+  remain scenery; floor 2 and the larger campus route are not implemented.
+- Added campus model/VMAP/radar generators, simplified collision, a per-floor
+  clearance audit, packaging support for named maps and lower radar sections,
+  and `play_campus.cmd` with a dedicated isolated test addon.
+- Native import initially became excessively slow with per-face duplicated
+  terrain vertices. Shared indexed attributes before faces and explicit normals
+  reduced the final model compile to about 14 seconds. Physics uses 1,253 boxes
+  and visual geometry has 8,210 boxes plus the campus backdrop.
+- Live drops exposed an earlier documentation sign error: after the established
+  model import/prop rotation, Source coordinates are (-north, east, up), scaled
+  once by 39.37007874. Fixed all campus entities, lights and radar. The corrected
+  compile retains 2,150 navigation areas, instead of pruning every area.
+- Final model/map/four radar textures compile with zero resource failures;
+  90 Python tests and the 18-ground/49-upper-station clearance audits pass.
+  Package identity: 25,247,460 bytes, 107 entries; all CRCs and staged hashes pass.
+  SHA256: 9000e3617b5ae6ffcd997827f65a4e229db35a22b4fbd3bd90da805518e2017e.
+- The isolated addon loads the final VPK with one human and three bots. Normal
+  walking ascended and descended both stair flights, turning at the landing,
+  without jumping, crouching or noclip. Separate probes entered A103/A109 and
+  were blocked by A101/A102. A T purchase via autobuy produced an AK47 with
+  buy-anywhere disabled. Returned the game to cheats off, moving bots and
+  normal round timing, and left it running for the user's playtest.
+- Plant/defuse, CT purchasing, a complete round, bot travel between floors,
+  reliable visual/performance review and independent-client testing remain
+  open. Background screenshots were stale/unreliable. The runtime reports
+  optional missing map artwork/camera-node files and a reflection cubemap array
+  needing a bake; those results are not claimed as verified.
+- See `docs/POVO_CAMPUS_PLAYTEST.md` for the current reproducible build, package,
+  runtime logs and manual checklist. Local build logs are ignored by Git.
+
+## 23 October 2026 — user-rejected appearance and first visual correction
+
+- The user rejected the campus appearance. Foreground CS2 inspection confirmed
+  severe overexposure, mottled baked lighting, bare door openings and oversized
+  red stair blocks. The earlier functional checks did not establish visual quality.
+- Added explicit original material color/normal/roughness maps, grey aggregate
+  floors, acoustic ceiling grids, doorway trim, skirtings and corridor fixtures.
+  Reduced exposure and fitted the lighting-density guide around the two floors;
+  enabled explicit model lightmaps and the higher-quality bake/denoising setting.
+- Replaced full-height stair columns with thin treads/landing in both rendering
+  and collision, and sloped the outer handrails. All 90 source tests and the two
+  clearance audits pass. A new runtime walk traverses both flights up and down
+  normally, without jumping, crouching or noclip (157.5/228.4/299.7/228.4/158.0).
+- Final map/model/radar build has zero resource failures and 2,168 nav areas.
+  Baked reflections in the isolated addon, verified all old entry hashes were
+  unchanged, and adopted the baked package: 32,390,610 bytes, 138 entries, all
+  CRCs pass; SHA256 941ae271dff76063407438475400e2d68f2582a6d3ec80030826e9ec49bcf8aa.
+- Saved actual before/after engine screenshots and inspected the corridor,
+  A215 and A103 directly. Lighting is substantially cleaner, but A103 remains
+  too dim, public spaces sparse, furniture simplified and exterior work rough.
+  No finished-art or whole-map visual acceptance is claimed. See
+  `docs/POVO_VISUAL_REVIEW.md` for screenshots, camera positions and evidence.
+
+## 23 October 2026 — complete rooms, solo exploration and four enclosed stairs
+
+- User requested normal-width corridors with rooms on both sides, all rooms
+  open/furnished, off-white circulation floors and enclosed stairs with open
+  black doors. Added repeated room bays, opened A101/A102 and furnished all
+  room types: 25 ground rooms and 31 first-floor rooms. The original offline
+  interior study is preserved separately. Added subdivisions and repeated
+  furniture remain approximate, not a claim about official room inventories.
+- User accepted the complete room layout and requested an identical mirrored
+  red stair opposite each Studio N1/N2/S1/S2, excluding central Aula studio.
+  Mirrored the southeast flights, landings, rails, opaque enclosure, glazing
+  and open black double doors with red panic bars into all four corners.
+  Regenerated slab/ceiling openings and radar shafts for all four cores.
+- All 97 tests pass; the standing-envelope audit passes 63 ground and 75 first
+  stations, including both sides of every stair portal. Final tests/audit logs
+  are `build/gameplay/campus-four-stairs-tests.log` and
+  `build/gameplay/campus-four-stairs-audit.log`. The reviewed source plan is
+  `exports/povo_campus/layout_review.png`.
+- `play_campus.cmd` defaults to one-human/no-bot exploration, paused offline
+  warmup, respawns and invulnerability; `-Fly` adds noclip, `-Match` retains
+  match defaults. Setup waits for this exact campus map before applying settings.
+- Recorded the user's later Povo 2 adaptation in both campus configs: retain
+  two Povo 1 floors, start the bridge corridor at current A202/A203 and move
+  those rooms into the corresponding empty ground corner. This room move is
+  deferred until Povo 2 development; current A202/A203 remain upstairs.
+- The full-quality four-stair compile is logged at
+  `build/gameplay/campus-four-stairs-build.log`. Runtime/build completion
+  evidence is maintained in `docs/POVO_ROOMS_STAIRS_REVIEW.md`.
+- Final model/map/four-radar compilation has zero resource failures and 3,938
+  nav areas. All 40 runtime walking stages passed across the four stairs and
+  eight doorways with noclip off and no jumping. A half-second exit probe was
+  too short; a full-second crossing passes without geometry changes.
+- Baked the reflection array, verified every source entry unchanged, and
+  adopted the package: 39,431,526 bytes, 147 entries, all CRCs pass, SHA256
+  516c4c11b2914f388f73bffee3ef3a109f56122598be2771d40f081b17c1e029.
+  Installed/build hashes match. Inspected foreground corridor, mirrored stairs,
+  Studio N1, A101 and LAB, and saved six unretouched engine images under
+  `exports/povo_rooms_stairs_review/`. Large-room lighting remains uneven;
+  repeated furnishings and exterior detail remain provisional.
+- Final live state verifies one human, zero bots, paused warmup (no countdown),
+  normal walking, and the player at the ground entrance facing into the hall.
+  The exploration helper now sets that initial view direction; its three tests
+  also pass after this final adjustment. CS2 is left running for exploration.
+
+## 23 October 2026 — Povo 2 bridge, floor-1 arrival and fixed door signs
+
+- User accepted the four-stair revision, requested a fix for room numbering
+  above doors, and authorized starting Povo 2 with the floor-1 corridor and
+  bridge. A Computer Use Escape interrupted the first inspection; the user
+  clarified they were moving the game window and explicitly resumed work.
+  Keep the chat visible while observing CS2. The live engine setting
+  `r_always_render_all_windows true` allows captures without repeated focus
+  changes; the solo launcher now defaults to a smaller 960 × 600 window with
+  optional `-Width`/`-Height` parameters.
+- Implemented the earlier approved two-floor adaptation. A202/A203 move to
+  the empty ground northeast corner, keeping labels and repeated furnishings.
+  Their old upper area contains a 3.5 m corridor, a furnished bridge study
+  room, cabinets and a bench. A 30 m level bridge leads into an initial
+  approximately 18 × 32 m Povo 2 floor-1 area with a lobby/print station,
+  corridor, rear cross corridor and four furnished study bays. Povo 2 labels
+  are provisional descriptive names, not asserted official room numbers.
+- Photos 61–56 guide glazed bridge sides, alternating dark steel braces,
+  horizontal louvers, pale flooring, ceiling panels/lights and open glazed
+  doors. Photos 63–62 guide the Povo 2 corridor/arrival. The old high bridge
+  scenery is removed and the overlapping Povo 2 east mass/facade is clipped
+  away from the opened section. Other Povo 2 floors and the rest of its
+  layout remain a later phase; original photo floor identities stay intact.
+- Room labels now have wall-specific upright angles, no camera rotation,
+  outside-wall text origins, centered white text sized to fit physical blue
+  plaques, and IDs including both floor and room. Updated navigation seeds,
+  illumination/probe/density coverage, overview bounds and radar include the
+  new route. Geometry has 17,071 visual and 2,443 collision boxes.
+- All 99 source tests pass, plus the three solo-helper tests after the final
+  rendering-setting adjustment. The clearance audit passes 67 ground and
+  94 upper stations. The new route also has sampled continuous support and
+  standing clearance tests. Source plan:
+  `exports/povo_campus/povo2_connection_review.png`.
+- Preserved the previous verified package/report in
+  `build/povo2-backup-20261023-202208/`. Build log:
+  `build/gameplay/povo2-bridge-build.log`. Current build/runtime evidence and
+  limitations are recorded in `docs/POVO2_CONNECTION.md`.
+- Final build completed with zero resource failures and 4,352 nav areas.
+  Reflection baking added only the cubemap array, preserving every previous
+  entry hash. Final package: 41,136,321 bytes, 161 entries, all CRCs pass,
+  SHA256 71ebcb9717f1e2aac5b12ecdde499e74562a8f1dd023846cf777d2c48eeda821.
+  Build and installed hashes match.
+- Sixteen normal walking samples cover the complete corridor/bridge/Povo 2
+  route and the return, with no jumping/noclip during walking. Preserve
+  `build/gameplay/povo2-bridge-walk.json` as that route-only evidence.
+  The broader optional doorway harness had unreliable held/stop input and
+  failed its extra room assertions; do not claim all 24 stages pass. A
+  separate normal forward probe entered the west room. Source audit reaches
+  all new room aisles. Restarted CS2 after testing to clear injected movement;
+  successive getpos samples in the new session confirm no residual movement.
+- Inspected the bridge, Povo 2 corridor/study bay, bridge approach and fixed
+  A201/Studio N2/A202/A203 signs. Saved unretouched engine conversions in
+  `exports/povo2_review/`. Photos guide the route; Povo 2 study labels/layout
+  remain provisional and repeated board/desk fit-outs need further art work.
+- Final fresh live state: one human, zero bots, paused warmup, noclip off,
+  default multi-input-bind restrictions and player facing the bridge from
+  Povo 1 floor 1. The 960 × 600 game window remains open for exploration.
+  See `povo2-final-explore.log` and `povo2-final-state.log` locally.
+
+## 23 October 2026 — Povo 2 planimetry source
+
+Implemented the user-requested entrance-relative arrangement: sealed opaque
+frosted-glass reception ahead, tables/chairs to the right, left corridor and
+stair portal to the left of reception. B110-B113 are empty shells with grey
+tile floors and west-wall blackboards (right when entering southwards).
+Added a grey 3.6 m/storey switchback from the existing bridge arrival at local
+7.6 m to ground 4.0 m, basement 0.4 m and parking -3.2 m. These dimensions are
+explicit estimates. The basement uses photos 3-1 for its corridor, green wall,
+display case and black doors. Generic covered parking has rubberized grey
+asphalt, columns, bay markings and five simple cars. Exterior approach stops
+at the entrance landing; reception office decoration remains deferred.
+
+Integrated geometry/materials with the campus builder and included new lights,
+fixed signs, navigation seeds and four radar sections in the map pipeline.
+Packaging/verification derives radar requirements from all overview sections,
+including the two new basement levels. No Valve compilation, deployment or
+runtime automation was performed; the installed route build was preserved.
+Standalone source review, OBJ and provenance: exports/povo2_planimetry/.
+Details and reproduction: docs/POVO2_PLANIMETRY.md.
+
+Validation: 105 source tests pass; the existing Povo 1/bridge 161-station audit
+passes. The independent Povo 2 audit passes 30 horizontal stations across four
+levels and 75 supported stair/landing samples with standing headroom. Fixed
+a blocking half-wall at the basement cross-corridor junction during this audit.
+These are source-geometry checks, not CS2 collision, navigation or visual proof.
+
+## 23 October 2026 - Corrected Povo 2 lower-floor planimetry
+
+Re-read photos 12/9/3/1 and applied the user's corrections. The ground right
+corridor is now longer, with 12 tables along its west/right wall and B110-B113
+doorways opposite on the east/left wall. The boards move to south walls, still
+the player's right when entering. The reception front wall continues left/north
+with a screened stair-access opening. User confirmed the basement topology:
+the stair door opens directly in the long corridor's right/east wall about a
+third from its north end; turn right from the door for the short branch at
+that end. Updated draft geometry, independent audit, tests and review.
+
+The top-right first-floor panel is preserved pixel-for-pixel (SHA256 of pixels:
+ce2e3f75134de4582ce1f7ad8527b3b170d7073fa0f56db7d5690109d725debd).
+The independent renderer/audit no longer assume the live campus enables the
+full lower-floor draft. Preserved the compact-arrival gate and the separately
+owned first-floor source/build. No deployment, compile or runtime action ran.
+The full suite passes 109 tests. Standalone clearance passes 29 lower-floor
+stations, one local upper landing, and 75 draft stair/headroom samples; linking
+that draft core to the compact W1 stair remains a separate integration step.
+See docs/POVO2_PLANIMETRY.md for the shared-file coordination checkpoint.
+
+## 23 October 2026 - Align classroom wall and remove +1 review
+
+Moved the B110-B113 corridor wall from E15 to E21, flush with the reception
+front and its leftward wall extension. Doors and boards follow the corrected
+room bounds. Removed the +1 drawing and obsolete cached reference image from
+the standalone review; it now contains only ground, -1 and -2 in three panels.
+The separately implemented first-floor source is untouched. All eight Povo 2
+tests and the independent clearance audit pass after the adjustment.
+
+## 23 October 2026 - Basement stair block at corridor start
+
+Aligned the -1 stair block's lower edge with the long corridor start, bringing
+the door towards that start. In shared local coordinates the basement corridor
+and its far-end short branch shift north by 14 m, preserving the physical draft
+stair core and every other floor. Updated basement fixtures, route stations,
+layout description and drawing. All eight focused tests and the standalone
+clearance/headroom audit pass. No compile or deployment was performed.
+
+## 23 October 2026 — Compact Povo 2 bridge arrival
+
+Kept the two bridge-exit alcoves, their bench and printer. Replaced provisional
+W1 with an enclosed gray switchback down from local z7.6 to z4: twenty 18 cm
+risers, 30 cm treads, 2 m flights, a mid landing, guarded upper shaft and open
+black double doors with red panic bars at both levels. Removed E1 and all
+W2/E2/rear-corridor geometry and furniture. Solid corridor east wall and end
+wall at N26 close this phase; the lower door opens to a closed vestibule.
+Povo 1 retains 57 furnished rooms, relocated A202/A203, and all four red stairs.
+Updated fixed SCALE signs, nav seeds, both radar floors, and focused plan.
+
+Alberto authorized messaging the concurrent Add povo 2 game planimetry chat.
+Coordinated the new upper/lower door positions and shared build ownership.
+The compact_arrival gate preserves that standalone ground/basement source
+without superimposing its conflicting shell/core. Its audit/tests now run
+independently; later integration must align the stairs first.
+
+109 source tests pass. Horizontal clearance passes 67/88/4 stations and the
+compact stair tests cover tread support, headroom and both portals. Full Valve
+compile/lighting/nav/radar/package succeeded; final nav has 4,282 polygons.
+Reflection bake preserved existing VPK entries and added one cubemap. Final
+package is 40,402,867 bytes / 162 entries, full CRC passed, installed/local SHA
+cbffd1a07529e495a56e66f82aa1b85473314891779826c7ddb0914ef31bbd40 match.
+Previous package backed up in build/p2-compact-backup-20261023-211637/.
+
+CS2 normal walking passed six consecutive stair/door stages down and back up,
+using one starting placement and no intermediate teleports. See
+build/gameplay/p2-compact-walk.log and .json. Inspection teleport placements
+produced some stuck warnings; the interrupted drop probe is not a passing
+traversal check. Actual screenshots are under exports/povo_campus/runtime/.
+Railings and dimensions remain simplified prototype geometry. Final game
+position is stationary at the bridge exit, normal walking, one human, no bots,
+paused warmup. Small game window placement and visible chat were preserved.
+Details: docs/POVO2_CONNECTION.md; build log: build/gameplay/p2-compact-build.log.
+
+
+## 24 October 2026 — requested map adjustments
+
+Ground Studio E1 in Povo 1 becomes a sealed frosted reception, using the same
+shared glazing generator as Povo 2. Circulation floors are slightly darker.
+Povo 2 ground tables reach the hall midpoint; its boards move to the opposite
+wall, the hall ends at the last room, and labels read B111–B114 from the entrance.
+Each upper north/south study room becomes separate UOMINI/DONNE restrooms,
+with grey floors, two toilet cubicles per room, washbasins and fixed door signs.
+
+126 tests pass. Campus clearance passes 65/92/4 stations; integrated lower
+floors pass 32 stations and 72 stair samples. All eight cubicles and four
+washbasins are reachable in the source audit. CS2 normal walking passes all
+four restroom entrances and the shortened corridor wall. Native screenshots
+verify reception, fixtures, tables, board position and visible B111–B114 text.
+The final label correction uses -fshallow -entities -vpkincr; hashes confirm
+only default_ents.vents_c and the parent vmap_c changed, preserving world,
+collision, baked lighting and navigation. Full compile has zero failures;
+the existing duplicate-bone warning remains.
+
+Final reflection-baked package: 42,212,394 bytes / 217 entries, SHA-256
+289ffd586414bdb425be2bb5390b60e40870a8bd08eb19ccceb63b4db45555fa.
+All CRCs and asset hashes pass; local and installed test-addon VPKs match.
+Previous addon/source/game/package state is backed up under
+build/map-adjustments-backup-20261024-103106/. The final solo session is
+stationary at Povo 1's entrance, facing reception, normal walking, no bots,
+paused warmup. Details and screenshots: docs/POVO_MAP_ADJUSTMENTS.md.
+
+## 24 October 2026 — integrated exterior, compiled and walked
+
+The user approved integrating the exterior study into the campus map, with
+entrance glass at 20% transparency. The roads, the road beneath the bridge,
+the surface lot and residential backdrop, both east fronts, the Povo 2 double
+entrance and terrace, and the straight ramp into the covered Povo 2 parking now
+build with the campus by default (`config/povo_exterior.json`,
+`tools/povo_exterior_integration.py`). Interior furniture is preserved.
+
+The first combined compile stalled for over 80 minutes in CS2's bot
+"Compute Approach areas" pass (9,210 open nav areas against 4,282 before).
+Exterior builds now add a `trigger_survival_playarea` box, which CS2 reads only
+to skip that bot-analysis step; the nav mesh is still generated. The rebuild
+took 14.5 minutes with zero failures. The reflection bake added only the cubemap.
+Final package: 44,979,765 bytes / 344 entries, all CRCs pass, SHA-256
+13973fad877f8070b5941295908b6865c70c3b7029bfe2b9fa80ed4ceabb52ba; local and
+installed copies match.
+
+135 source tests pass. Normal walking in CS2 passes all 21 waypoints on six
+exterior routes: both door banks, the ramp down and up, garage to original
+parking, and the Povo 1 external stairs. Eight engine screenshots are under
+exports/povo_campus/runtime/exterior_*. The exterior remains blockout art; the
+garage is dim and the road beneath the bridge is heavily shadowed.
+Details: docs/POVO_EXTERIOR.md.

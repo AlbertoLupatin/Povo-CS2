@@ -1,0 +1,374 @@
+{
+  "status": "passed",
+  "levels": [
+    {
+      "id": "p2_parking",
+      "status": "passed",
+      "floor_elevation_local": -3.2,
+      "standing_width_metres": 0.82,
+      "standing_height_metres": 1.85,
+      "cell_metres": 0.1,
+      "grid_dimensions": [
+        360,
+        375
+      ],
+      "grid_bounds_local": [
+        -1.5,
+        14,
+        34.5,
+        51.5
+      ],
+      "walkable_cells": 93431,
+      "reachable_cells": 93019,
+      "stations": [
+        {
+          "id": "stair_approach",
+          "point_local_metres": [
+            17.7,
+            22.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "aisle_west",
+          "point_local_metres": [
+            32.5,
+            36.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "aisle_east",
+          "point_local_metres": [
+            0.5,
+            36.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "aisle_centre",
+          "point_local_metres": [
+            15.5,
+            36.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "north_east_bays",
+          "point_local_metres": [
+            4.5,
+            22.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "north_west_bays",
+          "point_local_metres": [
+            29.5,
+            22.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "core_door",
+          "point_local_metres": [
+            17.8,
+            22
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "core_landing",
+          "point_local_metres": [
+            15.2,
+            22
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        }
+      ],
+      "vertical_traversal": "not checked; stair flights are absent"
+    },
+    {
+      "id": "p2_basement",
+      "status": "passed",
+      "floor_elevation_local": 0.4,
+      "standing_width_metres": 0.82,
+      "standing_height_metres": 1.85,
+      "cell_metres": 0.1,
+      "grid_dimensions": [
+        245,
+        325
+      ],
+      "grid_bounds_local": [
+        7,
+        -6.5,
+        31.5,
+        26.0
+      ],
+      "walkable_cells": 16277,
+      "reachable_cells": 16277,
+      "stations": [
+        {
+          "id": "stair_approach",
+          "point_local_metres": [
+            17.7,
+            18.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "corridor_mid",
+          "point_local_metres": [
+            18.25,
+            13.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "corridor_south",
+          "point_local_metres": [
+            18.25,
+            24.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "right_turn_from_stairs",
+          "point_local_metres": [
+            18.25,
+            -5.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "cross_corridor",
+          "point_local_metres": [
+            24.5,
+            -5.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "cross_corridor_end",
+          "point_local_metres": [
+            30.0,
+            -5.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "core_door",
+          "point_local_metres": [
+            17.8,
+            22
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "core_landing",
+          "point_local_metres": [
+            15.2,
+            22
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        }
+      ],
+      "vertical_traversal": "not checked; stair flights are absent"
+    },
+    {
+      "id": "p2_ground",
+      "status": "passed",
+      "floor_elevation_local": 4.0,
+      "standing_width_metres": 0.82,
+      "standing_height_metres": 1.85,
+      "cell_metres": 0.1,
+      "grid_dimensions": [
+        310,
+        575
+      ],
+      "grid_bounds_local": [
+        7,
+        14,
+        38.0,
+        71.5
+      ],
+      "walkable_cells": 92411,
+      "reachable_cells": 80974,
+      "stations": [
+        {
+          "id": "entrance",
+          "point_local_metres": [
+            33.5,
+            31.35
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "reception_front",
+          "point_local_metres": [
+            22.0,
+            32.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "left_corridor",
+          "point_local_metres": [
+            31.5,
+            25.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "stair_approach",
+          "point_local_metres": [
+            17.7,
+            22.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "tables_front",
+          "point_local_metres": [
+            24.5,
+            36.7
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "tables_back",
+          "point_local_metres": [
+            24.5,
+            70.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b111_door",
+          "point_local_metres": [
+            20.5,
+            39.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b111_centre",
+          "point_local_metres": [
+            16.5,
+            40.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b112_door",
+          "point_local_metres": [
+            20.5,
+            48.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b112_centre",
+          "point_local_metres": [
+            16.5,
+            49.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b113_door",
+          "point_local_metres": [
+            20.5,
+            57.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b113_centre",
+          "point_local_metres": [
+            16.5,
+            58.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b114_door",
+          "point_local_metres": [
+            20.5,
+            66.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "b114_centre",
+          "point_local_metres": [
+            16.5,
+            67.0
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "core_door",
+          "point_local_metres": [
+            17.8,
+            22
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "core_landing",
+          "point_local_metres": [
+            15.2,
+            22
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "entrance_second_bank",
+          "point_local_metres": [
+            33.5,
+            35.65
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        }
+      ],
+      "vertical_traversal": "not checked; stair flights are absent"
+    }
+  ],
+  "stair_samples": 72,
+  "stair_failures": [],
+  "limitations": "Source geometry only; engine walking is checked separately."
+}

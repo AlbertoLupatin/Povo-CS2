@@ -45,7 +45,7 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
     if side not in frames:raise ValueError('Unknown teaching side')
     base,cross,back,width,depth=frames[side]
     opposite={'south':'north','north':'south','east':'west','west':'east'}
-    if settings.get('window_side')!=opposite[side]:
+    if settings.get('window_side') is not None and settings['window_side']!=opposite[side]:
         raise ValueError('Windows must be behind the seats, opposite the teaching wall')
     for key in ('side_aisle_metres','row_pitch_metres'):
         value=settings.get(key)
@@ -140,6 +140,15 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
                 box(chair+'_stem',(cx-.025,cy+chair_back-.21,.20),(cx+.025,cy+chair_back-.16,.44),'metal_dark')
                 seats+=1
         row+=1;cy+=pitch
+    record=dict(seats=seats,window_bays=0,rows=rows,
+        status='User-authorized repeated classroom kit; dimensions and counts estimated',
+        teaching_side=side,window_side=settings.get('window_side'),side_aisle_metres=aisle,
+        reference_ids=settings['reference_ids'],location_status=settings['location_status'],
+        window_context=settings.get('window_context','Not yet reconstructed'),
+        wall_face_inset_metres=inner,
+        audit_points_local_metres=[point(inner+aisle/2,depth-.75),point(width-inner-aisle/2,depth-.75)])
+    if settings.get('window_side') is None:
+        return boxes, None, record
     sill,head=.12,wall_height-.16
     opening=bounds((.45,depth-.20,sill),(width-.45,depth+.20,head))
     window_width=width-.9;bays=max(1,round(window_width/.95))
@@ -173,21 +182,24 @@ def apply_fitouts(config, levels, boxes, origin):
         matching=[(level,room) for level in levels for room in level['rooms'] if (level['id'],room['id'])==key]
         if len(matching)!=1:raise ValueError('Fit-out must name an existing unique room')
         level,room=matching[0]
-        if room['kind']!='classroom':raise ValueError('Kit requires an ordinary classroom')
-        if settings.get('window_side') not in exterior:raise ValueError('Unknown window side')
-        index,edge=exterior[settings['window_side']]
+        if room['kind']!='classroom' and not settings.get('repeat_classroom_template'):
+            raise ValueError('Kit requires an ordinary classroom or an authorized repeated template')
+        window = settings.get('window_side')
+        if window is not None and window not in exterior:raise ValueError('Unknown window side')
         a,b,c,d=level['courtyard'];u0,v0,u1,v1=room['bounds']
         court_edges={'west':math.isclose(v0,d,abs_tol=1e-9) and a<=u0<u1<=c,
                      'east':math.isclose(v1,b,abs_tol=1e-9) and a<=u0<u1<=c,
                      'south':math.isclose(u0,c,abs_tol=1e-9) and b<=v0<v1<=d,
                      'north':math.isclose(u1,a,abs_tol=1e-9) and b<=v0<v1<=d}
-        if not math.isclose(room['bounds'][index],edge,abs_tol=1e-9) and not court_edges[settings['window_side']]:
-            raise ValueError('Window wall must adjoin the outside or open courtyard')
+        if window is not None:
+            index,edge=exterior[window]
+            if not math.isclose(room['bounds'][index],edge,abs_tol=1e-9) and not court_edges[window]:
+                raise ValueError('Window wall must adjoin the outside or open courtyard')
         z=level['floor_elevation_metres']-origin[2]
         additions,opening,record=classroom_kit(level,room,z,config['wall_height_metres'],config['wall_thickness_metres'],settings)
         rebuilt=[]
         for b in result:
-            rebuilt.extend(subtract_box(b,opening) if b[0].startswith(level['id']+'_') and b[3] in ('wall','courtyard_wall') else [b])
+            rebuilt.extend(subtract_box(b,opening) if opening is not None and b[0].startswith(level['id']+'_') and b[3] in ('wall','courtyard_wall') else [b])
         room['fitout']=record;room['window_opening_local_metres']=opening
         result=rebuilt+additions
     return result

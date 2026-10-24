@@ -1,5 +1,119 @@
 # Resume the Povo project on Windows
 
+## Latest: map adjustments — 24 October 2026
+
+See [POVO_MAP_ADJUSTMENTS.md](POVO_MAP_ADJUSTMENTS.md) for the reception replacing
+ground Studio E1, four upstairs restrooms with UOMINI/DONNE door signs, darker
+corridor floors and Povo 2's enlarged tables, reversed boards, shortened ground
+hall and B111–B114 labels. Source clearance passes 65/92/4 campus stations,
+32 integrated lower-floor stations and 72 stair samples. A new test also checks
+access to all toilet cubicles and washbasins. The previous source/game/test
+addon trees and package are backed up at
+`build/map-adjustments-backup-20261024-103106/`.
+
+The final rebuilt and reflection-baked package passes all 217 entry CRCs and
+asset hashes. It is 42,212,394 bytes, SHA-256
+`289ffd586414bdb425be2bb5390b60e40870a8bd08eb19ccceb63b4db45555fa`.
+All 126 tests pass. Engine walking passes each new restroom door and the
+shortened Povo 2 end wall; native screenshots verify all four B111–B114 labels.
+The launcher uses this package. See the adjustments guide for screenshots,
+compile logs, package evidence and the entity-only sign correction.
+
+## Latest arrival: compact Povo 2 — 23 October 2026
+
+See [POVO2_CONNECTION.md](POVO2_CONNECTION.md). The arrival alcoves remain;
+W1 is an enclosed gray stair down to a closed lower vestibule, E1 is removed,
+and the corridor ends at N26 before W2/E2. `compact_arrival: true` in
+`config/povo2_connection.json` defers the overlapping full Povo 2 draft while
+its ground/basement source is aligned. Preserve both sources. The two chats
+are coordinating this boundary with the user's authorization.
+
+109 source tests pass. Horizontal clearance passes 67/88/4 stations. The
+compact build log is `build/gameplay/p2-compact-build.log`; the previous baked
+package is backed up under `build/p2-compact-backup-20261023-211637/`.
+The compact compile, navigation and reflection bake succeeded. The local and
+installed packages match: 40,402,867 bytes / 162 entries, SHA-256
+`cbffd1a07529e495a56e66f82aa1b85473314891779826c7ddb0914ef31bbd40`.
+Normal walking down and back up both flights and through both doorways passes
+six recorded stages (`build/gameplay/p2-compact-walk.json`). The game is left
+stationary at the bridge exit, one human / zero bots / paused warmup. Keep
+the chat visible beside its small window. Full details and screenshots are
+in the connection guide; earlier checkpoints below are historical.
+
+## Latest source: Povo 2 planimetry — 23 October 2026
+
+[POVO2_PLANIMETRY.md](POVO2_PLANIMETRY.md) records the new entrance/reception,
+table hall, empty B110–B113 rooms, four-level grey stair, basement corridor and
+covered parking. The corrected lower-floor draft remains standalone while its
+stair is aligned with the compact first-floor work; it was not compiled or
+deployed. The ground/-1/-2 review and 30-station / 75-stair-sample standalone
+audit are in `exports/povo2_planimetry/`. The first-floor panel was removed;
+the single audited upper landing belongs to the draft, not the compact build.
+Use the separate build/runtime checkpoints below for the installed package.
+
+## Latest: Povo 2 connection and fixed door signs — 23 October 2026
+
+See [POVO2_CONNECTION.md](POVO2_CONNECTION.md) for the current route, package and
+runtime evidence. The source has 61 furnished rooms, A202/A203 relocated into
+the ground corner, a level floor-1 corridor/bridge and the initial Povo 2 arrival
+section. Room text uses fixed upright transforms and blue plaques. All 99 tests
+and the 161-station audit pass. The earlier checkpoints below are historical.
+Keep the user's chat window visible during game checks; CS2's
+`r_always_render_all_windows true` lets the game update without repeated focus
+changes. Do not activate or automate the Codex UI.
+
+## Latest: playable Povo 1 campus — 23 October 2026
+
+The user's visual review rejected the initial campus appearance. The subsequent
+[visual correction/review](POVO_VISUAL_REVIEW.md) records actual foreground CS2
+inspection, material/exposure fixes, the revised stair and current package.
+The historical compile/traversal checkpoint below does not establish visual quality.
+
+The latest source has 56 open furnished rooms, normal-width north corridors and
+four mirrored enclosed stairs beside Studio N1/N2/S1/S2. A101/A102 are open;
+all room types repeat the furniture kit. The lighter circulation floor is
+off-white. All 97 tests and the 138-station clearance audit pass. See
+[the current room/stair review](POVO_ROOMS_STAIRS_REVIEW.md) for build/runtime
+evidence and [the playtest guide](POVO_CAMPUS_PLAYTEST.md) for launch commands.
+`play_campus.cmd` defaults to solo exploration; `-Fly` enables noclip, `-Match`
+uses match defaults. Future Povo 2 work keeps Povo 1 at two floors, starts the
+bridge corridor from current A202/A203 and moves those rooms to the empty
+ground corner. The room move is recorded but deferred.
+The outdoor `trento_povo` map remains separate. Older checkpoints below describe
+earlier states, including the original offline interior study.
+
+## Windows continuation checkpoint — 23 October 2026
+
+The Windows checkout has now pulled `main` through `2acf729`. All 79 tests pass
+on Windows 11 with Python 3.15.1. CS2 Workshop Tools build `26144732` successfully
+compiled the updated exterior model, map and both custom radar textures with
+zero resource failures. Deterministic map preparation reported `unchanged`.
+
+Installed editable files matched the previous `26ee052` baseline before
+deployment. Both installed addon trees were preserved under
+`build/windows-resume-backup-20261023-162008/`. The new compile log is
+`build/windows-resume-compile.log`; these local backup/log files are ignored by Git.
+
+The compiler-only VPK is 9,521,788 bytes; its missing custom assets are now added
+by `tools/package_cs2.py`. The final `build/package/trento_povo.vpk` is
+10,623,229 bytes, SHA256
+`549edf5423049e52b05a2667e21df5683b40cf6752f5e894d2ad750fa8618187`.
+All 51 entries pass CRC and staged-source hash checks. It includes custom
+model/material/texture dependencies, the generated overview and both TGA/PSD
+radar lookup names. The package uses CS2's BLAKE3 chunk hashes; a default
+Source 1 MD5 table was rejected during the first load test and corrected.
+
+The final package is installed in the existing addon. A local launch confirms
+`Spawn Server: trento_povo`, server/client physics and a successful game-loop
+transition. The log is `build/package/windows-load-test.log`; the package report
+is `build/package/trento_povo.json`. See [CS2_PACKAGE_CHECK.md](CS2_PACKAGE_CHECK.md)
+for repeatable packaging commands. Visual radar alignment, a completed round,
+clean installation and independent-client validation remain open. The interior
+remains an offline study outside deployment.
+
+The handoff below describes the source received from Linux and retains the older
+baseline evidence; use this checkpoint for the latest Windows compile results.
+
 Updated 23 October 2026. This is the current operational handoff. Read this before
 older setup sections in the worklog or workflow. The reconstruction checkpoint
 is commit `34ac930`; this documentation follows it. Pull the latest `main` to
@@ -289,7 +403,9 @@ Recommended implementation order after the baseline compiles:
 Coordinate contract: source models are local metres, east +X / north +Y / up +Z,
 origin `(666250, 5103800, 370)` in the existing geographic frame. The established
 ModelDoc import uses 39.37007874 units/metre and the placed prop pitch `-90 0 0`.
-Its resulting map axes are world X=north and world Y=east. Apply the conversion
+Live campus floor drops corrected the earlier sign assumption: world X is
+**negative north**, world Y is east, and world Z is up. The symmetric outdoor
+arena did not expose that sign error. Apply the conversion
 once; new Blender/ModelDoc pieces must be calibrated against the same origin and
 orientation. Imported OBJ/MTL materials require actual Source 2 material work.
 

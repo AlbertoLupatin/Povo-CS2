@@ -1,0 +1,653 @@
+#!/usr/bin/env python3
+"""Build the playable two-floor Povo 1 geometry in the geographic frame."""
+
+import argparse
+import copy
+import hashlib
+import io
+import json
+import math
+from pathlib import Path
+import re
+
+try:
+    from . import build_povo_interior as interior
+    from .build_povo_blockout import write_box
+    from .povo_room_fitout import subtract_box
+    from .povo_campus_finishes import write_materials
+    from .povo2_connection import extend_campus
+    from .povo2_planimetry import extend as extend_povo2, COLORS as POVO2_COLORS
+    from .povo2_integration import extend as integrate_povo2
+    from .povo_interior_fixtures import reception_boxes, restroom_boxes, campus_staff_meshes, COLORS as FIXTURE_COLORS
+    from .povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
+except ImportError:
+    import build_povo_interior as interior
+    from build_povo_blockout import write_box
+    from povo_room_fitout import subtract_box
+    from povo_campus_finishes import write_materials
+    from povo2_connection import extend_campus
+    from povo2_planimetry import extend as extend_povo2, COLORS as POVO2_COLORS
+    from povo2_integration import extend as integrate_povo2
+    from povo_interior_fixtures import reception_boxes, restroom_boxes, campus_staff_meshes, COLORS as FIXTURE_COLORS
+    from povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
+
+ROOT = Path(__file__).resolve().parents[1]
+MATERIAL_PREFIX = 'materials/trento/povo/campus/'
+COLORS = {**interior.COLORS, 'stair_red': (155, 43, 38),
+          'stair_nosing': (42, 44, 44), 'sign_blue': (33, 69, 86),
+          'sign_white': (238, 236, 218), 'door_closed': (106, 68, 49),
+          'courtyard_ground': (141, 153, 125),
+          'floor_circulation': (184, 184, 179), 'floor_room': (222, 221, 214),
+          'wall': (201, 200, 189), 'ceiling_panel': (190, 191, 184),
+          'floor_wood': (158, 125, 88), 'door_black': (43, 47, 48),
+          'door_pushbar': (179, 53, 37), 'sanitary_white': (225, 226, 222),
+          'sanitary_water': (72, 96, 102), **POVO2_COLORS, **FIXTURE_COLORS,
+          **{'exterior_'+n:c for n,c in EXTERIOR_COLORS.items()}}
+
+
+def derived_config(root=ROOT):
+    settings = json.loads((root / 'config/povo1_campus.json').read_text())
+    config = copy.deepcopy(json.loads((root / settings['interior_source']).read_text()))
+    config['wall_height_metres'] = settings['wall_height_metres']
+    config['classroom_fitouts'] = []
+    config['status'] = 'Playable Povo 1 campus source'
+    for level in config['levels']:
+        ground = level['user_floor'] == 0
+        if settings.get('povo2_connection') and not ground:
+            level['rooms']=[r for r in level['rooms'] if r['id'] not in ('a202','a203')]
+        for room in settings.get('additional_rooms', {}).get(level['id'], []):
+            added=dict(copy.deepcopy(room),door_width_metres=1.2)
+            added.setdefault('kind','classroom')
+            added.setdefault('door_fraction',.85)
+            level['rooms'].append(added)
+        for room in level['rooms']:
+            room['playable'] = room.get('playable',True) and not (ground and room['id'] in settings['ground_locked_rooms'])
+            room['room_template'] = next((name for name, ids in settings['ground_room_templates'].items()
+                                          if room['id'] in ids), 'existing_upper_room')
+            if room['kind'] in ('reception','restroom') or not room['playable'] or (room['kind'] != 'classroom' and not settings.get('furnish_all_rooms')):
+                continue
+            u0, v0, u1, v1 = room['pixel_bounds']
+            if 'window_side' in room:
+                window = room['window_side']
+            elif room['id'] in ('a101','a102','a201','a202','lab'):
+                window = 'north'
+            elif ground:
+                window = ('south' if room['id'] in ('a103','a104','a105','a106','a108')
+                          else 'north' if room['id'] == 'a107' else 'west')
+            else:
+                window = ('south' if room['id'] in ('a204','a205','a206','a207','a208')
+                          else 'north' if room['id'] == 'a203'
+                          else 'east' if room['id'] in ('a209','a210','a211','a212','a217','a218','a219','a220')
+                          else 'west')
+            opposite = {'south':'north','north':'south','east':'west','west':'east'}
+            # The source doorway centres are provisional. Place the openings
+            # near row ends so the teaching board cannot block a front doorway.
+            if 'window_side' not in room:room['door_fraction'] = .85
+            fitout = dict(level=level['id'], room=room['id'], window_side=window,
+                          teaching_side=room.get('teaching_side', opposite.get(window)), side_aisle_metres=1.0,
+                          row_pitch_metres=1.15, first_row_metres=2.05,
+                          rear_clearance_metres=1.1, reference_ids=['P020','P021','P022'],
+                          location_status='User-authorized repeated room family; estimated fit-out')
+            fitout['repeat_classroom_template'] = settings.get('furnish_all_rooms', False)
+            if room['id'] == 'a215':
+                fitout.update(reference_ids=['P047','P048','P049','P050'],
+                              first_row_metres=1.05, row_pitch_metres=1.05,
+                              rear_clearance_metres=.65,
+                              location_status='A215 identified by user; dimensions estimated')
+            config['classroom_fitouts'].append(fitout)
+    return settings, config
+
+
+def mirror_point(point, east=False, north=False):
+    """Reflect around the accepted 47 x 83 m building's centre (.5, -61.5)."""
+    x,y,*rest=point
+    return (1-x if east else x,-123-y if north else y,*rest)
+
+
+def mirror_rectangle(rect, east=False, north=False):
+    a=mirror_point(rect[:2],east,north);b=mirror_point(rect[2:],east,north)
+    return (min(a[0],b[0]),min(a[1],b[1]),max(a[0],b[0]),max(a[1],b[1]))
+
+
+def mirror_box(box, identifier, east=False, north=False):
+    name,lo,hi,material=box
+    a=mirror_point(lo,east,north);b=mirror_point(hi,east,north)
+    return (name.replace('stair_se_','stair_'+identifier+'_',1),
+            tuple(min(a[i],b[i]) for i in range(3)),
+            tuple(max(a[i],b[i]) for i in range(3)),material)
+
+
+def stairs_and_roof(boxes, levels, settings, config, origin):
+    """Add a real switchback stair, close unused voids, and seal both ceilings."""
+    boxes = list(boxes)
+    z0, z1 = [level['floor_elevation_metres'] - origin[2] for level in levels]
+    hole = levels[1]['voids_local_metres'][3]  # registered southeast opening
+    x0, y0, x1, y1 = hole
+    stair = settings['stairs']
+    count = stair['risers']
+    if count < 4 or count % 2:
+        raise ValueError('Switchback stairs require an even positive riser count')
+    rise = (z1-z0)/count
+    half = count//2
+    width, tread, landing = (stair[k] for k in ('flight_width_metres','tread_metres','landing_metres'))
+    gap = .22
+    run = half*tread
+    used = (x0,y0,x0+2*width+gap,y0+run+landing)
+    if used[2] > x1 or used[3] > y1 or rise > .25:
+        raise ValueError('Stair flights do not fit the registered opening')
+    def add(name, lo, hi, mat): boxes.append((name, tuple(lo), tuple(hi), mat))
+    instances=(('se',False,False),('sw',True,False),('ne',False,True),('nw',True,True))
+    voids=[mirror_rectangle(used,e,n) for _id,e,n in instances]
+    # Replace the provisional registered reservations with the four identical
+    # mirrored shafts, so their edges never retain a strip of blocking slab.
+    boxes=[b for b in boxes if not b[0].startswith('academic_first_slab_')]
+    courtyard=levels[1]['voids_local_metres'][0]
+    levels[1]['voids_local_metres']=[courtyard,*voids]
+    for i,rect in enumerate(interior.subtract_rectangles((-23.,-103.,24.,-20.),[courtyard,*voids])):
+        add(f'academic_first_slab_{i:03d}',(rect[0],rect[1],z1-.22),(rect[2],rect[3],z1),'floor_room')
+    for i in range(half):
+        top = z0+(i+1)*rise
+        add(f'stair_se_flight1_{i}', (x0,y0+i*tread,top-.18),
+            (x0+width,y0+(i+1)*tread,top),'stair_red')
+        add(f'stair_se_nosing1_{i}', (x0,y0+i*tread,top-.018),
+            (x0+width,y0+i*tread+.035,top+.002),'stair_nosing')
+        top = z0+(half+i+1)*rise
+        a = x0+width+gap
+        add(f'stair_se_flight2_{i}', (a,y0+run-(i+1)*tread,top-.18),
+            (a+width,y0+run-i*tread,top),'stair_red')
+        add(f'stair_se_nosing2_{i}', (a,y0+run-i*tread-.035,top-.018),
+            (a+width,y0+run-i*tread,top+.002),'stair_nosing')
+    add('stair_se_half_landing',(x0,y0+run,z0+(z1-z0)/2-.18),(used[2],used[3],z0+(z1-z0)/2),'stair_red')
+    # Outer barriers prevent falls; the two ends facing the landing remain open.
+    for side, x in (('west',x0-.045),('east',used[2]+.005)):
+        for i in range(half+1):
+            z = z0 + min(i,half)*rise if side == 'west' else z1-min(i,half)*rise
+            y = y0+i*tread
+            add(f'stair_se_rail_{side}_{i}',(x,y,z+.03),(x+.04,y+.04,z+1.05),'metal_dark')
+        for i in range(half):
+            z = z0+i*rise if side == 'west' else z1-i*rise
+            add(f'stair_se_handrail_{side}_{i}',(x,y0+i*tread,z+1.01),
+                (x+.04,y0+(i+1)*tread+.04,z+1.06),'metal_dark')
+    add('stair_se_landing_guard',(x0,used[3]-.06,z0+1.8),
+        (used[2],used[3],z0+2.9),'window_glass')
+    prototype=[b for b in boxes if b[0].startswith('stair_se_')]
+    for identifier,e,n in instances[1:]:
+        boxes.extend(mirror_box(b,identifier,e,n) for b in prototype)
+    # Ground ceiling coincides with the underside of the upper slab; no beam
+    # crosses the stair void. The roof excludes the open courtyard.
+    outer = (-23.,-103.,24.,-20.)
+    for level, z in zip(levels, (z0,z1)):
+        holes = list(level['voids_local_metres'][:1]) + (voids if z == z0 else [])
+        ceiling = z1-.23 if z == z0 else z+config['wall_height_metres']
+        for i, rect in enumerate(interior.subtract_rectangles(outer,holes)):
+            add(f"{level['id']}_ceiling_{i}",(rect[0],rect[1],ceiling-.06),
+                (rect[2],rect[3],ceiling),'ceiling_panel')
+    seed=dict(core='stair_southeast', risers=count, rise_metres=rise,
+                      tread_metres=tread, flight_width_metres=width, void=list(used),
+                      bottom=[x0+width/2,y0-.65,z0],
+                      top=[x0+width+gap+width/2,y0-.65,z1],
+                      mid=[(x0+used[2])/2,y0+run+landing/2,z0+(z1-z0)/2])
+    names={'se':'stair_southeast','sw':'stair_southwest','ne':'stair_northeast','nw':'stair_northwest'}
+    cores=[]
+    for identifier,e,n in instances:
+        core=copy.deepcopy(seed)
+        core.update(id=identifier,core=names[identifier],mirror_east=e,mirror_north=n,
+                    void=list(mirror_rectangle(used,e,n)))
+        for key in ('bottom','top','mid'):core[key]=list(mirror_point(seed[key],e,n))
+        cores.append(core)
+    seed['cores']=cores
+    return boxes,seed
+
+
+def glaze_courtyard(boxes):
+    result=[]
+    for name,lo,hi,material in boxes:
+        if material != 'courtyard_wall' or hi[2]-lo[2] < 2.5:
+            result.append((name,lo,hi,material));continue
+        result.extend([
+            (name+'_sill',lo,(hi[0],hi[1],lo[2]+.75),'wall'),
+            (name+'_glass',(lo[0],lo[1],lo[2]+.75),(hi[0],hi[1],hi[2]-.3),'window_glass'),
+            (name+'_head',(lo[0],lo[1],hi[2]-.3),hi,'wall')])
+        axis = 0 if hi[0]-lo[0] > hi[1]-lo[1] else 1
+        span=hi[axis]-lo[axis]
+        for i in range(math.ceil(span/2.4)+1):
+            a,b=list(lo),list(hi);a[axis]=lo[axis]+min(i*2.4,span-.04);b[axis]=a[axis]+.04
+            a[2],b[2]=lo[2]+.75,hi[2]-.3
+            result.append((name+f'_frame_{i}',tuple(a),tuple(b),'window_frame'))
+    return result
+
+
+def enclose_stair(boxes, levels, stair, settings, config):
+    """Photo 38's black fire doors open into the hall; photo 39's outer glazing."""
+    bounds = settings['stairs']['enclosure_bounds_local_metres']
+    x0,y0,x1,y1 = bounds
+    z0,z1 = [l['floor_elevation_metres']-370 for l in levels]
+    top = z1+config['wall_height_metres']
+    thickness = config['wall_thickness_metres']
+    centre = settings['stairs']['door_centre_north_metres']
+    width = settings['stairs']['door_width_metres']
+    door_height = 2.2
+    result = list(boxes)
+    wall = [('stair_enclosure_west',(x0-thickness/2,y0,z0),(x0+thickness/2,y1,top),'wall')]
+    portals = []
+    for floor,z in enumerate((z0,z1)):
+        hole = ((x0-thickness,centre-width/2,z-.01),
+                (x0+thickness,centre+width/2,z+door_height))
+        wall = [part for b in wall for part in subtract_box(b,hole)]
+        portals.append(dict(floor=floor,centre=[x0,centre,z],width=width,height=door_height))
+        # Two leaves swung 90 degrees out into the corridor. Keep the opening
+        # clear and include the door panels in actual collision.
+        for side,sign in enumerate((-1,1)):
+            y = centre+sign*width/2
+            name=f'stair_door_{floor}_{side}'
+            result.append((name+'_leaf',(x0-width/2,y-.022,z+.025),
+                           (x0,y+.022,z+door_height-.025),'door_black'))
+            result.append((name+'_pushbar',(x0-width/2+.08,y-sign*.055-.012,z+1.02),
+                           (x0-.08,y-sign*.055+.012,z+1.065),'door_pushbar'))
+            result.append((name+'_hinge',(x0-.025,y-.035,z+.12),
+                           (x0+.025,y+.035,z+2.05),'window_frame'))
+            result.append((name+'_jamb',(x0-.11,y-.025,z),
+                           (x0+.11,y+.025,z+door_height+.05),'window_frame'))
+        result.append((f'stair_door_{floor}_head',(x0-.11,centre-width/2-.05,z+door_height),
+                       (x0+.11,centre+width/2+.05,z+door_height+.05),'window_frame'))
+    result.extend(wall)
+    for name,y in (('south',y0),('north',y1)):
+        result.append(('stair_enclosure_'+name,(x0-thickness/2,y-thickness/2,z0),
+                       (x1,y+thickness/2,top),'wall'))
+    # Cut the existing outer wall rather than layering glass over opaque mass.
+    for floor,z in enumerate((z0,z1)):
+        bottom,head = z+.65,z+config['wall_height_metres']-.25
+        window = ((x1-.22,y0+.45,bottom),(x1+.22,y1-.45,head))
+        result = [part for b in result for part in (subtract_box(b,window) if b[3]=='wall' else [b])]
+        result.append((f'stair_window_{floor}',(x1-.015,y0+.45,bottom),
+                       (x1+.015,y1-.45,head),'window_glass'))
+        for i in range(7):
+            y=y0+.45+(y1-y0-.9)*i/6
+            result.append((f'stair_window_{floor}_mullion_{i}',(x1-.045,y-.025,bottom),
+                           (x1+.045,y+.025,head),'window_frame'))
+        for i,h in enumerate((bottom,z+1.9,head)):
+            result.append((f'stair_window_{floor}_transom_{i}',(x1-.045,y0+.425,h-.025),
+                           (x1+.045,y1-.425,h+.025),'window_frame'))
+    stair['enclosure'] = dict(bounds=bounds,portals=portals,door_open_degrees=90,
+                              reference_photos=[38,39])
+    prototype=[b for b in result if b[0].startswith(('stair_enclosure_','stair_door_','stair_window_'))]
+    for core in stair['cores']:
+        e,n=core['mirror_east'],core['mirror_north']
+        enclosure=copy.deepcopy(stair['enclosure'])
+        enclosure['bounds']=list(mirror_rectangle(bounds,e,n))
+        for portal in enclosure['portals']:portal['centre']=list(mirror_point(portal['centre'],e,n))
+        core['enclosure']=enclosure
+        if core['id']=='se':continue
+        for floor,z in enumerate((z0,z1)):
+            bottom,head=z+.65,z+config['wall_height_metres']-.25
+            a=mirror_point((x1-.22,y0+.45,bottom),e,n)
+            b=mirror_point((x1+.22,y1-.45,head),e,n)
+            window=(tuple(min(a[i],b[i]) for i in range(3)),tuple(max(a[i],b[i]) for i in range(3)))
+            result=[part for box in result for part in (subtract_box(box,window) if box[3]=='wall' else [box])]
+        for box in prototype:
+            original_name,lo,hi,mat=box
+            canonical=(original_name.replace('stair_','stair_se_',1),lo,hi,mat)
+            result.append(mirror_box(canonical,core['id'],e,n))
+    return result
+
+
+def build_geometry(root=ROOT,*,include_exterior=True):
+    settings, config = derived_config(root)
+    alignment = json.loads((root / config['alignment']).read_text())
+    campus = json.loads((root / config['campus_config']).read_text())
+    origin = campus['origin']
+    # Validate the original reference bytes before deriving the playable model.
+    for profile in alignment['profiles']:
+        if hashlib.sha256((root/profile['source_file']).read_bytes()).hexdigest() != profile['sha256']:
+            raise ValueError('Plan source hash mismatch')
+    manifest_path=root/config['photo_reference']['manifest']
+    manifest=json.loads(manifest_path.read_text())['images']
+    for identifier in config['photo_reference']['ids']:
+        photo=next(p for p in manifest if p['id']==identifier)
+        if hashlib.sha256((manifest_path.parent/photo['file']).read_bytes()).hexdigest()!=photo['sha256']:
+            raise ValueError('Photo source hash mismatch')
+    boxes, levels = interior.build_boxes(config,alignment,origin)
+    for level in levels:
+        z=level['floor_elevation_metres']-origin[2]
+        for room in level['rooms']:
+            if room['kind']=='reception':
+                a,b,c,d=room['footprint_local_metres']
+                hole=((a-.11,b-.11,z-.01),(c+.11,d+.11,z+config['wall_height_metres']+.01))
+                boxes=[part for box in boxes for part in
+                       (subtract_box(box,hole) if box[3] in ('wall','courtyard_wall') else [box])]
+                boxes.extend(reception_boxes(level['id']+'_'+room['id'],(a,b,c,d),z,config['wall_height_metres'],'east'))
+                room['fitout']=dict(seats=5,rows=[],furniture=['desks','chairs','computers','storage'],
+                                   staff=3,front_staff='female',audit_points_local_metres=[])
+            elif room['kind']=='restroom':
+                boxes.extend(restroom_boxes(level['id'],room,z,config['wall_height_metres']))
+    boxes=glaze_courtyard(boxes)
+    boxes, stair=stairs_and_roof(boxes,levels,settings,config,origin)
+    boxes = enclose_stair(boxes, levels, stair, settings, config)
+    if settings.get('povo2_connection'):
+        boxes=extend_campus(boxes,levels,root,config['wall_height_metres'])
+        if settings.get('povo2_planimetry'):
+            if levels[1]['connection'].get('compact_arrival'):
+                boxes=integrate_povo2(boxes,levels,root,config['wall_height_metres'])
+            else:
+                boxes=extend_povo2(boxes,levels,root,config['wall_height_metres'])
+    # Omit tiny ceiling grids/seat stems from this first in-game asset.
+    boxes=[b for b in boxes if not any(t in b[0] for t in ('_grid_','_slat','_stem'))]
+    z=levels[0]['floor_elevation_metres']-origin[2]
+    court=levels[0]['voids_local_metres'][0]
+    boxes.append(('campus_courtyard_floor',(court[0],court[1],z-.2),(court[2],court[3],z-.02),'courtyard_ground'))
+    # Small outside landing exposes the registered entrance without opening the
+    # undeveloped campus. A railing bounds it; the accepted arena remains separate.
+    entry_y=alignment['profiles'][0]['entrance_geographic'][1]-origin[1]
+    boxes.append(('campus_entry_landing',(24,entry_y-3,z-.3),(29,entry_y+3,z),'floor_circulation'))
+    # Closed north-wing doors are visible panels over solid collision walls.
+    for room in levels[0]['rooms']:
+        if room.get('playable',True):continue
+        if room['kind']=='reception':continue
+        a,b,c,d=room['footprint_local_metres'];x=a+(c-a)*room['door_fraction']
+        boxes.append((room['id']+'_closed_door',(x-.58,b-.12,z+.02),
+                      (x+.58,b-.095,z+2.1),'door_closed'))
+    for i,(lo,hi) in enumerate((((28.8,entry_y-3,z),(29,entry_y+3,z+1.2)),
+                               ((24,entry_y-3,z),(29,entry_y-2.85,z+1.2)),
+                               ((24,entry_y+2.85,z),(29,entry_y+3,z+1.2)))):
+        boxes.append((f'campus_entry_guard_{i}',lo,hi,'window_glass'))
+    boxes = finish_details(boxes, levels, config)
+    if include_exterior:
+        try:
+            from .povo_exterior_integration import extend as add_exterior
+        except ImportError:
+            from povo_exterior_integration import extend as add_exterior
+        boxes=add_exterior(root,settings,config,boxes,levels,stair)
+    return settings,config,boxes,levels,stair
+
+
+def finish_details(boxes, levels, config):
+    """Frames, skirtings and visible corridor luminaires from the walk photos."""
+    result = list(boxes)
+    for name, lo, hi, material in boxes:
+        if material != 'wall' or hi[2] - lo[2] < 2.5:
+            continue
+        # Follow actual solid spans so the trim never bridges a doorway.
+        axis = 0 if hi[0] - lo[0] > hi[1] - lo[1] else 1
+        for side in (0, 1):
+            a, b = list(lo), list(hi)
+            other = 1 - axis
+            a[other] = lo[other] - .012 if side == 0 else hi[other]
+            b[other] = a[other] + .012
+            a[2], b[2] = lo[2] + .015, lo[2] + .11
+            result.append((name + f'_finish_skirting_{side}', tuple(a), tuple(b), 'window_frame'))
+    for level in levels:
+        z = level['floor_elevation_metres'] - 370
+        for room in [*level['rooms'],*level.get('connection',{}).get('rooms',[])]:
+            if not room.get('playable', True) and room['kind']!='reception':
+                continue
+            a, b, c, d = room['footprint_local_metres']
+            f = room['door_fraction']
+            side = room['door_side']
+            x, y = {'u_min':(a+(c-a)*f,b), 'u_max':(a+(c-a)*f,d),
+                    'v_min':(a,b+(d-b)*f), 'v_max':(c,b+(d-b)*f)}[side]
+            # A fixed physical plaque above the door, with its outer face
+            # beyond the wall; the matching text never rotates toward players.
+            nx,ny={'u_min':(0,-1),'u_max':(0,1),'v_min':(-1,0),'v_max':(1,0)}[side]
+            normal=config['wall_thickness_metres']/2+.015
+            px,py=x+nx*normal,y+ny*normal
+            along=0 if side.startswith('u_') else 1
+            lo,hi=[px-.01,py-.01,z+2.28],[px+.01,py+.01,z+2.6]
+            lo[along]-=.615;hi[along]+=.615
+            result.append((level['id']+'_'+room['id']+'_finish_sign_plaque',tuple(lo),tuple(hi),'sign_blue'))
+            if not room.get('playable',True):continue
+            axis = 0 if side.startswith('u_') else 1
+            centre = [x, y]
+            half = room['door_width_metres'] / 2
+            depth = config['wall_thickness_metres'] / 2 + .018
+            for i, offset in enumerate((-half-.025, half+.025)):
+                lo, hi = [x-depth,y-depth,z+.015], [x+depth,y+depth,z+config['door_height_metres']+.045]
+                lo[axis], hi[axis] = centre[axis]+offset-.025, centre[axis]+offset+.025
+                result.append((room['id']+f'_finish_door_jamb_{i}', tuple(lo), tuple(hi), 'window_frame'))
+            lo, hi = [x-depth,y-depth,z+config['door_height_metres']], [x+depth,y+depth,z+config['door_height_metres']+.05]
+            lo[axis], hi[axis] = centre[axis]-half-.05, centre[axis]+half+.05
+            result.append((room['id']+'_finish_door_head', tuple(lo), tuple(hi), 'window_frame'))
+        ceiling = 7.31 if level['id'] == 'academic_ground' else z+config['wall_height_metres']-.06
+        for corridor in level['circulation']:
+            a,b,c,d = corridor['bounds']
+            x0,x1 = -23+b*47,-23+d*47
+            y0,y1 = -103+a*83,-103+c*83
+            axis = 1 if y1-y0 > x1-x0 else 0
+            length = (y1-y0) if axis else (x1-x0)
+            count = max(1, math.ceil(length/4.2))
+            for i in range(count):
+                x,y = (x0+x1)/2,(y0+y1)/2
+                if axis: y = y0+(i+.5)*length/count
+                else: x = x0+(i+.5)*length/count
+                name = level['id']+'_'+corridor['id']+f'_finish_fixture_{i}'
+                result.append((name+'_rim',(x-.33,y-.33,ceiling-.055),(x+.33,y+.33,ceiling-.005),'window_frame'))
+                result.append((name+'_diffuser',(x-.29,y-.29,ceiling-.062),(x+.29,y+.29,ceiling-.054),'light_diffuser'))
+    return result
+
+
+def subtract_polygon_box(polygon,lo,hi):
+    """Subtract one box from a convex textured polygon, preserving UVs."""
+    def clip(poly,axis,bound,keep_low):
+        out=[]
+        if not poly:return out
+        for (a,ta),(b,tb) in zip(poly,poly[1:]+poly[:1]):
+            inside=a[axis]<=bound if keep_low else a[axis]>=bound
+            other=b[axis]<=bound if keep_low else b[axis]>=bound
+            if inside:out.append((a,ta))
+            if inside!=other:
+                f=(bound-a[axis])/(b[axis]-a[axis])
+                out.append((tuple(a[i]+f*(b[i]-a[i]) for i in range(3)),
+                            tuple(ta[i]+f*(tb[i]-ta[i]) for i in range(2))))
+        clean=[]
+        for item in out:
+            if not clean or any(abs(a-b)>1e-9 for a,b in zip(item[0],clean[-1][0])):clean.append(item)
+        if len(clean)>1 and all(abs(a-b)<1e-9 for a,b in zip(clean[0][0],clean[-1][0])):clean.pop()
+        return clean
+    remainder=polygon;outside=[]
+    for axis in range(3):
+        for bound,low in ((lo[axis],True),(hi[axis],False)):
+            piece=clip(remainder,axis,bound,low)
+            if len(piece)>=3:outside.append(piece)
+            remainder=clip(remainder,axis,bound,not low)
+            if len(remainder)<3:return outside
+    return outside
+
+
+def backdrop_mesh(root):
+    """Retain campus context, removing solid Povo 1 and the temporary arena."""
+    vertices=[];uvs=[];faces=[];name='';material=''
+    for line in (root/'exports/povo_blockout/povo_blockout.obj').read_text().splitlines():
+        p=line.split()
+        if not p:continue
+        if p[0]=='v':vertices.append(tuple(map(float,p[1:4])))
+        elif p[0]=='vt':uvs.append(tuple(map(float,p[1:3])))
+        elif p[0]=='o':name=p[1]
+        elif p[0]=='usemtl':material=p[1]
+        elif p[0]=='f':
+            if name.startswith(('povo1_','arch_povo1_','cover_','boundary_','calibration')):continue
+            if name.startswith(('bridge_reference_','arch_bridge_')):continue
+            refs=[tuple(int(x) if x else 0 for x in ref.split('/')) for ref in p[1:]]
+            points=[vertices[r[0]-1] for r in refs]
+            if name=='terrain' and any((-24<=v[0]<=30 and -106<=v[1]<=-18) or
+                                      (3.4<=v[0]<=43.2 and 9.8<=v[1]<=42.2) or
+                                      (9.8<=v[0]<=34.7 and 19.3<=v[1]<=73.7) for v in points):continue
+            tex=[uvs[r[1]-1] if len(r)>1 and r[1] else (0,0) for r in refs]
+            if name.startswith(('povo2_east','arch_povo2_core_', 'povo2_south',
+                                'povo2_southeast_annex','arch_povo2_annex_')):
+                # Remove the old solid mass from the newly opened arrival;
+                # retain its northern context by clipping both geometry and UVs.
+                poly=list(zip(points,tex));clipped=[]
+                for first,second in zip(poly,poly[1:]+poly[:1]):
+                    a,ta=first;b,tb=second;inside=a[1]>=42;other=b[1]>=42
+                    if inside:clipped.append(first)
+                    if inside!=other:
+                        f=(42-a[1])/(b[1]-a[1])
+                        clipped.append((tuple(a[i]+f*(b[i]-a[i]) for i in range(3)),
+                                        tuple(ta[i]+f*(tb[i]-ta[i]) for i in range(2))))
+                if len(clipped)<3:continue
+                points,tex=map(list,zip(*clipped))
+            polygons=[list(zip(points,tex))]
+            if name.startswith(('povo2_','arch_povo2_')):
+                # Clear only the occupied lower floors from the old solid
+                # scenery. Keep the completed upper arrival and upper backdrop.
+                for lo,hi in (((9.9,19.3,3.7),(34.7,73.7,7.37)),
+                              ((16.3,-6.7,.1),(31.7,26.2,3.77)),
+                              ((-1.7,13.8,-3.5),(34.7,51.7,.17)),
+                              ((6.8,13.8,-3.5),(16.7,26.2,7.37))):
+                    polygons=[part for poly in polygons for part in subtract_polygon_box(poly,lo,hi)]
+            for poly in polygons:
+                p,t=map(list,zip(*poly))
+                # Triangulation avoids a clipped polygon starting with three
+                # collinear vertices in the native OBJ importer.
+                for i in range(1,len(p)-1):
+                    a,b,c=p[0],p[i],p[i+1]
+                    u=[b[j]-a[j] for j in range(3)];v=[c[j]-a[j] for j in range(3)]
+                    cross=(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
+                    if sum(x*x for x in cross)>1e-14:faces.append((name,material,[p[0],p[i],p[i+1]],[t[0],t[i],t[i+1]]))
+    return faces
+
+
+def export(root=ROOT):
+    settings, config, boxes, levels, stair = build_geometry(root)
+    try:
+        from .povo_exterior_integration import mesh_faces,write_collision,backdrop as exterior_backdrop
+    except ImportError:
+        from povo_exterior_integration import mesh_faces,write_collision,backdrop as exterior_backdrop
+    exterior=levels[0].get('exterior',{})
+    output=root/'exports/povo_campus';output.mkdir(parents=True,exist_ok=True)
+    scenery=backdrop_mesh(root)
+    if exterior:scenery=exterior_backdrop(scenery)
+    (output/'povo1_campus.obj').write_text(render_obj(boxes,[*scenery,*campus_staff_meshes(levels),*mesh_faces(exterior)],stair=stair),encoding='utf-8')
+    collision=io.StringIO();collision.write('o povo1_campus_collision\n');ci=0;collision_count=0
+    last_material=None
+    physics=collision_boxes(boxes)
+    for index,(name,lo,hi,material) in enumerate(sorted(physics,key=lambda b:b[3])):
+        if index%64==0:collision.write(f'o campus_physics_{index//64}\n')
+        part=io.StringIO();write_box(part,name,lo,hi,ci,'campus_'+material)
+        for line in part.getvalue().splitlines():
+            if line.startswith('o '):continue
+            if line.startswith('usemtl '):
+                if line==last_material:continue
+                last_material=line
+            collision.write(line+'\n')
+        ci+=8;collision_count+=1
+    collision_mesh_count=write_collision(collision,exterior,ci)
+    (output/'povo1_campus_collision.obj').write_text(collision.getvalue(),encoding='utf-8')
+    metadata=dict(map_name=settings['map_name'],origin=[666250,5103800,370],settings=settings,
+                  levels=levels,stair=stair,visual_boxes=len(boxes),collision_boxes=collision_count,
+                  assumptions=settings['assumptions'],
+                  inputs={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in
+                          ('config/povo1_campus.json',settings['interior_source'],'config/povo1_plan_alignment.json')})
+    if exterior:
+        metadata['exterior']=exterior
+        metadata['exterior_collision_meshes']=collision_mesh_count
+        metadata['inputs'].update(exterior['input_hashes'])
+    if settings.get('povo2_connection'):
+        metadata['connection']=levels[1]['connection']
+        metadata['inputs'][settings['povo2_connection']]=hashlib.sha256((root/settings['povo2_connection']).read_bytes()).hexdigest()
+        if 'povo2' in metadata['connection']:
+            metadata['povo2']=metadata['connection']['povo2']
+            path=settings['povo2_planimetry']
+            metadata['inputs'][path]=hashlib.sha256((root/path).read_bytes()).hexdigest()
+    metadata['artifacts']={p.name:hashlib.sha256(p.read_bytes()).hexdigest()
+                           for p in (output/'povo1_campus.obj',output/'povo1_campus_collision.obj')}
+    (output/'provenance.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8')
+    materials=root/'cs2/content/trento_povo/materials/trento/povo/campus';materials.mkdir(parents=True,exist_ok=True)
+    write_materials(materials, MATERIAL_PREFIX, {n:c for n,c in COLORS.items() if not n.startswith('exterior_')})
+    write_exterior_materials(materials/'exterior')
+    original=(root/'cs2/content/trento_povo/models/povo/povo_blockout.vmdl').read_text()
+    original=original.replace('povo_blockout_collision','povo1_campus_collision').replace('povo_blockout','povo1_campus')
+    marker='\t\t\t\t\t\tremaps =\n\t\t\t\t\t\t['
+    # Use the installed game's transparent glass material and its proven shader
+    # setup; the other surfaces remain editable addon materials.
+    remaps=''.join('\n                            { from = "campus_'+m+'" to = "'+
+                   ('materials/glass/glass01.vmat' if m in ('window_glass','reception_glass') else
+                    EXTERIOR_PREFIX+m.removeprefix('exterior_')+'.vmat' if m.startswith('exterior_') else MATERIAL_PREFIX+m+'.vmat')+'" },' for m in COLORS)
+    if marker not in original:raise ValueError('ModelDoc material remap insertion point missing')
+    original=original.replace(marker,marker+remaps,1)
+    (root/'cs2/content/trento_povo/models/povo/povo1_campus.vmdl').write_text(original,encoding='utf-8')
+    room_count=sum(r.get('playable',True) for l in levels
+                   for r in [*l['rooms'],*l.get('connection',{}).get('rooms',[])])
+    room_count+=sum(len(l.get('rooms',[])) for l in metadata.get('povo2',{}).get('levels',[]))
+    print(f"Exported {len(boxes)} visual boxes, {collision_count} collision boxes; {room_count} playable rooms")
+    return metadata
+
+
+def render_obj(boxes,backdrop,*,stair=None):
+    """Write indexed attributes before faces, with explicit flat normals.
+
+    Repeating vertices between individual terrain faces makes the native OBJ
+    importer allocate excessively. Keep shared terrain vertices and bounded
+    material sections, and give walls non-degenerate metre-based UVs.
+    """
+    vertices={};uvs={};normals={};groups={}
+    def index(table,value):
+        if value not in table:table[value]=len(table)+1
+        return table[value]
+    def face(group,material,points,texcoords=None):
+        a,b,c=points[:3]
+        u=[b[i]-a[i] for i in range(3)];v=[c[i]-a[i] for i in range(3)]
+        normal=(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
+        length=math.sqrt(sum(x*x for x in normal))
+        if length<1e-12:raise ValueError('Degenerate campus triangle')
+        ni=index(normals,tuple(round(x/length,12) for x in normal))
+        if texcoords is None:
+            axis=max(range(3),key=lambda i:abs(normal[i]));axes=[i for i in range(3) if i!=axis]
+            texcoords=[tuple(p[i]/.6 for i in axes) for p in points]
+        refs=[f'{index(vertices,tuple(p))}/{index(uvs,tuple(uv))}/{ni}' for p,uv in zip(points,texcoords)]
+        groups.setdefault((group,material),[]).append('f '+' '.join(refs)+'\n')
+    for name,material,points,texcoords in backdrop:
+        face('backdrop_'+name,material,points,texcoords)
+    for number,(name,lo,hi,material) in enumerate(sorted(boxes,key=lambda b:b[3])):
+        part=io.StringIO();write_box(part,name,lo,hi,0,material);points=[]
+        for line in part.getvalue().splitlines():
+            if line.startswith('v '):
+                point=tuple(map(float,line.split()[1:]))
+                rail=re.match(r'stair_(se|sw|ne|nw)_handrail_',name)
+                if stair is not None and rail:
+                    core=next(c for c in stair['cores'] if c['id']==rail[1])
+                    slope=stair['rise_metres']/stair['tread_metres'] * (1 if '_west_' in name else -1)
+                    distance=hi[1]-point[1] if core['mirror_north'] else point[1]-lo[1]
+                    point=(point[0],point[1],point[2]+slope*distance)
+                if 'bridge_finish_brace_' in name:
+                    height=2.95
+                    distance=(point[1]-lo[1])/(hi[1]-lo[1])
+                    point=(point[0],point[1],point[2]+height*(distance if name.endswith('_rise') else 1-distance))
+                points.append(point)
+            elif line.startswith('f '):
+                face(f'campus_section_{number//64}','campus_'+material,[points[int(i)-1] for i in line.split()[1:]])
+    stream=io.StringIO();stream.write('# Povo 1 playable campus, local metres\n')
+    for label,table in (('v',vertices),('vt',uvs),('vn',normals)):
+        for values in table:stream.write(label+' '+' '.join(f'{x:.12g}' for x in values)+'\n')
+    stream.write('s off\n')
+    for number,((name,material),faces) in enumerate(groups.items()):
+        stream.write(f'o {name}_{number}\nusemtl {material}\n');stream.writelines(faces)
+    return stream.getvalue()
+
+
+def collision_boxes(boxes):
+    """Keep structural surfaces and simplify the inaccessible gaps in seat rows.
+
+    Individual seat gaps are narrower than the player. Joining those surfaces
+    avoids thousands of tiny physics pieces while retaining the row ends,
+    desktop, chair height and the open floor beneath the seats.
+    """
+    result=[];rows={}
+    for name,lo,hi,material in boxes:
+        if name.startswith('exterior_') and any(t in name for t in ('floor_joint','ceiling_joint','_mat','_band_','_sensor','_light_','_rough')):continue
+        if any(t in name for t in ('ceiling_light','ceiling_vent','projector','_mullion','_transom','_nosing','_handrail','_finish_')):continue
+        if material in ('teaching_board','projection_screen','sign_blue','sign_white'):continue
+        if re.search(r'_desk_row_\d+_(support|foot|seat_beam)',name) or '_teaching_desk_leg' in name:continue
+        chair=re.match(r'(.*_chair_\d+)_\d+_(seat|back)$',name)
+        if chair:
+            key=chair[1]+'_'+chair[2]
+            if key in rows:
+                oldlo,oldhi=rows[key]
+                lo=tuple(min(a,b) for a,b in zip(lo,oldlo));hi=tuple(max(a,b) for a,b in zip(hi,oldhi))
+            rows[key]=(lo,hi)
+        else:result.append((name,lo,hi,material))
+    result.extend((name,lo,hi,'seat_wood') for name,(lo,hi) in rows.items())
+    return result
+
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__);parser.parse_args();export()

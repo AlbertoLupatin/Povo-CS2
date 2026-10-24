@@ -120,7 +120,7 @@ class VPKTests(unittest.TestCase):
         expected=self.root/'expected.txt';expected.write_bytes(OVERVIEW)
         report=verify_package(self.path,expected,full_crc=True)
         self.assertEqual(report['status'],'passed')
-        self.assertEqual(report['crc_verified_entries'],3)
+        self.assertEqual(report['crc_verified_entries'],len(RADAR_FILES))
         self.assertEqual(report['signature_verification'],'not performed')
         files[RADAR_FILES[-1]]=OVERVIEW.replace(b'"5.5"',b'"6.0"')
         self.path.write_bytes(radar_fixture(files))

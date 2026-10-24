@@ -1,0 +1,427 @@
+{
+  "map_name": "trento_povo_campus",
+  "interior_source": "config/povo1_interior_study.json",
+  "povo2_planimetry": "config/povo2_planimetry.json",
+  "ground_locked_rooms": [],
+  "furnish_all_rooms": true,
+  "ground_room_templates": {
+    "a103": [
+      "a103",
+      "a104",
+      "a105",
+      "a106"
+    ],
+    "a101": [
+      "a107",
+      "a108",
+      "a109",
+      "a110"
+    ]
+  },
+  "additional_rooms": {
+    "academic_ground": [
+      {
+        "id": "g_north_west",
+        "label": "Studio N1",
+        "pixel_bounds": [
+          1590,
+          470,
+          1764,
+          580
+        ],
+        "door_side": "v_min",
+        "teaching_side": "east",
+        "window_side": null,
+        "door_fraction": 0.8900152333471819
+      },
+      {
+        "id": "g_north_east",
+        "label": "Studio N2",
+        "pixel_bounds": [
+          1590,
+          786,
+          1764,
+          970
+        ],
+        "door_side": "v_max",
+        "teaching_side": "north",
+        "window_side": null,
+        "door_fraction": 0.8900152333471819
+      },
+      {
+        "id": "g_south_west",
+        "label": "Studio S1",
+        "pixel_bounds": [
+          780,
+          470,
+          958,
+          580
+        ],
+        "door_side": "v_min",
+        "teaching_side": "west",
+        "window_side": null,
+        "door_fraction": 0.12998510897522686
+      },
+      {
+        "id": "g_south_east",
+        "label": "Studio S2",
+        "pixel_bounds": [
+          780,
+          786,
+          958,
+          970
+        ],
+        "door_side": "v_max",
+        "teaching_side": "south",
+        "window_side": null,
+        "door_fraction": 0.12998510897522686
+      },
+      {
+        "id": "g_west1",
+        "label": "Studio W1",
+        "pixel_bounds": [
+          958,
+          470,
+          1116,
+          580
+        ],
+        "door_side": "v_min",
+        "teaching_side": "west",
+        "window_side": "east"
+      },
+      {
+        "id": "g_west2",
+        "label": "Studio W2",
+        "pixel_bounds": [
+          1116,
+          470,
+          1274,
+          580
+        ],
+        "door_side": "v_min",
+        "teaching_side": "west",
+        "window_side": "east"
+      },
+      {
+        "id": "g_west3",
+        "label": "Studio W3",
+        "pixel_bounds": [
+          1274,
+          470,
+          1432,
+          580
+        ],
+        "door_side": "v_min",
+        "teaching_side": "west",
+        "window_side": "east"
+      },
+      {
+        "id": "g_west4",
+        "label": "Studio W4",
+        "pixel_bounds": [
+          1432,
+          470,
+          1590,
+          580
+        ],
+        "door_side": "v_min",
+        "teaching_side": "west",
+        "window_side": "east"
+      },
+      {
+        "id": "g_east1",
+        "label": "RECEPTION",
+        "pixel_bounds": [
+          958,
+          862,
+          1116,
+          970
+        ],
+        "door_side": "v_max",
+        "teaching_side": "east",
+        "window_side": null,
+        "kind": "reception",
+        "playable": false
+      },
+      {
+        "id": "g_east2",
+        "label": "Studio E2",
+        "pixel_bounds": [
+          1116,
+          862,
+          1274,
+          970
+        ],
+        "door_side": "v_max",
+        "teaching_side": "east",
+        "window_side": "west"
+      },
+      {
+        "id": "g_east3",
+        "label": "Studio E3",
+        "pixel_bounds": [
+          1274,
+          862,
+          1432,
+          970
+        ],
+        "door_side": "v_max",
+        "teaching_side": "east",
+        "window_side": "west"
+      },
+      {
+        "id": "g_east4",
+        "label": "Studio E4",
+        "pixel_bounds": [
+          1432,
+          862,
+          1590,
+          970
+        ],
+        "door_side": "v_max",
+        "teaching_side": "east",
+        "window_side": "west"
+      },
+      {
+        "id": "g_outer_east1",
+        "label": "Studio E5",
+        "pixel_bounds": [
+          1110,
+          1030,
+          1270,
+          1196
+        ],
+        "door_side": "v_min",
+        "teaching_side": "west",
+        "window_side": "east"
+      },
+      {
+        "id": "g_outer_east2",
+        "label": "Studio E6",
+        "pixel_bounds": [
+          1270,
+          1030,
+          1430,
+          1196
+        ],
+        "door_side": "v_min",
+        "teaching_side": "west",
+        "window_side": "east"
+      },
+      {
+        "id": "g_outer_east3",
+        "label": "Studio E7",
+        "pixel_bounds": [
+          1430,
+          1030,
+          1590,
+          1196
+        ],
+        "door_side": "v_min",
+        "teaching_side": "west",
+        "window_side": "east"
+      },
+      {
+        "id": "a202",
+        "label": "A202",
+        "pixel_bounds": [
+          1820,
+          880,
+          2102,
+          1038
+        ],
+        "door_side": "u_min",
+        "window_side": "north",
+        "teaching_side": "south"
+      },
+      {
+        "id": "a203",
+        "label": "A203",
+        "pixel_bounds": [
+          1820,
+          1038,
+          2102,
+          1196
+        ],
+        "door_side": "u_min",
+        "window_side": "north",
+        "teaching_side": "south"
+      }
+    ],
+    "academic_first": [
+      {
+        "id": "f_north_west",
+        "label": "Studio N1",
+        "pixel_bounds": [
+          1640,
+          516,
+          1840,
+          630
+        ],
+        "door_side": "v_min",
+        "teaching_side": "east",
+        "window_side": null,
+        "door_fraction": 0.8668795180722896
+      },
+      {
+        "id": "f_north_centre_male",
+        "label": "UOMINI",
+        "pixel_bounds": [
+          1640,
+          630,
+          1840,
+          785.0
+        ],
+        "door_side": "u_max",
+        "teaching_side": "north",
+        "window_side": null,
+        "kind": "restroom",
+        "sex": "male",
+        "door_fraction": 0.5
+      },
+      {
+        "id": "f_north_centre_female",
+        "label": "DONNE",
+        "pixel_bounds": [
+          1640,
+          785.0,
+          1840,
+          940
+        ],
+        "door_side": "u_max",
+        "teaching_side": "north",
+        "window_side": null,
+        "kind": "restroom",
+        "sex": "female",
+        "door_fraction": 0.5
+      },
+      {
+        "id": "f_north_east",
+        "label": "Studio N2",
+        "pixel_bounds": [
+          1640,
+          940,
+          1840,
+          1050
+        ],
+        "door_side": "v_max",
+        "teaching_side": "west",
+        "window_side": null,
+        "door_fraction": 0.8668795180722896
+      },
+      {
+        "id": "f_south_west",
+        "label": "Studio S1",
+        "pixel_bounds": [
+          770,
+          516,
+          960,
+          630
+        ],
+        "door_side": "v_min",
+        "teaching_side": "west",
+        "window_side": null,
+        "door_fraction": 0.09802155992390577
+      },
+      {
+        "id": "f_south_centre_male",
+        "label": "UOMINI",
+        "pixel_bounds": [
+          770,
+          630,
+          960,
+          785.0
+        ],
+        "door_side": "u_min",
+        "teaching_side": "south",
+        "window_side": null,
+        "kind": "restroom",
+        "sex": "male",
+        "door_fraction": 0.5
+      },
+      {
+        "id": "f_south_centre_female",
+        "label": "DONNE",
+        "pixel_bounds": [
+          770,
+          785.0,
+          960,
+          940
+        ],
+        "door_side": "u_min",
+        "teaching_side": "south",
+        "window_side": null,
+        "kind": "restroom",
+        "sex": "female",
+        "door_fraction": 0.5
+      },
+      {
+        "id": "f_south_east",
+        "label": "Studio S2",
+        "pixel_bounds": [
+          770,
+          940,
+          960,
+          1050
+        ],
+        "door_side": "v_max",
+        "teaching_side": "east",
+        "window_side": null,
+        "door_fraction": 0.09802155992390577
+      },
+      {
+        "id": "bridge_study",
+        "label": "Aula studio ponte",
+        "pixel_bounds": [
+          1900,
+          904,
+          2202,
+          1135.63829787234
+        ],
+        "door_side": "v_max",
+        "window_side": "north",
+        "teaching_side": "south",
+        "door_fraction": 0.5
+      }
+    ]
+  },
+  "upper_playable_rooms": "all rooms, furnished with the repeated classroom kit",
+  "stairs": {
+    "core": "stair_southeast",
+    "from_floor": 0,
+    "to_floor": 1,
+    "risers": 20,
+    "flight_width_metres": 1.5,
+    "tread_metres": 0.28,
+    "landing_metres": 1.5,
+    "enclosure_bounds_local_metres": [
+      15.81,
+      -86.26,
+      24.0,
+      -77.35
+    ],
+    "door_centre_north_metres": -85.1,
+    "door_width_metres": 1.65,
+    "note": "User-authorized identical mirrored ground-to-first red stairs opposite Studio N1/N2/S1/S2, each enclosed with open black doors. Not the central Aula studio rooms. Dimensions remain gameplay estimates.",
+    "cores": [
+      "southeast",
+      "southwest",
+      "northeast",
+      "northwest"
+    ]
+  },
+  "wall_height_metres": 3.35,
+  "assumptions": "Povo 1 has two floors, an enclosed reception replacing ground Studio E1, and separate male/female restrooms in each former upper north/south study room. Other room furniture and all dimensions remain approximate. Povo 2 ground, basement and parking connect to the compact bridge stair.",
+  "future_povo2_connection": {
+    "status": "implemented first bridge and floor-1 arrival corridor",
+    "povo1_storeys": 2,
+    "bridge_corridor_origin": "current first-floor A202/A203 area",
+    "relocate_rooms": [
+      "A202",
+      "A203"
+    ],
+    "relocate_to": "empty ground-floor corner of the corresponding size",
+    "note": "A202/A203 relocated to the empty ground corner. User-authorized two-floor game adaptation; remaining Povo 2 interiors follow later."
+  },
+  "povo2_connection": "config/povo2_connection.json"
+}

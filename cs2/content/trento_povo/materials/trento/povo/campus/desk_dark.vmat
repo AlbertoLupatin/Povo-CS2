@@ -1,0 +1,10 @@
+Layer0
+{
+    shader "csgo_complex.vfx"
+    TextureColor "materials/trento/povo/campus/desk_dark.png"
+    TextureNormal "materials/trento/povo/campus/neutral_normal.png"
+    TextureRoughness "materials/trento/povo/campus/desk_dark_rough.png"
+    g_vColorTint "[1 1 1 0]"
+    g_flModelTintAmount "1"
+    SystemAttributes { PhysicsSurfaceProperties "wood" }
+}

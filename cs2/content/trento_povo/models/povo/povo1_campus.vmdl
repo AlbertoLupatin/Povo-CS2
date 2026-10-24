@@ -1,0 +1,185 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
+{
+	rootNode =
+	{
+		_class = "RootNode"
+		children =
+		[
+			{
+				_class = "MaterialGroupList"
+				children =
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps =
+						[
+                            { from = "campus_floor_room" to = "materials/trento/povo/campus/floor_room.vmat" },
+                            { from = "campus_floor_circulation" to = "materials/trento/povo/campus/floor_circulation.vmat" },
+                            { from = "campus_wall" to = "materials/trento/povo/campus/wall.vmat" },
+                            { from = "campus_courtyard_wall" to = "materials/trento/povo/campus/courtyard_wall.vmat" },
+                            { from = "campus_floor_wood" to = "materials/trento/povo/campus/floor_wood.vmat" },
+                            { from = "campus_desk_dark" to = "materials/trento/povo/campus/desk_dark.vmat" },
+                            { from = "campus_seat_wood" to = "materials/trento/povo/campus/seat_wood.vmat" },
+                            { from = "campus_metal_dark" to = "materials/trento/povo/campus/metal_dark.vmat" },
+                            { from = "campus_window_frame" to = "materials/trento/povo/campus/window_frame.vmat" },
+                            { from = "campus_window_glass" to = "materials/glass/glass01.vmat" },
+                            { from = "campus_ceiling_panel" to = "materials/trento/povo/campus/ceiling_panel.vmat" },
+                            { from = "campus_light_diffuser" to = "materials/trento/povo/campus/light_diffuser.vmat" },
+                            { from = "campus_teaching_board" to = "materials/trento/povo/campus/teaching_board.vmat" },
+                            { from = "campus_projection_screen" to = "materials/trento/povo/campus/projection_screen.vmat" },
+                            { from = "campus_desk_panel" to = "materials/trento/povo/campus/desk_panel.vmat" },
+                            { from = "campus_stair_red" to = "materials/trento/povo/campus/stair_red.vmat" },
+                            { from = "campus_stair_nosing" to = "materials/trento/povo/campus/stair_nosing.vmat" },
+                            { from = "campus_sign_blue" to = "materials/trento/povo/campus/sign_blue.vmat" },
+                            { from = "campus_sign_white" to = "materials/trento/povo/campus/sign_white.vmat" },
+                            { from = "campus_door_closed" to = "materials/trento/povo/campus/door_closed.vmat" },
+                            { from = "campus_courtyard_ground" to = "materials/trento/povo/campus/courtyard_ground.vmat" },
+                            { from = "campus_door_black" to = "materials/trento/povo/campus/door_black.vmat" },
+                            { from = "campus_door_pushbar" to = "materials/trento/povo/campus/door_pushbar.vmat" },
+                            { from = "campus_sanitary_white" to = "materials/trento/povo/campus/sanitary_white.vmat" },
+                            { from = "campus_sanitary_water" to = "materials/trento/povo/campus/sanitary_water.vmat" },
+                            { from = "campus_floor_p2_tile" to = "materials/trento/povo/campus/floor_p2_tile.vmat" },
+                            { from = "campus_floor_p2_asphalt" to = "materials/trento/povo/campus/floor_p2_asphalt.vmat" },
+                            { from = "campus_reception_frosted" to = "materials/trento/povo/campus/reception_frosted.vmat" },
+                            { from = "campus_p2_accent_green" to = "materials/trento/povo/campus/p2_accent_green.vmat" },
+                            { from = "campus_parking_line" to = "materials/trento/povo/campus/parking_line.vmat" },
+                            { from = "campus_car_blue" to = "materials/trento/povo/campus/car_blue.vmat" },
+                            { from = "campus_car_silver" to = "materials/trento/povo/campus/car_silver.vmat" },
+                            { from = "campus_car_red" to = "materials/trento/povo/campus/car_red.vmat" },
+                            { from = "campus_car_tyre" to = "materials/trento/povo/campus/car_tyre.vmat" },
+                            { from = "campus_car_glass" to = "materials/trento/povo/campus/car_glass.vmat" },
+                            { from = "campus_reception_glass" to = "materials/glass/glass01.vmat" },
+                            { from = "campus_office_gray" to = "materials/trento/povo/campus/office_gray.vmat" },
+                            { from = "campus_office_light" to = "materials/trento/povo/campus/office_light.vmat" },
+                            { from = "campus_office_dark" to = "materials/trento/povo/campus/office_dark.vmat" },
+                            { from = "campus_office_screen" to = "materials/trento/povo/campus/office_screen.vmat" },
+                            { from = "campus_office_display" to = "materials/trento/povo/campus/office_display.vmat" },
+                            { from = "campus_mirror_silver" to = "materials/trento/povo/campus/mirror_silver.vmat" },
+                            { from = "campus_staff_shirt" to = "materials/trento/povo/campus/staff_shirt.vmat" },
+                            { from = "campus_staff_trousers" to = "materials/trento/povo/campus/staff_trousers.vmat" },
+                            { from = "campus_staff_skin" to = "materials/trento/povo/campus/staff_skin.vmat" },
+                            { from = "campus_staff_hair" to = "materials/trento/povo/campus/staff_hair.vmat" },
+                            { from = "campus_exterior_asphalt" to = "materials/trento/povo/campus/exterior/asphalt.vmat" },
+                            { from = "campus_exterior_paving" to = "materials/trento/povo/campus/exterior/paving.vmat" },
+                            { from = "campus_exterior_marking" to = "materials/trento/povo/campus/exterior/marking.vmat" },
+                            { from = "campus_exterior_grass" to = "materials/trento/povo/campus/exterior/grass.vmat" },
+                            { from = "campus_exterior_concrete" to = "materials/trento/povo/campus/exterior/concrete.vmat" },
+                            { from = "campus_exterior_fence" to = "materials/trento/povo/campus/exterior/fence.vmat" },
+                            { from = "campus_exterior_stone" to = "materials/trento/povo/campus/exterior/stone.vmat" },
+                            { from = "campus_exterior_glass" to = "materials/trento/povo/campus/exterior/glass.vmat" },
+                            { from = "campus_exterior_entry_glass" to = "materials/trento/povo/campus/exterior/entry_glass.vmat" },
+                            { from = "campus_exterior_dark" to = "materials/trento/povo/campus/exterior/dark.vmat" },
+                            { from = "campus_exterior_white" to = "materials/trento/povo/campus/exterior/white.vmat" },
+                            { from = "campus_exterior_residential_grey" to = "materials/trento/povo/campus/exterior/residential_grey.vmat" },
+                            { from = "campus_exterior_orange" to = "materials/trento/povo/campus/exterior/orange.vmat" },
+                            { from = "campus_exterior_car_blue" to = "materials/trento/povo/campus/exterior/car_blue.vmat" },
+                            { from = "campus_exterior_car_white" to = "materials/trento/povo/campus/exterior/car_white.vmat" },
+                            { from = "campus_exterior_car_red" to = "materials/trento/povo/campus/exterior/car_red.vmat" },
+                            { from = "campus_exterior_tree" to = "materials/trento/povo/campus/exterior/tree.vmat" },
+                            { from = "campus_exterior_trunk" to = "materials/trento/povo/campus/exterior/trunk.vmat" },
+                            { from = "campus_exterior_ridge" to = "materials/trento/povo/campus/exterior/ridge.vmat" },
+                            { from = "campus_exterior_tile" to = "materials/trento/povo/campus/exterior/tile.vmat" },
+                            { from = "campus_exterior_grout" to = "materials/trento/povo/campus/exterior/grout.vmat" },
+                            { from = "campus_exterior_light" to = "materials/trento/povo/campus/exterior/light.vmat" },
+							{
+								from = "terrain_reference"
+								to = "materials/trento/povo/terrain_reference.vmat"
+							},
+							{
+								from = "building_mass"
+								to = "materials/trento/povo/building_blockout.vmat"
+							},
+							{
+								from = "gameplay_cover"
+								to = "materials/trento/povo/gameplay_cover.vmat"
+							},
+							{
+								from = "gameplay_boundary"
+								to = "materials/trento/povo/gameplay_boundary.vmat"
+							},
+							{
+								from = "calibration"
+								to = "materials/trento/povo/calibration.vmat"
+							},
+							{
+								from = "facade_glazing"
+								to = "materials/trento/povo/facade_glazing.vmat"
+							},
+							{
+								from = "facade_frame"
+								to = "materials/trento/povo/facade_frame.vmat"
+							},
+							{
+								from = "facade_stone"
+								to = "materials/trento/povo/facade_stone.vmat"
+							},
+							{
+								from = "facade_dark"
+								to = "materials/trento/povo/facade_dark.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "PhysicsShapeList"
+				children =
+				[
+					{
+						_class = "PhysicsMeshFile"
+						name = "povo1_campus_collision"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid"
+						recenter_on_parent_bone = false
+						offset_origin = [ 0.0, 0.0, 0.0 ]
+						offset_angles = [ 0.0, 0.0, 0.0 ]
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						filename = "models/povo/povo1_campus_collision.obj"
+						import_scale = 39.37007874
+						maxMeshVertices = 0
+						qemError = 0.0
+						import_filter =
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+				leave_body_collision_unmodified = false
+			},
+			{
+				_class = "RenderMeshList"
+				children =
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "povo1_campus"
+						filename = "models/povo/povo1_campus.obj"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 39.37007874
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter =
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		document_sub_type = "ModelDocSubType_None"
+	}
+}
+
