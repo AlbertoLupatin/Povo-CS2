@@ -1,12 +1,10 @@
-# Real-World Trento FPS Map
+# Povo-CS2
 
-A recognizable Trento environment as a **playable multiplayer map for Counter-Strike 2**.
-CS2 supplies movement, weapons, combat and multiplayer; this repository holds the
-reproducible source, data pipeline and build tooling for the `trento_povo` addon.
-
-**First map: Polo Ferrari (Povo campus, University of Trento)** — Povo 1, Povo 2,
-the bridge between them, and the surrounding roads, car park and garage, built from
-open geographic data and original photography.
+A playable **Counter-Strike 2 map of the Polo Ferrari buildings at Povo
+(University of Trento)**: **Povo 1 and Povo 2**, the bridge between them, and their
+immediate surroundings. CS2 supplies movement, weapons, combat and multiplayer;
+this repository holds the reproducible source, data pipeline and build tooling for
+the `trento_povo` addon, built from open geographic data and original photography.
 
 ## What's in the map
 
@@ -24,9 +22,6 @@ checks passing in the CS2 engine. Interiors are reconstructed from public floor 
 and photographs, so room dimensions and seat counts are estimates, and surfaces are
 blockout-level art rather than final textures. Balance and large-match testing are
 still open; see [the worklog](docs/WORKLOG.md) for evidence and remaining gates.
-
-Later scope: separate Mesiano and central-Trento maps (Mesiano terrain data is
-included but only partly covers that campus).
 
 ## Build it
 
