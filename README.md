@@ -62,6 +62,7 @@ Area write-ups: [architecture](docs/POVO_ARCHITECTURE.md),
 [interior study](docs/POVO_INTERIOR_STUDY.md), [circulation](docs/POVO_CIRCULATION.md),
 [Povo 2](docs/POVO2_CONNECTION.md), [exterior](docs/POVO_EXTERIOR.md),
 [radar](docs/POVO_RADAR.md), [terrain tool](docs/TERRAIN_TOOL.md).
+[Publishing and hosting](docs/PUBLISH_AND_HOST.md) explains Workshop upload and playing with friends.
 [WINDOWS_RESUME.md](docs/WINDOWS_RESUME.md) is the detailed maintainer handoff log.
 
 ## Data policy and licensing
