@@ -1353,5 +1353,18 @@ all seven shared contact surfaces and both winter contact surfaces. Evidence:
 `build/gameplay/photo-additions/shared-surfaces.json` and `winter-surfaces.json`.
 Full compilation is recorded in `build/photo-additions-compile.log`.
 
-Map lighting, packaging and engine validation are in progress. Source checks
-and successful model compilation do not establish those later gates.
+The standard map compiles 534 resources with zero failures in 26m39s; navigation
+contains 13,245 areas. The native build still reports the previously observed
+missing stock `scripts/detail_prop_types.vdata_c` resource. The full package is
+60,083,066 bytes / 790 entries, SHA-256
+`c0e7071659332b8007520a7a11c79eea2a83933c674097d11a922a70277cc105`.
+All 790 entry CRCs, map/model/configuration presence and radar alignment pass.
+This is the package before any new engine cubemap bake. Independent verification:
+`build/gameplay/photo-additions/standard-package-check.json`.
+
+Winter compilation remains in progress. A standard engine test launch was
+refused because CS2 permits only one running instance. The existing instance
+contains an unsaved Workshop publishing draft from the separate multiplayer
+setup. Its observed fields are preserved at `build/workshop/preserved-draft.json`;
+confirmation has been requested before closing that form. No new engine walking,
+glass, automatic-door, ladder, visual or multiplayer result is claimed yet.
