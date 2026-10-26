@@ -130,6 +130,26 @@ class AutoDoorTests(unittest.TestCase):
 
 
 class LadderTests(unittest.TestCase):
+    def test_lift_ladders_clear_the_standing_player_at_every_floor_ledge(self):
+        from tools.build_povo_campus import collision_boxes
+        _, _, boxes, levels, _ = build_geometry(ROOT)
+        physics = collision_boxes(boxes)
+        ladders = (levels[0]['elevator']['ladder'],
+                   levels[1]['connection']['povo2']['lift']['ladder'])
+        for lo, hi in ladders:
+            axis = min(range(2), key=lambda i: hi[i] - lo[i])
+            centre = [(a + b) / 2 for a, b in zip(lo, hi)]
+            # The engine holds the standing hull just outside the climb face.
+            # The native Povo 1 check measured a 0.4072 m centre offset.
+            centre[axis] = hi[axis] + .4072
+            for step in range(round((7.6 - lo[2]) / .1) + 1):
+                z = lo[2] + step * .1
+                hits = [name for name, a, b, _ in physics
+                        if all(a[i] < centre[i] + .41 and b[i] > centre[i] - .41
+                               for i in range(2))
+                        and b[2] > z + .02 and a[2] < z + 1.85]
+                self.assertEqual(hits, [], (lo, z, hits))
+
     def test_lift_shaft_ladder_is_a_world_mesh_with_the_ladder_material(self):
         corners = ',\n'.join(f'"{x} {y} {z}"' for x in (-1, 1) for y in (-1, 1) for z in (-1, 1))
         volume = f'''"CMapMesh"

@@ -317,7 +317,9 @@ def elevator_shaft(boxes, levels, settings, config):
         h=z0+.25+i*.28
         add(f'ladder_finish_rung_{i}',(wall+.1,a,h),(wall+.14,b,h+.035),'metal_dark')
     centre=[(inner[0]+inner[2])/2,y]
-    return result,dict(room=spec['room'],shaft=spec['shaft'],ladder=[[wall,a,z0],[wall+.2,b,z1+.4]],
+    # A 0.2 m tool volume held the standing hull under the upper ledge.
+    # Its front face must stay close to the visible rungs for full headroom.
+    return result,dict(room=spec['room'],shaft=spec['shaft'],ladder=[[wall,a,z0],[wall+.12,b,z1+.4]],
                        lights=[[*centre,z0+2.6],[*centre,z1+2.6]],
                        sign=[x1+.22,y,z1+2.44],
                        stations=dict(ground=[ledge-.2,y],first=[(ledge+inner[2])/2,y]))

@@ -197,7 +197,8 @@ def lift(boxes, spec, link):
         h=zb+.25+i*.28
         result.append((f'p2_lift_ladder_finish_rung_{i}',(a,wall+.1,h),(b,wall+.14,h+.035),'metal_dark'))
     mid=(inner[1]+inner[3])/2
-    spec['lift']=dict(shaft=lift['shaft'],ladder=[[a,wall,zb],[b,wall+.2,zu+.4]])
+    # Keep the attached player's standing hull clear of both floor ledges.
+    spec['lift']=dict(shaft=lift['shaft'],ladder=[[a,wall,zb],[b,wall+.12,zu+.4]])
     spec['lights'].extend([[cx,mid,z+2.6] for z in (zb,zg,zu)])
     for level in spec['levels']:
         if level['floor']==0:level['audit_stations'].append(dict(id='lift_ledge',point=[cx,(ledge+inner[3])/2]))

@@ -51,6 +51,11 @@ def extend(root,settings,config,boxes,levels,stair):
               ((16.3,-6.7,.1),(20.2,26.2,3.77)),
               ((4.8,-6.7,.1),(20.2,-3.3,3.77)),
               ((6.8,13.8,-3.5),(16.7,26.2,11.2))]
+    lift=levels[1]['connection']['povo2'].get('lift')
+    if lift:
+        a,b,c,d=lift['shaft']
+        # The later exterior apron must not fill the basement lift shaft.
+        occupied.append(((a,b,.1),(c,d,11.2)))
     ext_kept=[]
     for item in ext:
         n,lo,hi,m=item

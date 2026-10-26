@@ -4675,7 +4675,7 @@
             4.0
           ],
           [
-            10.499999999999998,
+            10.419999999999998,
             -67.85000000000001,
             8.000000000000023
           ]
@@ -40884,7 +40884,7 @@
               ],
               [
                 21.55,
-                17.5,
+                17.42,
                 8.0
               ]
             ]
@@ -43463,8 +43463,8 @@
       ]
     }
   },
-  "visual_boxes": 24384,
-  "collision_boxes": 8466,
+  "visual_boxes": 24387,
+  "collision_boxes": 8469,
   "breakable_glass": [
     {
       "name": "academic_ground_court_0_0_tail_material1_windowcut_0_windowcut_0_glass",
@@ -49333,7 +49333,7 @@
         4.0
       ],
       [
-        10.499999999999998,
+        10.419999999999998,
         -67.85000000000001,
         8.000000000000023
       ]
@@ -50036,7 +50036,7 @@
     },
     "concrete": {
       "file": "povo1_campus_collision_concrete.obj",
-      "boxes": 2286,
+      "boxes": 2289,
       "meshes": 46
     },
     "glass": {
@@ -80763,7 +80763,7 @@
           ],
           [
             21.55,
-            17.5,
+            17.42,
             8.0
           ]
         ]
@@ -85198,7 +85198,7 @@
         ],
         [
           21.55,
-          17.5,
+          17.42,
           8.0
         ]
       ]
@@ -85578,10 +85578,10 @@
     }
   },
   "artifacts": {
-    "povo1_campus.obj": "8f0e78527ef7faec6845e2415448b1da3157669bead3ce25094ddd457bda927a",
-    "povo1_campus_collision.obj": "92e72618349f7f574d1b07ff77ce49a151386688021b6adcc3e0ea117d6fdf60",
+    "povo1_campus.obj": "d090b16ad3e9934ef1f9ec191656dc9b314b724e8ed262edee0bf2430411c476",
+    "povo1_campus_collision.obj": "627ae467b64dea51050086593452ba06cd2d1bfcc4f05ce73a70aaab120e0d83",
     "povo1_campus_collision_asphalt.obj": "fdc24e818eb374f28f94f8afeea036ca98600268358b8c1f42b442f5cc212079",
-    "povo1_campus_collision_concrete.obj": "960dde0abc66adaf57fd46584791d5c385511368af59ccddbb665499f22be529",
+    "povo1_campus_collision_concrete.obj": "5b222290fd6e239d380cb8ecbdb859032a226845bfb35c57b70ae2511fefab7d",
     "povo1_campus_collision_glass.obj": "e870548a61fe3f9060c8e96e2c3e85a856253c84c91dbd013e7d08960943cf3a",
     "povo1_campus_collision_grass.obj": "1824ad650f50161ed1c301477c1009088bbac2cb6a4eb89a1d1aabbcd98a38cf",
     "povo1_campus_collision_metal.obj": "3c3c5909e1cad89b2224d2f58e8d7204fd4e87cdd8e4c1791276163ce250f788",
