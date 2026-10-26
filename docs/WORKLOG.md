@@ -1069,3 +1069,29 @@ Povo 1's entrance is an open doorway with no doors, so it is unchanged.
 
 The audits still use the parked-open leaves, so walking clearance is unchanged.
 140 tests and all audits pass on Linux. Windows checks: docs/TODO.md.
+
+
+## 26 October 2026 — Povo 1 sliding entrance, photo-matched stairs (source only)
+
+Povo 1's 2.2 m entrance is now one Povo 2 style automatic sliding bank
+(3.6 m wide, 1.8 m clear, two leaves over fixed sidelights) at the east wall.
+The bank builder is shared (`door_bank` in tools/povo2_exterior_entrance.py),
+so the library and canteen can reuse it once their interiors exist. Map step:
+285 breakable panes, 30 `func_door` parts, 5 sensors, 10 I/O rows.
+
+Stairs, after photos 38/39/47-49 (Povo 1) and 64-66/4-8 (Povo 2): both were
+small islands in oversized stairwells. Each now has two flights side by side,
+each half the well width (Povo 1 about 3.9 m in its 8 m well; Povo 2 3.0 m),
+a 0.3 m well between them and full-width floor and mid landings. Povo 1 flights
+and its mid landing are solid to the floor. Povo 2 keeps its enclosure; two new
+partitions cut the well to 6.3 m and close the unused ends, and its
+lower-floor copies cut their shafts from the shared `shaft` instead of fixed
+coordinates.
+
+Railings follow the photos: a sloped top handrail over six horizontal bars,
+posts about every 1.2 m, and wall handrails on the outer sides. The rails and
+bars are sheared faces (`tools/povo_stairs.py`) instead of per-tread boxes,
+which is why the old handrails showed as a few separate rectangles. Collision is
+a stepped `_clip_` panel that render_obj() leaves out of the visible model.
+
+140 tests and all three audits pass on Linux. Windows checks: docs/TODO.md.

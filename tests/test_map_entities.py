@@ -93,9 +93,10 @@ class BreakableGlassEntityTests(unittest.TestCase):
 
 
 class AutoDoorTests(unittest.TestCase):
-    def test_povo2_banks_close_over_their_openings_and_slide_apart(self):
+    def test_entrance_banks_close_over_their_openings_and_slide_apart(self):
         doors, rest = split_auto_doors(build_geometry(ROOT)[2])
-        self.assertEqual(len(doors), 4)
+        self.assertEqual([d['name'] for d in doors], ['p1_entry_bank_0', 'p2_entry_inner_bank_0', 'p2_entry_inner_bank_1',
+                                                      'p2_entry_outer_bank_0', 'p2_entry_outer_bank_1'])
         self.assertFalse(any('_parked_leaf' in b[0] or '_leaf_bottom_' in b[0] for b in rest))
         for door in doors:
             self.assertEqual(len(door['parts']), 6)

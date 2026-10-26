@@ -19,6 +19,7 @@ try:
     from .povo2_planimetry import extend as extend_povo2, COLORS as POVO2_COLORS
     from .povo2_integration import extend as integrate_povo2
     from .povo_interior_fixtures import reception_boxes, restroom_boxes, campus_staff_meshes, COLORS as FIXTURE_COLORS
+    from .povo_stairs import railing, wall_handrail, mirrored, rail_faces
     from .povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
 except ImportError:
     import build_povo_interior as interior
@@ -29,6 +30,7 @@ except ImportError:
     from povo2_planimetry import extend as extend_povo2, COLORS as POVO2_COLORS
     from povo2_integration import extend as integrate_povo2
     from povo_interior_fixtures import reception_boxes, restroom_boxes, campus_staff_meshes, COLORS as FIXTURE_COLORS
+    from povo_stairs import railing, wall_handrail, mirrored, rail_faces
     from povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -121,20 +123,27 @@ def stairs_and_roof(boxes, levels, settings, config, origin):
     """Add a real switchback stair, close unused voids, and seal both ceilings."""
     boxes = list(boxes)
     z0, z1 = [level['floor_elevation_metres'] - origin[2] for level in levels]
-    hole = levels[1]['voids_local_metres'][3]  # registered southeast opening
-    x0, y0, x1, y1 = hole
     stair = settings['stairs']
     count = stair['risers']
     if count < 4 or count % 2:
         raise ValueError('Switchback stairs require an even positive riser count')
     rise = (z1-z0)/count
     half = count//2
-    width, tread, landing = (stair[k] for k in ('flight_width_metres','tread_metres','landing_metres'))
-    gap = .22
+    tread = stair['tread_metres']
     run = half*tread
-    used = (x0,y0,x0+2*width+gap,y0+run+landing)
-    if used[2] > x1 or used[3] > y1 or rise > .25:
-        raise ValueError('Stair flights do not fit the registered opening')
+    # Photos 38/39/47-49: two flights side by side each fill half the stairwell
+    # width, with full-width landings at the floors and at mid-height.
+    ex0,ey0,ex1,ey1 = stair['enclosure_bounds_local_metres']
+    t = config['wall_thickness_metres']
+    xi0, xi1, yi0, yi1 = ex0+t/2, ex1-.09, ey0+t/2, ey1-t/2
+    gap = .3
+    width = (xi1-xi0-gap)/2
+    # The floor landing clears both portals; flight 1 starts just beyond them.
+    start = stair['door_centre_north_metres']+stair['door_width_metres']/2+.2
+    x0, y0 = xi0, start
+    used = (ex0, start, ex1, ey1)
+    if start+run > yi1-1.2 or rise > .25:
+        raise ValueError('Stair flights do not fit the enclosure')
     def add(name, lo, hi, mat): boxes.append((name, tuple(lo), tuple(hi), mat))
     instances=(('se',False,False),('sw',True,False),('ne',False,True),('nw',True,True))
     voids=[mirror_rectangle(used,e,n) for _id,e,n in instances]
@@ -145,31 +154,30 @@ def stairs_and_roof(boxes, levels, settings, config, origin):
     levels[1]['voids_local_metres']=[courtyard,*voids]
     for i,rect in enumerate(interior.subtract_rectangles((-23.,-103.,24.,-20.),[courtyard,*voids])):
         add(f'academic_first_slab_{i:03d}',(rect[0],rect[1],z1-.22),(rect[2],rect[3],z1),'floor_room')
+    mid = z0+(z1-z0)/2
+    a = x0+width+gap
+    # Solid to the floor: no low headroom pockets under the flights or landing.
     for i in range(half):
         top = z0+(i+1)*rise
-        add(f'stair_se_flight1_{i}', (x0,y0+i*tread,top-.18),
+        add(f'stair_se_flight1_{i}', (x0,y0+i*tread,z0),
             (x0+width,y0+(i+1)*tread,top),'stair_red')
         add(f'stair_se_nosing1_{i}', (x0,y0+i*tread,top-.018),
             (x0+width,y0+i*tread+.035,top+.002),'stair_nosing')
         top = z0+(half+i+1)*rise
-        a = x0+width+gap
-        add(f'stair_se_flight2_{i}', (a,y0+run-(i+1)*tread,top-.18),
+        add(f'stair_se_flight2_{i}', (a,y0+run-(i+1)*tread,z0),
             (a+width,y0+run-i*tread,top),'stair_red')
         add(f'stair_se_nosing2_{i}', (a,y0+run-i*tread-.035,top-.018),
             (a+width,y0+run-i*tread,top+.002),'stair_nosing')
-    add('stair_se_half_landing',(x0,y0+run,z0+(z1-z0)/2-.18),(used[2],used[3],z0+(z1-z0)/2),'stair_red')
-    # Outer barriers prevent falls; the two ends facing the landing remain open.
-    for side, x in (('west',x0-.045),('east',used[2]+.005)):
-        for i in range(half+1):
-            z = z0 + min(i,half)*rise if side == 'west' else z1-min(i,half)*rise
-            y = y0+i*tread
-            add(f'stair_se_rail_{side}_{i}',(x,y,z+.03),(x+.04,y+.04,z+1.05),'metal_dark')
-        for i in range(half):
-            z = z0+i*rise if side == 'west' else z1-i*rise
-            add(f'stair_se_handrail_{side}_{i}',(x,y0+i*tread,z+1.01),
-                (x+.04,y0+(i+1)*tread+.04,z+1.06),'metal_dark')
-    add('stair_se_landing_guard',(x0,used[3]-.06,z0+1.8),
-        (used[2],used[3],z0+2.9),'window_glass')
+    add('stair_se_half_landing',(xi0,y0+run,z0),(xi1,yi1,mid),'stair_red')
+    # Railings line the narrow well between the flights, wrap its landing end,
+    # and guard the upper landing edge; wall handrails run on the outer sides.
+    rails=[]
+    railing(add,rails,'stair_se_well_1',(x0+width,y0,z0),(x0+width,y0+run,mid))
+    railing(add,rails,'stair_se_well_2',(a,y0+run,mid),(a,y0,z1))
+    railing(add,rails,'stair_se_well_end',(x0+width,y0+run,mid),(a,y0+run,mid),posts=False)
+    railing(add,rails,'stair_se_upper_edge',(xi0,y0,z1),(a,y0,z1))
+    wall_handrail(rails,'stair_se_wall_1',(xi0+.06,y0,z0),(xi0+.06,y0+run,mid))
+    wall_handrail(rails,'stair_se_wall_2',(xi1-.06,y0+run,mid),(xi1-.06,y0,z1))
     prototype=[b for b in boxes if b[0].startswith('stair_se_')]
     for identifier,e,n in instances[1:]:
         boxes.extend(mirror_box(b,identifier,e,n) for b in prototype)
@@ -186,7 +194,7 @@ def stairs_and_roof(boxes, levels, settings, config, origin):
                       tread_metres=tread, flight_width_metres=width, void=list(used),
                       bottom=[x0+width/2,y0-.65,z0],
                       top=[x0+width+gap+width/2,y0-.65,z1],
-                      mid=[(x0+used[2])/2,y0+run+landing/2,z0+(z1-z0)/2])
+                      mid=[(xi0+xi1)/2,(y0+run+yi1)/2,mid])
     names={'se':'stair_southeast','sw':'stair_southwest','ne':'stair_northeast','nw':'stair_northwest'}
     cores=[]
     for identifier,e,n in instances:
@@ -194,6 +202,7 @@ def stairs_and_roof(boxes, levels, settings, config, origin):
         core.update(id=identifier,core=names[identifier],mirror_east=e,mirror_north=n,
                     void=list(mirror_rectangle(used,e,n)))
         for key in ('bottom','top','mid'):core[key]=list(mirror_point(seed[key],e,n))
+        core['rails']=mirrored(rails,lambda p:mirror_point(p,e,n),lambda s:s.replace('stair_se_','stair_'+identifier+'_',1))
         cores.append(core)
     seed['cores']=cores
     return boxes,seed
@@ -527,11 +536,11 @@ def is_breakable_glass(box):
             and not any(t in name for t in UNBREAKABLE_GLASS))
 
 
-AUTO_DOOR_PART=re.compile(r'exterior_(p2_entry_(?:outer|inner)_bank_\d)_(parked_leaf|parked_leaf_band|leaf_bottom)_(-?1)$')
+AUTO_DOOR_PART=re.compile(r'exterior_(p[12]_entry_(?:outer_|inner_)?bank_\d)_(parked_leaf|parked_leaf_band|leaf_bottom)_(-?1)$')
 
 
 def split_auto_doors(boxes):
-    """Povo 2's sliding entrance leaves, moved from parked-open to closed.
+    """Povo 1 and Povo 2 sliding entrance leaves, moved from parked-open to closed.
 
     Each bank becomes one door name. Every leaf part slides by its own width
     toward the sidelight it parks over, which is how func_door measures travel.
@@ -554,6 +563,14 @@ def split_auto_doors(boxes):
     return doors,rest
 
 
+def all_rails(stair,levels):
+    rails=[r for core in stair['cores'] for r in core['rails']]
+    link=levels[1].get('connection',{})
+    rails+=link.get('stair',{}).get('rails',[])
+    rails+=link.get('povo2',{}).get('stairs',{}).get('rails',[])
+    return rails
+
+
 def export(root=ROOT):
     settings, config, boxes, levels, stair = build_geometry(root)
     # Doors and breakable panes become separate map entities, so leave them out
@@ -569,7 +586,7 @@ def export(root=ROOT):
     output=root/'exports/povo_campus';output.mkdir(parents=True,exist_ok=True)
     scenery=backdrop_mesh(root)
     if exterior:scenery=exterior_backdrop(scenery)
-    (output/'povo1_campus.obj').write_text(render_obj(boxes,[*scenery,*campus_staff_meshes(levels),*mesh_faces(exterior)],stair=stair),encoding='utf-8')
+    (output/'povo1_campus.obj').write_text(render_obj(boxes,[*scenery,*campus_staff_meshes(levels),*mesh_faces(exterior),*rail_faces(all_rails(stair,levels))]),encoding='utf-8')
     collision=io.StringIO();collision.write('o povo1_campus_collision\n');ci=0;collision_count=0
     last_material=None
     physics=collision_boxes(boxes)
@@ -623,7 +640,7 @@ def export(root=ROOT):
     return metadata
 
 
-def render_obj(boxes,backdrop,*,stair=None):
+def render_obj(boxes,backdrop):
     """Write indexed attributes before faces, with explicit flat normals.
 
     Repeating vertices between individual terrain faces makes the native OBJ
@@ -648,17 +665,12 @@ def render_obj(boxes,backdrop,*,stair=None):
         groups.setdefault((group,material),[]).append('f '+' '.join(refs)+'\n')
     for name,material,points,texcoords in backdrop:
         face('backdrop_'+name,material,points,texcoords)
-    for number,(name,lo,hi,material) in enumerate(sorted(boxes,key=lambda b:b[3])):
+    # Railing collision panels are physics only; see povo_stairs.railing().
+    for number,(name,lo,hi,material) in enumerate(sorted((b for b in boxes if '_clip_' not in b[0]),key=lambda b:b[3])):
         part=io.StringIO();write_box(part,name,lo,hi,0,material);points=[]
         for line in part.getvalue().splitlines():
             if line.startswith('v '):
                 point=tuple(map(float,line.split()[1:]))
-                rail=re.match(r'stair_(se|sw|ne|nw)_handrail_',name)
-                if stair is not None and rail:
-                    core=next(c for c in stair['cores'] if c['id']==rail[1])
-                    slope=stair['rise_metres']/stair['tread_metres'] * (1 if '_west_' in name else -1)
-                    distance=hi[1]-point[1] if core['mirror_north'] else point[1]-lo[1]
-                    point=(point[0],point[1],point[2]+slope*distance)
                 if 'bridge_finish_brace_' in name:
                     height=2.95
                     distance=(point[1]-lo[1])/(hi[1]-lo[1])

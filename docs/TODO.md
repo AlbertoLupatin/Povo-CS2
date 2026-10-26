@@ -3,21 +3,21 @@
 Open actions, most urgent first. Tick them off here and record evidence in
 [WORKLOG.md](WORKLOG.md).
 
-## Windows: verify the breakable glass and automatic doors
+## Windows: verify the breakable glass, automatic doors and stairs
 
-Both changes are source-only: tested on Linux, never compiled or played.
+All three are source-only: tested on Linux, never compiled or played.
 
 - [ ] Pull `main`, then build: `python tools/cs2_campus.py`. Expect zero compile
       failures, then a package that passes `python tools/verify_cs2_package.py`.
-- [ ] Hammer opens `trento_povo_campus.vmap` without errors and shows 287
-      `func_breakable`, 24 `func_door` and 4 `trigger_multiple` entities.
+- [ ] Hammer opens `trento_povo_campus.vmap` without errors and shows 285
+      `func_breakable`, 30 `func_door` and 5 `trigger_multiple` entities.
 - [ ] Glass: shoot one pane of each kind (room window, courtyard, stair, bridge,
       Povo 2 entrance sidelight, canopy, library/canteen wing). Each breaks with
       one bullet and plays glass gibs and sound.
 - [ ] Glass: check the `glass01` texture scale on the panes, and lighting where
       glass used to be part of the baked model.
 - [ ] Glass: the library/canteen wings show their dark core through broken panes.
-- [ ] Doors: all four Povo 2 entrance banks (two outer, two inner) start closed,
+- [ ] Doors: the Povo 1 entrance bank and all four Povo 2 banks (two outer, two inner) start closed,
       slide open about 2 m before you reach them, and close once nobody is near.
 - [ ] Doors: the leaves slide over the sidelights without clipping the frames,
       and a player standing in the doorway is not trapped.
@@ -25,7 +25,12 @@ Both changes are source-only: tested on Linux, never compiled or played.
       in a loaded solo session); both door banks must still pass.
 - [ ] Bots: they don't path through intact windows, and they get through the
       entrance doors (touching a door also opens it).
-- [ ] Performance: frame rate with about 315 extra entities stays acceptable.
+- [ ] Stairs: walk up and down all four Povo 1 cores and the Povo 2 stair
+      (upper floor to -2). Flights fill the well, the mid landing spans it, and
+      nothing snags at the top, bottom or turn.
+- [ ] Stairs: railings show as continuous sloped handrails with bars (no
+      floating rectangles) and stop you falling into the well.
+- [ ] Performance: frame rate with about 320 extra entities stays acceptable.
 - [ ] Update the README build figures (package size, test count) after a good build.
 
 ## Release gates still open
@@ -40,5 +45,7 @@ Both changes are source-only: tested on Linux, never compiled or played.
 
 ## Next content
 
-- [ ] Model the library and canteen interiors in front of Povo 1, then remove
-      their placeholder cores (`_core` boxes in `tools/build_povo_exterior.py`).
+- [ ] Model the library and canteen interiors in front of Povo 1 from
+      [LIBRARY_CANTEEN_BRIEF.md](LIBRARY_CANTEEN_BRIEF.md) once photos arrive,
+      add their sliding entrances with `door_bank`, then remove the
+      placeholder cores (`_core` boxes in `tools/build_povo_exterior.py`).

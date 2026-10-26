@@ -4,9 +4,11 @@ import copy
 try:
     from .povo2_planimetry import build as build_draft
     from .povo_room_fitout import subtract_box
+    from .povo_stairs import shifted
 except ImportError:
     from povo2_planimetry import build as build_draft
     from povo_room_fitout import subtract_box
+    from povo_stairs import shifted
 
 
 def point(p, floor=0):
@@ -68,14 +70,17 @@ def extend(boxes, levels, root, wall_height):
             boxes[i]=(name,(lo[0],lo[1],hi[2]-.16),hi,mat)
         if name.startswith('academic_first_link_p2_stair_') and not any(s in name for s in ('_wall_','_upper_door_','_lower_door_','_panic_','_frame_','_finish_sign')):
             prototype.append(boxes[i])
-    paths=[]
+    paths=[];rails=[]
     for lower,zshift in ((-1,-3.6),(-2,-7.2)):
         for name,lo,hi,mat in prototype:
-            if name.endswith(('_guard_east','_guard_cap_east')):continue
+            # The upper opening's east guard would block the next flight's arrival.
+            if '_guard_east' in name:continue
             add('p2_extended_'+str(lower)+'_'+name.replace('academic_first_link_p2_stair_',''),
                 (lo[0],lo[1],lo[2]+zshift),(hi[0],hi[1],hi[2]+zshift),mat)
         paths.append(dict(lower_floor=lower,points=[list((x,y,z+zshift)) for x,y,z in
             [compact['top'],*compact['path'],compact['bottom']]]))
+        rails.extend(shifted([r for r in compact['rails'] if '_guard_east' not in r['name']],zshift,
+            lambda n:'p2_extended_'+str(lower)+'_'+n.replace('academic_first_link_p2_stair_','')))
     # Extend the enclosure below ground; the roof and the whole upper arrival
     # are the already verified compact geometry.
     for side,lo,hi in (('west',(a-.1,b,-3.2),(a+.1,d,4)),
@@ -98,8 +103,9 @@ def extend(boxes, levels, root, wall_height):
             add(prefix+'_core_threshold',(16.3,21.175,z-.22),(17.5,22.825,z),'floor_p2_tile')
     # Shaft openings at ground and -1, retaining the unobstructed top/bottom
     # landings on the east side of the stair. Parking closes the bottom well.
+    (sx0,sy0,_),(sx1,sy1,_)=compact['shaft']
     for z in (4,.4):
-        hole=((9.7,18.5,z-.3),(14.3,22.82,z+.01))
+        hole=((sx0,sy0,z-.3),(sx1,sy1,z+.01))
         def opening(box):
             n,lo,hi,m=box
             plate=m.startswith('floor_') and '_step_' not in n and abs(hi[2]-z)<.02
@@ -121,9 +127,9 @@ def extend(boxes, levels, root, wall_height):
                 room['board_wall']='south';room['door_y']=61.5-room['door_y']
     # Ground config room records and level records share objects after deepcopy.
     spec['stairs']=dict(bounds=core,portals=portals,path=paths,risers_per_storey=20,
-                        flight_width=2.0,tread=.3,door_y=22,door_width=1.65)
+                        flight_width=compact['width'],tread=.3,door_y=22,door_width=1.65,rails=rails)
     spec['lights']=[list(point(p,-1 if abs(p[2]-3.3)<.1 else 0)) for p in spec['lights'] if p[2]<9]
-    spec['lights'].extend([[11,20.6,1.4],[11,20.6,-2.2]])
+    spec['lights'].extend([[9.15,21,1.4],[9.15,21,-2.2]])
     spec['ground']['reception_front_sign']=[20.63,32.5,6.5]
     link['povo2']=spec;link['ground']['integrated']=True
     return boxes+added

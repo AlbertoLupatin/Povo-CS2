@@ -18,8 +18,8 @@
         34.5,
         51.5
       ],
-      "walkable_cells": 93431,
-      "reachable_cells": 93019,
+      "walkable_cells": 91356,
+      "reachable_cells": 87884,
       "stations": [
         {
           "id": "stair_approach",
@@ -113,8 +113,8 @@
         31.5,
         26.0
       ],
-      "walkable_cells": 16277,
-      "reachable_cells": 16277,
+      "walkable_cells": 13665,
+      "reachable_cells": 10605,
       "stations": [
         {
           "id": "stair_approach",
@@ -208,8 +208,8 @@
         38.0,
         71.5
       ],
-      "walkable_cells": 92411,
-      "reachable_cells": 80974,
+      "walkable_cells": 89799,
+      "reachable_cells": 75302,
       "stations": [
         {
           "id": "entrance",

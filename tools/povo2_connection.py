@@ -5,8 +5,10 @@ import math
 
 try:
     from .povo_room_fitout import subtract_box
+    from .povo_stairs import railing, wall_handrail
 except ImportError:
     from povo_room_fitout import subtract_box
+    from povo_stairs import railing, wall_handrail
 
 
 def extend_campus(boxes, levels, root, wall_height):
@@ -60,15 +62,20 @@ def extend_campus(boxes, levels, root, wall_height):
     wall('p2_east_corridor',(19.9,14),(20.1,26))
     wall('p2_north_end',(16.5,25.9),(20,26.1))
     cut(((16.5,9.7,z-.01),(20,10.3,z+2.8)))
-    # Former W1 becomes a full-height enclosed switchback stairwell.
+    # Former W1 becomes a full-height enclosed switchback stairwell. As in
+    # photos 64-66 and 4-8, two 3 m flights side by side fill its width and the
+    # mid landing spans it; partitions close the rest of the old enclosure.
     ground=4.0; mid=(ground+z)/2; rise=(z-ground)/20; tread=.3
-    shaft=((9.7,18.5,z-.23),(14.2,22.72,z+.02))
+    south,north,gap=17.85,24.15,.3;split=(south+north)/2
+    shaft=((7.1,south,z-.23),(14.2,north,z+.02))
     cut(shaft,('floor_circulation',))
     for name,a,b in [('west',(6.9,14),(7.1,26)),
                      ('south',(7,13.9),(16.5,14.1)),
                      ('north',(7,25.9),(16.5,26.1)),
                      ('east',(16.4,14),(16.6,26))]:
         add('p2_stair_wall_'+name,(*a,ground),(*b,top))
+    add('p2_stair_partition_south',(7.1,south-.1,ground),(16.4,south,top))
+    add('p2_stair_partition_north',(7.1,north,ground),(16.4,north+.1,top))
     # Independent lower floor/vestibule; the rest of Povo 2 stays closed.
     boxes.append(('p2_compact_ground_slab',(7,14,ground-.22),(20,26,ground),'floor_circulation'))
     for name,a,b in [('east',(19.9,14),(20.1,26)),
@@ -77,30 +84,28 @@ def extend_campus(boxes, levels, root, wall_height):
         add('p2_lower_wall_'+name,(*a,ground),(*b,z-.22))
     add('p2_lower_ceiling',(16.5,14,z-.28),(20,26,z-.22),'ceiling_panel')
     # Upper landing -> westbound flight -> landing -> eastbound flight -> lower landing.
-    add('p2_stair_middle_landing',(9.7,18.5,mid-.22),(11.2,22.72,mid),'floor_p2_tile')
+    up0,up1,lo0,lo1=south,split-gap/2,split+gap/2,north
+    add('p2_stair_middle_landing',(7.1,south,mid-.22),(11.2,north,mid),'floor_p2_tile')
     path=[]
     for i in range(10):
         x0=14.2-(i+1)*tread; h=z-(i+1)*rise
-        add('p2_stair_upper_step_'+str(i),(x0,18.5,ground),(x0+tread,20.5,h),'floor_p2_tile')
-        path.append([x0+tread/2,19.5,h])
-    path.extend([[10.45,19.5,mid],[10.45,21.72,mid]])
+        add('p2_stair_upper_step_'+str(i),(x0,up0,ground),(x0+tread,up1,h),'floor_p2_tile')
+        path.append([x0+tread/2,(up0+up1)/2,h])
+    path.extend([[9.15,(up0+up1)/2,mid],[9.15,(lo0+lo1)/2,mid]])
     for i in range(10):
         x0=11.2+i*tread; h=mid-(i+1)*rise
-        add('p2_stair_lower_step_'+str(i),(x0,20.72,ground-.02),(x0+tread,22.72,h),'floor_p2_tile')
-        path.append([x0+tread/2,21.72,h])
-    # Solid low guards also provide reliable collision at the upper floor opening.
-    for name,a,b in [('south',(9.65,18.4),(14.2,18.5)),
-                     ('north',(9.65,22.72),(14.25,22.82)),
-                     ('west',(9.6,18.5),(9.7,22.72)),
-                     ('east',(14.2,20.5),(14.3,22.72))]:
-        add('p2_stair_guard_'+name,(*a,z),(*b,z+1.05),'window_frame')
-        add('p2_stair_guard_cap_'+name,(*a,z+1.05),(*b,z+1.1),'metal_dark')
-    # Step-following handrails on the outer edges, leaving both 2 m flights clear.
-    for flight,y0,reverse,base in [('upper',18.5,True,z),('lower',22.72,False,mid)]:
-        for i in range(10):
-            x0=14.2-(i+1)*tread if reverse else 11.2+i*tread
-            h=base-(i+1)*rise
-            add(f'p2_stair_handrail_{flight}_{i}',(x0,y0-.025,h+.95),(x0+tread,y0+.025,h+1.0),'metal_dark')
+        add('p2_stair_lower_step_'+str(i),(x0,lo0,ground-.02),(x0+tread,lo1,h),'floor_p2_tile')
+        path.append([x0+tread/2,(lo0+lo1)/2,h])
+    # Railings line the well, wrap its landing end and guard the upper opening;
+    # wall handrails run along the partitions.
+    rails=[]
+    railing(add,rails,'p2_stair_well_upper',(14.2,up1,z),(11.2,up1,mid))
+    railing(add,rails,'p2_stair_well_lower',(11.2,lo0,mid),(14.2,lo0,ground))
+    railing(add,rails,'p2_stair_well_end',(11.2,up1,mid),(11.2,lo0,mid),posts=False)
+    railing(add,rails,'p2_stair_guard_east',(14.2,up1,z),(14.2,lo1,z))
+    wall_handrail(rails,'p2_stair_wall_upper',(14.2,up0+.06,z),(11.2,up0+.06,mid))
+    wall_handrail(rails,'p2_stair_wall_lower',(11.2,lo1-.06,mid),(14.2,lo1-.06,ground))
+    rails=[dict(r,name='academic_first_link_'+r['name']) for r in rails]
     portals=[]
     for name,h,y in [('upper',z,20),('lower',ground,22)]:
         cut(((16.3,y-.825,h-.01),(16.7,y+.825,h+2.2)))
@@ -113,8 +118,8 @@ def extend_campus(boxes, levels, root, wall_height):
         add(f'p2_stair_{name}_finish_sign',(16.605,y-.55,h+2.36),(16.64,y+.55,h+2.66),'sign_blue')
         portals.append(dict(centre=[16.5,y,h],width=1.65,height=2.2))
     spec['stair']=dict(id='p2_compact',bounds=[7,14,16.5,26],shaft=[list(p) for p in shaft],
-        risers=20,rise=rise,tread=tread,width=2.0,bottom=[15.2,22,ground],
-        top=[15.2,20,z],middle=[10.45,20.61,mid],portals=portals,path=path)
+        risers=20,rise=rise,tread=tread,width=up1-up0,rails=rails,bottom=[15.2,22,ground],
+        top=[15.2,20,z],middle=[9.15,split,mid],portals=portals,path=path)
     spec['ground']=dict(id='p2_compact_ground',floor_elevation_local=ground,
         audit_stations=[dict(id='stair_bottom',point=[15.2,22]),
                         dict(id='lower_door_inside',point=[15.85,22]),
@@ -145,7 +150,7 @@ def extend_campus(boxes, levels, root, wall_height):
             for edge in (y,y+1.25):
                 add(f'{name}_bridge_door_{side}_edge_{edge}',(x-.05,edge,z+.05),(x+.05,edge+.05,z+2.65),'window_frame')
     spec['lights']=[(18.25,y,z+2.9) for y in (-31,-25,-18,-13,-8,-3,2,7,12,17,22,24.5)]
-    spec['lights'].extend([(10.5,12,z+2.9),(22.5,12,z+2.9),(11,16,z+2.9),
+    spec['lights'].extend([(10.5,12,z+2.9),(22.5,12,z+2.9),(11,19,z+2.9),
                            (11,24,z+2.9),(12,20.6,8.6),(18.25,22,6.85),(15.4,24,6.85)])
     # Fixtures follow each route and room light position.
     for i,(x,y,h) in enumerate(spec['lights']):

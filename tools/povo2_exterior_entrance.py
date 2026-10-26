@@ -9,6 +9,29 @@ except ImportError:
     from povo_room_fitout import subtract_box
 
 
+def door_bank(box,prefix,x,y,z,bank_width,clear_width,door_height):
+    """One sliding bank in the plane x, outside towards +x, leaves parked open.
+
+    The leaf parts (`_parked_leaf_`, `_parked_leaf_band_`, `_leaf_bottom_`)
+    become automatic doors in the CS2 map; see split_auto_doors().
+    """
+    half=bank_width/2;clear=clear_width/2;head=z+door_height
+    # A pair of sliding leaves rests over the fixed sidelights.
+    for sign in (-1,1):
+        lo,hi=(y-half,y-clear) if sign<0 else (y+clear,y+half)
+        for depth,label in ((-.07,'fixed'),(.035,'parked_leaf')):
+            box(f'{prefix}_{label}_{sign}',(x+depth,lo,z+.08),(x+depth+.025,hi,head-.06),'entry_glass')
+            box(f'{prefix}_{label}_band_{sign}',(x+depth-.004,lo,z+1.12),(x+depth+.03,hi,z+1.17),'white')
+        # Stops short of the sliding-leaf track (x+.03 to x+.07).
+        for yy in (lo,hi):
+            box(f'{prefix}_sash_{sign}_{yy}',(x-.08,yy-.023,z),(x+.025,yy+.023,head),'fence')
+        box(f'{prefix}_leaf_bottom_{sign}',(x+.03,lo,z+.035),(x+.07,hi,z+.085),'fence')
+    box(prefix+'_head',(x-.10,y-half-.05,head),(x+.12,y+half+.05,head+.13),'fence')
+    box(prefix+'_sensor',(x+.12,y-.13,head+.14),(x+.17,y+.13,head+.23),'dark')
+    box(prefix+'_mat',(x-.7,y-half,z+.005),(x+.7,y+half,z+.015),'dark')
+    return dict(centre=[x,y,z],clear_width=clear_width,height=door_height)
+
+
 def extend(boxes,spec,live_entrance):
     result=[];a,b,c,d=spec['lobby_bounds'];z=spec['floor_z'];height=spec['ceiling_height']
     hole=((a-.15,b,z-.015),(c,d,z+height))
@@ -42,22 +65,9 @@ def extend(boxes,spec,live_entrance):
     centre=spec['centre_y'];banks=[]
     for side,x in (('outer',spec['outer_x']),('inner',spec['inner_x'])):
         for index,offset in enumerate(spec['bank_offsets_y']):
-            y=centre+offset;half=spec['bank_width']/2;clear=spec['clear_width']/2;head=z+spec['door_height']
-            prefix=f'{side}_bank_{index}'
-            # A pair of sliding leaves rests over the fixed sidelights.
-            for sign in (-1,1):
-                lo,hi=(y-half,y-clear) if sign<0 else (y+clear,y+half)
-                for depth,label in ((-.07,'fixed'),(.035,'parked_leaf')):
-                    box(f'{prefix}_{label}_{sign}',(x+depth,lo,z+.08),(x+depth+.025,hi,head-.06),'entry_glass')
-                    box(f'{prefix}_{label}_band_{sign}',(x+depth-.004,lo,z+1.12),(x+depth+.03,hi,z+1.17),'white')
-                # Stops short of the sliding-leaf track (x+.03 to x+.07).
-                for yy in (lo,hi):
-                    box(f'{prefix}_sash_{sign}_{yy}',(x-.08,yy-.023,z),(x+.025,yy+.023,head),'fence')
-                box(f'{prefix}_leaf_bottom_{sign}',(x+.03,lo,z+.035),(x+.07,hi,z+.085),'fence')
-            box(prefix+'_head',(x-.10,y-half-.05,head),(x+.12,y+half+.05,head+.13),'fence')
-            box(prefix+'_sensor',(x+.12,y-.13,head+.14),(x+.17,y+.13,head+.23),'dark')
-            slab(prefix+'_mat',(x-.7,y-half,x+.7,y+half),z+.015,'dark',.01)
-            banks.append(dict(line=side,index=index,centre=[x,y,z],clear_width=spec['clear_width'],height=spec['door_height']))
+            bank=door_bank(box,f'{side}_bank_{index}',x,centre+offset,z,
+                           spec['bank_width'],spec['clear_width'],spec['door_height'])
+            banks.append(dict(bank,line=side,index=index))
         # Seal the rest of each door plane around the two real openings.
         low=centre+min(spec['bank_offsets_y'])-spec['bank_width']/2
         high=centre+max(spec['bank_offsets_y'])+spec['bank_width']/2

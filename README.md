@@ -11,12 +11,12 @@ the `trento_povo` addon, built from open geographic data and original photograph
 `trento_povo_campus` is the full campus map (`trento_povo` is the earlier compact
 outdoor arena, built from the same source).
 
-- **Povo 1:** two floors, ~60 furnished rooms (classrooms, labs, studios), four enclosed red stairs, courtyard glazing, reception, restrooms.
+- **Povo 1:** two floors, ~60 furnished rooms (classrooms, labs, studios), four enclosed red stairs (photo-matched side-by-side flights), courtyard glazing, reception, restrooms.
 - **Bridge** between Povo 2 floor 1 and Povo 1 floor 2, plus the Povo 2 entrance hall, table hall, B110–B114 rooms, stairs and basement parking.
 - **Exterior:** roads, surface lot, residential backdrop, straight ramp into the covered garage, terrain from real 0.5 m elevation data.
 - **Gameplay:** team starts, buy zones, bomb target, generated navigation and a radar with separate floors.
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
-- **Automatic doors:** the Povo 2 entrance banks slide open as players approach.
+- **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.
 
 Latest verified build (24 October 2026): zero compile failures, 44,979,765-byte VPK
 (344 entries, all CRCs pass), 135 source tests passing, and normal-walking route
