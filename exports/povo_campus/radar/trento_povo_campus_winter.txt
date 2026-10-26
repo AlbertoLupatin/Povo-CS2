@@ -1,0 +1,23 @@
+// Campus overview: upper, ground and optional Povo 2 basements.
+"trento_povo_campus_winter"
+{
+ "material" "overviews/trento_povo_campus_winter"
+ "pos_x" "-5118.110236200"
+ "pos_y" "3543.307086600"
+ "scale" "9.611835630"
+ "rotate" "0.000000000"
+ "zoom" "1.000000000"
+ "verticalsections"
+ {
+  "default" { "AltitudeMin" "228.34645669199998" "AltitudeMax" "10000" }
+  "lower" { "AltitudeMin" "86.614173228" "AltitudeMax" "228.34645669199998" }
+  "basement1" { "AltitudeMin" "-55.11811023599999" "AltitudeMax" "86.614173228" }
+  "basement2" { "AltitudeMin" "-10000" "AltitudeMax" "-55.11811023599999" }
+ }
+ "CTSpawn_x" "0.660800000"
+ "CTSpawn_y" "0.352000000"
+ "TSpawn_x" "0.812000000"
+ "TSpawn_y" "0.278000000"
+ "bombA_x" "0.750400000"
+ "bombA_y" "0.304160000"
+}

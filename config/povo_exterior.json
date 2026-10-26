@@ -2,65 +2,361 @@
   "title": "Povo exterior planimetry study",
   "status": "Approved exterior integrated with campus; prototype dimensions",
   "integration_enabled": true,
-  "origin": [666250, 5103800, 370],
+  "origin": [
+    666250,
+    5103800,
+    370
+  ],
   "coordinates": "Local metres: east +X, north +Y, up +Z; shared campus origin",
   "photo_directory": "data/reference/povo_photos/walk_2026-10-23/originals",
   "new_photos": [
-    {"file": "IMG_2364.JPEG", "alias": "bridge_road_east_portrait", "evidence": "Road below bridge, fences, footways, planting"},
-    {"file": "IMG_2365.JPEG", "alias": "bridge_road_east_wide", "evidence": "Both campus facades, bridge clearance and road section"},
-    {"file": "IMG_2366.JPEG", "alias": "west_bend_povo2_garage_access", "evidence": "Right-hand ramp entrance partly hidden by car; user confirms straight descent directly into Povo 2 parking"},
-    {"file": "IMG_2367.JPEG", "alias": "west_road_surface_parking_approach", "evidence": "Povo 1 facade, road bend, parking approach and opposite residential block"},
-    {"file": "IMG_2368.JPEG", "alias": "surface_parking_gate_residential", "evidence": "Curved fence, parking gate, white/grey residential facade and red-orange recesses"},
-    {"file": "IMG_2369.JPEG", "alias": "surface_parking_two_rows", "evidence": "Parking entrance, two vehicle rows, lamp posts and wooded edge"}
+    {
+      "file": "IMG_2364.JPEG",
+      "alias": "bridge_road_east_portrait",
+      "evidence": "Road below bridge, fences, footways, planting"
+    },
+    {
+      "file": "IMG_2365.JPEG",
+      "alias": "bridge_road_east_wide",
+      "evidence": "Both campus facades, bridge clearance and road section"
+    },
+    {
+      "file": "IMG_2366.JPEG",
+      "alias": "west_bend_povo2_garage_access",
+      "evidence": "Right-hand ramp entrance partly hidden by car; user confirms straight descent directly into Povo 2 parking"
+    },
+    {
+      "file": "IMG_2367.JPEG",
+      "alias": "west_road_surface_parking_approach",
+      "evidence": "Povo 1 facade, road bend, parking approach and opposite residential block"
+    },
+    {
+      "file": "IMG_2368.JPEG",
+      "alias": "surface_parking_gate_residential",
+      "evidence": "Curved fence, parking gate, white/grey residential facade and red-orange recesses"
+    },
+    {
+      "file": "IMG_2369.JPEG",
+      "alias": "surface_parking_two_rows",
+      "evidence": "Parking entrance, two vehicle rows, lamp posts and wooded edge"
+    }
   ],
-  "existing_evidence": ["P019", "P018", "P023", "P024", "P009", "P010", "P011", "P012", "P013", "walk_37_to_18", "walk_24_to_13"],
+  "existing_evidence": [
+    "P019",
+    "P018",
+    "P023",
+    "P024",
+    "P009",
+    "P010",
+    "P011",
+    "P012",
+    "P013",
+    "walk_37_to_18",
+    "walk_24_to_13"
+  ],
   "road": {
     "width": 6.0,
     "footway_width": 1.4,
-    "points": [[50, -5, 5.8], [32, -5, 4.0], [22, -5, 4.0], [-23, -5, 3.0], [-36, -12, 3.0], [-47, -27, 3.0], [-48, -40, 3.0], [-48, -101, 3.0]]
+    "points": [
+      [
+        50,
+        -5,
+        5.8
+      ],
+      [
+        32,
+        -5,
+        4.0
+      ],
+      [
+        22,
+        -5,
+        4.0
+      ],
+      [
+        -23,
+        -5,
+        3.0
+      ],
+      [
+        -36,
+        -12,
+        3.0
+      ],
+      [
+        -47,
+        -27,
+        3.0
+      ],
+      [
+        -48,
+        -40,
+        3.0
+      ],
+      [
+        -48,
+        -101,
+        3.0
+      ]
+    ]
   },
-  "crosswalk": {"centre": [44, -5, 5.2], "width": 3.0, "reference": "walk_27; position fitted approximately to aerial"},
-  "north_road": {"width": 6.0, "footway_width": 1.4, "points": [[-29, -8, 3.0], [-38, -8, 3.0], [-38, 6, 3.0], [-38, 112, 3.0], [-25, 118, 3.0]], "evidence": "User requests road continuation from ramp to north end of Povo 2; exact alignment estimated"},
-  "front_road": {"width": 7.0, "footway_width": 1.8, "points": [[62, -116, 5.8], [62, 0, 5.8], [62, 15, 4.0], [62, 120, 4.0]]},
-  "covered_parking": {"bounds": [-32.5, 30, 25, 112], "z": -3.2, "ceiling_z": 0.2, "slab_thickness": 0.25, "portal_width": 5.5, "evidence": "User confirms parking is covered and included in Povo 2; basement podium extends west of core to meet straight ramp"},
+  "crosswalk": {
+    "centre": [
+      44,
+      -5,
+      5.2
+    ],
+    "width": 3.0,
+    "reference": "walk_27; position fitted approximately to aerial"
+  },
+  "north_road": {
+    "width": 6.0,
+    "footway_width": 1.4,
+    "points": [
+      [
+        -29,
+        -8,
+        3.0
+      ],
+      [
+        -38,
+        -8,
+        3.0
+      ],
+      [
+        -38,
+        6,
+        3.0
+      ],
+      [
+        -38,
+        112,
+        3.0
+      ],
+      [
+        -25,
+        118,
+        3.0
+      ]
+    ],
+    "evidence": "User requests road continuation from ramp to north end of Povo 2; exact alignment estimated"
+  },
+  "front_road": {
+    "width": 7.0,
+    "footway_width": 1.8,
+    "points": [
+      [
+        62,
+        -116,
+        5.8
+      ],
+      [
+        62,
+        0,
+        5.8
+      ],
+      [
+        62,
+        15,
+        4.0
+      ],
+      [
+        62,
+        120,
+        4.0
+      ]
+    ]
+  },
+  "covered_parking": {
+    "bounds": [
+      -32.5,
+      30,
+      25,
+      112
+    ],
+    "z": -3.2,
+    "ceiling_z": 0.2,
+    "slab_thickness": 0.25,
+    "portal_width": 5.5,
+    "evidence": "User confirms parking is covered and included in Povo 2; basement podium extends west of core to meet straight ramp"
+  },
   "frontages": {
-    "povo1_library_wings": [[36, -110, 52, -77], [36, -69, 52, -13]],
-    "povo1_passage": [24, -77, 52, -69],
-    "povo1_walk": [52, -110, 58, -13],
-    "povo2_annexes": [[25, 20, 51, 45], [25, 77, 51, 92]],
-    "povo2_terrace": [25, 45, 51, 77],
-    "povo2_walk": [51, 10, 58, 112],
-    "povo2_entrance": [51, 33.5, 4.0],
+    "povo1_library_wings": [
+      [
+        36,
+        -110,
+        52,
+        -77
+      ],
+      [
+        36,
+        -69,
+        52,
+        -13
+      ]
+    ],
+    "povo1_passage": [
+      24,
+      -77,
+      52,
+      -69
+    ],
+    "povo1_walk": [
+      52,
+      -110,
+      58,
+      -13
+    ],
+    "povo2_annexes": [
+      [
+        25,
+        20,
+        51,
+        45
+      ],
+      [
+        25,
+        77,
+        51,
+        92
+      ]
+    ],
+    "povo2_terrace": [
+      25,
+      45,
+      51,
+      77
+    ],
+    "povo2_walk": [
+      51,
+      10,
+      58,
+      112
+    ],
+    "povo2_entrance": [
+      51,
+      33.5,
+      4.0
+    ],
     "povo2_level": 4.0,
     "street_level": 5.8,
-    "evidence": "P009-P013, P018/P023/P024 and walk 35-18; annex envelopes follow existing geographic blockout. Facade grids, heights and portal alignment remain estimates."
+    "evidence": "P009-P013, P018/P023/P024 and walk 35-18; annex envelopes follow existing geographic blockout. Facade grids, heights and portal alignment remain estimates.",
+    "povo2_left_terrace": [
+      34.5,
+      20,
+      58,
+      28.3
+    ]
   },
-  "surface_parking": {"bounds": [-62, -98, -35, -43], "z": 3.0, "bay_width": 2.5, "bay_depth": 5.0, "rows_x": [-57.5, -39.5], "count_per_row": 18},
+  "surface_parking": {
+    "bounds": [
+      -62,
+      -98,
+      -35,
+      -43
+    ],
+    "z": 3.0,
+    "bay_width": 2.5,
+    "bay_depth": 5.0,
+    "rows_x": [
+      -57.5,
+      -39.5
+    ],
+    "count_per_row": 18
+  },
   "povo2_double_entrance": {
     "interpretation": "User confirms outer street door line, long entrance lobby, then inner reception door line",
     "outer_x": 49.4,
     "inner_x": 34.5,
     "centre_y": 33.5,
-    "lobby_bounds": [25, 28.3, 51.3, 38.7],
+    "lobby_bounds": [
+      25,
+      28.3,
+      51.3,
+      38.7
+    ],
     "floor_z": 4.0,
     "ceiling_height": 3.0,
-    "bank_offsets_y": [-2.15, 2.15],
+    "bank_offsets_y": [
+      -2.15,
+      2.15
+    ],
     "bank_width": 3.6,
     "clear_width": 1.8,
     "door_height": 2.65,
     "inner_column_width": 0.7,
-    "references": {"outer": [24, 23, 22], "lobby": [17, 16, 15, 14], "inner": [13]},
+    "references": {
+      "outer": [
+        24,
+        23,
+        22
+      ],
+      "lobby": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "inner": [
+        13
+      ]
+    },
     "assumptions": "Door leaves are parked open; glass is 20% transparent. Door widths, recess depth and lobby dimensions are estimates. Inner door XY and floor match the current interior entrance; front street grades down to Povo 2."
   },
-  "residential": {"bounds": [-78, -95, -64, -39], "z": 3.0, "height": 10.2, "note": "Backdrop proxy from P019 and IMG_2367-2369; bay count and footprint estimated"},
+  "residential": {
+    "bounds": [
+      -78,
+      -95,
+      -64,
+      -39
+    ],
+    "z": 3.0,
+    "height": 10.2,
+    "note": "Backdrop proxy from P019 and IMG_2367-2369; bay count and footprint estimated"
+  },
   "garage_ramp": {
-    "centreline": [[-29, -2.5, 3.0], [-29, 30, -3.2]],
+    "centreline": [
+      [
+        -29,
+        -2.5,
+        3.0
+      ],
+      [
+        -29,
+        30,
+        -3.2
+      ]
+    ],
     "width": 5.5,
     "user_confirmed": "IMG_2366 right-hand entrance goes directly to Povo 2 parking; ramp descends straight",
     "uncertain": "Mouth position, heading, length, width, grade, level and portal dimensions are estimates. Exterior covered parking now meets the straight ramp. The separate interior parking source still requires reconciliation."
   },
-  "east_approach": {"lower_plaza": [24, -83, 36, -69], "lower_z": 4.0, "upper_z": 5.8, "stairs": [29, -77, 35, -73], "reference": "P018; walk_35_to_25; simplified landing/canopy connection"},
-  "review_rooms": ["a221", "a222", "a223", "a224"],
+  "east_approach": {
+    "lower_plaza": [
+      24,
+      -76.83,
+      27,
+      -70.63000000000001
+    ],
+    "lower_z": 4.0,
+    "upper_z": 5.8,
+    "stairs": [
+      27,
+      -76.43,
+      36,
+      -71.03
+    ],
+    "reference": "User correction: straight outward from the Povo 1 entrance after a 3 m landing; red steps end on the upper paving. Semi-transparent glass cover starts at the exterior threshold and stops before street pavement.",
+    "entrance_y": -73.73,
+    "canopy_end_x": 52,
+    "canopy_clearance": 3.4
+  },
+  "review_rooms": [
+    "a221",
+    "a222",
+    "a223",
+    "a224"
+  ],
   "assumptions": [
     "Road and parking footprints are fitted by eye to the existing 2024 aerial and approximate 47 x 83 m Povo 1 envelope, not surveyed.",
     "All exterior elevations, gradients, step counts, bay counts and backdrop dimensions are provisional. Phone GPS altitude is not a level survey.",
@@ -69,5 +365,42 @@
     "Ramp existence and straight descent are user-confirmed. Exterior covered parking reaches the ramp; the independently adapted interior parking still needs alignment before integration.",
     "The road continues beside Povo 2 to its north end. Garage roof and podium are part of the Povo 2 building; the approved surface lot west of Povo 1 stays open.",
     "Front roads, terraces, library/entrance wings and facade details are a photo-guided exterior study, not a measured or collision-validated interior connection."
-  ]
+  ],
+  "street_end_gate": {
+    "points": [
+      [
+        68,
+        -122,
+        5.8
+      ],
+      [
+        68,
+        0,
+        5.8
+      ],
+      [
+        68,
+        15,
+        4
+      ],
+      [
+        68,
+        126,
+        4
+      ]
+    ],
+    "height": 4,
+    "interpretation": "User-confirmed far side of the street, opposite both main entrances. Long fixed gate/fence separates the campus street from the unplayable area."
+  },
+  "context_concrete": {
+    "bounds": [
+      -650,
+      -650,
+      650,
+      650
+    ],
+    "top_z": 2.75,
+    "underlay_z": -4.3,
+    "collision": "Only local occupied crop has collision; distant concrete is visual context to avoid unbounded navigation."
+  }
 }

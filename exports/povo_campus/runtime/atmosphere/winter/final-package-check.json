@@ -1,0 +1,123 @@
+{
+  "format_version": 1,
+  "status": "passed",
+  "scope": "Radar, map, model and configuration inclusion; overview alignment and entry CRCs",
+  "package": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus_winter.vpk",
+  "vpk_version": 2,
+  "package_sha256": "5f54c53436c22570695a66b58532282ece794cc63f97309187eb193f9975d2f7",
+  "package_entries": 396,
+  "crc_verified_entries": 396,
+  "all_entry_crc_requested": true,
+  "signature_verification": "not performed",
+  "expected_overview_sha256": "31ac16bf94c9ac7615ff7b69912b2e01eb04460d8a42b2e443a525706753ac90",
+  "checks": [
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_radar_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19189
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_radar_spectate_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19205
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_radar_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19189
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_radar_spectate_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19205
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_basement1_radar_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18667
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_basement1_radar_spectate_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18683
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_basement1_radar_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18667
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_basement1_radar_spectate_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18683
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_basement2_radar_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18687
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_basement2_radar_spectate_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18703
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_basement2_radar_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18687
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_basement2_radar_spectate_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18703
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_lower_radar_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19195
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_lower_radar_spectate_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19195
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_lower_radar_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19195
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_winter_lower_radar_spectate_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19195
+    },
+    {
+      "file": "resource/overviews/trento_povo_campus_winter.txt",
+      "status": "present_crc_ok",
+      "bytes": 783,
+      "matches_generated_overview": true
+    },
+    {
+      "file": "maps/trento_povo_campus_winter.vmap_c",
+      "status": "present_crc_ok",
+      "bytes": 18112
+    },
+    {
+      "file": "models/povo/povo1_campus.vmdl_c",
+      "status": "present_crc_ok",
+      "bytes": 5522824
+    },
+    {
+      "file": "cfg/maps/trento_povo_campus_winter.cfg",
+      "status": "present_crc_ok",
+      "bytes": 71
+    }
+  ],
+  "errors": [],
+  "still_required": [
+    "Actual radar lookup/alignment in CS2",
+    "Complete custom dependency packaging",
+    "Clean-install test without loose development files",
+    "Gameplay and independent-client validation"
+  ]
+}

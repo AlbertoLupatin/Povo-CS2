@@ -39,7 +39,8 @@ def extend(root,settings,config,boxes,levels,stair):
         result.extend(parts)
     occupied=[((6.8,9.8,3.7),(25.2,26.2,11.2)),
               ((9.9,19.3,3.7),(34.7,71.7,7.37)),
-              ((16.3,-6.7,.1),(31.7,26.2,3.77)),
+              ((16.3,-6.7,.1),(20.2,26.2,3.77)),
+              ((4.8,-6.7,.1),(20.2,-3.3,3.77)),
               ((6.8,13.8,-3.5),(16.7,26.2,11.2))]
     ext_kept=[]
     for item in ext:
@@ -59,10 +60,17 @@ def extend(root,settings,config,boxes,levels,stair):
         # Avoid a raised landscaping slab under the existing north study room.
         ext_kept.extend(('exterior_'+name,lo,hi,'exterior_'+mat) for name,lo,hi,mat in parts)
     # A flat prototype apron replaces conflicting old DTM triangles locally.
-    ground=('exterior_ground',(-90,-116,2.5),(74,124,2.75),'exterior_grass')
+    ground=('exterior_ground',(-90,-116,2.5),(74,124,2.75),'exterior_concrete')
     groundparts=subtract_box(ground,ramp_hole)
     for hole in occupied:groundparts=[p for q in groundparts for p in subtract_box(q,hole)]
     ext_kept.extend(groundparts)
+    # Concrete extends beyond every backdrop edge. Keep distant context visual
+    # so navigation remains limited to the campus rather than this large apron.
+    context=meta['config']['context_concrete'];a,b,c,d=context['bounds'];z=context['top_z']
+    for i,r in enumerate(((a,b,-90,d),(74,b,c,d),(-90,b,74,-116),(-90,124,74,d))):
+        ext_kept.append((f'exterior_context_concrete_{i}',(r[0],r[1],z-.2),(r[2],r[3],z),'exterior_context_concrete'))
+    z=context['underlay_z']
+    ext_kept.append(('exterior_context_concrete_underlay',(a,b,z-.2),(c,d,z),'exterior_context_concrete'))
     # All added mesh materials receive their own namespace and remaps.
     meshes=copy.deepcopy(meshes)
     for mesh in meshes:
@@ -70,10 +78,22 @@ def extend(root,settings,config,boxes,levels,stair):
             mesh['vertices']=[tuple(v*.65 for v in point) for point in mesh['vertices']]
         mesh['name']='exterior_'+mesh['name'];mesh['material']='exterior_'+mesh['material']
     # Small details stay visual; closed road/ramp/fence-base strips supply physics.
-    physics=[m for m in meshes if len(m['vertices'])==8 and not any(s in m['name'] for s in ('_edge_','crosswalk','_top'))]
+    physics=[m for m in meshes if len(m['vertices'])==8 and not any(s in m['name'] for s in ('_edge_','crosswalk','_top','street_end_gate_'))]
+    # A continuous barrier supplies the fence collision, avoiding hundreds of
+    # separate bar hulls while preserving the closed boundary at player scale.
+    for mesh in meshes:
+        if not mesh['name'].startswith('exterior_street_end_gate_base_'):continue
+        barrier=copy.deepcopy(mesh);barrier['name']=barrier['name'].replace('_base_','_barrier_')
+        barrier['vertices']=[(x,y,z+(meta['config']['street_end_gate']['height']-.4 if i>=4 else 0))
+                             for i,(x,y,z) in enumerate(barrier['vertices'])]
+        physics.append(barrier)
     meta=dict(bounds=[-90,-116,74,124],meshes=meshes,collision_meshes=physics,
               door_opacity=.8,entrance=meta['povo2_double_entrance'],
               garage_bounds=garage,original_garage_bounds=parking,
+              povo1_approach=meta['config']['east_approach'],
+              left_terrace=meta['config']['frontages']['povo2_left_terrace'],
+              street_end_gate=meta['config']['street_end_gate'],
+              context_concrete=meta['config']['context_concrete'],
               input_hashes=meta['input_hashes'],photos=meta['photos'],
               integration='Live interior retained; entrance widened; parking perimeters opened at overlap; P2 front level aligned to z4')
     levels[0]['exterior']=meta
@@ -105,6 +125,6 @@ def backdrop(faces):
     for face in faces:
         n,m,points,uv=face
         if n.startswith(('povo2_','arch_povo2_')):continue
-        if n=='terrain' and any(-92<=p[0]<=76 and -118<=p[1]<=126 for p in points):continue
+        if n=='terrain':continue
         kept.append(face)
     return kept

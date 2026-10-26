@@ -76,7 +76,8 @@ class Povo2PlanimetryTests(TestCase):
         short=self.spec['basement']['cross_corridor']
         self.assertEqual(short[3],d)
         self.assertGreater(short[1],door_y)  # north/right when exiting the door westwards
-        self.assertLess(short[0],a)
+        self.assertEqual(short[0],a)
+        self.assertGreater(short[2],c)  # Turn right/east when heading north in the drawing.
 
     def test_three_stair_connections_reach_four_levels_with_safe_rises(self):
         self.assertEqual([l['floor'] for l in self.spec['levels']],[-2,-1,0,1])

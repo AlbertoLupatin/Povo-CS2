@@ -85,7 +85,10 @@ def audit_level(boxes, level, stations, *, cell=.1, width=.85, height=1.9):
     missing=list(subtract_rectangles(outer,support))
     for rect in missing:paint((rect[0]-half,rect[1]-half,rect[2]+half,rect[3]+half),0)
     foot=max(b[2][2] for b in floors)
-    obstacles=[b for b in boxes if not b[3].startswith('floor_') and b[2][2]>foot+.001 and b[1][2]<foot+height]
+    # A floor above this level can be a low ceiling or a raised obstruction.
+    # Material names do not exempt slabs and stair treads from headroom checks;
+    # support at foot height is already excluded by the vertical bounds.
+    obstacles=[b for b in boxes if b[2][2]>foot+.001 and b[1][2]<foot+height]
     for _name,lo,hi,_material in obstacles:
         paint((lo[0]-half,lo[1]-half,hi[0]+half,hi[1]+half),0)
 

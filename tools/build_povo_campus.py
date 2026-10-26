@@ -217,6 +217,36 @@ def glaze_courtyard(boxes):
     return result
 
 
+def isolate_rooms(boxes, levels, settings, config, origin):
+    """Keep room-to-room boundaries opaque after window/office conversions."""
+    result=list(boxes);thickness=config['wall_thickness_metres']
+    for level in levels:
+        z=level['floor_elevation_metres']-origin[2];partitions=[]
+        exceptions={frozenset(pair) for pair in settings.get('open_room_connections',{}).get(level['id'],[])}
+        rooms=level['rooms']
+        for i,first in enumerate(rooms):
+            a,b,c,d=first['footprint_local_metres']
+            for second in rooms[i+1:]:
+                if frozenset((first['id'],second['id'])) in exceptions:continue
+                e,f,g,h=second['footprint_local_metres'];rect=None
+                if abs(c-e)<1e-7 or abs(a-g)<1e-7:
+                    low,high=max(b,f),min(d,h);x=(c+e)/2 if abs(c-e)<1e-7 else (a+g)/2
+                    if high-low>1e-6:rect=(x-thickness/2,low-thickness/2,x+thickness/2,high+thickness/2)
+                elif abs(d-f)<1e-7 or abs(b-h)<1e-7:
+                    low,high=max(a,e),min(c,g);y=(d+f)/2 if abs(d-f)<1e-7 else (b+h)/2
+                    if high-low>1e-6:rect=(low-thickness/2,y-thickness/2,high+thickness/2,y+thickness/2)
+                if rect is None:continue
+                lo=(rect[0],rect[1],z);hi=(rect[2],rect[3],z+config['wall_height_metres'])
+                hole=(lo,hi)
+                result=[piece for box in result for piece in
+                        (subtract_box(box,hole) if box[3] in ('wall','courtyard_wall','reception_glass','window_glass','window_frame') else [box])]
+                name=level['id']+'_partition_'+first['id']+'_'+second['id']
+                result.append((name,lo,hi,'wall'))
+                partitions.append(dict(rooms=[first['id'],second['id']],bounds=[*lo,*hi]))
+        level['room_partitions']=partitions
+    return result
+
+
 def enclose_stair(boxes, levels, stair, settings, config):
     """Photo 38's black fire doors open into the hall; photo 39's outer glazing."""
     bounds = settings['stairs']['enclosure_bounds_local_metres']
@@ -320,6 +350,7 @@ def build_geometry(root=ROOT,*,include_exterior=True):
                                    staff=3,front_staff='female',audit_points_local_metres=[])
             elif room['kind']=='restroom':
                 boxes.extend(restroom_boxes(level['id'],room,z,config['wall_height_metres']))
+    boxes=isolate_rooms(boxes,levels,settings,config,origin)
     boxes=glaze_courtyard(boxes)
     boxes, stair=stairs_and_roof(boxes,levels,settings,config,origin)
     boxes = enclose_stair(boxes, levels, stair, settings, config)
@@ -509,6 +540,17 @@ def backdrop_mesh(root):
 def export(root=ROOT):
     settings, config, boxes, levels, stair = build_geometry(root)
     try:
+        from .povo_interactions import extract_static_leaves
+        from .povo_atmosphere import write_winter_assets, write_soundevents
+    except ImportError:
+        from povo_interactions import extract_static_leaves
+        from povo_atmosphere import write_winter_assets, write_soundevents
+    try:
+        from .povo_physics_surfaces import write_groups,modeldoc_groups
+    except ImportError:
+        from povo_physics_surfaces import write_groups,modeldoc_groups
+    boxes=extract_static_leaves(boxes,levels,stair)
+    try:
         from .povo_exterior_integration import mesh_faces,write_collision,backdrop as exterior_backdrop
     except ImportError:
         from povo_exterior_integration import mesh_faces,write_collision,backdrop as exterior_backdrop
@@ -532,11 +574,15 @@ def export(root=ROOT):
         ci+=8;collision_count+=1
     collision_mesh_count=write_collision(collision,exterior,ci)
     (output/'povo1_campus_collision.obj').write_text(collision.getvalue(),encoding='utf-8')
+    physical_groups=write_groups(output,'povo1_campus',physics,exterior.get('collision_meshes',[]))
     metadata=dict(map_name=settings['map_name'],origin=[666250,5103800,370],settings=settings,
                   levels=levels,stair=stair,visual_boxes=len(boxes),collision_boxes=collision_count,
                   assumptions=settings['assumptions'],
                   inputs={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in
                           ('config/povo1_campus.json',settings['interior_source'],'config/povo1_plan_alignment.json')})
+    metadata['interactions']=levels[0]['interactions']
+    metadata['physics_surface_groups']=physical_groups
+    metadata['inputs']['config/povo_atmosphere.json']=hashlib.sha256((root/'config/povo_atmosphere.json').read_bytes()).hexdigest()
     if exterior:
         metadata['exterior']=exterior
         metadata['exterior_collision_meshes']=collision_mesh_count
@@ -548,8 +594,10 @@ def export(root=ROOT):
             metadata['povo2']=metadata['connection']['povo2']
             path=settings['povo2_planimetry']
             metadata['inputs'][path]=hashlib.sha256((root/path).read_bytes()).hexdigest()
+    write_winter_assets(root,boxes,metadata,render_obj)
+    write_soundevents(root)
     metadata['artifacts']={p.name:hashlib.sha256(p.read_bytes()).hexdigest()
-                           for p in (output/'povo1_campus.obj',output/'povo1_campus_collision.obj')}
+                           for p in output.glob('povo1_campus*.obj')}
     (output/'provenance.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8')
     materials=root/'cs2/content/trento_povo/materials/trento/povo/campus';materials.mkdir(parents=True,exist_ok=True)
     write_materials(materials, MATERIAL_PREFIX, {n:c for n,c in COLORS.items() if not n.startswith('exterior_')})
@@ -564,6 +612,7 @@ def export(root=ROOT):
                     EXTERIOR_PREFIX+m.removeprefix('exterior_')+'.vmat' if m.startswith('exterior_') else MATERIAL_PREFIX+m+'.vmat')+'" },' for m in COLORS)
     if marker not in original:raise ValueError('ModelDoc material remap insertion point missing')
     original=original.replace(marker,marker+remaps,1)
+    original=modeldoc_groups(original,physical_groups)
     (root/'cs2/content/trento_povo/models/povo/povo1_campus.vmdl').write_text(original,encoding='utf-8')
     room_count=sum(r.get('playable',True) for l in levels
                    for r in [*l['rooms'],*l.get('connection',{}).get('rooms',[])])
@@ -633,6 +682,8 @@ def collision_boxes(boxes):
     """
     result=[];rows={}
     for name,lo,hi,material in boxes:
+        if name.startswith('exterior_context_concrete_'):continue
+        if name.startswith('exterior_street_end_gate_bar_'):continue
         if name.startswith('exterior_') and any(t in name for t in ('floor_joint','ceiling_joint','_mat','_band_','_sensor','_light_','_rough')):continue
         if any(t in name for t in ('ceiling_light','ceiling_vent','projector','_mullion','_transom','_nosing','_handrail','_finish_')):continue
         if material in ('teaching_board','projection_screen','sign_blue','sign_white'):continue

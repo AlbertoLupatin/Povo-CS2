@@ -138,5 +138,24 @@ class VPKTests(unittest.TestCase):
         with_slashes=OVERVIEW.replace(b'overviews/trento_povo',b'overviews//trento_povo')
         self.assertEqual(compare_overviews(with_slashes,with_slashes),[])
 
+    def test_runtime_check_requires_map_model_and_configuration(self):
+        files={name:b'texture fixture' for name in RADAR_FILES}
+        files[RADAR_FILES[-1]]=OVERVIEW
+        runtime=('maps/trento_povo.vmap_c','models/povo/povo_blockout.vmdl_c','cfg/maps/trento_povo.cfg')
+        files.update({name:b'runtime fixture' for name in runtime})
+        expected=self.root/'expected.txt';expected.write_bytes(OVERVIEW)
+        self.path.write_bytes(radar_fixture(files))
+        self.assertEqual(verify_package(self.path,expected,model_name='povo_blockout')['status'],'passed')
+        for missing in runtime:
+            for content in (None,b''):
+                with self.subTest(missing=missing,content=content):
+                    broken=dict(files)
+                    if content is None:del broken[missing]
+                    else:broken[missing]=content
+                    self.path.write_bytes(radar_fixture(broken))
+                    report=verify_package(self.path,expected,model_name='povo_blockout')
+                    self.assertEqual(report['status'],'failed')
+                    self.assertTrue(any(missing in e for e in report['errors']))
+
 
 if __name__=='__main__':unittest.main()

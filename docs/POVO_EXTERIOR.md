@@ -1,6 +1,15 @@
 # Exterior planimetry — 24 October 2026
 
-## Current integration checkpoint
+## Latest user corrections
+
+[POVO_USER_CORRECTIONS.md](POVO_USER_CORRECTIONS.md) supersedes the original
+entrance stair and records the straight red flight, translucent threshold-to-
+pavement cover, left entrance terrace, far-side street fence, opaque shared room
+walls, right-hand basement branch, removed duplicate door and concrete outskirts.
+It identifies the rebuilt package and current native screenshots. The checkpoint
+below is the earlier integrated exterior.
+
+## Earlier integration checkpoint
 
 The user approved integrating the full exterior and requested entrance panes
 with 20% transparency (80% opacity). `build_povo_campus.build_geometry()` now

@@ -18,8 +18,8 @@
         34.5,
         51.5
       ],
-      "walkable_cells": 93431,
-      "reachable_cells": 93019,
+      "walkable_cells": 91419,
+      "reachable_cells": 91007,
       "stations": [
         {
           "id": "stair_approach",
@@ -104,17 +104,17 @@
       "standing_height_metres": 1.85,
       "cell_metres": 0.1,
       "grid_dimensions": [
-        245,
+        150,
         325
       ],
       "grid_bounds_local": [
-        7,
+        5.0,
         -6.5,
-        31.5,
+        20.0,
         26.0
       ],
-      "walkable_cells": 16277,
-      "reachable_cells": 16277,
+      "walkable_cells": 16413,
+      "reachable_cells": 16413,
       "stations": [
         {
           "id": "stair_approach",
@@ -155,7 +155,7 @@
         {
           "id": "cross_corridor",
           "point_local_metres": [
-            24.5,
+            12.0,
             -5.0
           ],
           "has_clearance": true,
@@ -164,7 +164,7 @@
         {
           "id": "cross_corridor_end",
           "point_local_metres": [
-            30.0,
+            6.5,
             -5.0
           ],
           "has_clearance": true,
@@ -208,8 +208,8 @@
         38.0,
         71.5
       ],
-      "walkable_cells": 92411,
-      "reachable_cells": 80974,
+      "walkable_cells": 92439,
+      "reachable_cells": 81002,
       "stations": [
         {
           "id": "entrance",

@@ -1,5 +1,14 @@
 # Integrated Povo 2 — 23 October 2026
 
+**Current state:** the lower floors are compiled and deployed with the integrated
+exterior. The [24 October exterior checkpoint](POVO_EXTERIOR.md) identifies the
+current package; [CODEX_REVIEW.md](CODEX_REVIEW.md) records independent verification.
+The build-in-progress paragraph at the end is retained as historical evidence.
+
+The [latest user corrections](POVO_USER_CORRECTIONS.md) turn the far basement
+branch west/right and remove the obsolete duplicate stair-door leaves. The
+earlier coordinates and checkpoints below predate that correction.
+
 **24 October update:** the [map adjustments](POVO_MAP_ADJUSTMENTS.md) rename the
 classrooms B111–B114, move the boards to the south wall in world coordinates,
 extend the tables to the hall midpoint and shorten the ground corridor by two

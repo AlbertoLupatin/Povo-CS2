@@ -6,5 +6,5 @@ Layer0
     TextureRoughness "materials/trento/povo/campus/floor_p2_asphalt_rough.png"
     g_vColorTint "[1 1 1 0]"
     g_flModelTintAmount "1"
-    SystemAttributes { PhysicsSurfaceProperties "rubber" }
+    SystemAttributes { PhysicsSurfaceProperties "asphalt" }
 }

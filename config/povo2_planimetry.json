@@ -165,13 +165,13 @@
       64.5
     ],
     "cross_corridor": [
-      10,
+      21.5,
       61.5,
-      25,
+      36.5,
       64.5
     ]
   },
-  "basement_arrangement": "The stair block's south/bottom edge aligns with the start of the long corridor. Its door is near that start, on the right/east wall. Exit west and turn right/north to reach the short corridor at the far end.",
+  "basement_arrangement": "Exit the integrated stair east, turn right/south down the long corridor, then turn right/west at its far end. The standalone drawing is rotated 180 degrees during integration.",
   "parking": {
     "bounds": [
       7,

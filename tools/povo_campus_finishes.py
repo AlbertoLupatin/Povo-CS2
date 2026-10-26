@@ -65,7 +65,9 @@ def write_materials(directory, prefix, colors):
         (directory / (name + '_rough.png')).write_bytes(png((roughness,) * 3, 'flat', 4))
         surface = ('wood' if name in ('floor_wood', 'seat_wood', 'desk_dark', 'desk_panel')
                    else 'metal' if name in ('metal_dark', 'window_frame')
-                   else 'rubber' if name == 'floor_p2_asphalt' else 'concrete')
+                   else 'asphalt' if name == 'floor_p2_asphalt'
+                   else 'tile' if name in ('floor_room','floor_circulation','floor_p2_tile')
+                   else 'metal' if name in ('stair_red','stair_nosing','door_black','door_pushbar') else 'concrete')
         text = (f'Layer0\n{{\n    shader "csgo_complex.vfx"\n'
                 f'    TextureColor "{prefix}{name}.png"\n'
                 f'    TextureNormal "{prefix}neutral_normal.png"\n'

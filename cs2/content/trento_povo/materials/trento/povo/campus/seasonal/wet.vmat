@@ -1,0 +1,8 @@
+Layer0
+{
+ shader "csgo_complex.vfx"
+ TextureColor "materials/trento/povo/campus/seasonal/wet.png"
+ TextureNormal "materials/trento/povo/campus/neutral_normal.png"
+ TextureRoughness "materials/trento/povo/campus/seasonal/wet_rough.png"
+ SystemAttributes { PhysicsSurfaceProperties "concrete" }
+}

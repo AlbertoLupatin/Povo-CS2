@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "model": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo\\models\\povo\\povo_winter.vmdl_c",
+  "model_sha256": "3c0344f355fb55afb5b84e854ca444bca1f33b4f8b602116f0d53d5a5d8d14ea",
+  "expected_surface_tokens": {
+    "concrete": 436732118,
+    "snow": 4232132152
+  },
+  "compiled_surface_tokens": [
+    4232132152,
+    436732118
+  ],
+  "contact_material_counts": {
+    "concrete": 924,
+    "snow": 180
+  }
+}

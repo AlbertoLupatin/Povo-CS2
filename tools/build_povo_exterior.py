@@ -14,11 +14,13 @@ try:
     from .build_povo_campus import build_geometry
     from .povo2_exterior_entrance import extend as add_double_entrance
     from .povo_exterior_materials import COLORS, OPACITY
+    from .povo_room_fitout import subtract_box
 except ImportError:
     from build_povo_blockout import write_box
     from build_povo_campus import build_geometry
     from povo2_exterior_entrance import extend as add_double_entrance
     from povo_exterior_materials import COLORS, OPACITY
+    from povo_room_fitout import subtract_box
 
 ROOT = Path(__file__).resolve().parents[1]
 FACES = ((0,2,1),(0,3,2),(4,5,6),(4,6,7),(0,1,5),(0,5,4),
@@ -196,22 +198,28 @@ def build(root=ROOT, campus_geometry=None):
     e=cfg['east_approach'];slab('povo1_entry_plaza',e['lower_plaza'],e['lower_z'],'paving')
     a,b,c,d=e['stairs'];count=12;rise=(e['upper_z']-e['lower_z'])/count
     for i in range(count):
-        y=b+(d-b)*i/count
-        box(f'entry_stair_{i}',(a,y,e['lower_z']-.15),(c,b+(d-b)*(i+1)/count,e['lower_z']+(i+1)*rise),'orange')
-    slab('entry_upper_landing',(29,-73,38,-69),e['upper_z'],'paving')
-    box('entry_canopy',(28.8,-78,8.8),(35.2,-68.8,8.95),'glass')
-    for x in (29,35):
-        for y in (-77,-69):box(f'canopy_post_{x}_{y}',(x-.08,y-.08,4),(x+.08,y+.08,8.8),'fence')
+        x=a+(c-a)*i/count
+        box(f'entry_stair_{i}',(x,b,e['lower_z']-.15),(a+(c-a)*(i+1)/count,d,e['lower_z']+(i+1)*rise),'orange')
     front=cfg['frontages'];fz=front['street_level']
     for i,r in enumerate(front['povo1_library_wings']):glass_block(f'povo1_library_{i}',r,4,10.9)
     slab('povo1_front_walk',front['povo1_walk'],fz,'paving')
     # Continuous passage between two front wings, open from street to stairs.
-    slab('povo1_passage_upper',(35,-77,58,-69),fz,'paving')
-    box('povo1_passage_canopy',(35,-77,8.8),(52,-69,8.95),'glass')
-    for x in (38,43,48,52):
-        for y in (-77,-69):
-            box(f'povo1_passage_post_{x}_{y}',(x-.06,y-.06,fz),(x+.06,y+.06,8.8),'fence')
-            box(f'povo1_canopy_beam_{x}_{y}',(x-.06,-77,8.75),(x+.06,-69,8.85),'fence')
+    slab('povo1_passage_upper',(c,-77,58,-69),fz,'paving')
+    # A continuous glazed cover begins immediately outside the entrance,
+    # follows the straight rise and stops before the street pavement.
+    cy=e['entrance_y'];clearance=e['canopy_clearance'];end=e['canopy_end_x']
+    canopy_points=[(24,cy,e['lower_z']+clearance),(a,cy,e['lower_z']+clearance),
+          (c,cy,fz+clearance),(end,cy,fz+clearance)]
+    for i,(start,finish) in enumerate(zip(canopy_points,canopy_points[1:])):
+        meshes.append(strip(f'entry_canopy_roof_{i}',start,finish,6.2,'canopy_glass',.04))
+        for side in (-1,1):
+            meshes.append(strip(f'entry_canopy_side_beam_{i}_{side}',
+                                (start[0],cy+side*3.1,start[2]),(finish[0],cy+side*3.1,finish[2]),.08,'fence',.10))
+    for x in (24.3,a,c,44,end-.2):
+        floor=e['lower_z'] if x<=a else fz
+        for side in (-1,1):
+            y=cy+side*3.1
+            box(f'canopy_post_{x}_{side}',(x-.05,y-.05,floor),(x+.05,y+.05,floor+clearance),'fence')
     p2z=front.get('povo2_level',fz)
     for i,r in enumerate(front['povo2_annexes']):glass_block(f'povo2_front_annex_{i}',r,p2z,11.8)
     slab('povo2_front_walk',front['povo2_walk'],p2z,'paving')
@@ -240,6 +248,25 @@ def build(root=ROOT, campus_geometry=None):
     for i,x in enumerate(range(-17,48,10)):tree(f'road_tree_{i}',x,-11,3,6)
     boxes,entry_metadata=add_double_entrance(boxes,cfg['povo2_double_entrance'],
                                            link.get('povo2',{}).get('ground',{}).get('entrance_world'))
+    terrace=front['povo2_left_terrace'];a,b,c,d=terrace
+    hole=((a-.01,b-.01,p2z-.01),(c+.01,d,12.1))
+    boxes=[part for item in boxes for part in
+           (subtract_box(item,hole) if item[0].startswith('povo2_front_annex_0_') else [item])]
+    slab('povo2_left_terrace',terrace,p2z,'paving')
+    fence('povo2_left_terrace_guard',(a,b),(51,b),p2z,1.1)
+    # Delimit the far side of the road, opposite both entrances, leaving the
+    # street connecting the buildings open along its entire length.
+    gate=cfg['street_end_gate'];h=gate['height']
+    for segment,(start,finish) in enumerate(zip(gate['points'],gate['points'][1:])):
+        meshes.append(strip(f'street_end_gate_base_{segment}',
+                            (start[0],start[1],start[2]+.4),(finish[0],finish[1],finish[2]+.4),.3,'concrete',4))
+        count=math.ceil(math.dist(start[:2],finish[:2])/.28)
+        for i in range(count+1):
+            t=i/count;x,y,z=(start[j]+t*(finish[j]-start[j]) for j in range(3))
+            box(f'street_end_gate_bar_{segment}_{i}',(x-.035,y-.035,z+.4),(x+.035,y+.035,z+h),'dark')
+        for i,offset in enumerate((.5,h*.5,h-.08)):
+            meshes.append(strip(f'street_end_gate_rail_{segment}_{i}',
+                                (start[0],start[1],start[2]+offset),(finish[0],finish[1],finish[2]+offset),.10,'dark',.08))
     # Deliberately schematic ridge: no photo pixels, no claim of a measured DEM.
     ridge=[(-360,12),(-320,30),(-280,23),(-230,65),(-185,100),(-150,79),(-110,95),(-65,63),(-20,74),(30,43),(90,49),(150,17)]
     rv=[];rf=[]

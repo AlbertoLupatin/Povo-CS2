@@ -161,8 +161,8 @@ def front_reviews(boxes,meshes,out):
     """Dedicated front and garage views, so new geometry is actually reviewable."""
     views=[
         ('Whole campus / fronts and street',dict(position=[205,-100,170],target=[12,5,4],fov=68),'full'),
-        ('Povo 1 / covered entrance and glazed passage',dict(position=[30,-94,7.4],target=[31,-38,6.5],fov=78),'full'),
-        ('Povo 2 / entrance blocks and terrace',dict(position=[100,3,43],target=[25,59,6],fov=72),'full'),
+        ('Povo 1 / straight stair and glass cover from threshold',dict(position=[24.7,-73.73,5.65],target=[42,-73.73,7.0],fov=88),'full'),
+        ('Povo 2 / entrance and left terrace to street',dict(position=[63,13,19],target=[41,31,5],fov=78),'full'),
         ('Povo 2 parking / roof removed for inspection',dict(position=[-65,4,28],target=[-5,70,-1.5],fov=72),'garage')
     ]
     sheet=Image.new('RGB',(2240,1550),'#eef1ed');d=ImageDraw.Draw(sheet)
@@ -179,7 +179,7 @@ def front_reviews(boxes,meshes,out):
         view.save(out/('front_view_'+str(i+1)+'.png'))
         x=20+(i%2)*1120;y=130+(i//2)*700
         sheet.paste(view,(x,y+30));d.text((x,y),title,font=font(22),fill='#203e46')
-    d.text((35,1530),'Approximate footprints, facade bays and exterior levels. Separate study; interior portal and collision integration remain pending.',font=font(18),fill='#536b70')
+    d.text((35,1530),'Approximate footprints, facade bays and exterior levels. Offline source views; engine validation is recorded separately.',font=font(18),fill='#536b70')
     sheet.save(out/'fronts_review.png')
 
 

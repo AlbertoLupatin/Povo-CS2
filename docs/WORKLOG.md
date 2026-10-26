@@ -1028,3 +1028,108 @@ parking, and the Povo 1 external stairs. Eight engine screenshots are under
 exports/povo_campus/runtime/exterior_*. The exterior remains blockout art; the
 garage is dim and the road beneath the bridge is heavily shadowed.
 Details: docs/POVO_EXTERIOR.md.
+
+## 24 October 2026 — independent review of Claude's integrated campus
+
+Reviewed f5a5f6 and reproduced the geometry/material/provenance exports exactly.
+Corrected the horizontal audit's floor-material exemption: low overhead slabs
+and raised floor surfaces now obstruct standing clearance. All campus routes
+still pass, with corrected parking walkable/reachable-cell counts. Added
+regressions for those false-positive cases.
+
+The launcher and packager now require the compiled map, model and map cfg in
+addition to the radar checks. Expanded the native exterior walking tool to ten
+routes / 35 waypoints, added a solo/correct-map precondition and timestamped
+package hash evidence, and preserved error reports when cleanup disconnects.
+All 140 tests pass, as do 65/120/4 campus stations, 8/8/17 Povo 2 stations,
+72 stair samples, 1,210 exterior samples and all 344 package entry CRCs.
+A fresh CS2 solo session passes all 35 waypoints on the existing package.
+
+Package and installed dedicated-test copy retain SHA-256
+13973fad877f8070b5941295908b6865c70c3b7029bfe2b9fa80ed4ceabb52ba.
+No geometry/material recompile was necessary. Game returned to the Povo 1
+entrance, stationary, normal walking, no bots and paused warmup. Current-state
+documentation replaces stale undeployed-lower-floor claims at the entry points;
+older checkpoints remain explicitly historical. Details and evidence:
+docs/CODEX_REVIEW.md and exports/povo_campus/runtime/codex_review_walk.json.
+Objective rounds, bot match behavior, clean-install and independent-client
+validation, performance and final art/lighting remain release gates.
+
+## 24 October 2026 — user screenshot corrections, rebuilt and verified
+
+Restored 51 opaque shared room partitions after office/window conversions,
+including the reception-to-classroom wall shown by the user. Rebuilt Povo 1's
+red entrance stair straight outward after a 3 m landing, ending on continuous
+upper paving. A 35%-opaque glass cover starts at the exterior threshold and
+ends before the street pavement. Added Povo 2's left entrance terrace, confirmed
+as left while facing the entrance from the street. Added a 4 m fixed fence on
+the far side of the street opposite both entrances, following its grade; the
+street between the buildings remains open. Three simple volumes supply fence
+collision. Reversed the basement's far branch west/right, removed obsolete
+draft fire-door leaves and an orphaned door fragment, updated lights/radar,
+and filled exterior/underside voids with concrete. Distant context is unlit and
+excluded from physics/navigation.
+
+All 146 tests pass. Source audits pass 65/120/4 campus stations, 8/8/17 Povo 2
+stations, 72 stair samples and 1,234 exterior samples. Model compile: 949.756 s;
+map compile: 705.313 s, zero resource failures, 9,633 nav areas. The preexisting
+duplicate-bone warning remains. The shader decoder confirms glass opacity 0.35.
+The reflection bake adds only its cubemap; all 341 previous entries are unchanged.
+
+Final package: 44,632,576 bytes / 342 entries, SHA-256
+a05d5d3adf6080d8797f343a8a29271e20a4fce0ef4a8be7f4b5afa0e35de860.
+All 342 CRCs/source asset hashes pass and the installed test-addon copy matches.
+Native normal walking passes 41 waypoints on 13 routes. Three separate movement
+checks stop at the restored classroom wall and the fence opposite each building.
+Eight engine captures were inspected, including the concrete outskirts (noclip
+inspection only). The game is foreground/full screen at Povo 1's exterior
+entrance facing the corrected stairs, no bots, normal walking, paused warmup.
+
+Prior installed addon, source and package backup:
+build/user-corrections-backup-20261024-175726/. Source screenshots are preserved
+under data/reference/user_feedback/2026-10-24/. Native logs and package evidence
+are in build/gameplay/user-corrections*, with portable JSON/screenshots under
+exports/povo_campus/runtime/user_corrections/. Details:
+docs/POVO_USER_CORRECTIONS.md. The launcher now respects saved display settings;
+use -Windowed to explicitly request the old small review window.
+
+## Standard/winter atmosphere and interactions — 25 October 2026
+
+Implemented separately selectable standard and winter maps sharing the same
+campus architecture, collision, radar geometry and objective. Added revised
+lighting/exposure, cooler overcast winter lighting, light exterior snowfall,
+thin snow on exposed roofs/vegetation/edges and wet paving. Shelters and interior
+floors are excluded from dressing. Added local ventilation, garage, wind and
+traffic soundevents with room-specific reverb. Stock ambient loop markers were
+verified; listening-level calibration is not claimed. Additional furnishing is
+deferred as requested.
+
+Replaced fixed-open proxies with 38 native door leaves across fire stairs,
+entrances and four classrooms. Two small east stair panes are breakable and
+return on round reset. Restored correct physics surface assignments by splitting
+collision imports into seven explicit ModelDoc groups; checked compiled PHYS
+surface tables and per-triangle contacts. Winter adds snow/concrete contact
+groups. Both packages contain the identical compiled campus model.
+
+Both native builds and reflection bakes completed. Standard package:
+45,173,047 bytes / 391 entries, SHA-256
+5de0dc71af0cc6e2aaac4570e5445611d72768f66a3ed6069ea66507bd7d461f.
+Winter package: 43,453,973 bytes / 396 entries, SHA-256
+5f54c53436c22570695a66b58532282ece794cc63f97309187eb193f9975d2f7.
+Cubemap adoption checks every prior source entry and permits only the reflection
+addition. All entry CRCs pass, and installed test-addon copies match.
+
+All 156 source tests pass. Native interactions: standard 14/14, winter 15/15.
+Normal walking: each version 41/41 waypoints on 13 routes. Local 2v2 mechanics:
+each version 11/11, including both buy zones, outside-zone rejection, C4 plant,
+defuse and elimination. The defuse uses controlled placement and a temporary
+team change; this does not establish autonomous bot objective completion,
+competitive balance or independent-client synchronization. The user explicitly
+selected local bot tests. Six native camera views per season are recorded.
+
+The winter map is left in solo exploration at the Povo 1 entrance, one human,
+zero bots, paused warmup, normal walking. Launch standard with play_campus.cmd
+or winter with play_campus_winter.cmd; saved fullscreen settings are preserved.
+Backup: build/atmosphere-backup-20261024-205704/. Final portable evidence:
+exports/povo_campus/runtime/atmosphere/. Implementation and scope:
+docs/POVO_SEASONS_AND_INTERACTIONS.md. No commit or publication was made.

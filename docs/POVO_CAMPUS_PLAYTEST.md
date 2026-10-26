@@ -1,5 +1,13 @@
 # Povo 1 campus implementation
 
+Current seasonal builds, moving doors, breakable panes, physical surfaces and
+local match evidence are documented in
+[POVO_SEASONS_AND_INTERACTIONS.md](POVO_SEASONS_AND_INTERACTIONS.md).
+Use `play_campus_winter.cmd` for winter or `play_campus.cmd` for standard;
+both retain the saved fullscreen setting. Build both with
+`python tools/cs2_campus.py --season both`.
+The older counts and implementation descriptions below are historical.
+
 The [Povo 2 connection and sign revision](POVO2_CONNECTION.md) supersedes the
 room count and deferred-bridge notes below: 61 furnished rooms total, A202/A203
 downstairs, a connected floor-1 bridge, and the first Povo 2 arrival section.
@@ -68,9 +76,18 @@ starts with noclip; `play_campus.cmd -Match` retains normal match defaults.
 
 The generated clearance audit checks a standing envelope 0.82 m wide and
 1.85 m tall against the simplified game collision on each floor. It checks
-63 ground stations and 75 upper stations, including classroom side aisles,
-all four stair endpoints and both sides of each stair portal.
+65 ground stations, 120 upper stations and four lower-vestibule stations,
+including classroom side aisles, all four stair endpoints and both sides
+of each stair portal. Low overhead slabs and raised floor surfaces count
+as obstacles. The separate integrated Povo 2 audit checks 8/8/17 stations
+and 72 stair samples; the exterior audit checks 1,234 samples on nine routes.
 It does not establish vertical traversal or replace the CS2 checks above.
+
+The [latest user corrections](POVO_USER_CORRECTIONS.md) pass 41 engine walking
+waypoints on 13 routes and three wall/fence blocking checks. Run `python tools/playtest_povo_exterior.py`
+after the solo launcher finishes. It requires this map with one human and
+zero bots; it writes timestamped package-identifying evidence to
+`build/gameplay/`. Use `--output` to preserve a separate run.
 
 The editable definitions are `config/povo1_campus.json`,
 `tools/build_povo_campus.py` and `tools/cs2_campus.py`. Generated model/radar

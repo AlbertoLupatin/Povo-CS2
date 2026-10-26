@@ -1,0 +1,626 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "route": "p2_south_door_bank",
+      "waypoint": 0,
+      "target": [
+        49,
+        31.35,
+        4
+      ],
+      "position": [
+        48.913377179595656,
+        31.3497608717254,
+        4.0007926080160034
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_south_door_bank",
+      "waypoint": 1,
+      "target": [
+        34,
+        31.35,
+        4
+      ],
+      "position": [
+        33.567368145934275,
+        31.349878676925403,
+        4.0007926080160034
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_south_door_bank",
+      "waypoint": 2,
+      "target": [
+        31.5,
+        31.35,
+        4
+      ],
+      "position": [
+        31.630549921526523,
+        31.349968592925403,
+        4.0007926080160034
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_north_door_bank",
+      "waypoint": 0,
+      "target": [
+        49,
+        35.65,
+        4
+      ],
+      "position": [
+        48.724517384594904,
+        35.6497650733426,
+        4.000792227016004
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_north_door_bank",
+      "waypoint": 1,
+      "target": [
+        34,
+        35.65,
+        4
+      ],
+      "position": [
+        34.432437815337735,
+        35.650459585542606,
+        4.000792227016004
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_north_door_bank",
+      "waypoint": 2,
+      "target": [
+        31.5,
+        35.65,
+        4
+      ],
+      "position": [
+        31.71581914392687,
+        35.650276654742605,
+        4.000792227016004
+      ],
+      "passed": true
+    },
+    {
+      "route": "straight_ramp_down",
+      "waypoint": 0,
+      "target": [
+        -29,
+        0,
+        2.52
+      ],
+      "position": [
+        -28.999668645316,
+        0.2323677598009295,
+        2.5570853862102285
+      ],
+      "passed": true
+    },
+    {
+      "route": "straight_ramp_down",
+      "waypoint": 1,
+      "target": [
+        -29,
+        20,
+        -1.3
+      ],
+      "position": [
+        -28.999250078716,
+        19.818405803879276,
+        -1.1793297470047173
+      ],
+      "passed": true
+    },
+    {
+      "route": "straight_ramp_down",
+      "waypoint": 2,
+      "target": [
+        -29,
+        33,
+        -3.2
+      ],
+      "position": [
+        -28.999727573316,
+        32.6990769437308,
+        -3.199207825612797
+      ],
+      "passed": true
+    },
+    {
+      "route": "straight_ramp_up",
+      "waypoint": 0,
+      "target": [
+        -29,
+        20,
+        -1.3
+      ],
+      "position": [
+        -28.999994222516005,
+        19.977850341479915,
+        -1.2097457390048392
+      ],
+      "passed": true
+    },
+    {
+      "route": "straight_ramp_up",
+      "waypoint": 1,
+      "target": [
+        -29,
+        0,
+        2.52
+      ],
+      "position": [
+        -28.999994222516005,
+        0.4614154348018457,
+        2.5133899948100535
+      ],
+      "passed": true
+    },
+    {
+      "route": "straight_ramp_up",
+      "waypoint": 2,
+      "target": [
+        -29,
+        -3.5,
+        3
+      ],
+      "position": [
+        -28.999994222516005,
+        -3.6073712714144297,
+        3.1207938092124836
+      ],
+      "passed": true
+    },
+    {
+      "route": "garage_into_original_parking",
+      "waypoint": 0,
+      "target": [
+        -5,
+        36,
+        -3.2
+      ],
+      "position": [
+        -5.249540047020998,
+        36.000094065344,
+        -3.199207825612797
+      ],
+      "passed": true
+    },
+    {
+      "route": "garage_into_original_parking",
+      "waypoint": 1,
+      "target": [
+        18,
+        36,
+        -3.2
+      ],
+      "position": [
+        17.996053466871984,
+        35.999979333544005,
+        -3.199207825612797
+      ],
+      "passed": true
+    },
+    {
+      "route": "garage_into_original_parking",
+      "waypoint": 2,
+      "target": [
+        18,
+        27,
+        -3.2
+      ],
+      "position": [
+        17.998405278271992,
+        26.910112473907642,
+        -3.199207825612797
+      ],
+      "passed": true
+    },
+    {
+      "route": "garage_into_original_parking",
+      "waypoint": 3,
+      "target": [
+        17.8,
+        22,
+        -3.2
+      ],
+      "position": [
+        17.797456302471193,
+        21.938096586087756,
+        -3.199207825612797
+      ],
+      "passed": true
+    },
+    {
+      "route": "povo1_external_stairs",
+      "waypoint": 0,
+      "target": [
+        26.5,
+        -73.73,
+        4
+      ],
+      "position": [
+        26.047929438304195,
+        -73.72985000029493,
+        4.000796875216003
+      ],
+      "passed": true
+    },
+    {
+      "route": "povo1_external_stairs",
+      "waypoint": 1,
+      "target": [
+        36.5,
+        -73.73,
+        5.8
+      ],
+      "position": [
+        36.212344669544855,
+        -73.73022828249493,
+        5.800797085223204
+      ],
+      "passed": true
+    },
+    {
+      "route": "povo1_external_stairs",
+      "waypoint": 2,
+      "target": [
+        54,
+        -73.73,
+        5.8
+      ],
+      "position": [
+        54.4246655728177,
+        -73.72989960649493,
+        5.800797085223204
+      ],
+      "passed": true
+    },
+    {
+      "route": "povo1_external_stairs_return",
+      "waypoint": 0,
+      "target": [
+        36.5,
+        -73.73,
+        5.8
+      ],
+      "position": [
+        36.08374787314434,
+        -73.73057552589493,
+        5.800797466223203
+      ],
+      "passed": true
+    },
+    {
+      "route": "povo1_external_stairs_return",
+      "waypoint": 1,
+      "target": [
+        26.5,
+        -73.73,
+        4
+      ],
+      "position": [
+        26.78220399210713,
+        -73.72958335109492,
+        4.150797413416604
+      ],
+      "passed": true
+    },
+    {
+      "route": "povo1_external_stairs_return",
+      "waypoint": 2,
+      "target": [
+        22,
+        -73.73,
+        4
+      ],
+      "position": [
+        21.900213629087602,
+        -73.73018487389493,
+        4.012797308416052
+      ],
+      "passed": true
+    },
+    {
+      "route": "povo2_left_terrace",
+      "waypoint": 0,
+      "target": [
+        54,
+        24,
+        4
+      ],
+      "position": [
+        53.999990730016,
+        23.78224603469513,
+        4.0007926080160034
+      ],
+      "passed": true
+    },
+    {
+      "route": "povo2_left_terrace",
+      "waypoint": 1,
+      "target": [
+        46,
+        24,
+        4
+      ],
+      "position": [
+        46.33453923338534,
+        23.982539233295935,
+        4.000793014416003
+      ],
+      "passed": true
+    },
+    {
+      "route": "povo2_left_terrace",
+      "waypoint": 2,
+      "target": [
+        37,
+        24,
+        4
+      ],
+      "position": [
+        37.03094277834813,
+        23.999485478296,
+        4.000793014416003
+      ],
+      "passed": true
+    },
+    {
+      "route": "basement_right_turn",
+      "waypoint": 0,
+      "target": [
+        18.25,
+        -5,
+        0.4
+      ],
+      "position": [
+        18.250002311273,
+        -5.4571498426218294,
+        0.4007939660016032
+      ],
+      "passed": true
+    },
+    {
+      "route": "basement_right_turn",
+      "waypoint": 1,
+      "target": [
+        7,
+        -5,
+        0.4
+      ],
+      "position": [
+        7.06222938582825,
+        -5.004030225620016,
+        0.4007939152016032
+      ],
+      "passed": true
+    },
+    {
+      "route": "front_walk_to_povo2",
+      "waypoint": 0,
+      "target": [
+        57.5,
+        0,
+        5.92
+      ],
+      "position": [
+        57.50001273683001,
+        -0.038392963600153575,
+        5.9207940258236835
+      ],
+      "passed": true
+    },
+    {
+      "route": "front_walk_to_povo2",
+      "waypoint": 1,
+      "target": [
+        57.5,
+        15,
+        4.12
+      ],
+      "position": [
+        57.49980811443,
+        15.373443014861493,
+        4.124753650416499
+      ],
+      "passed": true
+    },
+    {
+      "route": "front_walk_to_povo2",
+      "waypoint": 2,
+      "target": [
+        57.5,
+        31.35,
+        4.12
+      ],
+      "position": [
+        57.49983290483001,
+        30.965040152723862,
+        4.120792266416483
+      ],
+      "passed": true
+    },
+    {
+      "route": "front_walk_to_povo2",
+      "waypoint": 3,
+      "target": [
+        54,
+        31.35,
+        4
+      ],
+      "position": [
+        53.883625735415535,
+        31.35567678572543,
+        4.000792227016004
+      ],
+      "passed": true
+    },
+    {
+      "route": "bridge_road_to_ramp",
+      "waypoint": 0,
+      "target": [
+        32,
+        -5,
+        4
+      ],
+      "position": [
+        31.89673524132759,
+        -5.000192463420001,
+        4.031111699016125
+      ],
+      "passed": true
+    },
+    {
+      "route": "bridge_road_to_ramp",
+      "waypoint": 1,
+      "target": [
+        22,
+        -5,
+        4
+      ],
+      "position": [
+        21.597920456686392,
+        -5.00001806702,
+        4.000673253416003
+      ],
+      "passed": true
+    },
+    {
+      "route": "bridge_road_to_ramp",
+      "waypoint": 2,
+      "target": [
+        -23,
+        -5,
+        3
+      ],
+      "position": [
+        -22.748916859290997,
+        -5.00005837682,
+        3.015404891212062
+      ],
+      "passed": true
+    },
+    {
+      "route": "bridge_road_to_ramp",
+      "waypoint": 3,
+      "target": [
+        -29,
+        -8,
+        3
+      ],
+      "position": [
+        -28.805816912115226,
+        -7.9066995536316265,
+        3.0007939730120037
+      ],
+      "passed": true
+    },
+    {
+      "route": "bridge_road_to_ramp",
+      "waypoint": 4,
+      "target": [
+        -29,
+        -2.5,
+        3
+      ],
+      "position": [
+        -28.999188051916,
+        -2.5220644758100885,
+        3.0007939730120037
+      ],
+      "passed": true
+    },
+    {
+      "route": "north_road",
+      "waypoint": 0,
+      "target": [
+        -38,
+        -8,
+        3
+      ],
+      "position": [
+        -37.962913787151855,
+        -8.000575997832003,
+        3.120794012412483
+      ],
+      "passed": true
+    },
+    {
+      "route": "north_road",
+      "waypoint": 1,
+      "target": [
+        -38,
+        6,
+        3
+      ],
+      "position": [
+        -37.999745666752005,
+        6.063204713824253,
+        3.0007935666120034
+      ],
+      "passed": true
+    },
+    {
+      "route": "north_road",
+      "waypoint": 2,
+      "target": [
+        -38,
+        112,
+        3
+      ],
+      "position": [
+        -37.999720850952,
+        112.46609023164987,
+        3.0007887406120033
+      ],
+      "passed": true
+    },
+    {
+      "route": "north_road",
+      "waypoint": 3,
+      "target": [
+        -25,
+        118,
+        3
+      ],
+      "position": [
+        -25.04501391810018,
+        117.98131328807193,
+        3.0007885374120034
+      ],
+      "passed": true
+    },
+    {
+      "route": "surface_parking",
+      "waypoint": 0,
+      "target": [
+        -48,
+        -90,
+        3
+      ],
+      "position": [
+        -47.999848424992,
+        -89.64887211195861,
+        3.0007976560120033
+      ],
+      "passed": true
+    }
+  ],
+  "placement": "One initial placement per independent route; normal walking between all waypoints",
+  "started_at_utc": "2026-10-24T16:41:07.411122+00:00",
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "a05d5d3adf6080d8797f343a8a29271e20a4fce0ef4a8be7f4b5afa0e35de860",
+  "package_identity_scope": "On-disk package supplied by the operator; status confirms the map name, not the loaded package bytes",
+  "finished_at_utc": "2026-10-24T16:44:58.164005+00:00"
+}

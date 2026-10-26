@@ -1,0 +1,68 @@
+[
+  {
+    "name": "atmosphere_standard_entrance",
+    "point": [
+      24.7,
+      -73.73,
+      4.1
+    ],
+    "yaw": 90,
+    "pitch": -5,
+    "file": "atmosphere_standard_entrance.png"
+  },
+  {
+    "name": "atmosphere_standard_upper_pavement",
+    "point": [
+      54,
+      -73.73,
+      5.93
+    ],
+    "yaw": -90,
+    "pitch": 5,
+    "file": "atmosphere_standard_upper_pavement.png"
+  },
+  {
+    "name": "atmosphere_standard_garage",
+    "point": [
+      -29,
+      36,
+      -3.1
+    ],
+    "yaw": 146,
+    "pitch": 0,
+    "file": "atmosphere_standard_garage.png"
+  },
+  {
+    "name": "atmosphere_standard_classroom",
+    "point": [
+      -13,
+      -47.06,
+      7.7
+    ],
+    "yaw": -90,
+    "pitch": 0,
+    "file": "atmosphere_standard_classroom.png"
+  },
+  {
+    "name": "atmosphere_standard_terrace",
+    "point": [
+      54,
+      24,
+      4.1
+    ],
+    "yaw": -90,
+    "pitch": -4,
+    "file": "atmosphere_standard_terrace.png"
+  },
+  {
+    "name": "atmosphere_standard_surface_parking",
+    "point": [
+      -48,
+      -44,
+      3.1
+    ],
+    "yaw": 0,
+    "pitch": 0,
+    "file": "atmosphere_standard_surface_parking.png"
+  }
+]

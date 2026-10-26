@@ -76,7 +76,7 @@ def skip_nav_analysis(source):
                          world((-8,4,4)),(124*UNITS,86*UNITS,14*UNITS))
 
 
-def map_text(source,metadata):
+def map_text(source,metadata,season='standard'):
     source=source.replace('models/povo/povo_blockout.vmdl',f'models/povo/{MODEL}.vmdl')
     spawns={'info_player_terrorist':iter(T_STARTS),'info_player_counterterrorist':iter(CT_STARTS)}
     buy={'2':(21.4,-72,4.6),'3':(3,-35.2,8.2),'0':OBJECTIVE}
@@ -195,6 +195,7 @@ def map_text(source,metadata):
             x,y,z=portal['centre'];lights.append((x+(-2 if core['mirror_east'] else 2),y,z+2.8))
     if metadata.get('exterior'):
         lights.extend((x,y,6.8) for x in (37,42,47) for y in (30.5,36.5))
+        lights.extend(((26,-73.73,7),(32,-73.73,8),(40,-73.73,8.8),(49,-73.73,8.8)))
         lights.extend((x,y,-.25) for x in (-23,2,18) for y in (40,60,80,100))
         for i,p in enumerate(((27,-79,4.1),(32,-71,5.95),(54,-50,5.95),(57.5,-5,5.95),
                               (54,31.35,4.15),(42,31.35,4.15),(-29,0,1.85),(-29,30,-3.05),
@@ -205,6 +206,16 @@ def map_text(source,metadata):
             (('enabled','1'),('directlight','1'),('brightness_units','1'),('brightness_lumens','1800'),
              ('color','255 244 220'),('colormode','0'),('range','430'),('bouncelight','1'),
              ('bouncescale','1'),('shape','0'),('size_params','6 24 0.15')))
+    try:
+        from .povo_interactions import insert_entities
+        from .povo_atmosphere import tune_map, insert_soundscapes, insert_winter
+    except ImportError:
+        from povo_interactions import insert_entities
+        from povo_atmosphere import tune_map, insert_soundscapes, insert_winter
+    source=insert_entities(source,metadata['interactions'])
+    source=tune_map(source,season)
+    source=insert_soundscapes(source,metadata,season)
+    if season=='winter':source=insert_winter(source)
     return source
 
 
@@ -226,21 +237,22 @@ def sign_properties(label,white=True):
             ('depth_render_offset','0.03'))
 
 
-def prepare_map(cs2_root,metadata):
+def prepare_map(cs2_root,metadata,season='standard',map_name=MAP):
     converter=cs2_root/'game/bin/win64/dmxconvert.exe'
     source=ROOT/'cs2/content/trento_povo/maps/trento_povo.vmap'
-    target=source.with_name(MAP+'.vmap')
+    target=source.with_name(map_name+'.vmap')
     with tempfile.TemporaryDirectory(prefix='povo-campus-map-') as tmp:
         decoded=Path(tmp)/'base.vmap';encoded=Path(tmp)/'campus.vmap'
         subprocess.run([str(converter),'-i',str(source),'-o',str(decoded),'-oe','keyvalues2','-of','vmap'],check=True)
-        text=map_text(decoded.read_text(encoding='utf-8'),metadata)
+        text=map_text(decoded.read_text(encoding='utf-8'),metadata,season)
         decoded.write_text(text,encoding='utf-8')
         subprocess.run([str(converter),'-i',str(decoded),'-o',str(encoded),'-oe','binary','-of','vmap'],check=True)
         if not target.exists() or target.read_bytes()!=encoded.read_bytes():shutil.copyfile(encoded,target)
     print('Prepared '+str(target))
 
 
-def make_radar(metadata):
+def make_radar(metadata,map_name=MAP):
+    MAP=map_name
     out=ROOT/'exports/povo_campus/radar';out.mkdir(parents=True,exist_ok=True)
     overview=(dict(pos_x=-130*UNITS,pos_y=90*UNITS,scale=250*UNITS/1024,rotate=0,zoom=1)
               if metadata.get('exterior') else dict(pos_x=-80*UNITS,pos_y=82*UNITS,scale=196*UNITS/1024,rotate=0,zoom=1))
@@ -256,6 +268,11 @@ def make_radar(metadata):
                               for m in ext['meshes'] if m['name'].startswith('exterior_road_') and len(m['vertices'])==8)
                 shapes.extend((name,bounds(r),(152,163,162,255)) for name,r in
                               [('surface_lot',(-62,-98,-35,-43)),('p2_lobby',(34.5,28.3,51.3,38.7)),('p2_front',(51,10,58,112)),('p1_front',(52,-110,58,-13))])
+                shapes.extend((name,bounds(r),color) for name,r,color in
+                              [('p1_entrance',(24,-76.43,52,-71.03),(180,186,182,255)),
+                               ('p1_straight_stairs',(27,-76.43,36,-71.03),(181,77,66,255)),
+                               ('p2_left_terrace',ext['left_terrace'],(152,163,162,255)),
+                               ('street_end_gate',(67.85,-122,68.15,126),(49,59,64,255))])
         for room in level['rooms']:
             color=(160,175,181,255) if room.get('playable',True) else (49,56,61,255)
             shapes.append((room['id'],bounds(room['footprint_local_metres']),color))
@@ -323,11 +340,14 @@ def make_radar(metadata):
     return out
 
 
-def deploy_assets(cs2_root,radar_dir):
+def deploy_assets(cs2_root,radar_dir,map_name=MAP):
+    MAP=map_name
     project.deploy(cs2_root)
     content=cs2_root/'content/csgo_addons/trento_povo';game=cs2_root/'game/csgo_addons/trento_povo'
-    for name in (MODEL+'.obj',MODEL+'_collision.obj'):
-        shutil.copyfile(ROOT/'exports/povo_campus'/name,content/'models/povo'/name)
+    for path in (ROOT/'exports/povo_campus').glob(MODEL+'*.obj'):
+        shutil.copyfile(path,content/'models/povo'/path.name)
+    for path in (ROOT/'exports/povo_campus/winter').glob('*.obj'):
+        shutil.copyfile(path,content/'models/povo'/path.name)
     images=content/'panorama/images/overheadmaps';images.mkdir(parents=True,exist_ok=True)
     for p in radar_dir.iterdir():
         if p.suffix in ('.png','.vtex'):shutil.copyfile(p,images/p.name)
@@ -338,29 +358,47 @@ def deploy_assets(cs2_root,radar_dir):
     shutil.copyfile(radar_dir/(MAP+'.txt'),game/'resource/overviews'/(MAP+'.txt'))
 
 
-def build(cs2_root,*,compile_map=True,pack=True):
-    metadata=export();prepare_map(cs2_root,metadata);radar_dir=make_radar(metadata)
-    deploy_assets(cs2_root,radar_dir)
-    if not compile_map:return
+def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=False):
+    metadata=export()
+    seasons=('standard','winter') if season=='both' else (season,)
     content=cs2_root/'content/csgo_addons/trento_povo'
     compiler=cs2_root/'game/bin/win64/resourcecompiler.exe'
-    resources=[content/'models/povo'/(MODEL+'.vmdl'),content/'maps'/(MAP+'.vmap')]
-    resources.extend(content/'panorama/images/overheadmaps'/p.name for p in sorted(radar_dir.glob('*.vtex')))
-    for resource in resources:
+    prepared=[]
+    for chosen in seasons:
+        map_name=MAP+('_winter' if chosen=='winter' else '')
+        prepare_map(cs2_root,metadata,chosen,map_name);radar_dir=make_radar(metadata,map_name)
+        deploy_assets(cs2_root,radar_dir,map_name);prepared.append((chosen,map_name,radar_dir))
+    if not compile_map:return
+    def compile_resource(resource):
         print('Compiling '+str(resource),flush=True)
         options=['-lightmapVRadQuality','1'] if resource.suffix=='.vmap' else []
         subprocess.run([str(compiler),'-nop4','-fshallow2',*options,'-game',str(cs2_root/'game/csgo'),'-i',str(resource)],check=True)
-    game=cs2_root/'game/csgo_addons/trento_povo'
-    shutil.copyfile(radar_dir/(MAP+'.txt'),game/'resource/overviews'/(MAP+'.txt'))
-    if pack:
-        result=package_map(cs2_root,ROOT/'build/tools/vpkedit-4.4.2/vpkeditcli.exe',
-            ROOT/'build/package'/(MAP+'.vpk'),force=True,map_name=MAP,model_name=MODEL,
-            overview_source=radar_dir/(MAP+'.txt'))
-        print(f"Packaged campus: {result['package_bytes']} bytes, {result['package_entries']} entries",flush=True)
+    if not skip_model:compile_resource(content/'models/povo'/(MODEL+'.vmdl'))
+    compile_resource(content/'soundevents/soundevents_addon.vsndevts')
+    if 'winter' in seasons:
+        compile_resource(content/'models/povo/povo_winter.vmdl')
+        compile_resource(content/'particles/povo/snow.vpcf')
+    for chosen,map_name,radar_dir in prepared:
+        compile_resource(content/'maps'/(map_name+'.vmap'))
+        radar_pattern=re.compile(re.escape(map_name)+r'(?:_(?:lower|basement1|basement2))?_radar(?:_spectate)?_tga\.vtex')
+        for p in sorted(p for p in radar_dir.glob('*.vtex') if radar_pattern.fullmatch(p.name)):
+            compile_resource(content/'panorama/images/overheadmaps'/p.name)
+        game=cs2_root/'game/csgo_addons/trento_povo'
+        shutil.copyfile(radar_dir/(map_name+'.txt'),game/'resource/overviews'/(map_name+'.txt'))
+        if pack:
+            extras=['soundevents/soundevents_addon.vsndevts_c']
+            if chosen=='winter':extras+=['models/povo/povo_winter.vmdl_c','particles/povo/snow.vpcf_c']
+            result=package_map(cs2_root,ROOT/'build/tools/vpkedit-4.4.2/vpkeditcli.exe',
+                ROOT/'build/package'/(map_name+'.vpk'),force=True,map_name=map_name,model_name=MODEL,
+                overview_source=radar_dir/(map_name+'.txt'),extra_assets=extras)
+            print(f"Packaged {chosen}: {result['package_bytes']} bytes, {result['package_entries']} entries",flush=True)
 
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--cs2-root',type=Path);parser.add_argument('--prepare-only',action='store_true')
+    parser.add_argument('--season',choices=('standard','winter','both'),default='standard')
+    parser.add_argument('--skip-model',action='store_true',help='Reuse already compiled shared campus model after entity-only changes')
     parser.add_argument('--no-package',action='store_true');args=parser.parse_args()
-    build(project.discover_cs2_root(args.cs2_root),compile_map=not args.prepare_only,pack=not args.no_package)
+    build(project.discover_cs2_root(args.cs2_root),compile_map=not args.prepare_only,pack=not args.no_package,
+          season=args.season,skip_model=args.skip_model)

@@ -7,10 +7,10 @@ COLORS = {
     'orange': (159,70,46), 'car_blue': (55,72,87), 'car_white': (207,210,208),
     'car_red': (149,48,42), 'tree': (59,88,62), 'trunk': (94,82,66),
     'ridge': (106,124,134), 'tile': (191,188,166), 'grout': (136,137,125),
-    'light': (245,237,190)
+    'light': (245,237,190), 'canopy_glass': (135,171,180), 'context_concrete': (159,160,151)
 }
 # 20% transmission, 80% opacity, per pane. Frames and safety bands stay opaque.
-OPACITY = {'entry_glass': .8}
+OPACITY = {'entry_glass': .8, 'canopy_glass': .35}
 PREFIX = 'materials/trento/povo/campus/exterior/'
 
 
@@ -27,7 +27,8 @@ def write_materials(directory):
         (directory/(name+'.png')).write_bytes(png(color,pattern,64))
         (directory/(name+'_rough.png')).write_bytes(png((185,)*3,'flat',4))
         transparent=name in OPACITY
-        shader='csgo_lightmappedgeneric.vfx' if transparent else 'csgo_complex.vfx'
+        shader=('csgo_lightmappedgeneric.vfx' if transparent else
+                'csgo_unlitgeneric.vfx' if name=='context_concrete' else 'csgo_complex.vfx')
         flags=('    F_TRANSLUCENT "1"\n    F_RENDER_BACKFACES "0"\n'
                f'    g_flOpacityScale "{OPACITY[name]}"\n') if transparent else ''
         layer='Layer1' if transparent else ''
@@ -35,7 +36,10 @@ def write_materials(directory):
                   f'    Texture{layer}Normal "{PREFIX}neutral_normal.png"\n'
                   f'    Texture{layer}Roughness "{PREFIX}{name}_rough.png"\n')
         if transparent:textures+=f'    TextureLayer1Translucency "{PREFIX}opaque_mask.png"\n'
+        surface=('glass' if transparent else 'asphalt' if name=='asphalt' else
+                 'tile' if name=='tile' else 'metal' if name in ('fence','dark') else
+                 'grass' if name in ('grass','tree') else 'wood' if name=='trunk' else 'concrete')
         text=(f'Layer0\n{{\n    shader "{shader}"\n'+flags+textures+
               '    g_vColorTint "[1 1 1 0]"\n    g_flModelTintAmount "1"\n'
-              '    SystemAttributes { PhysicsSurfaceProperties "'+('glass' if transparent else 'concrete')+'" }\n}\n')
+              '    SystemAttributes { PhysicsSurfaceProperties "'+surface+'" }\n}\n')
         (directory/(name+'.vmat')).write_text(text,encoding='utf-8')

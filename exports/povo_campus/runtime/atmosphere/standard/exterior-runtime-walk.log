@@ -1,0 +1,2590 @@
+> status
+Server:  Running [100.119.112.35:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:48    0    0     active 786432 'albylupatin2000'
+#end
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1234.252 2125.984 161.417
+
+> getpos_exact
+setpos_exact -1234.251953 2125.983887 157.511505;setang_exact 0.000000 90.000000 0.000000
+
+> getpos_exact
+setpos_exact -1234.251953 2125.983887 157.511505;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.239136 1991.980469 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.012 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.227661 1895.388306 157.511520;setang_exact 0.000000 -90.012016 0.000000
+
+> setang 0 90.041 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.233032 1927.167725 157.511520;setang_exact 0.000000 90.040863 0.000000
+
+> getpos_exact
+setpos_exact -1234.234253 1929.272827 157.511520;setang_exact 0.000000 90.040863 0.000000
+
+> getpos_exact
+setpos_exact -1234.234253 1929.272827 157.511520;setang_exact 0.000000 90.040863 0.000000
+
+> setang 0 -90.002 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.247192 1784.386230 157.511520;setang_exact 0.000000 -90.002060 0.000000
+
+> setang 0 -90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.262695 1629.488525 157.511520;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -89.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.253052 1476.177856 157.511520;setang_exact 0.000000 -89.997940 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.237305 1317.559082 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 90.040 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.242188 1350.425903 157.511520;setang_exact 0.000000 90.040161 0.000000
+
+> getpos_exact
+setpos_exact -1234.244263 1354.855713 157.511520;setang_exact 0.000000 90.040161 0.000000
+
+> getpos_exact
+setpos_exact -1234.244263 1354.855713 157.511520;setang_exact 0.000000 90.040161 0.000000
+
+> setang 0 -90.004 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.253906 1273.383545 157.511520;setang_exact 0.000000 -90.004120 0.000000
+
+> setang 0 -89.997 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.263794 1225.049927 157.511520;setang_exact 0.000000 -89.996910 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1403.543 2125.984 161.417
+
+> getpos_exact
+setpos_exact -1403.542969 2125.983887 157.511505;setang_exact 0.000000 -89.996910 0.000000
+
+> getpos_exact
+setpos_exact -1403.542969 2125.983887 157.511505;setang_exact 0.000000 -89.996910 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1403.530640 1984.337158 157.511505;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.013 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1403.533936 1934.033936 157.511505;setang_exact 0.000000 -90.013046 0.000000
+
+> getpos_exact
+setpos_exact -1403.535645 1930.759277 157.511505;setang_exact 0.000000 -90.013046 0.000000
+
+> getpos_exact
+setpos_exact -1403.535645 1930.759277 157.511505;setang_exact 0.000000 -90.013046 0.000000
+
+> setang 0 -90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1403.548828 1778.916382 157.511505;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -89.999 0
+> +forward 42
+
+------- SERVER SOUNDSCAPES -------
+-------- SOUNDSCAPE ENTITIES -----
+- 0: Nothing x:1771.6541 y:-1889.7640 z:173.2280
+- 1: Nothing x:2559.0549 y:-1889.7640 z:173.2280
+- 2: Nothing x:3543.3069 y:-1889.7640 z:173.2280
+- 3: Nothing x:-4370.0791 y:2440.9451 z:212.5980
+- 4: Nothing x:-3661.4170 y:2440.9451 z:212.5980
+- 5: Nothing x:-2952.7561 y:2440.9451 z:212.5980
+- 6: Nothing x:-2244.0940 y:2440.9451 z:212.5980
+- 7: Nothing x:-1535.4330 y:2440.9451 z:212.5980
+- 8: Nothing x:-826.7720 y:2440.9451 z:212.5980
+- 9: Nothing x:-118.1100 y:2440.9451 z:283.4650
+- 10: Nothing x:590.5510 y:2440.9451 z:283.4650
+- 11: Nothing x:1299.2130 y:2440.9451 z:283.4650
+- 12: Nothing x:2007.8740 y:2440.9451 z:283.4650
+- 13: Nothing x:2716.5349 y:2440.9451 z:283.4650
+- 14: Nothing x:3425.1970 y:2440.9451 z:283.4650
+- 15: Nothing x:4133.8579 y:2440.9451 z:283.4650
+- 16: Nothing x:-3622.0471 y:866.1420 z:-62.9920
+- 17: Nothing x:-2598.4250 y:866.1420 z:-62.9920
+- 18: Nothing x:-1574.8030 y:866.1420 z:-62.9920
+- 19: Nothing x:-3622.0471 y:0.0000 z:-62.9920
+- 20: Nothing x:-2598.4250 y:0.0000 z:-62.9920
+- 21: Nothing x:-1574.8030 y:0.0000 z:-62.9920
+- 22: Nothing x:-3622.0471 y:-944.8820 z:-62.9920
+- 23: Nothing x:-2598.4250 y:-944.8820 z:-62.9920
+- 24: Nothing x:-1574.8030 y:-944.8820 z:-62.9920
+- 25: Nothing x:196.8500 y:354.3310 z:70.8660
+- 26: Nothing x:118.1100 y:708.6610 z:70.8660
+- 27: Nothing x:-354.3310 y:708.6610 z:70.8660
+- 28: Nothing x:-787.4020 y:708.6610 z:70.8660
+- 29: Nothing x:-1403.5430 y:1614.1730 z:212.5980
+- 30: Nothing x:-1234.2520 y:1614.1730 z:212.5980
+- 31: Nothing x:-2677.1650 y:708.6610 z:212.5980
+- 32: Nothing x:-2204.7241 y:708.6610 z:212.5980
+- 33: Nothing x:-1653.5430 y:708.6610 z:212.5980
+- 34: Nothing x:-1141.7321 y:708.6610 z:212.5980
+- 35: Nothing x:-590.5510 y:718.5040 z:354.3310
+- 36: Nothing x:-314.9610 y:718.5040 z:354.3310
+- 37: Nothing x:-39.3700 y:718.5040 z:354.3310
+- 38: Nothing x:236.2200 y:718.5040 z:354.3310
+- 39: Nothing x:511.8110 y:718.5040 z:354.3310
+- 40: Nothing x:1621.8500 y:-744.2910 z:354.3310
+- 41: Nothing x:1621.8500 y:-744.2910 z:212.5980
+- 42: Nothing x:1621.8500 y:783.6610 z:354.3310
+- 43: Nothing x:1621.8500 y:783.6610 z:212.5980
+- 44: Nothing x:3220.6689 y:-744.2910 z:354.3310
+- 45: Nothing x:3220.6689 y:-744.2910 z:212.5980
+- 46: Nothing x:3220.6689 y:783.6610 z:354.3310
+- 47: Nothing x:3220.6689 y:783.6610 z:212.5980
+- 48: Nothing x:3447.6350 y:812.7110 z:354.3310
+- 49: Nothing x:3447.6350 y:548.3690 z:354.3310
+- 50: Nothing x:3447.6350 y:284.0270 z:354.3310
+- 51: Nothing x:3447.6350 y:19.6850 z:354.3310
+- 52: Nothing x:3447.6350 y:-244.6570 z:354.3310
+- 53: Nothing x:3447.6350 y:-508.9990 z:354.3310
+- 54: Nothing x:3447.6350 y:-773.3410 z:354.3310
+- 55: Nothing x:1469.9139 y:549.6520 z:354.3310
+- 56: Nothing x:1739.6541 y:549.6520 z:354.3310
+- 57: Nothing x:2009.3950 y:549.6520 z:354.3310
+- 58: Nothing x:2279.1360 y:549.6520 z:354.3310
+- 59: Nothing x:2548.8770 y:549.6520 z:354.3310
+- 60: Nothing x:2818.6169 y:549.6520 z:354.3310
+- 61: Nothing x:3088.3579 y:549.6520 z:354.3310
+- 62: Nothing x:3358.0991 y:549.6520 z:354.3310
+- 63: Nothing x:1389.4449 y:819.1270 z:354.3310
+- 64: Nothing x:1389.4449 y:567.6170 z:354.3310
+- 65: Nothing x:1389.4449 y:316.1070 z:354.3310
+- 66: Nothing x:1389.4449 y:64.5980 z:354.3310
+- 67: Nothing x:1389.4449 y:-186.9120 z:354.3310
+- 68: Nothing x:1389.4449 y:-438.4220 z:354.3310
+- 69: Nothing x:1469.9139 y:-513.8750 z:354.3310
+- 70: Nothing x:1739.6541 y:-513.8750 z:354.3310
+- 71: Nothing x:2009.3950 y:-513.8750 z:354.3310
+- 72: Nothing x:2279.1360 y:-513.8750 z:354.3310
+- 73: Nothing x:2548.8770 y:-513.8750 z:354.3310
+- 74: Nothing x:2818.6169 y:-513.8750 z:354.3310
+- 75: Nothing x:3088.3579 y:-513.8750 z:354.3310
+- 76: Nothing x:3358.0991 y:-513.8750 z:354.3310
+- 77: Nothing x:1061.2220 y:441.5370 z:354.3310
+- 78: Nothing x:3211.8950 y:396.9500 z:354.3310
+- 79: Nothing x:3211.8950 y:158.9140 z:354.3310
+- 80: Nothing x:3211.8950 y:-119.5440 z:354.3310
+- 81: Nothing x:3211.8950 y:-361.1730 z:354.3310
+- 82: Nothing x:1625.1851 y:396.9500 z:354.3310
+- 83: Nothing x:1625.1851 y:158.9140 z:354.3310
+- 84: Nothing x:1625.1851 y:-119.5440 z:354.3310
+- 85: Nothing x:1625.1851 y:-361.1730 z:354.3310
+- 86: Nothing x:1061.2220 y:-549.8050 z:354.3310
+- 87: Nothing x:1960.6610 y:-734.8440 z:354.3310
+- 88: Nothing x:2268.9360 y:-734.8440 z:354.3310
+- 89: Nothing x:2577.2109 y:-734.8440 z:354.3310
+- 90: Nothing x:2885.4861 y:-734.8440 z:354.3310
+- 91: Nothing x:2885.4861 y:-361.1730 z:354.3310
+- 92: Nothing x:2577.2109 y:-361.1730 z:354.3310
+- 93: Nothing x:2268.9360 y:-361.1730 z:354.3310
+- 94: Nothing x:1960.6610 y:-361.1730 z:354.3310
+- 95: Nothing x:1960.6610 y:396.9500 z:354.3310
+- 96: Nothing x:2268.9360 y:396.9500 z:354.3310
+- 97: Nothing x:2577.2109 y:396.9500 z:354.3310
+- 98: Nothing x:2885.4861 y:396.9500 z:354.3310
+- 99: Nothing x:2885.4861 y:774.2150 z:354.3310
+- 100: Nothing x:2577.2109 y:774.2150 z:354.3310
+- 101: Nothing x:2268.9360 y:774.2150 z:354.3310
+- 102: Nothing x:1960.6610 y:774.2150 z:354.3310
+- 103: Nothing x:3783.1111 y:-743.8270 z:354.3310
+- 104: Nothing x:3783.1111 y:-389.9170 z:354.3310
+- 105: Nothing x:3783.1111 y:17.8890 z:354.3310
+- 106: Nothing x:3783.1111 y:418.5080 z:354.3310
+- 107: Nothing x:3783.1111 y:774.2150 z:354.3310
+- 108: Nothing x:1061.2220 y:19.6850 z:354.3310
+- 109: Nothing x:2863.2700 y:848.6300 z:212.5980
+- 110: Nothing x:2863.2700 y:656.1260 z:212.5980
+- 111: Nothing x:3455.2471 y:812.7110 z:212.5980
+- 112: Nothing x:3455.2471 y:548.3690 z:212.5980
+- 113: Nothing x:3455.2471 y:284.0270 z:212.5980
+- 114: Nothing x:3455.2471 y:19.6850 z:212.5980
+- 115: Nothing x:3455.2471 y:-244.6570 z:212.5980
+- 116: Nothing x:3455.2471 y:-508.9990 z:212.5980
+- 117: Nothing x:3455.2471 y:-773.3410 z:212.5980
+- 118: Nothing x:1478.2889 y:559.8740 z:212.5980
+- 119: Nothing x:1747.1450 y:559.8740 z:212.5980
+- 120: Nothing x:2016.0020 y:559.8740 z:212.5980
+- 121: Nothing x:2284.8579 y:559.8740 z:212.5980
+- 122: Nothing x:2553.7151 y:559.8740 z:212.5980
+- 123: Nothing x:2822.5710 y:559.8740 z:212.5980
+- 124: Nothing x:3091.4280 y:559.8740 z:212.5980
+- 125: Nothing x:3360.2839 y:559.8740 z:212.5980
+- 126: Nothing x:1399.1121 y:812.7110 z:212.5980
+- 127: Nothing x:1399.1121 y:548.3690 z:212.5980
+- 128: Nothing x:1399.1121 y:284.0270 z:212.5980
+- 129: Nothing x:1399.1121 y:19.6850 z:212.5980
+- 130: Nothing x:1399.1121 y:-244.6570 z:212.5980
+- 131: Nothing x:1399.1121 y:-508.9990 z:212.5980
+- 132: Nothing x:1399.1121 y:-773.3410 z:212.5980
+- 133: Nothing x:1478.2889 y:-549.9690 z:212.5980
+- 134: Nothing x:1747.1450 y:-549.9690 z:212.5980
+- 135: Nothing x:2016.0020 y:-549.9690 z:212.5980
+- 136: Nothing x:2284.8579 y:-549.9690 z:212.5980
+- 137: Nothing x:2553.7151 y:-549.9690 z:212.5980
+- 138: Nothing x:2822.5710 y:-549.9690 z:212.5980
+- 139: Nothing x:3091.4280 y:-549.9690 z:212.5980
+- 140: Nothing x:3360.2839 y:-549.9690 z:212.5980
+- 141: Nothing x:1065.6310 y:789.7000 z:212.5980
+- 142: Nothing x:1065.6310 y:479.3370 z:212.5980
+- 143: Nothing x:1955.5710 y:781.8430 z:212.5980
+- 144: Nothing x:2271.2920 y:781.8430 z:212.5980
+- 145: Nothing x:2587.0139 y:781.8430 z:212.5980
+- 146: Nothing x:1953.5980 y:394.8710 z:212.5980
+- 147: Nothing x:2265.3721 y:394.8710 z:212.5980
+- 148: Nothing x:2577.1470 y:394.8710 z:212.5980
+- 149: Nothing x:2888.9221 y:394.8710 z:212.5980
+- 150: Nothing x:1953.5980 y:-373.1800 z:212.5980
+- 151: Nothing x:2265.3721 y:-373.1800 z:212.5980
+- 152: Nothing x:2577.1470 y:-373.1800 z:212.5980
+- 153: Nothing x:2888.9221 y:-373.1800 z:212.5980
+- 154: Nothing x:3220.4299 y:320.2270 z:212.5980
+- 155: Nothing x:3220.4299 y:-373.1800 z:212.5980
+- 156: Nothing x:1626.0370 y:320.2270 z:212.5980
+- 157: Nothing x:1626.0370 y:-373.1800 z:212.5980
+- 158: Nothing x:2198.2820 y:-762.1160 z:212.5980
+- 159: Nothing x:2636.3450 y:-762.1160 z:212.5980
+- 160: Nothing x:1626.0370 y:-62.8170 z:212.5980
+- 161: Nothing x:3220.4299 y:-62.8170 z:212.5980
+- 162: Nothing x:3784.7820 y:-675.6860 z:212.5980
+- 163: Nothing x:3784.7820 y:-219.9630 z:212.5980
+- 164: Nothing x:3784.7820 y:233.7960 z:212.5980
+- 165: Nothing x:3784.7820 y:703.2700 z:212.5980
+- 166: Nothing x:1065.6310 y:88.4360 z:212.5980
+- 167: Nothing x:1065.6310 y:-526.3970 z:212.5980
+- 168: Nothing x:2362.2051 y:0.0000 z:275.5910
+----------------------------------
+
+no results
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1403.540527 1656.903198 157.511505;setang_exact 0.000000 -89.998970 0.000000
+
+> setang 0 -90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1403.525391 1503.923462 157.511505;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -90.006 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1403.509399 1346.507080 157.511505;setang_exact 0.000000 -90.005836 0.000000
+
+> getpos_exact
+setpos_exact -1403.506836 1339.714478 157.511505;setang_exact 0.000000 -90.005836 0.000000
+
+> getpos_exact
+setpos_exact -1403.506836 1339.714478 157.511505;setang_exact 0.000000 -90.005836 0.000000
+
+> setang 0 -90.021 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1403.516357 1247.868896 157.511505;setang_exact 0.000000 -90.020943 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 137.795 -1141.732 122.047
+setpos into world, use noclip to unstick yourself!
+
+> getpos_exact
+setpos_exact 137.794998 -1141.732056 122.865898;setang_exact 0.000000 -90.020943 0.000000
+
+> getpos_exact
+setpos_exact 137.794998 -1141.732056 122.865898;setang_exact 0.000000 -90.020943 0.000000
+
+> setang 0 -180.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -7.024586 -1141.719604 101.077789;setang_exact 0.000000 -180.000000 0.000000
+
+> getpos_exact
+setpos_exact -16.964294 -1141.716553 99.181595;setang_exact 0.000000 -180.000000 0.000000
+
+> getpos_exact
+setpos_exact -16.964294 -1141.716553 99.181595;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -168.140900 -1141.703491 70.341751;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.997 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -319.618805 -1141.713501 41.444412;setang_exact 0.000000 -179.996918 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+name                                                             value       default  flags                                help text
+________________________________________________________________ ___________ ________ ____________________________________ ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+cl_snd_cast_clear                                                true
+cl_snd_cast_retrigger                                            true
+cl_snd_new_visualize                                             false                client cheat                         Displays soundevent name played at it's 3d position
+cl_vsnd_morph_override_ease_enabled                              true                 client                               Controls whether the compiled in vsnd morph data ease in/out values are used or values set from the convars (cl_vsnd_morph_override_ease_in, cl_vsnd_morph_override_ease_out) are used
+cl_vsnd_morph_override_ease_in                                   0.2                  client                               If cl_enable_vsnd_morph_override_ease_enabled is true, ease into vsnd morph driven animation over the specified number of seconds.
+cl_vsnd_morph_override_ease_out                                  0.2                  client                               If cl_enable_vsnd_morph_override_ease_enabled is true, ease out of vsnd morph driven animation over the specified number of seconds.
+server_snd_cast                                                                       game cheat                           Casts a ray and starts a sound event where the ray hits. The sound event will retrigger periodically. Usage: server_snd_cast <eventname> [<retrigger time>] [<max distance>]. Arguments that are specified will become defaults for the remainder of the session.
+server_snd_pos                                                                        game cheat                           Starts a sound event at a given position. The sound event will retrigger periodically. Usage: server_snd_pos <eventname> <retrigger time> <x> <y> <z>.
+snd__beatpattern_stop_track                                                           cheat                                Stops the specified track
+snd_async_flush                                                                                                            Flush all unlocked async audio data
+snd_async_showmem                                                                                                          Show async memory stats
+snd_async_showmem_music                                                                                                    Show async memory stats for just non-streamed music
+snd_async_showmem_summary                                                                                                  Show brief async memory stats
+snd_async_spew_blocking                                          0                                                         Spew message to console any time async sound loading blocks on file i/o.
+snd_autodetect_latency                                           true                 archive
+snd_beatpattern_flush                                                                 cheat                                Purge and reload all beat pattern data and files.
+snd_beatpattern_print_activetracks                                                    cheat                                List all active tracks
+snd_beatpattern_print_patterns                                                        cheat                                List all available beat patterns
+snd_beatpattern_set_track_bpm                                                         cheat                                Sets the tempo of the specified track
+snd_beatpattern_set_track_transpose                                                   cheat                                Sets the transposition of the specified track
+snd_beatpattern_show_bpm                                         false                cheat
+snd_beatpattern_show_events                                      false                cheat
+snd_beatpattern_show_quantize_queue                              false                cheat
+snd_beatpattern_stop_all_tracks                                                       cheat                                Stops all currently playing patterns
+snd_beatpattern_use_lookahead                                    false                cheat
+snd_boxverb_simd                                                 true                                                      Enable SIMD code path for shoebox reverb processor.
+snd_boxverb_simd_svf                                             1                                                         0 = use biquad instead of svf, 1 = use vectorized svf, 2 = use scalar svf
+snd_break_on_start_soundevent                                    0                    game client cheat replicated         Use to debug break on any soundevent that is started matching this name
+snd_cast                                                                              cheat                                Casts a ray and starts a sound event where the ray hits. The sound event will retrigger periodically if cl_snd_cast_retrigger is set. The sound event will clear previous snd_cast events if cl_snd_cast_clear is set. Usage: snd_cast <eventname> [<retrigger time>] [<max distance>]. Arguments that are specified will become defaults for the remainder of the session.
+snd_chicken_obscured_fade_time                                   0.25                 client                               Seconds to fade the ChickensObscuredLayer mix layer in and out.
+snd_compare_KV_convert                                           false
+snd_cs_duck_reverb                                                                    client                               One shot trigger to duck reverb for a few seconds.
+snd_deathcamera_volume                                           0.16        0.16     client archive                       Volume of Deathcam Timers
+snd_deathcamera_volume_armsrace                                  0.16        0.16     client archive                       Arms Race volume of Deathcam Timers
+snd_deathcamera_volume_casual                                    0.16        0.16     client archive                       Casual volume of Deathcam Timers
+snd_deathcamera_volume_deathmatch                                0.16        0.16     client archive                       Deathmatch volume of Deathcam Timers
+snd_deathcamera_volume_rush                                      0.16        0.16     client archive                       Rush volume of Deathcam Timers
+snd_delay_sound_ms_max                                           40                                                        Sound device synchronization max delay (ms)
+snd_delay_sound_ms_shift                                         23                                                        Sound device synchronization shift (ms)
+snd_diffusor_simd                                                false                                                     Enable SIMD code path for diffusor processor.
+snd_disable_mixer_duck                                           false                cheat
+snd_disable_mixer_solo                                           false                cheat
+snd_disable_radar_visualize                                      false                game client replicated
+snd_dsp_distance_max                                             2000                 cheat
+snd_dsp_distance_min                                             20                   cheat
+snd_duckerattacktime                                             0.5                  archive
+snd_duckerreleasetime                                            2.5                  archive
+snd_duckerthreshold                                              0.15                 archive
+snd_ducktovolume                                                 0.55                 archive
+snd_enable_subgraph_corenull_passthrough                         true
+snd_enable_subgraph_log                                          false
+snd_envelope_rate                                                0.9                  cheat
+snd_filter                                                       0                    cheat
+snd_foliage_db_loss                                              4                    game cheat                           foliage dB loss per 1200 units
+snd_front_headphone_position                                                                                               Specifies the position (in degrees) of the virtual front left/right headphones.
+snd_front_stereo_speaker_position                                                                                          Specifies the position (in degrees) of the virtual front left/right speakers.
+snd_front_surround_speaker_position                                                                                        Specifies the position (in degrees) of the virtual front left/right speakers.
+snd_gain                                                         1                    archive
+snd_gain_max                                                     1                    cheat
+snd_gain_min                                                     0.01                 cheat
+snd_gamevoicevolume                                              1                    archive                              Game v.o. volume
+snd_gamevolume                                                   1                    archive                              Game volume
+snd_get_physics_surface_properties                                                    cheat                                Get physics surface properties for all the materials.
+snd_group_cluster_debug                                          false                cheat replicated
+snd_group_priority_debug                                         false                cheat replicated
+snd_group_priority_max_tolerance                                 0.05                 cheat replicated
+snd_headphone_eq                                                 0                    client archive clientcmd_can_execute Select Headphone EQ Preset
+snd_headphone_eq_active                                          0                    client clientcmd_can_execute         Select Headphone EQ Preset
+snd_headphone_pan_exponent                                                                                                 Specifies the exponent for the pan xfade from phone to phone if the 'exp' pan law is being used.
+snd_headphone_pan_radial_weight                                                                                            Apply cos(angle) * weight before pan law
+snd_hrtf_distance_behind                                         50                                                        HRTF calculations will calculate the player as being this far behind the camera.
+snd_list                                                         0                    cheat
+snd_log_empty_event_entities                                     false                client cheat                         Logs the sound event entities that have empty names.
+snd_mainmenu_music_break_time_max                                0                    client cheat                         Maximum amount of time to pause between playing main menu music
+snd_mainmenu_music_break_time_min                                0                    client cheat                         Minimum amount of time to pause between playing main menu music
+snd_mapobjective_volume                                          0.04        0.04     client archive                       Volume of Map Objective Music
+snd_mapobjective_volume_armsrace                                 0.01        0.01     client archive                       Arms Race volume of Map Objective Music
+snd_mapobjective_volume_casual                                   0.01        0.01     client archive                       Casual volume of Map Objective Music
+snd_mapobjective_volume_deathmatch                               0.01        0.01     client archive                       Deathmatch volume of Map Objective Music
+snd_mapobjective_volume_rush                                     0.01        0.01     client archive                       Rush volume of Map Objective Music
+snd_max_pitch_shift_inaccuracy                                   0.08                 game client replicated
+snd_menumap_volume                                               1                    client archive                       Volume of background sounds for maps
+snd_menumusic_volume                                             0.04        0.04     client archive                       Volume of Menu / Non-gameplay music
+snd_menumusic_volume_armsrace                                    0.04        0.04     client archive                       Arms Race volume of Menu / Non-gameplay music
+snd_menumusic_volume_casual                                      0.04        0.04     client archive                       Casual volume of Menu / Non-gameplay music
+snd_menumusic_volume_deathmatch                                  0.04        0.04     client archive                       Deathmatch volume of Menu / Non-gameplay music
+snd_menumusic_volume_rush                                        0.04        0.04     client archive                       Rush volume of Menu / Non-gameplay music
+snd_mergemethod                                                  1                                                         Sound merge method (0 == sum and clip, 1 == max, 2 == avg).
+snd_mixahead                                                     0.001                archive
+snd_mixer_master_dsp                                             1                    cheat
+snd_mixer_master_level                                           1                    cheat
+snd_music_mode                                                   1                    client                               Selects which per-game-mode set of music volume convars is live
+snd_music_settings_mode                                          0                    client archive                       Which game mode's music volumes the audio settings screen is editing
+snd_musicvolume                                                  1                    archive                              Music volume
+snd_mute_losefocus                                               true                 archive
+snd_mute_mvp_music_live_players                                  false                client archive                       If set, MVP music is muted if players from both teams are still alive.
+snd_mvp_volume                                                   0.16        0.16     client archive                       Volume of MVP Music
+snd_mvp_volume_armsrace                                          0.16        0.16     client archive                       Arms Race volume of MVP Music
+snd_mvp_volume_casual                                            0.16        0.16     client archive                       Casual volume of MVP Music
+snd_mvp_volume_deathmatch                                        0.16        0.16     client archive                       Deathmatch volume of MVP Music
+snd_mvp_volume_rush                                              0.16        0.16     client archive                       Rush volume of MVP Music
+snd_new_visualize                                                false                game cheat                           Displays soundevent name played at it's 3d position
+snd_occlusion_bounces                                            1                    cheat replicated
+snd_occlusion_debug                                              false                game client cheat replicated
+snd_occlusion_min_wall_thickness                                 4                    cheat replicated
+snd_occlusion_rays                                               4                    cheat replicated
+snd_op_test_convar                                               720                  cheat
+snd_opvar_set_dome_catchup_distance                              64                   game client replicated
+snd_opvar_set_dome_catchup_rate                                  1                    game client replicated
+snd_opvar_set_dome_churn_fraction                                0.25                 game client replicated
+snd_opvar_set_dome_cluster_steps_per_think                       32                   game client replicated
+snd_opvar_set_point_debug                                        false                game client cheat replicated
+snd_opvar_set_point_update_interval                              0.2                  game client replicated
+snd_opvar_set_point_update_interval_fast                         0.0333               game client replicated
+snd_print_current_mixer_mixgroup                                                                                           Get data related to mix group matching string
+snd_print_samplers                                                                    cheat                                List all available samplers
+snd_rear_headphone_position                                                                                                Specifies the position  (in degrees) of the virtual rear left/right headphones.
+snd_rear_stereo_scale                                            1                    cheat replicated
+snd_rear_stereo_speaker_position                                                                                           Specifies the position (in degrees) of the virtual rear left/right speakers.
+snd_rear_surround_speaker_position                                                                                         Specifies the position (in degrees) of the virtual rear left/right speakers.
+snd_refdb                                                        60                   cheat                                Reference dB at snd_refdist
+snd_refdist                                                      36                   cheat                                Reference distance for snd_refdb
+snd_refresh_ui_audio_state                                                            client cheat                         Restores audio DSP state for the UI.
+snd_report_audio_nan                                             false
+snd_report_verbose_error                                         false                cheat                                If set to 1, report more error found when playing sounds.
+snd_roundaction_volume                                           0                    client archive                       Volume of Move Action Music
+snd_roundaction_volume_armsrace                                  0                    client archive                       Arms Race volume of Move Action Music
+snd_roundaction_volume_casual                                    0                    client archive                       Casual volume of Move Action Music
+snd_roundaction_volume_deathmatch                                0                    client archive                       Deathmatch volume of Move Action Music
+snd_roundaction_volume_rush                                      0.0064               client archive                       Rush volume of Move Action Music
+snd_roundend_volume                                              0.16        0.16     client archive                       Volume of Won/Lost Music
+snd_roundend_volume_armsrace                                     0.16        0.16     client archive                       Arms Race volume of Won/Lost Music
+snd_roundend_volume_casual                                       0.16        0.16     client archive                       Casual volume of Won/Lost Music
+snd_roundend_volume_deathmatch                                   0.16        0.16     client archive                       Deathmatch volume of Won/Lost Music
+snd_roundend_volume_rush                                         0.16        0.16     client archive                       Rush volume of Won/Lost Music
+snd_roundstart_volume                                            0                    client archive                       Volume of Round Start Music
+snd_roundstart_volume_armsrace                                   0.0225               client archive                       Arms Race volume of Round Start Music
+snd_roundstart_volume_casual                                     0.0225               client archive                       Casual volume of Round Start Music
+snd_roundstart_volume_deathmatch                                 0.0225               client archive                       Deathmatch volume of Round Start Music
+snd_roundstart_volume_rush                                       0.0225               client archive                       Rush volume of Round Start Music
+snd_samplers_play_note                                                                cheat                                Play a note from a specified sampler
+snd_samplers_stop_note                                                                cheat                                Stop a note from a specified sampler
+snd_set_physics_surface_properties                                                    cheat                                Set physics surface properties for materials. Usage: <heuristic #> <commit>
+snd_showclassname                                                0                    cheat
+snd_showstart                                                    0                    cheat
+snd_side_surround_speaker_position                                                                                         Specifies the position (in degrees) of the virtual rear left/right speakers.
+snd_sos_beatpattern_show_operator_updates                        false
+snd_sos_block_global_stack                                       false                cheat
+snd_sos_block_stop_global_stack                                  true                 cheat
+snd_sos_calc_angle_debug                                         false                cheat replicated
+snd_sos_cl_soundevent_pause_last                                                      client                               Test
+snd_sos_cl_soundevent_start                                                           client                               Test
+snd_sos_cl_soundevent_stop_last                                                       client                               Test
+snd_sos_cl_soundevent_unpause_last                                                    client                               Test
+snd_sos_compare_operator_stacks                                                       cheat                                Compares 2 operator stacks and spews any errors
+snd_sos_debug_trigger_opvar                                      false                game
+snd_sos_flush_operators                                                               cheat                                Flush and re-parse the sound operator system
+snd_sos_get_operator_field_info                                                       cheat                                Currently gets info for a single operator field
+snd_sos_hide_simple_parameter_overwrite_warnings                 true
+snd_sos_ingame_debug                                             false                cheat
+snd_sos_list_operator_updates                                    false                cheat
+snd_sos_max_event_base_depth                                     4
+snd_sos_opvar_debug                                              false                cheat
+snd_sos_pause_soundevent                                                              cheat                                Pause the specified soundevent in the list
+snd_sos_pause_system                                             false                cheat
+snd_sos_print_addfield_dupes                                     false                cheat
+snd_sos_print_class_sizes                                                             cheat                                Prints the sizes of relevant sos classes.
+snd_sos_print_field_name_strings                                                      cheat                                Prints a list of currently cached field name strings
+snd_sos_print_field_references                                   false                cheat
+snd_sos_print_fps                                                false                cheat
+snd_sos_print_frametime                                          false                cheat
+snd_sos_print_full_field_info                                    false                cheat
+snd_sos_print_groups                                                                  cheat                                Prints the current state of the groups system
+snd_sos_print_operator_stack                                                          cheat                                Prints a master list of currently exposed variables
+snd_sos_print_operator_stack_operator                                                 cheat                                Prints an operator from a stack
+snd_sos_print_operator_stacks                                                         cheat                                Prints a list of currently available stacks
+snd_sos_print_operators                                                               cheat                                Prints a list of currently available operators
+snd_sos_print_stack_exec_list                                                         cheat                                Prints the current stack execution list
+snd_sos_print_strings                                                                 cheat                                Prints a list of currently cached strings
+snd_sos_print_table_arrays                                       false                cheat
+snd_sos_print_tool_properties                                                         cheat                                Prints the current state of tool properties.
+snd_sos_report_entity_deleted                                    false
+snd_sos_resolve_execute_operator                                                      cheat                                Resolve the inputs and execute one specified operator from a specified stack
+snd_sos_set_operator_field                                                            cheat                                Currently sets a single float operator field
+snd_sos_set_operator_field_by_guid                                                    cheat                                Currently sets a single float operator field
+snd_sos_show_block_debug                                         false                cheat                                Spew data about the list of block entries.
+snd_sos_show_entry_match_free                                    false
+snd_sos_show_mixgroup_path_errors                                false
+snd_sos_show_operator_event_and_stack                            true                 cheat
+snd_sos_show_operator_event_filter                               0                    cheat
+snd_sos_show_operator_field_filter                               0                    cheat
+snd_sos_show_operator_init                                       false                cheat
+snd_sos_show_operator_not_executing                              true                 cheat
+snd_sos_show_operator_operator_filter                            0                    cheat
+snd_sos_show_operator_pause_entry                                false                cheat
+snd_sos_show_operator_shutdown                                   false                cheat
+snd_sos_show_operator_stop_entry                                 false                cheat
+snd_sos_show_operator_updates                                    false                cheat
+snd_sos_show_opfield_cache_updates                               false                cheat
+snd_sos_show_opvar_updates                                       false                cheat
+snd_sos_show_opvar_updates_filter                                0                    cheat
+snd_sos_show_parameter_overwrite_value_comparisons               false
+snd_sos_show_parameter_overwrite_warnings                        false
+snd_sos_show_queuetotrack                                        false                cheat
+snd_sos_show_soundevent_overwrites                               false
+snd_sos_show_soundevent_param_overwrite                          false                cheat
+snd_sos_show_soundevent_start                                    false                cheat
+snd_sos_show_track_list                                          false
+snd_sos_show_voice_elapsed_time                                  false
+snd_sos_soundevent_deferred_interval_time                        0.1
+snd_sos_soundevent_filter                                        0                    cheat
+snd_sos_soundevent_max_deferred_time                             5
+snd_sos_soundevent_profile                                                            cheat                                Dump a record of current soundevents and profile data
+snd_sos_soundevent_show_deferral_warning                         false
+snd_sos_start_soundevent                                                              cheat                                Starts a specified soundevent
+snd_sos_start_soundevent_at_pos                                                       cheat                                Starts a specified soundevent at the given position
+snd_sos_start_stack                                                                   cheat                                Starts a specified stack via an empty soundevent
+snd_sos_stop_all_soundevents                                                          cheat                                Stops all soundevents currently on the execution list
+snd_sos_stop_soundevent_guid                                                          cheat                                Stops a specified soundevent
+snd_sos_stop_soundevent_index                                                         cheat                                Stops a specified soundevent
+snd_sos_stop_track                                                                    cheat                                Stop the specified track and it's queue.
+snd_sos_sv_soundevent_pause_last                                                      game                                 Test
+snd_sos_sv_soundevent_start                                                           game                                 Test
+snd_sos_sv_soundevent_stop_last                                                       game                                 Test
+snd_sos_sv_soundevent_unpause_last                                                    game                                 Test
+snd_sos_sv_test_gender                                                                game                                 Test
+snd_sos_test_soundmessage                                                             cheat                                test
+snd_sos_unpause_soundevent                                                            cheat                                UnPause the first soundevent in the list
+snd_sound_areas_debug                                            false                client cheat replicated
+snd_sound_areas_debug_interval                                   0.2                  client cheat replicated
+snd_soundmixer                                                   Default_Mix
+snd_soundmixer_flush                                                                                                       Reload soundmixers.txt file.
+snd_soundmixer_list_mix_groups                                                                                             List all mix groups to dev console.
+snd_soundmixer_list_mix_layers                                                                                             List all mix layers to dev console.
+snd_soundmixer_list_mixers                                                                                                 List all mixers to dev console.
+snd_soundmixer_update_maximum_frame_rate                         10                   cheat
+snd_soundmixer_version                                           2
+snd_spatialize_lerp                                              0                    archive
+snd_steamaudio_ambisonics_correction_type                        1                                                         0: Use order-truncated Ambisonics HRTF without correction. 1: Use diffuse field equalization to correct order-truncated Ambisonics HRTFs.
+snd_steamaudio_baked_data_stats                                                       cheat                                Display baked data stats for the current mod.
+snd_steamaudio_baked_dimensions_probelookup_usealternate         true                                                      Use alternate probe lookup algorithm to query dimensions for listener position based on kd-tree of probe points.
+snd_steamaudio_baked_occlusion_air_absorption_coefficient        0.006                                                     Air absorption coefficient sued for baked occlusion calculation.
+snd_steamaudio_baked_occlusion_mode                              6                    cheat                                0: distance ratio only. 1: deviation only (1/r). 2: deviation only (linear). 3: Mode 0 and Mode 1, 4: Mode 0 and Mode 2
+snd_steamaudio_baked_occlusion_pathing_deviation_slope           0.1                  cheat                                Adjust how much occlusion goes does with deviation angle.
+snd_steamaudio_baked_occlusion_pathing_exponent                  0.2                  cheat                                Adjust scaling of pathing energy by exponentiall scaling with pathing delta.
+snd_steamaudio_baked_occlusion_probelookup_usealternate          true                                                      Use alternate probe lookup algorithm to query occlusion for source and listener position based on kd-tree of probe points.
+snd_steamaudio_baked_occlusion_reflection_factor                 10                   cheat                                Adjust scaling for reflection energy when combining it to calculate occlusion value.
+snd_steamaudio_baked_occlusion_reflection_regularization         0.0001               cheat                                Ambient noise energy to serve as a floor for reflection energy.
+snd_steamaudio_baked_occlusion_spatialfilter_mode                1                                                         0: No spatial filtering. 1: bidirectional spatial filter.
+snd_steamaudio_baked_occlusion_spatialfilter_radius_factor       2                                                         Radius factor to multiply the distance between probes with to get the radius withing which probes are averaged.
+snd_steamaudio_custombake_dimensions_outsidefield_bake_enabled   true                                                      Enable baking outside field for probes baking custom dimensions data.
+snd_steamaudio_custombake_dimensions_size_and_inout_bake_enabled true                                                      Enable baking size and inout data for probes when baking custom dimensions data.
+snd_steamaudio_custombake_dimensions_smallsizefield_bake_enabled true                                                      Enable baking insize size field for probes when baking custom dimensions data.
+snd_steamaudio_custombake_occlusion_bidirectional                true                                                      Run simulation from both source and listner and average the results. Potential way to reduce noise.
+snd_steamaudio_custombake_occlusion_numsimulations               2                                                         Number of reflection simulations to run when baking occlusion. Potential way to reduce noise.
+snd_steamaudio_debug_cover_navmesh_probe_size_scale              1                                                         Debug option to generate clustered probes of a scaled size for debug visualization.
+snd_steamaudio_diagnostic_baked_occlusion_single_probe           -1                                                        Bake occlusion for a single source probe with the given probe id.
+snd_steamaudio_dimensions_grid_height_max                        100                                                       The maximum height (from the ground) we allow probes to be added above the initial layer. (meters)
+snd_steamaudio_dimensions_grid_height_spacing                    0                                                         0 is disabled - adds another layer of probes above the grid interval of the height spacing (meters)
+snd_steamaudio_dimensions_max_ray_length                         0                                                         0 is disabled, but otherwise sets a limit the maximum ray size in the dimension size calculation. Used to model the enclosure algorithm. Game units
+snd_steamaudio_display_dimension_data_inside                     true                                                      When visualizing dimensions data at runtime, draw the inside direction.
+snd_steamaudio_display_dimension_data_outside                    true                                                      When visualizing dimensions data at runtime, draw the outisde direction.
+snd_steamaudio_display_dimension_data_size                       true                                                      When visualizing dimensions data at runtime, draw the size of the space.
+snd_steamaudio_display_probes                                                                                              Load all the probes from a file and display probes based on the passed on arguments.
+snd_steamaudio_dynamicpathing_max_samples                        16                   game client replicated
+snd_steamaudio_enabe_append_probes_to_cover_navmesh              true                                                      Flag to choose whether to append probes to cover nav mesh.
+snd_steamaudio_enable_custom_hrtf                                false                                                     Enable custom HRTF loading.
+snd_steamaudio_enable_occlusion_caching                          true                                                      Continue using previous occlusion if probe lookup for occlusion fails.
+snd_steamaudio_enable_ordertruncated_ambisonics_hrtf             false                                                     Enable order-truncated Ambisonics HRTF loading.
+snd_steamaudio_enable_pathing                                    true                 cheat                                This variable is checked by soundstack to globally enabling pathing for audio processing.
+snd_steamaudio_enable_perspective_correction                     true                 archive                              Enable perspective correction for 3D audio.
+snd_steamaudio_enable_probeneighborhood_caching                  true                                                      Enable caching listener probe neighborhood for pathing.
+snd_steamaudio_enable_reverb                                     0                                                         Enable Steam Audio Reverb processor.
+snd_steamaudio_enable_reverb_caching                             true                                                      Continue using previous reverb if probe lookup for reverb fails.
+snd_steamaudio_enable_spatial_blend_fix                                               cheat                                Toggles the speculative fix for low-frequency issues when using spatial blend.
+snd_steamaudio_halton_sequence                                                        cheat                                Generate Halton Sequence for a given order and number of samples.
+snd_steamaudio_hammer_probes_always_render                       true                 archive                              Render Steam Audio Probes even when probes are unselected.
+snd_steamaudio_hybrid_reverb_overlap                             0.25                                                      Set the overlap fraction (0 to 1) for hybrid reverb.
+snd_steamaudio_hybrid_reverb_transition_time                     1                                                         Set the transition time (in seconds) between convolution and parametric reverb.
+snd_steamaudio_invalid_path_length                               0                                                         Path length of invalid path in inches. Set this to .0 to use direct distance as path length.
+snd_steamaudio_ir_duration                                       2                    cheat                                The time delay between a sound being emitted and the last audible reflection in Steam Audio.
+snd_steamaudio_irradiancemindistance_reverb                      1                                                         Minimum distance (in meters) of a source from a surface for the purposes of energy calculations.
+snd_steamaudio_load_dimensions_data                              false                                                     If set, baked dimensions data is loaded.
+snd_steamaudio_load_materials_data                               false                                                     If set, baked materials data is loaded.
+snd_steamaudio_load_occlusion_data                               false                                                     If set, baked occlusion data is loaded.
+snd_steamaudio_load_pathing_data                                 false                                                     If set, baked pathing data is loaded. Steam Audio Hammer entities can successfully use pathing in this case.
+snd_steamaudio_load_reverb_data                                  false                                                     If set, baked reverb data is loaded. Reset it to zero during an format changes of baked data until all data is updated.
+snd_steamaudio_max_ambisonics_order                              3                                                         Maximum order for Ambisonics binaural rendering and Ambisonics panning.
+snd_steamaudio_max_convolution_sources                           4                    cheat                                The maximum number of simultaneous sources that can be modeled by Steam Audio.
+snd_steamaudio_max_hrtf_normalization_gain_db                    6                                                         Maximum gain any HRTF could have during volume normalization.
+snd_steamaudio_max_occlusion_samples                             64                   cheat                                The maximum number of rays that can be traced for volumetric occlusion by Steam Audio.
+snd_steamaudio_max_probes_customdata                             12000                                                     Maximum number of probes to create when baking custom data (occlusion).
+snd_steamaudio_max_probes_customdata_dimensions                  4294967295                                                Maximum number of probes to create when baking custom data (dimensions).
+snd_steamaudio_max_probes_customdata_materials                   4294967295                                                Maximum number of probes to create when baking custom data (occlusion).
+snd_steamaudio_max_probes_pathing                                4294967295                                                Maximum number of probes to create when baking paths.
+snd_steamaudio_max_probes_reverb                                 4294967295                                                Maximum number of probes to create when baking reverb.
+snd_steamaudio_num_bounces                                       128                  cheat                                The maximum number of times any ray can bounce when using Steam Audio.
+snd_steamaudio_num_diffuse_samples                               2048                 cheat                                The number of directions considered for ray bounce by Steam Audio.
+snd_steamaudio_num_rays                                          65536                cheat                                The number of rays to trace for reflection modeling by Steam Audio.
+snd_steamaudio_num_threads                                       2                    cheat                                Sets the number of threads used for realtime reflection by Steam Audio.
+snd_steamaudio_occlusionvisualization_sampleheight               1.5                                                       Height to place samples to query occlusion for visualization.
+snd_steamaudio_occlusionvisualization_sampleradius               4                                                         Query radius to find probes to interpolate occlusion for visualization.
+snd_steamaudio_pathing_caching_threshold                         5                    game client replicated
+snd_steamaudio_pathing_enable_caching                            true                 game client replicated
+snd_steamaudio_pathing_enable_source_probe_interp                false                                                     If set, all the probes near a source withing probe range are used to find paths instead of nearest probe.
+snd_steamaudio_pathing_order                                     1                    cheat                                The amount of directional detail in the simulated by Steam Audio.
+snd_steamaudio_pathing_order_rendering                           1                    cheat                                The amount of directional detail in the rendered audio by Steam Audio.
+snd_steamaudio_perspective_correction_factor                     1                                                         Perspective correction factor, ratio of screen size and view depth from screen, for 3D audio.
+snd_steamaudio_reverb_level_db                                   -3                                                        Adjust overall volume (dB) of the output from Steam Audio Reverb processor.
+snd_steamaudio_reverb_order                                      1                                                         Ambisonics order to use for simulating reverb.
+snd_steamaudio_reverb_order_rendering                            1                                                         Ambisonics order to use for convolution reverb. 0th order = 1 channel, 1st order = 4 channels.
+snd_steamaudio_reverb_update_rate                                30                                                        Set the maximum update rate (in Hz) for reverb.
+snd_steamaudio_source_pathing_debug                              false                archive                              Enable path visualization for steam_audio_source operator.
+snd_steamaudio_source_pathing_debug_duration                     0.01                                                      Duration for which path remains visible. Should be close to update rate of the sound operator stack.
+snd_steamaudio_source_pathing_enable_validation                  false                                                     Enable real-time pathing validation against dynamic geometry.
+snd_stereo_speaker_pan_exponent                                                                                            Specifies the exponent for the pan xfade from speaker to speaker if the 'exp' pan law is being used.
+snd_stereo_speaker_pan_radial_weight                                                                                       Apply cos(angle) * weight before pan law
+snd_surf_volume_inair                                            0.5                  client archive                       The volume of the wind when surfing.
+snd_surf_volume_map                                              0.3                  client archive                       The volume of ambient sounds when surfing is enabled.
+snd_surf_volume_slide                                            0.5                  client archive                       The volume of sliding along surfaces when surfing.
+snd_surround_speaker_pan_exponent                                                                                          Specifies the exponent for the pan xfade from speaker to speaker if the 'exp' pan law is being used.
+snd_surround_speaker_pan_radial_weight                                                                                     Apply cos(angle) * weight before pan law
+snd_tensecondwarning_volume                                      0.04        0.04     client archive                       Volume of Ten Second Warnings
+snd_tensecondwarning_volume_armsrace                             0.01        0.01     client archive                       Arms Race volume of Ten Second Warnings
+snd_tensecondwarning_volume_casual                               0.01        0.01     client archive                       Casual volume of Ten Second Warnings
+snd_tensecondwarning_volume_deathmatch                           0.01        0.01     client archive                       Deathmatch volume of Ten Second Warnings
+snd_tensecondwarning_volume_rush                                 0.01        0.01     client archive                       Rush volume of Ten Second Warnings
+snd_toolvolume                                                   1                    archive                              Volume of sounds in tools (e.g. Hammer, SFM)
+snd_use_baked_occlusion                                          0                    cheat replicated
+snd_vmix_override_mix_decay_time                                 -1                   cheat                                If set > 0, overrides how long the decay time is on all mix graphs (in seconds).
+snd_voipvolume                                                   1                    archive                              Voice volume
+
+> getpos_exact
+setpos_exact -476.564636 -1141.730713 11.503980;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -180.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -624.404297 -1141.744141 -16.699301;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 179.996 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -789.591675 -1141.733521 -48.211964;setang_exact 0.000000 179.995880 0.000000
+
+> getpos_exact
+setpos_exact -798.572510 -1141.730591 -49.925232;setang_exact 0.000000 179.995880 0.000000
+
+> getpos_exact
+setpos_exact -798.572510 -1141.730591 -49.925232;setang_exact 0.000000 179.995880 0.000000
+
+> setang 0 -180.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -950.239075 -1141.717407 -78.858582;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1104.993774 -1141.701904 -108.380966;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.991 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1259.195068 -1141.712158 -125.953064;setang_exact 0.000000 -179.991074 0.000000
+
+> setang 0 -179.971 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1307.705322 -1141.722290 -125.953064;setang_exact 0.000000 -179.971161 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1299.213 -1141.732 -122.047
+
+> getpos_exact
+setpos_exact -1299.213013 -1141.732056 -125.953064;setang_exact 0.000000 -179.971161 0.000000
+
+> getpos_exact
+setpos_exact -1299.213013 -1141.732056 -125.953064;setang_exact 0.000000 -179.971161 0.000000
+
+> setang 0 -0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1161.791992 -1141.732544 -119.216362;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1001.667847 -1141.732544 -88.669556;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -852.492798 -1141.732544 -60.211586;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -802.660461 -1141.732544 -50.705086;setang_exact 0.000000 0.000000 0.000000
+
+> getpos_exact
+setpos_exact -798.636658 -1141.732544 -49.937500;setang_exact 0.000000 0.000000 0.000000
+
+> getpos_exact
+setpos_exact -798.636658 -1141.732544 -49.937500;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -651.131775 -1141.732544 -21.798046;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -500.326324 -1141.732544 6.970977;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -345.400574 -1141.732544 36.526043;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -183.526123 -1141.732544 67.406723;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -28.358465 -1141.732544 97.007942;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 17.023897 -1141.726440 105.665497;setang_exact 0.000000 0.001038 0.000000
+
+> getpos_exact
+setpos_exact 19.246405 -1141.725098 106.089485;setang_exact 0.000000 0.001038 0.000000
+
+> getpos_exact
+setpos_exact 19.246405 -1141.725098 106.089485;setang_exact 0.000000 0.001038 0.000000
+WARNING: snd_sos_soundevent_profile disabled - ignoring!
+
+> setang 0 -0.003 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 117.551598 -1141.715454 122.865891;setang_exact 0.000000 -0.003082 0.000000
+
+> setang 0 -0.048 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 166.809845 -1141.730713 122.865891;setang_exact 0.000000 -0.048065 0.000000
+
+> setang 0 -179.997 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 129.063751 -1141.741821 122.865891;setang_exact 0.000000 -179.996918 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1417.323 -1141.732 -122.047
+
+> getpos_exact
+setpos_exact -1417.322998 -1141.732056 -125.953064;setang_exact 0.000000 -179.996918 0.000000
+
+> getpos_exact
+setpos_exact -1417.322998 -1141.732056 -125.953064;setang_exact 0.000000 -179.996918 0.000000
+
+> setang 0 90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1419.763062 -994.465454 -125.953064;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 89.825 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1419.410645 -847.039612 -125.953064;setang_exact 0.000000 89.824890 0.000000
+
+> setang 0 89.816 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1418.967163 -691.789490 -125.953064;setang_exact 0.000000 89.815979 0.000000
+
+> setang 0 89.810 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1418.535889 -543.453247 -125.953064;setang_exact 0.000000 89.810150 0.000000
+
+> setang 0 89.799 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1418.052002 -391.880646 -125.953064;setang_exact 0.000000 89.799164 0.000000
+
+> setang 0 89.786 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.538940 -241.630081 -125.953064;setang_exact 0.000000 89.786102 0.000000
+
+> setang 0 89.723 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.318237 -191.073807 -125.953064;setang_exact 0.000000 89.722931 0.000000
+
+> getpos_exact
+setpos_exact -1417.303589 -187.815552 -125.953064;setang_exact 0.000000 89.722931 0.000000
+
+> getpos_exact
+setpos_exact -1417.303589 -187.815552 -125.953064;setang_exact 0.000000 89.722931 0.000000
+
+> setang 0 90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.239868 -44.395466 -125.559387;setang_exact 0.000000 90.001038 0.000000
+
+> setang 0 90.006 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.216064 116.236908 -125.953064;setang_exact 0.000000 90.005829 0.000000
+
+> setang 0 90.010 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.225952 273.394440 -125.953064;setang_exact 0.000000 90.009949 0.000000
+
+> setang 0 90.013 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.241455 428.230042 -125.953064;setang_exact 0.000000 90.013062 0.000000
+
+> setang 0 90.017 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.256958 582.932861 -125.953064;setang_exact 0.000000 90.017151 0.000000
+
+> setang 0 90.030 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.277100 737.447876 -125.953064;setang_exact 0.000000 90.029877 0.000000
+
+> setang 0 -90.091 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.351318 703.449036 -125.953064;setang_exact 0.000000 -90.090981 0.000000
+
+> getpos_exact
+setpos_exact -1417.358643 700.494934 -125.953064;setang_exact 0.000000 -90.090981 0.000000
+
+> getpos_exact
+setpos_exact -1417.358643 700.494934 -125.953064;setang_exact 0.000000 -90.090981 0.000000
+
+> setang 0 1.320 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1273.340332 701.374817 -125.953064;setang_exact 0.000000 1.320068 0.000000
+
+> setang 0 1.984 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1103.818726 707.122681 -125.953064;setang_exact 0.000000 1.984070 0.000000
+
+> setang 0 2.158 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1062.387817 708.680664 -125.953064;setang_exact 0.000000 2.158127 0.000000
+
+> getpos_exact
+setpos_exact -1059.397095 708.790710 -125.953064;setang_exact 0.000000 2.158127 0.000000
+
+> getpos_exact
+setpos_exact -1059.397095 708.790710 -125.953064;setang_exact 0.000000 2.158127 0.000000
+
+> setang 0 -2.371 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -904.287048 702.588135 -125.953064;setang_exact 0.000000 -2.370987 0.000000
+
+> setang 0 -2.703 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -794.932312 697.476807 -125.953003;setang_exact 0.000000 -2.702972 0.000000
+
+> setang 0 177.338 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -878.201050 701.330505 -125.953064;setang_exact 0.000000 177.337891 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2902.756 866.142 161.417
+
+> getpos_exact
+setpos_exact 2902.756104 866.142029 157.984146;setang_exact 0.000000 177.337891 0.000000
+
+> getpos_exact
+setpos_exact 2902.756104 866.142029 157.984146;setang_exact 0.000000 177.337891 0.000000
+
+> setang 0 90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.768311 1007.398926 157.511688;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.020 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.778076 1063.128296 163.417221;setang_exact 0.000000 90.019897 0.000000
+
+> setang 0 -90.064 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.736816 1021.130188 157.511688;setang_exact 0.000000 -90.063858 0.000000
+
+> setang 0 89.951 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.755859 1076.269653 163.417221;setang_exact 0.000000 89.950897 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.762207 1046.248047 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> getpos_exact
+setpos_exact 2902.763428 1044.884399 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> getpos_exact
+setpos_exact 2902.763428 1044.884399 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.775635 1175.569458 187.039261;setang_exact 0.000000 90.001038 0.000000
+
+> setang 0 90.004 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.791504 1333.211182 216.566818;setang_exact 0.000000 90.004120 0.000000
+
+> setang 0 90.020 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.785400 1430.760742 228.377853;setang_exact 0.000000 90.019897 0.000000
+
+> getpos_exact
+setpos_exact 2902.782715 1437.356201 228.377838;setang_exact 0.000000 90.019897 0.000000
+
+> getpos_exact
+setpos_exact 2902.782715 1437.356201 228.377838;setang_exact 0.000000 90.019897 0.000000
+
+> setang 0 90.002 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.770020 1581.418579 228.377838;setang_exact 0.000000 90.002075 0.000000
+
+> setang 0 90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.754150 1743.107178 228.377838;setang_exact 0.000000 90.001038 0.000000
+
+> setang 0 90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.763672 1890.824707 228.377838;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.002 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.779785 2047.313721 228.377838;setang_exact 0.000000 90.002075 0.000000
+
+> setang 0 90.017 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.772217 2151.796143 228.377838;setang_exact 0.000000 90.017151 0.000000
+
+> setang 0 -90.036 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.763184 2120.600830 228.377838;setang_exact 0.000000 -90.036049 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2902.756 2125.984 232.283
+
+> getpos_exact
+setpos_exact 2902.756104 2125.983887 228.377853;setang_exact 0.000000 -90.036049 0.000000
+
+> getpos_exact
+setpos_exact 2902.756104 2125.983887 228.377853;setang_exact 0.000000 -90.036049 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.768799 1976.335693 228.377838;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.784424 1822.362549 228.377838;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -90.004 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.774414 1660.584839 228.377838;setang_exact 0.000000 -90.004120 0.000000
+
+> setang 0 -90.005 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.759033 1504.366577 228.377838;setang_exact 0.000000 -90.005150 0.000000
+
+> setang 0 -90.003 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.746338 1403.695679 228.377853;setang_exact 0.000000 -90.003090 0.000000
+
+> setang 0 89.984 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.750488 1442.379761 228.377838;setang_exact 0.000000 89.983856 0.000000
+
+> getpos_exact
+setpos_exact 2902.752197 1445.651978 228.377838;setang_exact 0.000000 89.983856 0.000000
+
+> getpos_exact
+setpos_exact 2902.752197 1445.651978 228.377838;setang_exact 0.000000 89.983856 0.000000
+
+> setang 0 -89.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.765381 1298.775024 210.661301;setang_exact 0.000000 -89.998970 0.000000
+
+> setang 0 -90.002 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.755615 1144.273315 181.133743;setang_exact 0.000000 -90.002060 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.761719 1050.043091 163.417221;setang_exact 0.000000 -90.000000 0.000000
+
+> getpos_exact
+setpos_exact 2902.764404 1042.468994 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> getpos_exact
+setpos_exact 2902.764404 1042.468994 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.003 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.752441 904.893555 157.984146;setang_exact 0.000000 -90.003090 0.000000
+
+> setang 0 -89.995 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.755615 850.717529 157.984146;setang_exact 0.000000 -89.994850 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1234.252 2125.984 161.417
+
+> getpos_exact
+setpos_exact -1234.251953 2125.983887 157.511505;setang_exact 0.000000 -89.994850 0.000000
+
+> getpos_exact
+setpos_exact -1234.251953 2125.983887 157.511505;setang_exact 0.000000 -89.994850 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1087.513916 2123.543945 157.511520;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.980 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -929.342896 2126.049072 157.511536;setang_exact 0.000000 0.979843 0.000000
+
+> getpos_exact
+setpos_exact -920.486450 2126.198486 157.511536;setang_exact 0.000000 0.979843 0.000000
+
+> getpos_exact
+setpos_exact -920.486450 2126.198486 157.511536;setang_exact 0.000000 0.979843 0.000000
+
+> setang 0 -94.426 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -931.612671 1982.380005 157.511536;setang_exact 0.000000 -94.426117 0.000000
+
+> setang 0 -94.428 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -943.491760 1828.777100 157.511536;setang_exact 0.000000 -94.427834 0.000000
+
+> getpos_exact
+setpos_exact -944.054260 1821.446533 157.511536;setang_exact 0.000000 -94.427834 0.000000
+
+> getpos_exact
+setpos_exact -944.054260 1821.446533 157.511536;setang_exact 0.000000 -94.427834 0.000000
+
+> setang 0 -90.130 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -944.667847 1668.139160 157.511536;setang_exact 0.000000 -90.130119 0.000000
+
+> setang 0 -90.058 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -944.754456 1516.696655 157.511536;setang_exact 0.000000 -90.058022 0.000000
+
+> setang 0 -90.122 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -944.945740 1408.675537 157.511536;setang_exact 0.000000 -90.121880 0.000000
+
+> setang 0 89.924 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -944.904907 1439.459473 157.511536;setang_exact 0.000000 89.924133 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -866.142 718.504 19.685
+
+> getpos_exact
+setpos_exact -866.142029 718.504028 15.779241;setang_exact 0.000000 89.924133 0.000000
+
+> getpos_exact
+setpos_exact -866.142029 718.504028 15.779241;setang_exact 0.000000 89.924133 0.000000
+
+> setang 0 -0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -720.804321 718.504028 15.779247;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -559.951416 718.504028 15.779255;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -405.391663 718.504028 15.779263;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -250.888016 718.504028 15.779270;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -91.660965 718.504028 15.779280;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 67.294312 718.504028 15.779283;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 214.151520 718.504028 15.779290;setang_exact 0.000000 0.000000 0.000000
+
+> getpos_exact
+setpos_exact 221.043365 718.504028 15.779291;setang_exact 0.000000 0.000000 0.000000
+
+> getpos_exact
+setpos_exact 221.043365 718.504028 15.779291;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -93.127 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 215.311768 569.554321 15.779289;setang_exact 0.000000 -93.126984 0.000000
+
+> setang 0 -93.594 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 206.026123 419.852325 15.779287;setang_exact 0.000000 -93.593903 0.000000
+
+> setang 0 -93.639 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.039719 262.783356 15.779289;setang_exact 0.000000 -93.638878 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2795.276 2263.780 237.008
+
+> getpos_exact
+setpos_exact 2795.275879 2263.780029 233.102249;setang_exact 0.000000 -93.638878 0.000000
+
+> getpos_exact
+setpos_exact 2795.275879 2263.780029 233.102249;setang_exact 0.000000 -93.638878 0.000000
+
+> setang 0 -180.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2645.398926 2261.320801 233.102234;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 179.947 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2488.692627 2261.344971 233.102234;setang_exact 0.000000 179.947144 0.000000
+
+> setang 0 179.944 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2338.495361 2261.412842 233.102234;setang_exact 0.000000 179.944031 0.000000
+
+> setang 0 179.942 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2177.187744 2261.488281 233.102219;setang_exact 0.000000 179.941986 0.000000
+
+> setang 0 179.940 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2016.363403 2261.573242 233.102219;setang_exact 0.000000 179.939911 0.000000
+
+> setang 0 179.937 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1863.761719 2261.668701 233.102203;setang_exact 0.000000 179.937164 0.000000
+
+> setang 0 179.935 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1698.832642 2261.776855 233.102203;setang_exact 0.000000 179.935120 0.000000
+
+> setang 0 179.932 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1542.622192 2261.900391 233.102203;setang_exact 0.000000 179.932007 0.000000
+
+> setang 0 179.930 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1383.604492 2262.030518 233.102203;setang_exact 0.000000 179.929962 0.000000
+
+> setang 0 179.928 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1226.624756 2262.162354 233.102173;setang_exact 0.000000 179.927917 0.000000
+
+> setang 0 179.924 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1072.324097 2262.313232 233.102173;setang_exact 0.000000 179.924133 0.000000
+
+> setang 0 179.922 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 916.942261 2262.467285 233.102173;setang_exact 0.000000 179.922058 0.000000
+
+> setang 0 179.918 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 765.317078 2262.629883 233.102158;setang_exact 0.000000 179.917938 0.000000
+
+> setang 0 179.914 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 604.651367 2262.812988 233.102142;setang_exact 0.000000 179.914185 0.000000
+
+> setang 0 179.908 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 446.869904 2263.000732 233.102142;setang_exact 0.000000 179.907990 0.000000
+
+> setang 0 179.900 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 286.862091 2263.220459 233.102142;setang_exact 0.000000 179.900085 0.000000
+
+> setang 0 179.888 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 120.828354 2263.482666 233.102142;setang_exact 0.000000 179.888062 0.000000
+
+> setang 0 179.859 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 31.176146 2263.675781 233.102127;setang_exact 0.000000 179.858887 0.000000
+
+> setang 0 179.809 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -18.485962 2263.831055 232.804031;setang_exact 0.000000 179.809113 0.000000
+
+> getpos_exact
+setpos_exact -21.543335 2263.837891 232.437164;setang_exact 0.000000 179.809113 0.000000
+
+> getpos_exact
+setpos_exact -21.543335 2263.837891 232.437164;setang_exact 0.000000 179.809113 0.000000
+
+> setang 0 -179.994 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -161.344513 2263.875977 215.661011;setang_exact 0.000000 -179.994171 0.000000
+
+> setang 0 -179.987 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -315.419067 2263.870605 197.172043;setang_exact 0.000000 -179.986954 0.000000
+
+> setang 0 -179.981 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -471.888885 2263.854980 178.395660;setang_exact 0.000000 -179.981110 0.000000
+
+> setang 0 -179.964 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -575.495056 2263.842529 165.962906;setang_exact 0.000000 -179.963959 0.000000
+
+> getpos_exact
+setpos_exact -584.062622 2263.839600 164.934799;setang_exact 0.000000 -179.963959 0.000000
+
+> getpos_exact
+setpos_exact -584.062622 2263.839600 164.934799;setang_exact 0.000000 -179.963959 0.000000
+
+> setang 0 -179.995 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -731.730652 2263.826660 162.235947;setang_exact 0.000000 -179.994843 0.000000
+
+> setang 0 -179.995 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -893.580933 2263.808350 162.235931;setang_exact 0.000000 -179.994843 0.000000
+
+> setang 0 -179.995 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1042.273438 2263.795654 162.235931;setang_exact 0.000000 -179.994843 0.000000
+
+> setang 0 -179.995 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1196.083984 2263.779785 162.235916;setang_exact 0.000000 -179.994843 0.000000
+
+> setang 0 -180.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1248.540527 2263.770508 162.235916;setang_exact 0.000000 -180.000000 0.000000
+
+> getpos_exact
+setpos_exact -1251.557373 2263.768799 162.235916;setang_exact 0.000000 -180.000000 0.000000
+
+> getpos_exact
+setpos_exact -1251.557373 2263.768799 162.235916;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -82.841 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1233.392944 2119.098877 157.511505;setang_exact 0.000000 -82.841034 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 196.850 1968.504 232.283
+
+> getpos_exact
+setpos_exact 196.850006 1968.504028 228.377731;setang_exact 0.000000 -82.841034 0.000000
+
+> getpos_exact
+setpos_exact 196.850006 1968.504028 228.377731;setang_exact 0.000000 -82.841034 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.864746 1809.838379 214.111328;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.876862 1661.899292 199.317429;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -90.004 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.890900 1509.441772 184.071671;setang_exact 0.000000 -90.004120 0.000000
+
+> setang 0 -90.009 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.880508 1353.246826 168.452164;setang_exact 0.000000 -90.008926 0.000000
+
+> setang 0 -90.018 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.864639 1239.218018 157.511566;setang_exact 0.000000 -90.017853 0.000000
+
+> setang 0 90.040 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.855301 1287.675659 161.895050;setang_exact 0.000000 90.040161 0.000000
+
+> setang 0 -90.010 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.848785 1242.453247 157.511566;setang_exact 0.000000 -90.009956 0.000000
+
+> getpos_exact
+setpos_exact 196.847244 1239.218018 157.511566;setang_exact 0.000000 -90.009956 0.000000
+
+> getpos_exact
+setpos_exact 196.847244 1239.218018 157.511566;setang_exact 0.000000 -90.009956 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.858917 1096.494385 157.511566;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.002 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.873535 941.025085 157.511566;setang_exact 0.000000 -90.002060 0.000000
+
+> setang 0 -90.018 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.865265 837.330444 157.226898;setang_exact 0.000000 -90.017853 0.000000
+
+> setang 0 90.030 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.856186 868.240601 157.511581;setang_exact 0.000000 90.029877 0.000000
+
+> getpos_exact
+setpos_exact 196.854660 871.423828 157.511581;setang_exact 0.000000 90.029877 0.000000
+
+> getpos_exact
+setpos_exact 196.854660 871.423828 157.511581;setang_exact 0.000000 90.029877 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.865906 726.426758 154.762360;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.880249 577.589600 151.454865;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.894669 425.857422 148.083038;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -90.002 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.881958 264.355713 147.669067;setang_exact 0.000000 -90.002060 0.000000
+
+> setang 0 -90.002 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.869125 113.114746 141.133194;setang_exact 0.000000 -90.002060 0.000000
+
+> setang 0 -90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.878235 -39.185341 137.748764;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -90.002 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.868607 -196.143509 134.260803;setang_exact 0.000000 -90.002060 0.000000
+
+> setang 0 -90.001 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.878006 -350.749542 130.825119;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -90.003 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.892807 -510.059540 127.284889;setang_exact 0.000000 -90.003090 0.000000
+
+> setang 0 -90.006 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.882782 -661.024475 123.930107;setang_exact 0.000000 -90.005836 0.000000
+
+> setang 0 -90.008 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.866852 -819.594849 120.406326;setang_exact 0.000000 -90.007896 0.000000
+
+> setang 0 -90.011 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.854431 -922.910034 118.141495;setang_exact 0.000000 -90.010986 0.000000
+
+> getpos_exact
+setpos_exact 196.852280 -928.918823 118.141495;setang_exact 0.000000 -90.010986 0.000000
+
+> getpos_exact
+setpos_exact 196.852280 -928.918823 118.141495;setang_exact 0.000000 -90.010986 0.000000
+
+> setang 0 -60.970 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 267.379608 -1055.976196 118.141502;setang_exact 0.000000 -60.970001 0.000000
+
+> setang 0 -60.977 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 317.402802 -1146.103027 118.141502;setang_exact 0.000000 -60.976868 0.000000
+
+> getpos_exact
+setpos_exact 321.526398 -1153.550781 118.141502;setang_exact 0.000000 -60.976868 0.000000
+
+> getpos_exact
+setpos_exact 321.526398 -1153.550781 118.141502;setang_exact 0.000000 -60.976868 0.000000
+
+> setang 0 176.968 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 169.755280 -1145.527710 122.865891;setang_exact 0.000000 176.968109 0.000000
+
+> setang 0 176.954 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 72.094269 -1140.335083 116.171234;setang_exact 0.000000 176.954041 0.000000
+
+> setang 0 -3.037 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 110.218071 -1142.343384 122.865891;setang_exact 0.000000 -3.037033 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 314.961 -1141.732 122.047
+
+> getpos_exact
+setpos_exact 314.960999 -1141.732056 118.141502;setang_exact 0.000000 -3.037033 0.000000
+
+> getpos_exact
+setpos_exact 314.960999 -1141.732056 118.141502;setang_exact 0.000000 -3.037033 0.000000
+
+> setang 0 -90.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 314.973358 -1281.629517 118.141502;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.003 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 314.987640 -1439.245972 122.865906;setang_exact 0.000000 -90.003090 0.000000
+
+> setang 0 -90.027 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 314.983124 -1490.994873 122.865906;setang_exact 0.000000 -90.027122 0.000000
+
+> getpos_exact
+setpos_exact 314.981354 -1495.149902 122.865906;setang_exact 0.000000 -90.027122 0.000000
+
+> getpos_exact
+setpos_exact 314.981354 -1495.149902 122.865906;setang_exact 0.000000 -90.027122 0.000000
+
+> setang 0 -179.905 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 171.299591 -1495.337280 122.865891;setang_exact 0.000000 -179.904907 0.000000
+
+> setang 0 -179.898 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 9.808170 -1495.570190 118.141487;setang_exact 0.000000 -179.898041 0.000000
+
+> setang 0 -179.885 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -151.096802 -1495.838257 118.141479;setang_exact 0.000000 -179.884979 0.000000
+
+> setang 0 -179.849 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -252.270203 -1496.073730 118.141479;setang_exact 0.000000 -179.848938 0.000000
+
+> getpos_exact
+setpos_exact -259.047241 -1496.088745 118.141479;setang_exact 0.000000 -179.848938 0.000000
+
+> getpos_exact
+setpos_exact -259.047241 -1496.088745 118.141479;setang_exact 0.000000 -179.848938 0.000000
+
+> setang 0 180.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -413.806519 -1496.073242 118.141464;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 180.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -555.534485 -1496.060913 118.141464;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -180.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -702.769958 -1496.045898 118.141457;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -180.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -862.459534 -1496.027710 118.141457;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1010.037598 -1496.014771 118.141434;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1164.510010 -1495.999390 118.141434;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1323.912476 -1495.983521 118.141426;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1485.499390 -1495.967651 118.141418;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1646.701904 -1495.951904 118.141403;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1805.150513 -1495.961670 118.141403;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1965.086182 -1495.977661 118.141403;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+volume = 1
+snd_sos_show_soundevent_start = true
+snd_report_verbose_error = true
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2127.838623 -1495.995972 118.141396;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2274.640625 -1496.008667 118.141388;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2429.991943 -1495.998657 118.141373;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2584.593994 -1496.008789 118.141373;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2739.707031 -1496.024414 118.141373;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2905.542725 -1496.011230 118.141365;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3056.440186 -1496.026489 118.141357;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3198.552979 -1496.038818 118.141342;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3358.619141 -1496.028687 118.141342;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3505.751709 -1496.013550 118.141342;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.997 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3657.013428 -1496.023682 118.141327;setang_exact 0.000000 -179.996918 0.000000
+
+> setang 0 -179.997 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3815.579590 -1496.039429 118.141312;setang_exact 0.000000 -179.996918 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3966.549561 -1496.054688 118.141304;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4120.645996 -1496.070068 118.141312;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4272.117188 -1496.060059 118.141312;setang_exact 0.000000 179.998962 0.000000
+
+> setang 0 -179.999 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4433.957520 -1496.044189 118.141289;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -0.044 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4347.829102 -1496.054077 118.141289;setang_exact 0.000000 -0.043945 0.000000
+
+> setang 0 -179.992 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4384.580078 -1496.064087 118.141289;setang_exact 0.000000 -179.992096 0.000000
+
+> setang 0 179.997 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4432.929688 -1496.059082 118.141281;setang_exact 0.000000 179.996918 0.000000
+
+> setang 0 -0.010 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4393.620605 -1496.064087 118.141296;setang_exact 0.000000 -0.009949 0.000000
+
+> getpos_exact
+setpos_exact -4391.637207 -1496.065430 118.141296;setang_exact 0.000000 -0.009949 0.000000
+
+> getpos_exact
+setpos_exact -4391.637207 -1496.065430 118.141296;setang_exact 0.000000 -0.009949 0.000000
+
+> setang 0 116.397 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4453.867676 -1370.684937 118.141281;setang_exact 0.000000 116.397064 0.000000
+
+> setang 0 116.397 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4523.585449 -1230.214111 118.141289;setang_exact 0.000000 116.397064 0.000000
+
+> setang 0 116.398 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4593.029297 -1090.296387 118.141289;setang_exact 0.000000 116.398071 0.000000
+
+> setang 0 116.400 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4639.159668 -997.349426 118.141289;setang_exact 0.000000 116.400146 0.000000
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1732.283 -1889.764 122.047
+
+> getpos_exact
+setpos_exact 1732.282959 -1889.764038 118.141563;setang_exact 0.000000 116.400146 0.000000
+
+> getpos_exact
+setpos_exact 1732.282959 -1889.764038 118.141563;setang_exact 0.000000 116.400146 0.000000
+
+> setang 0 0.000 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1893.513672 -1887.809448 118.141571;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.068 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2040.727783 -1887.922363 118.141586;setang_exact 0.000000 -0.067978 0.000000
+
+> setang 0 -0.070 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2191.279541 -1888.048950 118.141586;setang_exact 0.000000 -0.070038 0.000000
+
+> setang 0 -0.073 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2344.356445 -1888.176147 118.141586;setang_exact 0.000000 -0.073120 0.000000
+
+> setang 0 -0.076 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2495.546387 -1888.326538 118.141586;setang_exact 0.000000 -0.075867 0.000000
+
+> setang 0 -0.079 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2663.336182 -1888.504028 118.141602;setang_exact 0.000000 -0.078964 0.000000
+
+> setang 0 -0.082 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2807.112793 -1888.655518 118.141617;setang_exact 0.000000 -0.082062 0.000000
+
+> setang 0 -0.086 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2955.637451 -1888.818848 118.141617;setang_exact 0.000000 -0.085831 0.000000
+
+> setang 0 -0.092 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3105.054688 -1889.007080 118.141624;setang_exact 0.000000 -0.092010 0.000000
+
+> setang 0 -0.099 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3261.556152 -1889.215088 118.141632;setang_exact 0.000000 -0.098877 0.000000
+
+> setang 0 -0.112 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3410.621582 -1889.451538 118.141647;setang_exact 0.000000 -0.111923 0.000000
+
+> setang 0 -0.135 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3565.586670 -1889.763184 118.141647;setang_exact 0.000000 -0.134918 0.000000
+
+> setang 0 -179.998 0
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3527.044189 -1889.785400 118.141640;setang_exact 0.000000 -179.997940 0.000000
+
+> -forward 42

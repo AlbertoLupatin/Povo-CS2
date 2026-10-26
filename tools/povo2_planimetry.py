@@ -153,7 +153,7 @@ def build(root=ROOT, wall_height=3.35):
     basement['audit_stations']=[dict(id='stair_approach',point=[23.8,39.5]),
         dict(id='corridor_mid',point=[23.25,45]),dict(id='corridor_south',point=[23.25,34]),
         dict(id='right_turn_from_stairs',point=[23.25,63]),
-        dict(id='cross_corridor',point=[17,63]),dict(id='cross_corridor_end',point=[11.5,63])]
+        dict(id='cross_corridor',point=[29.5,63]),dict(id='cross_corridor_end',point=[35,63])]
     # Generic covered parking. The access aisle is intentionally clear of cars.
     parking=next(l for l in spec['levels'] if l['floor']==-2);z=parking['z'];shell(parking,spec['parking']['bounds'])
     for i,x in enumerate((10,20,40)):
@@ -239,7 +239,7 @@ def build(root=ROOT, wall_height=3.35):
         z=level['z']
         points=([(x,y) for x in (11,19,27,35,40) for y in (13.5,19,26,35)] if level['floor']==-2
                 else [(11.5,y) for y in (-9,-3,3,9,15,21,28,35,39.5)]+[(22,y) for y in (-5.5,3.5,12.5,21.5)]+[(23,39.5)] if level['floor']==0
-                else [(23.25,y) for y in (34,39,44,49,53.5,58,63)]+[(17,63),(12,63)] if level['floor']==-1 else [])
+                else [(23.25,y) for y in (34,39,44,49,53.5,58,63)]+[(29.5,63),(35,63)] if level['floor']==-1 else [])
         points=[p for p in points if not (25<p[0]<31.4 and p[1]>32)]
         if level['floor']==0:
             points=[p for p in points if not (p[0]>31.4 and p[1]>32)]

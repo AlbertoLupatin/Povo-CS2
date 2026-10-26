@@ -16,7 +16,7 @@ class ExteriorIntegrationTests(unittest.TestCase):
         report=audit()
         self.assertEqual(report['status'],'passed',report)
         self.assertGreaterEqual(report['samples'],1200)
-        self.assertEqual(len(report['routes']),8)
+        self.assertEqual(len(report['routes']),9)
 
     def test_other_chat_office_restroom_furniture_is_preserved(self):
         base=build_geometry(include_exterior=False)[2]

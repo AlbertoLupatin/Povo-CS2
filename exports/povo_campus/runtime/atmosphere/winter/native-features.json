@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "map": "trento_povo_campus_winter",
+  "checks": [
+    {
+      "name": "all_native_doors_spawned",
+      "passed": true,
+      "expected": 38,
+      "actual": 38
+    },
+    {
+      "name": "p1_fire_pair_closed_blocks",
+      "passed": true,
+      "position": [
+        15.333805121061337,
+        -85.1001265231404,
+        4.012797308416052
+      ]
+    },
+    {
+      "name": "p1_fire_pair_open_passes",
+      "passed": true,
+      "position": [
+        19.321966334477292,
+        -85.10047379194042,
+        4.000797662616003
+      ]
+    },
+    {
+      "name": "p2_sliding_pair_closed_blocks",
+      "passed": true,
+      "position": [
+        49.883193934399536,
+        31.3498755781254,
+        4.0007926080160034
+      ]
+    },
+    {
+      "name": "p2_sliding_pair_open_passes",
+      "passed": true,
+      "position": [
+        46.07912846658432,
+        31.3495469275254,
+        4.0007926080160034
+      ]
+    },
+    {
+      "name": "p1_entrance_pair_closed_blocks",
+      "passed": true,
+      "position": [
+        23.523805987694097,
+        -73.72958954869493,
+        4.012797308416052
+      ]
+    },
+    {
+      "name": "p1_entrance_pair_open_passes",
+      "passed": true,
+      "position": [
+        27.62690283611051,
+        -73.72993061989493,
+        4.3007975706172035
+      ]
+    },
+    {
+      "name": "classroom_a224_closed_blocks",
+      "passed": true,
+      "position": [
+        -13.853903204055417,
+        -47.060324395988246,
+        7.612795798030452
+      ]
+    },
+    {
+      "name": "classroom_a224_open_passes",
+      "passed": true,
+      "position": [
+        -15.972902547463892,
+        -47.06046081938825,
+        7.614795667030459
+      ]
+    },
+    {
+      "name": "glass_stair_window_0_breaks_from_bullets",
+      "passed": true
+    },
+    {
+      "name": "glass_stair_ne_window_0_breaks_from_bullets",
+      "passed": true
+    },
+    {
+      "name": "glass_stair_window_0_restored_next_round",
+      "passed": true
+    },
+    {
+      "name": "glass_stair_ne_window_0_restored_next_round",
+      "passed": true
+    },
+    {
+      "name": "doors_restored_next_round",
+      "passed": true
+    },
+    {
+      "name": "winter_snow_emitters_spawned",
+      "passed": true,
+      "count": 158
+    }
+  ],
+  "package_sha256": "08c1366ffae14882e1ab15017afa1e82cf190bbd3a72fbe3a391de24cfc41286",
+  "started_at_utc": "2026-10-25T00:31:17.446342+00:00",
+  "finished_at_utc": "2026-10-25T00:32:27.040557+00:00"
+}

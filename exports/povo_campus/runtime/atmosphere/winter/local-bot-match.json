@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "map": "trento_povo_campus_winter",
+  "checks": [
+    {
+      "name": "two_versus_two_2",
+      "passed": true
+    },
+    {
+      "name": "terrorist_buyzone_purchase",
+      "passed": true
+    },
+    {
+      "name": "street_is_outside_buyzone",
+      "passed": true
+    },
+    {
+      "name": "controlled_c4_assigned",
+      "passed": true
+    },
+    {
+      "name": "plant_rejected_outside_site",
+      "passed": true
+    },
+    {
+      "name": "plant_at_site_a",
+      "passed": true
+    },
+    {
+      "name": "native_bomb_defuse",
+      "passed": true
+    },
+    {
+      "name": "two_versus_two_3",
+      "passed": true
+    },
+    {
+      "name": "counterterrorist_buyzone_purchase",
+      "passed": true
+    },
+    {
+      "name": "elimination_round_win",
+      "passed": true
+    },
+    {
+      "name": "normal_bot_round_running",
+      "passed": true
+    }
+  ],
+  "started_at_utc": "2026-10-25T00:39:05.327930+00:00",
+  "package_sha256": "5f54c53436c22570695a66b58532282ece794cc63f97309187eb193f9975d2f7",
+  "scope": "Local 2v2 with three bots; controlled placements and temporary roster team change for the isolated defuse check",
+  "finished_at_utc": "2026-10-25T00:40:23.537740+00:00"
+}

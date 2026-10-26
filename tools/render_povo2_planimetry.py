@@ -64,8 +64,8 @@ def render():
             rect((21.6,44,21.9,49),'#87a94b',None)
             rect((21.6,37,22,42.5),'#cdb795',None)
             text(12,45,'Long corridor\nStair block aligned\nwith corridor start',14)
-            text(14.7,59.6,'Short corridor\nat the far end',13)
-            arrow([(25,39.5),(23.25,39.5),(23.25,63),(11.5,63)])
+            text(29,59.6,'Right turn\nat the far end',13)
+            arrow([(25,39.5),(23.25,39.5),(23.25,63),(35,63)])
             d.line((*pt(25.05,38.7),*pt(25.05,40.3)),fill='#232b30',width=5)
         else:
             rect(spec['parking']['bounds'],'#909b9e','#334f5b',2)

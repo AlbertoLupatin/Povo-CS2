@@ -114,12 +114,16 @@ def compare_overviews(actual, expected, map_name='trento_povo'):
     return mismatches
 
 
-def verify_package(path, expected_overview, *, full_crc=False, map_name='trento_povo'):
+def verify_package(path, expected_overview, *, full_crc=False, map_name='trento_povo', model_name=None):
     package = Package(path)
     expected = Path(expected_overview).read_bytes()
     values=overview_values(expected,map_name)
     sections={k.split('.')[1] for k in values if k.startswith('verticalsections.')}
     files,_aliases=radar_layout(map_name,sections=sections)
+    if model_name is not None:
+        if not re.fullmatch(r'[a-z][a-z0-9_]*',model_name):raise VPKError('Invalid model name')
+        files=(*files,'maps/'+map_name+'.vmap_c','models/povo/'+model_name+'.vmdl_c',
+               'cfg/maps/'+map_name+'.cfg')
     checks = []
     errors = []
     for name in files:
@@ -131,7 +135,7 @@ def verify_package(path, expected_overview, *, full_crc=False, map_name='trento_
         try:
             package.verify(entry)
             if not entry.size:
-                raise VPKError(f"Packaged radar asset is empty: {name}")
+                raise VPKError(f"Packaged asset is empty: {name}")
             check = {"file":name,"status":"present_crc_ok","bytes":entry.size}
             if name.endswith(".txt"):
                 content = package.read(entry)
@@ -155,7 +159,8 @@ def verify_package(path, expected_overview, *, full_crc=False, map_name='trento_
     with Path(path).open("rb") as stream:
         package_hash=hashlib.file_digest(stream,"sha256").hexdigest()
     return {"format_version":1,"status":"passed" if not errors else "failed",
-            "scope":"Radar inclusion and overview alignment; entry CRCs only",
+            "scope":("Radar, map, model and configuration inclusion; overview alignment and entry CRCs"
+                     if model_name is not None else "Radar inclusion and overview alignment; entry CRCs only"),
             "package":str(Path(path).resolve()),"vpk_version":package.version,
             "package_sha256":package_hash,
             "package_entries":len(package.entries),"crc_verified_entries":verified_count,
@@ -171,11 +176,12 @@ def main(argv=None):
     parser.add_argument("package",type=Path,help="Map VPK or *_dir.vpk (numbered chunks must be beside it)")
     parser.add_argument("--overview",type=Path,default=ROOT/"exports/povo_radar/trento_povo.txt")
     parser.add_argument("--map",dest='map_name',default='trento_povo')
+    parser.add_argument("--model",dest='model_name',help="Also require the compiled map, this Povo model and map configuration")
     parser.add_argument("--full-crc",action="store_true",help="Verify every entry CRC, not just radar assets")
     parser.add_argument("--report",type=Path,help="Save a JSON report")
     args = parser.parse_args(argv)
     try:
-        report = verify_package(args.package,args.overview,full_crc=args.full_crc,map_name=args.map_name)
+        report = verify_package(args.package,args.overview,full_crc=args.full_crc,map_name=args.map_name,model_name=args.model_name)
         if args.report:
             if args.report.resolve() in {args.package.resolve(),args.overview.resolve()} or args.report.suffix.lower() != ".json":
                 raise VPKError("Report must be a separate .json file")
@@ -183,7 +189,7 @@ def main(argv=None):
             args.report.write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
     except (OSError,VPKError) as error:
         parser.exit(2,f"error: {error}\n")
-    print(f"Packaged radar check: {report['status']} ({report['package_entries']} VPK entries)")
+    print(f"Packaged asset check: {report['status']} ({report['package_entries']} VPK entries)")
     for check in report["checks"]:
         print(f"  {check['status']}: {check['file']}")
     for error in report["errors"]:

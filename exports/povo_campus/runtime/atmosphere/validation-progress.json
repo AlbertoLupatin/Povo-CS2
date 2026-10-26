@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "finished_at_utc": "2026-10-25T00:40:30.919962+00:00",
+  "source_tests": 156,
+  "compiled_physical_surfaces": {
+    "shared_model_sha256": "56feac504df376351be20b127602940d8b90fbe5c0f14944097f74db92e03958",
+    "winter_model_sha256": "3c0344f355fb55afb5b84e854ca444bca1f33b4f8b602116f0d53d5a5d8d14ea"
+  },
+  "standard": {
+    "package": {
+      "package_sha256": "5de0dc71af0cc6e2aaac4570e5445611d72768f66a3ed6069ea66507bd7d461f",
+      "package_bytes": 45173047,
+      "package_entries": 391,
+      "status": "passed"
+    },
+    "installed_package_matches": true,
+    "cubemap_only_addition": {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\maps\\trento_povo_campus.vpk",
+      "added_entries": [
+        "maps/trento_povo_campus/cubemaps/env_cubemap_array.vtex_c"
+      ],
+      "previous_entries_unchanged": true
+    },
+    "package_before_cubemap_sha256": "dc70ec2b163b69785d3e7a9faf65221e09f3f7dfa0140536f9c98b33c3d53fcb",
+    "native_package_scope": "Some native tests precede reflection bake; all source entries verified unchanged by adoption.",
+    "native-features.json": {
+      "status": "passed",
+      "checks": 14,
+      "package_sha256": "dc70ec2b163b69785d3e7a9faf65221e09f3f7dfa0140536f9c98b33c3d53fcb"
+    },
+    "exterior-runtime-walk.json": {
+      "status": "passed",
+      "checks": 41,
+      "package_sha256": "dc70ec2b163b69785d3e7a9faf65221e09f3f7dfa0140536f9c98b33c3d53fcb"
+    },
+    "local-bot-match.json": {
+      "status": "passed",
+      "checks": 11,
+      "package_sha256": "5de0dc71af0cc6e2aaac4570e5445611d72768f66a3ed6069ea66507bd7d461f"
+    }
+  },
+  "winter": {
+    "package": {
+      "package_sha256": "5f54c53436c22570695a66b58532282ece794cc63f97309187eb193f9975d2f7",
+      "package_bytes": 43453973,
+      "package_entries": 396,
+      "status": "passed"
+    },
+    "installed_package_matches": true,
+    "cubemap_only_addition": {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\maps\\trento_povo_campus_winter.vpk",
+      "added_entries": [
+        "maps/trento_povo_campus_winter/cubemaps/env_cubemap_array.vtex_c"
+      ],
+      "previous_entries_unchanged": true
+    },
+    "package_before_cubemap_sha256": "08c1366ffae14882e1ab15017afa1e82cf190bbd3a72fbe3a391de24cfc41286",
+    "native_package_scope": "Some native tests precede reflection bake; all source entries verified unchanged by adoption.",
+    "native-features.json": {
+      "status": "passed",
+      "checks": 15,
+      "package_sha256": "08c1366ffae14882e1ab15017afa1e82cf190bbd3a72fbe3a391de24cfc41286"
+    },
+    "exterior-runtime-walk.json": {
+      "status": "passed",
+      "checks": 41,
+      "package_sha256": "5f54c53436c22570695a66b58532282ece794cc63f97309187eb193f9975d2f7"
+    },
+    "local-bot-match.json": {
+      "status": "passed",
+      "checks": 11,
+      "package_sha256": "5f54c53436c22570695a66b58532282ece794cc63f97309187eb193f9975d2f7"
+    }
+  },
+  "scope": "Local engine checks with one human and test bots. No independent-client replication or competitive-balance claim. Audio resources and compiled physical assignments verified; no listening-level calibration claimed."
+}

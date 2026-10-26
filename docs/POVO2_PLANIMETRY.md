@@ -1,5 +1,12 @@
 # Povo 2 game planimetry - revised 23 October 2026
 
+**Latest user correction, 24 October:** the far basement branch turns right
+when walking along the long hall: east in this standalone drawing, west after
+the integrated plan's 180-degree placement. The review arrow, stations, lights
+and radar use that side. The integrated build also removes obsolete draft
+stair-door leaves. See [the user corrections](POVO_USER_CORRECTIONS.md) for
+the rebuilt package and engine evidence. Older checkpoints below are historical.
+
 **24 October update:** the generated review now includes B111–B114, boards on
 the opposite wall, tables extending to the hall midpoint and a ground corridor
 ending at the last classroom. See [the map adjustments](POVO_MAP_ADJUSTMENTS.md)

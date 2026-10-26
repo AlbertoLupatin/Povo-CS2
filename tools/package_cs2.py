@@ -86,7 +86,7 @@ def source2_hashes(path):
 
 
 def package_map(cs2_root, vpkedit, output, *, repo_root=REPO_ROOT, force=False,
-                map_name='trento_povo', model_name='povo_blockout', overview_source=None):
+                map_name='trento_povo', model_name='povo_blockout', overview_source=None, extra_assets=()):
     addon = Path(cs2_root) / 'game' / 'csgo_addons' / ADDON_NAME
     overview = Path(overview_source) if overview_source else Path(repo_root) / 'exports/povo_radar/trento_povo.txt'
     values=overview_values(overview.read_bytes(),map_name)
@@ -114,6 +114,10 @@ def package_map(cs2_root, vpkedit, output, *, repo_root=REPO_ROOT, force=False,
     assets = set(files) - set(aliases)
     assets.add('models/povo/'+model_name+'.vmdl_c')
     assets.add('cfg/maps/'+map_name+'.cfg')
+    for name in extra_assets:
+        if name.startswith('/') or '\\' in name or ':' in name or any(p in ('','..','.') for p in name.split('/')):
+            raise VPKError('Invalid extra asset path: '+name)
+        assets.add(name)
     assets.update(rel.as_posix() + '_c' for rel in SYNC_CONTENT
                   if rel.suffix == '.vmat')
     for directory in ('materials/trento/povo', 'materials/default'):
@@ -176,7 +180,7 @@ def package_map(cs2_root, vpkedit, output, *, repo_root=REPO_ROOT, force=False,
             if hashed.hexdigest() != expected[name]:
                 raise VPKError(f'Packed bytes differ from source: {name}')
         source2_hashes(candidate)
-        report = verify_package(candidate, overview, full_crc=True,map_name=map_name)
+        report = verify_package(candidate, overview, full_crc=True,map_name=map_name,model_name=model_name)
         if report['status'] != 'passed':
             raise VPKError('; '.join(report['errors']))
         report.update(package=str(output), source_package=str(source),

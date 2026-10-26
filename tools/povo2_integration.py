@@ -40,7 +40,9 @@ def extend(boxes, levels, root, wall_height):
     def add(name,lo,hi,mat):added.append((name,tuple(lo),tuple(hi),mat))
     # Exclude the provisional upright core, its landings and its upper level.
     for name,lo,hi,mat in draft:
-        if name.startswith(('p2_stair_','p2_first_')) or '_stair_landing' in name or name=='p2_parking_shaft_bottom':continue
+        if (name.startswith(('p2_stair_','p2_first_')) or '_stair_landing' in name
+                or '_fire_door_' in name or name=='p2_parking_shaft_bottom'
+                or name=='p2_basement_closed_door_0'):continue
         floor=-1 if name.startswith('p2_basement_') else -2 if name.startswith('p2_parking_') else 0
         a=point(lo,floor);b=point(hi,floor)
         add(name,tuple(min(a[i],b[i]) for i in range(3)),tuple(max(a[i],b[i]) for i in range(3)),mat)

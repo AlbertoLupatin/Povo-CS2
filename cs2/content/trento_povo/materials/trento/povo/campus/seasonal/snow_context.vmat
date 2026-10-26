@@ -1,0 +1,8 @@
+Layer0
+{
+ shader "csgo_unlitgeneric.vfx"
+ TextureColor "materials/trento/povo/campus/seasonal/snow_context.png"
+ TextureNormal "materials/trento/povo/campus/neutral_normal.png"
+ TextureRoughness "materials/trento/povo/campus/seasonal/snow_context_rough.png"
+ SystemAttributes { PhysicsSurfaceProperties "snow" }
+}

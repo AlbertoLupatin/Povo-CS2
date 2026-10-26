@@ -1,5 +1,47 @@
 # Resume the Povo project on Windows
 
+## Current checkpoint — 25 October 2026
+
+Use `play_campus.cmd` for `trento_povo_campus` or `play_campus_winter.cmd` for
+`trento_povo_campus_winter`, with CS2 closed. Both preserve the saved fullscreen
+setting. The maps share their campus architecture, moving doors and objective;
+winter adds an overcast sky, thin snow/wet dressing and light snowfall. Local
+ambience and physical surface footsteps are included. Additional furnishing is
+deferred. Both packages are built and reflection-baked:
+
+- Standard: 45,173,047 bytes / 391 entries, SHA-256
+  `5de0dc71af0cc6e2aaac4570e5445611d72768f66a3ed6069ea66507bd7d461f`.
+- Winter: 43,453,973 bytes / 396 entries, SHA-256
+  `5f54c53436c22570695a66b58532282ece794cc63f97309187eb193f9975d2f7`.
+
+Read [POVO_SEASONS_AND_INTERACTIONS.md](POVO_SEASONS_AND_INTERACTIONS.md) for the
+current implementation, test evidence and local-bot validation scope. Source
+tests: 156 passing. Use `python tools/cs2_campus.py --season both` to rebuild.
+The standalone planimetry export is retained as a study; it no longer describes
+an undeployed lower-floor implementation.
+
+Read [POVO_USER_CORRECTIONS.md](POVO_USER_CORRECTIONS.md) for the previous geometry
+checkpoint and native screenshots, [CODEX_REVIEW.md](CODEX_REVIEW.md) for the earlier review,
+[POVO_EXTERIOR.md](POVO_EXTERIOR.md) for the current integrated build and
+[POVO_CAMPUS_PLAYTEST.md](POVO_CAMPUS_PLAYTEST.md) for build/launch commands.
+The README's current-status section supersedes the historical checkpoints below.
+
+Quick checks from the repository root:
+
+```powershell
+python -m unittest discover -s tests -v
+python tools/audit_povo_campus.py
+python tools/audit_povo2_integrated.py
+python tools/audit_povo_exterior_integrated.py
+python tools/verify_cs2_package.py build/package/trento_povo_campus.vpk --map trento_povo_campus --model povo1_campus --overview exports/povo_campus/radar/trento_povo_campus.txt --full-crc
+```
+
+Preserve installed edits and back up both addon trees before deploying or
+recompiling; the backup procedure below remains applicable. Source audits and
+CRC checks do not replace engine walking or independent-client match tests.
+
+## Historical checkpoints
+
 ## Latest: map adjustments — 24 October 2026
 
 See [POVO_MAP_ADJUSTMENTS.md](POVO_MAP_ADJUSTMENTS.md) for the reception replacing

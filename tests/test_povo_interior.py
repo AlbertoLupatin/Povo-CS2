@@ -302,6 +302,20 @@ class InteriorStudyTests(unittest.TestCase):
         self.assertTrue(report['stations'][1]['has_clearance'])
         self.assertFalse(report['stations'][1]['reachable_from_entrance'])
 
+    def test_clearance_audit_blocks_low_slabs_and_raised_floor_materials(self):
+        level={'id':'ground','floor_elevation_local':0}
+        stations=[{'id':'entrance','point':(1,5)},{'id':'destination','point':(9,5)}]
+        floor=('ground_slab',(0,0,-.2),(10,10,0),'floor_room')
+        for bottom,top in ((1.5,1.7),(.2,.5)):
+            with self.subTest(bottom=bottom):
+                obstacle=('upper_slab',(4.9,0,bottom),(5.1,10,top),'floor_room')
+                report,*_=audit.audit_level([floor,obstacle],level,stations)
+                self.assertEqual(report['status'],'failed')
+                self.assertTrue(report['stations'][1]['has_clearance'])
+                self.assertFalse(report['stations'][1]['reachable_from_entrance'])
+        high=('upper_slab',(4.9,0,2.1),(5.1,10,2.3),'floor_room')
+        self.assertEqual(audit.audit_level([floor,high],level,stations)[0]['status'],'passed')
+
     def test_clearance_audit_rejects_stale_sources_and_output_over_source_assets(self):
         self.build()
         with self.assertRaisesRegex(ValueError,'separate directory'):

@@ -1,0 +1,654 @@
+> status
+Server:  Running [100.119.112.35:27015]
+Client:  Connected [loopback:1] [last packet 0.631 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus_winter | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:12    0    0     active 786432 'albylupatin2000'
+#end
+Bailing out of OnBlockForQuery after 0.250 seconds
+Bailing out of OnBlockForQuery after 0.250 seconds
+
+> ent_find func_door
+Searching for entities with class/target name containing substrings: "func_door"
+   'func_door_rotating' : 'p1_main_north' (entindex 461) 
+   'func_door_rotating' : 'p1_main_south' (entindex 462) 
+   'func_door' : 'p2_entry_inner_1_1' (entindex 463) 
+   'func_door' : 'p2_entry_inner_1_-1' (entindex 464) 
+   'func_door' : 'p2_entry_inner_0_1' (entindex 465) 
+   'func_door' : 'p2_entry_inner_0_-1' (entindex 466) 
+   'func_door' : 'p2_entry_outer_1_1' (entindex 467) 
+   'func_door' : 'p2_entry_outer_1_-1' (entindex 468) 
+   'func_door' : 'p2_entry_outer_0_1' (entindex 469) 
+   'func_door' : 'p2_entry_outer_0_-1' (entindex 470) 
+   'func_door_rotating' : 'classroom_a224' (entindex 471) 
+   'func_door_rotating' : 'classroom_a223' (entindex 472) 
+   'func_door_rotating' : 'classroom_a215' (entindex 473) 
+   'func_door_rotating' : 'classroom_a208' (entindex 474) 
+   'func_door_rotating' : 'p2_core_floor-2_north' (entindex 475) 
+   'func_door_rotating' : 'p2_core_floor-2_south' (entindex 476) 
+   'func_door_rotating' : 'p2_core_floor-1_north' (entindex 477) 
+   'func_door_rotating' : 'p2_core_floor-1_south' (entindex 478) 
+   'func_door_rotating' : 'p2_core_floor0_north' (entindex 479) 
+   'func_door_rotating' : 'p2_core_floor0_south' (entindex 480) 
+   'func_door_rotating' : 'p2_core_floor1_north' (entindex 481) 
+   'func_door_rotating' : 'p2_core_floor1_south' (entindex 482) 
+   'func_door_rotating' : 'p1_nw_floor1_north' (entindex 483) 
+   'func_door_rotating' : 'p1_nw_floor1_south' (entindex 484) 
+   'func_door_rotating' : 'p1_nw_floor0_north' (entindex 485) 
+   'func_door_rotating' : 'p1_nw_floor0_south' (entindex 486) 
+   'func_door_rotating' : 'p1_ne_floor1_north' (entindex 487) 
+   'func_door_rotating' : 'p1_ne_floor1_south' (entindex 488) 
+   'func_door_rotating' : 'p1_ne_floor0_north' (entindex 489) 
+   'func_door_rotating' : 'p1_ne_floor0_south' (entindex 490) 
+   'func_door_rotating' : 'p1_sw_floor1_north' (entindex 491) 
+   'func_door_rotating' : 'p1_sw_floor1_south' (entindex 492) 
+   'func_door_rotating' : 'p1_sw_floor0_north' (entindex 493) 
+   'func_door_rotating' : 'p1_sw_floor0_south' (entindex 494) 
+   'func_door_rotating' : 'p1_se_floor1_north' (entindex 495) 
+   'func_door_rotating' : 'p1_se_floor1_south' (entindex 496) 
+   'func_door_rotating' : 'p1_se_floor0_north' (entindex 497) 
+   'func_door_rotating' : 'p1_se_floor0_south' (entindex 498) 
+Found 38 matches.
+Bailing out of OnBlockForQuery after 0.250 seconds
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3350.394 562.992 161.417
+> setang 0 90 0
+Bailing out of OnBlockForQuery after 0.250 seconds
+Bailing out of OnBlockForQuery after 0.250 seconds
+
+> ent_fire p1_se_floor0_south Close
+> ent_fire p1_se_floor0_north Close
+Bailing out of OnBlockForQuery after 0.250 seconds
+non-moveable func_door_rotating 'p1_se_floor0_north' is pushed
+CSwapChainBase::QueuePresentAndWait() looped for 21 iterations without a present event.
+Bailing out of OnBlockForQuery after 0.250 seconds
+CSwapChainBase::QueuePresentAndWait() looped for 21 iterations without a present event.
+Bailing out of OnBlockForQuery after 0.250 seconds
+CSwapChainBase::QueuePresentAndWait() looped for 21 iterations without a present event.
+Bailing out of OnBlockForQuery after 0.250 seconds
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+cl: ReadFrameInput - Presented data has no mod info
+
+> ent_fire p1_se_floor0_south Lock
+> ent_fire p1_se_floor0_north Lock
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3350.398682 603.693115 157.984146;setang_exact 0.000000 90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3350.394 562.992 161.417
+> setang 0 90 0
+
+> ent_fire p1_se_floor0_south Unlock
+> ent_fire p1_se_floor0_north Unlock
+
+> ent_fire p1_se_floor0_south Open
+> ent_fire p1_se_floor0_north Open
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3350.412354 760.707336 157.511719;setang_exact 0.000000 90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1234.252 2007.874 161.417
+> setang 0 -90 0
+
+> ent_fire p2_entry_outer_0_-1 Close
+> ent_fire p2_entry_outer_0_1 Close
+
+> ent_fire p2_entry_outer_0_-1 Lock
+> ent_fire p2_entry_outer_0_1 Lock
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.247070 1963.905273 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1234.252 2007.874 161.417
+> setang 0 -90 0
+
+> ent_fire p2_entry_outer_0_-1 Unlock
+> ent_fire p2_entry_outer_0_1 Unlock
+
+> ent_fire p2_entry_outer_0_-1 Open
+> ent_fire p2_entry_outer_0_1 Open
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.234131 1814.138916 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2902.735 885.827 161.417
+> setang 0 90 0
+
+> ent_fire p1_main_south Close
+> ent_fire p1_main_north Close
+
+> ent_fire p1_main_south Lock
+> ent_fire p1_main_north Lock
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.739746 926.134094 157.984146;setang_exact 0.000000 90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2902.735 885.827 161.417
+> setang 0 90 0
+
+> ent_fire p1_main_south Unlock
+> ent_fire p1_main_north Unlock
+
+> ent_fire p1_main_south Open
+> ent_fire p1_main_north Open
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.753174 1087.673340 169.322739;setang_exact 0.000000 90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1852.764 -505.122 303.150
+> setang 0 -90 0
+
+> ent_fire classroom_a224 Close
+
+> ent_fire classroom_a224 Lock
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1852.768677 -545.429260 299.716370;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1852.764 -505.122 303.150
+> setang 0 -90 0
+
+> ent_fire classroom_a224 Unlock
+
+> ent_fire classroom_a224 Open
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1852.774048 -628.854431 299.795105;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3352.559 895.669 161.417
+> setang 0 90 0
+
+> cmd give weapon_ak47
+> slot1
+
+> +attack
+cl: CreateMove - Invalid player history [ 2736, 2736, 0.000 ] for predicted time [ #2734 : 0.026 ]
+
+> -attack
+
+> ent_find glass_stair_window_0
+Searching for entities with class/target name containing substrings: "glass_stair_window_0"
+Found 0 matches.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1753.740 895.669 161.417
+> setang 0 90 0
+
+> cmd give weapon_ak47
+> slot1
+Achievements disabled: cheats turned on in this app session.
+
+> +attack
+cl: CreateMove - Invalid player history [ 2906, 2906, 0.000 ] for predicted time [ #2906 : 0.227 ]
+
+> -attack
+
+> ent_find glass_stair_ne_window_0
+Searching for entities with class/target name containing substrings: "glass_stair_ne_window_0"
+Found 0 matches.
+
+> mp_warmup_end
+> mp_restartgame 1
+NumAliveTerrorist( rnd 0 ) = 1
+NumAliveCT( rnd 0 ) = 0
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 46.44 
+Using spawn points configuration 0xC7B26968
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+BeginMatch
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CQ: Server set re-sync at cmd 2841
+La partita verrà riavviata fra 1 secondo
+NumAliveTerrorist( rnd 0 ) = 1
+NumAliveCT( rnd 0 ) = 0
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 47.98 
+Using spawn points configuration 0xC7B26968
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+BeginMatch
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CQ: Server set re-sync at cmd 2937
+
+> ent_find glass_stair_window_0
+Searching for entities with class/target name containing substrings: "glass_stair_window_0"
+   'func_breakable' : 'glass_stair_window_0' (entindex 81) 
+Found 1 matches.
+
+> ent_find glass_stair_ne_window_0
+Searching for entities with class/target name containing substrings: "glass_stair_ne_window_0"
+   'func_breakable' : 'glass_stair_ne_window_0' (entindex 80) 
+Found 1 matches.
+
+> ent_find func_door
+Searching for entities with class/target name containing substrings: "func_door"
+   'func_door_rotating' : 'p1_main_north' (entindex 82) 
+   'func_door_rotating' : 'p1_main_south' (entindex 83) 
+   'func_door' : 'p2_entry_inner_1_1' (entindex 84) 
+   'func_door' : 'p2_entry_inner_1_-1' (entindex 85) 
+   'func_door' : 'p2_entry_inner_0_1' (entindex 86) 
+   'func_door' : 'p2_entry_inner_0_-1' (entindex 87) 
+   'func_door' : 'p2_entry_outer_1_1' (entindex 88) 
+   'func_door' : 'p2_entry_outer_1_-1' (entindex 89) 
+   'func_door' : 'p2_entry_outer_0_1' (entindex 90) 
+   'func_door' : 'p2_entry_outer_0_-1' (entindex 91) 
+   'func_door_rotating' : 'classroom_a224' (entindex 92) 
+   'func_door_rotating' : 'classroom_a223' (entindex 93) 
+   'func_door_rotating' : 'classroom_a215' (entindex 94) 
+   'func_door_rotating' : 'classroom_a208' (entindex 95) 
+   'func_door_rotating' : 'p2_core_floor-2_north' (entindex 96) 
+   'func_door_rotating' : 'p2_core_floor-2_south' (entindex 97) 
+   'func_door_rotating' : 'p2_core_floor-1_north' (entindex 98) 
+   'func_door_rotating' : 'p2_core_floor-1_south' (entindex 99) 
+   'func_door_rotating' : 'p2_core_floor0_north' (entindex 100) 
+   'func_door_rotating' : 'p2_core_floor0_south' (entindex 101) 
+   'func_door_rotating' : 'p2_core_floor1_north' (entindex 102) 
+   'func_door_rotating' : 'p2_core_floor1_south' (entindex 103) 
+   'func_door_rotating' : 'p1_nw_floor1_north' (entindex 104) 
+   'func_door_rotating' : 'p1_nw_floor1_south' (entindex 105) 
+   'func_door_rotating' : 'p1_nw_floor0_north' (entindex 106) 
+   'func_door_rotating' : 'p1_nw_floor0_south' (entindex 107) 
+   'func_door_rotating' : 'p1_ne_floor1_north' (entindex 108) 
+   'func_door_rotating' : 'p1_ne_floor1_south' (entindex 109) 
+   'func_door_rotating' : 'p1_ne_floor0_north' (entindex 110) 
+   'func_door_rotating' : 'p1_ne_floor0_south' (entindex 111) 
+   'func_door_rotating' : 'p1_sw_floor1_north' (entindex 112) 
+   'func_door_rotating' : 'p1_sw_floor1_south' (entindex 113) 
+   'func_door_rotating' : 'p1_sw_floor0_north' (entindex 114) 
+   'func_door_rotating' : 'p1_sw_floor0_south' (entindex 115) 
+   'func_door_rotating' : 'p1_se_floor1_north' (entindex 116) 
+   'func_door_rotating' : 'p1_se_floor1_south' (entindex 117) 
+   'func_door_rotating' : 'p1_se_floor0_north' (entindex 118) 
+   'func_door_rotating' : 'p1_se_floor0_south' (entindex 119) 
+Found 38 matches.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -2362.205 -787.402 -122.047
+> setang 0 90 0
+
+> cl_soundscape_printdebuginfo
+
+------- CLIENT SOUNDSCAPES (0 total) -------
+- PLAYING DEBUG SOUNDSCAPE: -1 []
+- CURRENT SOUNDSCAPE: 0 []
+----------------------------------
+
+
+Expected natural zone at garage: Povo.Garage
+> soundscape_dumpclient
+Client Soundscape data dump:
+   Position: -2362.21 -787.40 -125.60
+   soundscape index: 0
+   entity list index: 0
+End dump.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1850.394 -708.661 303.150
+> setang 0 90 0
+setpos into world, use noclip to unstick yourself!
+
+> cl_soundscape_printdebuginfo
+
+------- CLIENT SOUNDSCAPES (0 total) -------
+- PLAYING DEBUG SOUNDSCAPE: -1 []
+- CURRENT SOUNDSCAPE: 0 []
+----------------------------------
+
+
+Expected natural zone at classroom: Povo.Room
+> soundscape_dumpclient
+Client Soundscape data dump:
+   Position: 1850.39 -708.66 303.15
+   soundscape index: 0
+   entity list index: 0
+End dump.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2755.906 2440.945 232.283
+> setang 0 90 0
+
+> cl_soundscape_printdebuginfo
+
+------- CLIENT SOUNDSCAPES (0 total) -------
+- PLAYING DEBUG SOUNDSCAPE: -1 []
+- CURRENT SOUNDSCAPE: 0 []
+----------------------------------
+
+
+Expected natural zone at street: Povo.Winter
+> soundscape_dumpclient
+Client Soundscape data dump:
+   Position: 2755.91 2440.95 228.38
+   soundscape index: 0
+   entity list index: 0
+End dump.
+
+> ent_find winter_snow
+Searching for entities with class/target name containing substrings: "winter_snow"
+   'info_particle_system' : 'winter_snow_3_2_20' (entindex 874) 
+   'info_particle_system' : 'winter_snow_3_2_19' (entindex 875) 
+   'info_particle_system' : 'winter_snow_3_2_18' (entindex 876) 
+   'info_particle_system' : 'winter_snow_3_2_17' (entindex 877) 
+   'info_particle_system' : 'winter_snow_3_2_16' (entindex 878) 
+   'info_particle_system' : 'winter_snow_3_2_15' (entindex 879) 
+   'info_particle_system' : 'winter_snow_3_2_14' (entindex 880) 
+   'info_particle_system' : 'winter_snow_3_2_13' (entindex 881) 
+   'info_particle_system' : 'winter_snow_3_2_12' (entindex 882) 
+   'info_particle_system' : 'winter_snow_3_2_11' (entindex 883) 
+   'info_particle_system' : 'winter_snow_3_2_10' (entindex 884) 
+   'info_particle_system' : 'winter_snow_3_2_9' (entindex 885) 
+   'info_particle_system' : 'winter_snow_3_2_8' (entindex 886) 
+   'info_particle_system' : 'winter_snow_3_2_7' (entindex 887) 
+   'info_particle_system' : 'winter_snow_3_2_6' (entindex 888) 
+   'info_particle_system' : 'winter_snow_3_2_5' (entindex 889) 
+   'info_particle_system' : 'winter_snow_3_2_4' (entindex 890) 
+   'info_particle_system' : 'winter_snow_3_2_3' (entindex 891) 
+   'info_particle_system' : 'winter_snow_3_2_2' (entindex 892) 
+   'info_particle_system' : 'winter_snow_3_2_1' (entindex 893) 
+   'info_particle_system' : 'winter_snow_3_2_0' (entindex 894) 
+   'info_particle_system' : 'winter_snow_3_1_20' (entindex 895) 
+   'info_particle_system' : 'winter_snow_3_1_19' (entindex 896) 
+   'info_particle_system' : 'winter_snow_3_1_18' (entindex 897) 
+   'info_particle_system' : 'winter_snow_3_1_17' (entindex 898) 
+   'info_particle_system' : 'winter_snow_3_1_16' (entindex 899) 
+   'info_particle_system' : 'winter_snow_3_1_15' (entindex 900) 
+   'info_particle_system' : 'winter_snow_3_1_14' (entindex 901) 
+   'info_particle_system' : 'winter_snow_3_1_13' (entindex 902) 
+   'info_particle_system' : 'winter_snow_3_1_12' (entindex 903) 
+   'info_particle_system' : 'winter_snow_3_1_11' (entindex 904) 
+   'info_particle_system' : 'winter_snow_3_1_10' (entindex 905) 
+   'info_particle_system' : 'winter_snow_3_1_9' (entindex 906) 
+   'info_particle_system' : 'winter_snow_3_1_8' (entindex 907) 
+   'info_particle_system' : 'winter_snow_3_1_7' (entindex 908) 
+   'info_particle_system' : 'winter_snow_3_1_6' (entindex 909) 
+   'info_particle_system' : 'winter_snow_3_1_5' (entindex 910) 
+   'info_particle_system' : 'winter_snow_3_1_4' (entindex 911) 
+   'info_particle_system' : 'winter_snow_3_1_3' (entindex 912) 
+   'info_particle_system' : 'winter_snow_3_1_2' (entindex 913) 
+   'info_particle_system' : 'winter_snow_3_1_1' (entindex 914) 
+   'info_particle_system' : 'winter_snow_3_1_0' (entindex 915) 
+   'info_particle_system' : 'winter_snow_3_0_20' (entindex 916) 
+   'info_particle_system' : 'winter_snow_3_0_19' (entindex 917) 
+   'info_particle_system' : 'winter_snow_3_0_18' (entindex 918) 
+   'info_particle_system' : 'winter_snow_3_0_17' (entindex 919) 
+   'info_particle_system' : 'winter_snow_3_0_16' (entindex 920) 
+   'info_particle_system' : 'winter_snow_3_0_15' (entindex 921) 
+   'info_particle_system' : 'winter_snow_3_0_14' (entindex 922) 
+   'info_particle_system' : 'winter_snow_3_0_13' (entindex 923) 
+   'info_particle_system' : 'winter_snow_3_0_12' (entindex 924) 
+   'info_particle_system' : 'winter_snow_3_0_11' (entindex 925) 
+   'info_particle_system' : 'winter_snow_3_0_10' (entindex 926) 
+   'info_particle_system' : 'winter_snow_3_0_9' (entindex 927) 
+   'info_particle_system' : 'winter_snow_3_0_8' (entindex 928) 
+   'info_particle_system' : 'winter_snow_3_0_7' (entindex 929) 
+   'info_particle_system' : 'winter_snow_3_0_6' (entindex 930) 
+   'info_particle_system' : 'winter_snow_3_0_5' (entindex 931) 
+   'info_particle_system' : 'winter_snow_3_0_4' (entindex 932) 
+   'info_particle_system' : 'winter_snow_3_0_3' (entindex 933) 
+   'info_particle_system' : 'winter_snow_3_0_2' (entindex 934) 
+   'info_particle_system' : 'winter_snow_3_0_1' (entindex 935) 
+   'info_particle_system' : 'winter_snow_3_0_0' (entindex 936) 
+   'info_particle_system' : 'winter_snow_2_1_19' (entindex 937) 
+   'info_particle_system' : 'winter_snow_2_1_18' (entindex 938) 
+   'info_particle_system' : 'winter_snow_2_1_17' (entindex 939) 
+   'info_particle_system' : 'winter_snow_2_1_16' (entindex 940) 
+   'info_particle_system' : 'winter_snow_2_1_15' (entindex 941) 
+   'info_particle_system' : 'winter_snow_2_1_14' (entindex 942) 
+   'info_particle_system' : 'winter_snow_2_1_13' (entindex 943) 
+   'info_particle_system' : 'winter_snow_2_1_12' (entindex 944) 
+   'info_particle_system' : 'winter_snow_2_1_11' (entindex 945) 
+   'info_particle_system' : 'winter_snow_2_1_10' (entindex 946) 
+   'info_particle_system' : 'winter_snow_2_1_9' (entindex 947) 
+   'info_particle_system' : 'winter_snow_2_1_8' (entindex 948) 
+   'info_particle_system' : 'winter_snow_2_1_7' (entindex 949) 
+   'info_particle_system' : 'winter_snow_2_1_6' (entindex 950) 
+   'info_particle_system' : 'winter_snow_2_1_5' (entindex 951) 
+   'info_particle_system' : 'winter_snow_2_1_4' (entindex 952) 
+   'info_particle_system' : 'winter_snow_2_1_3' (entindex 953) 
+   'info_particle_system' : 'winter_snow_2_1_2' (entindex 954) 
+   'info_particle_system' : 'winter_snow_2_1_1' (entindex 955) 
+   'info_particle_system' : 'winter_snow_2_1_0' (entindex 956) 
+   'info_particle_system' : 'winter_snow_2_0_19' (entindex 957) 
+   'info_particle_system' : 'winter_snow_2_0_18' (entindex 958) 
+   'info_particle_system' : 'winter_snow_2_0_17' (entindex 959) 
+   'info_particle_system' : 'winter_snow_2_0_16' (entindex 960) 
+   'info_particle_system' : 'winter_snow_2_0_15' (entindex 961) 
+   'info_particle_system' : 'winter_snow_2_0_14' (entindex 962) 
+   'info_particle_system' : 'winter_snow_2_0_13' (entindex 963) 
+   'info_particle_system' : 'winter_snow_2_0_12' (entindex 964) 
+   'info_particle_system' : 'winter_snow_2_0_11' (entindex 965) 
+   'info_particle_system' : 'winter_snow_2_0_10' (entindex 966) 
+   'info_particle_system' : 'winter_snow_2_0_9' (entindex 967) 
+   'info_particle_system' : 'winter_snow_2_0_8' (entindex 968) 
+   'info_particle_system' : 'winter_snow_2_0_7' (entindex 969) 
+   'info_particle_system' : 'winter_snow_2_0_6' (entindex 970) 
+   'info_particle_system' : 'winter_snow_2_0_5' (entindex 971) 
+   'info_particle_system' : 'winter_snow_2_0_4' (entindex 972) 
+   'info_particle_system' : 'winter_snow_2_0_3' (entindex 973) 
+   'info_particle_system' : 'winter_snow_2_0_2' (entindex 974) 
+   'info_particle_system' : 'winter_snow_2_0_1' (entindex 975) 
+   'info_particle_system' : 'winter_snow_2_0_0' (entindex 976) 
+   'info_particle_system' : 'winter_snow_1_2_4' (entindex 977) 
+   'info_particle_system' : 'winter_snow_1_2_3' (entindex 978) 
+   'info_particle_system' : 'winter_snow_1_2_2' (entindex 979) 
+   'info_particle_system' : 'winter_snow_1_2_1' (entindex 980) 
+   'info_particle_system' : 'winter_snow_1_2_0' (entindex 981) 
+   'info_particle_system' : 'winter_snow_1_1_4' (entindex 982) 
+   'info_particle_system' : 'winter_snow_1_1_3' (entindex 983) 
+   'info_particle_system' : 'winter_snow_1_1_2' (entindex 984) 
+   'info_particle_system' : 'winter_snow_1_1_1' (entindex 985) 
+   'info_particle_system' : 'winter_snow_1_1_0' (entindex 986) 
+   'info_particle_system' : 'winter_snow_1_0_4' (entindex 987) 
+   'info_particle_system' : 'winter_snow_1_0_3' (entindex 988) 
+   'info_particle_system' : 'winter_snow_1_0_2' (entindex 989) 
+   'info_particle_system' : 'winter_snow_1_0_1' (entindex 990) 
+   'info_particle_system' : 'winter_snow_1_0_0' (entindex 991) 
+   'info_particle_system' : 'winter_snow_0_1_19' (entindex 992) 
+   'info_particle_system' : 'winter_snow_0_1_18' (entindex 993) 
+   'info_particle_system' : 'winter_snow_0_1_17' (entindex 994) 
+   'info_particle_system' : 'winter_snow_0_1_16' (entindex 995) 
+   'info_particle_system' : 'winter_snow_0_1_15' (entindex 996) 
+   'info_particle_system' : 'winter_snow_0_1_14' (entindex 997) 
+   'info_particle_system' : 'winter_snow_0_1_13' (entindex 998) 
+   'info_particle_system' : 'winter_snow_0_1_12' (entindex 999) 
+   'info_particle_system' : 'winter_snow_0_1_11' (entindex 1000) 
+   'info_particle_system' : 'winter_snow_0_1_10' (entindex 1001) 
+   'info_particle_system' : 'winter_snow_0_1_9' (entindex 1002) 
+   'info_particle_system' : 'winter_snow_0_1_8' (entindex 1003) 
+   'info_particle_system' : 'winter_snow_0_1_7' (entindex 1004) 
+   'info_particle_system' : 'winter_snow_0_1_6' (entindex 1005) 
+   'info_particle_system' : 'winter_snow_0_1_5' (entindex 1006) 
+   'info_particle_system' : 'winter_snow_0_1_4' (entindex 1007) 
+   'info_particle_system' : 'winter_snow_0_1_3' (entindex 1008) 
+   'info_particle_system' : 'winter_snow_0_1_2' (entindex 1009) 
+   'info_particle_system' : 'winter_snow_0_1_1' (entindex 1010) 
+   'info_particle_system' : 'winter_snow_0_1_0' (entindex 1011) 
+   'info_particle_system' : 'winter_snow_0_0_19' (entindex 1012) 
+   'info_particle_system' : 'winter_snow_0_0_18' (entindex 1013) 
+   'info_particle_system' : 'winter_snow_0_0_17' (entindex 1014) 
+   'info_particle_system' : 'winter_snow_0_0_16' (entindex 1015) 
+   'info_particle_system' : 'winter_snow_0_0_15' (entindex 1016) 
+   'info_particle_system' : 'winter_snow_0_0_14' (entindex 1017) 
+   'info_particle_system' : 'winter_snow_0_0_13' (entindex 1018) 
+   'info_particle_system' : 'winter_snow_0_0_12' (entindex 1019) 
+   'info_particle_system' : 'winter_snow_0_0_11' (entindex 1020) 
+   'info_particle_system' : 'winter_snow_0_0_10' (entindex 1021) 
+   'info_particle_system' : 'winter_snow_0_0_9' (entindex 1022) 
+   'info_particle_system' : 'winter_snow_0_0_8' (entindex 1023) 
+   'info_particle_system' : 'winter_snow_0_0_7' (entindex 526) 
+   'info_particle_system' : 'winter_snow_0_0_6' (entindex 527) 
+   'info_particle_system' : 'winter_snow_0_0_5' (entindex 74) 
+   'info_particle_system' : 'winter_snow_0_0_4' (entindex 75) 
+   'info_particle_system' : 'winter_snow_0_0_3' (entindex 76) 
+   'info_particle_system' : 'winter_snow_0_0_2' (entindex 77) 
+   'info_particle_system' : 'winter_snow_0_0_1' (entindex 78) 
+   'info_particle_system' : 'winter_snow_0_0_0' (entindex 79) 
+Found 158 matches.
+
+> -forward 42
+> -attack
+> ent_fire func_door Unlock
+> ent_fire func_door_rotating Unlock
+> ent_fire func_door Open
+> ent_fire func_door_rotating Open
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2902.756 972.441 161.417
+> setang 0 90 0

@@ -29,12 +29,13 @@ SETTINGS = (
 )
 
 
-def campus_loaded(status):
+def campus_loaded(status,map_name=MAP):
+    if map_name not in (MAP,MAP+'_winter'):return False
     return (re.search(r'@ Current\s*:\s*game\b', status) is not None
-            and f': {MAP} | main lump | mapload]' in status)
+            and f': {map_name} | main lump | mapload]' in status)
 
 
-def explore(*, port=27400, timeout=90, fly=False, log=None):
+def explore(*, port=27400, timeout=90, fly=False, log=None,map_name=MAP):
     deadline = time.monotonic() + timeout
     transcript = []
     print('Waiting for the Povo campus to finish loading...', flush=True)
@@ -44,7 +45,7 @@ def explore(*, port=27400, timeout=90, fly=False, log=None):
         except (OSError, socket.timeout):
             time.sleep(.5)
             continue
-        if campus_loaded(status):
+        if campus_loaded(status,map_name):
             break
         time.sleep(.5)
     else:
@@ -75,9 +76,10 @@ def main():
     parser.add_argument('--timeout', type=float, default=90)
     parser.add_argument('--fly', action='store_true')
     parser.add_argument('--log', type=Path)
+    parser.add_argument('--map',dest='map_name',choices=(MAP,MAP+'_winter'),default=MAP)
     args = parser.parse_args()
     try:
-        explore(port=args.port, timeout=args.timeout, fly=args.fly, log=args.log)
+        explore(port=args.port, timeout=args.timeout, fly=args.fly, log=args.log,map_name=args.map_name)
     except (OSError, RuntimeError) as error:
         parser.exit(1, str(error) + '\n')
 

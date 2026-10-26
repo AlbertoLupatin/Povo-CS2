@@ -45,7 +45,7 @@ class CampusGeometryTests(unittest.TestCase):
         self.assertEqual(room['fitout']['staff'],3)
         self.assertEqual(room['fitout']['front_staff'],'female')
         panels=[b for b in self.boxes if b[0].startswith('academic_ground_g_east1_') and b[3]=='reception_glass']
-        self.assertEqual(len(panels),4)
+        self.assertEqual(len(panels),2)  # Front/back glazing; shared room walls are opaque.
         self.assertTrue(any(b[0]=='academic_ground_g_east1_finish_sign_plaque' for b in self.boxes))
 
     def test_north_and_south_have_separate_signed_furnished_restrooms(self):

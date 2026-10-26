@@ -1,0 +1,457 @@
+> status
+Server:  Running [100.119.112.35:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:15    0    0     active 786432 'albylupatin2000'
+#end
+
+> ent_find func_door
+Searching for entities with class/target name containing substrings: "func_door"
+   'func_door_rotating' : 'p1_main_north' (entindex 342) 
+   'func_door_rotating' : 'p1_main_south' (entindex 343) 
+   'func_door' : 'p2_entry_inner_1_1' (entindex 344) 
+   'func_door' : 'p2_entry_inner_1_-1' (entindex 345) 
+   'func_door' : 'p2_entry_inner_0_1' (entindex 346) 
+   'func_door' : 'p2_entry_inner_0_-1' (entindex 347) 
+   'func_door' : 'p2_entry_outer_1_1' (entindex 348) 
+   'func_door' : 'p2_entry_outer_1_-1' (entindex 349) 
+   'func_door' : 'p2_entry_outer_0_1' (entindex 350) 
+   'func_door' : 'p2_entry_outer_0_-1' (entindex 351) 
+   'func_door_rotating' : 'classroom_a224' (entindex 352) 
+   'func_door_rotating' : 'classroom_a223' (entindex 353) 
+   'func_door_rotating' : 'classroom_a215' (entindex 354) 
+   'func_door_rotating' : 'classroom_a208' (entindex 355) 
+   'func_door_rotating' : 'p2_core_floor-2_north' (entindex 362) 
+   'func_door_rotating' : 'p2_core_floor-2_south' (entindex 488) 
+   'func_door_rotating' : 'p2_core_floor-1_north' (entindex 489) 
+   'func_door_rotating' : 'p2_core_floor-1_south' (entindex 373) 
+   'func_door_rotating' : 'p2_core_floor0_north' (entindex 374) 
+   'func_door_rotating' : 'p2_core_floor0_south' (entindex 375) 
+   'func_door_rotating' : 'p2_core_floor1_north' (entindex 376) 
+   'func_door_rotating' : 'p2_core_floor1_south' (entindex 377) 
+   'func_door_rotating' : 'p1_nw_floor1_north' (entindex 378) 
+   'func_door_rotating' : 'p1_nw_floor1_south' (entindex 379) 
+   'func_door_rotating' : 'p1_nw_floor0_north' (entindex 380) 
+   'func_door_rotating' : 'p1_nw_floor0_south' (entindex 381) 
+   'func_door_rotating' : 'p1_ne_floor1_north' (entindex 382) 
+   'func_door_rotating' : 'p1_ne_floor1_south' (entindex 383) 
+   'func_door_rotating' : 'p1_ne_floor0_north' (entindex 384) 
+   'func_door_rotating' : 'p1_ne_floor0_south' (entindex 385) 
+   'func_door_rotating' : 'p1_sw_floor1_north' (entindex 386) 
+   'func_door_rotating' : 'p1_sw_floor1_south' (entindex 387) 
+   'func_door_rotating' : 'p1_sw_floor0_north' (entindex 388) 
+   'func_door_rotating' : 'p1_sw_floor0_south' (entindex 389) 
+   'func_door_rotating' : 'p1_se_floor1_north' (entindex 390) 
+   'func_door_rotating' : 'p1_se_floor1_south' (entindex 391) 
+   'func_door_rotating' : 'p1_se_floor0_north' (entindex 392) 
+   'func_door_rotating' : 'p1_se_floor0_south' (entindex 393) 
+Found 38 matches.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3350.394 562.992 161.417
+> setang 0 90 0
+
+> ent_fire p1_se_floor0_south Close
+> ent_fire p1_se_floor0_north Close
+non-moveable func_door_rotating 'p1_se_floor0_south' is pushed
+
+> ent_fire p1_se_floor0_south Lock
+> ent_fire p1_se_floor0_north Lock
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3350.398682 603.693115 157.984146;setang_exact 0.000000 90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3350.394 562.992 161.417
+> setang 0 90 0
+
+> ent_fire p1_se_floor0_south Unlock
+> ent_fire p1_se_floor0_north Unlock
+
+> ent_fire p1_se_floor0_south Open
+> ent_fire p1_se_floor0_north Open
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3350.412842 768.525757 157.511719;setang_exact 0.000000 90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1234.252 2007.874 161.417
+> setang 0 -90 0
+
+> ent_fire p2_entry_outer_0_-1 Close
+> ent_fire p2_entry_outer_0_1 Close
+
+> ent_fire p2_entry_outer_0_-1 Lock
+> ent_fire p2_entry_outer_0_1 Lock
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.247070 1963.905273 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1234.252 2007.874 161.417
+> setang 0 -90 0
+
+> ent_fire p2_entry_outer_0_-1 Unlock
+> ent_fire p2_entry_outer_0_1 Unlock
+name                             value  default  flags  help text
+________________________________ ______ ________ ______ _____________________________________________
+snd_print_current_mixer_mixgroup                        Get data related to mix group matching string
+snd_print_samplers                               cheat  List all available samplers
+
+> ent_fire p2_entry_outer_0_-1 Open
+> ent_fire p2_entry_outer_0_1 Open
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.232788 1794.522583 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2902.735 885.827 161.417
+> setang 0 90 0
+
+> ent_fire p1_main_south Close
+> ent_fire p1_main_north Close
+
+> ent_fire p1_main_south Lock
+> ent_fire p1_main_north Lock
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.739746 926.134094 157.984146;setang_exact 0.000000 90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2902.735 885.827 161.417
+> setang 0 90 0
+
+> ent_fire p1_main_south Unlock
+> ent_fire p1_main_north Unlock
+
+> ent_fire p1_main_south Open
+> ent_fire p1_main_north Open
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.754150 1092.340576 169.322739;setang_exact 0.000000 90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1852.764 -505.122 303.150
+> setang 0 -90 0
+
+> ent_fire classroom_a224 Close
+
+> ent_fire classroom_a224 Lock
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1852.768677 -545.429260 299.716370;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1852.764 -505.122 303.150
+> setang 0 -90 0
+
+> ent_fire classroom_a224 Unlock
+
+> ent_fire classroom_a224 Open
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1852.774048 -628.854431 299.795105;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3352.559 895.669 161.417
+> setang 0 90 0
+
+> give weapon_ak47
+> slot1
+
+> +attack
+
+> -attack
+
+> ent_find glass_stair_window_0
+Searching for entities with class/target name containing substrings: "glass_stair_window_0"
+Found 0 matches.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1753.740 895.669 161.417
+> setang 0 90 0
+Achievements disabled: cheats turned on in this app session.
+
+> give weapon_ak47
+> slot1
+
+> +attack
+
+> -attack
+
+> ent_find glass_stair_ne_window_0
+Searching for entities with class/target name containing substrings: "glass_stair_ne_window_0"
+Found 0 matches.
+Achievements disabled: cheats turned on in this app session.
+
+> mp_warmup_end
+> mp_restartgame 1
+NumAliveTerrorist( rnd 0 ) = 1
+NumAliveCT( rnd 0 ) = 0
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 61.30 
+Using spawn points configuration 0xFA2249D1
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+BeginMatch
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CQ: Server set re-sync at cmd 3762
+La partita verrà riavviata fra 1 secondo
+NumAliveTerrorist( rnd 0 ) = 1
+NumAliveCT( rnd 0 ) = 0
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 62.55 
+Using spawn points configuration 0xFA2249D1
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+BeginMatch
+CQ: Server set re-sync at cmd 3842
+
+> ent_find glass_stair_window_0
+Searching for entities with class/target name containing substrings: "glass_stair_window_0"
+   'func_breakable' : 'glass_stair_window_0' (entindex 325) 
+Found 1 matches.
+
+> ent_find glass_stair_ne_window_0
+Searching for entities with class/target name containing substrings: "glass_stair_ne_window_0"
+   'func_breakable' : 'glass_stair_ne_window_0' (entindex 324) 
+Found 1 matches.
+
+> ent_find func_door
+Searching for entities with class/target name containing substrings: "func_door"
+   'func_door_rotating' : 'p1_main_north' (entindex 326) 
+   'func_door_rotating' : 'p1_main_south' (entindex 327) 
+   'func_door' : 'p2_entry_inner_1_1' (entindex 328) 
+   'func_door' : 'p2_entry_inner_1_-1' (entindex 329) 
+   'func_door' : 'p2_entry_inner_0_1' (entindex 330) 
+   'func_door' : 'p2_entry_inner_0_-1' (entindex 331) 
+   'func_door' : 'p2_entry_outer_1_1' (entindex 332) 
+   'func_door' : 'p2_entry_outer_1_-1' (entindex 333) 
+   'func_door' : 'p2_entry_outer_0_1' (entindex 490) 
+   'func_door' : 'p2_entry_outer_0_-1' (entindex 473) 
+   'func_door_rotating' : 'classroom_a224' (entindex 341) 
+   'func_door_rotating' : 'classroom_a223' (entindex 340) 
+   'func_door_rotating' : 'classroom_a215' (entindex 475) 
+   'func_door_rotating' : 'classroom_a208' (entindex 474) 
+   'func_door_rotating' : 'p2_core_floor-2_north' (entindex 472) 
+   'func_door_rotating' : 'p2_core_floor-2_south' (entindex 471) 
+   'func_door_rotating' : 'p2_core_floor-1_north' (entindex 469) 
+   'func_door_rotating' : 'p2_core_floor-1_south' (entindex 470) 
+   'func_door_rotating' : 'p2_core_floor0_north' (entindex 342) 
+   'func_door_rotating' : 'p2_core_floor0_south' (entindex 343) 
+   'func_door_rotating' : 'p2_core_floor1_north' (entindex 344) 
+   'func_door_rotating' : 'p2_core_floor1_south' (entindex 345) 
+   'func_door_rotating' : 'p1_nw_floor1_north' (entindex 346) 
+   'func_door_rotating' : 'p1_nw_floor1_south' (entindex 347) 
+   'func_door_rotating' : 'p1_nw_floor0_north' (entindex 348) 
+   'func_door_rotating' : 'p1_nw_floor0_south' (entindex 349) 
+   'func_door_rotating' : 'p1_ne_floor1_north' (entindex 350) 
+   'func_door_rotating' : 'p1_ne_floor1_south' (entindex 351) 
+   'func_door_rotating' : 'p1_ne_floor0_north' (entindex 352) 
+   'func_door_rotating' : 'p1_ne_floor0_south' (entindex 353) 
+   'func_door_rotating' : 'p1_sw_floor1_north' (entindex 354) 
+   'func_door_rotating' : 'p1_sw_floor1_south' (entindex 355) 
+   'func_door_rotating' : 'p1_sw_floor0_north' (entindex 362) 
+   'func_door_rotating' : 'p1_sw_floor0_south' (entindex 488) 
+   'func_door_rotating' : 'p1_se_floor1_north' (entindex 489) 
+   'func_door_rotating' : 'p1_se_floor1_south' (entindex 373) 
+   'func_door_rotating' : 'p1_se_floor0_north' (entindex 374) 
+   'func_door_rotating' : 'p1_se_floor0_south' (entindex 375) 
+Found 38 matches.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -2362.205 -787.402 -122.047
+> setang 0 90 0
+
+> cl_soundscape_printdebuginfo
+
+------- CLIENT SOUNDSCAPES (0 total) -------
+- PLAYING DEBUG SOUNDSCAPE: -1 []
+- CURRENT SOUNDSCAPE: 0 []
+----------------------------------
+
+
+Expected natural zone at garage: Povo.Garage
+> soundscape_dumpclient
+Client Soundscape data dump:
+   Position: -2362.21 -787.40 -125.95
+   soundscape index: 0
+   entity list index: 0
+End dump.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1850.394 -708.661 303.150
+> setang 0 90 0
+setpos into world, use noclip to unstick yourself!
+
+> cl_soundscape_printdebuginfo
+
+------- CLIENT SOUNDSCAPES (0 total) -------
+- PLAYING DEBUG SOUNDSCAPE: -1 []
+- CURRENT SOUNDSCAPE: 0 []
+----------------------------------
+
+
+Expected natural zone at classroom: Povo.Room
+> soundscape_dumpclient
+Client Soundscape data dump:
+   Position: 1850.39 -708.66 303.15
+   soundscape index: 0
+   entity list index: 0
+End dump.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2755.906 2440.945 232.283
+> setang 0 90 0
+
+> cl_soundscape_printdebuginfo
+
+------- CLIENT SOUNDSCAPES (0 total) -------
+- PLAYING DEBUG SOUNDSCAPE: -1 []
+- CURRENT SOUNDSCAPE: 0 []
+----------------------------------
+
+
+Expected natural zone at street: Povo.Outside
+> soundscape_dumpclient
+Client Soundscape data dump:
+   Position: 2755.91 2440.95 228.38
+   soundscape index: 0
+   entity list index: 0
+End dump.
+
+> -forward 42
+> -attack
+> ent_fire func_door Unlock
+> ent_fire func_door_rotating Unlock
+> ent_fire func_door Open
+> ent_fire func_door_rotating Open
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2902.756 972.441 161.417
+> setang 0 90 0

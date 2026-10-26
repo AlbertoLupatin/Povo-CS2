@@ -1,0 +1,37 @@
+{
+  "standard": {
+    "map": "trento_povo_campus",
+    "sun_brightness": 2.8,
+    "sun_color": "250 249 238",
+    "sky_intensity": 1.15,
+    "sky_color": "192 216 239",
+    "fog_start": 2200,
+    "fog_end": 26000,
+    "fog_opacity": 0.28
+  },
+  "winter": {
+    "map": "trento_povo_campus_winter",
+    "sky_material": "materials/skybox/sky_overcast_01.vmat",
+    "sun_brightness": 1.1,
+    "sun_color": "222 231 241",
+    "sky_intensity": 1.6,
+    "sky_color": "214 223 235",
+    "fog_start": 1800,
+    "fog_end": 22000,
+    "fog_opacity": 0.38,
+    "photo_references": ["P004", "P006", "P024"],
+    "snowfall_regions": [
+      {"bounds": [55, -108, 67, 108], "floor": 5.8},
+      {"bounds": [-61, -97, -35, -44], "floor": 3.0},
+      {"bounds": [-86, -104, -67, 106], "floor": 2.75},
+      {"bounds": [76, -110, 104, 112], "floor": 2.75}
+    ]
+  },
+  "interior": {
+    "exposure_min": 0.12,
+    "exposure_max": 0.32,
+    "light_lumens": 2300,
+    "garage_lumens": 3300,
+    "light_color": "255 249 237"
+  }
+}
