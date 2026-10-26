@@ -1,0 +1,374 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "route": "p1_se_three_flights_up",
+      "waypoint": 0,
+      "target": [
+        17.4825,
+        -79.02250000000001,
+        5.260000000000008
+      ],
+      "position": [
+        17.482847584469933,
+        -79.32484493171731,
+        5.2607974794210435
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_se_three_flights_up",
+      "waypoint": 1,
+      "target": [
+        22.3275,
+        -79.02250000000001,
+        6.340000000000014
+      ],
+      "position": [
+        22.502415625090013,
+        -79.00670000031603,
+        6.340797453025364
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_se_three_flights_up",
+      "waypoint": 2,
+      "target": [
+        22.3275,
+        -83.215,
+        7.600000000000023
+      ],
+      "position": [
+        22.294180278289176,
+        -83.68775380813476,
+        7.612797347430452
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_se_three_flights_down",
+      "waypoint": 0,
+      "target": [
+        22.3275,
+        -79.02250000000001,
+        6.340000000000014
+      ],
+      "position": [
+        22.327483666089314,
+        -79.27086370871709,
+        6.340797453025364
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_se_three_flights_down",
+      "waypoint": 1,
+      "target": [
+        17.4825,
+        -79.02250000000001,
+        5.260000000000008
+      ],
+      "position": [
+        17.344770746069383,
+        -79.01677069391607,
+        5.2607974794210435
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_se_three_flights_down",
+      "waypoint": 2,
+      "target": [
+        17.4825,
+        -83.215,
+        4.0
+      ],
+      "position": [
+        17.472756748669894,
+        -83.01137959573205,
+        4.012797308416052
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_sw_three_flights_up",
+      "waypoint": 0,
+      "target": [
+        -16.4825,
+        -79.02250000000001,
+        5.260000000000008
+      ],
+      "position": [
+        -16.48252415966593,
+        -79.25542279471702,
+        5.2607974794210435
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_sw_three_flights_up",
+      "waypoint": 1,
+      "target": [
+        -21.3275,
+        -79.02250000000001,
+        6.340000000000014
+      ],
+      "position": [
+        -21.360474474885443,
+        -79.02816846131611,
+        6.340797453025364
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_sw_three_flights_up",
+      "waypoint": 2,
+      "target": [
+        -21.3275,
+        -83.215,
+        7.600000000000023
+      ],
+      "position": [
+        -21.36158912848545,
+        -82.81951533633128,
+        7.612797347430452
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_sw_three_flights_down",
+      "waypoint": 0,
+      "target": [
+        -21.3275,
+        -79.02250000000001,
+        6.340000000000014
+      ],
+      "position": [
+        -21.32749199068531,
+        -79.11608245871646,
+        6.340797453025364
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_sw_three_flights_down",
+      "waypoint": 1,
+      "target": [
+        -16.4825,
+        -79.02250000000001,
+        5.260000000000008
+      ],
+      "position": [
+        -16.178480698664714,
+        -79.01287016831606,
+        5.2607974794210435
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_sw_three_flights_down",
+      "waypoint": 2,
+      "target": [
+        -16.4825,
+        -83.215,
+        4.0
+      ],
+      "position": [
+        -16.472408508065893,
+        -83.13320782553254,
+        4.012797308416052
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_ne_three_flights_up",
+      "waypoint": 0,
+      "target": [
+        17.4825,
+        -43.97749999999999,
+        5.260000000000008
+      ],
+      "position": [
+        17.482856906269934,
+        -43.643571691774575,
+        5.260795930021044
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_ne_three_flights_up",
+      "waypoint": 1,
+      "target": [
+        22.3275,
+        -43.97749999999999,
+        6.340000000000014
+      ],
+      "position": [
+        22.52919227969012,
+        -43.99233490077597,
+        6.340795903625364
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_ne_three_flights_up",
+      "waypoint": 2,
+      "target": [
+        22.3275,
+        -39.785,
+        7.600000000000023
+      ],
+      "position": [
+        22.35187132368941,
+        -40.11942712716048,
+        7.612795010630452
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_ne_three_flights_down",
+      "waypoint": 0,
+      "target": [
+        22.3275,
+        -43.97749999999999,
+        6.340000000000014
+      ],
+      "position": [
+        22.330100551889323,
+        -43.64663198537459,
+        6.340795903625364
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_ne_three_flights_down",
+      "waypoint": 1,
+      "target": [
+        17.4825,
+        -43.97749999999999,
+        5.260000000000008
+      ],
+      "position": [
+        17.482810398869933,
+        -43.97721336637591,
+        5.260795930021044
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_ne_three_flights_down",
+      "waypoint": 2,
+      "target": [
+        17.4825,
+        -39.785,
+        4.0
+      ],
+      "position": [
+        17.480917489269924,
+        -39.86575887655947,
+        4.0127957590160515
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_nw_three_flights_up",
+      "waypoint": 0,
+      "target": [
+        -16.4825,
+        -43.97749999999999,
+        5.260000000000008
+      ],
+      "position": [
+        -16.482443540065933,
+        -43.83917216417536,
+        5.260795930021044
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_nw_three_flights_up",
+      "waypoint": 1,
+      "target": [
+        -21.3275,
+        -43.97749999999999,
+        6.340000000000014
+      ],
+      "position": [
+        -21.527566596886114,
+        -43.98689648137595,
+        6.340795903625364
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_nw_three_flights_up",
+      "waypoint": 2,
+      "target": [
+        -21.3275,
+        -39.785,
+        7.600000000000023
+      ],
+      "position": [
+        -21.33717513108535,
+        -39.885258481959546,
+        7.612795010630452
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_nw_three_flights_down",
+      "waypoint": 0,
+      "target": [
+        -21.3275,
+        -43.97749999999999,
+        6.340000000000014
+      ],
+      "position": [
+        -21.32744083508531,
+        -43.81382796797526,
+        6.340795903625364
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_nw_three_flights_down",
+      "waypoint": 1,
+      "target": [
+        -16.4825,
+        -43.97749999999999,
+        5.260000000000008
+      ],
+      "position": [
+        -16.504108876466017,
+        -43.965508639975866,
+        5.260795930021044
+      ],
+      "passed": true
+    },
+    {
+      "route": "p1_nw_three_flights_down",
+      "waypoint": 2,
+      "target": [
+        -16.4825,
+        -39.785,
+        4.0
+      ],
+      "position": [
+        -16.458286870065837,
+        -40.06084464336025,
+        4.180795575416724
+      ],
+      "passed": true
+    }
+  ],
+  "placement": "One initial placement per independent route; normal walking between all waypoints",
+  "started_at_utc": "2026-10-26T18:48:42.568583+00:00",
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "c0e7071659332b8007520a7a11c79eea2a83933c674097d11a922a70277cc105",
+  "package_identity_scope": "On-disk package supplied by the operator; status confirms the map name, not the loaded package bytes",
+  "finished_at_utc": "2026-10-26T18:50:00.487998+00:00",
+  "scope": "Passed subset of a longer run; later unrelated failure excluded",
+  "original_report": "build\\gameplay\\photo-additions\\stairs\\exterior-runtime-walk.json",
+  "original_run_error": "Unexpected floor height during canteen_stairs_down"
+}

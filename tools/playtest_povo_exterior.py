@@ -64,8 +64,12 @@ def playtest(*, routes=None, output=None, package=None, port=27400,map_name='tre
         ('povo1_external_stairs',(22,-73.73,4.1),[(26.5,-73.73,4),(36.5,-73.73,upper),(54,-73.73,upper)]),
         ('povo1_external_stairs_return',(54,-73.73,upper+.1),[(36.5,-73.73,upper),(26.5,-73.73,4),(22,-73.73,4)]),
         ('povo2_yard_outer_pavement',(57.5,31.35,4.22),[(57.5,25.5,4.12),(57.5,15,4.12)]),
-        ('basement_right_turn',(18.25,22,.5),[(18.25,-5,.4),(7,-5,.4)]),
-        ('front_walk_to_povo2',(57.5,-71,upper+.22),[(57.5,0,upper+.12),(57.5,15,4.12),(57.5,31.35,4.12),(54,31.35,4)]),
+        # Settle before turning through the narrow CIBIO opening; the long
+        # southbound pulse can otherwise overshoot its centre beside the frame.
+        ('basement_right_turn',(18.25,22,.5),[(18.25,-4.6,.4),(18.25,-5,.4),(7,-5,.4)]),
+        # Stay inside the pavement, clear of the first tree's overhanging crown
+        # where the street descends from the raised Povo 1 frontage.
+        ('front_walk_to_povo2',(57,-71,upper+.22),[(57,0,upper+.12),(57,15,4.12),(57.5,20,4.12),(57.5,31.35,4.12),(54,31.35,4)]),
         ('bridge_road_to_ramp',(50,-5,upper+.1),[(32,-5,4),(22,-5,4),(-23,-5,3),(-29,-8,3),(-29,-2.5,3)]),
         ('north_road',(-29,-8,3.1),[(-38,-8,3),(-38,6,3),(-38,112,3),(-25,118,3)]),
         ('surface_parking',(-48,-44,3.1),[(-48,-90,3)])

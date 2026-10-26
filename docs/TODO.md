@@ -5,12 +5,16 @@ Open actions, most urgent first. Tick them off here and record evidence in
 
 ## Windows: verify the breakable glass, automatic doors and stairs
 
-The standard map was compiled on Windows on 26 October 2026 and its 790-entry
-package passes full CRC verification. All 176 source tests pass. The new engine
-checks below remain pending; see [WORKLOG.md](WORKLOG.md).
+Both initial Windows variants compile with zero failures and pass full CRC
+verification. All 177 source tests pass after correcting both lift shafts.
+Normal walking, room access and representative breakage checks pass on the first
+standard build; the corrected lift rebuild is in progress. Evidence and exact
+package scope are recorded in [WORKLOG.md](WORKLOG.md).
 
 - [x] Pull `main`, then build: `python tools/cs2_campus.py`. Expect zero compile
       failures, then a package that passes `python tools/verify_cs2_package.py`.
+- [x] Native runtime entity counts match 349 breakables, 54 sliding parts, 28
+      rotating doors and nine sensors.
 - [ ] Hammer opens `trento_povo_campus.vmap` without errors and shows 349
       `func_breakable`, 54 `func_door` and 9 `trigger_multiple` entities. The
       merged Windows source has 349 breakables instead of the cloud-only 316.
@@ -20,17 +24,23 @@ checks below remain pending; see [WORKLOG.md](WORKLOG.md).
 - [ ] Glass: check the `glass01` texture scale on the panes, and lighting where
       glass used to be part of the baked model.
 - [ ] Glass: the library/canteen wings reveal their playable interiors after panes break; no dark placeholder core remains.
+- [x] Normal walking through all nine automatic entrance banks.
 - [ ] Doors: the Povo 1 entrance bank and all four Povo 2 banks (two outer, two inner) start closed,
       slide open about 2 m before you reach them, and close once nobody is near.
 - [ ] Doors: the leaves slide over the sidelights without clipping the frames,
       and a player standing in the doorway is not trapped.
-- [ ] Re-run the exterior walking checks (`python tools/playtest_povo_exterior.py`
+- [x] Re-run the exterior walking checks (`python tools/playtest_povo_exterior.py`
       in a loaded solo session); both door banks must still pass.
 - [ ] Bots: they don't path through intact windows, and they get through the
       entrance doors (touching a door also opens it).
-- [ ] Stairs: walk up and down all four Povo 1 cores (three flights: left,
-      straight, right) and the Povo 2 stair (upper floor to -2). Nothing snags
-      at the landings, the floors are red, and the well railings hold.
+- [x] Stairs: normal walking up and down all four Povo 1 three-flight cores,
+      Povo 2 from +1 to -2, and both library/canteen stairs.
+- [ ] Stairs: visually check red floors and all well railings.
+- [x] Normal walking through the PC/classroom corridor, aula lobby/aisle,
+      basement locker/yard exit, bar and library reading rooms; continuous
+      ascent and descent of the outdoor steel stair.
+- [x] Representative room, bridge, stair, Povo 2 sidelight and library/canteen
+      panes break after one AWP shot; restarting the round restores all 349.
 - [ ] Lift: in the shaft right of the reception, climb the ladder from the
       ground floor and step off onto the upper ledge, then climb back down.
       Check the ladder surface lines up with the visible rungs.

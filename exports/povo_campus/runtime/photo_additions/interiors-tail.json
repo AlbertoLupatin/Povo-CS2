@@ -1,0 +1,296 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "route": "canteen_entrance_and_bar",
+      "waypoint": 0,
+      "target": [
+        43,
+        -99.5,
+        4
+      ],
+      "position": [
+        42.876465047171514,
+        -99.50105835119801,
+        4.000798043616003
+      ],
+      "passed": true
+    },
+    {
+      "route": "canteen_entrance_and_bar",
+      "waypoint": 1,
+      "target": [
+        45,
+        -99.5,
+        4
+      ],
+      "position": [
+        45.150940152780606,
+        -99.500729675198,
+        4.000798043616003
+      ],
+      "passed": true
+    },
+    {
+      "route": "canteen_entrance_and_bar",
+      "waypoint": 2,
+      "target": [
+        45,
+        -105,
+        4
+      ],
+      "position": [
+        45.002561633180015,
+        -104.95630987401984,
+        4.000798424616003
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_4",
+      "waypoint": 0,
+      "target": [
+        37.5,
+        -65.5,
+        4
+      ],
+      "position": [
+        37.500002520950005,
+        -65.98204385506394,
+        4.0007964942160035
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_4",
+      "waypoint": 1,
+      "target": [
+        40.5,
+        -65.5,
+        4
+      ],
+      "position": [
+        40.22049692756088,
+        -65.56114550966225,
+        4.000796875216003
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_4",
+      "waypoint": 2,
+      "target": [
+        37.5,
+        -65.5,
+        4
+      ],
+      "position": [
+        37.71047649675084,
+        -65.50627754726203,
+        4.000796875216003
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_4",
+      "waypoint": 3,
+      "target": [
+        37.5,
+        -48.5,
+        4
+      ],
+      "position": [
+        37.50073114535,
+        -48.54775296799419,
+        4.000795706816003
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_4",
+      "waypoint": 4,
+      "target": [
+        40.5,
+        -48.5,
+        4
+      ],
+      "position": [
+        40.11871399676048,
+        -48.506502783794026,
+        4.000795706816003
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_4",
+      "waypoint": 5,
+      "target": [
+        37.5,
+        -48.5,
+        4
+      ],
+      "position": [
+        37.70132975355081,
+        -48.50225189059401,
+        4.000795706816003
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_4",
+      "waypoint": 6,
+      "target": [
+        37.5,
+        -31.5,
+        4
+      ],
+      "position": [
+        37.50059162315001,
+        -31.61724532532647,
+        4.000794944816004
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_4",
+      "waypoint": 7,
+      "target": [
+        40.5,
+        -31.5,
+        4
+      ],
+      "position": [
+        40.11770940136048,
+        -31.52703377092611,
+        4.000794944816004
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_7.6",
+      "waypoint": 0,
+      "target": [
+        37.5,
+        -65.5,
+        7.6
+      ],
+      "position": [
+        37.51979044175008,
+        -65.0227349532601,
+        7.600796533230405
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_7.6",
+      "waypoint": 1,
+      "target": [
+        40.5,
+        -65.5,
+        7.6
+      ],
+      "position": [
+        40.23923377096096,
+        -65.45080186446181,
+        7.600796533230405
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_7.6",
+      "waypoint": 2,
+      "target": [
+        37.5,
+        -65.5,
+        7.6
+      ],
+      "position": [
+        37.75881152835104,
+        -65.49400541026199,
+        7.600796533230405
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_7.6",
+      "waypoint": 3,
+      "target": [
+        37.5,
+        -48.5,
+        7.6
+      ],
+      "position": [
+        37.500120326150004,
+        -48.63532591959454,
+        7.600795745830403
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_7.6",
+      "waypoint": 4,
+      "target": [
+        40.5,
+        -48.5,
+        7.6
+      ],
+      "position": [
+        40.10266536236041,
+        -48.504856381194024,
+        7.600795745830403
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_7.6",
+      "waypoint": 5,
+      "target": [
+        37.5,
+        -48.5,
+        7.6
+      ],
+      "position": [
+        37.56793944375028,
+        -48.50081630799401,
+        7.600795745830403
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_7.6",
+      "waypoint": 6,
+      "target": [
+        37.5,
+        -31.5,
+        7.6
+      ],
+      "position": [
+        37.49900102435,
+        -31.60857297792644,
+        7.600794958430404
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_reading_rooms_7.6",
+      "waypoint": 7,
+      "target": [
+        40.5,
+        -31.5,
+        7.6
+      ],
+      "position": [
+        40.01773101356007,
+        -31.532413287726133,
+        7.600794958430404
+      ],
+      "passed": true
+    }
+  ],
+  "placement": "One initial placement per independent route; normal walking between all waypoints",
+  "started_at_utc": "2026-10-26T19:02:43.889363+00:00",
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "c0e7071659332b8007520a7a11c79eea2a83933c674097d11a922a70277cc105",
+  "package_identity_scope": "On-disk package supplied by the operator; status confirms the map name, not the loaded package bytes",
+  "finished_at_utc": "2026-10-26T19:03:41.011903+00:00"
+}

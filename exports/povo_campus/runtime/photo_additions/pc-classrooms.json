@@ -1,0 +1,134 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "route": "p2_pc_and_classroom_corridor",
+      "waypoint": 0,
+      "target": [
+        24,
+        27.5,
+        4
+      ],
+      "position": [
+        23.999580042496,
+        27.68944784691076,
+        4.0007926080160034
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_pc_and_classroom_corridor",
+      "waypoint": 1,
+      "target": [
+        27,
+        27.5,
+        4
+      ],
+      "position": [
+        27.188371455108758,
+        27.47038214330988,
+        4.01479252921606
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_pc_and_classroom_corridor",
+      "waypoint": 2,
+      "target": [
+        24,
+        27.5,
+        4
+      ],
+      "position": [
+        23.653852311294617,
+        27.498888944309996,
+        4.0007926080160034
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_pc_and_classroom_corridor",
+      "waypoint": 3,
+      "target": [
+        24,
+        17.5,
+        4
+      ],
+      "position": [
+        24.008943828696037,
+        17.348249606269395,
+        4.000793014416003
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_pc_and_classroom_corridor",
+      "waypoint": 4,
+      "target": [
+        27,
+        17.5,
+        4
+      ],
+      "position": [
+        27.18626305190875,
+        17.548566071270194,
+        4.014792935616059
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_pc_and_classroom_corridor",
+      "waypoint": 5,
+      "target": [
+        24,
+        17.5,
+        4
+      ],
+      "position": [
+        23.511057930894047,
+        17.50182163847001,
+        4.000793014416003
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_pc_and_classroom_corridor",
+      "waypoint": 6,
+      "target": [
+        24,
+        7.5,
+        4
+      ],
+      "position": [
+        24.003124028296014,
+        7.454551181829819,
+        4.000793395416004
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_pc_and_classroom_corridor",
+      "waypoint": 7,
+      "target": [
+        27,
+        7.5,
+        4
+      ],
+      "position": [
+        27.187658324708753,
+        7.535673371630143,
+        4.01479331661606
+      ],
+      "passed": true
+    }
+  ],
+  "placement": "One initial placement per independent route; normal walking between all waypoints",
+  "started_at_utc": "2026-10-26T18:51:43.630608+00:00",
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "c0e7071659332b8007520a7a11c79eea2a83933c674097d11a922a70277cc105",
+  "package_identity_scope": "On-disk package supplied by the operator; status confirms the map name, not the loaded package bytes",
+  "finished_at_utc": "2026-10-26T18:52:10.712635+00:00",
+  "scope": "Passed subset of a longer run; later unrelated failure excluded",
+  "original_report": "build\\gameplay\\photo-additions\\interiors\\exterior-runtime-walk.json",
+  "original_run_error": "Normal walking stalled near (25.0000011557, 70.50001302588201, 4.0999919778164005) towards (25, 74.75, 4)"
+}

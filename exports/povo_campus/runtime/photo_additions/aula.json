@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "route": "p2_aula_lobby_and_aisle",
+      "waypoint": 0,
+      "target": [
+        24.4,
+        72.5,
+        4
+      ],
+      "position": [
+        24.400243960497605,
+        72.84612100829139,
+        4.000790677616004
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_aula_lobby_and_aisle",
+      "waypoint": 1,
+      "target": [
+        25,
+        74.75,
+        4
+      ],
+      "position": [
+        24.92202762609969,
+        74.46321919649786,
+        4.000790296616003
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_aula_lobby_and_aisle",
+      "waypoint": 2,
+      "target": [
+        35.7,
+        74.75,
+        4
+      ],
+      "position": [
+        35.30058637114121,
+        74.73257329329894,
+        4.000790677616004
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_aula_lobby_and_aisle",
+      "waypoint": 3,
+      "target": [
+        45.5,
+        74.75,
+        4
+      ],
+      "position": [
+        45.895266832783584,
+        74.75013500569901,
+        4.000790677616004
+      ],
+      "passed": true
+    },
+    {
+      "route": "p2_aula_lobby_and_aisle",
+      "waypoint": 4,
+      "target": [
+        45.5,
+        92,
+        4
+      ],
+      "position": [
+        45.50913224818204,
+        91.7224571697669,
+        4.000789509216004
+      ],
+      "passed": true
+    }
+  ],
+  "placement": "One initial placement per independent route; normal walking between all waypoints",
+  "started_at_utc": "2026-10-26T18:53:34.764000+00:00",
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "c0e7071659332b8007520a7a11c79eea2a83933c674097d11a922a70277cc105",
+  "package_identity_scope": "On-disk package supplied by the operator; status confirms the map name, not the loaded package bytes",
+  "finished_at_utc": "2026-10-26T18:54:22.685153+00:00",
+  "scope": "Passed subset of a longer run; later unrelated failure excluded",
+  "original_report": "build\\gameplay\\photo-additions\\interiors-rest\\exterior-runtime-walk.json",
+  "original_run_error": "Normal walking stalled near (54.1233196172165, 22.394882642289584, 3.1007925030124035) towards (54.3, 25.5, 4)"
+}

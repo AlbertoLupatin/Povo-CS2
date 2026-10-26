@@ -1,0 +1,146 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "route": "automatic_canteen_inner_entry_bank_0",
+      "waypoint": 0,
+      "target": [
+        34.785,
+        -99.5,
+        4.0
+      ],
+      "position": [
+        34.66806373473867,
+        -99.50033902319801,
+        4.000798424616003
+      ],
+      "passed": true
+    },
+    {
+      "route": "automatic_canteen_outer_entry_bank_0",
+      "waypoint": 0,
+      "target": [
+        29.785,
+        -97.0,
+        4.0
+      ],
+      "position": [
+        29.50490294091802,
+        -97.000410977588,
+        4.000798043616003
+      ],
+      "passed": true
+    },
+    {
+      "route": "automatic_canteen_upper_entry_bank_0",
+      "waypoint": 0,
+      "target": [
+        50.785,
+        -99.5,
+        7.6
+      ],
+      "position": [
+        50.60409879180242,
+        -99.500401024598,
+        7.600797295230404
+      ],
+      "passed": true
+    },
+    {
+      "route": "automatic_library_entry_bank_0",
+      "waypoint": 0,
+      "target": [
+        34.785,
+        -61.0,
+        4.0
+      ],
+      "position": [
+        34.705205672138824,
+        -61.000338629244006,
+        4.0007964942160035
+      ],
+      "passed": true
+    },
+    {
+      "route": "automatic_p1_entry_bank_0",
+      "waypoint": 0,
+      "target": [
+        22.785,
+        -73.72946859896183,
+        4.0
+      ],
+      "position": [
+        22.69671693829079,
+        -73.72980659169492,
+        4.012797308416052
+      ],
+      "passed": true
+    },
+    {
+      "route": "automatic_p2_entry_inner_bank_0",
+      "waypoint": 0,
+      "target": [
+        33.285,
+        31.35,
+        4.0
+      ],
+      "position": [
+        33.298420220533195,
+        31.349674054525398,
+        4.0007926080160034
+      ],
+      "passed": true
+    },
+    {
+      "route": "automatic_p2_entry_inner_bank_1",
+      "waypoint": 0,
+      "target": [
+        33.285,
+        35.65,
+        4.0
+      ],
+      "position": [
+        33.443546244733774,
+        35.6496813549426,
+        4.000792227016004
+      ],
+      "passed": true
+    },
+    {
+      "route": "automatic_p2_entry_outer_bank_0",
+      "waypoint": 0,
+      "target": [
+        48.184999999999995,
+        31.35,
+        4.0
+      ],
+      "position": [
+        48.392801207793575,
+        31.349686449725404,
+        4.0007926080160034
+      ],
+      "passed": true
+    },
+    {
+      "route": "automatic_p2_entry_outer_bank_1",
+      "waypoint": 0,
+      "target": [
+        48.184999999999995,
+        35.65,
+        4.0
+      ],
+      "position": [
+        48.34653424419339,
+        35.6496813549426,
+        4.000792227016004
+      ],
+      "passed": true
+    }
+  ],
+  "placement": "One initial placement per independent route; normal walking between all waypoints",
+  "started_at_utc": "2026-10-26T18:47:46.943041+00:00",
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "c0e7071659332b8007520a7a11c79eea2a83933c674097d11a922a70277cc105",
+  "package_identity_scope": "On-disk package supplied by the operator; status confirms the map name, not the loaded package bytes",
+  "finished_at_utc": "2026-10-26T18:48:07.351126+00:00"
+}

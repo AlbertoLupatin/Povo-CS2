@@ -1368,3 +1368,45 @@ contains an unsaved Workshop publishing draft from the separate multiplayer
 setup. Its observed fields are preserved at `build/workshop/preserved-draft.json`;
 confirmation has been requested before closing that form. No new engine walking,
 glass, automatic-door, ladder, visual or multiplayer result is claimed yet.
+
+## 26 October 2026 — Native photo-addition checks and lift correction
+
+The first winter build also completed: 537 resources, zero failures, 27m25s;
+58,809,872 bytes / 795 entries, SHA-256
+`a7212ad0b9e53e27ffc45db1131d9ad905ab6126b3d53abed9a64ceba507a21a`.
+Full CRC and compiled winter contact-surface inspection pass. The compiler
+reported two unconnected ladder tops; successful compilation does not resolve
+that navigation warning.
+
+With the user's authorization, the unsaved friends-only Workshop draft was
+recorded, closed, and CS2 restarted on the first new standard package. Native
+entity counts match 349 breakables, 54 sliding parts, 28 rotating doors and nine
+sensors. All nine automatic banks pass normal walking. All four three-flight
+Povo 1 cores, library/canteen stairs, and the Povo 2 stairs from +1 to parking -2
+and back pass. The bridge, PC/classroom corridor, aula lobby/aisle, bar, library
+reading rooms, basement locker/yard exit and continuous steel-yard stair ascent
+and descent pass. Six representative room/bridge/stair/entrance/wing panes break
+after one AWP shot, and a round restart restores all 349 panes. This confirms
+breakage/restoration, not every visual texture, sound or bot behavior gate.
+
+Portable JSON results are in `exports/povo_campus/runtime/photo_additions/`.
+Passed subsets explicitly retain the original longer run's unrelated failure;
+they do not recast the whole original run as passed. Povo 2 stair checks use a
+continuous route through the floors: isolated placements beside railings and
+coarse turning checkpoints caused false stalls. Continuous yard movement
+likewise avoids the pulsed driver's steel-tread checkpoint problem.
+
+A genuine Povo 1 lift failure stopped the player's feet at 5.55 m beneath the
+7.38 m upper ledge: the native attached hull overlapped its edge by about 1.3 cm.
+Both lift tool volumes now project 0.12 m instead of 0.20 m from their walls,
+leaving the standing hull clear of the ledges. The new standing-hull regression
+also found concrete from the later exterior apron inside the Povo 2 basement
+shaft; that shaft is now excluded from apron filling. The regression fails on
+the previous source and passes after both corrections. All 177 source tests
+pass. Commit `2822311` includes source, regression and regenerated variants.
+
+Both seasons are undergoing a full native rebuild with these fixes, logged in
+`build/photo-additions-ladder-compile.log`. Final lift checks, cubemap adoption
+and restoration of the unpublished Workshop draft remain in progress. Earlier
+walking reports identify the first package and are not evidence that the final
+rebuild has already been loaded.

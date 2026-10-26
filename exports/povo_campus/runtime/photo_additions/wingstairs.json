@@ -1,0 +1,191 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "route": "canteen_stairs_up",
+      "waypoint": 0,
+      "target": [
+        45.2,
+        -94.75,
+        5.8
+      ],
+      "position": [
+        45.2005030203808,
+        -94.67719154477871,
+        5.800798634623204
+      ],
+      "passed": true
+    },
+    {
+      "route": "canteen_stairs_up",
+      "waypoint": 1,
+      "target": [
+        47.8,
+        -94.75,
+        5.8
+      ],
+      "position": [
+        47.41938773678968,
+        -94.73872578797896,
+        5.800798634623204
+      ],
+      "passed": true
+    },
+    {
+      "route": "canteen_stairs_up",
+      "waypoint": 2,
+      "target": [
+        47.8,
+        -99.5,
+        7.6
+      ],
+      "position": [
+        47.809233718591244,
+        -99.7206666495989,
+        7.600798082630403
+      ],
+      "passed": true
+    },
+    {
+      "route": "canteen_stairs_down",
+      "waypoint": 0,
+      "target": [
+        47.8,
+        -94.75,
+        5.8
+      ],
+      "position": [
+        47.80052416019121,
+        -94.67719154477871,
+        5.800798634623204
+      ],
+      "passed": true
+    },
+    {
+      "route": "canteen_stairs_down",
+      "waypoint": 1,
+      "target": [
+        45.2,
+        -94.75,
+        5.8
+      ],
+      "position": [
+        45.38973799878156,
+        -94.74422001117898,
+        5.800798634623204
+      ],
+      "passed": true
+    },
+    {
+      "route": "canteen_stairs_down",
+      "waypoint": 2,
+      "target": [
+        45.2,
+        -99.5,
+        4.0
+      ],
+      "position": [
+        45.196360635980795,
+        -99.6463084035986,
+        4.000798043616003
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_stairs_up",
+      "waypoint": 0,
+      "target": [
+        37.7,
+        -15.55,
+        5.8
+      ],
+      "position": [
+        37.70072515735081,
+        -15.61228114526245,
+        5.800794367423204
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_stairs_up",
+      "waypoint": 1,
+      "target": [
+        40.3,
+        -15.55,
+        5.8
+      ],
+      "position": [
+        40.1489539921606,
+        -15.548860215462197,
+        5.800794367423204
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_stairs_up",
+      "waypoint": 2,
+      "target": [
+        40.3,
+        -20.3,
+        7.6
+      ],
+      "position": [
+        40.30701567756123,
+        -20.489532300081958,
+        7.600794196430405
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_stairs_down",
+      "waypoint": 0,
+      "target": [
+        40.3,
+        -15.55,
+        5.8
+      ],
+      "position": [
+        40.30050443836121,
+        -15.47719327726191,
+        5.8007947738232035
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_stairs_down",
+      "waypoint": 1,
+      "target": [
+        37.7,
+        -15.55,
+        5.8
+      ],
+      "position": [
+        38.09462358215239,
+        -15.538375578062155,
+        5.8007947738232035
+      ],
+      "passed": true
+    },
+    {
+      "route": "library_stairs_down",
+      "waypoint": 2,
+      "target": [
+        37.7,
+        -20.3,
+        4.0
+      ],
+      "position": [
+        37.68459900215074,
+        -20.328376234281315,
+        4.000794563816004
+      ],
+      "passed": true
+    }
+  ],
+  "placement": "One initial placement per independent route; normal walking between all waypoints",
+  "started_at_utc": "2026-10-26T18:50:59.584592+00:00",
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "c0e7071659332b8007520a7a11c79eea2a83933c674097d11a922a70277cc105",
+  "package_identity_scope": "On-disk package supplied by the operator; status confirms the map name, not the loaded package bytes",
+  "finished_at_utc": "2026-10-26T18:51:25.163160+00:00"
+}

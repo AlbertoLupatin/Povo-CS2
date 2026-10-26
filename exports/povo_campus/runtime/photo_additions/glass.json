@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "pane": "academic_first_room_a224_window_glass",
+      "before": 349,
+      "after": 346,
+      "passed": true,
+      "weapon": "AWP: one shot per trigger press",
+      "pose": "setpos_exact 1960.661011 -954.723999 300.369995;setang_exact 0.000000 90.000000 0.000000"
+    },
+    {
+      "pane": "academic_first_link_bridge_east_glass",
+      "before": 349,
+      "after": 348,
+      "passed": true,
+      "weapon": "AWP: one shot per trigger press",
+      "pose": "setpos_exact 171.259995 738.189026 300.369995;setang_exact 0.000000 90.000000 0.000000"
+    },
+    {
+      "pane": "stair_ne_window_0",
+      "before": 349,
+      "after": 348,
+      "passed": true,
+      "weapon": "AWP: one shot per trigger press",
+      "pose": "setpos_exact 1621.849976 994.093994 167.298996;setang_exact 0.000000 -90.000000 0.000000"
+    },
+    {
+      "pane": "exterior_p2_entry_outer_bank_0_fixed_-1",
+      "before": 349,
+      "after": 348,
+      "passed": true,
+      "weapon": "AWP: one shot per trigger press",
+      "pose": "setpos_exact -1181.102051 1893.406006 146.039001;setang_exact 0.000000 90.000000 0.000000"
+    },
+    {
+      "pane": "library_0_west_glass_0",
+      "before": 349,
+      "after": 348,
+      "passed": true,
+      "weapon": "AWP: one shot per trigger press",
+      "pose": "setpos_exact 2664.041992 1368.109985 159.425003;setang_exact 0.000000 90.000000 0.000000"
+    },
+    {
+      "pane": "canteen_0_west_glass_0",
+      "before": 349,
+      "after": 347,
+      "passed": true,
+      "weapon": "AWP: one shot per trigger press",
+      "pose": "setpos_exact 4280.738770 1368.109985 159.425003;setang_exact 0.000000 90.000000 0.000000"
+    }
+  ],
+  "method": "Fresh round for each sample, confirmed full pane count, one AWP trigger press; noclip camera placement only",
+  "started_at_utc": "2026-10-26T19:15:33.281038+00:00",
+  "restored_count": 349,
+  "finished_at_utc": "2026-10-26T19:16:22.140173+00:00",
+  "package_sha256": "c0e7071659332b8007520a7a11c79eea2a83933c674097d11a922a70277cc105",
+  "package_identity_scope": "Standard first Windows photo-additions build loaded before lift fixes; disk identity, not an engine attestation"
+}

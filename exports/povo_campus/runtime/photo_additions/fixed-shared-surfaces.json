@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "model": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus.vmdl_c",
+  "model_sha256": "acb13b88def1430c7158cc38dc3bbbfeb4efcda8ee32260267473e04483fdfd4",
+  "expected_surface_tokens": {
+    "asphalt": 117481502,
+    "concrete": 436732118,
+    "glass": 1432157305,
+    "grass": 3533040276,
+    "metal": 417707814,
+    "tile": 3907616666,
+    "wood": 3076510970
+  },
+  "compiled_surface_tokens": [
+    117481502,
+    417707814,
+    1432157305,
+    3907616666,
+    436732118,
+    3076510970,
+    3533040276
+  ],
+  "contact_material_counts": {
+    "asphalt": 396,
+    "concrete": 27060,
+    "glass": 3132,
+    "grass": 456,
+    "metal": 37972,
+    "tile": 3144,
+    "wood": 29052
+  }
+}
