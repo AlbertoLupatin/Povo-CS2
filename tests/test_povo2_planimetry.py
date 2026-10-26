@@ -33,12 +33,14 @@ class Povo2PlanimetryTests(TestCase):
             board=next(b for b in self.boxes if b[0]=='p2_ground_'+room['id']+'_blackboard')
             a,b,c,d=room['bounds']
             self.assertGreater(board[1][1],d-.2)  # opposite the previous south wall
-            # Assert actual geometry as well as metadata: no seat/desk/window props.
-            interior=[n for n,lo,hi,m in self.boxes
-                      if a+.3<lo[0] and hi[0]<c-.3 and b+.3<lo[1] and hi[1]<d-.3
-                      and 4.01<hi[2] and lo[2]<6.2]
-            self.assertFalse(interior,(room['id'],interior))
-            self.assertEqual(room['fitout']['seats'],0)
+            self.assertGreater(room['fitout']['seats'], 0)
+            self.assertGreater(len(room['fitout']['rows']), 1)
+            self.assertEqual(room['fitout']['floor_material'], 'floor_p2_tile')
+            self.assertEqual(room['fitout']['reference_ids'], ['P105','P106','P107'])
+            glass=next(box for box in self.boxes if box[0]=='p2_ground_'+room['id']+'_window_glass')
+            self.assertAlmostEqual((glass[1][0]+glass[2][0])/2,c)
+            self.assertFalse(any(n.endswith('_wood_floor') for n,_,_,_ in self.boxes
+                                 if n.startswith('p2_ground_room_'+room['id'])))
 
     def test_reception_has_transparent_glazing_furniture_and_no_opening(self):
         self.assertFalse(self.spec['ground']['reception_playable'])

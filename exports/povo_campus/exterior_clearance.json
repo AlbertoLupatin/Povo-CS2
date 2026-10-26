@@ -3,7 +3,7 @@
   "routes": [
     {
       "route": "povo1_entrance_to_front",
-      "samples": 105,
+      "samples": 110,
       "status": "passed",
       "failures": []
     },
@@ -50,7 +50,7 @@
       "failures": []
     }
   ],
-  "samples": 1210,
+  "samples": 1215,
   "door_opacity": 0.8,
   "limitations": "Source support/standing checks; native engine movement and visuals still required"
 }

@@ -277,6 +277,14 @@ def map_text(source,metadata):
                 origin,angles=room_sign(room,level['z'])
                 source=project._insert_point_entity(source,'p2-sign-'+room['id'],
                     'point_worldtext',world(origin),sign_properties(room['label']),angles=angles)
+        yard=p2.get('additions',{}).get('yard')
+        if yard:
+            for i,station in enumerate(yard['audit_stations']):
+                source=project._insert_point_entity(source,f'p2-yard-nav-{i}','point_nav_walkable',
+                    world((*station['point'],yard['z']+.15)))
+            for i,p in enumerate(yard['top_path']):
+                source=project._insert_point_entity(source,f'p2-yard-street-nav-{i}','point_nav_walkable',
+                    world((p[0],p[1],p[2]+.15)))
         for portal in p2['stairs']['portals']:
             x,y,z=portal['centre'];f=portal['floor']
             source=project._insert_point_entity(source,'p2-floor-sign-'+str(f),'point_worldtext',
@@ -304,6 +312,15 @@ def map_text(source,metadata):
                               (54,31.35,4.15),(42,31.35,4.15),(-29,0,1.85),(-29,30,-3.05),
                               (-29,60,-3.05),(-5,36,-3.05),(-38,65,3.15),(-48,-65,3.15))):
             source=project._insert_point_entity(source,f'exterior-nav-{i}','point_nav_walkable',world(p))
+    wings=metadata.get('wings',{})
+    lights.extend(wings.get('lights',[]))
+    for level in wings.get('levels',[]):
+        for i,station in enumerate(level['audit_stations']):
+            source=project._insert_point_entity(source,f"wing-nav-{level['id']}-{i}",
+                'point_nav_walkable',world((*station['point'],level['z']+.15)))
+    for i,sign in enumerate(wings.get('signs',[])):
+        source=project._insert_point_entity(source,f'wing-sign-{i}','point_worldtext',
+            world(sign['point']),sign_properties(sign['text']),angles=sign['angles'])
     for i,p in enumerate(lights):
         source=project._insert_point_entity(source,f'campus-light-{i}','light_omni2',world(p),
             (('enabled','1'),('directlight','1'),('brightness_units','1'),('brightness_lumens','1800'),
@@ -388,9 +405,16 @@ def make_radar(metadata):
                 shapes.append(('p2_ground',bounds(p2['footprint']),(200,210,209,255)))
                 shapes.append(('reception',bounds(p2['ground']['reception']),(83,109,117,255)))
                 shapes.append(('service',bounds((16.5,23.5,20.5,29.5)),(49,56,61,255)))
+                for i,r in enumerate(p2.get('additions',{}).get('ground_areas',[])):
+                    shapes.append(('p2_extension_'+str(i),bounds(r),(200,210,209,255)))
                 for room in p2['ground']['rooms']:
                     shapes.append((room['id'],bounds(room['bounds']),(160,175,181,255)))
             shapes.append(('p2_stairs',bounds(p2['stairs']['bounds']),(181,155,108,255)))
+        for wing in metadata.get('wings',{}).get('levels',[]):
+            if wing['floor']!=(0 if level['id']=='academic_ground' else 1):continue
+            shapes.append((wing['id'],bounds(wing['bounds']),(200,210,209,255)))
+            for room in wing['rooms']:
+                shapes.append((wing['id']+room['id'],bounds(room['bounds']),(160,175,181,255)))
         suffix='_lower' if level['id']=='academic_ground' else ''
         image=MAP+suffix+'_radar.png';(out/image).write_bytes(radar.png_bytes(shapes))
         for spectate in ('','_spectate'):

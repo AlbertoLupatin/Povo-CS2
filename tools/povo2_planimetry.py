@@ -8,9 +8,11 @@ import json
 from pathlib import Path
 
 try:
+    from .povo2_interiors import furnish_b_rooms
     from .povo_room_fitout import subtract_box
     from .povo_interior_fixtures import reception_boxes
 except ImportError:
+    from povo2_interiors import furnish_b_rooms
     from povo_room_fitout import subtract_box
     from povo_interior_fixtures import reception_boxes
 
@@ -249,6 +251,7 @@ def build(root=ROOT, wall_height=3.35):
             spec['lights'].append([x,y,z+2.9])
             add(level['id']+f'_fixture_{x}_{y}_rim',(x-.3,y-.3,z+wall_height-.1),(x+.3,y+.3,z+wall_height-.05),'window_frame')
             add(level['id']+f'_fixture_{x}_{y}_diffuser',(x-.26,y-.26,z+wall_height-.11),(x+.26,y+.26,z+wall_height-.1),'light_diffuser')
+    boxes = furnish_b_rooms(boxes, ground, wall_height)
     return boxes,spec
 
 

@@ -1736,8 +1736,8 @@
       20,
       26
     ],
-    "walkable_cells": 6008,
-    "reachable_cells": 1336,
+    "walkable_cells": 5867,
+    "reachable_cells": 1178,
     "stations": [
       {
         "id": "stair_bottom",

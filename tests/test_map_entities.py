@@ -61,7 +61,7 @@ class BreakableGlassSelectionTests(unittest.TestCase):
         names = [b[0] for b in self.breakable]
         for prefix in ('academic_first_room_a224_window', 'academic_first_link_bridge_east_glass',
                        'exterior_p2_entry_outer_bank_', 'stair_ne_window_',
-                       'exterior_povo1_library_0_pane_', 'exterior_povo1_library_1_pane_'):
+                       'canteen_0_west_glass_', 'library_0_west_glass_'):
             self.assertTrue(any(n.startswith(prefix) for n in names), prefix)
         # The library/canteen wings are separate panes over an opaque core, not one glass mass.
         self.assertFalse(any('povo1_library' in n and n.endswith('_mass') for n, *_ in self.glass))
@@ -95,7 +95,8 @@ class BreakableGlassEntityTests(unittest.TestCase):
 class AutoDoorTests(unittest.TestCase):
     def test_entrance_banks_close_over_their_openings_and_slide_apart(self):
         doors, rest = split_auto_doors(build_geometry(ROOT)[2])
-        self.assertEqual([d['name'] for d in doors], ['p1_entry_bank_0', 'p2_entry_inner_bank_0', 'p2_entry_inner_bank_1',
+        self.assertEqual([d['name'] for d in doors], ['canteen_inner_entry_bank_0', 'canteen_outer_entry_bank_0',
+                                                      'canteen_upper_entry_bank_0', 'library_entry_bank_0', 'p1_entry_bank_0', 'p2_entry_inner_bank_0', 'p2_entry_inner_bank_1',
                                                       'p2_entry_outer_bank_0', 'p2_entry_outer_bank_1'])
         self.assertFalse(any('_parked_leaf' in b[0] or '_leaf_bottom_' in b[0] for b in rest))
         for door in doors:

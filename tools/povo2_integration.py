@@ -125,6 +125,12 @@ def extend(boxes, levels, root, wall_height):
                 room['bounds']=rectangle(room['bounds']);room['footprint_local_metres']=room['bounds']
                 room['door_side']='v_max';room['door_fraction']=1-room['door_fraction']
                 room['board_wall']='south';room['door_y']=61.5-room['door_y']
+                fitout=room['fitout']
+                fitout['teaching_side']='south';fitout['window_side']='west'
+                fitout['audit_points_local_metres']=[list(point(p)) for p in fitout['audit_points_local_metres']]
+                for row in fitout['rows']:
+                    lo,hi=row['bounds_local_metres'];aa=point(lo);bb=point(hi)
+                    row['bounds_local_metres']=[list(min(a,b) for a,b in zip(aa,bb)),list(max(a,b) for a,b in zip(aa,bb))]
     # Ground config room records and level records share objects after deepcopy.
     spec['stairs']=dict(bounds=core,portals=portals,path=paths,risers_per_storey=20,
                         flight_width=compact['width'],tread=.3,door_y=22,door_width=1.65,rails=rails)

@@ -30,12 +30,15 @@ def audit():
     _,_,boxes,levels,_=build_geometry();boxes=collision_boxes(boxes)
     meta=levels[0]['exterior'];meshes=meta['collision_meshes']
     entry=meta['entrance'];cy=33.5
+    cfg=json.loads((Path(__file__).resolve().parents[1]/'config/povo_exterior.json').read_text())
+    upper=cfg['east_approach']['upper_z'];a,b,c,d=cfg['east_approach']['stairs']
+    count=math.ceil((upper-4)/.18-1e-9)
     routes={
-        'povo1_entrance_to_front':[(22,-73.73,4),(27,-73.73,4),(27,-79,4),(32,-79,4),(32,-77.3,4),
-                                  *[(32,-77+(i+.5)/3,4+(i+1)*.15) for i in range(12)],
-                                  (32,-71,5.8),(54,-71,5.8),(57.5,-71,5.92)],
-        'front_walk_to_povo2':[(57.5,-71,5.92),(57.5,0,5.92),(57.5,15,4.12),(57.5,31.35,4.12),(54,31.35,4)],
-        'bridge_road_to_straight_ramp':[(50,-5,5.8),(32,-5,4),(22,-5,4),(-23,-5,3),(-29,-8,3),(-29,-2.5,3),(-29,30,-3.2)],
+        'povo1_entrance_to_front':[(22,-73.73,4),(27,-73.73,4),(27,-79,4),(32,-79,4),(32,b-.3,4),
+                                  *[(32,b+(i+.5)*(d-b)/count,4+(i+1)*(upper-4)/count) for i in range(count)],
+                                  (32,-71,upper),(54,-71,upper),(57.5,-71,upper+.12)],
+        'front_walk_to_povo2':[(57.5,-71,upper+.12),(57.5,0,upper+.12),(57.5,15,4.12),(57.5,31.35,4.12),(54,31.35,4)],
+        'bridge_road_to_straight_ramp':[(50,-5,upper),(32,-5,4),(22,-5,4),(-23,-5,3),(-29,-8,3),(-29,-2.5,3),(-29,30,-3.2)],
         'ramp_into_existing_parking':[(-29,30,-3.2),(-29,36,-3.2),(-5,36,-3.2),(18,36,-3.2),(18,27,-3.2),(17.8,22,-3.2)],
         'road_to_north_end':[(-29,-8,3),(-38,-8,3),(-38,6,3),(-38,112,3),(-25,118,3)],
         'surface_parking':[(-48,-44,3),(-48,-90,3)]

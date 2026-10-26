@@ -9,14 +9,14 @@ All three are source-only: tested on Linux, never compiled or played.
 
 - [ ] Pull `main`, then build: `python tools/cs2_campus.py`. Expect zero compile
       failures, then a package that passes `python tools/verify_cs2_package.py`.
-- [ ] Hammer opens `trento_povo_campus.vmap` without errors and shows 285
-      `func_breakable`, 30 `func_door` and 5 `trigger_multiple` entities.
+- [ ] Hammer opens `trento_povo_campus.vmap` without errors and shows 316
+      `func_breakable`, 54 `func_door` and 9 `trigger_multiple` entities.
 - [ ] Glass: shoot one pane of each kind (room window, courtyard, stair, bridge,
       Povo 2 entrance sidelight, canopy, library/canteen wing). Each breaks with
       one bullet and plays glass gibs and sound.
 - [ ] Glass: check the `glass01` texture scale on the panes, and lighting where
       glass used to be part of the baked model.
-- [ ] Glass: the library/canteen wings show their dark core through broken panes.
+- [ ] Glass: the library/canteen wings reveal their playable interiors after panes break; no dark placeholder core remains.
 - [ ] Doors: the Povo 1 entrance bank and all four Povo 2 banks (two outer, two inner) start closed,
       slide open about 2 m before you reach them, and close once nobody is near.
 - [ ] Doors: the leaves slide over the sidelights without clipping the frames,
@@ -54,11 +54,11 @@ All three are source-only: tested on Linux, never compiled or played.
 - [ ] Optional: replace the lift ladder with a moving platform (`func_door`
       moving up) once a quick CS2 test shows players ride it smoothly.
 
-- [ ] Build the Povo 2 additions in [POVO2_INTERIOR_BRIEF.md](POVO2_INTERIOR_BRIEF.md):
+- [x] Implement the Povo 2 additions in source; Windows validation pending. See
+      [Windows handoff](WINDOWS_PHOTO_ADDITIONS_HANDOFF.md). Original brief in [POVO2_INTERIOR_BRIEF.md](POVO2_INTERIOR_BRIEF.md):
       -1 exit stair, sunken yard and CIBIO offices, ground left corridor with
       classrooms and computer room, aula magna, B11x furniture.
 
-- [ ] Model the library and canteen interiors in front of Povo 1 from
-      [LIBRARY_CANTEEN_BRIEF.md](LIBRARY_CANTEEN_BRIEF.md) once photos arrive,
-      add their sliding entrances with `door_bank`, then remove the
-      placeholder cores (`_core` boxes in `tools/build_povo_exterior.py`).
+- [x] Implement library/canteen interiors, sliding entrances and replacement
+      of placeholder cores in the campus assembly. Windows validation pending;
+      see [Windows handoff](WINDOWS_PHOTO_ADDITIONS_HANDOFF.md).

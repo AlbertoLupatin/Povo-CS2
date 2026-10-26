@@ -14,10 +14,12 @@ Both are the two glazed wings between Povo 1 and the front road
 | `povo1_library_0` (south) | 36, -110, 52, -77 | 4.0 | 10.9 |
 | `povo1_library_1` (north) | 36, -69, 52, -13 | 4.0 | 10.9 |
 
-Today each is breakable glass panes around an opaque `_core` placeholder
-(`glass_block(..., panes=True)` in `tools/build_povo_exterior.py`). The covered
+The `_core` placeholders are now replaced in the campus assembly by playable
+interiors (`tools/povo_wings.py`); the standalone exterior study retains its
+original placeholders. The covered
 passage between them (y -77 to -69) leads from the street to Povo 1's external
-stairs. The street-side walk is at z 5.8, higher than the wings' ground floor.
+stairs. The street-side walk is now at z 7.6, level with the wings' first floor;
+their ground floors remain at z 4.0.
 
 ## Both buildings
 
@@ -61,18 +63,12 @@ P110–P117 (photos 21–28 of that set, see
 - 26: ground floor, front part: a black double fire door leading to the
   stair.
 
-## Open questions (answer from photos, or ask)
+## Remaining approximations
 
-- Which wing is the library and which is the canteen? P008 shows the library
-  behind a glazed facade, but not which wing it is.
-- Where is each entrance: the street side, the Povo 1 passage, or elsewhere?
-- Shape and size of the canteen's outside piece and its L-shaped route.
-  Google Maps may show the outside piece; otherwise the user will photograph it.
-- Number and layout of library rooms on each floor, and whether they are glazed.
-- Stair position and form in the canteen (the brief says "at the front").
-- Floor height: does the first floor meet the street pavement level (5.8 m)?
-  That would explain the first-floor exit straight onto the pavement.
-- Whether the first-floor exit also needs automatic doors.
+Library room counts, partitions, furniture capacities and exact stair positions
+remain estimates. The canteen's automatic first-floor exit is a consistent
+entrance-family choice, not a confirmed observation. The existing Povo 2 entrance/bridge
+floor arrangement is retained, as the user requested.
 
 ## When building
 
@@ -82,3 +78,15 @@ P110–P117 (photos 21–28 of that set, see
   `tools/build_povo_campus.py` and `add_auto_doors` in `tools/cs2_campus.py`).
 - Furnish with the existing furniture kits where they fit (tables and chairs
   from the Povo 2 table hall, the reception desk kit from the receptions).
+
+## Implemented source and confirmed placement
+
+User clarification: short south wing = canteen, long north wing = library.
+Both entrances face Povo 1. Povo 1/canteen/library ground floors are level;
+their first floors meet the street pavement (prototype elevations 4.0/7.6 m).
+The canteen has its projecting L-route porch, bar/dining/serving furniture,
+internal stairs and a sliding first-floor pavement exit. The library has
+ground reception, three estimated reading rooms per floor, tables and stairs.
+Room counts, furniture and stair positions are inferred blockout choices.
+See `config/povo_wings.json` and the latest worklog for limitations, including
+the game adaptation retaining the established bridge and Povo 2 floor levels.

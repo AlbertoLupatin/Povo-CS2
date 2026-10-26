@@ -210,24 +210,24 @@ def build(root=ROOT, campus_geometry=None):
             box(f'garage_car_{row}_{i}',(x-2,y-.9,gz+.25),(x+2,y+.9,gz+1.05),palette[(i+row)%len(palette)])
             box(f'garage_cabin_{row}_{i}',(x-1,y-.75,gz+1.05),(x+1,y+.75,gz+1.65),'glass')
     e=cfg['east_approach'];slab('povo1_entry_plaza',e['lower_plaza'],e['lower_z'],'paving')
-    a,b,c,d=e['stairs'];count=12;rise=(e['upper_z']-e['lower_z'])/count
+    a,b,c,d=e['stairs'];count=math.ceil((e['upper_z']-e['lower_z'])/.18-1e-9);rise=(e['upper_z']-e['lower_z'])/count
     for i in range(count):
         y=b+(d-b)*i/count
         box(f'entry_stair_{i}',(a,y,e['lower_z']-.15),(c,b+(d-b)*(i+1)/count,e['lower_z']+(i+1)*rise),'orange')
     slab('entry_upper_landing',(29,-73,38,-69),e['upper_z'],'paving')
-    box('entry_canopy',(28.8,-78,8.8),(35.2,-68.8,8.95),'glass')
+    box('entry_canopy',(28.8,-78,e['upper_z']+3),(35.2,-68.8,e['upper_z']+3.15),'glass')
     for x in (29,35):
-        for y in (-77,-69):box(f'canopy_post_{x}_{y}',(x-.08,y-.08,4),(x+.08,y+.08,8.8),'fence')
+        for y in (-77,-69):box(f'canopy_post_{x}_{y}',(x-.08,y-.08,4),(x+.08,y+.08,e['upper_z']+3),'fence')
     front=cfg['frontages'];fz=front['street_level']
     for i,r in enumerate(front['povo1_library_wings']):glass_block(f'povo1_library_{i}',r,4,10.9,panes=True)
     slab('povo1_front_walk',front['povo1_walk'],fz,'paving')
     # Continuous passage between two front wings, open from street to stairs.
     slab('povo1_passage_upper',(35,-77,58,-69),fz,'paving')
-    box('povo1_passage_canopy',(35,-77,8.8),(52,-69,8.95),'glass')
+    box('povo1_passage_canopy',(35,-77,fz+3),(52,-69,fz+3.15),'glass')
     for x in (38,43,48,52):
         for y in (-77,-69):
-            box(f'povo1_passage_post_{x}_{y}',(x-.06,y-.06,fz),(x+.06,y+.06,8.8),'fence')
-            box(f'povo1_canopy_beam_{x}_{y}',(x-.06,-77,8.75),(x+.06,-69,8.85),'fence')
+            box(f'povo1_passage_post_{x}_{y}',(x-.06,y-.06,fz),(x+.06,y+.06,fz+3),'fence')
+            box(f'povo1_canopy_beam_{x}_{y}',(x-.06,-77,fz+2.95),(x+.06,-69,fz+3.05),'fence')
     p2z=front.get('povo2_level',fz)
     for i,r in enumerate(front['povo2_annexes']):glass_block(f'povo2_front_annex_{i}',r,p2z,11.8)
     slab('povo2_front_walk',front['povo2_walk'],p2z,'paving')

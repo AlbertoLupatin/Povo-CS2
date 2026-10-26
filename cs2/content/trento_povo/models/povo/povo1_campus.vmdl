@@ -81,6 +81,9 @@
                             { from = "campus_exterior_tile" to = "materials/trento/povo/campus/exterior/tile.vmat" },
                             { from = "campus_exterior_grout" to = "materials/trento/povo/campus/exterior/grout.vmat" },
                             { from = "campus_exterior_light" to = "materials/trento/povo/campus/exterior/light.vmat" },
+                            { from = "campus_canteen_orange" to = "materials/trento/povo/campus/canteen_orange.vmat" },
+                            { from = "campus_canteen_blue" to = "materials/trento/povo/campus/canteen_blue.vmat" },
+                            { from = "campus_floor_yard_grass" to = "materials/trento/povo/campus/floor_yard_grass.vmat" },
 							{
 								from = "terrain_reference"
 								to = "materials/trento/povo/terrain_reference.vmat"

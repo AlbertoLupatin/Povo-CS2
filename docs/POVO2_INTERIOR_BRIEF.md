@@ -1,8 +1,8 @@
 # Povo 2 interior brief
 
 The user described these spaces on 26 October 2026, with photos P091–P117 (refer
-to them by photo number; see `data/reference/povo_photos/LOCATIONS.md`). Only the
-lift is built so far. "Left" and "right" are as the user walks, not compass
+to them by photo number; see `data/reference/povo_photos/LOCATIONS.md`). The lift, B11x furniture, left-corridor rooms, CIBIO offices and temporary
+aula magna, basement exit and sunken yard are now implemented in source. "Left" and "right" are as the user walks, not compass
 directions. Coordinates refer to `config/povo2_planimetry.json`.
 
 ## -1 (basement, z 0.4)
@@ -70,3 +70,11 @@ shaft serves three floors:
 
 As in Povo 1, a ladder on the south wall replaces a moving platform; ledges at
 ground and +1 leave the ladder side open. Parking (-2) is not served.
+
+## Game adaptation
+
+The user confirmed that the existing game bridge and floor arrangement are
+correct. Keep Povo 1 at floors 0/1 and retain the current Povo 2 entrance,
+stair/lift heights and bridge. The real building's extra floor is not added.
+The locker/exit route and yard use estimated step counts and dimensions while
+preserving those existing connections.

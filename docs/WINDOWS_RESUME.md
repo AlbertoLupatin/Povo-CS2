@@ -1,5 +1,12 @@
 # Resume the Povo project on Windows
 
+## Current source handoff: 26 October photo additions
+
+Start with [WINDOWS_PHOTO_ADDITIONS_HANDOFF.md](WINDOWS_PHOTO_ADDITIONS_HANDOFF.md).
+It includes the corrected layout, 154 passing tests, dependencies, campus
+rebuild/package commands and remaining in-game checks. Older verified builds
+below are historical and do not contain these new interiors.
+
 ## Latest: map adjustments — 24 October 2026
 
 See [POVO_MAP_ADJUSTMENTS.md](POVO_MAP_ADJUSTMENTS.md) for the reception replacing

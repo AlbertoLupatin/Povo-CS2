@@ -44,7 +44,8 @@ COLORS = {**interior.COLORS, 'stair_red': (155, 43, 38),
           'floor_wood': (158, 125, 88), 'door_black': (43, 47, 48),
           'door_pushbar': (179, 53, 37), 'sanitary_white': (225, 226, 222),
           'sanitary_water': (72, 96, 102), **POVO2_COLORS, **FIXTURE_COLORS,
-          **{'exterior_'+n:c for n,c in EXTERIOR_COLORS.items()}}
+          **{'exterior_'+n:c for n,c in EXTERIOR_COLORS.items()},
+          'canteen_orange': (220,109,47), 'canteen_blue': (43,81,142), 'floor_yard_grass': (95,121,65)}
 
 
 def derived_config(root=ROOT):
@@ -435,6 +436,17 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         except ImportError:
             from povo_exterior_integration import extend as add_exterior
         boxes=add_exterior(root,settings,config,boxes,levels,stair)
+    if include_exterior and settings.get('povo2_planimetry'):
+        try:
+            from .povo2_interiors import extend_layout
+        except ImportError:
+            from povo2_interiors import extend_layout
+        boxes=extend_layout(boxes,levels,root,config['wall_height_metres'])
+        try:
+            from .povo_wings import extend as extend_wings
+        except ImportError:
+            from povo_wings import extend as extend_wings
+        boxes=extend_wings(boxes,levels,root)
     return settings,config,boxes,levels,stair
 
 
@@ -605,7 +617,7 @@ def is_breakable_glass(box):
             and not any(t in name for t in UNBREAKABLE_GLASS))
 
 
-AUTO_DOOR_PART=re.compile(r'exterior_(p[12]_entry_(?:outer_|inner_)?bank_\d)_(parked_leaf|parked_leaf_band|leaf_bottom)_(-?1)$')
+AUTO_DOOR_PART=re.compile(r'exterior_((?:p[12]_entry_(?:outer_|inner_)?|(?:library|canteen(?:_outer|_inner|_upper)?)_entry_)bank_\d)_(parked_leaf|parked_leaf_band|leaf_bottom)_(-?1)$')
 
 
 def split_auto_doors(boxes):
@@ -637,6 +649,7 @@ def all_rails(stair,levels):
     link=levels[1].get('connection',{})
     rails+=link.get('stair',{}).get('rails',[])
     rails+=link.get('povo2',{}).get('stairs',{}).get('rails',[])
+    rails+=[r for wing in levels[0].get('wings',{}).get('stairs',[]) for r in wing.get('rails',[])]
     return rails
 
 
@@ -678,6 +691,7 @@ def export(root=ROOT):
                   assumptions=settings['assumptions'],
                   inputs={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in
                           ('config/povo1_campus.json',settings['interior_source'],'config/povo1_plan_alignment.json')})
+    if levels[0].get('wings'):metadata['wings']=levels[0]['wings']
     if exterior:
         metadata['exterior']=exterior
         metadata['exterior_collision_meshes']=collision_mesh_count

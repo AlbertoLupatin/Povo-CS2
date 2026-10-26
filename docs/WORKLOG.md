@@ -1137,3 +1137,81 @@ tools/povo2_integration.py). Two hall lockers were removed and the -1 display
 case moved north to clear the openings. Audit stations on the ground ledge,
 the -1 floor and the +1 ledge are all reachable. 141 tests and all three
 audits pass on Linux; not yet compiled or tested in CS2.
+
+## 26 October 2026 — implement photo-guided interior additions (source, not compiled)
+
+The new photos now drive geometry rather than serving only as briefs:
+
+- B111–B114 have tile, dark continuous desk rows, beech seats, screens and
+  end glazing. Side aisles and the teaching area are clearance-tested.
+- The Povo 2 left corridor connects a provisional B106 computer room (blank
+  monitors) and B108/B109 classrooms with bamboo finishes, raked seating and
+  full-height glazing. Labels, subdivision and dimensions are estimates.
+- The table corridor now reaches a glazed aula lobby with lockers and a
+  user-authorized temporary aula magna, raked seats and a continuous centre aisle.
+- The CIBIO branch has two accessible furnished offices on its left, a glazed
+  entrance and decorative closed black office doors along the corridor.
+- The short south wing is now the canteen; the long north wing is the library.
+  Solid cores are removed. Both have two floors, Povo 1-facing sliding entrances,
+  breakable facade panes and switchback stairs with continuous rail bars.
+- The canteen has a projecting L-route porch with two sliding banks, a ground
+  bar, orange serving counters, orange tables/blue chairs and an upstairs
+  sliding exit onto the raised pavement. The library has ground reception and
+  three estimated reading rooms per floor with tables/chairs.
+
+User-confirmed relationship: Povo 1, canteen and library ground floors are
+level; their first floors meet the street. Their source levels are 4.0/7.6 m.
+The Povo 1-side pavement and external stairs/canopies are corrected accordingly.
+
+The user confirmed that the existing game bridge and building floors are correct
+and must remain unchanged. Povo 1 stays at two playable floors; Povo 2 retains
+its -2/-1/ground/+1 arrangement and the established bridge connection. No floor
+or bridge relocation is required. The earlier request to reconcile the real
+building's level names is superseded by this instruction.
+
+The basement locker corridor, indoor push-door/stair route, sunken yard and
+outdoor steel stair are now implemented. The new route joins the retained
+outer pavement without blocking the existing Povo 1 -> Povo 2 walk. Internal
+five-riser and outdoor fifteen-riser stairs are gameplay estimates, not surveyed
+counts. Yard elevation and dimensions are configurable in povo2_additions.json.
+Photo 19's GPS places the yard observation on the front-street side, approximately
+local (55,18) m with ~4.7 m reported horizontal error; this is supporting location
+evidence, not a metric survey or a level measurement.
+
+Editable sources: config/povo2_additions.json, config/povo_wings.json,
+tools/povo2_interiors.py and tools/povo_wings.py. Source checks:
+`python -m unittest discover -s tests -q` (150 passed, no skips), plus
+`python tools/audit_povo_wings.py` (four level routes and 44 stair samples pass).
+`python tools/render_photo_additions.py` creates a labelled Povo 2 review plan.
+`python tools/audit_povo_yard.py` checks yard access and 22 stair/landing samples.
+Real VMAP conversion, compilation, door/glass behaviour and walking still need
+Windows CS2 Workshop Tools. A source test's mocked compiler output is not a VPK.
+
+## Layout corrections after user review
+
+- The Povo 2 classroom corridor now runs straight south from reception alongside
+  the whole room sequence. The large PC room is first, on a short side opening,
+  and no longer projects far sideways. The stair entrance is a black double
+  doorway beside reception; a screened vestibule connects it to the retained
+  stair core. Core flights, bridge and floor elevations remain unchanged.
+- From the basement stair exit facing east, right/south then right/west reaches
+  CIBIO. Both playable offices are on the left/south of that westbound passage.
+  The separate exit route is left/north a few metres, then right/east. The
+  review image now draws arrows for both narrated routes.
+- The canteen entrance/porch moves south to about the former white counter's
+  location. Entering eastward places the bar on the right/south, a smaller
+  ground dining area on the left/north, and the stair/fire doors straight ahead.
+  The upstairs furniture leaves the relocated stair and exit approach clear.
+- The temporary aula magna is on the right/east of its lobby, entered through
+  the lobby's short edge, rather than continuing ahead through the far wall.
+
+These are photo/narrative-guided gameplay dimensions, not a measured survey.
+CIBIO ceilings fit beneath the unchanged sloped road. Actual sloped mesh/box
+intersection is checked before excavation; broad bounding boxes alone would
+incorrectly report road overlap at this location.
+
+Validation after these corrections: all 154 tests pass, including explicit
+layout checks for the two basement turns, straight classroom corridor, stair
+entry beside reception, canteen left/right/ahead arrangement, and the aula on
+the lobby short edge. Geometry and radar were regenerated. Windows checks
+remain unrun.
