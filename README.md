@@ -18,12 +18,16 @@ outdoor arena, built from the same source).
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
 - **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.
 
-Latest verified build (24 October 2026): zero compile failures, 44,979,765-byte VPK
-(344 entries, all CRCs pass), 135 source tests passing, and normal-walking route
-checks passing in the CS2 engine. Interiors are reconstructed from public floor plans
-and photographs, so room dimensions and seat counts are estimates, and surfaces are
-blockout-level art rather than final textures. Balance and large-match testing are
-still open; see [the worklog](docs/WORKLOG.md) for evidence and remaining gates.
+Windows build (26 October 2026): zero compile failures, 60,083,066-byte standard
+VPK (790 entries, all CRCs pass) and 176 source tests passing. Engine walking,
+glass, doors and ladders for these new photo additions still need verification;
+the earlier engine results apply to the previous build. The winter rebuild is
+in progress. See [the Windows handoff](docs/WINDOWS_PHOTO_ADDITIONS_HANDOFF.md)
+and [worklog](docs/WORKLOG.md) for evidence and remaining gates.
+
+Interiors are reconstructed from public floor plans and photographs, so room
+dimensions and seat counts are estimates, and surfaces are blockout-level art
+rather than final textures. Balance and large-match testing are still open.
 
 ## Build it
 
