@@ -30,16 +30,21 @@ def audit():
     _,_,boxes,levels,_=build_geometry();boxes=collision_boxes(boxes)
     meta=levels[0]['exterior'];meshes=meta['collision_meshes']
     entry=meta['entrance'];cy=33.5
+    cfg=json.loads((Path(__file__).resolve().parents[1]/'config/povo_exterior.json').read_text())
+    upper=cfg['east_approach']['upper_z'];a,b,c,d=cfg['east_approach']['stairs']
+    count=math.ceil((upper-4)/.18-1e-9)
     routes={
         'povo1_entrance_to_front':[(22,-73.73,4),(26.5,-73.73,4),(27,-73.73,4),
-                                  *[(27+(i+.5)*.75,-73.73,4+(i+1)*.15) for i in range(12)],
-                                  (36.5,-73.73,5.8),(54,-73.73,5.8),(57.5,-73.73,5.92)],
-        'front_walk_to_povo2':[(57.5,-71,5.92),(57.5,0,5.92),(57.5,15,4.12),(57.5,31.35,4.12),(54,31.35,4)],
-        'bridge_road_to_straight_ramp':[(50,-5,5.8),(32,-5,4),(22,-5,4),(-23,-5,3),(-29,-8,3),(-29,-2.5,3),(-29,30,-3.2)],
+                                  *[(a+(i+.5)*(c-a)/count,-73.73,4+(i+1)*(upper-4)/count) for i in range(count)],
+                                  (36.5,-73.73,upper),(54,-73.73,upper),(57.5,-73.73,upper+.12)],
+        'front_walk_to_povo2':[(57.5,-71,upper+.12),(57.5,0,upper+.12),(57.5,15,4.12),(57.5,31.35,4.12),(54,31.35,4)],
+        'bridge_road_to_straight_ramp':[(50,-5,upper),(32,-5,4),(22,-5,4),(-23,-5,3),(-29,-8,3),(-29,-2.5,3),(-29,30,-3.2)],
         'ramp_into_existing_parking':[(-29,30,-3.2),(-29,36,-3.2),(-5,36,-3.2),(18,36,-3.2),(18,27,-3.2),(17.8,22,-3.2)],
         'road_to_north_end':[(-29,-8,3),(-38,-8,3),(-38,6,3),(-38,112,3),(-25,118,3)],
         'surface_parking':[(-48,-44,3),(-48,-90,3)],
-        'p2_left_terrace':[(54,31.35,4),(54,24,4),(46,24,4),(37,24,4)]
+        # The photo-guided sunken yard replaces the old direct terrace route.
+        # Preserve the outer pavement; audit_povo_yard checks its stair connection.
+        'p2_yard_outer_pavement':[(57.5,31.35,4.12),(57.5,25.5,4.12),(57.5,15,4.12)]
     }
     for index,y in enumerate((cy-2.15,cy+2.15)):
         routes[f'p2_door_bank_{index}']=[(54,y,4),(49.4,y,4),(40,y,4),(34.5,y,4),(31.5,y,4),(22,y,4)]

@@ -45,9 +45,12 @@ def property_value(block,key,value):
     return changed
 
 
-def clone_trigger(source,token,template,classname,origin,half_extents):
-    """Copy a box trigger under fresh deterministic IDs as another solid class."""
-    ids=iter(range(max(map(int,re.findall(r'"nodeID"\s+"int"\s+"(\d+)"',source)),default=1)+1,1<<31))
+def node_ids(source):
+    return iter(range(max(map(int,re.findall(r'"nodeID"\s+"int"\s+"(\d+)"',source)),default=1)+1,1<<31))
+
+
+def clone_block(template,token,classname,origin,half_extents,ids):
+    """A box trigger's entity block under fresh deterministic IDs, as another solid class."""
     serial=iter(range(1<<31))
     def element(m):return m[1]+str(uuid.uuid5(uuid.NAMESPACE_URL,f'trento-povo:{token}:{next(serial)}'))+m[2]
     block=re.sub(r'("elementid"\s+")[0-9a-f-]{36}(")',element,template)
@@ -56,9 +59,101 @@ def clone_trigger(source,token,template,classname,origin,half_extents):
     block=re.sub(r'("referenceID"\s+"uint64"\s+")0x[0-9a-f]+(")',lambda m:m[1]+f'0x{reference:x}'+m[2],block,count=1)
     block=re.sub(r'\n[ \t]*"(TeamNum|targetname)"\s+"string"\s+"[^"]*"','',block)
     block=re.sub(r'("classname"\s+"string"\s+")[^"]+(")',lambda m:m[1]+classname+m[2],block,count=1)
-    block=project.resize_trigger_mesh(project._replace_entity_transform(block,origin),half_extents)
+    return project.resize_trigger_mesh(project._replace_entity_transform(block,origin),half_extents)
+
+
+def clone_trigger(source,token,template,classname,origin,half_extents):
+    block=clone_block(template,token,classname,origin,half_extents,node_ids(source))
     opening=project._world_children_opening(source)
     return source[:opening+1]+'\n'+block+','+source[opening+1:]
+
+
+TRIGGER_MATERIAL='materials/tools/toolstrigger.vmat'
+# BreakableBrush keys from the installed base.fgd: material 0 is Glass.
+GLASS_PROPERTIES=(('health','1'),('material','0'),('propdata','0'),('PerformanceMode','PM_NORMAL'))
+
+
+def add_breakable_glass(source,panes):
+    """One func_breakable glass box per pane, cloned from a buy-zone mesh."""
+    if not panes:return source
+    template=next(block for _,_,classname,block in project._entity_ranges(source)
+                  if classname=='func_buyzone' and '"CMapMesh"' in block)
+    if TRIGGER_MATERIAL not in template:raise ValueError('Buy-zone mesh has no trigger material')
+    ids=node_ids(source)
+    blocks=[box_entity(template,'glass-'+p['name'],'func_breakable',(p['lo'],p['hi']),ids,GLASS_PROPERTIES,p['material'])
+            for p in panes]
+    for material in sorted({p['material'] for p in panes}):
+        source=project._ensure_map_asset_reference(source,material)
+    opening=project._world_children_opening(source)
+    return source[:opening+1]+'\n'+',\n'.join(blocks)+','+source[opening+1:]
+
+
+LADDER_MATERIAL='materials/tools/toolsinvisibleladder.vmat'
+
+
+def add_ladder(source,token,box):
+    """A world mesh with CS2's invisible-ladder tool material is climbable.
+
+    Cloned from the lightmap density volume, the map's one world-level box mesh.
+    """
+    template=next((source[m.start():project._matching_brace(source,source.index('{',m.end()))+1]
+                   for m in re.finditer(r'(?m)^[ \t]*"CMapMesh"[ \t]*$',source)
+                   if 'materials/tools/toolslightmapres.vmat' in
+                   source[m.start():project._matching_brace(source,source.index('{',m.end()))+1]),None)
+    if template is None:raise ValueError('No world box mesh to clone for the ladder')
+    lo,hi=box
+    centre=tuple((a+b)/2 for a,b in zip(lo,hi))
+    half=((hi[1]-lo[1])/2*UNITS,(hi[0]-lo[0])/2*UNITS,(hi[2]-lo[2])/2*UNITS)
+    block=clone_block(template,token,'',world(centre),half,node_ids(source))
+    block=block.replace('materials/tools/toolslightmapres.vmat',LADDER_MATERIAL)
+    source=project._ensure_map_asset_reference(source,LADDER_MATERIAL)
+    opening=project._world_children_opening(source)
+    return source[:opening+1]+'\n'+block+','+source[opening+1:]
+
+
+def box_entity(template,token,classname,box,ids,properties,material=None):
+    lo,hi=box
+    centre=tuple((a+b)/2 for a,b in zip(lo,hi))
+    # world() swaps axes: Source X is local north, Source Y local east.
+    half=((hi[1]-lo[1])/2*UNITS,(hi[0]-lo[0])/2*UNITS,(hi[2]-lo[2])/2*UNITS)
+    block=clone_block(template,token,classname,world(centre),half,ids)
+    if material:block=block.replace(TRIGGER_MATERIAL,material)
+    props=''.join(f'\n\t\t\t\t\t"{k}" "string" "{v}"' for k,v in properties)
+    return re.sub(r'("classname"\s+"string"\s+"'+classname+'")',lambda m:m[1]+props,block,count=1)
+
+
+def connection(token,output,target,inputname):
+    """Hammer I/O row, with the field types of Valve's own cs_script_demo.vmap."""
+    return (f'"DmeConnectionData"\n{{\n"id" "elementid" "{uuid.uuid5(uuid.NAMESPACE_URL,"trento-povo:"+token)}"\n'
+            f'"outputName" "string" "{output}"\n"targetType" "int" "7"\n"targetName" "string" "{target}"\n'
+            f'"inputName" "string" "{inputname}"\n"overrideParam" "string" ""\n'
+            '"delay" "float" "0"\n"timesToFire" "int" "-1"\n}')
+
+
+def add_auto_doors(source,doors):
+    """Sliding func_door leaves, opened by a players-only trigger in front of each bank."""
+    if not doors:return source
+    template=next(block for _,_,classname,block in project._entity_ranges(source)
+                  if classname=='func_buyzone' and '"CMapMesh"' in block)
+    ids=node_ids(source);blocks=[]
+    for door in doors:
+        target='trento_door_'+door['name']
+        for part in door['parts']:
+            # wait -1: only the trigger closes them. Touch Opens (1024) is a fallback.
+            blocks.append(box_entity(template,'door-'+part['name'],'func_door',(part['lo'],part['hi']),ids,
+                (('targetname',target),('movedir',f"0 {part['yaw']} 0"),('speed','60'),('wait','-1'),
+                 ('lip','0'),('spawnpos','0'),('spawnflags','1024'),('forceclosed','0'),('dmg','0')),part['material']))
+        trigger=box_entity(template,'door-trigger-'+door['name'],'trigger_multiple',door['trigger'],ids,
+            (('targetname',target+'_sensor'),('spawnflags','4097'),('wait','1'),('StartDisabled','0')))
+        rows=',\n'.join((connection(f"door-io-{door['name']}-open",'OnStartTouch',target,'Open'),
+                         connection(f"door-io-{door['name']}-close",'OnEndTouchAll',target,'Close')))
+        trigger,count=re.subn(r'("connectionsData"\s+"element_array"\s*\[)\s*(\])',lambda m:m[1]+'\n'+rows+'\n'+m[2],trigger,count=1)
+        if not count:raise ValueError('Trigger template has no empty connectionsData')
+        blocks.append(trigger)
+    for material in sorted({p['material'] for d in doors for p in d['parts']}):
+        source=project._ensure_map_asset_reference(source,material)
+    opening=project._world_children_opening(source)
+    return source[:opening+1]+'\n'+',\n'.join(blocks)+','+source[opening+1:]
 
 
 def skip_nav_analysis(source):
@@ -130,6 +225,8 @@ def map_text(source,metadata,season='standard'):
             replacements.append((match.start(),b+1,updated))
     for a,b,s in reversed(replacements):source=source[:a]+s+source[b:]
     if metadata.get('exterior'):source=skip_nav_analysis(source)
+    source=add_breakable_glass(source,metadata.get('breakable_glass',[]))
+    source=add_auto_doors(source,metadata.get('auto_doors',[]))
     source=project._insert_point_entity(source,'campus-upper-nav','point_nav_walkable',world((0,-35.2,7.75)))
     for core in metadata['stair']['cores']:
         source=project._insert_point_entity(source,'campus-stair-'+core['id']+'-nav','point_nav_walkable',world(core['mid']))
@@ -171,6 +268,7 @@ def map_text(source,metadata,season='standard'):
                 sign_properties(text,white=False),angles=f'0 {yaw} 90')
     if metadata.get('povo2'):
         p2=metadata['povo2'];lights.extend(p2['lights'])
+        if p2.get('lift'):source=add_ladder(source,'p2-lift-ladder',p2['lift']['ladder'])
         for level in p2['levels']:
             for i,station in enumerate(level['audit_stations']):
                 source=project._insert_point_entity(source,f"p2-nav-{level['floor']}-{i}",
@@ -179,6 +277,14 @@ def map_text(source,metadata,season='standard'):
                 origin,angles=room_sign(room,level['z'])
                 source=project._insert_point_entity(source,'p2-sign-'+room['id'],
                     'point_worldtext',world(origin),sign_properties(room['label']),angles=angles)
+        yard=p2.get('additions',{}).get('yard')
+        if yard:
+            for i,station in enumerate(yard['audit_stations']):
+                source=project._insert_point_entity(source,f'p2-yard-nav-{i}','point_nav_walkable',
+                    world((*station['point'],yard['z']+.15)))
+            for i,p in enumerate(yard['top_path']):
+                source=project._insert_point_entity(source,f'p2-yard-street-nav-{i}','point_nav_walkable',
+                    world((p[0],p[1],p[2]+.15)))
         for portal in p2['stairs']['portals']:
             x,y,z=portal['centre'];f=portal['floor']
             source=project._insert_point_entity(source,'p2-floor-sign-'+str(f),'point_worldtext',
@@ -193,6 +299,12 @@ def map_text(source,metadata,season='standard'):
         lights.append((*core['mid'][:2],core['mid'][2]+2.5))
         for portal in core['enclosure']['portals']:
             x,y,z=portal['centre'];lights.append((x+(-2 if core['mirror_east'] else 2),y,z+2.8))
+    elevator=metadata.get('elevator')
+    if elevator:
+        lights.extend(elevator['lights'])
+        source=project._insert_point_entity(source,'campus-elevator-first-sign','point_worldtext',
+            world(elevator['sign']),sign_properties('ASCENSORE'),angles='0 180 90')
+        source=add_ladder(source,'campus-elevator-ladder',elevator['ladder'])
     if metadata.get('exterior'):
         lights.extend((x,y,6.8) for x in (37,42,47) for y in (30.5,36.5))
         lights.extend(((26,-73.73,7),(32,-73.73,8),(40,-73.73,8.8),(49,-73.73,8.8)))
@@ -201,6 +313,15 @@ def map_text(source,metadata,season='standard'):
                               (54,31.35,4.15),(42,31.35,4.15),(-29,0,1.85),(-29,30,-3.05),
                               (-29,60,-3.05),(-5,36,-3.05),(-38,65,3.15),(-48,-65,3.15))):
             source=project._insert_point_entity(source,f'exterior-nav-{i}','point_nav_walkable',world(p))
+    wings=metadata.get('wings',{})
+    lights.extend(wings.get('lights',[]))
+    for level in wings.get('levels',[]):
+        for i,station in enumerate(level['audit_stations']):
+            source=project._insert_point_entity(source,f"wing-nav-{level['id']}-{i}",
+                'point_nav_walkable',world((*station['point'],level['z']+.15)))
+    for i,sign in enumerate(wings.get('signs',[])):
+        source=project._insert_point_entity(source,f'wing-sign-{i}','point_worldtext',
+            world(sign['point']),sign_properties(sign['text']),angles=sign['angles'])
     for i,p in enumerate(lights):
         source=project._insert_point_entity(source,f'campus-light-{i}','light_omni2',world(p),
             (('enabled','1'),('directlight','1'),('brightness_units','1'),('brightness_lumens','1800'),
@@ -301,9 +422,16 @@ def make_radar(metadata,map_name=MAP):
                 shapes.append(('p2_ground',bounds(p2['footprint']),(200,210,209,255)))
                 shapes.append(('reception',bounds(p2['ground']['reception']),(83,109,117,255)))
                 shapes.append(('service',bounds((16.5,23.5,20.5,29.5)),(49,56,61,255)))
+                for i,r in enumerate(p2.get('additions',{}).get('ground_areas',[])):
+                    shapes.append(('p2_extension_'+str(i),bounds(r),(200,210,209,255)))
                 for room in p2['ground']['rooms']:
                     shapes.append((room['id'],bounds(room['bounds']),(160,175,181,255)))
             shapes.append(('p2_stairs',bounds(p2['stairs']['bounds']),(181,155,108,255)))
+        for wing in metadata.get('wings',{}).get('levels',[]):
+            if wing['floor']!=(0 if level['id']=='academic_ground' else 1):continue
+            shapes.append((wing['id'],bounds(wing['bounds']),(200,210,209,255)))
+            for room in wing['rooms']:
+                shapes.append((wing['id']+room['id'],bounds(room['bounds']),(160,175,181,255)))
         suffix='_lower' if level['id']=='academic_ground' else ''
         image=MAP+suffix+'_radar.png';(out/image).write_bytes(radar.png_bytes(shapes))
         for spectate in ('','_spectate'):

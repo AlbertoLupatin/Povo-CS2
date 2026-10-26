@@ -39,6 +39,10 @@ def audit():
                 a,b,c,d=room['footprint_local_metres']
                 stations.append(dict(id=room['id'],point=[(a+c)/2,(b+d)/2]))
         stations.extend(level.get('connection',{}).get('audit_stations',[]))
+        elevator=levels[0].get('elevator')
+        if elevator:
+            floor='ground' if level['id']=='academic_ground' else 'first'
+            stations.append(dict(id='elevator_'+floor,point=elevator['stations'][floor]))
         report,free,visited=audit_level(boxes,dict(id=level['id'],floor_elevation_local=z),
                                       stations,width=.82,height=1.85)
         report['vertical_traversal']='Separate CS2 stair traversal test required'

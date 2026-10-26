@@ -27,13 +27,13 @@ class UserGeometryCorrections(unittest.TestCase):
     def test_straight_stair_has_a_clear_landing_and_ends_on_upper_pavement(self):
         spec=self.meta['config']['east_approach']
         stairs=[box for box in self.exterior if box[0].startswith('entry_stair_')]
-        self.assertEqual(len(stairs),12)
+        self.assertEqual(len(stairs),20)
         self.assertGreaterEqual(stairs[0][1][0]-24,2.5)
         for step in stairs:
             self.assertAlmostEqual((step[1][1]+step[2][1])/2,spec['entrance_y'])
         for lower,upper in zip(stairs,stairs[1:]):
             self.assertAlmostEqual(lower[2][0],upper[1][0])
-            self.assertAlmostEqual(upper[2][2]-lower[2][2],.15)
+            self.assertAlmostEqual(upper[2][2]-lower[2][2],.18)
         pavement=next(box for box in self.exterior if box[0]=='povo1_passage_upper')
         self.assertEqual(stairs[-1][2][0],pavement[1][0])
         self.assertEqual(stairs[-1][2][2],pavement[2][2])

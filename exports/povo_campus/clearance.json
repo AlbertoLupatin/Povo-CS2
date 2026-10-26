@@ -16,8 +16,8 @@
       24,
       -20
     ],
-    "walkable_cells": 110714,
-    "reachable_cells": 109470,
+    "walkable_cells": 104298,
+    "reachable_cells": 100570,
     "stations": [
       {
         "id": "entry",
@@ -31,8 +31,8 @@
       {
         "id": "stair_se_bottom",
         "point_local_metres": [
-          17.123786407755688,
-          -85.10782463904471
+          17.4825,
+          -83.215
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -58,8 +58,8 @@
       {
         "id": "stair_sw_bottom",
         "point_local_metres": [
-          -16.123786407755688,
-          -85.10782463904471
+          -16.4825,
+          -83.215
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -85,8 +85,8 @@
       {
         "id": "stair_ne_bottom",
         "point_local_metres": [
-          17.123786407755688,
-          -37.89217536095529
+          17.4825,
+          -39.785
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -112,8 +112,8 @@
       {
         "id": "stair_nw_bottom",
         "point_local_metres": [
-          -16.123786407755688,
-          -37.89217536095529
+          -16.4825,
+          -39.785
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -461,24 +461,6 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_east2_aisle0",
-        "point_local_metres": [
-          8.085456475615501,
-          -68.82908212564885
-        ],
-        "has_clearance": true,
-        "reachable_from_entrance": true
-      },
-      {
-        "id": "g_east2_aisle1",
-        "point_local_metres": [
-          8.085456475615501,
-          -62.09
-        ],
-        "has_clearance": true,
-        "reachable_from_entrance": true
-      },
-      {
         "id": "g_east3_aisle0",
         "point_local_metres": [
           8.085456475615501,
@@ -603,6 +585,15 @@
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
+      },
+      {
+        "id": "elevator_ground",
+        "point_local_metres": [
+          11.1,
+          -68.15
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
       }
     ],
     "vertical_traversal": "Separate CS2 stair traversal test required"
@@ -624,8 +615,8 @@
       25,
       26
     ],
-    "walkable_cells": 132868,
-    "reachable_cells": 132712,
+    "walkable_cells": 123016,
+    "reachable_cells": 119800,
     "stations": [
       {
         "id": "entry",
@@ -639,8 +630,8 @@
       {
         "id": "stair_se_top",
         "point_local_metres": [
-          18.843786407755687,
-          -85.10782463904471
+          22.3275,
+          -83.215
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -666,8 +657,8 @@
       {
         "id": "stair_sw_top",
         "point_local_metres": [
-          -17.843786407755687,
-          -85.10782463904471
+          -21.3275,
+          -83.215
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -693,8 +684,8 @@
       {
         "id": "stair_ne_top",
         "point_local_metres": [
-          18.843786407755687,
-          -37.89217536095529
+          22.3275,
+          -39.785
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -720,8 +711,8 @@
       {
         "id": "stair_nw_top",
         "point_local_metres": [
-          -17.843786407755687,
-          -37.89217536095529
+          -21.3275,
+          -39.785
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -1706,6 +1697,24 @@
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
+      },
+      {
+        "id": "p2_lift_ledge",
+        "point_local_metres": [
+          21.25,
+          18.8
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "elevator_first",
+        "point_local_metres": [
+          11.825,
+          -68.15
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
       }
     ],
     "vertical_traversal": "Separate CS2 stair traversal test required"
@@ -1727,8 +1736,8 @@
       20,
       26
     ],
-    "walkable_cells": 8711,
-    "reachable_cells": 7099,
+    "walkable_cells": 5895,
+    "reachable_cells": 1206,
     "stations": [
       {
         "id": "stair_bottom",

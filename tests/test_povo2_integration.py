@@ -18,6 +18,9 @@ class Povo2IntegrationTests(TestCase):
         for box in baseline:
             name,lo,hi,mat=box
             if hi[2]<7.59:continue
+            # The lift doorway is the one deliberate cut in the upper arrival.
+            if name=='academic_first_link_p2_east_corridor':
+                self.assertTrue(any(n.startswith(name+'_') for n in actual));continue
             self.assertIn(name,actual,name)
             self.assertEqual(actual[name],box,name)
 
@@ -30,20 +33,23 @@ class Povo2IntegrationTests(TestCase):
         self.assertEqual(self.p2['basement']['corridor'][3],self.p2['stairs']['bounds'][3])
         self.assertFalse(any(n.startswith('academic_first_link_p2_lower_wall_') for n,_,_,_ in self.boxes))
 
-    def test_world_rooms_are_empty_and_flush_with_reception(self):
+    def test_world_rooms_are_furnished_and_flush_with_reception(self):
         ground=next(l for l in self.p2['levels'] if l['floor']==0)
         for room in ground['rooms']:
+            if room['id'] not in ('b111','b112','b113','b114'):continue
             self.assertEqual(room['bounds'][2],self.p2['ground']['reception'][2])
             self.assertEqual(room['door_side'],'v_max')
             self.assertEqual(room['board_wall'],'south')
-            self.assertEqual(room['fitout']['seats'],0)
+            self.assertGreater(room['fitout']['seats'],0)
+            self.assertEqual(room['fitout']['window_side'],'west')
+            self.assertEqual(room['fitout']['teaching_side'],'south')
             board=next(b for b in self.boxes if b[0]=='p2_ground_'+room['id']+'_blackboard')
             self.assertLess(board[2][1],room['bounds'][1]+.2)
 
     def test_actual_campus_has_clear_connected_lower_floors_and_stacked_stairs(self):
         result=audit()
         self.assertEqual(result['status'],'passed',result)
-        self.assertEqual([len(l['stations']) for l in result['levels']],[8,8,17])
+        self.assertEqual([len(l['stations']) for l in result['levels']],[8,18,49])
         self.assertEqual(result['stair_samples'],72)
         self.assertFalse(result['stair_failures'])
 
@@ -52,4 +58,8 @@ class Povo2IntegrationTests(TestCase):
         for room in ground['rooms']:
             origin,_=room_sign(room,ground['z'])
             plaque=next(b for b in self.boxes if b[0]=='p2_ground_'+room['id']+'_sign_plaque')
-            self.assertGreater(origin[0],plaque[2][0]+.005)
+            axis=0 if room['door_side'].startswith('v_') else 1
+            if room['door_side'].endswith('max'):
+                self.assertGreater(origin[axis],plaque[2][axis]+.005)
+            else:
+                self.assertLess(origin[axis],plaque[1][axis]-.005)

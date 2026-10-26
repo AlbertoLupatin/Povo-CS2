@@ -47,6 +47,12 @@ class SeasonalCampusTests(unittest.TestCase):
             self.assertLess(b[1]-a[1],1.6)
             self.assertGreater(a[2],4.4)
 
+    def test_automatic_banks_replace_the_older_entrance_leaves(self):
+        from tools.povo_interactions import door_selection
+        doors=door_selection(self.levels,self.stair,automatic_entrances=True)
+        self.assertTrue(any(d['kind']=='fire' for d in doors))
+        self.assertFalse(any(d['kind'] in ('sliding','entrance') for d in doors))
+
     def test_door_leaves_fit_existing_structural_openings(self):
         walls=[b for b in self.boxes if b[3] in ('wall','courtyard_wall')]
         for door in self.interactions['doors']:

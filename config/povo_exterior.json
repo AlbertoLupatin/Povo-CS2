@@ -61,7 +61,7 @@
       [
         50,
         -5,
-        5.8
+        7.6
       ],
       [
         32,
@@ -148,12 +148,12 @@
       [
         62,
         -116,
-        5.8
+        7.6
       ],
       [
         62,
         0,
-        5.8
+        7.6
       ],
       [
         62,
@@ -239,7 +239,7 @@
       4.0
     ],
     "povo2_level": 4.0,
-    "street_level": 5.8,
+    "street_level": 7.6,
     "evidence": "P009-P013, P018/P023/P024 and walk 35-18; annex envelopes follow existing geographic blockout. Facade grids, heights and portal alignment remain estimates.",
     "povo2_left_terrace": [
       34.5,
@@ -339,7 +339,7 @@
       -70.63000000000001
     ],
     "lower_z": 4.0,
-    "upper_z": 5.8,
+    "upper_z": 7.6,
     "stairs": [
       27,
       -76.43,

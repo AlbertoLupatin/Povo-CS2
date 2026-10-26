@@ -1,91 +1,87 @@
-# Real-World Trento FPS Map
+# Povo-CS2
 
-**Continuing on Windows:** read [the current resume guide](docs/WINDOWS_RESUME.md)
-first. It covers the full photo archive, confirmed floor/stair connections,
-installed-addon backups, build commands and the next reconstruction steps.
+A playable **Counter-Strike 2 map of the Polo Ferrari buildings at Povo
+(University of Trento)**: **Povo 1 and Povo 2**, the bridge between them, and their
+immediate surroundings. CS2 supplies movement, weapons, combat and multiplayer;
+this repository holds the reproducible source, data pipeline and build tooling for
+the `trento_povo` addon, built from open geographic data and original photography.
 
-A recognizable Trento environment, delivered as a **playable multiplayer map in Counter-Strike 2**. CS2 supplies movement, weapons, combat, and multiplayer.
+## What's in the map
 
-## Decisions confirmed on 22 October 2026
+`trento_povo_campus` is the full campus map (`trento_povo` is the earlier compact
+outdoor arena, built from the same source).
 
-- **Game:** CS2. Windows is available for Hammer editing and compilation.
-- **First release:** one detailed campus area for small-team matches.
-- **Preparation workstation:** Fedora 44, Intel Core Ultra 5 225H, integrated Intel graphics, 32 GB RAM.
-- **Selected campus:** Polo Ferrari in Povo. A 200 × 300 m geographic blockout surrounds a compact 25 × 130 m east-forecourt Wingman arena.
-- **Later scope:** separate Mesiano, Povo, and central-Trento maps before considering connecting streets.
+- **Povo 1:** two floors, ~60 furnished rooms (classrooms, labs, studios), four enclosed red three-flight stairs around a central well, a lift shaft with a ladder beside the reception, courtyard glazing, reception, restrooms.
+- **Bridge** between Povo 2 floor 1 and Povo 1 floor 2, plus the Povo 2 entrance hall, table hall, B110–B114 rooms, stairs and basement parking.
+- **Exterior:** roads, surface lot, residential backdrop, straight ramp into the covered garage, terrain from real 0.5 m elevation data.
+- **Gameplay:** team starts, buy zones, bomb target, generated navigation and a radar with separate floors.
+- **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
+- **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.
 
-## Current status
+Latest verified build (24 October 2026): zero compile failures, 44,979,765-byte VPK
+(344 entries, all CRCs pass), 135 source tests passing, and normal-walking route
+checks passing in the CS2 engine. Interiors are reconstructed from public floor plans
+and photographs, so room dimensions and seat counts are estimates, and surfaces are
+blockout-level art rather than final textures. Balance and large-match testing are
+still open; see [the worklog](docs/WORKLOG.md) for evidence and remaining gates.
 
-The current playable map is **`trento_povo_campus`**: two Povo 1 floors,
-62 open rooms across the campus, four enclosed red stairs, the bridge and
-compact Povo 2 arrival, plus connected ground, basement and covered parking.
-The integrated exterior adds both east fronts, the double entrance, roads,
-surface parking, terrace and a straight garage ramp. Entrance glass has
-20% transparency. The lower floors are integrated and compiled; the separate
-planimetry export remains a reference study.
+## Build it
 
-Double-click `play_campus.cmd` with CS2 closed for solo exploration without
-bots or round limits. Use `play_campus.cmd -Fly` for noclip or
-`play_campus.cmd -Match` for match defaults. Build and launch instructions are
-in [the campus playtest guide](docs/POVO_CAMPUS_PLAYTEST.md).
+The compiled VPK is not committed (`build/` is git-ignored); build it from source.
 
-`play_campus_winter.cmd` selects the separate winter version, with light snow,
-wet paving and an overcast sky. Both versions share the campus layout and now
-include revised lighting, local ambience, physical footstep surfaces, 38 moving
-door leaves and two small breakable stair panes. Launchers retain the saved
-fullscreen setting. Details and validation evidence are in
-[the seasonal implementation notes](docs/POVO_SEASONS_AND_INTERACTIONS.md).
+- **Any platform** (Python 3): data preparation, map generation, audits, tests.
+- **Windows only:** deploy, compile and sync, because Valve's CS2 Workshop Tools are Windows-only.
 
-The latest [user geometry corrections](docs/POVO_USER_CORRECTIONS.md) restore
-opaque room partitions, straighten and glaze the Povo 1 entrance stair, add
-Povo 2's left terrace and the fence across the street, correct the basement
-turn/duplicate door and fill the concrete outskirts. That guide records the
-geometry checkpoint; the seasonal notes record the current packages. The earlier
-[independent review](docs/CODEX_REVIEW.md) is retained as a historical checkpoint.
+```sh
+python tools/cs2_project.py doctor            # check the toolchain
+python tools/cs2_campus.py                    # generate the campus map source
+python -m unittest discover -s tests -q       # run the tests
+python tools/cs2_project.py deploy            # Windows: install into the CS2 addon tree
+python tools/cs2_project.py compile --target all
+python tools/cs2_project.py sync-from-cs2     # after Hammer sessions; review the diff
+```
 
-This remains a playable prototype. Local tests cover 2v2 setup, purchases,
-planting, defusing and elimination. Broader bot behavior, competitive balance,
-clean-machine validation and replication between independent clients still need
-evaluation. The exterior build generates navigation but skips the expensive bot
-tactical-analysis pass. Additional furnishing remains deferred.
+Set `CS2_ROOT` (or pass `--cs2-root`) if Steam is not in a default library.
+To explore solo on Windows with CS2 closed, run `play_campus.cmd` (`-Fly` for noclip,
+`-Match` for match defaults). Details: [CS2 workflow](docs/CS2_WORKFLOW.md),
+[playtest guide](docs/POVO_CAMPUS_PLAYTEST.md), [package check](docs/CS2_PACKAGE_CHECK.md).
 
-The earlier `trento_povo` outdoor Wingman arena is a separate map. Source terrain,
-photo references and plan studies are preserved. Read [the map design brief](docs/MAP_DESIGN.md),
-[the data-source register](docs/DATA_SOURCES.md) and [the circulation facts](docs/POVO_CIRCULATION.md)
-for accepted decisions, provenance, estimated dimensions and the two-floor gameplay adaptation.
-Historical checkpoints are retained in [the worklog](docs/WORKLOG.md).
-
-## Workspace
+## Repository layout
 
 | Path | Purpose |
 | --- | --- |
-| `config/project.json` | Accepted decisions, candidate areas, unresolved choices |
-| `docs/MAP_DESIGN.md` | Fidelity, scope, gameplay, and release acceptance criteria |
-| `docs/DATA_SOURCES.md` | Source links, licences, dates, and outstanding checks |
-| `docs/CS2_WORKFLOW.md` | Fedora preparation and Windows build/playtest sequence |
-| `data/reference/` | Small georeferenced campus imagery extracts and provenance |
-| `data/raw/` | Original terrain/vector downloads, added selectively |
-| `tools/fetch_reference.py` | Reproduce the campus imagery extracts from the municipal WMS |
-| `tools/asc_to_obj.py` | Convert a clipped elevation grid to a local-coordinate mesh |
-| `config/povo_blockout.json` | Povo extent, local origin and approximate building modules |
-| `tools/build_povo_blockout.py` | Assemble the Povo terrain, reference texture and rough building volumes |
-| `tools/build_povo_radar.py` | Generate radar artwork, overview coordinates and an annotated review |
-| `docs/POVO_RADAR.md` | Radar generation, Windows compilation and packaging checks |
-| `docs/POVO_ARCHITECTURE.md` | Exterior detail, plan alignment and remaining measurement needs |
-| `docs/POVO_INTERIOR_STUDY.md` | Separate two-level interior study, assumptions and rebuild commands |
-| `docs/TERRAIN_TOOL.md` | Terrain converter usage and limitations |
-| `docs/WINDOWS_RESUME.md` | Current detailed Windows continuation, backups, photos, geometry priorities and commands |
-| `docs/WINDOWS_HANDOFF.md` | Entry point linking to the current resume guide and verified state |
-| `cs2/` | Versioned `trento_povo` addon source, model definition and materials |
-| `tools/cs2_project.py` | Cross-platform checks plus Windows deploy/compile/sync commands |
-| `docs/WORKLOG.md` | Durable decisions, build evidence, warnings and remaining gates |
+| `config/` | Project decisions and per-building JSON descriptions (blockout, interior, exterior, route) |
+| `data/` | Georeferenced imagery extracts, terrain samples, photo archive with credits and locations |
+| `tools/` | Generators, audits, previews, packaging and CS2 build commands |
+| `cs2/` | Versioned `trento_povo` addon source: maps, model definition, materials |
+| `exports/` | Generated reviews, plans, radar artwork and in-engine screenshots |
+| `tests/` | Source tests |
+| `docs/` | Design, data sources, per-area write-ups and the [worklog](docs/WORKLOG.md) |
 
-## First milestone
+Start with the [map design brief](docs/MAP_DESIGN.md), the
+[data-source register](docs/DATA_SOURCES.md) and the [worklog](docs/WORKLOG.md).
+Area write-ups: [architecture](docs/POVO_ARCHITECTURE.md),
+[interior study](docs/POVO_INTERIOR_STUDY.md), [circulation](docs/POVO_CIRCULATION.md),
+[Povo 2](docs/POVO2_CONNECTION.md), [exterior](docs/POVO_EXTERIOR.md),
+[radar](docs/POVO_RADAR.md), [terrain tool](docs/TERRAIN_TOOL.md).
+Open work is tracked in [TODO.md](docs/TODO.md).
+[Publishing and hosting](docs/PUBLISH_AND_HOST.md) explains Workshop upload and playing with friends.
+[WINDOWS_RESUME.md](docs/WINDOWS_RESUME.md) is the detailed maintainer handoff log.
 
-Load a rough reconstruction of the chosen campus in CS2 and have **two independent clients join and complete a match**. Validate scale, slopes, stairs, collision, spawning, objectives, packaging, and installation before detailed architecture. Two-player validation proves multiplayer function; later sessions at the intended team size establish balance.
+## Data policy and licensing
 
-## Data policy
+Geometry uses provincial/municipal open data and original or appropriately licensed
+photography. Google Maps/Street View is **not** an asset-extraction source. Source
+dates, licences, coordinate systems and uncertainty are recorded in
+[DATA_SOURCES.md](docs/DATA_SOURCES.md) and the photo
+[credits](data/reference/povo_photos/CREDITS.md).
 
-Use provincial/municipal open data and original or appropriately licensed photography. Google Maps/Street View is not an asset-extraction pipeline for this project. Preserve source dates, licences, coordinate systems, and uncertainty. Exterior imagery does not establish accurate interiors.
+**No blanket licence has been chosen for this repository.** Raw data and third-party
+material keep their own licences; public visibility is not a reuse licence, and some
+reference material (e.g. university plans) has no redistribution licence established.
+Counter-Strike 2 and Source 2 belong to Valve; this is an unofficial fan project.
 
-Raw data retains its own licence. No blanket licence for this repository is chosen yet; preserve the source-specific credits in the register and per-file metadata.
+## Contributing
+
+Issues and suggestions are welcome — corrections to room layout or dimensions from
+people who know the buildings are especially useful.

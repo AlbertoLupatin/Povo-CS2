@@ -145,7 +145,7 @@
       },
       {
         "id": "g_east2",
-        "label": "Studio E2",
+        "label": "ASCENSORE",
         "pixel_bounds": [
           1116,
           862,
@@ -154,7 +154,9 @@
         ],
         "door_side": "v_max",
         "teaching_side": "east",
-        "window_side": "west"
+        "kind": "elevator",
+        "playable": false,
+        "door_fraction": 0.16
       },
       {
         "id": "g_east3",
@@ -423,5 +425,17 @@
     "relocate_to": "empty ground-floor corner of the corresponding size",
     "note": "A202/A203 relocated to the empty ground corner. User-authorized two-floor game adaptation; remaining Povo 2 interiors follow later."
   },
-  "povo2_connection": "config/povo2_connection.json"
+  "povo2_connection": "config/povo2_connection.json",
+  "elevator": {
+    "room": "g_east2",
+    "shaft": [
+      10.2,
+      -69.3,
+      12.45,
+      -67.0
+    ],
+    "opening_centre_north_metres": -68.15,
+    "opening_width_metres": 1.2,
+    "note": "User 2026-10-26: an elevator replaces the studio right of the reception. A CS2 moving platform is untested, so the shaft holds a climbable ladder; the upper floor shaft takes the south-east corner of A214."
+  }
 }

@@ -19,6 +19,7 @@ try:
     from .povo2_planimetry import extend as extend_povo2, COLORS as POVO2_COLORS
     from .povo2_integration import extend as integrate_povo2
     from .povo_interior_fixtures import reception_boxes, restroom_boxes, campus_staff_meshes, COLORS as FIXTURE_COLORS
+    from .povo_stairs import railing, wall_handrail, mirrored, rail_faces
     from .povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
 except ImportError:
     import build_povo_interior as interior
@@ -29,6 +30,7 @@ except ImportError:
     from povo2_planimetry import extend as extend_povo2, COLORS as POVO2_COLORS
     from povo2_integration import extend as integrate_povo2
     from povo_interior_fixtures import reception_boxes, restroom_boxes, campus_staff_meshes, COLORS as FIXTURE_COLORS
+    from povo_stairs import railing, wall_handrail, mirrored, rail_faces
     from povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,7 +44,8 @@ COLORS = {**interior.COLORS, 'stair_red': (155, 43, 38),
           'floor_wood': (158, 125, 88), 'door_black': (43, 47, 48),
           'door_pushbar': (179, 53, 37), 'sanitary_white': (225, 226, 222),
           'sanitary_water': (72, 96, 102), **POVO2_COLORS, **FIXTURE_COLORS,
-          **{'exterior_'+n:c for n,c in EXTERIOR_COLORS.items()}}
+          **{'exterior_'+n:c for n,c in EXTERIOR_COLORS.items()},
+          'canteen_orange': (220,109,47), 'canteen_blue': (43,81,142), 'floor_yard_grass': (95,121,65)}
 
 
 def derived_config(root=ROOT):
@@ -118,58 +121,79 @@ def mirror_box(box, identifier, east=False, north=False):
 
 
 def stairs_and_roof(boxes, levels, settings, config, origin):
-    """Add a real switchback stair, close unused voids, and seal both ceilings."""
+    """Add the three-flight stairs, close unused voids, and seal both ceilings."""
     boxes = list(boxes)
     z0, z1 = [level['floor_elevation_metres'] - origin[2] for level in levels]
-    hole = levels[1]['voids_local_metres'][3]  # registered southeast opening
-    x0, y0, x1, y1 = hole
     stair = settings['stairs']
     count = stair['risers']
-    if count < 4 or count % 2:
-        raise ValueError('Switchback stairs require an even positive riser count')
+    # Photos 47-49 and P007: three flights around a central well. From the
+    # floor landing one goes left, one straight across the far end, one right.
+    n2 = 6
+    n1 = (count-n2)//2
+    if n1 < 3 or 2*n1+n2 != count:
+        raise ValueError('Three-flight stairs need an even riser count of at least 12')
     rise = (z1-z0)/count
-    half = count//2
-    width, tread, landing = (stair[k] for k in ('flight_width_metres','tread_metres','landing_metres'))
-    gap = .22
-    run = half*tread
-    used = (x0,y0,x0+2*width+gap,y0+run+landing)
-    if used[2] > x1 or used[3] > y1 or rise > .25:
-        raise ValueError('Stair flights do not fit the registered opening')
+    tread = stair['tread_metres']
+    ex0,ey0,ex1,ey1 = stair['enclosure_bounds_local_metres']
+    t = config['wall_thickness_metres']
+    xi0, xi1, yi0, yi1 = ex0+t/2, ex1-.09, ey0+t/2, ey1-t/2
+    # Side flights and the far flight share one width; the well is the far
+    # flight's run long, and the corner landings are square.
+    width = (xi1-xi0-n2*tread)/2
+    band = yi1-width
+    start = band-n1*tread
+    x0, y0 = xi0, start
+    used = (ex0, start, ex1, ey1)
+    if start < stair['door_centre_north_metres']+stair['door_width_metres']/2+.2 or rise > .25:
+        raise ValueError('Stair flights do not fit the enclosure')
     def add(name, lo, hi, mat): boxes.append((name, tuple(lo), tuple(hi), mat))
     instances=(('se',False,False),('sw',True,False),('ne',False,True),('nw',True,True))
     voids=[mirror_rectangle(used,e,n) for _id,e,n in instances]
+    shaft=settings.get('elevator',{}).get('shaft')
+    holes=voids+([tuple(shaft)] if shaft else [])
     # Replace the provisional registered reservations with the four identical
     # mirrored shafts, so their edges never retain a strip of blocking slab.
     boxes=[b for b in boxes if not b[0].startswith('academic_first_slab_')]
     courtyard=levels[1]['voids_local_metres'][0]
     levels[1]['voids_local_metres']=[courtyard,*voids]
-    for i,rect in enumerate(interior.subtract_rectangles((-23.,-103.,24.,-20.),[courtyard,*voids])):
+    for i,rect in enumerate(interior.subtract_rectangles((-23.,-103.,24.,-20.),[courtyard,*holes])):
         add(f'academic_first_slab_{i:03d}',(rect[0],rect[1],z1-.22),(rect[2],rect[3],z1),'floor_room')
-    for i in range(half):
+    landing1, landing2 = z0+n1*rise, z0+(n1+n2)*rise
+    a = xi1-width
+    # Solid to the floor: no low headroom pockets under the flights or landings.
+    for i in range(n1):
         top = z0+(i+1)*rise
-        add(f'stair_se_flight1_{i}', (x0,y0+i*tread,top-.18),
+        add(f'stair_se_flight1_{i}', (x0,y0+i*tread,z0),
             (x0+width,y0+(i+1)*tread,top),'stair_red')
         add(f'stair_se_nosing1_{i}', (x0,y0+i*tread,top-.018),
             (x0+width,y0+i*tread+.035,top+.002),'stair_nosing')
-        top = z0+(half+i+1)*rise
-        a = x0+width+gap
-        add(f'stair_se_flight2_{i}', (a,y0+run-(i+1)*tread,top-.18),
-            (a+width,y0+run-i*tread,top),'stair_red')
-        add(f'stair_se_nosing2_{i}', (a,y0+run-i*tread-.035,top-.018),
-            (a+width,y0+run-i*tread,top+.002),'stair_nosing')
-    add('stair_se_half_landing',(x0,y0+run,z0+(z1-z0)/2-.18),(used[2],used[3],z0+(z1-z0)/2),'stair_red')
-    # Outer barriers prevent falls; the two ends facing the landing remain open.
-    for side, x in (('west',x0-.045),('east',used[2]+.005)):
-        for i in range(half+1):
-            z = z0 + min(i,half)*rise if side == 'west' else z1-min(i,half)*rise
-            y = y0+i*tread
-            add(f'stair_se_rail_{side}_{i}',(x,y,z+.03),(x+.04,y+.04,z+1.05),'metal_dark')
-        for i in range(half):
-            z = z0+i*rise if side == 'west' else z1-i*rise
-            add(f'stair_se_handrail_{side}_{i}',(x,y0+i*tread,z+1.01),
-                (x+.04,y0+(i+1)*tread+.04,z+1.06),'metal_dark')
-    add('stair_se_landing_guard',(x0,used[3]-.06,z0+1.8),
-        (used[2],used[3],z0+2.9),'window_glass')
+        top = z0+(n1+n2+i+1)*rise
+        add(f'stair_se_flight3_{i}', (a,band-(i+1)*tread,z0),
+            (xi1,band-i*tread,top),'stair_red')
+        add(f'stair_se_nosing3_{i}', (a,band-i*tread-.035,top-.018),
+            (xi1,band-i*tread,top+.002),'stair_nosing')
+    for i in range(n2):
+        top = landing1+(i+1)*rise
+        add(f'stair_se_flight2_{i}', (x0+width+i*tread,band,z0),
+            (x0+width+(i+1)*tread,yi1,top),'stair_red')
+        add(f'stair_se_nosing2_{i}', (x0+width+i*tread,band,top-.018),
+            (x0+width+i*tread+.035,yi1,top+.002),'stair_nosing')
+    add('stair_se_corner_landing_1',(xi0,band,z0),(x0+width,yi1,landing1),'stair_red')
+    add('stair_se_corner_landing_2',(a,band,z0),(xi1,yi1,landing2),'stair_red')
+    # Photos 38/39/49: the stairwell floors are the same red as the stairs.
+    add('stair_se_floor_red_ground',(xi0,yi0,z0+.001),(xi1,start,z0+.012),'stair_red')
+    add('stair_se_floor_red_well',(x0+width,start,z0+.001),(a,band,z0+.012),'stair_red')
+    add('stair_se_floor_red_upper',(xi0,yi0,z1+.001),(xi1,start,z1+.012),'stair_red')
+    # Railings wrap the well and guard the upper landing edge; wall handrails
+    # follow the outer sides of all three flights.
+    rails=[]
+    railing(add,rails,'stair_se_well_1',(x0+width,y0,z0),(x0+width,band,landing1))
+    railing(add,rails,'stair_se_well_2',(x0+width,band,landing1),(a,band,landing2))
+    railing(add,rails,'stair_se_well_3',(a,band,landing2),(a,y0,z1))
+    railing(add,rails,'stair_se_upper_edge',(xi0,y0,z1),(a,y0,z1))
+    wall_handrail(rails,'stair_se_wall_1',(xi0+.06,y0,z0),(xi0+.06,band,landing1))
+    wall_handrail(rails,'stair_se_wall_2',(x0+width,yi1-.06,landing1),(a,yi1-.06,landing2))
+    wall_handrail(rails,'stair_se_wall_3',(xi1-.06,band,landing2),(xi1-.06,y0,z1))
     prototype=[b for b in boxes if b[0].startswith('stair_se_')]
     for identifier,e,n in instances[1:]:
         boxes.extend(mirror_box(b,identifier,e,n) for b in prototype)
@@ -177,16 +201,16 @@ def stairs_and_roof(boxes, levels, settings, config, origin):
     # crosses the stair void. The roof excludes the open courtyard.
     outer = (-23.,-103.,24.,-20.)
     for level, z in zip(levels, (z0,z1)):
-        holes = list(level['voids_local_metres'][:1]) + (voids if z == z0 else [])
+        ceiling_holes = list(level['voids_local_metres'][:1]) + (holes if z == z0 else [])
         ceiling = z1-.23 if z == z0 else z+config['wall_height_metres']
-        for i, rect in enumerate(interior.subtract_rectangles(outer,holes)):
+        for i, rect in enumerate(interior.subtract_rectangles(outer,ceiling_holes)):
             add(f"{level['id']}_ceiling_{i}",(rect[0],rect[1],ceiling-.06),
                 (rect[2],rect[3],ceiling),'ceiling_panel')
     seed=dict(core='stair_southeast', risers=count, rise_metres=rise,
                       tread_metres=tread, flight_width_metres=width, void=list(used),
                       bottom=[x0+width/2,y0-.65,z0],
-                      top=[x0+width+gap+width/2,y0-.65,z1],
-                      mid=[(x0+used[2])/2,y0+run+landing/2,z0+(z1-z0)/2])
+                      top=[a+width/2,y0-.65,z1],
+                      mid=[x0+width/2,(band+yi1)/2,landing1])
     names={'se':'stair_southeast','sw':'stair_southwest','ne':'stair_northeast','nw':'stair_northwest'}
     cores=[]
     for identifier,e,n in instances:
@@ -194,6 +218,7 @@ def stairs_and_roof(boxes, levels, settings, config, origin):
         core.update(id=identifier,core=names[identifier],mirror_east=e,mirror_north=n,
                     void=list(mirror_rectangle(used,e,n)))
         for key in ('bottom','top','mid'):core[key]=list(mirror_point(seed[key],e,n))
+        core['rails']=mirrored(rails,lambda p:mirror_point(p,e,n),lambda s:s.replace('stair_se_','stair_'+identifier+'_',1))
         cores.append(core)
     seed['cores']=cores
     return boxes,seed
@@ -245,6 +270,57 @@ def isolate_rooms(boxes, levels, settings, config, origin):
                 partitions.append(dict(rooms=[first['id'],second['id']],bounds=[*lo,*hi]))
         level['room_partitions']=partitions
     return result
+
+def elevator_shaft(boxes, levels, settings, config):
+    """The lift beside the reception: a two-storey shaft with a ladder inside.
+
+    A CS2 moving lift platform is untested, so the vertical route is a ladder
+    on the back wall; metadata['elevator']['ladder'] becomes CS2's climbable
+    ladder surface. Openings face the corridor on both floors.
+    """
+    spec=settings.get('elevator')
+    if not spec:return boxes,None
+    x0,y0,x1,y1=spec['shaft'];z0,z1=[l['floor_elevation_metres']-370 for l in levels]
+    top=z1+config['wall_height_metres'];y=spec['opening_centre_north_metres'];w=spec['opening_width_metres']/2
+    # Clear the corner of the classroom above (and anything else in the way).
+    volume=((x0,y0,z0),(x1,y1,top))
+    result=[p for b in boxes for p in subtract_box(b,volume)]
+    for z in (z0,z1):
+        hole=((x1-.2,y-w,z-.01),(x1+.5,y+w,z+2.2))
+        result=[p for b in result for p in (subtract_box(b,hole) if b[3]=='wall' else [b])]
+    def add(name,lo,hi,mat):result.append(('elevator_'+name,tuple(lo),tuple(hi),mat))
+    t=.1
+    add('wall_west',(x0,y0,z0),(x0+t,y1,top),'wall')
+    add('wall_south',(x0,y0,z0),(x1,y0+t,top),'wall')
+    add('wall_north',(x0,y1-t,z0),(x1,y1,top),'wall')
+    for i,(lo,hi) in enumerate((((x1-t,y0,z0),(x1,y-w,top)),((x1-t,y+w,z0),(x1,y1,top)))):
+        add(f'wall_east_{i}',lo,hi,'wall')
+    for z,label in ((z0,'ground'),(z1,'first')):
+        add(f'wall_east_header_{label}',(x1-t,y-w,z+2.2),(x1,y+w,z1 if z==z0 else top),'wall')
+        # Steel portal frame and call button on the corridor side.
+        for i,yy in enumerate((y-w-.06,y+w)):
+            add(f'{label}_portal_jamb_{i}',(x1,yy,z),(x1+.2,yy+.06,z+2.26),'metal_dark')
+        add(f'{label}_portal_head',(x1,y-w-.06,z+2.2),(x1+.2,y+w+.06,z+2.26),'metal_dark')
+        add(f'{label}_call_button',(x1+.18,y+w+.2,z+1.05),(x1+.2,y+w+.32,z+1.25),'sign_white')
+    inner=(x0+t,y0+t,x1-t,y1-t)
+    # Floors carry their level prefix, as the clearance audit expects.
+    result.append(('academic_ground_elevator_floor',(inner[0],inner[1],z0-.2),(inner[2],inner[3],z0+.012),'floor_circulation'))
+    # Upper ledge on the opening side; the ladder side stays open to climb.
+    ledge=inner[0]+1.0
+    result.append(('academic_first_elevator_ledge',(ledge,inner[1],z1-.22),(x1,inner[3],z1),'floor_circulation'))
+    add('first_ledge_edge',(ledge,inner[1],z1),(ledge+.04,inner[3],z1+.012),'metal_dark')
+    # Visible ladder on the back wall: rails and rungs, no collision (`_finish_`).
+    a,b=y-.3,y+.3;wall=inner[0]
+    for i,yy in enumerate((a,b)):
+        add(f'ladder_finish_rail_{i}',(wall,yy-.025,z0),(wall+.16,yy+.025,z1+1.0),'metal_dark')
+    for i in range(int((z1+.9-z0-.25)/.28)+1):
+        h=z0+.25+i*.28
+        add(f'ladder_finish_rung_{i}',(wall+.1,a,h),(wall+.14,b,h+.035),'metal_dark')
+    centre=[(inner[0]+inner[2])/2,y]
+    return result,dict(room=spec['room'],shaft=spec['shaft'],ladder=[[wall,a,z0],[wall+.2,b,z1+.4]],
+                       lights=[[*centre,z0+2.6],[*centre,z1+2.6]],
+                       sign=[x1+.22,y,z1+2.44],
+                       stations=dict(ground=[ledge-.2,y],first=[(ledge+inner[2])/2,y]))
 
 
 def enclose_stair(boxes, levels, stair, settings, config):
@@ -354,6 +430,8 @@ def build_geometry(root=ROOT,*,include_exterior=True):
     boxes=glaze_courtyard(boxes)
     boxes, stair=stairs_and_roof(boxes,levels,settings,config,origin)
     boxes = enclose_stair(boxes, levels, stair, settings, config)
+    boxes, elevator = elevator_shaft(boxes, levels, settings, config)
+    if elevator:levels[0]['elevator']=elevator
     if settings.get('povo2_connection'):
         boxes=extend_campus(boxes,levels,root,config['wall_height_metres'])
         if settings.get('povo2_planimetry'):
@@ -373,7 +451,7 @@ def build_geometry(root=ROOT,*,include_exterior=True):
     # Closed north-wing doors are visible panels over solid collision walls.
     for room in levels[0]['rooms']:
         if room.get('playable',True):continue
-        if room['kind']=='reception':continue
+        if room['kind'] in ('reception','elevator'):continue
         a,b,c,d=room['footprint_local_metres'];x=a+(c-a)*room['door_fraction']
         boxes.append((room['id']+'_closed_door',(x-.58,b-.12,z+.02),
                       (x+.58,b-.095,z+2.1),'door_closed'))
@@ -388,6 +466,17 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         except ImportError:
             from povo_exterior_integration import extend as add_exterior
         boxes=add_exterior(root,settings,config,boxes,levels,stair)
+    if include_exterior and settings.get('povo2_planimetry'):
+        try:
+            from .povo2_interiors import extend_layout
+        except ImportError:
+            from povo2_interiors import extend_layout
+        boxes=extend_layout(boxes,levels,root,config['wall_height_metres'])
+        try:
+            from .povo_wings import extend as extend_wings
+        except ImportError:
+            from povo_wings import extend as extend_wings
+        boxes=extend_wings(boxes,levels,root)
     return settings,config,boxes,levels,stair
 
 
@@ -537,8 +626,70 @@ def backdrop_mesh(root):
     return faces
 
 
+def material_path(material):
+    """Compiled-material source for one campus OBJ material name."""
+    # Use the installed game's transparent glass material and its proven shader
+    # setup; the other surfaces remain editable addon materials.
+    if material in ('window_glass','reception_glass'):return 'materials/glass/glass01.vmat'
+    if material.startswith('exterior_'):return EXTERIOR_PREFIX+material.removeprefix('exterior_')+'.vmat'
+    return MATERIAL_PREFIX+material+'.vmat'
+
+
+# Backdrop masses, vehicles and screens: their "glass" has nothing playable behind it.
+UNBREAKABLE_GLASS=('_cabin','_screen_','residential_','povo2_west_glazing','povo2_front_window',
+                   'povo2_end_window','povo2_front_annex_')
+
+
+def is_breakable_glass(box):
+    """Playable building glass; receptions stay sealed (unplayable offices)."""
+    name,_,_,material=box
+    return (material in ('window_glass','exterior_glass','exterior_entry_glass')
+            and not any(t in name for t in UNBREAKABLE_GLASS))
+
+
+AUTO_DOOR_PART=re.compile(r'exterior_((?:p[12]_entry_(?:outer_|inner_)?|(?:library|canteen(?:_outer|_inner|_upper)?)_entry_)bank_\d)_(parked_leaf|parked_leaf_band|leaf_bottom)_(-?1)$')
+
+
+def split_auto_doors(boxes):
+    """Povo 1 and Povo 2 sliding entrance leaves, moved from parked-open to closed.
+
+    Each bank becomes one door name. Every leaf part slides by its own width
+    toward the sidelight it parks over, which is how func_door measures travel.
+    """
+    banks={};rest=[]
+    for box in boxes:
+        match=AUTO_DOOR_PART.match(box[0])
+        if not match:rest.append(box);continue
+        name,lo,hi,material=box;sign=int(match[3]);width=hi[1]-lo[1]
+        closed_lo=(lo[0],lo[1]-sign*width,lo[2]);closed_hi=(hi[0],hi[1]-sign*width,hi[2])
+        # Source yaw 0 is local south (-north); see cs2_campus.world().
+        banks.setdefault(match[1],[]).append(dict(name=name,lo=list(closed_lo),hi=list(closed_hi),
+                                                 material=material_path(material),yaw=0 if sign<0 else 180))
+    doors=[]
+    for bank,parts in sorted(banks.items()):
+        x=parts[0]['lo'][0];z=min(p['lo'][2] for p in parts)
+        # Opens about two metres before a player reaches the door line.
+        trigger=([x-2,min(p['lo'][1] for p in parts)-.9,z],[x+2,max(p['hi'][1] for p in parts)+.9,z+2.6])
+        doors.append(dict(name=bank,parts=parts,trigger=trigger))
+    return doors,rest
+
+
+def all_rails(stair,levels):
+    rails=[r for core in stair['cores'] for r in core['rails']]
+    link=levels[1].get('connection',{})
+    rails+=link.get('stair',{}).get('rails',[])
+    rails+=link.get('povo2',{}).get('stairs',{}).get('rails',[])
+    rails+=[r for wing in levels[0].get('wings',{}).get('stairs',[]) for r in wing.get('rails',[])]
+    return rails
+
+
 def export(root=ROOT):
     settings, config, boxes, levels, stair = build_geometry(root)
+    # Doors and breakable panes become separate map entities, so leave them out
+    # of the static model and its collision. build_geometry() keeps them solid.
+    doors,boxes=split_auto_doors(boxes)
+    glass=[b for b in boxes if is_breakable_glass(b)]
+    boxes=[b for b in boxes if not is_breakable_glass(b)]
     try:
         from .povo_interactions import extract_static_leaves
         from .povo_atmosphere import write_winter_assets, write_soundevents
@@ -549,7 +700,7 @@ def export(root=ROOT):
         from .povo_physics_surfaces import write_groups,modeldoc_groups
     except ImportError:
         from povo_physics_surfaces import write_groups,modeldoc_groups
-    boxes=extract_static_leaves(boxes,levels,stair)
+    boxes=extract_static_leaves(boxes,levels,stair,automatic_entrances=True)
     try:
         from .povo_exterior_integration import mesh_faces,write_collision,backdrop as exterior_backdrop
     except ImportError:
@@ -558,7 +709,7 @@ def export(root=ROOT):
     output=root/'exports/povo_campus';output.mkdir(parents=True,exist_ok=True)
     scenery=backdrop_mesh(root)
     if exterior:scenery=exterior_backdrop(scenery)
-    (output/'povo1_campus.obj').write_text(render_obj(boxes,[*scenery,*campus_staff_meshes(levels),*mesh_faces(exterior)],stair=stair),encoding='utf-8')
+    (output/'povo1_campus.obj').write_text(render_obj(boxes,[*scenery,*campus_staff_meshes(levels),*mesh_faces(exterior),*rail_faces(all_rails(stair,levels))]),encoding='utf-8')
     collision=io.StringIO();collision.write('o povo1_campus_collision\n');ci=0;collision_count=0
     last_material=None
     physics=collision_boxes(boxes)
@@ -577,12 +728,16 @@ def export(root=ROOT):
     physical_groups=write_groups(output,'povo1_campus',physics,exterior.get('collision_meshes',[]))
     metadata=dict(map_name=settings['map_name'],origin=[666250,5103800,370],settings=settings,
                   levels=levels,stair=stair,visual_boxes=len(boxes),collision_boxes=collision_count,
+                  breakable_glass=[dict(name=n,lo=list(lo),hi=list(hi),material=material_path(m)) for n,lo,hi,m in glass],
+                  auto_doors=doors,elevator=levels[0].get('elevator'),
                   assumptions=settings['assumptions'],
                   inputs={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in
                           ('config/povo1_campus.json',settings['interior_source'],'config/povo1_plan_alignment.json')})
     metadata['interactions']=levels[0]['interactions']
     metadata['physics_surface_groups']=physical_groups
     metadata['inputs']['config/povo_atmosphere.json']=hashlib.sha256((root/'config/povo_atmosphere.json').read_bytes()).hexdigest()
+
+    if levels[0].get('wings'):metadata['wings']=levels[0]['wings']
     if exterior:
         metadata['exterior']=exterior
         metadata['exterior_collision_meshes']=collision_mesh_count
@@ -605,11 +760,7 @@ def export(root=ROOT):
     original=(root/'cs2/content/trento_povo/models/povo/povo_blockout.vmdl').read_text()
     original=original.replace('povo_blockout_collision','povo1_campus_collision').replace('povo_blockout','povo1_campus')
     marker='\t\t\t\t\t\tremaps =\n\t\t\t\t\t\t['
-    # Use the installed game's transparent glass material and its proven shader
-    # setup; the other surfaces remain editable addon materials.
-    remaps=''.join('\n                            { from = "campus_'+m+'" to = "'+
-                   ('materials/glass/glass01.vmat' if m in ('window_glass','reception_glass') else
-                    EXTERIOR_PREFIX+m.removeprefix('exterior_')+'.vmat' if m.startswith('exterior_') else MATERIAL_PREFIX+m+'.vmat')+'" },' for m in COLORS)
+    remaps=''.join('\n                            { from = "campus_'+m+'" to = "'+material_path(m)+'" },' for m in COLORS)
     if marker not in original:raise ValueError('ModelDoc material remap insertion point missing')
     original=original.replace(marker,marker+remaps,1)
     original=modeldoc_groups(original,physical_groups)
@@ -621,7 +772,7 @@ def export(root=ROOT):
     return metadata
 
 
-def render_obj(boxes,backdrop,*,stair=None):
+def render_obj(boxes,backdrop):
     """Write indexed attributes before faces, with explicit flat normals.
 
     Repeating vertices between individual terrain faces makes the native OBJ
@@ -646,17 +797,12 @@ def render_obj(boxes,backdrop,*,stair=None):
         groups.setdefault((group,material),[]).append('f '+' '.join(refs)+'\n')
     for name,material,points,texcoords in backdrop:
         face('backdrop_'+name,material,points,texcoords)
-    for number,(name,lo,hi,material) in enumerate(sorted(boxes,key=lambda b:b[3])):
+    # Railing collision panels are physics only; see povo_stairs.railing().
+    for number,(name,lo,hi,material) in enumerate(sorted((b for b in boxes if '_clip_' not in b[0]),key=lambda b:b[3])):
         part=io.StringIO();write_box(part,name,lo,hi,0,material);points=[]
         for line in part.getvalue().splitlines():
             if line.startswith('v '):
                 point=tuple(map(float,line.split()[1:]))
-                rail=re.match(r'stair_(se|sw|ne|nw)_handrail_',name)
-                if stair is not None and rail:
-                    core=next(c for c in stair['cores'] if c['id']==rail[1])
-                    slope=stair['rise_metres']/stair['tread_metres'] * (1 if '_west_' in name else -1)
-                    distance=hi[1]-point[1] if core['mirror_north'] else point[1]-lo[1]
-                    point=(point[0],point[1],point[2]+slope*distance)
                 if 'bridge_finish_brace_' in name:
                     height=2.95
                     distance=(point[1]-lo[1])/(hi[1]-lo[1])

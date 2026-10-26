@@ -1133,3 +1133,190 @@ or winter with play_campus_winter.cmd; saved fullscreen settings are preserved.
 Backup: build/atmosphere-backup-20261024-205704/. Final portable evidence:
 exports/povo_campus/runtime/atmosphere/. Implementation and scope:
 docs/POVO_SEASONS_AND_INTERACTIONS.md. No commit or publication was made.
+
+
+## 26 October 2026 — breakable glass (source only, not yet compiled)
+
+Playable building glass now breaks: 295 panes (287 after the automatic doors below) are generated as separate
+`func_breakable` entities (material Glass, health 1) instead of static model
+geometry. They are cloned from the buy-zone mesh, the same proven path as the
+exterior play-area trigger; `func_shatterglass` is excluded by CS2's csgo.fgd.
+Covered: room, courtyard, stair, bridge and bridge-door windows, the Povo 2
+entrance door banks, the basement display, both front canopies, and the
+library/canteen wings in front of Povo 1. Those wings are now 184 panes (two per
+frame bay) over an opaque core, ready for their interiors to be modelled.
+Kept sealed: both receptions (unplayable offices), car cabins, screens, the
+residential backdrop and the solid Povo 2 backdrop/annex facades.
+
+`is_breakable_glass` (tools/build_povo_campus.py) selects the panes; export()
+removes them from the static OBJ and collision, while build_geometry() keeps
+them solid so the clearance audits are unchanged. 138 tests and the campus,
+exterior and Povo 2 audits pass on Linux.
+
+Still to verify on Windows: compile and package, that panes render and break
+in game, glass01 UV scale on the cloned meshes, lighting through former glass,
+nav mesh behaviour at windows (bots must not path through intact panes), and
+frame rate with ~300 extra entities.
+
+
+## 26 October 2026 — automatic Povo 2 entrance doors (source only)
+
+The four Povo 2 entrance banks (two outer, two inner) now slide. Each sliding
+leaf (glass, band and bottom rail) is a `func_door` named after its bank,
+spawned closed and moving by its own width over the sidelight it used to park
+on. A players-only `trigger_multiple` 2 m deep on each side fires `Open` on
+OnStartTouch and `Close` on OnEndTouchAll; doors use wait -1, and Touch Opens
+stays on as a fallback. The connection rows copy the field types read from
+Valve's `cs_script_demo.vmap` (targetType 7 = by name). The sashes now stop
+short of the leaf track so closed leaves do not cut through them. These leaves
+leave the breakable-glass set (287 panes); the fixed sidelights still break.
+Povo 1's entrance is an open doorway with no doors, so it is unchanged.
+
+The audits still use the parked-open leaves, so walking clearance is unchanged.
+140 tests and all audits pass on Linux. Windows checks: docs/TODO.md.
+
+
+## 26 October 2026 — Povo 1 sliding entrance, photo-matched stairs (source only)
+
+Povo 1's 2.2 m entrance is now one Povo 2 style automatic sliding bank
+(3.6 m wide, 1.8 m clear, two leaves over fixed sidelights) at the east wall.
+The bank builder is shared (`door_bank` in tools/povo2_exterior_entrance.py),
+so the library and canteen can reuse it once their interiors exist. Map step:
+285 breakable panes, 30 `func_door` parts, 5 sensors, 10 I/O rows.
+
+Stairs, after photos 38/39/47-49 (Povo 1) and 64-66/4-8 (Povo 2): both were
+small islands in oversized stairwells. Each now has two flights side by side,
+each half the well width (Povo 1 about 3.9 m in its 8 m well; Povo 2 3.0 m),
+a 0.3 m well between them and full-width floor and mid landings. Povo 1 flights
+and its mid landing are solid to the floor. Povo 2 keeps its enclosure; two new
+partitions cut the well to 6.3 m and close the unused ends, and its
+lower-floor copies cut their shafts from the shared `shaft` instead of fixed
+coordinates.
+
+Railings follow the photos: a sloped top handrail over six horizontal bars,
+posts about every 1.2 m, and wall handrails on the outer sides. The rails and
+bars are sheared faces (`tools/povo_stairs.py`) instead of per-tread boxes,
+which is why the old handrails showed as a few separate rectangles. Collision is
+a stepped `_clip_` panel that render_obj() leaves out of the visible model.
+
+140 tests and all three audits pass on Linux. Windows checks: docs/TODO.md.
+
+
+## 26 October 2026 — three-flight Povo 1 stairs, red stairwells, lift shaft (source only)
+
+User review of the previous stairs: better, but Povo 1's cores have three
+flights. From the floor landing one flight goes left, one runs straight across
+the far end and one comes back on the right, around a central well (photos 48,
+P007). Each core now has 7 + 6 + 7 risers (0.18 m) on 0.28 m treads, three
+3.17 m wide flights, two square corner landings and a 1.68 x 1.96 m well with
+railings on all three inner sides. The floor landing is now 3.6 m deep. Floors
+inside the stairwells, on both levels, are the same red as the stairs.
+
+Studio E2, right of the reception, is now the lift ("ASCENSORE"). A working
+CS2 lift would need a moving platform that carries players, which is untested
+here, so the shaft (2 x 2 m, both floors) holds a straight ladder on its back
+wall. CS2 makes the ladder climbable through a world mesh with
+`materials/tools/toolsinvisibleladder.vmat` (cloned from the lightmap density
+volume); the visible rails and rungs have no collision. An upper ledge on the
+corridor side lets players step off. Upstairs the shaft takes the south-east
+corner of A214. The rest of E2 is sealed. Config: `elevator` in
+config/povo1_campus.json.
+
+141 tests and all three audits pass on Linux (new lift stations on both floors).
+
+
+## 26 October 2026 — new photos filed, Povo 2 lift (source only)
+
+27 user photos filed as P091–P117 under
+data/reference/povo_photos/walk_2026-10-26/ (photo 13 withdrawn by the user),
+with manifest, credits and locations. They cover Povo 2 -1 and ground floor
+spaces not yet built, the sunken yard by the -1 exit, and the canteen entrance
+and ground floor. The user's layout description is in
+docs/POVO2_INTERIOR_BRIEF.md; canteen notes went into
+docs/LIBRARY_CANTEEN_BRIEF.md.
+
+Povo 2 now has a lift beside the stair door (photo 12): a ladder shaft at
+E20.1–22.4, N17.2–19.4 opening into the ground hall, the -1 long corridor and
+the +1 bridge corridor (`lift` in config/povo2_connection.json, `lift()` in
+tools/povo2_integration.py). Two hall lockers were removed and the -1 display
+case moved north to clear the openings. Audit stations on the ground ledge,
+the -1 floor and the +1 ledge are all reachable. 141 tests and all three
+audits pass on Linux; not yet compiled or tested in CS2.
+
+## 26 October 2026 — implement photo-guided interior additions (source, not compiled)
+
+The new photos now drive geometry rather than serving only as briefs:
+
+- B111–B114 have tile, dark continuous desk rows, beech seats, screens and
+  end glazing. Side aisles and the teaching area are clearance-tested.
+- The Povo 2 left corridor connects a provisional B106 computer room (blank
+  monitors) and B108/B109 classrooms with bamboo finishes, raked seating and
+  full-height glazing. Labels, subdivision and dimensions are estimates.
+- The table corridor now reaches a glazed aula lobby with lockers and a
+  user-authorized temporary aula magna, raked seats and a continuous centre aisle.
+- The CIBIO branch has two accessible furnished offices on its left, a glazed
+  entrance and decorative closed black office doors along the corridor.
+- The short south wing is now the canteen; the long north wing is the library.
+  Solid cores are removed. Both have two floors, Povo 1-facing sliding entrances,
+  breakable facade panes and switchback stairs with continuous rail bars.
+- The canteen has a projecting L-route porch with two sliding banks, a ground
+  bar, orange serving counters, orange tables/blue chairs and an upstairs
+  sliding exit onto the raised pavement. The library has ground reception and
+  three estimated reading rooms per floor with tables/chairs.
+
+User-confirmed relationship: Povo 1, canteen and library ground floors are
+level; their first floors meet the street. Their source levels are 4.0/7.6 m.
+The Povo 1-side pavement and external stairs/canopies are corrected accordingly.
+
+The user confirmed that the existing game bridge and building floors are correct
+and must remain unchanged. Povo 1 stays at two playable floors; Povo 2 retains
+its -2/-1/ground/+1 arrangement and the established bridge connection. No floor
+or bridge relocation is required. The earlier request to reconcile the real
+building's level names is superseded by this instruction.
+
+The basement locker corridor, indoor push-door/stair route, sunken yard and
+outdoor steel stair are now implemented. The new route joins the retained
+outer pavement without blocking the existing Povo 1 -> Povo 2 walk. Internal
+five-riser and outdoor fifteen-riser stairs are gameplay estimates, not surveyed
+counts. Yard elevation and dimensions are configurable in povo2_additions.json.
+Photo 19's GPS places the yard observation on the front-street side, approximately
+local (55,18) m with ~4.7 m reported horizontal error; this is supporting location
+evidence, not a metric survey or a level measurement.
+
+Editable sources: config/povo2_additions.json, config/povo_wings.json,
+tools/povo2_interiors.py and tools/povo_wings.py. Source checks:
+`python -m unittest discover -s tests -q` (150 passed, no skips), plus
+`python tools/audit_povo_wings.py` (four level routes and 44 stair samples pass).
+`python tools/render_photo_additions.py` creates a labelled Povo 2 review plan.
+`python tools/audit_povo_yard.py` checks yard access and 22 stair/landing samples.
+Real VMAP conversion, compilation, door/glass behaviour and walking still need
+Windows CS2 Workshop Tools. A source test's mocked compiler output is not a VPK.
+
+## Layout corrections after user review
+
+- The Povo 2 classroom corridor now runs straight south from reception alongside
+  the whole room sequence. The large PC room is first, on a short side opening,
+  and no longer projects far sideways. The stair entrance is a black double
+  doorway beside reception; a screened vestibule connects it to the retained
+  stair core. Core flights, bridge and floor elevations remain unchanged.
+- From the basement stair exit facing east, right/south then right/west reaches
+  CIBIO. Both playable offices are on the left/south of that westbound passage.
+  The separate exit route is left/north a few metres, then right/east. The
+  review image now draws arrows for both narrated routes.
+- The canteen entrance/porch moves south to about the former white counter's
+  location. Entering eastward places the bar on the right/south, a smaller
+  ground dining area on the left/north, and the stair/fire doors straight ahead.
+  The upstairs furniture leaves the relocated stair and exit approach clear.
+- The temporary aula magna is on the right/east of its lobby, entered through
+  the lobby's short edge, rather than continuing ahead through the far wall.
+
+These are photo/narrative-guided gameplay dimensions, not a measured survey.
+CIBIO ceilings fit beneath the unchanged sloped road. Actual sloped mesh/box
+intersection is checked before excavation; broad bounding boxes alone would
+incorrectly report road overlap at this location.
+
+Validation after these corrections: all 154 tests pass, including explicit
+layout checks for the two basement turns, straight classroom corridor, stair
+entry beside reception, canteen left/right/ahead arrangement, and the aula on
+the lobby short edge. Geometry and radar were regenerated. Windows checks
+remain unrun.

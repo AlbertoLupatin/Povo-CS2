@@ -1,5 +1,12 @@
 # Resume the Povo project on Windows
 
+## Current source handoff: 26 October photo additions
+
+Start with [WINDOWS_PHOTO_ADDITIONS_HANDOFF.md](WINDOWS_PHOTO_ADDITIONS_HANDOFF.md).
+It includes the corrected layout, 154 passing tests, dependencies, campus
+rebuild/package commands and remaining in-game checks. Older verified builds
+below are historical and do not contain these new interiors.
+
 ## Current checkpoint — 25 October 2026
 
 Use `play_campus.cmd` for `trento_povo_campus` or `play_campus_winter.cmd` for
@@ -41,6 +48,7 @@ recompiling; the backup procedure below remains applicable. Source audits and
 CRC checks do not replace engine walking or independent-client match tests.
 
 ## Historical checkpoints
+
 
 ## Latest: map adjustments — 24 October 2026
 

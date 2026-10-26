@@ -4,8 +4,10 @@ import json
 
 try:
     from .povo_room_fitout import subtract_box
+    from .povo2_exterior_entrance import door_bank
 except ImportError:
     from povo_room_fitout import subtract_box
+    from povo2_exterior_entrance import door_bank
 
 
 def extend(root,settings,config,boxes,levels,stair):
@@ -25,12 +27,19 @@ def extend(root,settings,config,boxes,levels,stair):
     ramp_hole=((ra[0]-rh,ra[1]-.2,-10),(rb[0]+rh,rb[1]+.2,5))
     oldhole=((parking[0],parking[1],-10),(parking[2],parking[3],2))
     newhole=((garage[0]+.01,garage[1]+.01,-3.19),(garage[2]-.01,garage[3]-.01,.19))
+    # Povo 1's 2.2 m entrance becomes one Povo 2 style sliding bank.
+    landing=next(b for b in boxes if b[0]=='campus_entry_landing')
+    p1y=(landing[1][1]+landing[2][1])/2;p1z=landing[2][2]
+    p1bank=dict(bank_width=3.6,clear_width=1.8,door_height=2.02)
+    p1hole=((23.8,p1y-p1bank['bank_width']/2,p1z-.01),(24.2,p1y+p1bank['bank_width']/2,p1z+2.15))
     result=[]
     for box in boxes:
         n,lo,hi,m=box
         # Replace the original one-line entrance and its exterior landing guards.
         if n.startswith(('campus_entry_guard_','p2_ground_entrance_')):continue
         parts=[box]
+        if n.startswith('academic_ground_outer_3'):
+            parts=[piece for item in parts for piece in subtract_box(item,p1hole)]
         if n.startswith('p2_ground_shell_') or (n.startswith('p2_ground_') and '_finish_skirting_' in n):
             parts=[piece for item in parts for piece in subtract_box(item,portal)]
         # Open the overlapping garage perimeters; preserve slabs, core and fixtures.
@@ -59,6 +68,8 @@ def extend(root,settings,config,boxes,levels,stair):
             parts=[p for q in parts for p in subtract_box(q,oldhole)]
         # Avoid a raised landscaping slab under the existing north study room.
         ext_kept.extend(('exterior_'+name,lo,hi,'exterior_'+mat) for name,lo,hi,mat in parts)
+    def p1box(name,lo,hi,mat):ext_kept.append(('exterior_p1_entry_'+name,tuple(lo),tuple(hi),'exterior_'+mat))
+    door_bank(p1box,'bank_0',24,p1y,p1z,**p1bank)
     # A flat prototype apron replaces conflicting old DTM triangles locally.
     ground=('exterior_ground',(-90,-116,2.5),(74,124,2.75),'exterior_concrete')
     groundparts=subtract_box(ground,ramp_hole)

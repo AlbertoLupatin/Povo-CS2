@@ -21,7 +21,7 @@ def world(point):
     return (-n*UNITS,e*UNITS,z*UNITS)
 
 
-def door_selection(levels, stair):
+def door_selection(levels, stair, *, automatic_entrances=False):
     doors=[]
     def pair(name, centre, width, height, kind='fire'):
         x,y,z=centre
@@ -56,7 +56,7 @@ def door_selection(levels, stair):
             doors.append(dict(id='classroom_'+room['id'],kind='classroom',bounds=[lo,hi],pivot=pivot,
                               reverse=side in ('u_max','v_min'),material=PREFIX+'door_closed.vmat'))
     ext=levels[0].get('exterior',{})
-    for bank in ext.get('entrance',{}).get('door_banks',[]):
+    for bank in (() if automatic_entrances else ext.get('entrance',{}).get('door_banks',[])):
         x,y,z=bank['centre'];half=bank['clear_width']/2
         for sign in (-1,1):
             lo=y-half+.015 if sign<0 else y+.015
@@ -67,13 +67,13 @@ def door_selection(levels, stair):
                 material=PREFIX+'exterior/entry_glass.vmat'))
     # Povo 1's central entrance opening, clear of the red stair's lower landing.
     x,y,z=24,-73.72946859896183,4
-    pair('p1_main',(x,y,z),2.2,2.15,'entrance')
+    if not automatic_entrances:pair('p1_main',(x,y,z),2.2,2.15,'entrance')
     for d in doors:
         if d['kind']=='entrance':d['material']=PREFIX+'exterior/entry_glass.vmat'
     return doors
 
 
-def extract_static_leaves(boxes, levels, stair):
+def extract_static_leaves(boxes, levels, stair, *, automatic_entrances=False):
     """Strip fixed open doors and split two small stair window panes out."""
     result=[];panes=[]
     for box in boxes:
@@ -83,7 +83,7 @@ def extract_static_leaves(boxes, levels, stair):
                or ('p2_stair_' in name and any(k in name for k in ('_door_','_panic_')))
                or re.match(r'p2_(?:basement|parking)_core_(?:door|panic)_',name)))
         if fire:continue
-        if name.startswith('exterior_p2_entry_') and '_parked_leaf' in name:continue
+        if name.startswith('exterior_') and '_parked_leaf' in name:continue
         # One framed pane on each ground-level east stair window. The other
         # panes and the entire large curtain wall remain structural glazing.
         if name in ('stair_window_0','stair_ne_window_0'):
@@ -92,8 +92,8 @@ def extract_static_leaves(boxes, levels, stair):
             panes.append(dict(id='glass_'+name,bounds=[list(lo),list(pane_hi)],health=20))
             result.append((name,(lo[0],cut+.025,lo[2]),hi,mat))
         else:result.append(box)
-    spec=dict(doors=door_selection(levels,stair),glass=panes,
-              policy='Native use/touch doors; four selected classrooms; two framed stair panes only')
+    spec=dict(doors=door_selection(levels,stair,automatic_entrances=automatic_entrances),glass=panes,
+              policy='Native fire/classroom doors; entrance banks and playable glass managed by campus entities')
     levels[0]['interactions']=spec
     return result
 

@@ -1,0 +1,133 @@
+{
+  "status": "Photo-guided gameplay reconstruction; dimensions and room labels provisional",
+  "ground_corridor": [
+    22.5,
+    0.5,
+    25.5,
+    29.5
+  ],
+  "ground_rooms": [
+    {
+      "id": "b106",
+      "label": "B106 / PC",
+      "kind": "computer",
+      "bounds": [
+        25.5,
+        18.5,
+        36,
+        28.5
+      ],
+      "door_y": 27.5
+    },
+    {
+      "id": "b108",
+      "label": "B108",
+      "kind": "classroom",
+      "bounds": [
+        25.5,
+        8.5,
+        36,
+        18.5
+      ],
+      "door_y": 17.5
+    },
+    {
+      "id": "b109",
+      "label": "B109",
+      "kind": "classroom",
+      "bounds": [
+        25.5,
+        0.5,
+        36,
+        8.5
+      ],
+      "door_y": 7.5
+    }
+  ],
+  "aula_lobby": [
+    12.5,
+    71.5,
+    34.5,
+    78
+  ],
+  "aula_magna": [
+    34.5,
+    71.5,
+    56.5,
+    93.5
+  ],
+  "cibio_corridor": [
+    -5,
+    -6.5,
+    20,
+    -3.5
+  ],
+  "cibio_offices": [
+    [
+      8,
+      -15,
+      16,
+      -6.5
+    ],
+    [
+      -5,
+      -15,
+      3,
+      -6.5
+    ]
+  ],
+  "assumptions": [
+    "B106 and B108-B109 labels and subdivisions are provisional, inferred from the photographed direction sign.",
+    "The aula magna is a user-authorized temporary hall with estimated dimensions and raked seating.",
+    "Office furniture and metric dimensions are schematic: photographs show the CIBIO approach, not the office interiors.",
+    "Existing bridge, stair and lift coordinates are retained; additions use the established gameplay coordinate adaptation.",
+    "Basement exit uses estimated five-riser indoor and fifteen-riser outdoor stairs. Yard location is supported by photos 19-20; existing Povo 2 ground/bridge elevations are preserved as requested.",
+    "User correction: stair entrance beside reception; straight classroom corridor with PC room first. Exiting stairs east: right/south then right/west reaches CIBIO; left/north then right/east reaches the exit."
+  ],
+  "basement_exit": {
+    "locker_corridor": [
+      16.5,
+      26.5,
+      20,
+      29
+    ],
+    "return_corridor": [
+      18,
+      26,
+      49,
+      29
+    ],
+    "inside_stair": [
+      49,
+      26,
+      50.5,
+      29
+    ],
+    "yard": [
+      50.5,
+      10,
+      56.4,
+      29.5
+    ],
+    "yard_z": 1.3,
+    "steel_stair": [
+      53.5,
+      20,
+      55.1,
+      24.5
+    ],
+    "street_z": 4.0
+  },
+  "stair_entry": {
+    "vestibule": [
+      16.5,
+      20.8,
+      22.5,
+      29.5
+    ],
+    "door": [
+      22.5,
+      28
+    ]
+  }
+}

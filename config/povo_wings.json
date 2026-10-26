@@ -1,0 +1,73 @@
+{
+  "status": "User-confirmed wing identity, entrance side and relative floors; interior dimensions estimated from photos",
+  "ground_z": 4.0,
+  "first_z": 7.6,
+  "wall_height": 3.35,
+  "canteen": {
+    "bounds": [
+      36,
+      -110,
+      52,
+      -77
+    ],
+    "entrance_y": -99.5,
+    "porch": [
+      31,
+      -102,
+      36,
+      -95
+    ],
+    "outer_y": -97,
+    "stair": [
+      44,
+      -100.2,
+      49,
+      -94.2
+    ],
+    "exit_y": -99.5
+  },
+  "library": {
+    "bounds": [
+      36,
+      -69,
+      52,
+      -13
+    ],
+    "entrance_y": -61,
+    "stair": [
+      36.5,
+      -21,
+      41.5,
+      -15
+    ],
+    "rooms": [
+      [
+        39,
+        -68,
+        51.8,
+        -51
+      ],
+      [
+        39,
+        -51,
+        51.8,
+        -34
+      ],
+      [
+        39,
+        -34,
+        51.8,
+        -22
+      ]
+    ]
+  },
+  "assumptions": [
+    "Ground aligns with Povo 1; first floor aligns with the street pavement. 3.6 m storeys are the existing gameplay scale, not surveyed heights.",
+    "The short south wing is the canteen; the long north wing is the library. Both enter from the Povo 1 side.",
+    "Canteen porch uses an L-shaped route with sliding banks at both ends, guided by photos 21-23.",
+    "Canteen bar, orange counters, blue/orange dining furniture and stair fire doors are guided by photos 24-28; exact positions and capacities are estimates.",
+    "Library room count and partitions are an estimated playable subdivision; no detailed interior survey is available.",
+    "Canteen upstairs exit uses an automatic bank to match the entrance family.",
+    "User correction: entrance is farther south near the previous white counter. Enter facing east: bar on right/south, small ground dining area on left/north, stair directly ahead/east."
+  ]
+}
