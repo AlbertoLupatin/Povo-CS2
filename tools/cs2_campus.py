@@ -45,9 +45,12 @@ def property_value(block,key,value):
     return changed
 
 
-def clone_trigger(source,token,template,classname,origin,half_extents):
-    """Copy a box trigger under fresh deterministic IDs as another solid class."""
-    ids=iter(range(max(map(int,re.findall(r'"nodeID"\s+"int"\s+"(\d+)"',source)),default=1)+1,1<<31))
+def node_ids(source):
+    return iter(range(max(map(int,re.findall(r'"nodeID"\s+"int"\s+"(\d+)"',source)),default=1)+1,1<<31))
+
+
+def clone_block(template,token,classname,origin,half_extents,ids):
+    """A box trigger's entity block under fresh deterministic IDs, as another solid class."""
     serial=iter(range(1<<31))
     def element(m):return m[1]+str(uuid.uuid5(uuid.NAMESPACE_URL,f'trento-povo:{token}:{next(serial)}'))+m[2]
     block=re.sub(r'("elementid"\s+")[0-9a-f-]{36}(")',element,template)
@@ -56,9 +59,41 @@ def clone_trigger(source,token,template,classname,origin,half_extents):
     block=re.sub(r'("referenceID"\s+"uint64"\s+")0x[0-9a-f]+(")',lambda m:m[1]+f'0x{reference:x}'+m[2],block,count=1)
     block=re.sub(r'\n[ \t]*"(TeamNum|targetname)"\s+"string"\s+"[^"]*"','',block)
     block=re.sub(r'("classname"\s+"string"\s+")[^"]+(")',lambda m:m[1]+classname+m[2],block,count=1)
-    block=project.resize_trigger_mesh(project._replace_entity_transform(block,origin),half_extents)
+    return project.resize_trigger_mesh(project._replace_entity_transform(block,origin),half_extents)
+
+
+def clone_trigger(source,token,template,classname,origin,half_extents):
+    block=clone_block(template,token,classname,origin,half_extents,node_ids(source))
     opening=project._world_children_opening(source)
     return source[:opening+1]+'\n'+block+','+source[opening+1:]
+
+
+TRIGGER_MATERIAL='materials/tools/toolstrigger.vmat'
+# BreakableBrush keys from the installed base.fgd: material 0 is Glass.
+GLASS_PROPERTIES=(('health','1'),('material','0'),('propdata','0'),('PerformanceMode','PM_NORMAL'))
+
+
+def add_breakable_glass(source,panes):
+    """One func_breakable glass box per pane, cloned from a buy-zone mesh."""
+    if not panes:return source
+    template=next(block for _,_,classname,block in project._entity_ranges(source)
+                  if classname=='func_buyzone' and '"CMapMesh"' in block)
+    if TRIGGER_MATERIAL not in template:raise ValueError('Buy-zone mesh has no trigger material')
+    props=''.join(f'\n\t\t\t\t\t"{k}" "string" "{v}"' for k,v in GLASS_PROPERTIES)
+    ids=node_ids(source);blocks=[]
+    for pane in panes:
+        lo,hi=pane['lo'],pane['hi']
+        centre=tuple((a+b)/2 for a,b in zip(lo,hi))
+        # world() swaps axes: Source X is local north, Source Y local east.
+        half=((hi[1]-lo[1])/2*UNITS,(hi[0]-lo[0])/2*UNITS,(hi[2]-lo[2])/2*UNITS)
+        block=clone_block(template,'glass-'+pane['name'],'func_breakable',world(centre),half,ids)
+        block=block.replace(TRIGGER_MATERIAL,pane['material'])
+        block=re.sub(r'("classname"\s+"string"\s+"func_breakable")',lambda m:m[1]+props,block,count=1)
+        blocks.append(block)
+    for material in sorted({p['material'] for p in panes}):
+        source=project._ensure_map_asset_reference(source,material)
+    opening=project._world_children_opening(source)
+    return source[:opening+1]+'\n'+',\n'.join(blocks)+','+source[opening+1:]
 
 
 def skip_nav_analysis(source):
@@ -130,6 +165,7 @@ def map_text(source,metadata):
             replacements.append((match.start(),b+1,updated))
     for a,b,s in reversed(replacements):source=source[:a]+s+source[b:]
     if metadata.get('exterior'):source=skip_nav_analysis(source)
+    source=add_breakable_glass(source,metadata.get('breakable_glass',[]))
     source=project._insert_point_entity(source,'campus-upper-nav','point_nav_walkable',world((0,-35.2,7.75)))
     for core in metadata['stair']['cores']:
         source=project._insert_point_entity(source,'campus-stair-'+core['id']+'-nav','point_nav_walkable',world(core['mid']))

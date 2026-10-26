@@ -506,8 +506,33 @@ def backdrop_mesh(root):
     return faces
 
 
+def material_path(material):
+    """Compiled-material source for one campus OBJ material name."""
+    # Use the installed game's transparent glass material and its proven shader
+    # setup; the other surfaces remain editable addon materials.
+    if material in ('window_glass','reception_glass'):return 'materials/glass/glass01.vmat'
+    if material.startswith('exterior_'):return EXTERIOR_PREFIX+material.removeprefix('exterior_')+'.vmat'
+    return MATERIAL_PREFIX+material+'.vmat'
+
+
+# Backdrop masses, vehicles and screens: their "glass" has nothing playable behind it.
+UNBREAKABLE_GLASS=('_cabin','_screen_','residential_','povo2_west_glazing','povo2_front_window',
+                   'povo2_end_window','povo2_front_annex_')
+
+
+def is_breakable_glass(box):
+    """Playable building glass; receptions stay sealed (unplayable offices)."""
+    name,_,_,material=box
+    return (material in ('window_glass','exterior_glass','exterior_entry_glass')
+            and not any(t in name for t in UNBREAKABLE_GLASS))
+
+
 def export(root=ROOT):
     settings, config, boxes, levels, stair = build_geometry(root)
+    # Breakable panes become separate map entities, so leave them out of the
+    # static model and its collision. build_geometry() still keeps them solid.
+    glass=[b for b in boxes if is_breakable_glass(b)]
+    boxes=[b for b in boxes if not is_breakable_glass(b)]
     try:
         from .povo_exterior_integration import mesh_faces,write_collision,backdrop as exterior_backdrop
     except ImportError:
@@ -534,6 +559,7 @@ def export(root=ROOT):
     (output/'povo1_campus_collision.obj').write_text(collision.getvalue(),encoding='utf-8')
     metadata=dict(map_name=settings['map_name'],origin=[666250,5103800,370],settings=settings,
                   levels=levels,stair=stair,visual_boxes=len(boxes),collision_boxes=collision_count,
+                  breakable_glass=[dict(name=n,lo=list(lo),hi=list(hi),material=material_path(m)) for n,lo,hi,m in glass],
                   assumptions=settings['assumptions'],
                   inputs={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in
                           ('config/povo1_campus.json',settings['interior_source'],'config/povo1_plan_alignment.json')})
@@ -557,11 +583,7 @@ def export(root=ROOT):
     original=(root/'cs2/content/trento_povo/models/povo/povo_blockout.vmdl').read_text()
     original=original.replace('povo_blockout_collision','povo1_campus_collision').replace('povo_blockout','povo1_campus')
     marker='\t\t\t\t\t\tremaps =\n\t\t\t\t\t\t['
-    # Use the installed game's transparent glass material and its proven shader
-    # setup; the other surfaces remain editable addon materials.
-    remaps=''.join('\n                            { from = "campus_'+m+'" to = "'+
-                   ('materials/glass/glass01.vmat' if m in ('window_glass','reception_glass') else
-                    EXTERIOR_PREFIX+m.removeprefix('exterior_')+'.vmat' if m.startswith('exterior_') else MATERIAL_PREFIX+m+'.vmat')+'" },' for m in COLORS)
+    remaps=''.join('\n                            { from = "campus_'+m+'" to = "'+material_path(m)+'" },' for m in COLORS)
     if marker not in original:raise ValueError('ModelDoc material remap insertion point missing')
     original=original.replace(marker,marker+remaps,1)
     (root/'cs2/content/trento_povo/models/povo/povo1_campus.vmdl').write_text(original,encoding='utf-8')

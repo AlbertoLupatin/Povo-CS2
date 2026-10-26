@@ -69,10 +69,26 @@ def build(root=ROOT, campus_geometry=None):
         for i,p in enumerate(settings['points'][1:-1]):
             n=16;v=[(p[0],p[1],p[2]+.002)]+[(p[0]+settings['width']/2*math.cos(k*2*math.pi/n),p[1]+settings['width']/2*math.sin(k*2*math.pi/n),p[2]+.002) for k in range(n)]
             meshes.append(dict(name=f'{prefix}_joint_{i}',vertices=v,faces=[(0,k+1,(k+1)%n+1) for k in range(n)],material='asphalt'))
-    def glass_block(name,r,z,roof):
-        """Opaque study glazing on all faces, with visible frames and roof."""
+    def glass_block(name,r,z,roof,panes=False):
+        """Opaque study glazing on all faces, with visible frames and roof.
+
+        With panes, each frame bay gets two separate glass panes (one per rail
+        band) in front of an opaque core, so single panes can break in game.
+        """
         a,b,c,d=r
-        box(name+'_mass',(a,b,z),(c,d,roof),'glass')
+        if not panes:box(name+'_mass',(a,b,z),(c,d,roof),'glass')
+        else:
+            # ponytail: opaque core until these interiors are modelled.
+            box(name+'_core',(a+.35,b+.35,z),(c-.35,d-.35,roof),'dark')
+            for lo_z,hi_z in ((z,z+2.2),(z+2.26,roof)):
+                for x in (a,c):
+                    for i in range(math.ceil((d-b)/2.7)):
+                        y0,y1=b+i*2.7,min(d,b+(i+1)*2.7)
+                        box(f'{name}_pane_x_{x}_{i}_{lo_z:g}',(x-.03,y0+.04,lo_z),(x+.03,y1-.04,hi_z),'glass')
+                for y in (b,d):
+                    for i in range(math.ceil((c-a)/2.7)):
+                        x0,x1=a+i*2.7,min(c,a+(i+1)*2.7)
+                        box(f'{name}_pane_y_{y}_{i}_{lo_z:g}',(x0+.04,y-.03,lo_z),(x1-.04,y+.03,hi_z),'glass')
         slab(name+'_roof',(a-.15,b-.15,c+.15,d+.15),roof+.15,'dark')
         for x in (a,c):
             for i in range(math.ceil((d-b)/2.7)+1):
@@ -203,7 +219,7 @@ def build(root=ROOT, campus_geometry=None):
     for x in (29,35):
         for y in (-77,-69):box(f'canopy_post_{x}_{y}',(x-.08,y-.08,4),(x+.08,y+.08,8.8),'fence')
     front=cfg['frontages'];fz=front['street_level']
-    for i,r in enumerate(front['povo1_library_wings']):glass_block(f'povo1_library_{i}',r,4,10.9)
+    for i,r in enumerate(front['povo1_library_wings']):glass_block(f'povo1_library_{i}',r,4,10.9,panes=True)
     slab('povo1_front_walk',front['povo1_walk'],fz,'paving')
     # Continuous passage between two front wings, open from street to stairs.
     slab('povo1_passage_upper',(35,-77,58,-69),fz,'paving')

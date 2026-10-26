@@ -1028,3 +1028,27 @@ parking, and the Povo 1 external stairs. Eight engine screenshots are under
 exports/povo_campus/runtime/exterior_*. The exterior remains blockout art; the
 garage is dim and the road beneath the bridge is heavily shadowed.
 Details: docs/POVO_EXTERIOR.md.
+
+
+## 26 October 2026 — breakable glass (source only, not yet compiled)
+
+Playable building glass now breaks: 295 panes are generated as separate
+`func_breakable` entities (material Glass, health 1) instead of static model
+geometry. They are cloned from the buy-zone mesh, the same proven path as the
+exterior play-area trigger; `func_shatterglass` is excluded by CS2's csgo.fgd.
+Covered: room, courtyard, stair, bridge and bridge-door windows, the Povo 2
+entrance door banks, the basement display, both front canopies, and the
+library/canteen wings in front of Povo 1. Those wings are now 184 panes (two per
+frame bay) over an opaque core, ready for their interiors to be modelled.
+Kept sealed: both receptions (unplayable offices), car cabins, screens, the
+residential backdrop and the solid Povo 2 backdrop/annex facades.
+
+`is_breakable_glass` (tools/build_povo_campus.py) selects the panes; export()
+removes them from the static OBJ and collision, while build_geometry() keeps
+them solid so the clearance audits are unchanged. 138 tests and the campus,
+exterior and Povo 2 audits pass on Linux.
+
+Still to verify on Windows: compile and package, that panes render and break
+in game, glass01 UV scale on the cloned meshes, lighting through former glass,
+nav mesh behaviour at windows (bots must not path through intact panes), and
+frame rate with ~300 extra entities.
