@@ -4,7 +4,7 @@ import unittest
 
 from tools import cs2_project as project
 from tools.build_povo_campus import build_geometry, is_breakable_glass, split_auto_doors
-from tools.cs2_campus import TRIGGER_MATERIAL, UNITS, add_auto_doors, add_breakable_glass
+from tools.cs2_campus import LADDER_MATERIAL, TRIGGER_MATERIAL, UNITS, add_auto_doors, add_breakable_glass, add_ladder
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -126,6 +126,32 @@ class AutoDoorTests(unittest.TestCase):
         self.assertTrue(all('"targetname" "string" "trento_door_bank"' in d for d in doors))
         ids = re.findall(r'"elementid"\s+"([^"]+)"', text)
         self.assertEqual(len(ids), len(set(ids)))
+
+
+class LadderTests(unittest.TestCase):
+    def test_lift_shaft_ladder_is_a_world_mesh_with_the_ladder_material(self):
+        corners = ',\n'.join(f'"{x} {y} {z}"' for x in (-1, 1) for y in (-1, 1) for z in (-1, 1))
+        volume = f'''"CMapMesh"
+{{
+"id" "elementid" "44444444-4444-4444-4444-444444444444"
+"nodeID" "int" "9"
+"materials" "string_array" [ "materials/tools/toolslightmapres.vmat" ]
+"name" "string" "position:0"
+"data" "vector3_array" [
+{corners}
+]
+"origin" "vector3" "0 0 0"
+}}'''
+        source = ('"map_asset_references" "string_array" [ ]\n"world" "CMapWorld"\n{\n'
+                  '"children" "element_array" [\n' + volume + '\n]\n}\n')
+        text = add_ladder(source, 'ladder', [[0, 0, 0], [.2, .6, 4]])
+        self.assertEqual(text.count('"CMapMesh"'), 2)
+        self.assertIn(LADDER_MATERIAL, text.split('"world"')[1])
+        self.assertIn(f'"{LADDER_MATERIAL}"', text.split('"world"')[0])
+        self.assertIn(f'"{.3*UNITS:g} {.1*UNITS:g} {2*UNITS:g}"', text)
+        elevator = build_geometry(ROOT)[3][0]['elevator']
+        lo, hi = elevator['ladder']
+        self.assertGreater(hi[2] - lo[2], 3.6)
 
 
 if __name__ == '__main__':

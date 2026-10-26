@@ -25,9 +25,13 @@ All three are source-only: tested on Linux, never compiled or played.
       in a loaded solo session); both door banks must still pass.
 - [ ] Bots: they don't path through intact windows, and they get through the
       entrance doors (touching a door also opens it).
-- [ ] Stairs: walk up and down all four Povo 1 cores and the Povo 2 stair
-      (upper floor to -2). Flights fill the well, the mid landing spans it, and
-      nothing snags at the top, bottom or turn.
+- [ ] Stairs: walk up and down all four Povo 1 cores (three flights: left,
+      straight, right) and the Povo 2 stair (upper floor to -2). Nothing snags
+      at the landings, the floors are red, and the well railings hold.
+- [ ] Lift: in the shaft right of the reception, climb the ladder from the
+      ground floor and step off onto the upper ledge, then climb back down.
+      Check the ladder surface lines up with the visible rungs.
+- [ ] Lift: bots and the nav mesh handle the ladder (or ignore it safely).
 - [ ] Stairs: railings show as continuous sloped handrails with bars (no
       floating rectangles) and stop you falling into the well.
 - [ ] Performance: frame rate with about 320 extra entities stays acceptable.
@@ -44,6 +48,9 @@ All three are source-only: tested on Linux, never compiled or played.
 - [ ] Balance, final textures, sound and a performance review.
 
 ## Next content
+
+- [ ] Optional: replace the lift ladder with a moving platform (`func_door`
+      moving up) once a quick CS2 test shows players ride it smoothly.
 
 - [ ] Model the library and canteen interiors in front of Povo 1 from
       [LIBRARY_CANTEEN_BRIEF.md](LIBRARY_CANTEEN_BRIEF.md) once photos arrive,

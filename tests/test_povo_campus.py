@@ -21,6 +21,8 @@ class CampusGeometryTests(unittest.TestCase):
         for level in self.levels:
             z=level['floor_elevation_metres']-370
             for room in [*level['rooms'],*level.get('connection',{}).get('rooms',[])]:
+                # The sealed lift room's doorway is the shaft opening instead.
+                if room['kind']=='elevator':continue
                 a,b,c,d=room['footprint_local_metres'];f=room['door_fraction']
                 x,y={'u_min':(a+(c-a)*f,b),'u_max':(a+(c-a)*f,d),
                      'v_min':(a,b+(d-b)*f),'v_max':(c,b+(d-b)*f)}[room['door_side']]
@@ -30,10 +32,11 @@ class CampusGeometryTests(unittest.TestCase):
                 self.assertEqual(bool(walls),not room.get('playable',True),
                                  (level['id'],room['id'],[w[0] for w in walls]))
         ground=self.levels[0]['rooms']
-        self.assertEqual({r['id'] for r in ground if not r['playable']},{'g_east1'})
-        self.assertEqual(sum(r.get('playable',True) for l in self.levels for r in l['rooms']),58)
+        self.assertEqual({r['id'] for r in ground if not r['playable']},{'g_east1','g_east2'})
+        self.assertEqual(sum(r.get('playable',True) for l in self.levels for r in l['rooms']),57)
         for level in self.levels:
             for room in level['rooms']:
+                if room['kind']=='elevator':continue
                 self.assertIsInstance(room['fitout'],dict,room['id'])
                 if room['kind'] not in ('reception','restroom'):
                     self.assertGreater(room['fitout']['seats'],0,room['id'])
@@ -252,7 +255,7 @@ class CampusGeometryTests(unittest.TestCase):
 
     def test_both_side_aisles_in_every_furnished_room_are_reachable(self):
         reports=audit()
-        self.assertEqual([len(r['stations']) for r in reports],[65,120,4])
+        self.assertEqual([len(r['stations']) for r in reports],[64,121,4])
         for report in reports:
             self.assertEqual(report['status'],'passed',
                              [s['id'] for s in report['stations'] if not s['reachable_from_entrance']])

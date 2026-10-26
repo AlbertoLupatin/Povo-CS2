@@ -1095,3 +1095,26 @@ which is why the old handrails showed as a few separate rectangles. Collision is
 a stepped `_clip_` panel that render_obj() leaves out of the visible model.
 
 140 tests and all three audits pass on Linux. Windows checks: docs/TODO.md.
+
+
+## 26 October 2026 — three-flight Povo 1 stairs, red stairwells, lift shaft (source only)
+
+User review of the previous stairs: better, but Povo 1's cores have three
+flights. From the floor landing one flight goes left, one runs straight across
+the far end and one comes back on the right, around a central well (photos 48,
+P007). Each core now has 7 + 6 + 7 risers (0.18 m) on 0.28 m treads, three
+3.17 m wide flights, two square corner landings and a 1.68 x 1.96 m well with
+railings on all three inner sides. The floor landing is now 3.6 m deep. Floors
+inside the stairwells, on both levels, are the same red as the stairs.
+
+Studio E2, right of the reception, is now the lift ("ASCENSORE"). A working
+CS2 lift would need a moving platform that carries players, which is untested
+here, so the shaft (2 x 2 m, both floors) holds a straight ladder on its back
+wall. CS2 makes the ladder climbable through a world mesh with
+`materials/tools/toolsinvisibleladder.vmat` (cloned from the lightmap density
+volume); the visible rails and rungs have no collision. An upper ledge on the
+corridor side lets players step off. Upstairs the shaft takes the south-east
+corner of A214. The rest of E2 is sealed. Config: `elevator` in
+config/povo1_campus.json.
+
+141 tests and all three audits pass on Linux (new lift stations on both floors).

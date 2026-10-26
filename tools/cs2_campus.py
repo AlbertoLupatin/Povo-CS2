@@ -88,6 +88,29 @@ def add_breakable_glass(source,panes):
     return source[:opening+1]+'\n'+',\n'.join(blocks)+','+source[opening+1:]
 
 
+LADDER_MATERIAL='materials/tools/toolsinvisibleladder.vmat'
+
+
+def add_ladder(source,token,box):
+    """A world mesh with CS2's invisible-ladder tool material is climbable.
+
+    Cloned from the lightmap density volume, the map's one world-level box mesh.
+    """
+    template=next((source[m.start():project._matching_brace(source,source.index('{',m.end()))+1]
+                   for m in re.finditer(r'(?m)^[ \t]*"CMapMesh"[ \t]*$',source)
+                   if 'materials/tools/toolslightmapres.vmat' in
+                   source[m.start():project._matching_brace(source,source.index('{',m.end()))+1]),None)
+    if template is None:raise ValueError('No world box mesh to clone for the ladder')
+    lo,hi=box
+    centre=tuple((a+b)/2 for a,b in zip(lo,hi))
+    half=((hi[1]-lo[1])/2*UNITS,(hi[0]-lo[0])/2*UNITS,(hi[2]-lo[2])/2*UNITS)
+    block=clone_block(template,token,'',world(centre),half,node_ids(source))
+    block=block.replace('materials/tools/toolslightmapres.vmat',LADDER_MATERIAL)
+    source=project._ensure_map_asset_reference(source,LADDER_MATERIAL)
+    opening=project._world_children_opening(source)
+    return source[:opening+1]+'\n'+block+','+source[opening+1:]
+
+
 def box_entity(template,token,classname,box,ids,properties,material=None):
     lo,hi=box
     centre=tuple((a+b)/2 for a,b in zip(lo,hi))
@@ -267,6 +290,12 @@ def map_text(source,metadata):
         lights.append((*core['mid'][:2],core['mid'][2]+2.5))
         for portal in core['enclosure']['portals']:
             x,y,z=portal['centre'];lights.append((x+(-2 if core['mirror_east'] else 2),y,z+2.8))
+    elevator=metadata.get('elevator')
+    if elevator:
+        lights.extend(elevator['lights'])
+        source=project._insert_point_entity(source,'campus-elevator-first-sign','point_worldtext',
+            world(elevator['sign']),sign_properties('ASCENSORE'),angles='0 180 90')
+        source=add_ladder(source,'campus-elevator-ladder',elevator['ladder'])
     if metadata.get('exterior'):
         lights.extend((x,y,6.8) for x in (37,42,47) for y in (30.5,36.5))
         lights.extend((x,y,-.25) for x in (-23,2,18) for y in (40,60,80,100))
