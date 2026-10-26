@@ -1,0 +1,14 @@
+Layer0
+{
+    shader "csgo_lightmappedgeneric.vfx"
+    F_TRANSLUCENT "1"
+    F_RENDER_BACKFACES "0"
+    g_flOpacityScale "0.8"
+    TextureLayer1Color "materials/trento/povo/campus/exterior/entry_glass.png"
+    TextureLayer1Normal "materials/trento/povo/campus/exterior/neutral_normal.png"
+    TextureLayer1Roughness "materials/trento/povo/campus/exterior/entry_glass_rough.png"
+    TextureLayer1Translucency "materials/trento/povo/campus/exterior/opaque_mask.png"
+    g_vColorTint "[1 1 1 0]"
+    g_flModelTintAmount "1"
+    SystemAttributes { PhysicsSurfaceProperties "glass" }
+}

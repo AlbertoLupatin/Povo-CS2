@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": {
+    "translucent_flag": true,
+    "opacity_0_8": true,
+    "custom_tinted_texture": true,
+    "custom_normal_texture": true
+  },
+  "compiled_sha256": "0657e8e19e3c073709d585e10e5b170dd2050539f1b8917f7f3f6d729dd642c3",
+  "opacity": 0.8,
+  "transparency": 0.2
+}

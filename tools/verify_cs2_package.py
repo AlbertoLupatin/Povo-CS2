@@ -19,14 +19,39 @@ except ImportError:
 
 
 ROOT = Path(__file__).resolve().parents[1]
+RADAR_ALIASES = {
+    'panorama/images/overheadmaps/trento_povo_radar_psd.vtex_c':
+        'panorama/images/overheadmaps/trento_povo_radar_tga.vtex_c',
+    'panorama/images/overheadmaps/trento_povo_radar_spectate_psd.vtex_c':
+        'panorama/images/overheadmaps/trento_povo_radar_spectate_tga.vtex_c',
+}
 RADAR_FILES = (
     "panorama/images/overheadmaps/trento_povo_radar_tga.vtex_c",
     "panorama/images/overheadmaps/trento_povo_radar_spectate_tga.vtex_c",
+    *RADAR_ALIASES,
     "resource/overviews/trento_povo.txt",
 )
 
 
-def overview_values(raw):
+def radar_layout(map_name='trento_povo', lower=False, sections=()):
+    if not re.fullmatch(r'[a-z][a-z0-9_]*', map_name):
+        raise VPKError('Invalid map name')
+    files=tuple(name.replace('trento_povo',map_name) for name in RADAR_FILES)
+    aliases={k.replace('trento_povo',map_name):v.replace('trento_povo',map_name)
+             for k,v in RADAR_ALIASES.items()}
+    base_files=files[:-1];base_aliases=dict(aliases)
+    for section in sorted(set(sections) | ({'lower'} if lower else set())):
+        if section=='default':continue
+        if not re.fullmatch(r'[a-z][a-z0-9_]*',section):raise VPKError('Invalid radar section')
+        section_files=tuple(p.replace(map_name+'_radar',map_name+'_'+section+'_radar') for p in base_files)
+        aliases.update({k.replace(map_name+'_radar',map_name+'_'+section+'_radar'):
+                        v.replace(map_name+'_radar',map_name+'_'+section+'_radar')
+                        for k,v in base_aliases.items()})
+        files=files[:-1]+section_files+files[-1:]
+    return files,aliases
+
+
+def overview_values(raw, map_name='trento_povo'):
     try:
         text = raw.decode("utf-8-sig")
     except UnicodeDecodeError as error:
@@ -34,17 +59,29 @@ def overview_values(raw):
     # Tokenize comments separately so // inside a quoted value is preserved.
     tokens = re.findall(r'//[^\n]*|"[^"\\]*"|[{}]|[^\s]+', text)
     tokens = [token for token in tokens if not token.startswith("//")]
-    if len(tokens)<3 or tokens[:2] != ['"trento_povo"', '{'] or tokens[-1] != '}':
-        raise VPKError("Overview must contain the trento_povo block")
+    if len(tokens)<3 or tokens[:2] != ['"'+map_name+'"', '{'] or tokens[-1] != '}':
+        raise VPKError("Overview must contain the "+map_name+" block")
     pairs = tokens[2:-1]
-    if len(pairs)%2 or any(not token.startswith('"') or not token.endswith('"') for token in pairs):
-        raise VPKError("Overview must contain flat quoted key/value pairs")
     result = {}
-    for key, value in zip(pairs[::2], pairs[1::2]):
-        key, value = key[1:-1].casefold(), value[1:-1]
-        if key in result:
-            raise VPKError(f"Duplicate overview field: {key}")
-        result[key] = value
+    cursor=0;seen=set()
+    def parse(prefix='',depth=0):
+        nonlocal cursor
+        if depth>3:raise VPKError('Overview nesting exceeds limit')
+        while cursor<len(pairs):
+            if pairs[cursor]=='}':
+                if not depth:raise VPKError('Unexpected closing overview block')
+                cursor+=1;return
+            key=pairs[cursor];cursor+=1
+            if not key.startswith('"') or not key.endswith('"') or cursor>=len(pairs):
+                raise VPKError('Overview must contain quoted key/value pairs')
+            key=prefix+key[1:-1].casefold()
+            if key in seen:raise VPKError(f'Duplicate overview field: {key}')
+            seen.add(key);value=pairs[cursor];cursor+=1
+            if value=='{':parse(key+'.',depth+1)
+            elif value.startswith('"') and value.endswith('"'):result[key]=value[1:-1]
+            else:raise VPKError('Overview values must be quoted')
+        if depth:raise VPKError('Unclosed overview section')
+    parse()
     for key in ("pos_x", "pos_y", "scale"):
         try:
             number = float(result[key])
@@ -55,8 +92,8 @@ def overview_values(raw):
     return result
 
 
-def compare_overviews(actual, expected):
-    observed, wanted = overview_values(actual), overview_values(expected)
+def compare_overviews(actual, expected, map_name='trento_povo'):
+    observed, wanted = overview_values(actual,map_name), overview_values(expected,map_name)
     mismatches = []
     for key, value in wanted.items():
         candidate = observed.get(key)
@@ -77,13 +114,15 @@ def compare_overviews(actual, expected):
     return mismatches
 
 
-def verify_package(path, expected_overview, *, full_crc=False):
+def verify_package(path, expected_overview, *, full_crc=False, map_name='trento_povo'):
     package = Package(path)
     expected = Path(expected_overview).read_bytes()
-    overview_values(expected)
+    values=overview_values(expected,map_name)
+    sections={k.split('.')[1] for k in values if k.startswith('verticalsections.')}
+    files,_aliases=radar_layout(map_name,sections=sections)
     checks = []
     errors = []
-    for name in RADAR_FILES:
+    for name in files:
         entry = package.entries.get(name.casefold())
         if entry is None:
             errors.append(f"Missing packaged asset: {name}")
@@ -96,7 +135,7 @@ def verify_package(path, expected_overview, *, full_crc=False):
             check = {"file":name,"status":"present_crc_ok","bytes":entry.size}
             if name.endswith(".txt"):
                 content = package.read(entry)
-                mismatches = compare_overviews(content, expected)
+                mismatches = compare_overviews(content, expected,map_name)
                 check["matches_generated_overview"] = not mismatches
                 if mismatches:
                     raise VPKError("Packaged overview differs from generated fields: "+", ".join(mismatches))
@@ -131,11 +170,12 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("package",type=Path,help="Map VPK or *_dir.vpk (numbered chunks must be beside it)")
     parser.add_argument("--overview",type=Path,default=ROOT/"exports/povo_radar/trento_povo.txt")
+    parser.add_argument("--map",dest='map_name',default='trento_povo')
     parser.add_argument("--full-crc",action="store_true",help="Verify every entry CRC, not just radar assets")
     parser.add_argument("--report",type=Path,help="Save a JSON report")
     args = parser.parse_args(argv)
     try:
-        report = verify_package(args.package,args.overview,full_crc=args.full_crc)
+        report = verify_package(args.package,args.overview,full_crc=args.full_crc,map_name=args.map_name)
         if args.report:
             if args.report.resolve() in {args.package.resolve(),args.overview.resolve()} or args.report.suffix.lower() != ".json":
                 raise VPKError("Report must be a separate .json file")

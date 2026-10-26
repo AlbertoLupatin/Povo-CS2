@@ -1,0 +1,195 @@
+{
+  "method": "Native CS2 screenshot command; format conversion only",
+  "images": [
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b111_fixed_0000.tga",
+      "source_sha256": "665f70702338c86e56921099a78ce237f9c2261dd0f4a17fa6899feb1d587cce",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b111_fixed_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b111_sign_0000.tga",
+      "source_sha256": "5f76890ffe47c28f338bfa7f92208dc2e5c17ecedd2bf9575c2a6467282149b0",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b111_sign_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b111_sign_0001.tga",
+      "source_sha256": "4af7c31e6d8e91c7716b830dcab47b9e58ab0fba957623578c74b66f16ec4203",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b111_sign_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b112_fixed_0000.tga",
+      "source_sha256": "3d7e2560680a968891059f21ca4288d7a90a987a124de3b3e07e464186809c88",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b112_fixed_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b112_sign_0000.tga",
+      "source_sha256": "a89faac155b13d467203624945cb9a96f23a50d44ccd21304cccf7e218424542",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b112_sign_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b112_sign_0001.tga",
+      "source_sha256": "eb946863e3532c53b56789ab37a9f9edeb12195cb0a96c66eca4ae771db5ea00",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b112_sign_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b113_fixed_0000.tga",
+      "source_sha256": "587e7f362ad305e7087860fb7ec7cc0ce65da0d0779121c6c5e08972e886dd24",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b113_fixed_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b113_sign_0000.tga",
+      "source_sha256": "fe7762b2d1d6555de9fc30cbf0112c5749a3f813ce9288efcb3592656f98fa5c",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b113_sign_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b113_sign_0001.tga",
+      "source_sha256": "0caebb6197f103df661656b746f80cb0a2719b726d0a1a70927b3a282e0065c8",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b113_sign_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b114_fixed_0000.tga",
+      "source_sha256": "b7ea2fb04f4578bec6a6971bf67695454e9bd707a3920d4ba67823f63031e7a7",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b114_fixed_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b114_sign_0000.tga",
+      "source_sha256": "e3874ffb94bc469c0e513aa913fc146464c407fa337a3dd4b4f1efca3dcdf25b",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b114_sign_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_b114_sign_0001.tga",
+      "source_sha256": "f950409e098032ebd6b6fd0caf780f8a95fd11b1db19b43019a55962c383866f",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_b114_sign_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_north_centre_female_inside_0000.tga",
+      "source_sha256": "1a0c21a49a8f8219101030d506ede190cb412bc6767e0e0ceb20849a3279c44c",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_north_centre_female_inside_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_north_centre_female_inside_0001.tga",
+      "source_sha256": "b2623fec7f9df1f0663858c326d51cd554e746a67ec19297d2de576807b2d008",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_north_centre_female_inside_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_north_centre_female_sign_0000.tga",
+      "source_sha256": "43ae9453e4de26aa2cbe0ff83b9aa67d1db3378a3e22446a07c349d96995b906",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_north_centre_female_sign_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_north_centre_female_sign_0001.tga",
+      "source_sha256": "1765dcb9320b91ea9ae2ab1e480dd38df362fabd032df6e639e8edb3beada0b4",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_north_centre_female_sign_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_north_centre_male_inside_0000.tga",
+      "source_sha256": "35018b582d56129371b806c32a15711a45ec11d43088fdb314dda9060187bd3d",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_north_centre_male_inside_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_north_centre_male_inside_0001.tga",
+      "source_sha256": "b42dcd75b1a3455fe2f829f60b0a54420a8803c12b656224566a3ca51091fa2b",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_north_centre_male_inside_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_north_centre_male_sign_0000.tga",
+      "source_sha256": "5b6869123e1090d768bdec32b554d038997dc26f288b8f3b1affab1aadab22ac",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_north_centre_male_sign_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_north_centre_male_sign_0001.tga",
+      "source_sha256": "6dce67248a4400265c5eac1a7faf33974db8376f38a92df074bc38ec60abbeb9",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_north_centre_male_sign_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_south_centre_female_inside_0000.tga",
+      "source_sha256": "b473fd0c3f7a15646e60330f355414af6b27f03a563f7cf6e2e006789072cd46",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_south_centre_female_inside_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_south_centre_female_inside_0001.tga",
+      "source_sha256": "3bd0baa69f9b30dd027bf64547b00dc4c0a2acd1a257ea711b25916624f3591b",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_south_centre_female_inside_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_south_centre_female_sign_0000.tga",
+      "source_sha256": "fe6473fc9e52c13370dcf983f858700fd151e8d7aecc6e665fa28b0f63339535",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_south_centre_female_sign_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_south_centre_female_sign_0001.tga",
+      "source_sha256": "4d9cdc4bbef9593affe74b43c59c9ebdc32d7df3f91297f7918e0870656ab326",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_south_centre_female_sign_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_south_centre_male_inside_0000.tga",
+      "source_sha256": "3106894fc67ecf99cc29b6efc97d40549b89f02c59cafed1282375db4a728f9d",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_south_centre_male_inside_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_south_centre_male_inside_0001.tga",
+      "source_sha256": "3cf57235e8adf649ec133f41f88a522eb0d7090253be5cbf9e555aaf80f87123",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_south_centre_male_inside_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_south_centre_male_sign_0000.tga",
+      "source_sha256": "d57ebd2d1a1acbc3a1f2d2472633aca0404168374fe6f04f2b2168439b691d4b",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_south_centre_male_sign_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_f_south_centre_male_sign_0001.tga",
+      "source_sha256": "35349d22bd222963f83650ddb7b0107aad8e58cdf4defcb293d4e6b032482a27",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_f_south_centre_male_sign_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p1_corridor_0000.tga",
+      "source_sha256": "e6688a7f2101b316889ee6ec2f5efb58a445fbdc5cc206fece2a69decd652cbe",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p1_corridor_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p1_corridor_0001.tga",
+      "source_sha256": "59543f7c599460dfad0367543a334c8cbff34f67edca20b4881d2bcafd2a2e8f",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p1_corridor_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p1_reception_0000.tga",
+      "source_sha256": "32a0db68b8f9a69ef5158b7f4c869cf3c0d66933b266f52d71a9e59611754184",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p1_reception_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p1_reception_0001.tga",
+      "source_sha256": "b83295c60ea1207f1c16f82c54bc1ab77d7945e6e3e008d86ecb3362a0550d78",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p1_reception_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p2_board_0000.tga",
+      "source_sha256": "043b678d154ad535cd5deff404be8b8e4047fa31e9ff69ba7265a45c6c6d8586",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p2_board_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p2_board_0001.tga",
+      "source_sha256": "4b8cbafed5c0430f917d3074b7dca60295dbe54e5c35ab5975622b4dc1bfc5f2",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p2_board_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p2_end_0000.tga",
+      "source_sha256": "e9792088a0030719d086626758e8eef8cbacc13369947e59f550181c9d956f23",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p2_end_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p2_end_0001.tga",
+      "source_sha256": "230c2e38e639b85eb7e892b3efb0dd8782458c419ef5e66c9da16adaa123b396",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p2_end_0001.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p2_tables_0000.tga",
+      "source_sha256": "4e47b2cbf086df9e654c75ae05c0a7377a0bb4f28440f96359bf78db0fb3e57b",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p2_tables_0000.png"
+    },
+    {
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\screenshots\\map_adjustments_p2_tables_0001.tga",
+      "source_sha256": "9328a5f90c27184c15a96de7cfa77fea4a3f1bde7e52a10184c503324a8e7065",
+      "png": "exports\\povo_campus\\runtime\\map_adjustments_p2_tables_0001.png"
+    }
+  ]
+}

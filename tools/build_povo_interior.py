@@ -219,7 +219,7 @@ def build_boxes(config, alignment, origin):
             sides={'u_min':((a,b),(a,d)),'u_max':((c,b),(c,d)),
                    'v_min':((a,b),(c,b)),'v_max':((a,d),(c,d))}
             for side,(start,end) in sides.items():
-                add_wall(f"room_{room['id']}_{side}",start,end,[room['door_fraction']] if side==room['door_side'] else [],room['door_width_metres'])
+                add_wall(f"room_{room['id']}_{side}",start,end,[room['door_fraction']] if side==room['door_side'] and room.get('playable', True) else [],room['door_width_metres'])
             rect=local_rectangle(room['bounds'],bounds,origin)
             room_records.append(dict(room,footprint_local_metres=rect,
                 approximate_dimensions_metres=[rect[2]-rect[0],rect[3]-rect[1]],

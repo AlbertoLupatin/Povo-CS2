@@ -1,0 +1,150 @@
+{
+  "format_version": 1,
+  "title": "Povo campus reconstruction route",
+  "status": "Design after user acceptance of outdoor gameplay; not new playable geometry",
+  "baseline": {
+    "map": "trento_povo",
+    "user_playtest_date": "2026-10-23",
+    "user_feedback": "All good",
+    "scope": "User accepted the requested outdoor buy, movement, radar, objective and round checks; no independent-client test was reported."
+  },
+  "references": [
+    "config/povo_circulation.json",
+    "config/povo1_plan_alignment.json",
+    "config/povo1_interior_study.json",
+    "data/reference/povo_photos/manifest.json"
+  ],
+  "first_reconstruction": {
+    "building": "povo1",
+    "levels": [
+      0,
+      1
+    ],
+    "entry": "academic_ground entrance_lobby",
+    "vertical_connection": "stair_southeast, floor 0 to floor 1",
+    "first_room": "a215",
+    "next_rooms": [
+      "a223",
+      "a224"
+    ],
+    "circulation": [
+      "east_corridor",
+      "north_corridor",
+      "west_corridor",
+      "south_corridor"
+    ],
+    "finish_priority": [
+      "red stair treads and dark nosings",
+      "white corridor walls and glazed courtyard",
+      "classroom wood floor, continuous desk rows and rear glazing",
+      "entrance and room signage"
+    ],
+    "gate": "Walk from the real entrance through the southeast stair to A215, traverse the floor-1 corridor loop, and return without noclip or teleportation.",
+    "constraints": [
+      "Replace overlapping Povo 1 solid massing with a hollow shell before integration.",
+      "Match exterior windows to actual interior openings; do not stack opaque facade glazing across playable windows.",
+      "Do not imply courtyard access or a window jump where no opening has been established.",
+      "A223 uses a chosen reference-style fit-out; it is not a confirmed identity for photograph P022."
+    ]
+  },
+  "confirmed_campus_loop": [
+    {
+      "from": "povo2_0",
+      "to": "povo2_1",
+      "via": "povo2_stairs_0_1",
+      "geometry": "unbuilt; core location unregistered"
+    },
+    {
+      "from": "povo2_1",
+      "to": "povo1_2",
+      "via": "bridge_povo2_to_povo1",
+      "geometry": "scenery only; landing/collision unbuilt"
+    },
+    {
+      "from": "povo1_2",
+      "to": "povo1_1",
+      "via": "povo1_northeast_stairs",
+      "geometry": "unbuilt"
+    },
+    {
+      "from": "povo1_1",
+      "to": "povo1_1",
+      "via": "a215 and the east corridor",
+      "geometry": "offline study only"
+    },
+    {
+      "from": "povo1_1",
+      "to": "povo1_0",
+      "via": "povo1_southeast_stairs",
+      "geometry": "unbuilt"
+    },
+    {
+      "from": "povo1_0",
+      "to": "povo2_0",
+      "via": "Povo 1 entrance, external stairs, outdoor link, Povo 2 entrance",
+      "geometry": "reference terrain and solid massing only"
+    }
+  ],
+  "vertical_model": {
+    "confirmed_equality": [
+      "povo2_1",
+      "povo1_2"
+    ],
+    "current_estimates_metres": {
+      "povo1_0": 374.0,
+      "povo1_1": 377.6,
+      "povo1_2": 382.49,
+      "povo2_1": 382.49
+    },
+    "unresolved": [
+      "povo2_0 elevation",
+      "povo2_-1 elevation",
+      "metric floor rises and complete step counts",
+      "bridge landing alignment"
+    ],
+    "policy": "Keep prototype heights adjustable and labelled estimated. Do not treat phone GPS as an indoor survey, move the bridge to floor 1, or equate the two ground floors."
+  },
+  "gameplay": {
+    "first_step": "Architectural traversal; retain the accepted outdoor arena as a working baseline.",
+    "mode": "Wingman remains the initial mode; no new bombsite or spawn layout is accepted by this design.",
+    "candidate_encounters": [
+      "entrance approach and lobby",
+      "corridor intersections and red-stair landings",
+      "courtyard-facing classroom sightlines",
+      "bridge crossing and outdoor alternative"
+    ],
+    "before_objective_placement": [
+      "working vertical route",
+      "at least two approaches to the intended objective area",
+      "measured rotation/travel times",
+      "controlled sightlines across floors",
+      "readable floor-aware radar"
+    ],
+    "excluded_initially": [
+      "all-room access",
+      "unobserved Povo 1 floor-2 room inventory",
+      "unregistered Povo 2 basement layout",
+      "Mesiano and central Trento"
+    ]
+  },
+  "approved_game_adaptation": {
+    "status": "implemented first bridge and floor-1 arrival corridor",
+    "povo1_storeys": 2,
+    "bridge_corridor_origin": "current first-floor A202/A203 area",
+    "relocate_rooms": [
+      "A202",
+      "A203"
+    ],
+    "relocate_to": "empty ground-floor corner of the corresponding size",
+    "note": "A202/A203 relocated to the empty ground corner. User-authorized two-floor game adaptation; remaining Povo 2 interiors follow later.",
+    "decision_date": "2026-10-23"
+  },
+  "current_implementation": {
+    "map": "trento_povo_campus",
+    "config": "config/povo2_connection.json",
+    "connection": "Povo 1 floor 1 to Povo 2 floor 1, via 30 m level bridge",
+    "povo1_rooms": 57,
+    "initial_povo2_rooms": 4,
+    "note": "Photo-confirmed route below remains historical reference. Current game adaptation intentionally uses two Povo 1 floors."
+  }
+}

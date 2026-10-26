@@ -109,6 +109,9 @@ PLAYTEST_BUYZONE_ORIGINS = {
     "2": "-2175.197 2568.898 384.756",  # Terrorist
     "0": PLAYTEST_OBJECTIVE_ORIGIN,  # Template 2v2 zone; harmless when disabled.
 }
+# Trigger geometry must cover every relocated start and the uneven ground.
+PLAYTEST_BUYZONE_HALF_EXTENTS = (256.0, 420.0, 180.0)
+PLAYTEST_BOMBSITE_HALF_EXTENTS = (196.0, 300.0, 140.0)
 PLAYTEST_NAV_ORIGIN = "-9.843 2608.268 342.772"
 PLAYTEST_CENTER = "0 2608.268 600"
 PLAYTEST_SKYBOX_ORIGIN = "0 0 400"
@@ -699,6 +702,7 @@ def _insert_point_entity(
     classname: str,
     origin: str,
     properties: tuple[tuple[str, str], ...] = (),
+    *, angles: str = "0 0 0",
 ) -> str:
     """Insert one deterministic point entity unless its stable ID already exists."""
     entity_id = uuid.uuid5(uuid.NAMESPACE_URL, f"trento-povo:{token}")
@@ -738,7 +742,7 @@ def _insert_point_entity(
 \t\t\t\t"hitNormal" "vector3" "0 0 1"
 \t\t\t\t"isProceduralEntity" "bool" "0"
 \t\t\t\t"origin" "vector3" "{origin}"
-\t\t\t\t"angles" "qangle" "0 0 0"
+\t\t\t\t"angles" "qangle" "{angles}"
 \t\t\t\t"scales" "vector3" "1 1 1"
 \t\t\t\t"transformLocked" "bool" "0"
 \t\t\t\t"force_hidden" "bool" "0"
@@ -815,6 +819,36 @@ def insert_gameplay_support_entities(text: str) -> str:
     return text
 
 
+def resize_trigger_mesh(block: str, half_extents: tuple[float, float, float]) -> str:
+    """Fit an existing box trigger to local bounds, preserving vertex topology."""
+    pattern = re.compile(
+        r'("name"\s+"string"\s+"position:0".*?'
+        r'"data"\s+"vector3_array"\s*\[)(.*?)(\])', re.DOTALL
+    )
+    match = pattern.search(block)
+    if not match:
+        raise ProjectError('Trigger has no mesh position stream')
+    points = [tuple(map(float, p.split()))
+              for p in re.findall(r'"([^"]+)"', match[2])]
+    if len(points) != 8 or any(len(p) != 3 for p in points):
+        raise ProjectError('Expected an eight-vertex box trigger')
+    low = [min(p[i] for p in points) for i in range(3)]
+    high = [max(p[i] for p in points) for i in range(3)]
+    center = [(a + b) / 2 for a, b in zip(low, high)]
+    if any(b - a < 0.01 for a, b in zip(low, high)):
+        raise ProjectError('Trigger box is degenerate')
+    targets = [tuple(half_extents[i] if p[i] > center[i] else -half_extents[i]
+                     for i in range(3)) for p in points]
+    if all(all(abs(a - b) < 0.001 for a, b in zip(p, t))
+           for p, t in zip(points, targets)):
+        return block
+    target_iter = iter(targets)
+    def replace_point(_match):
+        return '"' + ' '.join(f'{v:g}' for v in next(target_iter)) + '"'
+    positions = re.sub(r'"([^"]+)"', replace_point, match[2])
+    return block[:match.start(2)] + positions + block[match.end(2):]
+
+
 def relocate_playtest_entities(text: str) -> str:
     """Move Wingman spawns, cameras, and volumes into the compact Povo arena."""
     entity_pattern = re.compile(r'(?m)^[ \t]*"CMapEntity"[ \t]*$')
@@ -853,6 +887,7 @@ def relocate_playtest_entities(text: str) -> str:
             spawn_indices[classname] += 1
         elif classname == "func_bomb_target":
             updated = _replace_entity_transform(block, PLAYTEST_OBJECTIVE_ORIGIN)
+            updated = resize_trigger_mesh(updated, PLAYTEST_BOMBSITE_HALF_EXTENTS)
             objective_count += 1
         elif classname == "func_buyzone":
             team_match = team_pattern.search(block)
@@ -861,6 +896,8 @@ def relocate_playtest_entities(text: str) -> str:
                 updated = _replace_entity_transform(
                     block, PLAYTEST_BUYZONE_ORIGINS[team]
                 )
+                if team in ('2', '3'):
+                    updated = resize_trigger_mesh(updated, PLAYTEST_BUYZONE_HALF_EXTENTS)
                 buyzone_teams.add(team)
         elif classname == "counterterrorist_wingman_intro":
             updated = _replace_entity_transform(
