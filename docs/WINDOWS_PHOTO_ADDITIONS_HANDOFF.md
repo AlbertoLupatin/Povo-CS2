@@ -7,6 +7,15 @@ are retained. No Windows compile or engine playtest was possible in the cloud.
 
 ## Resume
 
+Windows update, 26 October: `0015b88` is merged with the preserved Windows
+seasonal/geometry work on `codex/photo-additions-windows`. All 176 source tests
+and source audits pass. The standard map compiles with zero failures; its
+60,083,066-byte package passes all 790 entry CRCs. The merged binary source has
+349 breakables, 54 sliding parts, 28 rotating doors and nine sensors. Winter
+compilation is running. New engine checks are pending because the open CS2
+instance contains the unsaved multiplayer Workshop draft. See the current
+[Windows worklog entry](WORKLOG.md) before the original cloud instructions below.
+
 From the existing Windows checkout, preserve local work and pull `main` using
 `git pull --ff-only`. Use its existing Windows Python environment; do not copy
 or try to activate the cloud Linux `.venv`. Python dependencies used here:

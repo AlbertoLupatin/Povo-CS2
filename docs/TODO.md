@@ -5,12 +5,15 @@ Open actions, most urgent first. Tick them off here and record evidence in
 
 ## Windows: verify the breakable glass, automatic doors and stairs
 
-All three are source-only: tested on Linux, never compiled or played.
+The standard map was compiled on Windows on 26 October 2026 and its 790-entry
+package passes full CRC verification. All 176 source tests pass. The new engine
+checks below remain pending; see [WORKLOG.md](WORKLOG.md).
 
-- [ ] Pull `main`, then build: `python tools/cs2_campus.py`. Expect zero compile
+- [x] Pull `main`, then build: `python tools/cs2_campus.py`. Expect zero compile
       failures, then a package that passes `python tools/verify_cs2_package.py`.
-- [ ] Hammer opens `trento_povo_campus.vmap` without errors and shows 316
-      `func_breakable`, 54 `func_door` and 9 `trigger_multiple` entities.
+- [ ] Hammer opens `trento_povo_campus.vmap` without errors and shows 349
+      `func_breakable`, 54 `func_door` and 9 `trigger_multiple` entities. The
+      merged Windows source has 349 breakables instead of the cloud-only 316.
 - [ ] Glass: shoot one pane of each kind (room window, courtyard, stair, bridge,
       Povo 2 entrance sidelight, canopy, library/canteen wing). Each breaks with
       one bullet and plays glass gibs and sound.
@@ -37,7 +40,7 @@ All three are source-only: tested on Linux, never compiled or played.
 - [ ] Stairs: railings show as continuous sloped handrails with bars (no
       floating rectangles) and stop you falling into the well.
 - [ ] Performance: frame rate with about 320 extra entities stays acceptable.
-- [ ] Update the README build figures (package size, test count) after a good build.
+- [x] Update the README build figures (package size, test count) after a good build.
 
 ## Release gates still open
 
