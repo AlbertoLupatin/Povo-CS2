@@ -1320,3 +1320,38 @@ layout checks for the two basement turns, straight classroom corridor, stair
 entry beside reception, canteen left/right/ahead arrangement, and the aula on
 the lobby short edge. Geometry and radar were regenerated. Windows checks
 remain unrun.
+
+## 26 October 2026 — Windows merge and source validation
+
+Fetched `origin/main` at `0015b88` and preserved the existing Windows work in
+commit `f43a8a2` on `codex/windows-before-photo-additions-20261026`. Merge commit
+`cd9336b` combines the photo additions with the geometry corrections, seasonal
+maps, ambience, physical surfaces and native fire/classroom doors. The active
+branch is `codex/photo-additions-windows`. `Gameplay.mp4` remains untouched and
+untracked. Nothing has been pushed or published.
+
+The merge retains the straight covered Povo 1 approach and raises its twenty
+0.18 m risers to the new 7.6 m street/wing floor. Automatic entrance banks
+replace the older interactive entrance leaves, avoiding two overlapping door
+systems. The sunken yard replaces part of the old direct terrace route; the
+exterior audit follows the remaining outer pavement, while the yard audit checks
+the new exit/stair connection. A yard station was moved beside the lawn rather
+than onto its raised edge; standing-clearance exemptions were not relaxed.
+
+All 176 source tests pass. Campus clearance passes 64 / 122 / 4 stations; Povo 2
+passes 8 / 18 / 49 stations and 72 stair samples; wings pass 15 / 11 / 12 / 10
+stations and their stair checks; the yard passes 22 stair/landing samples.
+The exterior audit passes 1,215 route samples. The regenerated binary VMAP,
+decoded independently with dmxconvert, contains 349 breakable panes, 54 sliding
+parts, 28 rotating doors, nine entrance sensors and 159 navigation markers.
+
+Installed addon source/game trees and existing packages were copied to
+`build/photo-additions-backup-20261026-183237/` before deployment. Native model
+compilation succeeds with zero failures; the shared model takes 12m21s and
+reports the existing OBJ duplicate-bone warning. Compiled PHYS inspection confirms
+all seven shared contact surfaces and both winter contact surfaces. Evidence:
+`build/gameplay/photo-additions/shared-surfaces.json` and `winter-surfaces.json`.
+Full compilation is recorded in `build/photo-additions-compile.log`.
+
+Map lighting, packaging and engine validation are in progress. Source checks
+and successful model compilation do not establish those later gates.

@@ -34,12 +34,15 @@ The compiled VPK is not committed (`build/` is git-ignored); build it from sourc
 
 ```sh
 python tools/cs2_project.py doctor            # check the toolchain
-python tools/cs2_campus.py                    # generate the campus map source
 python -m unittest discover -s tests -q       # run the tests
-python tools/cs2_project.py deploy            # Windows: install into the CS2 addon tree
-python tools/cs2_project.py compile --target all
-python tools/cs2_project.py sync-from-cs2     # after Hammer sessions; review the diff
+python tools/cs2_campus.py                    # Windows: generate, deploy, compile and package the campus
+python tools/cs2_project.py sync-from-cs2 --dry-run  # review installed edits after Hammer sessions
 ```
+
+Use `python tools/build_povo_campus.py` for source geometry generation without
+Windows Workshop Tools. `python tools/cs2_campus.py --season both` builds the
+standard and winter variants. The `cs2_project.py compile --target all` command
+builds the earlier outdoor arena; use the campus pipeline above for this map.
 
 Set `CS2_ROOT` (or pass `--cs2-root`) if Steam is not in a default library.
 To explore solo on Windows with CS2 closed, run `play_campus.cmd` (`-Fly` for noclip,
@@ -66,6 +69,9 @@ Area write-ups: [architecture](docs/POVO_ARCHITECTURE.md),
 [radar](docs/POVO_RADAR.md), [terrain tool](docs/TERRAIN_TOOL.md).
 Open work is tracked in [TODO.md](docs/TODO.md).
 [Publishing and hosting](docs/PUBLISH_AND_HOST.md) explains Workshop upload and playing with friends.
+For two players through Steam, `host_campus.cmd` installs the match profile and
+opens normal CS2; after loading the published Workshop map with Open Party,
+enter `exec povo_duel` in the developer console.
 [WINDOWS_RESUME.md](docs/WINDOWS_RESUME.md) is the detailed maintainer handoff log.
 
 ## Data policy and licensing

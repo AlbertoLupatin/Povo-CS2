@@ -225,8 +225,6 @@ def map_text(source,metadata,season='standard'):
             replacements.append((match.start(),b+1,updated))
     for a,b,s in reversed(replacements):source=source[:a]+s+source[b:]
     if metadata.get('exterior'):source=skip_nav_analysis(source)
-    source=add_breakable_glass(source,metadata.get('breakable_glass',[]))
-    source=add_auto_doors(source,metadata.get('auto_doors',[]))
     source=project._insert_point_entity(source,'campus-upper-nav','point_nav_walkable',world((0,-35.2,7.75)))
     for core in metadata['stair']['cores']:
         source=project._insert_point_entity(source,'campus-stair-'+core['id']+'-nav','point_nav_walkable',world(core['mid']))
@@ -309,7 +307,8 @@ def map_text(source,metadata,season='standard'):
         lights.extend((x,y,6.8) for x in (37,42,47) for y in (30.5,36.5))
         lights.extend(((26,-73.73,7),(32,-73.73,8),(40,-73.73,8.8),(49,-73.73,8.8)))
         lights.extend((x,y,-.25) for x in (-23,2,18) for y in (40,60,80,100))
-        for i,p in enumerate(((27,-79,4.1),(32,-71,5.95),(54,-50,5.95),(57.5,-5,5.95),
+        upper=metadata['exterior']['povo1_approach']['upper_z']
+        for i,p in enumerate(((26.5,-73.73,4.15),(38,-73.73,upper+.15),(54,-50,upper+.15),(57.5,-5,upper+.15),
                               (54,31.35,4.15),(42,31.35,4.15),(-29,0,1.85),(-29,30,-3.05),
                               (-29,60,-3.05),(-5,36,-3.05),(-38,65,3.15),(-48,-65,3.15))):
             source=project._insert_point_entity(source,f'exterior-nav-{i}','point_nav_walkable',world(p))
@@ -334,6 +333,10 @@ def map_text(source,metadata,season='standard'):
         from povo_interactions import insert_entities
         from povo_atmosphere import tune_map, insert_soundscapes, insert_winter
     source=insert_entities(source,metadata['interactions'])
+    # Add brush banks/panes after the point entities to avoid repeatedly
+    # scanning hundreds of mesh blocks during each light/sign insertion.
+    source=add_breakable_glass(source,metadata.get('breakable_glass',[]))
+    source=add_auto_doors(source,metadata.get('auto_doors',[]))
     source=tune_map(source,season)
     source=insert_soundscapes(source,metadata,season)
     if season=='winter':source=insert_winter(source)

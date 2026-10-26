@@ -65,13 +65,15 @@ def playtest(*,season='standard',port=27400,output=None):
         if not campus_loaded(status,map_name) or not re.search(r'players\s*:\s*1 humans, 0 bots\b',status):
             raise RuntimeError('Matching solo exploration required; no player changes were made')
         changed=True
-        spec=json.loads((ROOT/'exports/povo_campus/provenance.json').read_text())['interactions']
+        metadata=json.loads((ROOT/'exports/povo_campus/provenance.json').read_text())
+        spec=metadata['interactions']
+        expected_doors=len(spec['doors'])+sum(len(d['parts']) for d in metadata.get('auto_doors',[]))
         found=cmd('ent_find func_door')
         count=len(re.findall(r"'func_door(?:_rotating)?' :",found))
-        check('all_native_doors_spawned',count==len(spec['doors']),expected=len(spec['doors']),actual=count)
+        check('all_native_doors_spawned',count==expected_doors,expected=expected_doors,actual=count)
         cross('p1_fire_pair',['p1_se_floor0_south','p1_se_floor0_north'],(14.3,-85.1,4.1),90,0,15.81,1)
-        cross('p2_sliding_pair',['p2_entry_outer_0_-1','p2_entry_outer_0_1'],(51,31.35,4.1),-90,0,49.4,-1)
-        cross('p1_entrance_pair',['p1_main_south','p1_main_north'],(22.5,-73.7294686,4.1),90,0,24,1)
+        cross('p2_sliding_pair',['trento_door_p2_entry_outer_bank_0'],(51,31.35,4.1),-90,0,49.4,-1)
+        cross('p1_entrance_pair',['trento_door_p1_entry_bank_0'],(22.5,-73.7294686,4.1),90,0,24,1)
         classroom=next(d for d in spec['doors'] if d['id']=='classroom_a224')
         lo,hi=classroom['bounds'];e=(lo[0]+hi[0])/2;n=(lo[1]+hi[1])/2
         cross('classroom_a224',['classroom_a224'],(e+1.5,n,7.7),-90,0,e,-1)
@@ -86,7 +88,7 @@ def playtest(*,season='standard',port=27400,output=None):
         for pane in spec['glass']:
             result=cmd('ent_find '+pane['id'])
             check(pane['id']+'_restored_next_round',"'func_breakable'" in result)
-        check('doors_restored_next_round',len(re.findall(r"'func_door(?:_rotating)?' :",cmd('ent_find func_door')))==len(spec['doors']))
+        check('doors_restored_next_round',len(re.findall(r"'func_door(?:_rotating)?' :",cmd('ent_find func_door')))==expected_doors)
         for name,point,event in [('garage',(-20,60,-3.1),'Povo.Garage'),
                                   ('classroom',(-18,-47,7.7),'Povo.Room'),
                                   ('street',(62,-70,5.9),'Povo.Winter' if season=='winter' else 'Povo.Outside')]:

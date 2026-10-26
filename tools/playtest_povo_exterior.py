@@ -53,18 +53,20 @@ def playtest(*, routes=None, output=None, package=None, port=27400,map_name='tre
             stalled=stalled+1 if abs(old_distance-distance)<.035 else 0;old_distance=distance
             if stalled>=6:break
         raise RuntimeError('Normal walking stalled near '+str(position())+' towards '+str(target))
-    if routes is None:routes=[
+    if routes is None:
+        upper=json.loads((ROOT/'config/povo_exterior.json').read_text())['east_approach']['upper_z']
+        routes=[
         ('p2_south_door_bank',(54,31.35,4.1),[(49,31.35,4),(34,31.35,4),(31.5,31.35,4)]),
         ('p2_north_door_bank',(54,35.65,4.1),[(49,35.65,4),(34,35.65,4),(31.5,35.65,4)]),
         ('straight_ramp_down',(-29,-3.5,3.1),[(-29,0,2.52),(-29,20,-1.3),(-29,33,-3.2)]),
         ('straight_ramp_up',(-29,33,-3.1),[(-29,20,-1.3),(-29,0,2.52),(-29,-3.5,3)]),
         ('garage_into_original_parking',(-29,36,-3.1),[(-5,36,-3.2),(18,36,-3.2),(18,27,-3.2),(17.8,22,-3.2)]),
-        ('povo1_external_stairs',(22,-73.73,4.1),[(26.5,-73.73,4),(36.5,-73.73,5.8),(54,-73.73,5.8)]),
-        ('povo1_external_stairs_return',(54,-73.73,5.9),[(36.5,-73.73,5.8),(26.5,-73.73,4),(22,-73.73,4)]),
-        ('povo2_left_terrace',(54,31.35,4.1),[(54,24,4),(46,24,4),(37,24,4)]),
+        ('povo1_external_stairs',(22,-73.73,4.1),[(26.5,-73.73,4),(36.5,-73.73,upper),(54,-73.73,upper)]),
+        ('povo1_external_stairs_return',(54,-73.73,upper+.1),[(36.5,-73.73,upper),(26.5,-73.73,4),(22,-73.73,4)]),
+        ('povo2_yard_outer_pavement',(57.5,31.35,4.22),[(57.5,25.5,4.12),(57.5,15,4.12)]),
         ('basement_right_turn',(18.25,22,.5),[(18.25,-5,.4),(7,-5,.4)]),
-        ('front_walk_to_povo2',(57.5,-71,6.02),[(57.5,0,5.92),(57.5,15,4.12),(57.5,31.35,4.12),(54,31.35,4)]),
-        ('bridge_road_to_ramp',(50,-5,5.9),[(32,-5,4),(22,-5,4),(-23,-5,3),(-29,-8,3),(-29,-2.5,3)]),
+        ('front_walk_to_povo2',(57.5,-71,upper+.22),[(57.5,0,upper+.12),(57.5,15,4.12),(57.5,31.35,4.12),(54,31.35,4)]),
+        ('bridge_road_to_ramp',(50,-5,upper+.1),[(32,-5,4),(22,-5,4),(-23,-5,3),(-29,-8,3),(-29,-2.5,3)]),
         ('north_road',(-29,-8,3.1),[(-38,-8,3),(-38,6,3),(-38,112,3),(-25,118,3)]),
         ('surface_parking',(-48,-44,3.1),[(-48,-90,3)])
     ]
