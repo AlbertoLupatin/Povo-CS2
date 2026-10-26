@@ -36,7 +36,7 @@ if (!$Match) {
 }
 Start-Process -FilePath $executable -WorkingDirectory (Split-Path -Parent $executable) -ArgumentList $launchArguments
 if (!$Match) {
-    $exploreArguments = @((Join-Path $PSScriptRoot 'cs2_explore.py'), '--map', $mapName, '--log', (Join-Path $projectRoot 'build\gameplay\campus-explore.log'))
+    $exploreArguments = @((Join-Path $PSScriptRoot 'cs2_explore.py'), '--map', $mapName, '--timeout', '180', '--log', (Join-Path $projectRoot 'build\gameplay\campus-explore.log'))
     if ($Fly) { $exploreArguments += '--fly' }
     & python @exploreArguments
     if ($LASTEXITCODE -ne 0) { throw 'Automatic exploration setup failed. See build/gameplay/campus-explore.log.' }
