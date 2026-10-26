@@ -615,8 +615,8 @@
       25,
       26
     ],
-    "walkable_cells": 123016,
-    "reachable_cells": 119800,
+    "walkable_cells": 122472,
+    "reachable_cells": 119256,
     "stations": [
       {
         "id": "entry",
@@ -1674,7 +1674,7 @@
       {
         "id": "east_alcove",
         "point_local_metres": [
-          22,
+          23.5,
           12.8
         ],
         "has_clearance": true,
@@ -1702,7 +1702,7 @@
         "id": "p2_lift_ledge",
         "point_local_metres": [
           21.25,
-          18.8
+          12.850000000000001
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -1736,8 +1736,8 @@
       20,
       26
     ],
-    "walkable_cells": 5895,
-    "reachable_cells": 1206,
+    "walkable_cells": 6654,
+    "reachable_cells": 3594,
     "stations": [
       {
         "id": "stair_bottom",

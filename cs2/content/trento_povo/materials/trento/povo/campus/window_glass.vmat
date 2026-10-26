@@ -1,10 +1,13 @@
 Layer0
 {
-    shader "csgo_complex.vfx"
-    TextureColor "materials/trento/povo/campus/window_glass.png"
-    TextureNormal "materials/trento/povo/campus/neutral_normal.png"
-    TextureRoughness "materials/trento/povo/campus/window_glass_rough.png"
+    shader "csgo_lightmappedgeneric.vfx"
+    F_TRANSLUCENT "1"
+    F_RENDER_BACKFACES "1"
+    g_flOpacityScale "0.32"
+    TextureLayer1Color "materials/trento/povo/campus/window_glass.png"
+    TextureLayer1Normal "materials/trento/povo/campus/neutral_normal.png"
+    TextureLayer1Roughness "materials/trento/povo/campus/window_glass_rough.png"
+    TextureLayer1Translucency "materials/trento/povo/campus/glass_mask.png"
     g_vColorTint "[1 1 1 0]"
-    g_flModelTintAmount "1"
-    SystemAttributes { PhysicsSurfaceProperties "concrete" }
+    SystemAttributes { PhysicsSurfaceProperties "glass" }
 }

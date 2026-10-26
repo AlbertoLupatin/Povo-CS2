@@ -69,7 +69,9 @@ def extend(boxes, levels, root, wall_height):
         name,lo,hi,mat=box
         if name.startswith(('academic_first_link_p2_stair_upper_step_',
                             'academic_first_link_p2_stair_lower_step_')):
-            boxes[i]=(name,(lo[0],lo[1],hi[2]-.16),hi,mat)
+            # Risers overlap the next tread by 4 cm, closing the visible gaps
+            # while leaving enough clearance for the stacked flight below.
+            boxes[i]=(name,(lo[0],lo[1],hi[2]-.22),hi,mat)
         if name.startswith('academic_first_link_p2_stair_') and not any(s in name for s in ('_wall_','_upper_door_','_lower_door_','_panic_','_frame_','_finish_sign')):
             prototype.append(boxes[i])
     paths=[];rails=[]
@@ -168,7 +170,8 @@ def lift(boxes, spec, link):
                        ('roof',(x0,y0,top),(x1,y1,top+.1))):
         result.append(('p2_lift_'+name,lo,hi,'wall'))
     for hole in holes:
-        result=[p for b in result for p in (subtract_box(b,hole) if b[3]=='wall' else [b])]
+        result=[p for b in result for p in (subtract_box(b,hole)
+                if b[3] in ('wall','p2_accent_green','window_frame') else [b])]
     inner=(x0i,y0i,x1i,y1i);ledge=round(inner[1]+1.0,3)
     result+=[('p2_basement_lift_floor',(inner[0],inner[1],zb-.22),(inner[2],inner[3],zb),'floor_p2_tile'),
              ('p2_ground_lift_ledge',(inner[0],ledge,zg-.22),(inner[2],inner[3],zg),'floor_p2_tile'),
@@ -198,10 +201,14 @@ def lift(boxes, spec, link):
         result.append((f'p2_lift_ladder_finish_rung_{i}',(a,wall+.1,h),(b,wall+.14,h+.035),'metal_dark'))
     mid=(inner[1]+inner[3])/2
     # Keep the attached player's standing hull clear of both floor ledges.
-    spec['lift']=dict(shaft=lift['shaft'],ladder=[[a,wall,zb],[b,wall+.12,zu+.4]])
+    # Keep the chest attached above the upper floor while the feet clear its
+    # ledge; a ladder ending only 0.4 m above it traps the player below it.
+    spec['lift']=dict(shaft=lift['shaft'],ladder=[[a,wall,zb],[b,wall+.12,zu+1.65]])
     spec['lights'].extend([[cx,mid,z+2.6] for z in (zb,zg,zu)])
     for level in spec['levels']:
         if level['floor']==0:level['audit_stations'].append(dict(id='lift_ledge',point=[cx,(ledge+inner[3])/2]))
         if level['floor']==-1:level['audit_stations'].append(dict(id='lift_floor',point=[cx,(sa+sb)/2]))
     link['audit_stations'].append(dict(id='p2_lift_ledge',point=[cx,(ledge+inner[3])/2]))
+    for station in link['audit_stations']:
+        if station['id']=='east_alcove':station['point']=[23.5,12.8]
     return result

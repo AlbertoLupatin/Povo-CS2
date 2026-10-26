@@ -15,7 +15,7 @@ def audit():
     report,_,_=audit_level(physics,dict(id='p2_yard',floor_elevation_local=yard['z']),
                           yard['audit_stations'],width=.82,height=1.85)
     failures=[];samples=0
-    for name,axis in [('indoor_path',0),('outdoor_path',1),('top_path',0)]:
+    for name,axis in [('indoor_path',0),('outdoor_path',yard.get('stair_axis',1)),('top_path',0)]:
         for x,y,z in yard[name]:
             samples+=1;half=[.41,.41];half[axis]=.12
             support=any(m.startswith('floor_') or m=='exterior_paving'

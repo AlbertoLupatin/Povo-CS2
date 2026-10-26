@@ -10,7 +10,7 @@ COLORS = {
     'light': (245,237,190), 'canopy_glass': (135,171,180), 'context_concrete': (159,160,151)
 }
 # 20% transmission, 80% opacity, per pane. Frames and safety bands stay opaque.
-OPACITY = {'entry_glass': .8, 'canopy_glass': .35}
+OPACITY = {'glass': .32, 'entry_glass': .84, 'canopy_glass': .40}
 PREFIX = 'materials/trento/povo/campus/exterior/'
 
 
@@ -29,7 +29,7 @@ def write_materials(directory):
         transparent=name in OPACITY
         shader=('csgo_lightmappedgeneric.vfx' if transparent else
                 'csgo_unlitgeneric.vfx' if name=='context_concrete' else 'csgo_complex.vfx')
-        flags=('    F_TRANSLUCENT "1"\n    F_RENDER_BACKFACES "0"\n'
+        flags=('    F_TRANSLUCENT "1"\n    F_RENDER_BACKFACES "1"\n'
                f'    g_flOpacityScale "{OPACITY[name]}"\n') if transparent else ''
         layer='Layer1' if transparent else ''
         textures=(f'    Texture{layer}Color "{PREFIX}{name}.png"\n'

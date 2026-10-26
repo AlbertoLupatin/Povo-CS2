@@ -2,18 +2,77 @@
   "status": "Compact Povo 2 bridge arrival with enclosed stairs down",
   "floor_local_metres": 7.6,
   "compact_arrival": true,
-  "povo1_corridor": [16.5, -33.910099889, 20.0, -20.0],
-  "bridge": [16.5, -20.0, 20.0, 10.0],
-  "povo2_arrival": [7.0, 10.0, 25.0, 26.0],
-  "povo2_floor_parts": [[7,10,25,14],[7,14,16.5,26],[16.5,14,20,26]],
-  "povo2_corridor": [16.5, 14.0, 20.0, 26.0],
+  "povo1_corridor": [
+    16.5,
+    -33.910099889,
+    20.0,
+    -20.0
+  ],
+  "bridge": [
+    16.5,
+    -20.0,
+    20.0,
+    10.0
+  ],
+  "povo2_arrival": [
+    7.0,
+    10.0,
+    25.0,
+    26.0
+  ],
+  "povo2_floor_parts": [
+    [
+      7,
+      10,
+      25,
+      14
+    ],
+    [
+      7,
+      14,
+      16.5,
+      26
+    ],
+    [
+      16.5,
+      14,
+      20,
+      26
+    ]
+  ],
+  "povo2_corridor": [
+    16.5,
+    14.0,
+    20.0,
+    26.0
+  ],
   "lift": {
-    "shaft": [20.1, 17.2, 22.4, 19.4],
-    "ground_opening_east": [20.75, 21.95],
-    "side_opening_north": [18.3, 19.3],
-    "note": "User 2026-10-26: Povo 2 lifts sit beside the stair door (photos 12, 13). Ladder shaft like Povo 1's, from -1 to +1: opens north into the ground hall and west into the -1 corridor and the +1 bridge corridor."
+    "shaft": [
+      20.1,
+      11.2,
+      22.4,
+      13.5
+    ],
+    "ground_opening_east": [
+      20.75,
+      21.95
+    ],
+    "side_opening_north": [
+      12.35,
+      13.35
+    ],
+    "note": "Playtest approval: separate ladder shaft in the gap between stairs and transverse corridor, with a dedicated ground entrance. Existing floor elevations retained."
   },
-  "reference_photos": [61, 60, 59, 58, 57, 56, 63, 62],
+  "reference_photos": [
+    61,
+    60,
+    59,
+    58,
+    57,
+    56,
+    63,
+    62
+  ],
   "rooms": [],
   "assumptions": "User-authorized compact adaptation: retain the two bridge-exit alcoves, replace W1 with gray enclosed stairs down to a small closed lower landing, remove E1 and everything from W2/E2 onward. Bridge connects floor 1 in both buildings. Original survey/photo floor references are preserved separately."
 }

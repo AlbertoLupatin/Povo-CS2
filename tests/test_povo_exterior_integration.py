@@ -28,13 +28,15 @@ class ExteriorIntegrationTests(unittest.TestCase):
         self.assertGreater(len(fixtures(base)),50)
         self.assertEqual(fixtures(base),fixtures(combined))
 
-    def test_compiled_shader_source_uses_twenty_percent_transparency(self):
+    def test_compiled_glass_is_more_opaque_and_visible_from_both_sides(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);write_materials(root)
             text=(root/'entry_glass.vmat').read_text()
-            self.assertEqual(OPACITY['entry_glass'],.8)
+            self.assertEqual(OPACITY['entry_glass'],.84)
             self.assertIn('F_TRANSLUCENT "1"',text)
-            self.assertIn('g_flOpacityScale "0.8"',text)
+            self.assertIn('g_flOpacityScale "0.84"',text)
+            self.assertIn('F_RENDER_BACKFACES "1"',text)
+            self.assertIn('g_flOpacityScale "0.32"',(root/'glass.vmat').read_text())
             self.assertIn('TextureLayer1Color',text)
             self.assertIn('TextureLayer1Translucency',text)
             self.assertNotIn('F_TRANSLUCENT',(root/'fence.vmat').read_text())

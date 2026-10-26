@@ -87,7 +87,7 @@ def extend(boxes,levels,root):
         add(prefix+'_ceiling',(a,b,z+height-.08),(c,d,z+height),'ceiling_panel')
         # Split facade into short independent panes, with clear floor heights.
         for side,value,start,end in [('west',a,b,d),('east',c,b,d),('south',b,a,c),('north',d,a,c)]:
-            bays=math.ceil((end-start)/2.7)
+            bays=math.ceil((end-start)/1.35)
             for i in range(bays):
                 lo=start+(end-start)*i/bays;hi=start+(end-start)*(i+1)/bays
                 if side in ('west','east'):
@@ -96,6 +96,17 @@ def extend(boxes,levels,root):
                 else:
                     add(prefix+f'_{side}_glass_{i}',(lo+.04,value-.02,z+.1),(hi-.04,value+.02,z+height-.1),'window_glass')
                     add(prefix+f'_{side}_mullion_{i}',(lo-.025,value-.055,z),(lo+.025,value+.055,z+height),'window_frame')
+            # Match Povo 1's metal grid from both sides: close the final bay,
+            # and add the base, waist transom and head on every facade.
+            if side in ('west','east'):
+                add(prefix+f'_{side}_mullion_{bays}',(value-.055,end-.025,z),(value+.055,end+.025,z+height),'window_frame')
+            else:
+                add(prefix+f'_{side}_mullion_{bays}',(end-.025,value-.055,z),(end+.025,value+.055,z+height),'window_frame')
+            for j,h in enumerate((.1,1.9,height-.1)):
+                if side in ('west','east'):
+                    add(prefix+f'_{side}_transom_{j}',(value-.055,start,z+h-.025),(value+.055,end,z+h+.025),'window_frame')
+                else:
+                    add(prefix+f'_{side}_transom_{j}',(start,value-.055,z+h-.025),(end,value+.055,z+h+.025),'window_frame')
         for x in (a+4,c-3):
             for y in range(math.ceil(b+3),int(d-1),5):spec['lights'].append([x,y,z+2.8])
 

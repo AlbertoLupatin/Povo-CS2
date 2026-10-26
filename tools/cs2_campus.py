@@ -80,7 +80,8 @@ def add_breakable_glass(source,panes):
                   if classname=='func_buyzone' and '"CMapMesh"' in block)
     if TRIGGER_MATERIAL not in template:raise ValueError('Buy-zone mesh has no trigger material')
     ids=node_ids(source)
-    blocks=[box_entity(template,'glass-'+p['name'],'func_breakable',(p['lo'],p['hi']),ids,GLASS_PROPERTIES,p['material'])
+    blocks=[box_entity(template,'glass-'+p['name'],'func_breakable',(p['lo'],p['hi']),ids,
+                       (*GLASS_PROPERTIES,('targetname','povo_glass_'+p['name'])),p['material'])
             for p in panes]
     for material in sorted({p['material'] for p in panes}):
         source=project._ensure_map_asset_reference(source,material)
@@ -505,6 +506,15 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
         options=['-lightmapVRadQuality','1'] if resource.suffix=='.vmap' else []
         subprocess.run([str(compiler),'-nop4','-fshallow2',*options,'-game',str(cs2_root/'game/csgo'),'-i',str(resource)],check=True)
     if not skip_model:compile_resource(content/'models/povo'/(MODEL+'.vmdl'))
+    # Brush-only materials may be absent from the static model, so its compile
+    # cannot seed them in a clean addon. Generated entity meshes load compiled
+    # materials directly; build those sources before compiling the VMAP.
+    brush_materials={p['material'] for p in metadata.get('breakable_glass',[])}
+    brush_materials.update(p['material'] for d in metadata.get('auto_doors',[]) for p in d['parts'])
+    brush_materials.update(d['material'] for d in metadata['interactions']['doors'])
+    for material in sorted(brush_materials):
+        path=content/material
+        if path.is_file():compile_resource(path)
     compile_resource(content/'soundevents/soundevents_addon.vsndevts')
     if 'winter' in seasons:
         compile_resource(content/'models/povo/povo_winter.vmdl')

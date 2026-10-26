@@ -68,6 +68,22 @@ def write_materials(directory, prefix, colors):
                    else 'asphalt' if name == 'floor_p2_asphalt'
                    else 'tile' if name in ('floor_room','floor_circulation','floor_p2_tile')
                    else 'metal' if name in ('stair_red','stair_nosing','door_black','door_pushbar') else 'concrete')
+        if name in ('window_glass','reception_glass'):
+            # Deliberately tinted panes remain readable from indoors and out.
+            # Use the same tested translucent shader as the entrance banks.
+            (directory/'glass_mask.png').write_bytes(png((255,255,255),'flat',4))
+            opacity=.32 if name=='window_glass' else .60
+            text=(f'Layer0\n{{\n    shader "csgo_lightmappedgeneric.vfx"\n'
+                  '    F_TRANSLUCENT "1"\n    F_RENDER_BACKFACES "1"\n'
+                  f'    g_flOpacityScale "{opacity}"\n'
+                  f'    TextureLayer1Color "{prefix}{name}.png"\n'
+                  f'    TextureLayer1Normal "{prefix}neutral_normal.png"\n'
+                  f'    TextureLayer1Roughness "{prefix}{name}_rough.png"\n'
+                  f'    TextureLayer1Translucency "{prefix}glass_mask.png"\n'
+                  '    g_vColorTint "[1 1 1 0]"\n'
+                  '    SystemAttributes { PhysicsSurfaceProperties "glass" }\n}\n')
+            (directory/(name+'.vmat')).write_text(text,encoding='utf-8')
+            continue
         text = (f'Layer0\n{{\n    shader "csgo_complex.vfx"\n'
                 f'    TextureColor "{prefix}{name}.png"\n'
                 f'    TextureNormal "{prefix}neutral_normal.png"\n'

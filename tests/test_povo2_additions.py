@@ -72,13 +72,15 @@ class Povo2AdditionTests(TestCase):
         cfg=self.spec['additions']['config'];corridor=cfg['ground_corridor']
         pc=cfg['ground_rooms'][0]
         self.assertEqual(pc['kind'],'computer')
-        self.assertTrue(all(r['bounds'][0]==corridor[2] for r in cfg['ground_rooms']))
-        self.assertTrue(all(r['bounds'][2]<=36 for r in cfg['ground_rooms']))
-        self.assertEqual(corridor[1],min(r['bounds'][1] for r in cfg['ground_rooms']))
-        door=cfg['stair_entry']['door'];reception=self.spec['ground']['reception']
-        import math
-        self.assertLessEqual(math.dist(door,[reception[2],reception[1]]),3)
-        self.assertTrue(any(n.startswith('p2_ground_reception_stair_door_') for n,_,_,_ in self.boxes))
+        self.assertTrue(all(r['bounds'][3]==corridor[1] for r in cfg['ground_rooms']))
+        self.assertGreater(corridor[2]-corridor[0],corridor[3]-corridor[1])
+        self.assertLessEqual(corridor[3],self.spec['stairs']['bounds'][1])
+        pc,b108,b109=cfg['ground_rooms']
+        self.assertEqual(pc['bounds'][0],b108['bounds'][2])
+        self.assertEqual(b108['bounds'][0],b109['bounds'][2])
+        self.assertEqual(cfg['stair_entry']['door'],[16.5,22])
+        self.assertFalse(any(n.startswith(('p2_ground_reception_stair_door_',
+                                          'p2_ground_stair_vestibule')) for n,_,_,_ in self.boxes))
         # Exit the existing stair eastward: south then west is right/right.
         self.assertLess(cfg['cibio_corridor'][1],22)
         self.assertLess(cfg['cibio_corridor'][0],16.5)
@@ -87,11 +89,20 @@ class Povo2AdditionTests(TestCase):
         self.assertGreater(cfg['basement_exit']['return_corridor'][1],22)
         self.assertGreater(cfg['basement_exit']['return_corridor'][2],20)
 
-    def test_aula_is_on_the_lobby_right_short_edge(self):
+    def test_aula_is_on_the_lobby_opposite_short_edge_and_faces_entry(self):
         cfg=self.spec['additions']['config'];lobby=cfg['aula_lobby'];aula=cfg['aula_magna']
-        self.assertEqual(aula[0],lobby[2])
+        self.assertEqual(aula[2],lobby[0])
         self.assertLess(lobby[3]-lobby[1],lobby[2]-lobby[0])
         self.assertLess(max(lobby[1],aula[1]),min(lobby[3],aula[3]))
+        chairs={n:(lo,hi) for n,lo,hi,_ in self.boxes if n.startswith('p2_ground_aula_chair_')}
+        for name,(lo,hi) in chairs.items():
+            back=next(b for b in self.boxes if b[0]==name.replace('_chair_','_back_'))
+            self.assertLess(back[2][0],hi[0])
+        self.assertFalse(any(n.startswith('exterior_povo2_terrace_guard_') for n,_,_,_ in self.boxes))
+        stairs=cfg['basement_exit']['steel_stair'];door=cfg['basement_exit']['inside_stair']
+        self.assertEqual(stairs[0],door[2])
+        self.assertLess(stairs[1],27.5)
+        self.assertGreater(stairs[3],27.5)
 
     def test_sloped_road_bounds_do_not_false_positive_but_real_intersections_do(self):
         from tools.povo2_interiors import mesh_intersects_box

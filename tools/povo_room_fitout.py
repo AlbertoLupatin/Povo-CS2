@@ -20,16 +20,19 @@ def subtract_box(box, hole):
     name, lo, hi, material = box
     a = tuple(max(lo[i], hole[0][i]) for i in range(3))
     b = tuple(min(hi[i], hole[1][i]) for i in range(3))
-    if any(a[i] >= b[i] for i in range(3)):
+    if any(b[i]-a[i] < 1e-8 for i in range(3)):
         return [box]
     pieces = []
     lower, upper = list(lo), list(hi)
     for axis in range(3):
         for left, right in ((lower[axis], a[axis]), (b[axis], upper[axis])):
-            if left < right:
+            # Coincident decimal boundaries can differ by a few ulps. Those
+            # slivers collapse during OBJ rounding and create zero-area faces.
+            if right-left > 1e-8:
                 minimum, maximum = list(lower), list(upper)
                 minimum[axis], maximum[axis] = left, right
-                pieces.append((f'{name}_windowcut_{len(pieces)}', tuple(minimum), tuple(maximum), material))
+                if all(maximum[i]-minimum[i]>1e-8 for i in range(3)):
+                    pieces.append((f'{name}_windowcut_{len(pieces)}', tuple(minimum), tuple(maximum), material))
         lower[axis], upper[axis] = a[axis], b[axis]
     return pieces
 

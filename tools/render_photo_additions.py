@@ -19,7 +19,7 @@ def render(output):
     title=ImageFont.load_default(size=22)
     draw.text((25,20),'POVO 2 / 26 OCTOBER PHOTO ADDITIONS / SOURCE PLAN',font=title,fill='#173348')
     draw.text((25,57),'Estimated dimensions. Temporary room labels and aula magna. Windows compile and engine checks pending.',font=font,fill='#384c55')
-    panels=[('Povo 2 ground additions',4,(6,-1,55,102),(30,105),9),
+    panels=[('Povo 2 ground additions',4,(-12,-1,40,102),(30,105),9),
             ('Basement: CIBIO offices',.4,(-7,-17,58,32),(650,150),10.5),
             ('Wings: ground',4,(28,-112,59,-11),(1440,150),8),
             ('Wings: first',7.6,(28,-112,59,-11),(1780,150),8)]
@@ -66,8 +66,8 @@ def render(output):
                 wing=[(end[0]-length*math.cos(angle+t),end[1]-length*math.sin(angle+t)) for t in (-.5,.5)]
                 draw.polygon([end,*wing],fill=color)
         if z==4 and ox<1400:
-            for text,x,y in [('TMP AULA MAGNA',45.5,90),('AULA LOBBY',25,75),('CORRIDOR',24,12),
-                             ('RECEPTION',16.5,32.5),('STAIR DOOR',19,28),('YARD BELOW',53,19)]:label(text,x,y)
+            for text,x,y in [('TMP AULA MAGNA',1.5,90),('AULA LOBBY',25,75),('CROSS CORRIDOR',16,9.5),
+                             ('RECEPTION',16.5,32.5),('STAIR DOOR',17.8,22),('LADDER',21.25,12.3)]:label(text,x,y)
         elif ox<1400:
             route([(17.8,22),(18.25,22),(18.25,-5),(13,-5)],'#b14431')
             route([(18.6,22),(18.6,27.5),(47,27.5)],'#2374ab')

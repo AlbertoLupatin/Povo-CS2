@@ -2,8 +2,8 @@ Layer0
 {
     shader "csgo_lightmappedgeneric.vfx"
     F_TRANSLUCENT "1"
-    F_RENDER_BACKFACES "0"
-    g_flOpacityScale "0.35"
+    F_RENDER_BACKFACES "1"
+    g_flOpacityScale "0.4"
     TextureLayer1Color "materials/trento/povo/campus/exterior/canopy_glass.png"
     TextureLayer1Normal "materials/trento/povo/campus/exterior/neutral_normal.png"
     TextureLayer1Roughness "materials/trento/povo/campus/exterior/canopy_glass_rough.png"

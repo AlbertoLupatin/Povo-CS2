@@ -129,9 +129,9 @@ def extend_campus(boxes, levels, root, wall_height):
     for y in (11,):
         add('p2_lobby_bench_'+str(y),(8,y,z+.42),(12,y+.65,z+.5),'seat_wood')
         for x in (8.2,11.7):add(f'p2_bench_leg_{y}_{x}',(x,y+.08,z),(x+.1,y+.55,z+.42),'metal_dark')
-    add('p2_printer_body',(22,11,z),(23.05,11.85,z+1.05),'sign_white')
-    add('p2_printer_top',(21.95,10.95,z+1.05),(23.1,11.9,z+1.2),'window_frame')
-    add('p2_printer_console',(22.15,10.9,z+.86),(22.65,10.95,z+1.02),'metal_dark')
+    add('p2_printer_body',(23.5,11.4,z),(24.55,12.25,z+1.05),'sign_white')
+    add('p2_printer_top',(23.45,11.35,z+1.05),(24.6,12.3,z+1.2),'window_frame')
+    add('p2_printer_console',(23.65,11.3,z+.86),(24.15,11.35,z+1.02),'metal_dark')
     # Keep the two glazed arrival alcoves and a west stairwell window.
     for side,x in (('west',7),('east',25)):
         spans=((10.7,13.3),(15,17.5)) if side=='west' else ((10.7,13.3),)
@@ -143,6 +143,9 @@ def extend_campus(boxes, levels, root, wall_height):
                 add(f'p2_window_{side}_{j}_mullion_{i}',(x-.06,y-.025,z+.75),(x+.06,y+.025,z+2.85),'window_frame')
     # Open glazed fire-door leaves at both bridge ends, kept outside walking lane.
     for name,y in (('povo1',-19.75),('povo2',10.25)):
+        # Park the Povo 2 leaves back along the bridge, leaving the alcoves
+        # and the separate ladder doorway reachable from its arrival lobby.
+        if name=='povo2':y-=1.25
         for side,x in (('west',16.55),('east',19.95)):
             add(f'{name}_bridge_door_{side}_glass',(x-.025,y,z+.05),(x+.025,y+1.25,z+2.65),'window_glass')
             for h in (z+.05,z+1.05,z+2.6):

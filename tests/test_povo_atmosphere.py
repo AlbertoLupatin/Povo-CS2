@@ -24,7 +24,7 @@ class SeasonalCampusTests(unittest.TestCase):
     def test_replaced_leaves_have_no_static_collision_and_keep_actual_frames(self):
         names={b[0] for b in self.boxes}
         self.assertFalse(any('_parked_leaf' in n for n in names))
-        self.assertFalse(any(n.startswith('p2_basement_core_door_') for n in names))
+        self.assertTrue(any(n.startswith('p2_basement_core_door_') for n in names))
         self.assertTrue(any('stair_door_0_head' in n for n in names))
         self.assertTrue(any('p2_entry_outer_bank_0_head' in n for n in names))
         doors=self.interactions['doors']
@@ -50,7 +50,7 @@ class SeasonalCampusTests(unittest.TestCase):
     def test_automatic_banks_replace_the_older_entrance_leaves(self):
         from tools.povo_interactions import door_selection
         doors=door_selection(self.levels,self.stair,automatic_entrances=True)
-        self.assertTrue(any(d['kind']=='fire' for d in doors))
+        self.assertFalse(any(d['kind']=='fire' for d in doors))
         self.assertFalse(any(d['kind'] in ('sliding','entrance') for d in doors))
 
     def test_door_leaves_fit_existing_structural_openings(self):

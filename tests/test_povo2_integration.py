@@ -18,11 +18,14 @@ class Povo2IntegrationTests(TestCase):
         for box in baseline:
             name,lo,hi,mat=box
             if hi[2]<7.59:continue
-            # The lift doorway is the one deliberate cut in the upper arrival.
-            if name=='academic_first_link_p2_east_corridor':
-                self.assertTrue(any(n.startswith(name+'_') for n in actual));continue
-            self.assertIn(name,actual,name)
-            self.assertEqual(actual[name],box,name)
+            from tools.povo_room_fitout import subtract_box
+            shaft=self.levels[1]['connection']['lift']['shaft']
+            hole=((shaft[0],shaft[1],.18),(shaft[2],shaft[3],10.95))
+            # The relocated ladder cuts the arrival slab in the east alcove.
+            # Verify the exact surviving pieces, not an obsolete hole location.
+            for piece in subtract_box(box,hole):
+                self.assertIn(piece[0],actual,piece[0])
+                self.assertEqual(actual[piece[0]],piece,piece[0])
 
     def test_lower_floors_share_the_completed_stair_enclosure(self):
         self.assertEqual(self.p2['stairs']['bounds'],self.levels[1]['connection']['stair']['bounds'])
@@ -49,7 +52,7 @@ class Povo2IntegrationTests(TestCase):
     def test_actual_campus_has_clear_connected_lower_floors_and_stacked_stairs(self):
         result=audit()
         self.assertEqual(result['status'],'passed',result)
-        self.assertEqual([len(l['stations']) for l in result['levels']],[8,18,49])
+        self.assertEqual([len(l['stations']) for l in result['levels']],[8,18,50])
         self.assertEqual(result['stair_samples'],72)
         self.assertFalse(result['stair_failures'])
 

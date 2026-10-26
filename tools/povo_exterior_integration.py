@@ -104,7 +104,7 @@ def extend(root,settings,config,boxes,levels,stair):
                              for i,(x,y,z) in enumerate(barrier['vertices'])]
         physics.append(barrier)
     meta=dict(bounds=[-90,-116,74,124],meshes=meshes,collision_meshes=physics,
-              door_opacity=.8,entrance=meta['povo2_double_entrance'],
+              door_opacity=meta['material_opacity']['entry_glass'],entrance=meta['povo2_double_entrance'],
               garage_bounds=garage,original_garage_bounds=parking,
               povo1_approach=meta['config']['east_approach'],
               left_terrace=meta['config']['frontages']['povo2_left_terrace'],

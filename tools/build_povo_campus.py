@@ -319,7 +319,7 @@ def elevator_shaft(boxes, levels, settings, config):
     centre=[(inner[0]+inner[2])/2,y]
     # A 0.2 m tool volume held the standing hull under the upper ledge.
     # Its front face must stay close to the visible rungs for full headroom.
-    return result,dict(room=spec['room'],shaft=spec['shaft'],ladder=[[wall,a,z0],[wall+.12,b,z1+.4]],
+    return result,dict(room=spec['room'],shaft=spec['shaft'],ladder=[[wall,a,z0],[wall+.12,b,z1+1.65]],
                        lights=[[*centre,z0+2.6],[*centre,z1+2.6]],
                        sign=[x1+.22,y,z1+2.44],
                        stations=dict(ground=[ledge-.2,y],first=[(ledge+inner[2])/2,y]))
@@ -630,9 +630,7 @@ def backdrop_mesh(root):
 
 def material_path(material):
     """Compiled-material source for one campus OBJ material name."""
-    # Use the installed game's transparent glass material and its proven shader
-    # setup; the other surfaces remain editable addon materials.
-    if material in ('window_glass','reception_glass'):return 'materials/glass/glass01.vmat'
+    if material in ('window_glass','reception_glass'):return MATERIAL_PREFIX+material+'.vmat'
     if material.startswith('exterior_'):return EXTERIOR_PREFIX+material.removeprefix('exterior_')+'.vmat'
     return MATERIAL_PREFIX+material+'.vmat'
 
@@ -790,7 +788,7 @@ def render_obj(boxes,backdrop):
         u=[b[i]-a[i] for i in range(3)];v=[c[i]-a[i] for i in range(3)]
         normal=(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
         length=math.sqrt(sum(x*x for x in normal))
-        if length<1e-12:raise ValueError('Degenerate campus triangle')
+        if length<1e-12:raise ValueError('Degenerate campus triangle '+repr((group,material,points)))
         ni=index(normals,tuple(round(x/length,12) for x in normal))
         if texcoords is None:
             axis=max(range(3),key=lambda i:abs(normal[i]));axes=[i for i in range(3) if i!=axis]
@@ -830,6 +828,7 @@ def collision_boxes(boxes):
     """
     result=[];rows={}
     for name,lo,hi,material in boxes:
+        if material=='exterior_tree':continue  # foliage above sloping pavements
         if name.startswith('exterior_context_concrete_'):continue
         if name.startswith('exterior_street_end_gate_bar_'):continue
         if name.startswith('exterior_') and any(t in name for t in ('floor_joint','ceiling_joint','_mat','_band_','_sensor','_light_','_rough')):continue

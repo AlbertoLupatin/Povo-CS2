@@ -1,10 +1,10 @@
 {
   "status": "Photo-guided gameplay reconstruction; dimensions and room labels provisional",
   "ground_corridor": [
-    22.5,
-    0.5,
-    25.5,
-    29.5
+    2,
+    8,
+    31,
+    11
   ],
   "ground_rooms": [
     {
@@ -12,36 +12,36 @@
       "label": "B106 / PC",
       "kind": "computer",
       "bounds": [
-        25.5,
-        18.5,
-        36,
-        28.5
+        20,
+        0.5,
+        31,
+        8
       ],
-      "door_y": 27.5
+      "door_x": 29.5
     },
     {
       "id": "b108",
       "label": "B108",
       "kind": "classroom",
       "bounds": [
-        25.5,
-        8.5,
-        36,
-        18.5
+        10,
+        0.5,
+        20,
+        8
       ],
-      "door_y": 17.5
+      "door_x": 18.5
     },
     {
       "id": "b109",
       "label": "B109",
       "kind": "classroom",
       "bounds": [
-        25.5,
+        2,
         0.5,
-        36,
-        8.5
+        10,
+        8
       ],
-      "door_y": 7.5
+      "door_x": 9
     }
   ],
   "aula_lobby": [
@@ -51,9 +51,9 @@
     78
   ],
   "aula_magna": [
-    34.5,
+    -9.5,
     71.5,
-    56.5,
+    12.5,
     93.5
   ],
   "cibio_corridor": [
@@ -82,7 +82,8 @@
     "Office furniture and metric dimensions are schematic: photographs show the CIBIO approach, not the office interiors.",
     "Existing bridge, stair and lift coordinates are retained; additions use the established gameplay coordinate adaptation.",
     "Basement exit uses estimated five-riser indoor and fifteen-riser outdoor stairs. Yard location is supported by photos 19-20; existing Povo 2 ground/bridge elevations are preserved as requested.",
-    "User correction: stair entrance beside reception; straight classroom corridor with PC room first. Exiting stairs east: right/south then right/west reaches CIBIO; left/north then right/east reaches the exit."
+    "User correction: stair entrance beside reception; straight classroom corridor with PC room first. Exiting stairs east: right/south then right/west reaches CIBIO; left/north then right/east reaches the exit.",
+    "26 October playtest correction approved: transverse classroom corridor after stairs; enlarged B106 adjoining B108; separate ladder doorway in gap beside stairs; aula west of intermediate lobby, seats face east toward entry."
   ],
   "basement_exit": {
     "locker_corridor": [
@@ -111,23 +112,24 @@
     ],
     "yard_z": 1.3,
     "steel_stair": [
-      53.5,
-      20,
-      55.1,
-      24.5
+      50.5,
+      26.7,
+      55,
+      28.3
     ],
     "street_z": 4.0
   },
   "stair_entry": {
-    "vestibule": [
-      16.5,
-      20.8,
-      22.5,
-      29.5
-    ],
     "door": [
-      22.5,
-      28
-    ]
-  }
+      16.5,
+      22
+    ],
+    "direct": true
+  },
+  "ground_approach": [
+    22.5,
+    11,
+    25.5,
+    29.5
+  ]
 }

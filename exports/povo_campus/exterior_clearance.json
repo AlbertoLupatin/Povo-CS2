@@ -9,7 +9,7 @@
     },
     {
       "route": "front_walk_to_povo2",
-      "samples": 215,
+      "samples": 223,
       "status": "passed",
       "failures": []
     },
@@ -56,7 +56,7 @@
       "failures": []
     }
   ],
-  "samples": 1215,
+  "samples": 1223,
   "door_opacity": 0.8,
   "limitations": "Source support/standing checks; native engine movement and visuals still required"
 }

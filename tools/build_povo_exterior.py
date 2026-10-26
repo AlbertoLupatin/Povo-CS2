@@ -124,7 +124,10 @@ def build(root=ROOT, campus_geometry=None):
         meshes.append(dict(name=f'road_joint_{i}',vertices=v,faces=[(0,k+1,(k+1)%n+1) for k in range(n)],material='asphalt'))
     road_run('road_north',cfg['north_road'])
     road_run('road_front',cfg['front_road'])
-    meshes.append(strip('road_front_link',(50,-5,5.8),(62,-5,5.8),6,'asphalt'))
+    # Match the actual bridge-road/front-road height. The old hardcoded
+    # 5.8 m connector left a 1.8 m drop after the street was raised to 7.6 m.
+    join_z=cfg['road']['points'][0][2]
+    meshes.append(strip('road_front_link',(50,-5,join_z),(62,-5,join_z),6,'asphalt'))
     # Crossing follows the actual first road segment's grade.
     x,cy,_=cfg['crosswalk']['centre']
     half=cfg['crosswalk']['width']/2
@@ -219,6 +222,14 @@ def build(root=ROOT, campus_geometry=None):
     front=cfg['frontages'];fz=front['street_level']
     for i,r in enumerate(front['povo1_library_wings']):glass_block(f'povo1_library_{i}',r,4,10.9,panes=True)
     slab('povo1_front_walk',front['povo1_walk'],fz,'paving')
+    # The Povo 1 frontage used to end at N=-13, five metres before the bridge
+    # road. Close that missing strip across its full width, then follow the
+    # same grade as the adjacent footway down to the Povo 2 pavement.
+    slab('povo1_street_corner',(52,-13,56.7,0),fz,'paving')
+    grade_z=front.get('povo2_level',fz)+(fz-front.get('povo2_level',fz))/3+.12
+    meshes.append(strip('povo1_street_grade',(54.35,0,fz+.12),
+                        (54.35,10,grade_z),4.7,'paving'))
+    fence('povo1_street_yard_guard',(52,10),(56.7,10),grade_z,1.05)
     # Continuous passage between two front wings, open from street to stairs.
     slab('povo1_passage_upper',(c,-77,58,-69),fz,'paving')
     # A continuous glazed cover begins immediately outside the entrance,
