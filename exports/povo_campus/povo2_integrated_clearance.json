@@ -113,8 +113,8 @@
         31.5,
         26.0
       ],
-      "walkable_cells": 13665,
-      "reachable_cells": 10605,
+      "walkable_cells": 13832,
+      "reachable_cells": 10772,
       "stations": [
         {
           "id": "stair_approach",
@@ -187,6 +187,15 @@
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
+        },
+        {
+          "id": "lift_floor",
+          "point_local_metres": [
+            21.25,
+            18.8
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
         }
       ],
       "vertical_traversal": "not checked; stair flights are absent"
@@ -208,8 +217,8 @@
         38.0,
         71.5
       ],
-      "walkable_cells": 89799,
-      "reachable_cells": 75302,
+      "walkable_cells": 89996,
+      "reachable_cells": 75499,
       "stations": [
         {
           "id": "entrance",
@@ -351,6 +360,15 @@
           "point_local_metres": [
             15.2,
             22
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "lift_ledge",
+          "point_local_metres": [
+            21.25,
+            18.8
           ],
           "has_clearance": true,
           "reachable_from_entrance": true

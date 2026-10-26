@@ -25409,7 +25409,7 @@
           "config/povo1_campus.json": "1fa5cc865017adbbedcc1065c8ff1c2d31a98e5f7ac8d822c0015657920b710c",
           "config/povo1_interior_study.json": "554a5744e23db8fa82f553a3470bf4749c7c7ff196ddadd8115deaec3792065f",
           "config/povo2_planimetry.json": "3cd216da3db64b4e0719a25b8a540552314de6f0baecc6d43eec54d89c25f6eb",
-          "config/povo2_connection.json": "c9a259ca8850e02d74f6437014bf6091005eeffaeccc5d5b7f8b2bc64b69e9c3",
+          "config/povo2_connection.json": "1582214cdf31b385dca1e97e5d8a91069812b5948ba8db288980b81d604215c8",
           "config/povo1_plan_alignment.json": "cc3646846d82a3854e473598c501b9e89f5e30927676588cee66622aa8ec62a1"
         },
         "photos": [
@@ -29941,6 +29941,23 @@
           20.0,
           26.0
         ],
+        "lift": {
+          "shaft": [
+            20.1,
+            17.2,
+            22.4,
+            19.4
+          ],
+          "ground_opening_east": [
+            20.75,
+            21.95
+          ],
+          "side_opening_north": [
+            18.3,
+            19.3
+          ],
+          "note": "User 2026-10-26: Povo 2 lifts sit beside the stair door (photos 12, 13). Ladder shaft like Povo 1's, from -1 to +1: opens north into the ground hall and west into the -1 corridor and the +1 bridge corridor."
+        },
         "reference_photos": [
           61,
           60,
@@ -30814,6 +30831,13 @@
               17.2,
               20
             ]
+          },
+          {
+            "id": "p2_lift_ledge",
+            "point": [
+              21.25,
+              18.8
+            ]
           }
         ],
         "nav_seeds": [
@@ -31007,6 +31031,13 @@
                   "point": [
                     15.2,
                     22
+                  ]
+                },
+                {
+                  "id": "lift_floor",
+                  "point": [
+                    21.25,
+                    18.8
                   ]
                 }
               ]
@@ -31309,6 +31340,13 @@
                   "point": [
                     15.2,
                     22
+                  ]
+                },
+                {
+                  "id": "lift_ledge",
+                  "point": [
+                    21.25,
+                    18.8
                   ]
                 },
                 {
@@ -32851,6 +32889,21 @@
               9.15,
               21,
               -2.2
+            ],
+            [
+              21.25,
+              18.3,
+              3.0
+            ],
+            [
+              21.25,
+              18.3,
+              6.6
+            ],
+            [
+              21.25,
+              18.3,
+              10.2
             ]
           ],
           "placement": {
@@ -32860,6 +32913,26 @@
               61.5
             ],
             "basement_north_offset": -3.5
+          },
+          "lift": {
+            "shaft": [
+              20.1,
+              17.2,
+              22.4,
+              19.4
+            ],
+            "ladder": [
+              [
+                20.95,
+                17.3,
+                0.4
+              ],
+              [
+                21.55,
+                17.5,
+                8.0
+              ]
+            ]
           }
         }
       }
@@ -35062,8 +35135,8 @@
       ]
     }
   },
-  "visual_boxes": 18768,
-  "collision_boxes": 5555,
+  "visual_boxes": 18857,
+  "collision_boxes": 5584,
   "breakable_glass": [
     {
       "name": "academic_ground_court_0_0_tail_material1_windowcut_0_glass",
@@ -36273,12 +36346,12 @@
       "name": "p2_basement_display_glass",
       "lo": [
         19.82,
-        15.5,
+        19.5,
         1.25
       ],
       "hi": [
         19.86,
-        21.0,
+        25.0,
         2.6
       ],
       "material": "materials/glass/glass01.vmat"
@@ -39620,7 +39693,7 @@
     "config/povo1_plan_alignment.json": "cc3646846d82a3854e473598c501b9e89f5e30927676588cee66622aa8ec62a1",
     "config/povo_exterior.json": "49ce86ab25caa9395ee1859c90ec2b4a8c6d256b63ac813b988889be4ab57ab6",
     "config/povo2_planimetry.json": "3cd216da3db64b4e0719a25b8a540552314de6f0baecc6d43eec54d89c25f6eb",
-    "config/povo2_connection.json": "c9a259ca8850e02d74f6437014bf6091005eeffaeccc5d5b7f8b2bc64b69e9c3"
+    "config/povo2_connection.json": "1582214cdf31b385dca1e97e5d8a91069812b5948ba8db288980b81d604215c8"
   },
   "exterior": {
     "bounds": [
@@ -60647,7 +60720,7 @@
       "config/povo1_campus.json": "1fa5cc865017adbbedcc1065c8ff1c2d31a98e5f7ac8d822c0015657920b710c",
       "config/povo1_interior_study.json": "554a5744e23db8fa82f553a3470bf4749c7c7ff196ddadd8115deaec3792065f",
       "config/povo2_planimetry.json": "3cd216da3db64b4e0719a25b8a540552314de6f0baecc6d43eec54d89c25f6eb",
-      "config/povo2_connection.json": "c9a259ca8850e02d74f6437014bf6091005eeffaeccc5d5b7f8b2bc64b69e9c3",
+      "config/povo2_connection.json": "1582214cdf31b385dca1e97e5d8a91069812b5948ba8db288980b81d604215c8",
       "config/povo1_plan_alignment.json": "cc3646846d82a3854e473598c501b9e89f5e30927676588cee66622aa8ec62a1"
     },
     "photos": [
@@ -60745,6 +60818,23 @@
       20.0,
       26.0
     ],
+    "lift": {
+      "shaft": [
+        20.1,
+        17.2,
+        22.4,
+        19.4
+      ],
+      "ground_opening_east": [
+        20.75,
+        21.95
+      ],
+      "side_opening_north": [
+        18.3,
+        19.3
+      ],
+      "note": "User 2026-10-26: Povo 2 lifts sit beside the stair door (photos 12, 13). Ladder shaft like Povo 1's, from -1 to +1: opens north into the ground hall and west into the -1 corridor and the +1 bridge corridor."
+    },
     "reference_photos": [
       61,
       60,
@@ -61618,6 +61708,13 @@
           17.2,
           20
         ]
+      },
+      {
+        "id": "p2_lift_ledge",
+        "point": [
+          21.25,
+          18.8
+        ]
       }
     ],
     "nav_seeds": [
@@ -61811,6 +61908,13 @@
               "point": [
                 15.2,
                 22
+              ]
+            },
+            {
+              "id": "lift_floor",
+              "point": [
+                21.25,
+                18.8
               ]
             }
           ]
@@ -62113,6 +62217,13 @@
               "point": [
                 15.2,
                 22
+              ]
+            },
+            {
+              "id": "lift_ledge",
+              "point": [
+                21.25,
+                18.8
               ]
             },
             {
@@ -63655,6 +63766,21 @@
           9.15,
           21,
           -2.2
+        ],
+        [
+          21.25,
+          18.3,
+          3.0
+        ],
+        [
+          21.25,
+          18.3,
+          6.6
+        ],
+        [
+          21.25,
+          18.3,
+          10.2
         ]
       ],
       "placement": {
@@ -63664,6 +63790,26 @@
           61.5
         ],
         "basement_north_offset": -3.5
+      },
+      "lift": {
+        "shaft": [
+          20.1,
+          17.2,
+          22.4,
+          19.4
+        ],
+        "ladder": [
+          [
+            20.95,
+            17.3,
+            0.4
+          ],
+          [
+            21.55,
+            17.5,
+            8.0
+          ]
+        ]
       }
     }
   },
@@ -63801,6 +63947,13 @@
             "point": [
               15.2,
               22
+            ]
+          },
+          {
+            "id": "lift_floor",
+            "point": [
+              21.25,
+              18.8
             ]
           }
         ]
@@ -64103,6 +64256,13 @@
             "point": [
               15.2,
               22
+            ]
+          },
+          {
+            "id": "lift_ledge",
+            "point": [
+              21.25,
+              18.8
             ]
           },
           {
@@ -65645,6 +65805,21 @@
         9.15,
         21,
         -2.2
+      ],
+      [
+        21.25,
+        18.3,
+        3.0
+      ],
+      [
+        21.25,
+        18.3,
+        6.6
+      ],
+      [
+        21.25,
+        18.3,
+        10.2
       ]
     ],
     "placement": {
@@ -65654,10 +65829,30 @@
         61.5
       ],
       "basement_north_offset": -3.5
+    },
+    "lift": {
+      "shaft": [
+        20.1,
+        17.2,
+        22.4,
+        19.4
+      ],
+      "ladder": [
+        [
+          20.95,
+          17.3,
+          0.4
+        ],
+        [
+          21.55,
+          17.5,
+          8.0
+        ]
+      ]
     }
   },
   "artifacts": {
-    "povo1_campus.obj": "673f195b327333dee75e02ffe169cf5de3498151261a18ebfeae0f8a0bc33013",
-    "povo1_campus_collision.obj": "e84d1980c79bf6a97ba4509deb8002836f1f7ab6eb7edd85c70c93891d176cad"
+    "povo1_campus.obj": "84fa967981f20c9aedf08f6ab03f06a8bac184c38a2f12eb5e17203c6f095e99",
+    "povo1_campus_collision.obj": "5efbf09636a6f31c2965cb62e05bd64c58f2e040e63097e56d2e583c226ac2b9"
   }
 }

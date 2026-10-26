@@ -32,6 +32,8 @@ All three are source-only: tested on Linux, never compiled or played.
       ground floor and step off onto the upper ledge, then climb back down.
       Check the ladder surface lines up with the visible rungs.
 - [ ] Lift: bots and the nav mesh handle the ladder (or ignore it safely).
+- [ ] Povo 2 lift (beside the stair door): climb from -1 to ground and on to
+      +1, stepping off at each opening; check the ladder lines up with the rungs.
 - [ ] Stairs: railings show as continuous sloped handrails with bars (no
       floating rectangles) and stop you falling into the well.
 - [ ] Performance: frame rate with about 320 extra entities stays acceptable.
@@ -51,6 +53,10 @@ All three are source-only: tested on Linux, never compiled or played.
 
 - [ ] Optional: replace the lift ladder with a moving platform (`func_door`
       moving up) once a quick CS2 test shows players ride it smoothly.
+
+- [ ] Build the Povo 2 additions in [POVO2_INTERIOR_BRIEF.md](POVO2_INTERIOR_BRIEF.md):
+      -1 exit stair, sunken yard and CIBIO offices, ground left corridor with
+      classrooms and computer room, aula magna, B11x furniture.
 
 - [ ] Model the library and canteen interiors in front of Povo 1 from
       [LIBRARY_CANTEEN_BRIEF.md](LIBRARY_CANTEEN_BRIEF.md) once photos arrive,

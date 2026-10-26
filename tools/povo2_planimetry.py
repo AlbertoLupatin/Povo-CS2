@@ -148,8 +148,8 @@ def build(root=ROOT, wall_height=3.35):
     for i,y in enumerate((36,43)):
         add('p2_basement_closed_door_'+str(i),(24.88,y,z),(24.91,y+1.2,z+2.15),'door_black')
     add('p2_basement_accent',(21.605,44,z+.25),(21.625,49,z+2.65),'p2_accent_green')
-    add('p2_basement_display_base',(21.62,37,z),(21.88,42.5,z+.85),'seat_wood')
-    add('p2_basement_display_glass',(21.64,37,z+.85),(21.68,42.5,z+2.2),'window_glass')
+    add('p2_basement_display_base',(21.62,33,z),(21.88,38.5,z+.85),'seat_wood')
+    add('p2_basement_display_glass',(21.64,33,z+.85),(21.68,38.5,z+2.2),'window_glass')
     basement['audit_stations']=[dict(id='stair_approach',point=[23.8,39.5]),
         dict(id='corridor_mid',point=[23.25,45]),dict(id='corridor_south',point=[23.25,34]),
         dict(id='right_turn_from_stairs',point=[23.25,63]),

@@ -1118,3 +1118,22 @@ corner of A214. The rest of E2 is sealed. Config: `elevator` in
 config/povo1_campus.json.
 
 141 tests and all three audits pass on Linux (new lift stations on both floors).
+
+
+## 26 October 2026 — new photos filed, Povo 2 lift (source only)
+
+27 user photos filed as P091–P117 under
+data/reference/povo_photos/walk_2026-10-26/ (photo 13 withdrawn by the user),
+with manifest, credits and locations. They cover Povo 2 -1 and ground floor
+spaces not yet built, the sunken yard by the -1 exit, and the canteen entrance
+and ground floor. The user's layout description is in
+docs/POVO2_INTERIOR_BRIEF.md; canteen notes went into
+docs/LIBRARY_CANTEEN_BRIEF.md.
+
+Povo 2 now has a lift beside the stair door (photo 12): a ladder shaft at
+E20.1–22.4, N17.2–19.4 opening into the ground hall, the -1 long corridor and
+the +1 bridge corridor (`lift` in config/povo2_connection.json, `lift()` in
+tools/povo2_integration.py). Two hall lockers were removed and the -1 display
+case moved north to clear the openings. Audit stations on the ground ledge,
+the -1 floor and the +1 ledge are all reachable. 141 tests and all three
+audits pass on Linux; not yet compiled or tested in CS2.

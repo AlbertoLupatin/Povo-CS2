@@ -68,3 +68,23 @@ The full route is in `config/povo_circulation.json`; catalogue IDs P025–P090 r
 | 3–1 | Povo 2 basement corridor |
 
 The A209/A216 and A212/A213 stairwells are confirmed different cores. Photo 40 and 14 context is inferred, and 16 has overlapping entrance/outward wording. A211 versus A212 is unresolved. No metric storey heights are established by the floor-number equivalence.
+
+## Povo 2 interiors and canteen set, 26 October 2026
+
+Catalogue IDs P091–P117 retain the exported source filenames under `walk_2026-10-26/originals/`; refer to them by photo number. Photo 13 was withdrawn. The layout described with these photos is in [docs/POVO2_INTERIOR_BRIEF.md](../../../docs/POVO2_INTERIOR_BRIEF.md).
+
+| Photos | Building / floor / route |
+| --- | --- |
+| 02–03 | Povo 2 -1: from the stair door, left then right. Locker corridor to a push door, a straight stair and a second push door out to the road under the bridge |
+| P91 | Povo 2 -1: right, then right again. CIBIO entrance; playable office on the left, then a narrow corridor of small offices (not playable), then an identical office on the left at the end |
+| 12 | Povo 2 ground, left of reception: lifts, black stair door, glazed door into the left corridor |
+| 11, 08 | Povo 2 ground, left corridor, short branch to the left with the computer room (08) |
+| 09–10 | Povo 2 ground, left corridor, right part with the classrooms |
+| 04–07 | Povo 2 ground, classrooms on the left corridor, facing Povo 1's classrooms |
+| 14–15 | Povo 2 ground, aula magna entrance at the end of the table corridor (aula magna itself unphotographed) |
+| 16–18 | Povo 2 ground, B11x classroom reference |
+| 19–20 | Povo 2: the sunken yard ("hole") between the left courtyard and the street, seen from above. The -1 left exit door opens into it |
+| 21–23 | Canteen entrance: the glazed porch projecting from the building |
+| 24, 27 | Canteen ground floor, left part: bar |
+| 25, 28 | Canteen ground floor, right part: canteen hall with serving counter |
+| 26 | Canteen ground floor, front part: black double door to the stair |

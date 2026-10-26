@@ -615,8 +615,8 @@
       25,
       26
     ],
-    "walkable_cells": 122986,
-    "reachable_cells": 119770,
+    "walkable_cells": 123016,
+    "reachable_cells": 119800,
     "stations": [
       {
         "id": "entry",
@@ -1694,6 +1694,15 @@
         "point_local_metres": [
           17.2,
           20
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p2_lift_ledge",
+        "point_local_metres": [
+          21.25,
+          18.8
         ],
         "has_clearance": true,
         "reachable_from_entrance": true

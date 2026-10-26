@@ -18,6 +18,9 @@ class Povo2IntegrationTests(TestCase):
         for box in baseline:
             name,lo,hi,mat=box
             if hi[2]<7.59:continue
+            # The lift doorway is the one deliberate cut in the upper arrival.
+            if name=='academic_first_link_p2_east_corridor':
+                self.assertTrue(any(n.startswith(name+'_') for n in actual));continue
             self.assertIn(name,actual,name)
             self.assertEqual(actual[name],box,name)
 
@@ -43,7 +46,7 @@ class Povo2IntegrationTests(TestCase):
     def test_actual_campus_has_clear_connected_lower_floors_and_stacked_stairs(self):
         result=audit()
         self.assertEqual(result['status'],'passed',result)
-        self.assertEqual([len(l['stations']) for l in result['levels']],[8,8,17])
+        self.assertEqual([len(l['stations']) for l in result['levels']],[8,9,18])
         self.assertEqual(result['stair_samples'],72)
         self.assertFalse(result['stair_failures'])
 

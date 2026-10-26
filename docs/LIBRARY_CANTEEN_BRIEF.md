@@ -47,6 +47,20 @@ stairs. The street-side walk is at z 5.8, higher than the wings' ground floor.
 
 "Right" and "left" are as seen when walking in through the entrance.
 
+## Photos (26 October 2026)
+
+P110–P117 (photos 21–28 of that set, see
+`data/reference/povo_photos/LOCATIONS.md`):
+
+- 21–23: the canteen's entrance porch, the glazed piece projecting from the
+  building, with an automatic sliding door at each end.
+- 24, 27: ground floor, left part, the bar: orange counter, high tables and
+  orange stools.
+- 25, 28: ground floor, right part, the canteen: orange and blue tables, long
+  orange serving counter on the right, glazed outer wall on the left.
+- 26: ground floor, front part: a black double fire door leading to the
+  stair.
+
 ## Open questions (answer from photos, or ask)
 
 - Which wing is the library and which is the canteen? P008 shows the library

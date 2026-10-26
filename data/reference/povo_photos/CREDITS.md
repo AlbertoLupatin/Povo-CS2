@@ -281,3 +281,37 @@ Povo 1 outdoor area facing south, winter, as named by user. Supplied by the user
 | P088 | 03 | [image00003.jpeg](walk_2026-10-23/originals/image00003.jpeg) |
 | P089 | 02 | [image00002.jpeg](walk_2026-10-23/originals/image00002.jpeg) |
 | P090 | 01 | [image00001.jpeg](walk_2026-10-23/originals/image00001.jpeg) |
+
+## P091–P117 — user photos, 26 October 2026
+
+27 full-resolution WeTransfer JPEG files, retained byte-for-byte under `walk_2026-10-26/originals/`, with source filenames, hashes and individual descriptions in `manifest.json`. Supplied by the user with a narrated layout. Photo 13 of the transfer was withdrawn by the user and is not kept. No separate redistribution licence was supplied. These are architectural references; no source-image pixels are copied into generated textures. Camera metadata is recorded in `walk_2026-10-26/capture_metadata.json`.
+
+| Catalogue ID | Photo | File |
+| --- | --- | --- |
+| P091 | P91 | [P91_outside_office_povo2.jpeg](walk_2026-10-26/originals/P91_outside_office_povo2.jpeg) |
+| P092 | 2 | [image00002.jpeg](walk_2026-10-26/originals/image00002.jpeg) |
+| P093 | 3 | [image00003.jpeg](walk_2026-10-26/originals/image00003.jpeg) |
+| P094 | 4 | [image00004.jpeg](walk_2026-10-26/originals/image00004.jpeg) |
+| P095 | 5 | [image00005.jpeg](walk_2026-10-26/originals/image00005.jpeg) |
+| P096 | 6 | [image00006.jpeg](walk_2026-10-26/originals/image00006.jpeg) |
+| P097 | 7 | [image00007.jpeg](walk_2026-10-26/originals/image00007.jpeg) |
+| P098 | 8 | [image00008.jpeg](walk_2026-10-26/originals/image00008.jpeg) |
+| P099 | 9 | [image00009.jpeg](walk_2026-10-26/originals/image00009.jpeg) |
+| P100 | 10 | [image00010.jpeg](walk_2026-10-26/originals/image00010.jpeg) |
+| P101 | 11 | [image00011.jpeg](walk_2026-10-26/originals/image00011.jpeg) |
+| P102 | 12 | [image00012.jpeg](walk_2026-10-26/originals/image00012.jpeg) |
+| P103 | 14 | [image00014.jpeg](walk_2026-10-26/originals/image00014.jpeg) |
+| P104 | 15 | [image00015.jpeg](walk_2026-10-26/originals/image00015.jpeg) |
+| P105 | 16 | [image00016.jpeg](walk_2026-10-26/originals/image00016.jpeg) |
+| P106 | 17 | [image00017.jpeg](walk_2026-10-26/originals/image00017.jpeg) |
+| P107 | 18 | [image00018.jpeg](walk_2026-10-26/originals/image00018.jpeg) |
+| P108 | 19 | [image00019.jpeg](walk_2026-10-26/originals/image00019.jpeg) |
+| P109 | 20 | [image00020.jpeg](walk_2026-10-26/originals/image00020.jpeg) |
+| P110 | 21 | [image00021.jpeg](walk_2026-10-26/originals/image00021.jpeg) |
+| P111 | 22 | [image00022.jpeg](walk_2026-10-26/originals/image00022.jpeg) |
+| P112 | 23 | [image00023.jpeg](walk_2026-10-26/originals/image00023.jpeg) |
+| P113 | 24 | [image00024.jpeg](walk_2026-10-26/originals/image00024.jpeg) |
+| P114 | 25 | [image00025.jpeg](walk_2026-10-26/originals/image00025.jpeg) |
+| P115 | 26 | [image00026.jpeg](walk_2026-10-26/originals/image00026.jpeg) |
+| P116 | 27 | [image00027.jpeg](walk_2026-10-26/originals/image00027.jpeg) |
+| P117 | 28 | [image00028.jpeg](walk_2026-10-26/originals/image00028.jpeg) |

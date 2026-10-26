@@ -255,7 +255,7 @@ class CampusGeometryTests(unittest.TestCase):
 
     def test_both_side_aisles_in_every_furnished_room_are_reachable(self):
         reports=audit()
-        self.assertEqual([len(r['stations']) for r in reports],[64,121,4])
+        self.assertEqual([len(r['stations']) for r in reports],[64,122,4])
         for report in reports:
             self.assertEqual(report['status'],'passed',
                              [s['id'] for s in report['stations'] if not s['reachable_from_entrance']])

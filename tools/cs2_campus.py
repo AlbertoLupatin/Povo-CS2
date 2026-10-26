@@ -268,6 +268,7 @@ def map_text(source,metadata):
                 sign_properties(text,white=False),angles=f'0 {yaw} 90')
     if metadata.get('povo2'):
         p2=metadata['povo2'];lights.extend(p2['lights'])
+        if p2.get('lift'):source=add_ladder(source,'p2-lift-ladder',p2['lift']['ladder'])
         for level in p2['levels']:
             for i,station in enumerate(level['audit_stations']):
                 source=project._insert_point_entity(source,f"p2-nav-{level['floor']}-{i}",
