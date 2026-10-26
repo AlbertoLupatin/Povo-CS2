@@ -79,18 +79,55 @@ def add_breakable_glass(source,panes):
     template=next(block for _,_,classname,block in project._entity_ranges(source)
                   if classname=='func_buyzone' and '"CMapMesh"' in block)
     if TRIGGER_MATERIAL not in template:raise ValueError('Buy-zone mesh has no trigger material')
-    props=''.join(f'\n\t\t\t\t\t"{k}" "string" "{v}"' for k,v in GLASS_PROPERTIES)
-    ids=node_ids(source);blocks=[]
-    for pane in panes:
-        lo,hi=pane['lo'],pane['hi']
-        centre=tuple((a+b)/2 for a,b in zip(lo,hi))
-        # world() swaps axes: Source X is local north, Source Y local east.
-        half=((hi[1]-lo[1])/2*UNITS,(hi[0]-lo[0])/2*UNITS,(hi[2]-lo[2])/2*UNITS)
-        block=clone_block(template,'glass-'+pane['name'],'func_breakable',world(centre),half,ids)
-        block=block.replace(TRIGGER_MATERIAL,pane['material'])
-        block=re.sub(r'("classname"\s+"string"\s+"func_breakable")',lambda m:m[1]+props,block,count=1)
-        blocks.append(block)
+    ids=node_ids(source)
+    blocks=[box_entity(template,'glass-'+p['name'],'func_breakable',(p['lo'],p['hi']),ids,GLASS_PROPERTIES,p['material'])
+            for p in panes]
     for material in sorted({p['material'] for p in panes}):
+        source=project._ensure_map_asset_reference(source,material)
+    opening=project._world_children_opening(source)
+    return source[:opening+1]+'\n'+',\n'.join(blocks)+','+source[opening+1:]
+
+
+def box_entity(template,token,classname,box,ids,properties,material=None):
+    lo,hi=box
+    centre=tuple((a+b)/2 for a,b in zip(lo,hi))
+    # world() swaps axes: Source X is local north, Source Y local east.
+    half=((hi[1]-lo[1])/2*UNITS,(hi[0]-lo[0])/2*UNITS,(hi[2]-lo[2])/2*UNITS)
+    block=clone_block(template,token,classname,world(centre),half,ids)
+    if material:block=block.replace(TRIGGER_MATERIAL,material)
+    props=''.join(f'\n\t\t\t\t\t"{k}" "string" "{v}"' for k,v in properties)
+    return re.sub(r'("classname"\s+"string"\s+"'+classname+'")',lambda m:m[1]+props,block,count=1)
+
+
+def connection(token,output,target,inputname):
+    """Hammer I/O row, with the field types of Valve's own cs_script_demo.vmap."""
+    return (f'"DmeConnectionData"\n{{\n"id" "elementid" "{uuid.uuid5(uuid.NAMESPACE_URL,"trento-povo:"+token)}"\n'
+            f'"outputName" "string" "{output}"\n"targetType" "int" "7"\n"targetName" "string" "{target}"\n'
+            f'"inputName" "string" "{inputname}"\n"overrideParam" "string" ""\n'
+            '"delay" "float" "0"\n"timesToFire" "int" "-1"\n}')
+
+
+def add_auto_doors(source,doors):
+    """Sliding func_door leaves, opened by a players-only trigger in front of each bank."""
+    if not doors:return source
+    template=next(block for _,_,classname,block in project._entity_ranges(source)
+                  if classname=='func_buyzone' and '"CMapMesh"' in block)
+    ids=node_ids(source);blocks=[]
+    for door in doors:
+        target='trento_door_'+door['name']
+        for part in door['parts']:
+            # wait -1: only the trigger closes them. Touch Opens (1024) is a fallback.
+            blocks.append(box_entity(template,'door-'+part['name'],'func_door',(part['lo'],part['hi']),ids,
+                (('targetname',target),('movedir',f"0 {part['yaw']} 0"),('speed','60'),('wait','-1'),
+                 ('lip','0'),('spawnpos','0'),('spawnflags','1024'),('forceclosed','0'),('dmg','0')),part['material']))
+        trigger=box_entity(template,'door-trigger-'+door['name'],'trigger_multiple',door['trigger'],ids,
+            (('targetname',target+'_sensor'),('spawnflags','4097'),('wait','1'),('StartDisabled','0')))
+        rows=',\n'.join((connection(f"door-io-{door['name']}-open",'OnStartTouch',target,'Open'),
+                         connection(f"door-io-{door['name']}-close",'OnEndTouchAll',target,'Close')))
+        trigger,count=re.subn(r'("connectionsData"\s+"element_array"\s*\[)\s*(\])',lambda m:m[1]+'\n'+rows+'\n'+m[2],trigger,count=1)
+        if not count:raise ValueError('Trigger template has no empty connectionsData')
+        blocks.append(trigger)
+    for material in sorted({p['material'] for d in doors for p in d['parts']}):
         source=project._ensure_map_asset_reference(source,material)
     opening=project._world_children_opening(source)
     return source[:opening+1]+'\n'+',\n'.join(blocks)+','+source[opening+1:]
@@ -166,6 +203,7 @@ def map_text(source,metadata):
     for a,b,s in reversed(replacements):source=source[:a]+s+source[b:]
     if metadata.get('exterior'):source=skip_nav_analysis(source)
     source=add_breakable_glass(source,metadata.get('breakable_glass',[]))
+    source=add_auto_doors(source,metadata.get('auto_doors',[]))
     source=project._insert_point_entity(source,'campus-upper-nav','point_nav_walkable',world((0,-35.2,7.75)))
     for core in metadata['stair']['cores']:
         source=project._insert_point_entity(source,'campus-stair-'+core['id']+'-nav','point_nav_walkable',world(core['mid']))

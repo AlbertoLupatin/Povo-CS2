@@ -50,8 +50,9 @@ def extend(boxes,spec,live_entrance):
                 for depth,label in ((-.07,'fixed'),(.035,'parked_leaf')):
                     box(f'{prefix}_{label}_{sign}',(x+depth,lo,z+.08),(x+depth+.025,hi,head-.06),'entry_glass')
                     box(f'{prefix}_{label}_band_{sign}',(x+depth-.004,lo,z+1.12),(x+depth+.03,hi,z+1.17),'white')
+                # Stops short of the sliding-leaf track (x+.03 to x+.07).
                 for yy in (lo,hi):
-                    box(f'{prefix}_sash_{sign}_{yy}',(x-.08,yy-.023,z),(x+.09,yy+.023,head),'fence')
+                    box(f'{prefix}_sash_{sign}_{yy}',(x-.08,yy-.023,z),(x+.025,yy+.023,head),'fence')
                 box(f'{prefix}_leaf_bottom_{sign}',(x+.03,lo,z+.035),(x+.07,hi,z+.085),'fence')
             box(prefix+'_head',(x-.10,y-half-.05,head),(x+.12,y+half+.05,head+.13),'fence')
             box(prefix+'_sensor',(x+.12,y-.13,head+.14),(x+.17,y+.13,head+.23),'dark')

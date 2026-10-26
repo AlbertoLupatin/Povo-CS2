@@ -527,10 +527,38 @@ def is_breakable_glass(box):
             and not any(t in name for t in UNBREAKABLE_GLASS))
 
 
+AUTO_DOOR_PART=re.compile(r'exterior_(p2_entry_(?:outer|inner)_bank_\d)_(parked_leaf|parked_leaf_band|leaf_bottom)_(-?1)$')
+
+
+def split_auto_doors(boxes):
+    """Povo 2's sliding entrance leaves, moved from parked-open to closed.
+
+    Each bank becomes one door name. Every leaf part slides by its own width
+    toward the sidelight it parks over, which is how func_door measures travel.
+    """
+    banks={};rest=[]
+    for box in boxes:
+        match=AUTO_DOOR_PART.match(box[0])
+        if not match:rest.append(box);continue
+        name,lo,hi,material=box;sign=int(match[3]);width=hi[1]-lo[1]
+        closed_lo=(lo[0],lo[1]-sign*width,lo[2]);closed_hi=(hi[0],hi[1]-sign*width,hi[2])
+        # Source yaw 0 is local south (-north); see cs2_campus.world().
+        banks.setdefault(match[1],[]).append(dict(name=name,lo=list(closed_lo),hi=list(closed_hi),
+                                                 material=material_path(material),yaw=0 if sign<0 else 180))
+    doors=[]
+    for bank,parts in sorted(banks.items()):
+        x=parts[0]['lo'][0];z=min(p['lo'][2] for p in parts)
+        # Opens about two metres before a player reaches the door line.
+        trigger=([x-2,min(p['lo'][1] for p in parts)-.9,z],[x+2,max(p['hi'][1] for p in parts)+.9,z+2.6])
+        doors.append(dict(name=bank,parts=parts,trigger=trigger))
+    return doors,rest
+
+
 def export(root=ROOT):
     settings, config, boxes, levels, stair = build_geometry(root)
-    # Breakable panes become separate map entities, so leave them out of the
-    # static model and its collision. build_geometry() still keeps them solid.
+    # Doors and breakable panes become separate map entities, so leave them out
+    # of the static model and its collision. build_geometry() keeps them solid.
+    doors,boxes=split_auto_doors(boxes)
     glass=[b for b in boxes if is_breakable_glass(b)]
     boxes=[b for b in boxes if not is_breakable_glass(b)]
     try:
@@ -560,6 +588,7 @@ def export(root=ROOT):
     metadata=dict(map_name=settings['map_name'],origin=[666250,5103800,370],settings=settings,
                   levels=levels,stair=stair,visual_boxes=len(boxes),collision_boxes=collision_count,
                   breakable_glass=[dict(name=n,lo=list(lo),hi=list(hi),material=material_path(m)) for n,lo,hi,m in glass],
+                  auto_doors=doors,
                   assumptions=settings['assumptions'],
                   inputs={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in
                           ('config/povo1_campus.json',settings['interior_source'],'config/povo1_plan_alignment.json')})

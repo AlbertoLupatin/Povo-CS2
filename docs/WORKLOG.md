@@ -1032,7 +1032,7 @@ Details: docs/POVO_EXTERIOR.md.
 
 ## 26 October 2026 — breakable glass (source only, not yet compiled)
 
-Playable building glass now breaks: 295 panes are generated as separate
+Playable building glass now breaks: 295 panes (287 after the automatic doors below) are generated as separate
 `func_breakable` entities (material Glass, health 1) instead of static model
 geometry. They are cloned from the buy-zone mesh, the same proven path as the
 exterior play-area trigger; `func_shatterglass` is excluded by CS2's csgo.fgd.
@@ -1052,3 +1052,20 @@ Still to verify on Windows: compile and package, that panes render and break
 in game, glass01 UV scale on the cloned meshes, lighting through former glass,
 nav mesh behaviour at windows (bots must not path through intact panes), and
 frame rate with ~300 extra entities.
+
+
+## 26 October 2026 — automatic Povo 2 entrance doors (source only)
+
+The four Povo 2 entrance banks (two outer, two inner) now slide. Each sliding
+leaf (glass, band and bottom rail) is a `func_door` named after its bank,
+spawned closed and moving by its own width over the sidelight it used to park
+on. A players-only `trigger_multiple` 2 m deep on each side fires `Open` on
+OnStartTouch and `Close` on OnEndTouchAll; doors use wait -1, and Touch Opens
+stays on as a fallback. The connection rows copy the field types read from
+Valve's `cs_script_demo.vmap` (targetType 7 = by name). The sashes now stop
+short of the leaf track so closed leaves do not cut through them. These leaves
+leave the breakable-glass set (287 panes); the fixed sidelights still break.
+Povo 1's entrance is an open doorway with no doors, so it is unchanged.
+
+The audits still use the parked-open leaves, so walking clearance is unchanged.
+140 tests and all audits pass on Linux. Windows checks: docs/TODO.md.

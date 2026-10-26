@@ -16,6 +16,7 @@ outdoor arena, built from the same source).
 - **Exterior:** roads, surface lot, residential backdrop, straight ramp into the covered garage, terrain from real 0.5 m elevation data.
 - **Gameplay:** team starts, buy zones, bomb target, generated navigation and a radar with separate floors.
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
+- **Automatic doors:** the Povo 2 entrance banks slide open as players approach.
 
 Latest verified build (24 October 2026): zero compile failures, 44,979,765-byte VPK
 (344 entries, all CRCs pass), 135 source tests passing, and normal-walking route
@@ -63,6 +64,7 @@ Area write-ups: [architecture](docs/POVO_ARCHITECTURE.md),
 [interior study](docs/POVO_INTERIOR_STUDY.md), [circulation](docs/POVO_CIRCULATION.md),
 [Povo 2](docs/POVO2_CONNECTION.md), [exterior](docs/POVO_EXTERIOR.md),
 [radar](docs/POVO_RADAR.md), [terrain tool](docs/TERRAIN_TOOL.md).
+Open work is tracked in [TODO.md](docs/TODO.md).
 [Publishing and hosting](docs/PUBLISH_AND_HOST.md) explains Workshop upload and playing with friends.
 [WINDOWS_RESUME.md](docs/WINDOWS_RESUME.md) is the detailed maintainer handoff log.
 

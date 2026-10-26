@@ -32058,8 +32058,8 @@
       ]
     }
   },
-  "visual_boxes": 18724,
-  "collision_boxes": 5318,
+  "visual_boxes": 18708,
+  "collision_boxes": 5310,
   "breakable_glass": [
     {
       "name": "academic_ground_court_0_0_tail_material1_windowcut_0_glass",
@@ -35982,20 +35982,6 @@
       "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
     },
     {
-      "name": "exterior_p2_entry_outer_bank_0_parked_leaf_-1",
-      "lo": [
-        49.434999999999995,
-        29.55,
-        4.08
-      ],
-      "hi": [
-        49.459999999999994,
-        30.450000000000003,
-        6.590000000000001
-      ],
-      "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
-    },
-    {
       "name": "exterior_p2_entry_outer_bank_0_fixed_1",
       "lo": [
         49.33,
@@ -36004,20 +35990,6 @@
       ],
       "hi": [
         49.355,
-        33.15,
-        6.590000000000001
-      ],
-      "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
-    },
-    {
-      "name": "exterior_p2_entry_outer_bank_0_parked_leaf_1",
-      "lo": [
-        49.434999999999995,
-        32.25,
-        4.08
-      ],
-      "hi": [
-        49.459999999999994,
         33.15,
         6.590000000000001
       ],
@@ -36038,20 +36010,6 @@
       "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
     },
     {
-      "name": "exterior_p2_entry_outer_bank_1_parked_leaf_-1",
-      "lo": [
-        49.434999999999995,
-        33.85,
-        4.08
-      ],
-      "hi": [
-        49.459999999999994,
-        34.75,
-        6.590000000000001
-      ],
-      "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
-    },
-    {
       "name": "exterior_p2_entry_outer_bank_1_fixed_1",
       "lo": [
         49.33,
@@ -36060,20 +36018,6 @@
       ],
       "hi": [
         49.355,
-        37.449999999999996,
-        6.590000000000001
-      ],
-      "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
-    },
-    {
-      "name": "exterior_p2_entry_outer_bank_1_parked_leaf_1",
-      "lo": [
-        49.434999999999995,
-        36.55,
-        4.08
-      ],
-      "hi": [
-        49.459999999999994,
         37.449999999999996,
         6.590000000000001
       ],
@@ -36094,20 +36038,6 @@
       "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
     },
     {
-      "name": "exterior_p2_entry_inner_bank_0_parked_leaf_-1",
-      "lo": [
-        34.535,
-        29.55,
-        4.08
-      ],
-      "hi": [
-        34.559999999999995,
-        30.450000000000003,
-        6.590000000000001
-      ],
-      "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
-    },
-    {
       "name": "exterior_p2_entry_inner_bank_0_fixed_1",
       "lo": [
         34.43,
@@ -36116,20 +36046,6 @@
       ],
       "hi": [
         34.455,
-        33.15,
-        6.590000000000001
-      ],
-      "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
-    },
-    {
-      "name": "exterior_p2_entry_inner_bank_0_parked_leaf_1",
-      "lo": [
-        34.535,
-        32.25,
-        4.08
-      ],
-      "hi": [
-        34.559999999999995,
         33.15,
         6.590000000000001
       ],
@@ -36150,20 +36066,6 @@
       "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
     },
     {
-      "name": "exterior_p2_entry_inner_bank_1_parked_leaf_-1",
-      "lo": [
-        34.535,
-        33.85,
-        4.08
-      ],
-      "hi": [
-        34.559999999999995,
-        34.75,
-        6.590000000000001
-      ],
-      "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
-    },
-    {
       "name": "exterior_p2_entry_inner_bank_1_fixed_1",
       "lo": [
         34.43,
@@ -36176,20 +36078,436 @@
         6.590000000000001
       ],
       "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
+    }
+  ],
+  "auto_doors": [
+    {
+      "name": "p2_entry_inner_bank_0",
+      "parts": [
+        {
+          "name": "exterior_p2_entry_inner_bank_0_parked_leaf_-1",
+          "lo": [
+            34.535,
+            30.450000000000003,
+            4.08
+          ],
+          "hi": [
+            34.559999999999995,
+            31.350000000000005,
+            6.590000000000001
+          ],
+          "material": "materials/trento/povo/campus/exterior/entry_glass.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_0_parked_leaf_band_-1",
+          "lo": [
+            34.531,
+            30.450000000000003,
+            5.12
+          ],
+          "hi": [
+            34.565,
+            31.350000000000005,
+            5.17
+          ],
+          "material": "materials/trento/povo/campus/exterior/white.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_0_leaf_bottom_-1",
+          "lo": [
+            34.53,
+            30.450000000000003,
+            4.035
+          ],
+          "hi": [
+            34.57,
+            31.350000000000005,
+            4.085
+          ],
+          "material": "materials/trento/povo/campus/exterior/fence.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_0_parked_leaf_1",
+          "lo": [
+            34.535,
+            31.35,
+            4.08
+          ],
+          "hi": [
+            34.559999999999995,
+            32.25,
+            6.590000000000001
+          ],
+          "material": "materials/trento/povo/campus/exterior/entry_glass.vmat",
+          "yaw": 180
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_0_parked_leaf_band_1",
+          "lo": [
+            34.531,
+            31.35,
+            5.12
+          ],
+          "hi": [
+            34.565,
+            32.25,
+            5.17
+          ],
+          "material": "materials/trento/povo/campus/exterior/white.vmat",
+          "yaw": 180
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_0_leaf_bottom_1",
+          "lo": [
+            34.53,
+            31.35,
+            4.035
+          ],
+          "hi": [
+            34.57,
+            32.25,
+            4.085
+          ],
+          "material": "materials/trento/povo/campus/exterior/fence.vmat",
+          "yaw": 180
+        }
+      ],
+      "trigger": [
+        [
+          32.535,
+          29.550000000000004,
+          4.035
+        ],
+        [
+          36.535,
+          33.15,
+          6.635
+        ]
+      ]
     },
     {
-      "name": "exterior_p2_entry_inner_bank_1_parked_leaf_1",
-      "lo": [
-        34.535,
-        36.55,
-        4.08
+      "name": "p2_entry_inner_bank_1",
+      "parts": [
+        {
+          "name": "exterior_p2_entry_inner_bank_1_parked_leaf_-1",
+          "lo": [
+            34.535,
+            34.75,
+            4.08
+          ],
+          "hi": [
+            34.559999999999995,
+            35.65,
+            6.590000000000001
+          ],
+          "material": "materials/trento/povo/campus/exterior/entry_glass.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_1_parked_leaf_band_-1",
+          "lo": [
+            34.531,
+            34.75,
+            5.12
+          ],
+          "hi": [
+            34.565,
+            35.65,
+            5.17
+          ],
+          "material": "materials/trento/povo/campus/exterior/white.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_1_leaf_bottom_-1",
+          "lo": [
+            34.53,
+            34.75,
+            4.035
+          ],
+          "hi": [
+            34.57,
+            35.65,
+            4.085
+          ],
+          "material": "materials/trento/povo/campus/exterior/fence.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_1_parked_leaf_1",
+          "lo": [
+            34.535,
+            35.65,
+            4.08
+          ],
+          "hi": [
+            34.559999999999995,
+            36.55,
+            6.590000000000001
+          ],
+          "material": "materials/trento/povo/campus/exterior/entry_glass.vmat",
+          "yaw": 180
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_1_parked_leaf_band_1",
+          "lo": [
+            34.531,
+            35.65,
+            5.12
+          ],
+          "hi": [
+            34.565,
+            36.55,
+            5.17
+          ],
+          "material": "materials/trento/povo/campus/exterior/white.vmat",
+          "yaw": 180
+        },
+        {
+          "name": "exterior_p2_entry_inner_bank_1_leaf_bottom_1",
+          "lo": [
+            34.53,
+            35.65,
+            4.035
+          ],
+          "hi": [
+            34.57,
+            36.55,
+            4.085
+          ],
+          "material": "materials/trento/povo/campus/exterior/fence.vmat",
+          "yaw": 180
+        }
       ],
-      "hi": [
-        34.559999999999995,
-        37.449999999999996,
-        6.590000000000001
+      "trigger": [
+        [
+          32.535,
+          33.85,
+          4.035
+        ],
+        [
+          36.535,
+          37.449999999999996,
+          6.635
+        ]
+      ]
+    },
+    {
+      "name": "p2_entry_outer_bank_0",
+      "parts": [
+        {
+          "name": "exterior_p2_entry_outer_bank_0_parked_leaf_-1",
+          "lo": [
+            49.434999999999995,
+            30.450000000000003,
+            4.08
+          ],
+          "hi": [
+            49.459999999999994,
+            31.350000000000005,
+            6.590000000000001
+          ],
+          "material": "materials/trento/povo/campus/exterior/entry_glass.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_0_parked_leaf_band_-1",
+          "lo": [
+            49.431,
+            30.450000000000003,
+            5.12
+          ],
+          "hi": [
+            49.464999999999996,
+            31.350000000000005,
+            5.17
+          ],
+          "material": "materials/trento/povo/campus/exterior/white.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_0_leaf_bottom_-1",
+          "lo": [
+            49.43,
+            30.450000000000003,
+            4.035
+          ],
+          "hi": [
+            49.47,
+            31.350000000000005,
+            4.085
+          ],
+          "material": "materials/trento/povo/campus/exterior/fence.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_0_parked_leaf_1",
+          "lo": [
+            49.434999999999995,
+            31.35,
+            4.08
+          ],
+          "hi": [
+            49.459999999999994,
+            32.25,
+            6.590000000000001
+          ],
+          "material": "materials/trento/povo/campus/exterior/entry_glass.vmat",
+          "yaw": 180
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_0_parked_leaf_band_1",
+          "lo": [
+            49.431,
+            31.35,
+            5.12
+          ],
+          "hi": [
+            49.464999999999996,
+            32.25,
+            5.17
+          ],
+          "material": "materials/trento/povo/campus/exterior/white.vmat",
+          "yaw": 180
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_0_leaf_bottom_1",
+          "lo": [
+            49.43,
+            31.35,
+            4.035
+          ],
+          "hi": [
+            49.47,
+            32.25,
+            4.085
+          ],
+          "material": "materials/trento/povo/campus/exterior/fence.vmat",
+          "yaw": 180
+        }
       ],
-      "material": "materials/trento/povo/campus/exterior/entry_glass.vmat"
+      "trigger": [
+        [
+          47.434999999999995,
+          29.550000000000004,
+          4.035
+        ],
+        [
+          51.434999999999995,
+          33.15,
+          6.635
+        ]
+      ]
+    },
+    {
+      "name": "p2_entry_outer_bank_1",
+      "parts": [
+        {
+          "name": "exterior_p2_entry_outer_bank_1_parked_leaf_-1",
+          "lo": [
+            49.434999999999995,
+            34.75,
+            4.08
+          ],
+          "hi": [
+            49.459999999999994,
+            35.65,
+            6.590000000000001
+          ],
+          "material": "materials/trento/povo/campus/exterior/entry_glass.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_1_parked_leaf_band_-1",
+          "lo": [
+            49.431,
+            34.75,
+            5.12
+          ],
+          "hi": [
+            49.464999999999996,
+            35.65,
+            5.17
+          ],
+          "material": "materials/trento/povo/campus/exterior/white.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_1_leaf_bottom_-1",
+          "lo": [
+            49.43,
+            34.75,
+            4.035
+          ],
+          "hi": [
+            49.47,
+            35.65,
+            4.085
+          ],
+          "material": "materials/trento/povo/campus/exterior/fence.vmat",
+          "yaw": 0
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_1_parked_leaf_1",
+          "lo": [
+            49.434999999999995,
+            35.65,
+            4.08
+          ],
+          "hi": [
+            49.459999999999994,
+            36.55,
+            6.590000000000001
+          ],
+          "material": "materials/trento/povo/campus/exterior/entry_glass.vmat",
+          "yaw": 180
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_1_parked_leaf_band_1",
+          "lo": [
+            49.431,
+            35.65,
+            5.12
+          ],
+          "hi": [
+            49.464999999999996,
+            36.55,
+            5.17
+          ],
+          "material": "materials/trento/povo/campus/exterior/white.vmat",
+          "yaw": 180
+        },
+        {
+          "name": "exterior_p2_entry_outer_bank_1_leaf_bottom_1",
+          "lo": [
+            49.43,
+            35.65,
+            4.035
+          ],
+          "hi": [
+            49.47,
+            36.55,
+            4.085
+          ],
+          "material": "materials/trento/povo/campus/exterior/fence.vmat",
+          "yaw": 180
+        }
+      ],
+      "trigger": [
+        [
+          47.434999999999995,
+          33.85,
+          4.035
+        ],
+        [
+          51.434999999999995,
+          37.449999999999996,
+          6.635
+        ]
+      ]
     }
   ],
   "assumptions": "Povo 1 has two floors, an enclosed reception replacing ground Studio E1, and separate male/female restrooms in each former upper north/south study room. Other room furniture and all dimensions remain approximate. Povo 2 ground, basement and parking connect to the compact bridge stair.",
@@ -60400,7 +60718,7 @@
     }
   },
   "artifacts": {
-    "povo1_campus.obj": "185e20a66c4f8ec243ffeaa1a34ca5614efc7717b621166d34df756af0753c19",
-    "povo1_campus_collision.obj": "f2e8171a64d487da7dd9da528cd0a957d97777ad914fd36d9fd5d1a0b9b7800c"
+    "povo1_campus.obj": "fccbadb8ae9c505af57d8de44e6658317403df7dc4590733326aca102159963b",
+    "povo1_campus_collision.obj": "211299ecae24c4af33e884fe3561de7a6219044681422286230246f7d712fb2b"
   }
 }
