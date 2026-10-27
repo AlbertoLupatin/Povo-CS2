@@ -11,17 +11,19 @@ Open actions, most urgent first. Tick them off here and record evidence in
 - [x] Update three-floor source previews and derive stair/bridge sound zones from current elevations.
 - [x] Record photo 46 right lab: one corridor entrance, plus the red-star exit to the external courtyard.
 - [x] Identify photo 4 as A103 from user clarification; scope the correction to the A103–A106 family.
-- [ ] Refine photo 4 compass/metric registration, photo 46's blue-obscured north door position, and photo 37 floor-caption mismatch against user evidence.
+- [ ] Refine photo 4 compass/metric registration, photo 46's visible north-door recess/stepped-footprint registration, and photo 37 floor-caption mismatch against user evidence.
 - [ ] Improve metric/perspective registration and faint sanitary-core tracing; upper-library directory colours remain semantic zones.
-- [ ] Record the survey revision's native build/package result in the worklog. Earlier evidence below describes earlier geometry; no post-build engine testing is requested.
+- [x] Record the STANDARD native build/package result: zero compile failures, 61,351,046 bytes, 976 entries/all CRCs verified; [durable evidence](../exports/povo_campus/runtime/survey_20261027/README.md). No post-build engine tests were run; winter was not rebuilt.
+- [ ] Resolve the two known unconnected ladder-top navigation warnings before claiming bot traversal. Physical source clearance checks pass.
 
-## Windows: verify the breakable glass, automatic doors and stairs
+## Historical Windows checklist — earlier pre-survey geometry
 
-Both initial Windows variants compile with zero failures and pass full CRC
-verification. All 177 source tests pass after correcting both lift shafts.
-Normal walking, room access and representative breakage checks pass on the first
-standard build; the corrected lift rebuild is in progress. Evidence and exact
-package scope are recorded in [WORKLOG.md](WORKLOG.md).
+The checked results and fixed counts below (177 tests, 349 breakables and the
+other entity figures) describe earlier builds. They are retained as historical
+evidence, not current photo-survey runtime results. The latest STANDARD build
+and its 203-test source suite are recorded above and in [WORKLOG.md](WORKLOG.md).
+No engine/session checks were run after that build; the old checkmarks do not
+certify the revised geometry.
 
 - [x] Pull `main`, then build: `python tools/cs2_campus.py`. Expect zero compile
       failures, then a package that passes `python tools/verify_cs2_package.py`.
@@ -79,11 +81,11 @@ package scope are recorded in [WORKLOG.md](WORKLOG.md).
 - [ ] Optional: replace the lift ladder with a moving platform (`func_door`
       moving up) once a quick CS2 test shows players ride it smoothly.
 
-- [x] Implement the Povo 2 additions in source; Windows validation pending. See
+- [x] Implement the Povo 2 additions in source; latest STANDARD compile/package passed, with post-build engine checks omitted. See
       [Windows handoff](WINDOWS_PHOTO_ADDITIONS_HANDOFF.md). Original brief in [POVO2_INTERIOR_BRIEF.md](POVO2_INTERIOR_BRIEF.md):
       -1 exit stair, sunken yard and CIBIO offices, ground left corridor with
       classrooms and computer room, aula magna, B11x furniture.
 
 - [x] Implement library/canteen interiors, sliding entrances and replacement
-      of placeholder cores in the campus assembly. Windows validation pending;
+      of placeholder cores in the campus assembly. Latest STANDARD compile/package passed; post-build engine checks were omitted;
       see [Windows handoff](WINDOWS_PHOTO_ADDITIONS_HANDOFF.md).

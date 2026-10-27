@@ -40,8 +40,9 @@ tool results, limitations, and work that affects the installed CS2 addon.
   evidence limits. Prior native/package evidence elsewhere remains historical.
 - User clarification resolves photo 46's right circled lab topology: exactly
   one entrance from the corridor, with the red star representing a separate
-  exit to the external courtyard. The exact blue-obscured north door position
-  remains uncertain; it is not recorded as a second corridor entrance.
+  exit to the external courtyard. Read-only detail review later recovers the
+  north-door leaf/swing; its stepped footprint still needs refinement before
+  exact opening registration, as recorded below.
 - Final post-A103 source suite: 203 tests run in 62.968 s, 202 passed and one skipped
   (`build/survey-tests-final.log`). Povo 1 horizontal clearance passed 48
   academic_ground, 104 academic_first and 78 academic_upper stations; the
@@ -67,9 +68,48 @@ tool results, limitations, and work that affects the installed CS2 addon.
 - The first STANDARD native attempt was intentionally stopped before completion
   to incorporate A103; this is not a compiler failure and produced no completed
   new package (`build/survey-native-build-pre-A103.log`). The final STANDARD
-  build restarted at 15:11 in `build/survey-native-build.log`; final native and
-  package figures remain pending. Post-build engine tests are omitted at the
-  user's request.
+  build restarted at 15:11 and completed at 19:17 Europe/Rome with pipeline
+  exit 0: map 707 compiled/0 failed; model 1 compiled/0 failed. Five radar
+  sections compiled; generated navigation contains 12,566 areas.
+- Final standard VPK: 61,351,046 bytes, 976 entries, all 976 entry CRCs verified;
+  package report `passed`, `all_entry_crc_requested=true`. SHA-256:
+  `2edab45d2625ec635410e0d9af5f353842e6ca51d1cee8b225adb48b05692b61`.
+  Durable evidence: [compile log](../exports/povo_campus/runtime/survey_20261027/compile.log),
+  [full package report](../exports/povo_campus/runtime/survey_20261027/package-check.json)
+  and [scope notes](../exports/povo_campus/runtime/survey_20261027/README.md).
+  The previous local package is preserved at
+  `build/package/trento_povo_campus-pre-survey.vpk`.
+- The model compiler retains the known DuplicateBone warning. Navigation has
+  two unconnected ladder-top warnings at `(2683.07,410.236,444)` and
+  `(-571.653,860.236,444)`, corresponding to the earlier sketch build's same
+  two warnings at Z302. This remains a bot-navigation limitation; source
+  physical stair/ladder clearance checks do not establish engine traversal.
+  No post-build engine/session tests were run. STANDARD only was rebuilt;
+  the winter VPK remains unchanged.
+- Source checkpoint `14a8ef5` is committed and pushed on
+  `codex/photo-additions-windows`; the completed native build above uses that
+  source snapshot. Subsequent door-detail notes and review crops do not change
+  the runtime/configuration/archive snapshot.
+- Local packaging preflight found that the ignored `build/tools/python/blake3`
+  helper contained only a CPython 3.15 extension, while the bundled build
+  interpreter is CPython 3.12. Installed pinned `blake3==1.0.11` under ignored
+  `build/tools/python312` and copied only its CPython 3.12 Windows amd64 `.pyd`
+  into the existing helper package, preserving the CPython 3.15 binary.
+  `blake3_digest` now works with the bundled interpreter. This is a local
+  dependency compatibility repair, without runtime source/model changes.
+- A read-only follow-up recovered the east marked lab's north-door leaf/swing
+  near the wall's west end, below the blue stroke in photo 46; rotated photo 1
+  faintly corroborates the doorway/recess. Saved both review crops:
+  [photo 46](../exports/povo2_survey/evidence/rectified_46_door_detail.png) and
+  [photo 1 rotated](../exports/povo2_survey/evidence/rectified_1_rotated_door_detail.png).
+  The coarse rectangle's top at y≈1898 folds in a narrow recess above the main
+  wall around y≈1948. Refine that stepped footprint before assigning an exact
+  `opening_trace`; residual independent perspective offsets are tens of pixels.
+  The north corridor entrance and separate west courtyard exit remain confirmed.
+  This is visible evidence, not a question requiring the user to identify the
+  door again. The existing overlay marker still denotes unrefined registration.
+  No runtime/config/archive or native snapshot `14a8ef5` change was made, and
+  the current overlay was not regenerated.
 
 ## 23 October 2026 — Windows resume documentation and approved full-data push
 

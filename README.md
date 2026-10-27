@@ -18,12 +18,14 @@ outdoor arena, built from the same source).
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
 - **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.
 
-Earlier Windows standard build (27 October 2026, before the photo-survey integration below): zero compile failures,
-61,562,729-byte VPK with 944 entries. All 191 source tests passed before the
-build. Post-build engine checks were skipped at the user's request; the winter
-VPK has not been rebuilt for these 27 October changes. See the
-[sketch/layout handoff](docs/POVO2_SKETCH_CORRECTIONS.md) and
-[worklog](docs/WORKLOG.md) for scope and evidence.
+Windows STANDARD build completed on 27 October 2026 at 19:17 Europe/Rome:
+zero compile failures, 61,351,046-byte VPK, 976 entries and all 976 CRCs verified.
+Before the build, 203 source tests ran: 202 passed and one skipped. Five radar
+sections and 12,566 navigation areas were generated. The known DuplicateBone
+warning and two unconnected ladder-top warnings remain. No post-build engine
+checks were run at the user's request; the winter VPK was not rebuilt.
+See the [saved native/package evidence](exports/povo_campus/runtime/survey_20261027/README.md)
+and [worklog](docs/WORKLOG.md) for scope and limitations.
 
 Interiors are reconstructed from public floor plans and photographs, so room
 dimensions and seat counts are estimates, and surfaces are blockout-level art
@@ -44,8 +46,10 @@ registration remain approximate. This clarification applies to the A103–A106
 family only; see the [A103 cutaway and top view](exports/povo_campus/a103_photo4_review.png).
 The user confirms photo 46's right circled lab has one entrance
 from the corridor and a separate red-star exit to the external courtyard. Its
-blue-obscured north door position remains uncertain; no generic room plan is
-substituted for unobserved details.
+north-door leaf/swing is visible below the blue stroke near the wall's west end;
+its narrow entrance recess needs stepped-footprint refinement before an exact
+opening segment is registered. No generic room plan is substituted for
+unobserved details.
 
 ## Build it
 
