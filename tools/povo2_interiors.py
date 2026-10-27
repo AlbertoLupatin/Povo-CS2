@@ -83,15 +83,25 @@ def extend_layout(boxes, levels, root, wall_height):
     ground = next(l for l in spec['levels'] if l['floor']==0)
     basement = next(l for l in spec['levels'] if l['floor']==-1)
     result = [box for box in boxes if not box[0].startswith('exterior_povo2_terrace_guard_')]
+    try:
+        from .povo_interior_fixtures import reception_boxes
+    except ImportError:
+        from povo_interior_fixtures import reception_boxes
+    result=[box for box in result if not box[0].startswith('p2_ground_reception_')]
+    spec['ground']['reception']=cfg['reception']
+    result.extend(reception_boxes('p2_ground_reception',cfg['reception'],ground['z'],wall_height,'east'))
     ext=levels[0].get('exterior',{})
     for key in ('meshes','collision_meshes'):
         ext[key]=[m for m in ext.get(key,[]) if not m['name'].startswith('exterior_povo2_terrace_guard_')]
     # B111--B114 end at their own glazed facade. Remove the shell's obsolete
     # 2.4 m tail behind them, including the opaque wall visible through B112.
-    tail=((10,35.5,ground['z']-.3),(12.5,71.6,ground['z']+wall_height+.02))
+    tail=((10,26,ground['z']-.3),(12.5,71.6,ground['z']+wall_height+.02))
     result=[p for box in result for p in
             (subtract_box(box,tail) if box[0].startswith('p2_ground_')
              and box[3] in ('wall','ceiling_panel','floor_p2_tile') else [box])]
+    trim=((10,26,ground['z']-.3),(12.38,71.6,ground['z']+wall_height+.02))
+    result=[p for box in result for p in
+            (subtract_box(box,trim) if box[0].startswith('p2_ground_') and '_finish_' in box[0] else [box])]
 
     def add(name, lo, hi, material='wall'):
         if any(a>=b for a,b in zip(lo,hi)):
@@ -167,24 +177,30 @@ def extend_layout(boxes, levels, root, wall_height):
     clear((16.6,11,25.5,29.5),z)
     landing=('p2_ground_stair_hall_floor',(16.5,11,z-.22),(25.5,29.5,z),'floor_p2_tile')
     shaft=levels[1]['connection']['lift']['shaft']
-    result.extend(subtract_box(landing,((shaft[0],shaft[1],z-.3),(shaft[2],shaft[3],z+.01))))
+    parts=subtract_box(landing,((shaft[0],shaft[1],z-.3),(shaft[2],shaft[3],z+.01)))
+    a,b,c,d=spec['stairs']['bounds']
+    result.extend(p for box in parts for p in subtract_box(box,((a,b,z-.3),(c,d,z+.01))))
     # Hollow the existing hall's internal boundaries without clipping the core
     # or the relocated lift. Retain a sealed outside perimeter.
     for lo,hi in [((16.65,14.05,z-.01),(25.4,29.6,z+2.3)),
                   ((22.35,10.75,z-.01),(25.65,11.25,z+2.3))]:
         result=[p for box in result for p in
                 (subtract_box(box,(lo,hi)) if box[3] in ('wall','window_frame')
-                 and not box[0].startswith('p2_lift_') else [box])]
+                 and not box[0].startswith(('p2_ground_reception_','p2_lift_','academic_first_link_p2_stair_',
+                                            'p2_extended_')) else [box])]
     # Direct stair entrance: retain the actual core door, remove the first
     # black door and its empty vestibule completely.
-    cut((16.25,21.175,z-.01),(16.75,22.825,z+2.2))
+    dx=levels[1]['connection'].get('stair_offset_east',0)
+    cut((16.25+dx,21.175,z-.01),(16.75+dx,22.825,z+2.2))
+    # The approach's east partition opens into the reception hall.
+    cut((25.3,19.6,z-.01),(25.7,29.6,z+2.3))
     for old_station in ground['audit_stations']:
         if old_station['id']=='left_corridor':old_station['point']=[24,25.5]
     station(ground,'left_extension_entry',24,28.8)
     station(ground,'left_extension_junction',24,9.5)
     station(ground,'left_extension_pc_branch',29.5,9.5)
     station(ground,'left_extension_end',3,9.5)
-    station(ground,'reception_stair_door',17.8,22)
+    station(ground,'reception_stair_door',17.8+dx,22)
     spec['additions_stair_entry']=cfg['stair_entry']
     for record in cfg['ground_rooms']:
         room=dict(record); a,b,c,d=room['bounds']; name='p2_ground_'+room['id']
@@ -254,10 +270,10 @@ def extend_layout(boxes, levels, root, wall_height):
     shell('p2_ground_aula_lobby',lobby,z)
     shell('p2_ground_aula_magna',hall,z)
     north_door('p2_ground_aula_lobby_entry',25,71.5,z,2.2)
-    # Approved playtest correction: aula on the opposite (west) side of the
-    # intermediate area. Glass belongs after the tables, solid wall by aula.
+    # Sketch: aula east of the lobby, teaching wall beside its west entrance.
     entry_y=(lobby[1]+lobby[3])/2
-    cut((lobby[0]-.25,entry_y-1.1,z-.01),(lobby[0]+.25,entry_y+1.1,z+2.25))
+    entry_x=lobby[2]
+    cut((entry_x-.25,entry_y-1.1,z-.01),(entry_x+.25,entry_y+1.1,z+2.25))
     # Remove the opaque end wall across the table hall, including the old
     # exterior shell; preserve its central passage and the room-end boundary.
     cut((lobby[0]+.1,lobby[1]-.25,z+.1),(lobby[2]-.1,lobby[1]+.25,z+wall_height-.15),materials=('wall',))
@@ -272,26 +288,27 @@ def extend_layout(boxes, levels, root, wall_height):
     for i,x in enumerate((14,15.3,16.6,17.9)):
         add(f'p2_ground_aula_lobby_locker_{i}',(x,72,z),(x+1.15,72.65,z+1.85),'seat_wood')
     a,b,c,d=hall;centre=(b+d)/2
-    add('p2_ground_aula_stage',(c-2.5,b+7,z),(c-.6,d-2,z+.18),'floor_wood')
-    add('p2_ground_aula_screen',(c-.25,b+8,z+1),(c-.2,d-3,z+3),'projection_screen')
+    add('p2_ground_aula_stage',(a+.6,b+7,z),(a+2.5,d-2,z+.18),'floor_wood')
+    add('p2_ground_aula_screen',(a+.2,b+8,z+1),(a+.25,d-3,z+3),'projection_screen')
+    add('p2_ground_aula_teaching_desk',(a+1,b+8,z+.72),(a+2,d-4,z+.8),'desk_dark')
     # Two seating blocks with a central walking aisle; terraces stay modest
     # enough to preserve standing headroom below the existing upper envelope.
     aula_path=[]
     for row in range(7):
-        x=c-4-row*2.1;rise=row*.12
+        x=a+4+row*2.1;rise=row*.12
         for block,(y0,y1) in enumerate(((b+1.3,centre-1.3),(centre+1.3,d-1.3))):
             if rise:add(f'p2_ground_aula_tier_{row}_{block}',(x,y0,z),(x+1.7,y1,z+rise),'floor_p2_tile')
             for seat in range(int((y1-y0)/.65)):
                 y=y0+.4+seat*.65
                 add(f'p2_ground_aula_chair_{row}_{block}_{seat}',(x+.7,y-.23,z+rise+.43),(x+1.12,y+.23,z+rise+.49),'seat_wood')
-                add(f'p2_ground_aula_back_{row}_{block}_{seat}',(x+.69,y-.23,z+rise+.49),(x+.75,y+.23,z+rise+.98),'desk_dark')
+                add(f'p2_ground_aula_back_{row}_{block}_{seat}',(x+1.08,y-.23,z+rise+.49),(x+1.14,y+.23,z+rise+.98),'desk_dark')
         aula_path.append([x+.8,centre,z])
     station(ground,'aula_lobby',25,75)
-    station(ground,'aula_entry',lobby[0]-1,entry_y)
-    station(ground,'aula_rear',a+1.5,centre)
+    station(ground,'aula_entry',entry_x+1,entry_y)
+    station(ground,'aula_rear',c-1.5,centre)
     for i,p in enumerate(aula_path):station(ground,f'aula_centre_aisle_{i}',*p[:2])
     spec['additions']=dict(config=cfg,ground_areas=[cfg['ground_approach'],corridor,lobby,hall],
-                           temporary_aula=True,aula_path=aula_path,aula_faces='east / entrance')
+                           temporary_aula=True,aula_path=aula_path,aula_faces='west / entrance')
 
     # CIBIO branch: two playable offices on the left; small offices stay shut.
     z=basement['z']; corridor=cfg['cibio_corridor']

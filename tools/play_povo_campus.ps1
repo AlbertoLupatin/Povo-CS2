@@ -5,7 +5,9 @@ param(
     [switch]$Match,
     [switch]$Fly,
     [switch]$Windowed,
-    [switch]$Winter
+    [switch]$Winter,
+    # Native free-for-all: the map's own script configures Deathmatch.
+    [switch]$Deathmatch
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
@@ -26,16 +28,16 @@ Set-Content -LiteralPath (Join-Path $addon 'addoninfo.txt') -Encoding ascii -Val
 $launchArguments = @(
     '-steam','-retail','-addon','trento_povo_campus_test','-tools','-insecure','-condebug',
     '-vconsole','-netconport','27400',
-    '+game_type','0','+game_mode','2','+map',"maps/$mapName.vpk"
+    '+game_type',$(if ($Deathmatch) { '1' } else { '0' }),'+game_mode','2','+map',"maps/$mapName.vpk"
 )
 if ($Windowed) { $launchArguments += @('-windowed','-w',"$Width",'-h',"$Height") }
-if (!$Match) {
+if (!$Match -and !$Deathmatch) {
     # Prevent combat while the map loads; the helper reapplies settings after
     # map/gamemode configuration and automatically joins the ground-floor team.
     $launchArguments += @('+bot_quota','0','+mp_warmup_pausetimer','1')
 }
 Start-Process -FilePath $executable -WorkingDirectory (Split-Path -Parent $executable) -ArgumentList $launchArguments
-if (!$Match) {
+if (!$Match -and !$Deathmatch) {
     $exploreArguments = @((Join-Path $PSScriptRoot 'cs2_explore.py'), '--map', $mapName, '--timeout', '180', '--log', (Join-Path $projectRoot 'build\gameplay\campus-explore.log'))
     if ($Fly) { $exploreArguments += '--fly' }
     & python @exploreArguments

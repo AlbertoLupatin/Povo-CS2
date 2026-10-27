@@ -49,11 +49,12 @@ class UserGeometryCorrections(unittest.TestCase):
     def test_basement_turns_right_west_and_retains_only_actual_stair_door(self):
         p2=self.levels[1]['connection']['povo2']
         corridor=p2['basement']['corridor'];branch=p2['basement']['cross_corridor']
-        self.assertLess(branch[0],corridor[0])
-        self.assertEqual(branch[2],corridor[2])
+        self.assertEqual(branch[0],corridor[0])
+        self.assertEqual(branch[1],corridor[1])
+        self.assertGreater(branch[3],corridor[3])
         self.assertFalse(any('_fire_door_' in n for n,_,_,_ in self.boxes if n.startswith('p2_')))
         doors=[n for n,_,_,_ in self.boxes if n.startswith('p2_basement_core_door_')]
-        self.assertEqual(set(doors),{'p2_basement_core_door_south','p2_basement_core_door_north'})
+        self.assertEqual(set(doors),{'p2_basement_core_door_south_0','p2_basement_core_door_south_1'})
         self.assertFalse(any(n.startswith('p2_basement_closed_door_0') for n,_,_,_ in self.boxes))
 
     def test_gate_delimits_far_side_of_street_opposite_both_entrances(self):

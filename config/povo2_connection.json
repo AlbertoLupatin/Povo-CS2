@@ -48,20 +48,20 @@
   ],
   "lift": {
     "shaft": [
-      20.1,
-      11.2,
-      22.4,
-      13.5
+      20.7,
+      14.3,
+      23,
+      16.6
     ],
     "ground_opening_east": [
-      20.75,
-      21.95
+      21.25,
+      22.45
     ],
     "side_opening_north": [
-      12.35,
-      13.35
+      15.45,
+      16.45
     ],
-    "note": "Playtest approval: separate ladder shaft in the gap between stairs and transverse corridor, with a dedicated ground entrance. Existing floor elevations retained."
+    "note": "27 October sketch: ladder in the wall south of the aligned stair core."
   },
   "reference_photos": [
     61,
@@ -74,5 +74,6 @@
     62
   ],
   "rooms": [],
-  "assumptions": "User-authorized compact adaptation: retain the two bridge-exit alcoves, replace W1 with gray enclosed stairs down to a small closed lower landing, remove E1 and everything from W2/E2 onward. Bridge connects floor 1 in both buildings. Original survey/photo floor references are preserved separately."
+  "assumptions": "User-authorized compact adaptation: retain the two bridge-exit alcoves, replace W1 with gray enclosed stairs down to a small closed lower landing, remove E1 and everything from W2/E2 onward. Bridge connects floor 1 in both buildings. Original survey/photo floor references are preserved separately.",
+  "stair_offset_east": 4
 }

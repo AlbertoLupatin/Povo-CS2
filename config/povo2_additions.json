@@ -51,9 +51,9 @@
     78
   ],
   "aula_magna": [
-    -9.5,
+    34.5,
     71.5,
-    12.5,
+    56.5,
     93.5
   ],
   "cibio_corridor": [
@@ -83,7 +83,8 @@
     "Existing bridge, stair and lift coordinates are retained; additions use the established gameplay coordinate adaptation.",
     "Basement exit uses estimated five-riser indoor and fifteen-riser outdoor stairs. Yard location is supported by photos 19-20; existing Povo 2 ground/bridge elevations are preserved as requested.",
     "User correction: stair entrance beside reception; straight classroom corridor with PC room first. Exiting stairs east: right/south then right/west reaches CIBIO; left/north then right/east reaches the exit.",
-    "26 October playtest correction approved: transverse classroom corridor after stairs; enlarged B106 adjoining B108; separate ladder doorway in gap beside stairs; aula west of intermediate lobby, seats face east toward entry."
+    "26 October playtest correction approved: transverse classroom corridor after stairs; enlarged B106 adjoining B108; separate ladder doorway in gap beside stairs; aula west of intermediate lobby, seats face east toward entry.",
+    "27 October user draw.io replaces earlier aula placement and stair/lift alignment. Basement door faces south after rigid clockwise rotation, explicitly confirmed in chat."
   ],
   "basement_exit": {
     "locker_corridor": [
@@ -121,7 +122,7 @@
   },
   "stair_entry": {
     "door": [
-      16.5,
+      20.5,
       22
     ],
     "direct": true
@@ -131,5 +132,24 @@
     11,
     25.5,
     29.5
+  ],
+  "basement_rotation": {
+    "degrees_clockwise": 90,
+    "source_anchor": [
+      16.5,
+      22
+    ],
+    "target_anchor": [
+      23.2,
+      18
+    ],
+    "door_facing": "south",
+    "note": "Rigid rotation of corridors, offices, lockers and yard as one assembly; placement fitted to the stair and bridge."
+  },
+  "reception": [
+    12.5,
+    26,
+    20.5,
+    35.5
   ]
 }

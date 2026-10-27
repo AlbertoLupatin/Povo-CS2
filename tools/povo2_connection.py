@@ -166,5 +166,35 @@ def extend_campus(boxes, levels, root, wall_height):
     spec['nav_seeds']=[[18.25,y,z+.15] for y in (-30,-10,9,12,17,23,25)]
     spec['nav_seeds'].extend([[15.2,20,z+.15],[18.25,22,ground+.15],[15.2,22,ground+.15],
                               [10.45,20.61,mid+.15]])
+    # 27 October sketch: stair east face aligns with reception at E=20.5.
+    dx=spec.get('stair_offset_east',0)
+    if dx:
+        def shift(p):return [p[0]+dx,*p[1:]]
+        def rect(r):return [r[0]+dx,r[1],r[2]+dx,r[3]]
+        moved=('academic_first_link_p2_stair_', 'academic_first_link_p2_lower_',
+               'academic_first_link_p2_1_', 'academic_first_link_p2_2_',
+               'academic_first_link_p2_east_corridor', 'academic_first_link_p2_north_end',
+               'academic_first_link_p2_window_west_1', 'p2_compact_ground_slab')
+        boxes=[(n,tuple(shift(lo)),tuple(shift(hi)),m) if n.startswith(moved) else (n,lo,hi,m)
+               for n,lo,hi,m in boxes]
+        boxes=[(n,(24,lo[1],lo[2]),(25,hi[1],hi[2]),m)
+               if n=='academic_first_link_p2_east_alcove_end' else (n,lo,hi,m)
+               for n,lo,hi,m in boxes]
+        # Close the unused strip west of the relocated enclosure at bridge level.
+        add('p2_west_return',(7,13.9,z),(7+dx,14.1,top))
+        stair=spec['stair'];stair['bounds']=rect(stair['bounds'])
+        for key in ('top','bottom','middle'):stair[key]=shift(stair[key])
+        for key in ('shaft','path'):stair[key]=[shift(p) for p in stair[key]]
+        for rail in stair['rails']:
+            for key in ('a','b'):rail[key]=shift(rail[key])
+        for portal in stair['portals']:portal['centre']=shift(portal['centre'])
+        spec['povo2_floor_parts']=[r if i==0 else rect(r) for i,r in enumerate(spec['povo2_floor_parts'])]
+        spec['povo2_corridor']=rect(spec['povo2_corridor'])
+        for station in spec['audit_stations']:
+            if station['point'][1]>=14:station['point']=shift(station['point'])
+            if station['id']=='link_8':station['point'][1]=17.2
+        for station in spec['ground']['audit_stations']:station['point']=shift(station['point'])
+        spec['lights']=[shift(p) if p[1]>=14 and p[0]<20.5 else p for p in spec['lights']]
+        spec['nav_seeds']=[shift(p) if p[1]>=14 else p for p in spec['nav_seeds']]
     levels[1]['connection']=spec
     return boxes

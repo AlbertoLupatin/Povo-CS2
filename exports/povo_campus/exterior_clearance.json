@@ -21,7 +21,7 @@
     },
     {
       "route": "ramp_into_existing_parking",
-      "samples": 136,
+      "samples": 144,
       "status": "passed",
       "failures": []
     },
@@ -56,7 +56,7 @@
       "failures": []
     }
   ],
-  "samples": 1223,
-  "door_opacity": 0.8,
+  "samples": 1231,
+  "door_opacity": 0.84,
   "limitations": "Source support/standing checks; native engine movement and visuals still required"
 }

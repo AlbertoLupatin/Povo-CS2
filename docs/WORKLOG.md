@@ -1410,3 +1410,38 @@ Both seasons are undergoing a full native rebuild with these fixes, logged in
 and restoration of the unpublished Workshop draft remain in progress. Earlier
 walking reports identify the first package and are not evidence that the final
 rebuild has already been loaded.
+
+## 27 October 2026 — user draw.io layout and pavement repairs
+
+Imported the user's `povo2_corrected_layout.drawio` from Downloads unchanged to
+`data/reference/user_feedback/2026-10-27/`. The user explicitly clarified that
+90-degree clockwise basement rotation must leave its stair door facing south.
+
+Moved aula to the lobby's east side, with west-facing seating and teaching wall;
+extended reception, removed obsolete classroom-side geometry, aligned the stair
+stack east face with reception and moved the ladder into the south wall gap.
+Basement corridors, offices, lockers, yard and exit stairs rotate together; only
+stair/lift interfaces are rebuilt. Updated bar/canteen counters, six orange bar
+tables, white partition and glazed porch. Re-excavated the ladder after rotation
+so moved walls/display furniture cannot enter its volume.
+
+Added continuous lower plaza paving, pavement end caps and a graded bridge-side
+apron. The old yard depression is paved over, while the rotated sunken yard is
+preserved. Closed collision now matches road-junction disks, and flat footway
+bend gaps are filled. Existing unrelated uncommitted FFA/hosting changes remain.
+
+Before the final native build: all 191 tests passed; 8,408 pavement support
+samples passed; Povo 2's 8/18/50 level stations, 72 stair samples and 22 yard
+stair/landing samples passed, along with the exterior and Povo 1/wing checks.
+The compiled ModelDoc physical surface table passes for all seven materials.
+
+Fresh review: `exports/povo_campus/sketch_corrections_20261027.png`. Editable
+four-page / 179-shape draw.io export is beside it, with a copy in Downloads as
+`Povo2_layout_review_2026-10-27.drawio`. Original sketch remains unchanged.
+
+Native standard-map build/package completed with zero compile failures in
+`build/sketch-verified-compile.log`: 61,562,729 bytes / 944 entries, SHA-256
+`87359bf0b99065934b5206054d9ee85513f81e1a468e06da09b44515162bc131`. The user has explicitly requested NO tests
+after the build: CS2 will not be launched and engine walking is not scheduled.
+No Workshop upload is performed. Pre-task sources and the previous standard
+package are backed up under `build/sketch-corrections-backup-20261027/`.

@@ -24,7 +24,63 @@
       49,
       -94.2
     ],
-    "exit_y": -99.5
+    "exit_y": -99.5,
+    "serving_counter": [
+      48.2,
+      -92,
+      49.7,
+      -80
+    ],
+    "bar_counter": [
+      37,
+      -108.6,
+      51.8,
+      -106.8
+    ],
+    "bar_white_wall": [
+      44,
+      -104,
+      50,
+      -101.5
+    ],
+    "bar_tables": [
+      [
+        44.3,
+        -105.9,
+        45.1,
+        -104.3
+      ],
+      [
+        46.5,
+        -105.9,
+        47.3,
+        -104.3
+      ],
+      [
+        48.7,
+        -105.9,
+        49.5,
+        -104.3
+      ],
+      [
+        51,
+        -103.9,
+        51.8,
+        -103.1
+      ],
+      [
+        50,
+        -100.8,
+        51.6,
+        -100
+      ],
+      [
+        44.5,
+        -101.3,
+        48.5,
+        -100.5
+      ]
+    ]
   },
   "library": {
     "bounds": [
@@ -68,6 +124,7 @@
     "Canteen bar, orange counters, blue/orange dining furniture and stair fire doors are guided by photos 24-28; exact positions and capacities are estimates.",
     "Library room count and partitions are an estimated playable subdivision; no detailed interior survey is available.",
     "Canteen upstairs exit uses an automatic bank to match the entrance family.",
-    "User correction: entrance is farther south near the previous white counter. Enter facing east: bar on right/south, small ground dining area on left/north, stair directly ahead/east."
+    "User correction: entrance is farther south near the previous white counter. Enter facing east: bar on right/south, small ground dining area on left/north, stair directly ahead/east.",
+    "27 October draw.io: extend bar counter east; replace bar tables with six drawn orange tables around a white partition; move ground serving counter east and dining tables to its right; retain glazed entrance porch."
   ]
 }

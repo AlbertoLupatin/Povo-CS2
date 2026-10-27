@@ -479,6 +479,14 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         except ImportError:
             from povo_wings import extend as extend_wings
         boxes=extend_wings(boxes,levels,root)
+        try:
+            from .povo2_sketch import extend as apply_sketch
+            from .povo_pavement import extend as repair_pavement
+        except ImportError:
+            from povo2_sketch import extend as apply_sketch
+            from povo_pavement import extend as repair_pavement
+        boxes=apply_sketch(boxes,levels)
+        boxes=repair_pavement(boxes,levels,root)
     return settings,config,boxes,levels,stair
 
 
@@ -685,6 +693,12 @@ def all_rails(stair,levels):
 
 def export(root=ROOT):
     settings, config, boxes, levels, stair = build_geometry(root)
+    try:
+        from .povo_spawns import deathmatch_spawns
+    except ImportError:
+        from povo_spawns import deathmatch_spawns
+    # Spawns use the complete solid campus: closed doors and intact glass block.
+    spawns=deathmatch_spawns(collision_boxes(boxes),levels)
     # Doors and breakable panes become separate map entities, so leave them out
     # of the static model and its collision. build_geometry() keeps them solid.
     doors,boxes=split_auto_doors(boxes)
@@ -734,6 +748,7 @@ def export(root=ROOT):
                   inputs={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in
                           ('config/povo1_campus.json',settings['interior_source'],'config/povo1_plan_alignment.json')})
     metadata['interactions']=levels[0]['interactions']
+    metadata['deathmatch_spawns']=spawns
     metadata['physics_surface_groups']=physical_groups
     metadata['inputs']['config/povo_atmosphere.json']=hashlib.sha256((root/'config/povo_atmosphere.json').read_bytes()).hexdigest()
 

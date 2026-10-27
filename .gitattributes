@@ -2,3 +2,5 @@
 # Preserve the downloaded reference README byte-for-byte with its provenance.
 data/reference/povo_plans/mappe-povo/README.md -whitespace
 
+# Preserve the original user sketch bytes and provenance hash.
+data/reference/user_feedback/2026-10-27/povo2_corrected_layout.drawio -text

@@ -22,7 +22,7 @@ class ExteriorIntegrationTests(unittest.TestCase):
         base=build_geometry(include_exterior=False)[2]
         combined=build_geometry()[2]
         def fixtures(boxes):
-            return {b[0]:b for b in boxes if any(s in b[0] for s in
+            return {b[0]:b for b in boxes if not b[0].startswith('p2_ground_reception_') and any(s in b[0] for s in
                     ('_front_desk','_back_desk','_visitor_chair',
                      '_female_toilet_','_male_toilet_','_male_sink','_female_sink'))}
         self.assertGreater(len(fixtures(base)),50)

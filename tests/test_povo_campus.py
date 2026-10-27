@@ -134,7 +134,7 @@ class CampusGeometryTests(unittest.TestCase):
     def test_bridge_and_povo2_route_have_continuous_support_and_standing_clearance(self):
         physics=collision_boxes(self.boxes)
         for n in range(-35,26):
-            x,y,z=18.25,n,7.6
+            x,y,z=(23.45 if 14<=n<=17 else 22.25 if n>17 else 18.25),n,7.6
             self.assertTrue(any(b[3].startswith('floor_') and b[1][0]<=x<=b[2][0]
                                 and b[1][1]<=y<=b[2][1] and abs(b[2][2]-z)<.02
                                 for b in physics),n)
@@ -152,9 +152,9 @@ class CampusGeometryTests(unittest.TestCase):
                     and all(b[1][i]<=v<=b[2][i] for i,v in enumerate(p))]
         for p in ((10.5,12,7.6),(22,12.8,7.6)):
             self.assertTrue(solid(p,('floor_circulation',)),p)
-        self.assertTrue(solid((20,20,8.6),('wall',)))
-        self.assertTrue(solid((18.25,26,8.6),('wall',)))
-        for p in ((22,20,7.6),(12,32,7.6),(22,32,7.6),(18.25,39,7.6)):
+        self.assertTrue(solid((24,20,8.6),('wall',)))
+        self.assertTrue(solid((22.25,26,8.6),('wall',)))
+        for p in ((26,20,7.6),(12,32,7.6),(22,32,7.6),(18.25,39,7.6)):
             self.assertFalse(solid(p,('floor_circulation',)),p)
         self.assertFalse(any('p2_studio_' in b[0] or 'p2_future_door' in b[0] for b in self.boxes))
 

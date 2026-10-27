@@ -26,10 +26,9 @@ def height_at(mesh,x,y):
     return heights
 
 
-def audit():
-    _,_,boxes,levels,_=build_geometry();boxes=collision_boxes(boxes)
-    meta=levels[0]['exterior'];meshes=meta['collision_meshes']
-    entry=meta['entrance'];cy=33.5
+def exterior_routes():
+    """Supported outdoor walking routes, as (x, y, z) waypoint polylines."""
+    cy=33.5
     cfg=json.loads((Path(__file__).resolve().parents[1]/'config/povo_exterior.json').read_text())
     upper=cfg['east_approach']['upper_z'];a,b,c,d=cfg['east_approach']['stairs']
     count=math.ceil((upper-4)/.18-1e-9)
@@ -41,7 +40,7 @@ def audit():
                               (54.5,0,upper+.12),(54.5,7.5,(upper+4)/2+.12),
                               (57.5,7.5,(upper+4)/2+.12),(57.5,15,4.12),(57.5,31.35,4.12),(54,31.35,4)],
         'bridge_road_to_straight_ramp':[(50,-5,upper),(32,-5,4),(22,-5,4),(-23,-5,3),(-29,-8,3),(-29,-2.5,3),(-29,30,-3.2)],
-        'ramp_into_existing_parking':[(-29,30,-3.2),(-29,36,-3.2),(-5,36,-3.2),(18,36,-3.2),(18,27,-3.2),(17.8,22,-3.2)],
+        'ramp_into_existing_parking':[(-29,30,-3.2),(-29,36,-3.2),(-5,36,-3.2),(19.8,36,-3.2),(19.8,29.2,-3.2),(21.8,29.2,-3.2),(21.8,22,-3.2)],
         'road_to_north_end':[(-29,-8,3),(-38,-8,3),(-38,6,3),(-38,112,3),(-25,118,3)],
         'surface_parking':[(-48,-44,3),(-48,-90,3)],
         # The photo-guided sunken yard replaces the old direct terrace route.
@@ -50,25 +49,41 @@ def audit():
     }
     for index,y in enumerate((cy-2.15,cy+2.15)):
         routes[f'p2_door_bank_{index}']=[(54,y,4),(49.4,y,4),(40,y,4),(34.5,y,4),(31.5,y,4),(22,y,4)]
+    return routes
+
+
+def route_points(path,step=.5):
+    points=[]
+    for a,b in zip(path,path[1:]):
+        count=max(1,math.ceil(math.dist(a,b)/step))
+        points.extend(tuple(a[k]+(b[k]-a[k])*i/count for k in range(3)) for i in range(count))
+    points.append(tuple(path[-1]));return points
+
+
+def standing(x,y,z,boxes,meshes):
+    """Supporting surface near z and the boxes/meshes blocking a standing player."""
+    support=[hi[2] for _,lo,hi,_ in boxes if lo[0]-1e-6<=x<=hi[0]+1e-6 and lo[1]-1e-6<=y<=hi[1]+1e-6 and abs(hi[2]-z)<=.22]
+    for mesh in meshes:support.extend(v for v in height_at(mesh,x,y) if abs(v-z)<=.22)
+    foot=max(support) if support else z
+    obstacles=[n for n,lo,hi,m in boxes if lo[0]<x+.4 and hi[0]>x-.4 and lo[1]<y+.4 and hi[1]>y-.4
+               and hi[2]>foot+.20 and lo[2]<foot+1.85]
+    for mesh in meshes:
+        heights=[h for xx,yy in ((x,y),(x-.4,y-.4),(x+.4,y+.4)) for h in height_at(mesh,xx,yy)]
+        if heights and min(v[2] for v in mesh['vertices'])<foot+1.85 and max(heights)>foot+.22:
+            # Only an actual strip volume at player height is an obstacle.
+            if max(heights)-.16<foot+1.85:obstacles.append(mesh['name'])
+    return (foot if support else None),obstacles
+
+
+def audit():
+    _,_,boxes,levels,_=build_geometry();boxes=collision_boxes(boxes)
+    meta=levels[0]['exterior'];meshes=meta['collision_meshes']
     reports=[]
-    for name,path in routes.items():
-        points=[]
-        for a,b in zip(path,path[1:]):
-            count=max(1,math.ceil(math.dist(a,b)/.5))
-            points.extend(tuple(a[k]+(b[k]-a[k])*i/count for k in range(3)) for i in range(count))
-        points.append(path[-1]);failures=[]
+    for name,path in exterior_routes().items():
+        points=route_points(path);failures=[]
         for x,y,z in points:
-            support=[hi[2] for _,lo,hi,_ in boxes if lo[0]-1e-6<=x<=hi[0]+1e-6 and lo[1]-1e-6<=y<=hi[1]+1e-6 and abs(hi[2]-z)<=.22]
-            for mesh in meshes:support.extend(v for v in height_at(mesh,x,y) if abs(v-z)<=.22)
-            foot=max(support) if support else z
-            obstacles=[n for n,lo,hi,m in boxes if lo[0]<x+.4 and hi[0]>x-.4 and lo[1]<y+.4 and hi[1]>y-.4
-                       and hi[2]>foot+.20 and lo[2]<foot+1.85]
-            for mesh in meshes:
-                heights=[h for xx,yy in ((x,y),(x-.4,y-.4),(x+.4,y+.4)) for h in height_at(mesh,xx,yy)]
-                if heights and min(v[2] for v in mesh['vertices'])<foot+1.85 and max(heights)>foot+.22:
-                    # Only an actual strip volume at player height is an obstacle.
-                    if max(heights)-.16<foot+1.85:obstacles.append(mesh['name'])
-            if not support or obstacles:failures.append(dict(point=[x,y,z],supported=bool(support),obstacles=obstacles[:8]))
+            foot,obstacles=standing(x,y,z,boxes,meshes)
+            if foot is None or obstacles:failures.append(dict(point=[x,y,z],supported=foot is not None,obstacles=obstacles[:8]))
         reports.append(dict(route=name,samples=len(points),status='failed' if failures else 'passed',failures=failures))
     return dict(status='passed' if all(r['status']=='passed' for r in reports) else 'failed',routes=reports,
                 samples=sum(r['samples'] for r in reports),door_opacity=meta['door_opacity'],

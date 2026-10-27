@@ -18,16 +18,21 @@ outdoor arena, built from the same source).
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
 - **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.
 
-Windows build (26 October 2026): zero compile failures, 60,083,066-byte standard
-VPK (790 entries, all CRCs pass) and 176 source tests passing. Engine walking,
-glass, doors and ladders for these new photo additions still need verification;
-the earlier engine results apply to the previous build. The winter rebuild is
-in progress. See [the Windows handoff](docs/WINDOWS_PHOTO_ADDITIONS_HANDOFF.md)
-and [worklog](docs/WORKLOG.md) for evidence and remaining gates.
+Windows standard build (27 October 2026): zero compile failures,
+61,562,729-byte VPK with 944 entries. All 191 source tests passed before the
+build. Post-build engine checks were skipped at the user's request; the winter
+VPK has not been rebuilt for these 27 October changes. See the
+[sketch/layout handoff](docs/POVO2_SKETCH_CORRECTIONS.md) and
+[worklog](docs/WORKLOG.md) for scope and evidence.
 
 Interiors are reconstructed from public floor plans and photographs, so room
 dimensions and seat counts are estimates, and surfaces are blockout-level art
 rather than final textures. Balance and large-match testing are still open.
+
+The 27 October Povo 2 corrections are based on the user's draw.io sketch.
+See [the corrected layout and pavement checks](docs/POVO2_SKETCH_CORRECTIONS.md),
+the [latest plan image](exports/povo_campus/sketch_corrections_20261027.png), or
+the [editable four-page drawing](exports/povo_campus/povo2_layout_editable_20261027.drawio).
 
 ## Build it
 

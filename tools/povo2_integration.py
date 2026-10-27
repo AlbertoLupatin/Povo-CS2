@@ -25,6 +25,7 @@ def rectangle(r, floor=0):
 
 def extend(boxes, levels, root, wall_height):
     boxes=list(boxes);link=levels[1]['connection'];compact=link['stair']
+    dx=link.get('stair_offset_east',0);door_x=16.5+dx
     draft,spec=build_draft(root,wall_height);spec=copy.deepcopy(spec)
     spec['status']='Integrated lower floors using the completed compact staircase'
     spec['placement']={'rotation_degrees':180,'origin':[41.5,61.5],
@@ -57,7 +58,10 @@ def extend(boxes, levels, root, wall_height):
     # first-floor wall, opening, guard and walking surface at its original place.
     core=compact['bounds'];a,b,c,d=core
     for z in (-3.2,.4,4):
-        hole=((a-.11,b-.11,z-.3),(c+.11,d+.11,z+3.5))
+        # Basement corridors are still in their original frame here; they
+        # rotate as a rigid assembly after the photo-guided additions.
+        ca,cc=(a-dx,c-dx) if z==.4 else (a,c)
+        hole=((ca-.11,b-.11,z-.3),(cc+.11,d+.11,z+3.5))
         added=[part for box in added for part in subtract_box(box,hole)]
     # Open the formerly closed vestibule into the new hall.
     boxes=[box for box in boxes if not box[0].startswith(('academic_first_link_p2_lower_wall_',
@@ -97,14 +101,14 @@ def extend(boxes, levels, root, wall_height):
         prefix={0:'p2_ground',-1:'p2_basement',-2:'p2_parking'}[floor]
         # Full landing plate, with the next flight's shaft cut at intermediate floors.
         add(prefix+'_core_slab',(a,b,z-.22),(c,d,z),'floor_p2_asphalt' if floor==-2 else 'floor_p2_tile')
-        portals.append(dict(floor=floor,centre=[16.5,22,z],side='v_max'))
+        portals.append(dict(floor=floor,centre=[door_x,22,z],side='v_max'))
         if floor:
-            hole=((16.3,21.175,z-.01),(16.7,22.825,z+2.2))
+            hole=((door_x-.2,21.175,z-.01),(door_x+.2,22.825,z+2.2))
             added=[p for box in added for p in subtract_box(box,hole)]
             for side,y in (('south',21.175),('north',22.825)):
-                add(prefix+'_core_door_'+side,(16.55,y-.025,z+.02),(17.35,y+.025,z+2.18),'door_black')
-                add(prefix+'_core_panic_'+side,(16.65,y-.05,z+1),(17.25,y+.05,z+1.045),'stair_red')
-            add(prefix+'_core_threshold',(16.3,21.175,z-.22),(17.5,22.825,z),'floor_p2_tile')
+                add(prefix+'_core_door_'+side,(door_x+.05,y-.025,z+.02),(door_x+.85,y+.025,z+2.18),'door_black')
+                add(prefix+'_core_panic_'+side,(door_x+.15,y-.05,z+1),(door_x+.75,y+.05,z+1.045),'stair_red')
+            add(prefix+'_core_threshold',(door_x-.2,21.175,z-.22),(door_x+1,22.825,z),'floor_p2_tile')
     # Shaft openings at ground and -1, retaining the unobstructed top/bottom
     # landings on the east side of the stair. Parking closes the bottom well.
     (sx0,sy0,_),(sx1,sy1,_)=compact['shaft']
@@ -113,6 +117,8 @@ def extend(boxes, levels, root, wall_height):
         def opening(box):
             n,lo,hi,m=box
             plate=m.startswith('floor_') and '_step_' not in n and abs(hi[2]-z)<.02
+            if z==.4 and n.startswith('p2_basement_') and '_core_' not in n:
+                plate=False  # still in its pre-rotation frame
             return subtract_box(box,hole) if plate else [box]
         boxes=[p for box in boxes for p in opening(box)]
         added=[p for box in added for p in opening(box)]
@@ -121,8 +127,11 @@ def extend(boxes, levels, root, wall_height):
         floor=level['floor'];z=level['z']
         level['audit_stations']=[dict(id=s['id'],point=list(point(s['point'],floor)))
                                  for s in level['audit_stations'] if s['id']!='stair_landing']
-        level['audit_stations'].extend([dict(id='core_door',point=[17.8,22]),
-                                       dict(id='core_landing',point=[15.2,22])])
+        level['audit_stations'].extend([dict(id='core_door',point=[17.8+dx,22]),
+                                       dict(id='core_landing',point=[15.2+dx,22])])
+        if floor!=-1:
+            for station in level['audit_stations']:
+                if station['id']=='stair_approach':station['point']=[17.8+dx,22]
         if floor==0:
             level['table_bounds']=[rectangle(r) for r in level['table_bounds']]
             for room in level['rooms']:
@@ -165,6 +174,10 @@ def lift(boxes, spec, link):
     result=[b for b in result if not ('_locker_' in b[0] and b[1][0]<gb+.1 and b[2][0]>ga-.1
                                       and b[1][1]<y1+1.3 and b[2][1]>y1)]
     holes=[((ga,round(y1-.2,3),zg-.01),(gb,y1+.4,zg+2.2)),*[((x0-.3,sa,z-.01),(x0+.2,sb,z+2.2)) for z in (zb,zu)]]
+    # Upper lift door opens from the stair's south pocket; provide a passage
+    # through its internal partition while keeping the stair flights intact.
+    cx=spec['stairs']['bounds'][2]-1.3
+    holes.append(((round(cx-.85,6),17.65,zu-.01),(round(cx+.85,6),17.95,zu+2.25)))
     for name,lo,hi in (('wall_west',(x0,y0,zb),(x0i,y1,top)),('wall_east',(x1i,y0,zb),(x1,y1,top)),
                        ('wall_south',(x0,y0,zb),(x1,y0i,top)),('wall_north',(x0,y1i,zb),(x1,y1,top)),
                        ('roof',(x0,y0,top),(x1,y1,top+.1))):

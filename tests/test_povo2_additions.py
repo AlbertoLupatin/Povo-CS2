@@ -34,8 +34,8 @@ class Povo2AdditionTests(TestCase):
         doors=[b for b in self.boxes if b[0].startswith('p2_basement_cibio_closed_office_')]
         self.assertEqual(len(doors),6)
         for _,lo,hi,_ in doors:
-            x=(lo[0]+hi[0])/2
-            self.assertTrue(any(m=='wall' and a[0]<x<b[0] and a[1]<-3.5<b[1]
+            x=hi[0]+.05;y=(lo[1]+hi[1])/2
+            self.assertTrue(any(m=='wall' and a[0]<x<b[0] and a[1]<y<b[1]
                                 and a[2]<1.5<b[2] for _,a,b,m in self.physics))
 
     def test_temporary_aula_has_a_continuous_supported_centre_aisle(self):
@@ -78,7 +78,7 @@ class Povo2AdditionTests(TestCase):
         pc,b108,b109=cfg['ground_rooms']
         self.assertEqual(pc['bounds'][0],b108['bounds'][2])
         self.assertEqual(b108['bounds'][0],b109['bounds'][2])
-        self.assertEqual(cfg['stair_entry']['door'],[16.5,22])
+        self.assertEqual(cfg['stair_entry']['door'],[20.5,22])
         self.assertFalse(any(n.startswith(('p2_ground_reception_stair_door_',
                                           'p2_ground_stair_vestibule')) for n,_,_,_ in self.boxes))
         # Exit the existing stair eastward: south then west is right/right.
@@ -91,13 +91,13 @@ class Povo2AdditionTests(TestCase):
 
     def test_aula_is_on_the_lobby_opposite_short_edge_and_faces_entry(self):
         cfg=self.spec['additions']['config'];lobby=cfg['aula_lobby'];aula=cfg['aula_magna']
-        self.assertEqual(aula[2],lobby[0])
+        self.assertEqual(aula[0],lobby[2])
         self.assertLess(lobby[3]-lobby[1],lobby[2]-lobby[0])
         self.assertLess(max(lobby[1],aula[1]),min(lobby[3],aula[3]))
         chairs={n:(lo,hi) for n,lo,hi,_ in self.boxes if n.startswith('p2_ground_aula_chair_')}
         for name,(lo,hi) in chairs.items():
             back=next(b for b in self.boxes if b[0]==name.replace('_chair_','_back_'))
-            self.assertLess(back[2][0],hi[0])
+            self.assertGreater(back[2][0],hi[0])
         self.assertFalse(any(n.startswith('exterior_povo2_terrace_guard_') for n,_,_,_ in self.boxes))
         stairs=cfg['basement_exit']['steel_stair'];door=cfg['basement_exit']['inside_stair']
         self.assertEqual(stairs[0],door[2])

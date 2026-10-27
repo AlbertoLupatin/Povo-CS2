@@ -17,10 +17,10 @@ def render(output):
     draw=ImageDraw.Draw(image)
     font=ImageFont.load_default(size=15)
     title=ImageFont.load_default(size=22)
-    draw.text((25,20),'POVO 2 / 26 OCTOBER PHOTO ADDITIONS / SOURCE PLAN',font=title,fill='#173348')
-    draw.text((25,57),'Estimated dimensions. Temporary room labels and aula magna. Windows compile and engine checks pending.',font=font,fill='#384c55')
-    panels=[('Povo 2 ground additions',4,(-12,-1,40,102),(30,105),9),
-            ('Basement: CIBIO offices',.4,(-7,-17,58,32),(650,150),10.5),
+    draw.text((25,20),'POVO 2 / 27 OCTOBER USER SKETCH CORRECTIONS / SOURCE PLAN',font=title,fill='#173348')
+    draw.text((25,57),'Source geometry verified. Room dimensions and temporary aula remain estimates; see build logs for engine checks.',font=font,fill='#384c55')
+    panels=[('Povo 2 ground additions',4,(0,-1,60,102),(30,105),9),
+            ('Basement: rotated clockwise as one floor',.4,(-16,-31,33,40),(650,150),10.5),
             ('Wings: ground',4,(28,-112,59,-11),(1440,150),8),
             ('Wings: first',7.6,(28,-112,59,-11),(1780,150),8)]
     for label,z,bounds,origin,scale in panels:
@@ -66,14 +66,14 @@ def render(output):
                 wing=[(end[0]-length*math.cos(angle+t),end[1]-length*math.sin(angle+t)) for t in (-.5,.5)]
                 draw.polygon([end,*wing],fill=color)
         if z==4 and ox<1400:
-            for text,x,y in [('TMP AULA MAGNA',1.5,90),('AULA LOBBY',25,75),('CROSS CORRIDOR',16,9.5),
-                             ('RECEPTION',16.5,32.5),('STAIR DOOR',17.8,22),('LADDER',21.25,12.3)]:label(text,x,y)
+            for text,x,y in [('TMP AULA MAGNA',45.5,90),('AULA LOBBY',25,75),('CROSS CORRIDOR',16,9.5),
+                             ('RECEPTION',16.5,31),('STAIR DOOR',21.8,22),('LADDER',21.85,15.5)]:label(text,x,y)
         elif ox<1400:
-            route([(17.8,22),(18.25,22),(18.25,-5),(13,-5)],'#b14431')
-            route([(18.6,22),(18.6,27.5),(47,27.5)],'#2374ab')
-            label('STAIR EXIT',10,22)
-            label('RIGHT + RIGHT',5,-1.8)
-            label('LEFT + RIGHT / EXIT',35,30.5)
+            route([(19.2,22),(19.2,17.2),(-3.8,16.25),(-3.8,35)],'#b14431')
+            route([(19.2,17.2),(24.5,17.2),(28.3,16.25),(28.3,-13.5)],'#2374ab')
+            label('SOUTH-FACING DOOR',19.2,20)
+            label('CIBIO',-3.8,37)
+            label('EXIT / BELOW BRIDGE',21,-24.5)
         elif ox>1400 and z==4:
             label('BAR / RIGHT',44,-107)
             label('DINING / LEFT',44,-87)

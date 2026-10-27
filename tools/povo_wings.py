@@ -161,27 +161,33 @@ def extend(boxes,levels,root):
     entrance_y=cfg['canteen']['entrance_y']
     for level in [l for l in spec['levels'] if l['building']=='canteen']:
         z=level['z'];prefix=level['id'];upper=level['floor']==1
-        serving=(37,-105,38.3,-94) if upper else (37,-92,38.3,-80)
+        serving=(37,-105,38.3,-94) if upper else cfg['canteen']['serving_counter']
         x0,y0,x1,y1=serving
         add(prefix+'_serving_counter',(x0,y0,z),(x1,y1,z+1.05),'canteen_orange')
         add(prefix+'_serving_counter_top',(x0-.05,y0-.05,z+1.05),(x1+.05,y1+.05,z+1.12),'sign_white')
         rows=range(-106,-79,3) if upper else (-90,-86,-82)
         sx0,sy0,sx1,sy1=cfg['canteen']['stair']
         for row,y in enumerate(rows):
-            for col,x in enumerate((41,45,48)):
+            for col,x in enumerate((41,45,48) if upper else (50.2,)):
                 if y-.6<entrance_y+.7 and y+1.43>entrance_y-.7:continue
                 if x<sx1+.4 and x+1.6>sx0-.4 and y-.6<sy1+.4 and y+1.43>sy0-.4:continue
                 table(prefix+f'_dining_table_{row}_{col}',x,y,z,orange=True)
         for i,y in enumerate((-90,-85,-80) if not upper else (-107.5,-90,-80)):
             station(level,f'dining_aisle_{i}',39.5,y)
-            station(level,f'dining_outer_{i}',50.5,y)
+            station(level,f'dining_outer_{i}',50.5 if upper else 46.8,y)
         station(level,'cross_aisle',42,entrance_y)
         station(level,'stair_approach',43,entrance_y)
         if not upper:
-            add(prefix+'_bar_counter',(37,-108,z),(42,-106.8,z+1.1),'canteen_orange')
-            for i,x in enumerate((38,41)):
-                table(prefix+f'_bar_high_table_{i}',x,-104,z,orange=True,high=True)
-            station(level,'bar_approach',45,-105)
+            a,b,c,d=cfg['canteen']['bar_counter']
+            add(prefix+'_bar_counter',(a,b,z),(c,d,z+1.1),'canteen_orange')
+            a,b,c,d=cfg['canteen']['bar_white_wall']
+            add(prefix+'_bar_white_wall',(a,b,z),(c,d,z+2.6),'wall')
+            for i,(a,b,c,d) in enumerate(cfg['canteen']['bar_tables']):
+                add(prefix+f'_bar_sketch_table_{i}_top',(a,b,z+1.02),(c,d,z+1.08),'canteen_orange')
+                for x in (a+.08,c-.14):
+                    for y in (b+.08,d-.14):
+                        add(prefix+f'_bar_sketch_table_{i}_leg_{x}_{y}',(x,y,z),(x+.06,y+.06,z+1.02),'metal_dark')
+            station(level,'bar_approach',42.5,-105)
             station(level,'entrance',37.2,entrance_y)
             # Open black double leaves mark the fire-door entrance straight ahead.
             for i,y in enumerate((entrance_y-.65,entrance_y+.65)):
@@ -199,6 +205,9 @@ def extend(boxes,levels,root):
                        ('west',(a-.03,b,z0),(a+.03,d,z0+2.95)),
                        ('east',(c-.03,b,z0),(c+.03,d,z0+2.95))]:
         add('canteen_0_porch_'+side+'_glass',lo,hi,'window_glass')
+    for x in (a,c):
+        for y in (b,d):
+            add(f'canteen_0_porch_corner_{x}_{y}',(x-.04,y-.04,z0),(x+.04,y+.04,z0+3),'window_frame')
     bank('exterior_canteen_outer_entry',a,cfg['canteen']['outer_y'],z0)
     bank('exterior_canteen_inner_entry',c,cfg['canteen']['entrance_y'],z0)
     for x,y in ((a,cfg['canteen']['outer_y']),(c,cfg['canteen']['entrance_y'])):

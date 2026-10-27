@@ -227,6 +227,7 @@ def map_text(source,metadata,season='standard'):
     for a,b,s in reversed(replacements):source=source[:a]+s+source[b:]
     if metadata.get('exterior'):source=skip_nav_analysis(source)
     source=project._insert_point_entity(source,'campus-upper-nav','point_nav_walkable',world((0,-35.2,7.75)))
+    source=add_free_for_all(source,metadata.get('deathmatch_spawns',[]))
     for core in metadata['stair']['cores']:
         source=project._insert_point_entity(source,'campus-stair-'+core['id']+'-nav','point_nav_walkable',world(core['mid']))
     lights=[]
@@ -341,6 +342,24 @@ def map_text(source,metadata,season='standard'):
     source=tune_map(source,season)
     source=insert_soundscapes(source,metadata,season)
     if season=='winter':source=insert_winter(source)
+    return source
+
+
+FFA_SCRIPT='maps/scripts/povo_ffa.vjs'
+# The script keeps only these audited spawns; CS2 adds unnamed nav-generated ones.
+DM_SPAWN_NAME='povo_dm_spawn'
+
+
+def add_free_for_all(source,spawns):
+    """Campus-wide Deathmatch spawns and the script that makes Deathmatch FFA."""
+    for spawn in spawns:
+        x,y,z=spawn['point']
+        source=project._insert_point_entity(source,'campus-'+spawn['id'].replace('_','-'),'info_deathmatch_spawn',
+            world((x,y,z+.05)),(('targetname',DM_SPAWN_NAME),('enabled','1')),angles=f"0 {spawn['yaw']} 0")
+    if spawns:
+        source=project._ensure_map_asset_reference(source,FFA_SCRIPT)
+        source=project._insert_point_entity(source,'campus-ffa-script','point_script',world((18,-5,9)),
+            (('targetname','povo_ffa'),('cs_script',FFA_SCRIPT)))
     return source
 
 
@@ -516,6 +535,7 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
         path=content/material
         if path.is_file():compile_resource(path)
     compile_resource(content/'soundevents/soundevents_addon.vsndevts')
+    compile_resource(content/FFA_SCRIPT.replace('.vjs','.js'))
     if 'winter' in seasons:
         compile_resource(content/'models/povo/povo_winter.vmdl')
         compile_resource(content/'particles/povo/snow.vpcf')
@@ -527,7 +547,7 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
         game=cs2_root/'game/csgo_addons/trento_povo'
         shutil.copyfile(radar_dir/(map_name+'.txt'),game/'resource/overviews'/(map_name+'.txt'))
         if pack:
-            extras=['soundevents/soundevents_addon.vsndevts_c']
+            extras=['soundevents/soundevents_addon.vsndevts_c','maps/scripts/povo_ffa.vjs_c']
             if chosen=='winter':extras+=['models/povo/povo_winter.vmdl_c','particles/povo/snow.vpcf_c']
             result=package_map(cs2_root,ROOT/'build/tools/vpkedit-4.4.2/vpkeditcli.exe',
                 ROOT/'build/package'/(map_name+'.vpk'),force=True,map_name=map_name,model_name=MODEL,

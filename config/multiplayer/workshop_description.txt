@@ -4,7 +4,9 @@ A Counter-Strike 2 recreation of the Polo Ferrari campus in Povo, Trento:
 Povo 1, Povo 2, the connecting bridge, classrooms, stairs and parking areas.
 
 Early playtest: geometry and surfaces are still being refined.
-Supports round-based bomb defusal with Terrorist and Counter-Terrorist starts.
+Supports round-based bomb defusal with Terrorist and Counter-Terrorist starts,
+and free-for-all: start it in Deathmatch and everyone is an enemy, respawning
+at 64 spawn points spread over the whole campus.
 
 Play together: subscribe, then host from Play > Workshop Maps with Open Party
 enabled. Join the host through the friends list and choose opposite teams.

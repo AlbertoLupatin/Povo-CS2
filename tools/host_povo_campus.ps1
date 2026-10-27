@@ -13,12 +13,13 @@ if (!(Test-Path -LiteralPath $cfgDirectory -PathType Container)) {
     throw "CS2 configuration directory is missing: $cfgDirectory"
 }
 Copy-Item -LiteralPath $profileSource -Destination (Join-Path $cfgDirectory 'povo_duel.cfg') -Force
-foreach ($profileName in @('povo_ffa.cfg', 'povo_ffa_start.cfg')) {
-    $ffaSource = Join-Path (Split-Path -Parent $PSScriptRoot) "config\multiplayer\$profileName"
-    Copy-Item -LiteralPath $ffaSource -Destination (Join-Path $cfgDirectory $profileName) -Force
-}
+$ffaSource = Join-Path (Split-Path -Parent $PSScriptRoot) 'config\multiplayer\povo_ffa_start.cfg'
+Copy-Item -LiteralPath $ffaSource -Destination (Join-Path $cfgDirectory 'povo_ffa_start.cfg') -Force
+# The map now applies free-for-all itself; remove the old after-load profile.
+Remove-Item -LiteralPath (Join-Path $cfgDirectory 'povo_ffa.cfg') -ErrorAction SilentlyContinue
 Write-Host 'Installed the Povo two-player match profile.'
-Write-Host 'For free-for-all: exec povo_ffa_start, then after loading: exec povo_ffa'
+Write-Host 'For free-for-all: choose Deathmatch for the Povo map; the map makes it free-for-all itself.'
+Write-Host 'Console fallback for free-for-all: exec povo_ffa_start'
 Write-Host 'In normal CS2: Play > Workshop Maps > enable Open Party > start the Povo map.'
 Write-Host 'Once the map has loaded, enter in the developer console: exec povo_duel'
 Write-Host 'Your friend subscribes to the same Workshop item and joins through the Steam friends list.'

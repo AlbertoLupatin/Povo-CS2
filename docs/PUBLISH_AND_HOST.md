@@ -8,19 +8,27 @@ connection from a second PC has not yet been verified.
 
 ## Free-for-all session
 
-Run `host_campus.cmd` to install the profiles. In normal CS2 with Open Party
-enabled, enter `exec povo_ffa_start` in the developer console. After the campus
-loads, enter `exec povo_ffa`.
+Free-for-all is built into the map. Start the campus in **Deathmatch** (game
+type 1, mode 2) and a `point_script` (`maps/scripts/povo_ffa.js`) makes
+everyone an enemy. It turns on automatic respawns, three seconds of spawn
+protection, no bots and a 20-minute match. Players respawn at random among 64
+`info_deathmatch_spawn` points spread over the whole campus: both buildings,
+the wings, the bridge, Povo 2, the parking, the yard and the streets. They
+never respawn where an enemy can see them. Classic and Wingman are unchanged.
 
-This starts native Deathmatch with everyone as enemies, automatic respawns,
-three seconds of spawn protection, no bots and a 20-minute match. Respawns use
-the map's authored start points because distributed Deathmatch spawns currently
-include distant outdoor areas. Reapply `exec povo_ffa` after each map load.
-Friends join through the Steam friends list after the new session loads.
+The spawns come from `tools/povo_spawns.py`. It uses only floor cells that the
+clearance audits show are reachable with standing room, plus the audited
+outdoor routes. It keeps them at least 7 m apart and turns each one toward its
+longest clear sightline.
 
-Live verification on 26 October: Deathmatch mode, teammate damage enabled,
-respawn settings enabled, bot filling disabled, and one human with zero bots.
-Death and respawn with two connected humans remains to be tested.
+To host: in normal CS2 with Open Party enabled, start the Povo map in
+Deathmatch. Friends join through the Steam friends list. Console fallback:
+`exec povo_ffa_start`, installed by `host_campus.cmd`. No command is needed
+after the map loads. For a local tools-mode check, use
+`play_campus.cmd -Deathmatch`.
+
+The Workshop item needs a new upload with this map. It also needs the
+**Deathmatch** tag, so Workshop Maps offers that mode.
 
 ## Two-player session through Steam
 

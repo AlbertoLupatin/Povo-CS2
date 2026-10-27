@@ -23,7 +23,16 @@ class Povo2IntegrationTests(TestCase):
             hole=((shaft[0],shaft[1],.18),(shaft[2],shaft[3],10.95))
             # The relocated ladder cuts the arrival slab in the east alcove.
             # Verify the exact surviving pieces, not an obsolete hole location.
-            for piece in subtract_box(box,hole):
+            parts=subtract_box(box,hole)
+            lift=self.levels[1]['connection']['lift'];sa,sb=lift['side_opening_north']
+            for z in (.4,7.6):
+                sidehole=((shaft[0]-.3,sa,z-.01),(shaft[0]+.2,sb,z+2.2))
+                parts=[p for item in parts for p in
+                       (subtract_box(item,sidehole) if item[3] in ('wall','p2_accent_green','window_frame') else [item])]
+            sidehole=((18.35,17.65,7.59),(20.05,17.95,9.85))
+            parts=[p for item in parts for p in
+                   (subtract_box(item,sidehole) if item[3] in ('wall','p2_accent_green','window_frame') else [item])]
+            for piece in parts:
                 self.assertIn(piece[0],actual,piece[0])
                 self.assertEqual(actual[piece[0]],piece,piece[0])
 
@@ -31,9 +40,9 @@ class Povo2IntegrationTests(TestCase):
         self.assertEqual(self.p2['stairs']['bounds'],self.levels[1]['connection']['stair']['bounds'])
         self.assertEqual([p['floor'] for p in self.p2['stairs']['portals']],[0,-1,-2])
         self.assertEqual([p['centre'] for p in self.p2['stairs']['portals']],
-                         [[16.5,22,4],[16.5,22,.4],[16.5,22,-3.2]])
+                         [[20.5,22,4],[19.2,18,.4],[20.5,22,-3.2]])
         # The basement start stays flush with the actual enclosure end.
-        self.assertEqual(self.p2['basement']['corridor'][3],self.p2['stairs']['bounds'][3])
+        self.assertEqual(self.p2['basement']['corridor'][3],self.p2['stairs']['portals'][1]['centre'][1])
         self.assertFalse(any(n.startswith('academic_first_link_p2_lower_wall_') for n,_,_,_ in self.boxes))
 
     def test_world_rooms_are_furnished_and_flush_with_reception(self):
