@@ -128,4 +128,17 @@ class SeasonalCampusTests(unittest.TestCase):
         self.assertEqual(len(ids),len(set(ids)))
 
 
+class SurveySoundElevationTests(unittest.TestCase):
+    def test_stair_and_bridge_sound_derive_all_confirmed_floors(self):
+        levels=[dict(id='p1_'+str(i),floor_elevation_metres=370+z,rooms=[],circulation=[])
+                for i,z in enumerate((4,7.6,11.2))]
+        levels[-1]['connection']=dict(bridge=[16,-15,20,15],floor_local_metres=11.2)
+        zones=sound_zones(dict(levels=levels,stair=dict(cores=[dict(id='test',enclosure=dict(bounds=[0,0,5,6]))])))
+        self.assertEqual([round(z['point'][2],2) for z in zones if z['id'].startswith('stair_test_')],[5.4,9,12.6])
+        bridge=[z for z in zones if z['id'].startswith('bridge_')]
+        self.assertTrue(bridge)
+        self.assertTrue(all(abs(z['point'][2]-12.6)<1e-8 for z in bridge))
+        self.assertTrue(all(-15<z['point'][1]<15 for z in bridge))
+
+
 if __name__=='__main__':unittest.main()

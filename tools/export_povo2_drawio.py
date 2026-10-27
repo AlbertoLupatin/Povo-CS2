@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def export():
-    _,_,boxes,levels,_=build_geometry();p2=levels[1]['connection']['povo2']
+    _,_,boxes,levels,_=build_geometry();p2=next(l['connection'] for l in levels if l.get('connection'))['povo2']
     doc=ET.Element('mxfile',host='app.diagrams.net');count=0
     def page(name,bounds):
         nonlocal count
@@ -60,7 +60,7 @@ def export():
     path=p2['additions']['yard']['outdoor_path']
     for x,y,_ in path:rect((x-.8,y-.15,x+.8,y+.15),fill='#c0c0c0')
 
-    wings=levels[0]['wings'];wc=wings['config']
+    wings=next(l['wings'] for l in levels if l.get('wings'));wc=wings['config']
     for floor in (0,1):
         rect,note=page('Library and canteen — '+('ground' if floor==0 else 'first'),(28,-114,55,-10))
         for level in wings['levels']:

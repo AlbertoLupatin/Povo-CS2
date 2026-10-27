@@ -12,7 +12,7 @@ except ImportError:
 
 def render(output):
     _,_,boxes,levels,_=build_geometry()
-    spec=levels[1]['connection']['povo2']
+    spec=next(l['connection'] for l in levels if l.get('connection'))['povo2']
     image=Image.new('RGB',(2160,1200),'#f1f3f3')
     draw=ImageDraw.Draw(image)
     font=ImageFont.load_default(size=15)
@@ -21,8 +21,8 @@ def render(output):
     draw.text((25,57),'Source geometry verified. Room dimensions and temporary aula remain estimates; see build logs for engine checks.',font=font,fill='#384c55')
     panels=[('Povo 2 ground additions',4,(0,-1,60,102),(30,105),9),
             ('Basement: rotated clockwise as one floor',.4,(-16,-31,33,40),(650,150),10.5),
-            ('Wings: ground',4,(28,-112,59,-11),(1440,150),8),
-            ('Wings: first',7.6,(28,-112,59,-11),(1780,150),8)]
+            ('Amenities local 0 / P1 -1',4,(28,-112,59,-11),(1440,150),8),
+            ('Amenities local 1 / P1 0',7.6,(28,-112,59,-11),(1780,150),8)]
     for label,z,bounds,origin,scale in panels:
         a,b,c,d=bounds;ox,oy=origin
         def xy(x,y):return ox+(x-a)*scale,oy+(d-y)*scale
@@ -42,7 +42,7 @@ def render(output):
             level=next(l for l in spec['levels'] if abs(l['z']-z)<.01)
             rooms=level.get('rooms',[]);stations=level['audit_stations']
         else:
-            wing_levels=[l for l in levels[0]['wings']['levels'] if abs(l['z']-z)<.01]
+            wing_levels=[l for l in next(l['wings'] for l in levels if l.get('wings'))['levels'] if abs(l['z']-z)<.01]
             rooms=[];stations=[s for l in wing_levels for s in l['audit_stations']]
             for l in wing_levels:
                 x0,y0,x1,y1=l['bounds'];px,py=xy((x0+x1)/2,(y0+y1)/2)

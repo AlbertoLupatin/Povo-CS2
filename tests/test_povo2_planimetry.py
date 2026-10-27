@@ -89,8 +89,8 @@ class Povo2PlanimetryTests(TestCase):
             self.assertEqual(len(steps),20)
             self.assertTrue(all(abs(f['rise']-.18)<1e-8 for f in steps))
         _,_,_,levels,_=build_geometry()
-        self.assertEqual(levels[1]['connection']['floor_local_metres'],self.spec['levels'][-1]['z'])
-        self.assertEqual(len(levels),2)  # Povo 1 remains two storeys
+        self.assertEqual(next(l['connection'] for l in levels if l.get('connection'))['floor_local_metres'],11.2)
+        self.assertEqual(len(levels),3)  # Entrance -1, middle 0, bridge 1
 
     def test_all_routes_have_support_clearance_and_stair_headroom(self):
         result=audit()
@@ -99,20 +99,20 @@ class Povo2PlanimetryTests(TestCase):
         self.assertFalse(result['stair_failures'])
         self.assertEqual(len(result['levels']),4)
 
-    def test_four_radar_floors_and_package_aliases(self):
+    def test_five_radar_floors_and_package_aliases(self):
         _,_,_,levels,_=build_geometry()
-        metadata={'levels':levels,'connection':levels[1]['connection'],
+        metadata={'levels':levels,'connection':next(l['connection'] for l in levels if l.get('connection')),
                   'povo2':self.spec,'stair':{'cores':[]}}
         with tempfile.TemporaryDirectory() as tmp, patch('tools.cs2_campus.ROOT',Path(tmp)):
             out=make_radar(metadata)
             values=overview_values((out/'trento_povo_campus.txt').read_bytes(),'trento_povo_campus')
             sections={k.split('.')[1] for k in values if k.startswith('verticalsections.')}
-            self.assertEqual(sections,{'default','lower','basement1','basement2'})
+            self.assertEqual(sections,{'default','middle','lower','basement1','basement2'})
             files,aliases=radar_layout('trento_povo_campus',sections=sections)
-            self.assertEqual(len(files),17)
-            self.assertEqual(len(aliases),8)
-            self.assertEqual(len(list(out.glob('*.vtex'))),8)
-            ordered=['basement2','basement1','lower','default']
+            self.assertEqual(len(files),21)
+            self.assertEqual(len(aliases),10)
+            self.assertEqual(len(list(out.glob('*.vtex'))),10)
+            ordered=['basement2','basement1','lower','middle','default']
             for first,second in zip(ordered,ordered[1:]):
                 self.assertEqual(values[f'verticalsections.{first}.altitudemax'],
                                  values[f'verticalsections.{second}.altitudemin'])

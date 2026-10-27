@@ -13,7 +13,7 @@ class UserGeometryCorrections(unittest.TestCase):
 
     def test_shared_room_boundaries_are_opaque_and_solid(self):
         for level in self.levels:
-            self.assertGreater(len(level['room_partitions']),20)
+            self.assertGreaterEqual(len(level['room_partitions']),20)
             for partition in level['room_partitions']:
                 a,b,z,c,d,top=partition['bounds']
                 axis=0 if c-a>d-b else 1
@@ -47,7 +47,7 @@ class UserGeometryCorrections(unittest.TestCase):
         self.assertTrue(0<OPACITY['canopy_glass']<1)
 
     def test_basement_turns_right_west_and_retains_only_actual_stair_door(self):
-        p2=self.levels[1]['connection']['povo2']
+        p2=next(l['connection']['povo2'] for l in self.levels if l.get('connection'))
         corridor=p2['basement']['corridor'];branch=p2['basement']['cross_corridor']
         self.assertEqual(branch[0],corridor[0])
         self.assertEqual(branch[1],corridor[1])

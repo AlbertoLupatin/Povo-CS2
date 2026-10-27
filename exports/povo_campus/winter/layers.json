@@ -1937,12 +1937,12 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_0",
       [
-        44,
+        42.7,
         -116,
         2.752
       ],
       [
-        49,
+        47.300000000000004,
         -110,
         2.759
       ],
@@ -1951,12 +1951,12 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1",
       [
-        44,
+        42.7,
         -77,
         2.752
       ],
       [
-        49,
+        47.300000000000004,
         -76.83,
         2.759
       ],
@@ -1965,7 +1965,7 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_1",
       [
-        49,
+        47.300000000000004,
         -116,
         2.752
       ],
@@ -1979,7 +1979,7 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_2",
       [
-        49,
+        47.300000000000004,
         -77,
         2.752
       ],
@@ -1998,7 +1998,7 @@
         2.752
       ],
       [
-        44,
+        42.7,
         -110,
         2.759
       ],
@@ -2012,7 +2012,7 @@
         2.752
       ],
       [
-        44,
+        42.7,
         -76.83,
         2.759
       ],
@@ -2035,12 +2035,12 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0",
       [
-        36.5,
+        38.0,
         -70.63,
         2.752
       ],
       [
-        41.5,
+        42.6,
         -69,
         2.759
       ],
@@ -2049,21 +2049,49 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1",
       [
-        36.5,
+        38.0,
         -13,
         2.752
       ],
       [
-        41.5,
+        42.6,
         19.85,
         2.759
       ],
       "wet"
     ],
     [
-      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1",
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1_windowcut_0_windowcut_0",
       [
-        41.5,
+        44.677894736842106,
+        -70.63,
+        2.752
+      ],
+      [
+        46.05052631578947,
+        -69,
+        2.759
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_1",
+      [
+        44.677894736842106,
+        -13,
+        2.752
+      ],
+      [
+        46.05052631578947,
+        19.85,
+        2.759
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1_windowcut_1",
+      [
+        46.05052631578947,
         -70.63,
         2.752
       ],
@@ -2075,14 +2103,42 @@
       "wet"
     ],
     [
-      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_2",
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1_windowcut_2",
       [
-        41.5,
+        46.05052631578947,
         -13,
         2.752
       ],
       [
         49.12,
+        19.85,
+        2.759
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_2",
+      [
+        42.6,
+        -70.63,
+        2.752
+      ],
+      [
+        44.677894736842106,
+        -69,
+        2.759
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_3",
+      [
+        42.6,
+        -13,
+        2.752
+      ],
+      [
+        44.677894736842106,
         19.85,
         2.759
       ],
@@ -2096,7 +2152,7 @@
         2.752
       ],
       [
-        36.5,
+        38.0,
         -69,
         2.759
       ],
@@ -2110,7 +2166,7 @@
         2.752
       ],
       [
-        36.5,
+        38.0,
         19.85,
         2.759
       ],
@@ -4109,12 +4165,12 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_0",
       [
-        44,
+        42.7,
         -116,
         2.752
       ],
       [
-        49,
+        47.300000000000004,
         -110,
         2.759
       ],
@@ -4123,12 +4179,12 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1",
       [
-        44,
+        42.7,
         -77,
         2.752
       ],
       [
-        49,
+        47.300000000000004,
         -76.83,
         2.759
       ],
@@ -4137,7 +4193,7 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_1",
       [
-        49,
+        47.300000000000004,
         -116,
         2.752
       ],
@@ -4151,7 +4207,7 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_2",
       [
-        49,
+        47.300000000000004,
         -77,
         2.752
       ],
@@ -4170,7 +4226,7 @@
         2.752
       ],
       [
-        44,
+        42.7,
         -110,
         2.759
       ],
@@ -4184,7 +4240,7 @@
         2.752
       ],
       [
-        44,
+        42.7,
         -76.83,
         2.759
       ],
@@ -4207,12 +4263,12 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0",
       [
-        36.5,
+        38.0,
         -70.63,
         2.752
       ],
       [
-        41.5,
+        42.6,
         -69,
         2.759
       ],
@@ -4221,21 +4277,49 @@
     [
       "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1",
       [
-        36.5,
+        38.0,
         -13,
         2.752
       ],
       [
-        41.5,
+        42.6,
         19.85,
         2.759
       ],
       "wet"
     ],
     [
-      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1",
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1_windowcut_0_windowcut_0",
       [
-        41.5,
+        44.677894736842106,
+        -70.63,
+        2.752
+      ],
+      [
+        46.05052631578947,
+        -69,
+        2.759
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_1",
+      [
+        44.677894736842106,
+        -13,
+        2.752
+      ],
+      [
+        46.05052631578947,
+        19.85,
+        2.759
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1_windowcut_1",
+      [
+        46.05052631578947,
         -70.63,
         2.752
       ],
@@ -4247,14 +4331,42 @@
       "wet"
     ],
     [
-      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_2",
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_1_windowcut_2",
       [
-        41.5,
+        46.05052631578947,
         -13,
         2.752
       ],
       [
         49.12,
+        19.85,
+        2.759
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_2",
+      [
+        42.6,
+        -70.63,
+        2.752
+      ],
+      [
+        44.677894736842106,
+        -69,
+        2.759
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1_windowcut_3",
+      [
+        42.6,
+        -13,
+        2.752
+      ],
+      [
+        44.677894736842106,
         19.85,
         2.759
       ],
@@ -4268,7 +4380,7 @@
         2.752
       ],
       [
-        36.5,
+        38.0,
         -69,
         2.759
       ],
@@ -4282,7 +4394,7 @@
         2.752
       ],
       [
-        36.5,
+        38.0,
         19.85,
         2.759
       ],
@@ -4894,7 +5006,7 @@
   "physics_surface_groups": {
     "concrete": {
       "file": "povo_winter_collision_concrete.obj",
-      "boxes": 136,
+      "boxes": 140,
       "meshes": 0
     },
     "snow": {

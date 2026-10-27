@@ -76,18 +76,20 @@ def extend(boxes, levels, root, wall_height):
             # Risers overlap the next tread by 4 cm, closing the visible gaps
             # while leaving enough clearance for the stacked flight below.
             boxes[i]=(name,(lo[0],lo[1],hi[2]-.22),hi,mat)
-        if name.startswith('academic_first_link_p2_stair_') and not any(s in name for s in ('_wall_','_upper_door_','_lower_door_','_panic_','_frame_','_finish_sign')):
+        if name.startswith('academic_first_link_p2_stair_') and not any(s in name for s in ('_intermediate_','_wall_','_upper_door_','_lower_door_','_panic_','_frame_','_finish_sign')):
             prototype.append(boxes[i])
     paths=[];rails=[]
-    for lower,zshift in ((-1,-3.6),(-2,-7.2)):
+    for lower,target_top in ((-1,4.0),(-2,.4)):
+        zshift=target_top-link['floor_local_metres']
         for name,lo,hi,mat in prototype:
             # The upper opening's east guard would block the next flight's arrival.
             if '_guard_east' in name:continue
             add('p2_extended_'+str(lower)+'_'+name.replace('academic_first_link_p2_stair_',''),
                 (lo[0],lo[1],lo[2]+zshift),(hi[0],hi[1],hi[2]+zshift),mat)
         paths.append(dict(lower_floor=lower,points=[list((x,y,z+zshift)) for x,y,z in
-            [compact['top'],*compact['path'],compact['bottom']]]))
-        rails.extend(shifted([r for r in compact['rails'] if '_guard_east' not in r['name']],zshift,
+            [compact['top'],*compact.get('prototype_path',compact['path']),
+             [compact['bottom'][0],compact['bottom'][1],link['floor_local_metres']-3.6]]]))
+        rails.extend(shifted([r for r in compact['rails'] if '_guard_east' not in r['name'] and '_intermediate_' not in r['name']],zshift,
             lambda n:'p2_extended_'+str(lower)+'_'+n.replace('academic_first_link_p2_stair_','')))
     # Extend the enclosure below ground; the roof and the whole upper arrival
     # are the already verified compact geometry.
@@ -166,7 +168,7 @@ def lift(boxes, spec, link):
     if not lift:return boxes
     # Rounded so the shaft and its doorways share exact edges (no slivers).
     x0,y0,x1,y1=lift['shaft'];ga,gb=lift['ground_opening_east'];sa,sb=lift['side_opening_north']
-    zb,zg,zu=.4,4.,7.6;top=10.95;t=.1
+    zb,zg,zu=.4,4.,link['floor_local_metres'];top=zu+3.35;t=.1
     x0i,y0i,x1i,y1i=(round(v,3) for v in (x0+t,y0+t,x1-t,y1-t))
     result=[p for b in boxes for p in subtract_box(b,((x0,y0,zb-.22),(x1,y1,top)))]
     # Doorways through the shaft and the corridor/hall walls it backs onto;

@@ -1,0 +1,1566 @@
+{
+  "status": "Observed wall paths and source-position openings integrated into active amenities generator using provisional existing XY footprints. Fine untraced service details remain incomplete.",
+  "coordinate_system": "pixels in 1700x1275 review raster; trace points approximate visible ink centres; source originals unchanged",
+  "library0": {
+    "source": "image00015.jpeg",
+    "raster": "exports/amenity_15.jpg",
+    "outline": [
+      [
+        132,
+        506
+      ],
+      [
+        1629,
+        517
+      ],
+      [
+        1629,
+        973
+      ],
+      [
+        132,
+        981
+      ]
+    ],
+    "walls": [
+      {
+        "id": "study_north",
+        "points": [
+          [
+            357,
+            559
+          ],
+          [
+            578,
+            559
+          ],
+          [
+            578,
+            710
+          ],
+          [
+            357,
+            710
+          ],
+          [
+            357,
+            559
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              540,
+              710
+            ],
+            [
+              578,
+              710
+            ]
+          ]
+        ],
+        "label": "AULA STUDIO"
+      },
+      {
+        "id": "study_middle",
+        "points": [
+          [
+            800,
+            566
+          ],
+          [
+            1009,
+            566
+          ],
+          [
+            1009,
+            685
+          ],
+          [
+            871,
+            685
+          ],
+          [
+            871,
+            664
+          ]
+        ],
+        "label": "AULA STUDIO",
+        "door_gaps": "Open south side as visible; left room edge not enclosed in photograph"
+      },
+      {
+        "id": "study_south",
+        "points": [
+          [
+            1013,
+            568
+          ],
+          [
+            1217,
+            568
+          ],
+          [
+            1217,
+            650
+          ],
+          [
+            1202,
+            685
+          ],
+          [
+            1013,
+            685
+          ]
+        ],
+        "label": "AULA STUDIO",
+        "door_gaps": [
+          [
+            [
+              1202,
+              650
+            ],
+            [
+              1217,
+              685
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "photocopy",
+        "points": [
+          [
+            1217,
+            569
+          ],
+          [
+            1427,
+            569
+          ],
+          [
+            1427,
+            650
+          ],
+          [
+            1264,
+            650
+          ]
+        ],
+        "label": "FOTOCOPIATRICE",
+        "door_gaps": [
+          [
+            [
+              1217,
+              650
+            ],
+            [
+              1264,
+              650
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "cloakroom",
+        "points": [
+          [
+            1288,
+            694
+          ],
+          [
+            1504,
+            694
+          ],
+          [
+            1504,
+            804
+          ],
+          [
+            1288,
+            804
+          ],
+          [
+            1288,
+            736
+          ]
+        ],
+        "label": "GUARDAROBA",
+        "door_gaps": [
+          [
+            [
+              1288,
+              694
+            ],
+            [
+              1288,
+              736
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "office",
+        "points": [
+          [
+            572,
+            886
+          ],
+          [
+            690,
+            886
+          ],
+          [
+            690,
+            977
+          ],
+          [
+            572,
+            977
+          ],
+          [
+            572,
+            886
+          ]
+        ],
+        "label": "UFFICIO",
+        "door_gaps": [
+          [
+            [
+              644,
+              886
+            ],
+            [
+              682,
+              886
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "office_ante",
+        "points": [
+          [
+            572,
+            797
+          ],
+          [
+            690,
+            797
+          ],
+          [
+            690,
+            886
+          ],
+          [
+            572,
+            886
+          ],
+          [
+            572,
+            797
+          ]
+        ],
+        "label": "unlabelled room",
+        "door_gaps": [
+          [
+            [
+              592,
+              797
+            ],
+            [
+              628,
+              797
+            ]
+          ],
+          [
+            [
+              644,
+              886
+            ],
+            [
+              682,
+              886
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "southern_service_corridor",
+        "points": [
+          [
+            1217,
+            650
+          ],
+          [
+            1627,
+            650
+          ],
+          [
+            1627,
+            691
+          ]
+        ],
+        "label": "CORRIDOIO"
+      },
+      {
+        "id": "southern_WCs",
+        "points": [
+          [
+            1427,
+            569
+          ],
+          [
+            1627,
+            569
+          ],
+          [
+            1627,
+            650
+          ]
+        ],
+        "label": "WC; individual stalls visible; tracing incomplete"
+      },
+      {
+        "id": "store",
+        "points": [
+          [
+            1554,
+            691
+          ],
+          [
+            1627,
+            691
+          ],
+          [
+            1627,
+            793
+          ],
+          [
+            1554,
+            793
+          ],
+          [
+            1554,
+            691
+          ]
+        ],
+        "label": "DEPOSITO",
+        "door_gaps": [
+          [
+            [
+              1574,
+              691
+            ],
+            [
+              1610,
+              691
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "north_storage",
+        "points": [
+          [
+            137,
+            513
+          ],
+          [
+            225,
+            513
+          ],
+          [
+            225,
+            580
+          ],
+          [
+            270,
+            580
+          ],
+          [
+            270,
+            628
+          ],
+          [
+            137,
+            628
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              246,
+              580
+            ],
+            [
+              270,
+              603
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "north_accessible_loan",
+        "points": [
+          [
+            270,
+            580
+          ],
+          [
+            357,
+            580
+          ],
+          [
+            357,
+            694
+          ],
+          [
+            320,
+            694
+          ],
+          [
+            320,
+            668
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              288,
+              694
+            ],
+            [
+              320,
+              694
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "north_lift_bank",
+        "points": [
+          [
+            137,
+            632
+          ],
+          [
+            282,
+            632
+          ],
+          [
+            282,
+            704
+          ],
+          [
+            137,
+            704
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              207,
+              704
+            ],
+            [
+              249,
+              704
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "south_corridor_bottom",
+        "points": [
+          [
+            1257,
+            691
+          ],
+          [
+            1504,
+            691
+          ],
+          [
+            1504,
+            804
+          ],
+          [
+            1627,
+            804
+          ]
+        ],
+        "door_gaps": []
+      },
+      {
+        "id": "south_wc_partition",
+        "points": [
+          [
+            1504,
+            691
+          ],
+          [
+            1554,
+            691
+          ],
+          [
+            1554,
+            793
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1510,
+              691
+            ],
+            [
+              1540,
+              691
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "recessed_entrance",
+        "points": [
+          [
+            1001,
+            975
+          ],
+          [
+            1001,
+            872
+          ],
+          [
+            1095,
+            872
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1095,
+              872
+            ],
+            [
+              1137,
+              872
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "recessed_entrance_return",
+        "points": [
+          [
+            1137,
+            872
+          ],
+          [
+            1224,
+            872
+          ],
+          [
+            1224,
+            973
+          ]
+        ],
+        "door_gaps": []
+      }
+    ],
+    "stairs": [
+      {
+        "bounds": [
+          142,
+          800,
+          279,
+          963
+        ],
+        "kind": "end U stair",
+        "door": "south long facade double exit near x240"
+      },
+      {
+        "bounds": [
+          960,
+          685,
+          1211,
+          721
+        ],
+        "kind": "narrow central straight stair; destination unconfirmed"
+      }
+    ],
+    "exterior_doors": [
+      {
+        "segment": [
+          [
+            226,
+            979
+          ],
+          [
+            270,
+            979
+          ]
+        ],
+        "kind": "double leaf at stair"
+      },
+      {
+        "segment": [
+          [
+            300,
+            979
+          ],
+          [
+            346,
+            979
+          ]
+        ],
+        "kind": "double leaf reading entrance"
+      },
+      {
+        "segment": [
+          [
+            1090,
+            975
+          ],
+          [
+            1137,
+            975
+          ]
+        ],
+        "kind": "recessed double entrance"
+      }
+    ],
+    "open_spaces": [
+      "MONOGRAFIE A SCAFFALE APERTO central spine",
+      "SALA DI LETTURA left/lower",
+      "LETTURA right/lower"
+    ],
+    "unresolved": [
+      "Exact source-to-world orientation",
+      "Interior doors/service stalls still require full trace",
+      "No floor1 evacuation plan supplied"
+    ]
+  },
+  "canteen0": {
+    "source": "image00013.jpeg",
+    "raster": "exports/amenity_13.jpg",
+    "outline": [
+      [
+        67,
+        364
+      ],
+      [
+        1007,
+        354
+      ],
+      [
+        1079,
+        375
+      ],
+      [
+        1259,
+        366
+      ],
+      [
+        1261,
+        644
+      ],
+      [
+        1319,
+        647
+      ],
+      [
+        1323,
+        850
+      ],
+      [
+        60,
+        799
+      ]
+    ],
+    "zones": [
+      {
+        "label": "CUCINA",
+        "bounds": [
+          269,
+          407,
+          748,
+          649
+        ]
+      },
+      {
+        "label": "SALA RISTORAZIONE",
+        "bounds": [
+          279,
+          650,
+          842,
+          810
+        ]
+      },
+      {
+        "label": "ATRIO INGRESSO",
+        "bounds": [
+          843,
+          648,
+          1000,
+          820
+        ]
+      },
+      {
+        "label": "BAR",
+        "bounds": [
+          1083,
+          474,
+          1256,
+          838
+        ]
+      },
+      {
+        "label": "SPOGLIATOIO west",
+        "bounds": [
+          651,
+          407,
+          745,
+          535
+        ]
+      },
+      {
+        "label": "SPOGLIATOIO east",
+        "bounds": [
+          785,
+          409,
+          941,
+          533
+        ]
+      },
+      {
+        "label": "MAGAZZINO BAR",
+        "bounds": [
+          1084,
+          433,
+          1252,
+          479
+        ]
+      },
+      {
+        "label": "WC end",
+        "bounds": [
+          1083,
+          374,
+          1252,
+          434
+        ]
+      }
+    ],
+    "stairs": [
+      {
+        "bounds": [
+          64,
+          630,
+          240,
+          796
+        ],
+        "kind": "external north flight"
+      },
+      {
+        "bounds": [
+          856,
+          500,
+          935,
+          649
+        ],
+        "kind": "internal paired flight"
+      },
+      {
+        "bounds": [
+          1264,
+          695,
+          1315,
+          811
+        ],
+        "kind": "external bar-end flight"
+      }
+    ],
+    "exterior_doors": [
+      [
+        [
+          243,
+          780
+        ],
+        [
+          286,
+          780
+        ]
+      ],
+      [
+        [
+          448,
+          793
+        ],
+        [
+          485,
+          793
+        ]
+      ],
+      [
+        [
+          934,
+          822
+        ],
+        [
+          979,
+          822
+        ]
+      ],
+      [
+        [
+          1268,
+          839
+        ],
+        [
+          1312,
+          839
+        ]
+      ]
+    ],
+    "interior_openings": [
+      {
+        "wall": "kitchen/dining",
+        "gap": [
+          [
+            643,
+            645
+          ],
+          [
+            682,
+            645
+          ]
+        ],
+        "swing": "visible towards kitchen"
+      },
+      {
+        "wall": "atrium/stair",
+        "gap": [
+          [
+            865,
+            647
+          ],
+          [
+            926,
+            647
+          ]
+        ],
+        "swing": "double leaf towards stair"
+      },
+      {
+        "wall": "bar store/bar",
+        "gap": [
+          [
+            1191,
+            478
+          ],
+          [
+            1221,
+            478
+          ]
+        ],
+        "swing": "visible towards store"
+      }
+    ],
+    "unresolved": [
+      "Individual small storage and WC partitions need full trace",
+      "Some photocopied lines too faint for exact registration"
+    ],
+    "walls": [
+      {
+        "id": "kitchen_dining_boundary",
+        "points": [
+          [
+            279,
+            648
+          ],
+          [
+            643,
+            648
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              643,
+              648
+            ],
+            [
+              681,
+              648
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "kitchen_east_boundary",
+        "points": [
+          [
+            681,
+            648
+          ],
+          [
+            841,
+            648
+          ],
+          [
+            841,
+            590
+          ],
+          [
+            785,
+            590
+          ],
+          [
+            785,
+            535
+          ],
+          [
+            748,
+            535
+          ],
+          [
+            748,
+            583
+          ],
+          [
+            659,
+            583
+          ]
+        ],
+        "door_gaps": []
+      },
+      {
+        "id": "changing_west_north",
+        "points": [
+          [
+            651,
+            410
+          ],
+          [
+            745,
+            410
+          ],
+          [
+            745,
+            475
+          ],
+          [
+            703,
+            475
+          ],
+          [
+            703,
+            531
+          ],
+          [
+            651,
+            531
+          ],
+          [
+            651,
+            410
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              706,
+              410
+            ],
+            [
+              742,
+              410
+            ]
+          ],
+          [
+            [
+              715,
+              531
+            ],
+            [
+              743,
+              531
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "changing_east",
+        "points": [
+          [
+            785,
+            411
+          ],
+          [
+            941,
+            411
+          ],
+          [
+            941,
+            490
+          ],
+          [
+            900,
+            490
+          ],
+          [
+            900,
+            533
+          ],
+          [
+            862,
+            533
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              823,
+              411
+            ],
+            [
+              860,
+              411
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "bar_store_south",
+        "points": [
+          [
+            1082,
+            478
+          ],
+          [
+            1191,
+            478
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1191,
+              478
+            ],
+            [
+              1221,
+              478
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "bar_store_east",
+        "points": [
+          [
+            1221,
+            478
+          ],
+          [
+            1252,
+            478
+          ],
+          [
+            1252,
+            433
+          ],
+          [
+            1213,
+            433
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1172,
+              433
+            ],
+            [
+              1213,
+              433
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "atrium_stair_west",
+        "points": [
+          [
+            841,
+            713
+          ],
+          [
+            841,
+            649
+          ],
+          [
+            855,
+            649
+          ],
+          [
+            855,
+            500
+          ],
+          [
+            874,
+            500
+          ]
+        ],
+        "door_gaps": []
+      },
+      {
+        "id": "stair_east",
+        "points": [
+          [
+            934,
+            497
+          ],
+          [
+            934,
+            650
+          ]
+        ],
+        "door_gaps": []
+      },
+      {
+        "id": "cavedio_west",
+        "points": [
+          [
+            997,
+            722
+          ],
+          [
+            997,
+            607
+          ],
+          [
+            1018,
+            607
+          ],
+          [
+            1018,
+            574
+          ]
+        ],
+        "door_gaps": []
+      },
+      {
+        "id": "cavedio_east",
+        "points": [
+          [
+            1077,
+            608
+          ],
+          [
+            1077,
+            721
+          ],
+          [
+            1035,
+            721
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              997,
+              722
+            ],
+            [
+              1035,
+              722
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  "canteen1": {
+    "source": "image00012.jpeg",
+    "raster": "exports/amenity_12.jpg rotated180",
+    "outline": [
+      [
+        98,
+        331
+      ],
+      [
+        1566,
+        324
+      ],
+      [
+        1581,
+        923
+      ],
+      [
+        88,
+        922
+      ]
+    ],
+    "open_space": "SALA RISTORAZIONE left two-thirds",
+    "core": {
+      "stair": [
+        1193,
+        417,
+        1329,
+        581
+      ],
+      "lift": [
+        1430,
+        365,
+        1540,
+        465
+      ],
+      "wc_men": [
+        1065,
+        638,
+        1228,
+        795
+      ],
+      "wc_accessible": [
+        1230,
+        639,
+        1329,
+        733
+      ],
+      "wc_women": [
+        1436,
+        683,
+        1557,
+        917
+      ],
+      "corridor": [
+        1334,
+        484,
+        1432,
+        794
+      ],
+      "cavedio": [
+        1433,
+        545,
+        1557,
+        678
+      ]
+    },
+    "exterior_doors": [
+      [
+        [
+          149,
+          331
+        ],
+        [
+          219,
+          331
+        ]
+      ],
+      [
+        [
+          730,
+          328
+        ],
+        [
+          803,
+          328
+        ]
+      ],
+      [
+        [
+          1330,
+          326
+        ],
+        [
+          1403,
+          326
+        ]
+      ]
+    ],
+    "unresolved": [
+      "Trace each WC cubicle and exact core door openings before geometry integration"
+    ],
+    "walls": [
+      {
+        "id": "stair_core",
+        "points": [
+          [
+            1195,
+            417
+          ],
+          [
+            1329,
+            417
+          ],
+          [
+            1329,
+            634
+          ],
+          [
+            1195,
+            634
+          ],
+          [
+            1195,
+            539
+          ],
+          [
+            1067,
+            539
+          ],
+          [
+            1067,
+            635
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1195,
+              417
+            ],
+            [
+              1195,
+              449
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "men_wc_north_west",
+        "points": [
+          [
+            1067,
+            635
+          ],
+          [
+            1228,
+            635
+          ],
+          [
+            1228,
+            733
+          ],
+          [
+            1329,
+            733
+          ],
+          [
+            1329,
+            795
+          ],
+          [
+            1067,
+            795
+          ],
+          [
+            1067,
+            635
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1290,
+              795
+            ],
+            [
+              1329,
+              795
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "accessible_wc",
+        "points": [
+          [
+            1228,
+            635
+          ],
+          [
+            1329,
+            635
+          ],
+          [
+            1329,
+            733
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1329,
+              635
+            ],
+            [
+              1329,
+              674
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "women_wc",
+        "points": [
+          [
+            1436,
+            683
+          ],
+          [
+            1558,
+            683
+          ],
+          [
+            1558,
+            918
+          ],
+          [
+            1436,
+            918
+          ],
+          [
+            1436,
+            768
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1436,
+              726
+            ],
+            [
+              1436,
+              768
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "women_stall_partition_1",
+        "points": [
+          [
+            1436,
+            847
+          ],
+          [
+            1490,
+            847
+          ],
+          [
+            1490,
+            806
+          ]
+        ],
+        "door_gaps": []
+      },
+      {
+        "id": "women_stall_partition_2",
+        "points": [
+          [
+            1436,
+            847
+          ],
+          [
+            1490,
+            847
+          ],
+          [
+            1490,
+            884
+          ]
+        ],
+        "door_gaps": []
+      },
+      {
+        "id": "cavedio",
+        "points": [
+          [
+            1433,
+            545
+          ],
+          [
+            1490,
+            545
+          ],
+          [
+            1490,
+            608
+          ],
+          [
+            1557,
+            608
+          ],
+          [
+            1557,
+            678
+          ],
+          [
+            1433,
+            678
+          ],
+          [
+            1433,
+            578
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1433,
+              545
+            ],
+            [
+              1433,
+              578
+            ]
+          ]
+        ]
+      },
+      {
+        "id": "lift_lobby",
+        "points": [
+          [
+            1431,
+            467
+          ],
+          [
+            1431,
+            483
+          ],
+          [
+            1512,
+            483
+          ]
+        ],
+        "door_gaps": [
+          [
+            [
+              1470,
+              483
+            ],
+            [
+              1512,
+              483
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  "canopy": {
+    "source": "image00014.jpeg",
+    "kind": "open walkable canopy; thin soffit, no enclosing floor",
+    "world_registration": "Thin existing entrance-cover profile, provisional 7.4 to 11.0 m; open underneath; no enclosed bridge-level floor"
+  },
+  "terrace": {
+    "source": "image00011.jpeg",
+    "kind": "open street-level canteen terrace; horizontal rail at outer edge",
+    "world_registration": "Amenities local1 / Povo1 0 at provisional 7.6 m; source topology confirmed, XY bounds remain provisional"
+  },
+  "trace_limit": "Manual ink-centre paths at review resolution. Additional WC cubicles and fine door swings remain readable only partly; paths are not represented as exact survey or complete extraction."
+}

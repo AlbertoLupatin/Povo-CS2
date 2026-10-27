@@ -65,7 +65,13 @@ def extend_campus(boxes, levels, root, wall_height):
     # Former W1 becomes a full-height enclosed switchback stairwell. As in
     # photos 64-66 and 4-8, two 3 m flights side by side fill its width and the
     # mid landing spans it; partitions close the rest of the old enclosure.
-    ground=4.0; mid=(ground+z)/2; rise=(z-ground)/20; tread=.3
+    ground=4.0
+    module_height=spec.get('stair_module_height_metres',3.6)
+    modules=round((z-ground)/module_height)
+    if modules<1 or abs(z-ground-modules*module_height)>.001:
+        raise ValueError('Bridge elevation must use complete Povo2 stair modules')
+    module_bottom=z-module_height
+    mid=(module_bottom+z)/2;rise=module_height/20;tread=.3
     south,north,gap=17.85,24.15,.3;split=(south+north)/2
     shaft=((7.1,south,z-.23),(14.2,north,z+.02))
     cut(shaft,('floor_circulation',))
@@ -89,23 +95,42 @@ def extend_campus(boxes, levels, root, wall_height):
     path=[]
     for i in range(10):
         x0=14.2-(i+1)*tread; h=z-(i+1)*rise
-        add('p2_stair_upper_step_'+str(i),(x0,up0,ground),(x0+tread,up1,h),'floor_p2_tile')
+        add('p2_stair_upper_step_'+str(i),(x0,up0,h-.22),(x0+tread,up1,h),'floor_p2_tile')
         path.append([x0+tread/2,(up0+up1)/2,h])
     path.extend([[9.15,(up0+up1)/2,mid],[9.15,(lo0+lo1)/2,mid]])
     for i in range(10):
         x0=11.2+i*tread; h=mid-(i+1)*rise
-        add('p2_stair_lower_step_'+str(i),(x0,lo0,ground-.02),(x0+tread,lo1,h),'floor_p2_tile')
+        add('p2_stair_lower_step_'+str(i),(x0,lo0,h-.22),(x0+tread,lo1,h),'floor_p2_tile')
         path.append([x0+tread/2,(lo0+lo1)/2,h])
     # Railings line the well, wrap its landing end and guard the upper opening;
     # wall handrails run along the partitions.
     rails=[]
     railing(add,rails,'p2_stair_well_upper',(14.2,up1,z),(11.2,up1,mid))
-    railing(add,rails,'p2_stair_well_lower',(11.2,lo0,mid),(14.2,lo0,ground))
+    railing(add,rails,'p2_stair_well_lower',(11.2,lo0,mid),(14.2,lo0,module_bottom))
     railing(add,rails,'p2_stair_well_end',(11.2,up1,mid),(11.2,lo0,mid),posts=False)
     railing(add,rails,'p2_stair_guard_east',(14.2,up1,z),(14.2,lo1,z))
     wall_handrail(rails,'p2_stair_wall_upper',(14.2,up0+.06,z),(11.2,up0+.06,mid))
-    wall_handrail(rails,'p2_stair_wall_lower',(11.2,lo1-.06,mid),(14.2,lo1-.06,ground))
+    wall_handrail(rails,'p2_stair_wall_lower',(11.2,lo1-.06,mid),(14.2,lo1-.06,module_bottom))
     rails=[dict(r,name='academic_first_link_'+r['name']) for r in rails]
+    prototype_path=copy.deepcopy(path)
+    prototype_rails=copy.deepcopy(rails)
+    primary=[b for b in boxes if b[0].startswith('academic_first_link_p2_stair_')
+             and any(k in b[0] for k in ('_step_','_middle_landing','_well_'))]
+    for module in range(1,modules):
+        dz=-module*module_height
+        for name,lo,hi,mat in primary:
+            boxes.append((name.replace('p2_stair_','p2_stair_intermediate_'+str(module)+'_'),
+                          (lo[0],lo[1],lo[2]+dz),(hi[0],hi[1],hi[2]+dz),mat))
+        # Full end landings link the lower module's arrival to the next descent.
+        landing_z=z-module*module_height
+        add('p2_stair_intermediate_'+str(module)+'_end_landing',
+            (14.2,south,landing_z-.22),(16.4,north,landing_z),'floor_p2_tile')
+        path.extend([[15.2,22,landing_z],[15.2,20,landing_z]])
+        path.extend([[x,y,h+dz] for x,y,h in prototype_path])
+        for rail in prototype_rails:
+            r=copy.deepcopy(rail);r['name']=r['name'].replace('p2_stair_','p2_stair_intermediate_'+str(module)+'_')
+            for key in ('a','b'):r[key][2]+=dz
+            rails.append(r)
     portals=[]
     for name,h,y in [('upper',z,20),('lower',ground,22)]:
         cut(((16.3,y-.825,h-.01),(16.7,y+.825,h+2.2)))
@@ -118,7 +143,8 @@ def extend_campus(boxes, levels, root, wall_height):
         add(f'p2_stair_{name}_finish_sign',(16.605,y-.55,h+2.36),(16.64,y+.55,h+2.66),'sign_blue')
         portals.append(dict(centre=[16.5,y,h],width=1.65,height=2.2))
     spec['stair']=dict(id='p2_compact',bounds=[7,14,16.5,26],shaft=[list(p) for p in shaft],
-        risers=20,rise=rise,tread=tread,width=up1-up0,rails=rails,bottom=[15.2,22,ground],
+        risers=20*modules,rise=rise,tread=tread,width=up1-up0,rails=rails,bottom=[15.2,22,ground],
+        module_height=module_height,modules=modules,prototype_path=prototype_path,
         top=[15.2,20,z],middle=[9.15,split,mid],portals=portals,path=path)
     spec['ground']=dict(id='p2_compact_ground',floor_elevation_local=ground,
         audit_stations=[dict(id='stair_bottom',point=[15.2,22]),
@@ -154,7 +180,10 @@ def extend_campus(boxes, levels, root, wall_height):
                 add(f'{name}_bridge_door_{side}_edge_{edge}',(x-.05,edge,z+.05),(x+.05,edge+.05,z+2.65),'window_frame')
     spec['lights']=[(18.25,y,z+2.9) for y in (-31,-25,-18,-13,-8,-3,2,7,12,17,22,24.5)]
     spec['lights'].extend([(10.5,12,z+2.9),(22.5,12,z+2.9),(11,19,z+2.9),
-                           (11,24,z+2.9),(12,20.6,8.6),(18.25,22,6.85),(15.4,24,6.85)])
+                           (11,24,z+2.9),(12,20.6,mid+1.0),(18.25,22,ground+2.85),(15.4,24,ground+2.85)])
+    for module in range(1,modules):
+        spec['lights'].extend([(12,20.6,mid-module*module_height+1.0),
+                               (15.4,24,z-module*module_height+2.85)])
     # Fixtures follow each route and room light position.
     for i,(x,y,h) in enumerate(spec['lights']):
         add(f'route_finish_fixture_{i}_rim',(x-.3,y-.3,h+.25),(x+.3,y+.3,h+.3),'window_frame')
@@ -166,6 +195,9 @@ def extend_campus(boxes, levels, root, wall_height):
     spec['nav_seeds']=[[18.25,y,z+.15] for y in (-30,-10,9,12,17,23,25)]
     spec['nav_seeds'].extend([[15.2,20,z+.15],[18.25,22,ground+.15],[15.2,22,ground+.15],
                               [10.45,20.61,mid+.15]])
+    for module in range(1,modules):
+        spec['nav_seeds'].extend([[15.2,20,z-module*module_height+.15],
+                                  [10.45,20.61,mid-module*module_height+.15]])
     # 27 October sketch: stair east face aligns with reception at E=20.5.
     dx=spec.get('stair_offset_east',0)
     if dx:
@@ -184,7 +216,7 @@ def extend_campus(boxes, levels, root, wall_height):
         add('p2_west_return',(7,13.9,z),(7+dx,14.1,top))
         stair=spec['stair'];stair['bounds']=rect(stair['bounds'])
         for key in ('top','bottom','middle'):stair[key]=shift(stair[key])
-        for key in ('shaft','path'):stair[key]=[shift(p) for p in stair[key]]
+        for key in ('shaft','path','prototype_path'):stair[key]=[shift(p) for p in stair[key]]
         for rail in stair['rails']:
             for key in ('a','b'):rail[key]=shift(rail[key])
         for portal in stair['portals']:portal['centre']=shift(portal['centre'])

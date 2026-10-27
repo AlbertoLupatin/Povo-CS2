@@ -11,14 +11,14 @@ the `trento_povo` addon, built from open geographic data and original photograph
 `trento_povo_campus` is the full campus map (`trento_povo` is the earlier compact
 outdoor arena, built from the same source).
 
-- **Povo 1:** two floors, ~60 furnished rooms (classrooms, labs, studios), four enclosed red three-flight stairs around a central well, a lift shaft with a ladder beside the reception, courtyard glazing, reception, restrooms.
-- **Bridge** between Povo 2 floor 1 and Povo 1 floor 2, plus the Povo 2 entrance hall, table hall, B110–B114 rooms, stairs and basement parking.
+- **Povo 1:** three floors: -1 entrance/A1xx at provisional 4 m, 0 A2xx at 7.6 m, +1 offices and bridge at 11.2 m. Four red stair cores connect the floors; one Acquario study room replaces four synthetic cells, with reception, courtyard, sanitary spaces and source-plan room labels retained.
+- **Bridge** joins Povo 1 +1 and Povo 2 +1 at 11.2 m. The active compact Povo 2 plan retains entrance/table halls, B110–B114 rooms, two successive upper stair rises and basement parking. Its full photographed floor plans remain a separate survey, not a complete active reconstruction.
 - **Exterior:** roads, surface lot, residential backdrop, straight ramp into the covered garage, terrain from real 0.5 m elevation data.
 - **Gameplay:** team starts, buy zones, bomb target, generated navigation and a radar with separate floors.
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
 - **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.
 
-Windows standard build (27 October 2026): zero compile failures,
+Earlier Windows standard build (27 October 2026, before the photo-survey integration below): zero compile failures,
 61,562,729-byte VPK with 944 entries. All 191 source tests passed before the
 build. Post-build engine checks were skipped at the user's request; the winter
 VPK has not been rebuilt for these 27 October changes. See the
@@ -33,6 +33,19 @@ The 27 October Povo 2 corrections are based on the user's draw.io sketch.
 See [the corrected layout and pavement checks](docs/POVO2_SKETCH_CORRECTIONS.md),
 the [latest plan image](exports/povo_campus/sketch_corrections_20261027.png), or
 the [editable four-page drawing](exports/povo_campus/povo2_layout_editable_20261027.drawio).
+
+The [27 October photo-survey index](docs/POVO_SURVEY_20261027.md) records the
+44 original images, confirmed floor names and remaining ambiguities. Amenities
+local 0/1 align with Povo 1 -1/0; the photographed canopy is a thin walkable cover
+with open air beneath. [Three-floor layout review](exports/povo_campus/adjustments_layout_review.png)
+and [bridge review](exports/povo_campus/povo2_connection_review.png) show the current
+source geometry. Photo 4 is confirmed as A103; its compass placement and exact
+registration remain approximate. This clarification applies to the A103–A106
+family only; see the [A103 cutaway and top view](exports/povo_campus/a103_photo4_review.png).
+The user confirms photo 46's right circled lab has one entrance
+from the corridor and a separate red-star exit to the external courtyard. Its
+blue-obscured north door position remains uncertain; no generic room plan is
+substituted for unobserved details.
 
 ## Build it
 

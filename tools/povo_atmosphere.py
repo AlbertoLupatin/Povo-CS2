@@ -76,9 +76,15 @@ def sound_zones(metadata):
                 add(f'{level["id"]}_{corridor["id"]}_{i}',point,230,'Povo.Hall')
     for core in metadata.get('stair',{}).get('cores',[]):
         a,b,c,d=core['enclosure']['bounds']
-        for floor,z in enumerate((4,7.6)):
+        for floor,level in enumerate(metadata['levels']):
+            z=level['floor_elevation_metres']-370
             add(f'stair_{core["id"]}_{floor}',((a+c)/2,(b+d)/2,z+1.4),300,'Povo.Hall')
-    for n in range(-13,17,7):add('bridge_'+str(n),(18.25,n,9),220,'Povo.Hall')
+    link=next((level['connection'] for level in metadata['levels'] if level.get('connection')),None)
+    if link:
+        a,b,c,d=link['bridge'];z=link['floor_local_metres']
+        count=max(1,math.ceil((d-b)/7))
+        for i in range(count):
+            add('bridge_'+str(i),((a+c)/2,b+(i+.5)*(d-b)/count,z+1.4),220,'Povo.Hall')
     for e,n,z in ((18,29,5.4),(18,42,5.4),(18,56,5.4),(18,68,5.4),(41,31.35,5.4),(41,35.65,5.4),
                   (18,20,1.8),(18,9,1.8),(18,-3,1.8),(9,-5,1.8)):
         add(f'p2_{e}_{n}_{z}',(e,n,z),260,'Povo.Hall')

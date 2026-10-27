@@ -28,6 +28,7 @@
                             { from = "campus_teaching_board" to = "materials/trento/povo/campus/teaching_board.vmat" },
                             { from = "campus_projection_screen" to = "materials/trento/povo/campus/projection_screen.vmat" },
                             { from = "campus_desk_panel" to = "materials/trento/povo/campus/desk_panel.vmat" },
+                            { from = "campus_seat_green" to = "materials/trento/povo/campus/seat_green.vmat" },
                             { from = "campus_stair_red" to = "materials/trento/povo/campus/stair_red.vmat" },
                             { from = "campus_stair_nosing" to = "materials/trento/povo/campus/stair_nosing.vmat" },
                             { from = "campus_sign_blue" to = "materials/trento/povo/campus/sign_blue.vmat" },

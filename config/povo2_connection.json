@@ -1,6 +1,6 @@
 {
   "status": "Compact Povo 2 bridge arrival with enclosed stairs down",
-  "floor_local_metres": 7.6,
+  "floor_local_metres": 11.2,
   "compact_arrival": true,
   "povo1_corridor": [
     16.5,
@@ -75,5 +75,7 @@
   ],
   "rooms": [],
   "assumptions": "User-authorized compact adaptation: retain the two bridge-exit alcoves, replace W1 with gray enclosed stairs down to a small closed lower landing, remove E1 and everything from W2/E2 onward. Bridge connects floor 1 in both buildings. Original survey/photo floor references are preserved separately.",
-  "stair_offset_east": 4
+  "stair_offset_east": 4,
+  "stair_module_height_metres": 3.6,
+  "stair_vertical_status": "Provisional two 3.6 m modules, 40 risers and four flights: upper rise is double the basement storeys, as confirmed by user; metric dimensions remain unmeasured"
 }

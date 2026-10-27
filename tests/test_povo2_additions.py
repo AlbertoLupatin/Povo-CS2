@@ -9,7 +9,7 @@ class Povo2AdditionTests(TestCase):
     @classmethod
     def setUpClass(cls):
         _,_,cls.boxes,levels,_=build_geometry()
-        cls.spec=levels[1]['connection']['povo2']
+        cls.spec=next(l['connection']['povo2'] for l in levels if l.get('connection'))
         cls.physics=collision_boxes(cls.boxes)
 
     def test_computer_room_has_monitors_and_classrooms_have_raked_seats(self):
@@ -66,7 +66,7 @@ class Povo2AdditionTests(TestCase):
         self.assertEqual([l['z'] for l in self.spec['levels']],[-3.2,.4,4])
         self.assertEqual(self.spec['stairs']['portals'][0]['centre'][2],4)
         _,_,_,levels,_=build_geometry()
-        self.assertEqual(levels[1]['connection']['floor_local_metres'],7.6)
+        self.assertEqual(next(l['connection'] for l in levels if l.get('connection'))['floor_local_metres'],11.2)
 
     def test_corrected_reception_corridor_and_right_turns(self):
         cfg=self.spec['additions']['config'];corridor=cfg['ground_corridor']

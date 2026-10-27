@@ -4,6 +4,73 @@ This is the durable record of material project actions. Git history remains the
 authoritative record of file-level changes; this log records decisions, local
 tool results, limitations, and work that affects the installed CS2 addon.
 
+## 27 October 2026 — Photo-survey floor restoration and amenities integration
+
+- Preserved the 44 supplied walk photographs with original filenames, hashes
+  and the complete location guide. Confirmed Povo 1 floors are -1 entrance/A1xx,
+  0 A2xx and +1 offices/bridge, at provisional source elevations 4/7.6/11.2 m.
+  Povo 2 entrance 0 is roughly level with Povo 1 entrance -1; both bridge
+  endpoints use +1. These are gameplay calibration values, not measured heights.
+- Active Povo 1 source now includes the intermediate floor, office-style upper
+  rooms, bridge and connecting red stair segments. Photo 9 and plans 10/17/18
+  replace four synthetic west-inner cells with one Acquario study room and its
+  flanking photocopy spaces: breakable corridor glazing, opaque end partitions,
+  flat wood floor and provisional shared-table furniture with a clear aisle.
+  The shared-partition review checks 85 partitions.
+  The active compact Povo 2 plan retains two successive upper stair rises to the bridge; separately
+  traced full photographed plans are review data, not active geometry or a
+  complete reconstruction. The photo46 registration helper remains dormant;
+  campus assembly does not call it.
+  Povo 2 parking/office/garden route evidence retains the user-confirmed turn
+  from 43 left toward 41/42. Photo 37's printed floor caption remains distinct
+  from the user's assigned -2 route.
+- Library/canteen local 0/1 align with Povo 1 -1/0. Integrated observed wall
+  paths and opening offsets, source-axis end stairs and the narrow central
+  library stair. Furniture leaves observed exits and stair landings clear.
+  Source-fit stair core edges receive explicit local headroom cuts; facade
+  recess apertures extend to the provisional rectangular glazing shell.
+- The photographed canopy remains a thin walkable cover above open air with
+  entrance/stair headroom. Added the street-level terrace and its guards.
+  Upper-library directory colours remain semantic zones; unobserved partitions,
+  faint sanitary details and photo 2 external stair metrics are not invented.
+- Updated exterior/fixture connection lookups for the three-floor source,
+  stair/bridge sound elevations, source preview labels, and both three-floor
+  room/bridge review PNGs. Inspected the generated source images. Updated the
+  README, survey index, TODO and photo references with current conventions and
+  evidence limits. Prior native/package evidence elsewhere remains historical.
+- User clarification resolves photo 46's right circled lab topology: exactly
+  one entrance from the corridor, with the red star representing a separate
+  exit to the external courtyard. The exact blue-obscured north door position
+  remains uncertain; it is not recorded as a second corridor entrance.
+- Final post-A103 source suite: 203 tests run in 62.968 s, 202 passed and one skipped
+  (`build/survey-tests-final.log`). Povo 1 horizontal clearance passed 48
+  academic_ground, 104 academic_first and 78 academic_upper stations; the
+  compact ground plan passed four. Povo 2 parking/basement/ground passed
+  8/18/50 stations plus 233 stair samples with zero failures. Amenities passed
+  19/14/9/4 stations across their four local levels plus 66 stair samples.
+  Yard access passed 22 samples; pavement passed 8,408 samples. These are
+  source geometry checks, not post-build engine traversal claims.
+- All 44 source photographs passed their recorded hashes: 189,544,912 bytes.
+  The durable [photo 46 overlay](../exports/povo2_survey/floor_-1.svg) shows
+  80 room bounds, 79 observed door segments, 14 red-star exits, corridors and
+  cores on the rectified photograph. Other-floor SVGs are explicit candidate
+  diagrams; no synthetic gap is drawn for the obscured right-lab entrance.
+- The user identified photo 4 as A103. Its authorized A103–A106 family now
+  uses green chairs, straight dark shared rows, a freestanding board before
+  the glazed teaching front, a wood-front teacher desk, a low platform and two
+  suspended projectors. A103 alone has the adjacent corner glazed face.
+  Other classroom families retain byte-identical generated furniture geometry;
+  58 targeted A103-related source tests pass. The
+  [A103 cutaway and top view](../exports/povo_campus/a103_photo4_review.png)
+  shows current geometry and labels estimated counts/dimensions. Room identity
+  is confirmed; compass placement and metric registration remain approximate.
+- The first STANDARD native attempt was intentionally stopped before completion
+  to incorporate A103; this is not a compiler failure and produced no completed
+  new package (`build/survey-native-build-pre-A103.log`). The final STANDARD
+  build restarted at 15:11 in `build/survey-native-build.log`; final native and
+  package figures remain pending. Post-build engine tests are omitted at the
+  user's request.
+
 ## 23 October 2026 — Windows resume documentation and approved full-data push
 
 - The reconstruction checkpoint is `34ac930`, with the 66-photo archive,

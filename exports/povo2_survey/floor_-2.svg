@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2376" height="2706" viewBox="-4 -10 108 123">
+<rect x="-4" y="-10" width="108" height="123" fill="white"/>
+<text x="0" y="-7" font-family="Arial,sans-serif" font-size="1.6" fill="#193441" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">Povo 2 floor -2 / source photo 37 / CANDIDATE DIAGRAM / NOT AN OBSERVED COMPLETE PLAN</text>
+<text x="0" y="-4.5" font-family="Arial,sans-serif" font-size="1.05" fill="#8a5900" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">Dashed outlines are candidate extents. Door sides and room subdivisions need source verification.</text>
+<text x="0" y="-2.5" font-family="Arial,sans-serif" font-size="0.95" fill="#193441" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">No centred door marks are generated. This diagram does not replace the active model or prove dimensions.</text>
+<rect x="0" y="49" width="98" height="5" fill="#ffe34b" fill-opacity="0.26" stroke="#b59500" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>C1: circulation bound; candidate</title>
+</rect>
+<text x="49.0" y="51.5" font-family="Arial,sans-serif" font-size="0.8" fill="#775e00" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">C1</text>
+<rect x="28" y="8" width="5" height="41" fill="#ffe34b" fill-opacity="0.26" stroke="#b59500" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>C2: circulation bound; candidate</title>
+</rect>
+<text x="30.5" y="28.5" font-family="Arial,sans-serif" font-size="0.8" fill="#775e00" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">C2</text>
+<rect x="24" y="54" width="5" height="45" fill="#ffe34b" fill-opacity="0.26" stroke="#b59500" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>C3: circulation bound; candidate</title>
+</rect>
+<text x="26.5" y="76.5" font-family="Arial,sans-serif" font-size="0.8" fill="#775e00" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">C3</text>
+<rect x="40" y="54" width="4" height="45" fill="#ffe34b" fill-opacity="0.26" stroke="#b59500" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>C4: circulation bound; candidate</title>
+</rect>
+<text x="42.0" y="76.5" font-family="Arial,sans-serif" font-size="0.8" fill="#775e00" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">C4</text>
+<rect x="86" y="54" width="5" height="45" fill="#ffe34b" fill-opacity="0.26" stroke="#b59500" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>C5: circulation bound; candidate</title>
+</rect>
+<text x="88.5" y="76.5" font-family="Arial,sans-serif" font-size="0.8" fill="#775e00" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">C5</text>
+<rect x="15" y="96" width="76" height="4" fill="#ffe34b" fill-opacity="0.26" stroke="#b59500" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>C6: circulation bound; candidate</title>
+</rect>
+<text x="53.0" y="98.0" font-family="Arial,sans-serif" font-size="0.8" fill="#775e00" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">C6</text>
+<rect x="0" y="8" width="23" height="31" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>parking / partition visible; opening position estimated</title>
+</rect>
+<text x="11.5" y="23.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">parking</text>
+<rect x="23" y="8" width="5" height="10" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_w_service01 / partition visible; opening position estimated</title>
+</rect>
+<text x="25.5" y="13.2" font-family="Arial,sans-serif" font-size="0.5769230769230769" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_w_service01</text>
+<rect x="23" y="18" width="5" height="10" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_w_service02 / partition visible; opening position estimated</title>
+</rect>
+<text x="25.5" y="23.2" font-family="Arial,sans-serif" font-size="0.5769230769230769" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_w_service02</text>
+<rect x="23" y="28" width="5" height="11" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_w_service03 / partition visible; opening position estimated</title>
+</rect>
+<text x="25.5" y="33.7" font-family="Arial,sans-serif" font-size="0.5769230769230769" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_w_service03</text>
+<rect x="0" y="39" width="14" height="10" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_0 / partition visible; opening position estimated</title>
+</rect>
+<text x="7.0" y="44.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_0</text>
+<rect x="14" y="39" width="5" height="10" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_1 / partition visible; opening position estimated</title>
+</rect>
+<text x="16.5" y="44.2" font-family="Arial,sans-serif" font-size="0.8333333333333334" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_1</text>
+<rect x="33" y="8" width="9" height="12" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_2 / partition visible; opening position estimated</title>
+</rect>
+<text x="37.5" y="14.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_2</text>
+<rect x="42" y="8" width="17" height="12" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_3 / partition visible; opening position estimated</title>
+</rect>
+<text x="50.5" y="14.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_3</text>
+<rect x="59" y="8" width="17" height="12" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_4 / partition visible; opening position estimated</title>
+</rect>
+<text x="67.5" y="14.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_4</text>
+<rect x="76" y="8" width="9" height="12" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_5 / partition visible; opening position estimated</title>
+</rect>
+<text x="80.5" y="14.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_5</text>
+<rect x="85" y="20" width="11" height="10" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_6 / partition visible; opening position estimated</title>
+</rect>
+<text x="90.5" y="25.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_6</text>
+<rect x="33" y="21" width="9" height="14" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_7 / partition visible; opening position estimated</title>
+</rect>
+<text x="37.5" y="28.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_7</text>
+<rect x="42" y="21" width="17" height="18" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_8 / partition visible; opening position estimated</title>
+</rect>
+<text x="50.5" y="30.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_8</text>
+<rect x="59" y="21" width="11" height="18" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_9 / partition visible; opening position estimated</title>
+</rect>
+<text x="64.5" y="30.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_9</text>
+<rect x="70" y="21" width="11" height="18" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_10 / partition visible; opening position estimated</title>
+</rect>
+<text x="75.5" y="30.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_10</text>
+<rect x="33" y="39" width="9" height="10" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_11 / partition visible; opening position estimated</title>
+</rect>
+<text x="37.5" y="44.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_11</text>
+<rect x="42" y="39" width="17" height="10" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_12 / partition visible; opening position estimated</title>
+</rect>
+<text x="50.5" y="44.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_12</text>
+<rect x="59" y="39" width="11" height="10" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_13 / partition visible; opening position estimated</title>
+</rect>
+<text x="64.5" y="44.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_13</text>
+<rect x="70" y="39" width="16" height="10" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_upper_14 / partition visible; opening position estimated</title>
+</rect>
+<text x="78.0" y="44.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_upper_14</text>
+<rect x="15" y="60" width="9" height="8" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_left_office01 / partition visible; opening position estimated</title>
+</rect>
+<text x="19.5" y="64.2" font-family="Arial,sans-serif" font-size="0.9" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_left_office01</text>
+<rect x="15" y="68" width="9" height="8" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_left_office02 / partition visible; opening position estimated</title>
+</rect>
+<text x="19.5" y="72.2" font-family="Arial,sans-serif" font-size="0.9" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_left_office02</text>
+<rect x="15" y="76" width="9" height="8" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_left_office03 / partition visible; opening position estimated</title>
+</rect>
+<text x="19.5" y="80.2" font-family="Arial,sans-serif" font-size="0.9" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_left_office03</text>
+<rect x="15" y="84" width="9" height="12" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_left_office04 / partition visible; opening position estimated</title>
+</rect>
+<text x="19.5" y="90.2" font-family="Arial,sans-serif" font-size="0.9" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_left_office04</text>
+<rect x="29" y="60" width="11" height="7" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_mid_office01 / partition visible; opening position estimated</title>
+</rect>
+<text x="34.5" y="63.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_mid_office01</text>
+<rect x="29" y="67" width="11" height="7" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_mid_office02 / partition visible; opening position estimated</title>
+</rect>
+<text x="34.5" y="70.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_mid_office02</text>
+<rect x="29" y="74" width="11" height="7" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_mid_office03 / partition visible; opening position estimated</title>
+</rect>
+<text x="34.5" y="77.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_mid_office03</text>
+<rect x="29" y="81" width="11" height="7" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_mid_office04 / partition visible; opening position estimated</title>
+</rect>
+<text x="34.5" y="84.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_mid_office04</text>
+<rect x="29" y="88" width="11" height="8" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_mid_office05 / partition visible; opening position estimated</title>
+</rect>
+<text x="34.5" y="92.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_mid_office05</text>
+<rect x="44" y="55" width="13" height="8" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_mid_lab01 / partition visible; opening position estimated</title>
+</rect>
+<text x="50.5" y="59.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_mid_lab01</text>
+<rect x="44" y="63" width="13" height="9" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_mid_lab02 / partition visible; opening position estimated</title>
+</rect>
+<text x="50.5" y="67.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_mid_lab02</text>
+<rect x="44" y="72" width="13" height="9" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_mid_lab03 / partition visible; opening position estimated</title>
+</rect>
+<text x="50.5" y="76.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_mid_lab03</text>
+<rect x="44" y="81" width="13" height="15" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_mid_lab04 / partition visible; opening position estimated</title>
+</rect>
+<text x="50.5" y="88.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_mid_lab04</text>
+<rect x="67" y="55" width="14" height="8" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_lab01 / partition visible; opening position estimated</title>
+</rect>
+<text x="74.0" y="59.2" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_lab01</text>
+<rect x="67" y="63" width="14" height="9" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_lab02 / partition visible; opening position estimated</title>
+</rect>
+<text x="74.0" y="67.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_lab02</text>
+<rect x="67" y="72" width="14" height="9" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_lab03 / partition visible; opening position estimated</title>
+</rect>
+<text x="74.0" y="76.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_lab03</text>
+<rect x="67" y="81" width="14" height="15" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_lab04 / partition visible; opening position estimated</title>
+</rect>
+<text x="74.0" y="88.7" font-family="Arial,sans-serif" font-size="0.95" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_lab04</text>
+<rect x="81" y="60" width="5" height="6" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_service01 / partition visible; opening position estimated</title>
+</rect>
+<text x="83.5" y="63.2" font-family="Arial,sans-serif" font-size="0.4411764705882353" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_service01</text>
+<rect x="81" y="66" width="5" height="6" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_service02 / partition visible; opening position estimated</title>
+</rect>
+<text x="83.5" y="69.2" font-family="Arial,sans-serif" font-size="0.4411764705882353" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_service02</text>
+<rect x="81" y="72" width="5" height="6" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_service03 / partition visible; opening position estimated</title>
+</rect>
+<text x="83.5" y="75.2" font-family="Arial,sans-serif" font-size="0.4411764705882353" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_service03</text>
+<rect x="81" y="78" width="5" height="6" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_service04 / partition visible; opening position estimated</title>
+</rect>
+<text x="83.5" y="81.2" font-family="Arial,sans-serif" font-size="0.4411764705882353" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_service04</text>
+<rect x="81" y="84" width="5" height="6" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_service05 / partition visible; opening position estimated</title>
+</rect>
+<text x="83.5" y="87.2" font-family="Arial,sans-serif" font-size="0.4411764705882353" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_service05</text>
+<rect x="81" y="90" width="5" height="6" fill="#61a9e5" fill-opacity="0.1" stroke="#22699a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>p_right_service06 / partition visible; opening position estimated</title>
+</rect>
+<text x="83.5" y="93.2" font-family="Arial,sans-serif" font-size="0.4411764705882353" fill="#124c7a" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">p_right_service06</text>
+<rect x="23" y="0" width="6" height="8" fill="#49bc77" fill-opacity="0.24" stroke="#176b3a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>S1: stair/core candidate</title>
+</rect>
+<text x="26.0" y="4.0" font-family="Arial,sans-serif" font-size="0.9" fill="#12572b" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">S1</text>
+<rect x="23" y="39" width="6" height="10" fill="#49bc77" fill-opacity="0.24" stroke="#176b3a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>S2: stair/core candidate</title>
+</rect>
+<text x="26.0" y="44.0" font-family="Arial,sans-serif" font-size="0.9" fill="#12572b" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">S2</text>
+<rect x="91" y="39" width="7" height="10" fill="#49bc77" fill-opacity="0.24" stroke="#176b3a" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>S3: stair/core candidate</title>
+</rect>
+<text x="94.5" y="44.0" font-family="Arial,sans-serif" font-size="0.9" fill="#12572b" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">S3</text>
+<rect x="0" y="59" width="15" height="39" fill="#c3c7cc" fill-opacity="0.17" stroke="#656c72" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>V1: void/courtyard candidate</title>
+</rect>
+<text x="7.5" y="78.5" font-family="Arial,sans-serif" font-size="0.85" fill="#555c62" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">V1 / VOID</text>
+<rect x="57" y="60" width="10" height="37" fill="#c3c7cc" fill-opacity="0.17" stroke="#656c72" stroke-width=".12" stroke-dasharray=".55 .4">
+<title>V2: void/courtyard candidate</title>
+</rect>
+<text x="62.0" y="78.5" font-family="Arial,sans-serif" font-size="0.85" fill="#555c62" text-anchor="middle" paint-order="stroke" stroke="white" stroke-width=".11">V2 / VOID</text>
+<circle data-kind="exit" cx="0" cy="58" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_0: candidate exit position</title></circle>
+<text x="0.7" y="57.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X01</text>
+<circle data-kind="exit" cx="15" cy="64" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_1: candidate exit position</title></circle>
+<text x="15.7" y="63.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X02</text>
+<circle data-kind="exit" cx="15" cy="80" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_2: candidate exit position</title></circle>
+<text x="15.7" y="79.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X03</text>
+<circle data-kind="exit" cx="15" cy="96" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_3: candidate exit position</title></circle>
+<text x="15.7" y="95.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X04</text>
+<circle data-kind="exit" cx="57" cy="64" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_4: candidate exit position</title></circle>
+<text x="57.7" y="63.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X05</text>
+<circle data-kind="exit" cx="67" cy="64" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_5: candidate exit position</title></circle>
+<text x="67.7" y="63.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X06</text>
+<circle data-kind="exit" cx="57" cy="80" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_6: candidate exit position</title></circle>
+<text x="57.7" y="79.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X07</text>
+<circle data-kind="exit" cx="67" cy="80" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_7: candidate exit position</title></circle>
+<text x="67.7" y="79.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X08</text>
+<circle data-kind="exit" cx="57" cy="98" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_8: candidate exit position</title></circle>
+<text x="57.7" y="97.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X09</text>
+<circle data-kind="exit" cx="67" cy="98" r=".52" fill="#d92b32" fill-opacity=".88" stroke="white" stroke-width=".16"><title>p_exit_9: candidate exit position</title></circle>
+<text x="67.7" y="97.85" font-family="Arial,sans-serif" font-size="0.7" fill="#ac1325" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">X10</text>
+<text x="0" y="103" font-family="Arial,sans-serif" font-size="0.98" fill="#193441" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">BLUE room extents + IDs | GREEN door segments | YELLOW C circulation | GREEN S stair/core | GREY V void | RED X exits</text>
+<text x="0" y="105.5" font-family="Arial,sans-serif" font-size="1.05" fill="#8a5900" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">Candidate rooms/corridors/cores/exits only. Solid source ink has not been fully traced for this floor.</text>
+<text x="0" y="107.5" font-family="Arial,sans-serif" font-size="1.02" fill="#193441" text-anchor="start" paint-order="stroke" stroke="white" stroke-width=".11">Review hypotheses remain separate from the active compact Povo 2 geometry; no complete reconstruction is asserted.</text>
+</svg>

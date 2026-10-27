@@ -22,8 +22,10 @@ def audit():
     for level in levels:
         z=level['floor_elevation_metres']-370
         stations=[dict(id='entry',point=[22,-73.73] if level['id']=='academic_ground' else [13.95,-83.8])]
-        end='bottom' if level['id']=='academic_ground' else 'top'
-        for core in stair['cores']:
+        floor_index=level.get('user_floor',-1)+1
+        segment=stair.get('segments',[stair])[0 if floor_index<2 else 1]
+        end='bottom' if floor_index==0 else 'top'
+        for core in segment['cores']:
             stations.append(dict(id='stair_'+core['id']+'_'+end,point=core[end][:2]))
             portal=core['enclosure']['portals'][0 if end=='bottom' else 1]
             x,y,_=portal['centre']
@@ -41,14 +43,18 @@ def audit():
         stations.extend(level.get('connection',{}).get('audit_stations',[]))
         elevator=levels[0].get('elevator')
         if elevator:
-            floor='ground' if level['id']=='academic_ground' else 'first'
+            floor='ground' if floor_index==0 else 'first'
             stations.append(dict(id='elevator_'+floor,point=elevator['stations'][floor]))
-        report,free,visited=audit_level(boxes,dict(id=level['id'],floor_elevation_local=z),
+        # Connection generator retains its legacy object prefix. Alias support
+        # for this audit to the floor that now owns the bridge.
+        level_boxes=[((level['id']+'_'+n if level.get('connection') and n.startswith('academic_first_link_') else n),lo,hi,m)
+                     for n,lo,hi,m in boxes]
+        report,free,visited=audit_level(level_boxes,dict(id=level['id'],floor_elevation_local=z),
                                       stations,width=.82,height=1.85)
         report['vertical_traversal']='Separate CS2 stair traversal test required'
         reports.append(report)
         (output/(level['id']+'_clearance.png')).write_bytes(map_png(report,free,visited))
-    ground=levels[1].get('connection',{}).get('ground')
+    ground=next((l['connection'] for l in levels if 'connection' in l),{}).get('ground')
     if ground:
         report,free,visited=audit_level(boxes,ground,ground['audit_stations'],width=.82,height=1.85)
         report['vertical_traversal']='Separate CS2 stair traversal test required'

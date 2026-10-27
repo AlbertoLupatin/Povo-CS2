@@ -135,14 +135,14 @@ class LadderTests(unittest.TestCase):
         _, _, boxes, levels, _ = build_geometry(ROOT)
         physics = collision_boxes(boxes)
         ladders = (levels[0]['elevator']['ladder'],
-                   levels[1]['connection']['povo2']['lift']['ladder'])
+                   next(l['connection'] for l in levels if 'connection' in l)['povo2']['lift']['ladder'])
         for lo, hi in ladders:
             axis = min(range(2), key=lambda i: hi[i] - lo[i])
             centre = [(a + b) / 2 for a, b in zip(lo, hi)]
             # The engine holds the standing hull just outside the climb face.
             # The native Povo 1 check measured a 0.4072 m centre offset.
             centre[axis] = hi[axis] + .4072
-            for step in range(round((7.6 - lo[2]) / .1) + 1):
+            for step in range(round((hi[2]-1.65 - lo[2]) / .1) + 1):
                 z = lo[2] + step * .1
                 hits = [name for name, a, b, _ in physics
                         if all(a[i] < centre[i] + .41 and b[i] > centre[i] - .41

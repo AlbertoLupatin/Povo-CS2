@@ -11,7 +11,7 @@ COLORS = {
     'window_frame': (154, 162, 161), 'window_glass': (151, 196, 210),
     'ceiling_panel': (217, 217, 204), 'light_diffuser': (245, 243, 216),
     'teaching_board': (74, 83, 79), 'projection_screen': (234, 234, 224),
-    'desk_panel': (45, 49, 47),
+    'desk_panel': (45, 49, 47), 'seat_green': (35, 104, 79),
 }
 
 
@@ -48,8 +48,10 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
     if side not in frames:raise ValueError('Unknown teaching side')
     base,cross,back,width,depth=frames[side]
     opposite={'south':'north','north':'south','east':'west','west':'east'}
-    if settings.get('window_side') is not None and settings['window_side']!=opposite[side]:
-        raise ValueError('Windows must be behind the seats, opposite the teaching wall')
+    glazed_front=settings.get('glazing_position')=='teaching_front'
+    expected_window=side if glazed_front else opposite[side]
+    if settings.get('window_side') is not None and settings['window_side']!=expected_window:
+        raise ValueError('Window side must match the selected front/rear glazing position')
     for key in ('side_aisle_metres','row_pitch_metres'):
         value=settings.get(key)
         if type(value) not in (int,float) or not math.isfinite(value) or value<=0:
@@ -67,6 +69,9 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
         return ((min(p[0] for p in corners),min(p[1] for p in corners),z+lo[2]),
                 (max(p[0] for p in corners),max(p[1] for p in corners),z+hi[2]))
     def box(label,lo,hi,material):
+        if label.startswith(('board','teaching_desk')) and settings.get('front_platform_metres'):
+            lift=settings['front_platform_metres']
+            lo=(*lo[:2],lo[2]+lift);hi=(*hi[:2],hi[2]+lift)
         minimum,maximum=bounds(lo,hi)
         if any(not math.isfinite(v) for v in (*minimum,*maximum)) or any(a>=b for a,b in zip(minimum,maximum)):
             raise ValueError('Invalid fit-out box')
@@ -93,11 +98,20 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
             box(f'ceiling_vent_{index}_slat{line}',(cx+t-.014,cy-.22,wall_height-.118),(cx+t+.014,cy+.22,wall_height-.11),'metal_dark')
     box('ceiling_projector', (width/2-.16,1.25,wall_height-.38), (width/2+.16,1.49,wall_height-.22), 'projection_screen')
     box('ceiling_projector_mount', (width/2-.025,1.34,wall_height-.22), (width/2+.025,1.39,wall_height-.065), 'metal_dark')
+    if glazed_front:
+        box('front_platform',(.35,.05,.014),(width-.35,1.35,settings.get('front_platform_metres',.14)),'floor_wood')
+        box('front_platform_step',(.35,1.35,.014),(width-.35,1.65,.07),'floor_wood')
+        box('ceiling_projector_second',(width*.25-.16,1.25,wall_height-.38),(width*.25+.16,1.49,wall_height-.22),'projection_screen')
     box('board',(width/2-2,.10,.95),(width/2+2,.15,2.35),'teaching_board')
-    box('screen',(width/2-1,.16,1.25),(width/2+1,.19,2.55),'projection_screen')
-    box('screen_case',(width/2-1.08,.13,2.55),(width/2+1.08,.23,2.63),'window_frame')
-    box('teaching_desk_top',(width/2-.7,.45,.74),(width/2+.7,1.0,.79),'desk_dark')
-    box('teaching_desk_front',(width/2-.65,.45,.014),(width/2+.65,.50,.74),'desk_dark')
+    if settings.get('projection_screen',True):
+        box('screen',(width/2-1,.16,1.25),(width/2+1,.19,2.55),'projection_screen')
+        box('screen_case',(width/2-1.08,.13,2.55),(width/2+1.08,.23,2.63),'window_frame')
+    desk_half=settings.get('teacher_desk_width_metres',1.4)/2
+    box('teaching_desk_top',(width/2-desk_half,.45,.74),(width/2+desk_half,1.0,.79),'desk_dark')
+    box('teaching_desk_front',(width/2-desk_half+.05,.45,.014),(width/2+desk_half-.05,.50,.74),'seat_wood' if glazed_front else 'desk_dark')
+    if glazed_front:
+        for offset in (-1.7,1.7):
+            box('board_support_'+str(offset),(width/2+offset-.025,.10,.014),(width/2+offset+.025,.15,.95),'metal_dark')
     for index,dx in enumerate((-.61,.61)):
         box(f'teaching_desk_leg{index}',(width/2+dx-.025,.5,.014),(width/2+dx+.025,.95,.74),'metal_dark')
 
@@ -138,8 +152,8 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
             for seat in range(seat_count):
                 cx=start+(seat+.5)*seat_pitch
                 chair=f'chair_{row}_{seat}'
-                box(chair+'_seat',(cx-.215,cy+chair_back-.39,.44),(cx+.215,cy+chair_back-.02,.475),'seat_wood')
-                box(chair+'_back',(cx-.215,cy+chair_back-.04,.475),(cx+.215,cy+chair_back,.89),'seat_wood')
+                box(chair+'_seat',(cx-.215,cy+chair_back-.39,.44),(cx+.215,cy+chair_back-.02,.475),settings.get('chair_material','seat_wood'))
+                box(chair+'_back',(cx-.215,cy+chair_back-.04,.475),(cx+.215,cy+chair_back,.89),settings.get('chair_material','seat_wood'))
                 box(chair+'_stem',(cx-.025,cy+chair_back-.21,.20),(cx+.025,cy+chair_back-.16,.44),'metal_dark')
                 seats+=1
         row+=1;cy+=pitch
@@ -153,16 +167,20 @@ def classroom_kit(level, room, z, wall_height, wall_thickness, settings):
     if settings.get('window_side') is None:
         return boxes, None, record
     sill,head=.12,wall_height-.16
-    opening=bounds((.45,depth-.20,sill),(width-.45,depth+.20,head))
+    glazing_depth=0 if glazed_front else depth
+    opening=bounds((.45,glazing_depth-.20,sill),(width-.45,glazing_depth+.20,head))
     window_width=width-.9;bays=max(1,round(window_width/.95))
-    box('window_glass',(.45,depth-.012,sill),(width-.45,depth+.012,head),'window_glass')
+    box('window_glass',(.45,glazing_depth-.012,sill),(width-.45,glazing_depth+.012,head),'window_glass')
     for i in range(bays+1):
         cx=.45+i*window_width/bays
-        box(f'window_mullion_{i}',(cx-.025,depth-.045,sill),(cx+.025,depth+.045,head),'window_frame')
+        box(f'window_mullion_{i}',(cx-.025,glazing_depth-.045,sill),(cx+.025,glazing_depth+.045,head),'window_frame')
     for i,cz in enumerate((sill,1.9,head)):
-        box(f'window_transom_{i}',(.425,depth-.045,cz-.025),(width-.425,depth+.045,cz+.025),'window_frame')
+        box(f'window_transom_{i}',(.425,glazing_depth-.045,cz-.025),(width-.425,glazing_depth+.045,cz+.025),'window_frame')
     return boxes,opening,dict(seats=seats,window_bays=bays,rows=rows,
-        status='Continuous rows, 1 m side clearances and rear windows confirmed by user; other dimensions and seat count estimated',
+        status=('Photo4=A103: straight dark shared rows, green chairs and glazed teaching front; family repetition authorized, dimensions/count estimated' if glazed_front else 'Continuous rows, 1 m side clearances and rear windows confirmed by user; other dimensions and seat count estimated'),
+        front_platform_metres=settings.get('front_platform_metres',0),
+        chair_material=settings.get('chair_material','seat_wood'),glazing_position=settings.get('glazing_position','rear'),
+        source_walk_20261027=settings.get('source_walk_20261027',[]),
         teaching_side=side,window_side=settings['window_side'],side_aisle_metres=aisle,
         reference_ids=settings['reference_ids'],location_status=settings['location_status'],
         window_context=settings.get('window_context','Not yet reconstructed'),

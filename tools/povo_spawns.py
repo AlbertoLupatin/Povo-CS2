@@ -35,10 +35,13 @@ def _aliased(physics,prefix,z,match):
 def storeys(physics,levels):
     """(id, floor z, seed station) for every walkable storey of the campus."""
     result=[]
+    link=next((l['connection'] for l in levels if 'connection' in l),{})
     for level in levels:
         seed=[22,-73.73] if level['id']=='academic_ground' else [13.95,-83.8]
-        result.append((level['id'],level['floor_elevation_metres']-370,seed,[]))
-    link=levels[1].get('connection',{})
+        z=level['floor_elevation_metres']-370
+        support=_aliased(physics,level['id'],z,lambda n,m:n.startswith('academic_first_link_')
+                         and m.startswith('floor_')) if abs(z-link.get('floor_local_metres',-999))<.02 else []
+        result.append((level['id'],z,seed,support))
     ground=link.get('ground')
     if ground:result.append((ground['id'],ground['floor_elevation_local'],ground['audit_stations'][0]['point'],[]))
     spec=link.get('povo2')
@@ -66,10 +69,15 @@ def interior_candidates(physics,levels,stride=1.0):
                                         [dict(id='seed',point=seed)],width=WIDTH,height=HEIGHT)
         nx,ny=report['grid_dimensions'];x0,y0=report['grid_bounds_local'][:2];cell=report['cell_metres']
         step=max(1,round(stride/cell));pad=math.ceil(MARGIN/cell)
+        # The flood grid can include an opening with a floor on another storey.
+        # Spawn feet must be supported at this storey's exact elevation.
+        surfaces=[(lo,hi) for _,lo,hi,m in physics if m.startswith('floor_') and abs(hi[2]-z)<.02]
         for iy in range(pad,ny-pad,step):
             for ix in range(pad,nx-pad,step):
                 if all(visited[(iy+dy)*nx+ix+dx] for dx in (-pad,0,pad) for dy in (-pad,0,pad)):
-                    points.append((storey,(x0+(ix+.5)*cell,y0+(iy+.5)*cell,z)))
+                    x,y=x0+(ix+.5)*cell,y0+(iy+.5)*cell
+                    if any(lo[0]<=x<=hi[0] and lo[1]<=y<=hi[1] for lo,hi in surfaces):
+                        points.append((storey,(x,y,z)))
     return points
 
 
@@ -139,7 +147,7 @@ def facing(point,physics,reach=25.0,directions=16,centre=CENTRE):
 
 def deathmatch_spawns(physics,levels):
     ladders=[l for l in (levels[0].get('elevator',{}).get('ladder'),
-                         levels[1].get('connection',{}).get('povo2',{}).get('lift',{}).get('ladder')) if l]
+                         next((q['connection'] for q in levels if 'connection' in q),{}).get('povo2',{}).get('lift',{}).get('ladder')) if l]
     meshes=levels[0].get('exterior',{}).get('collision_meshes',[])
     candidates=[(area,p) for area,p in interior_candidates(physics,levels)+exterior_candidates(physics,meshes)
                 if not any(lo[0]-1.5<=p[0]<=hi[0]+1.5 and lo[1]-1.5<=p[1]<=hi[1]+1.5

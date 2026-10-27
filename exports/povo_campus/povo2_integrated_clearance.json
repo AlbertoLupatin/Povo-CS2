@@ -755,7 +755,7 @@
       "vertical_traversal": "not checked; stair flights are absent"
     }
   ],
-  "stair_samples": 72,
+  "stair_samples": 233,
   "stair_failures": [],
   "limitations": "Source geometry only; engine walking is checked separately."
 }

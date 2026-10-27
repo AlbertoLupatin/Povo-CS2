@@ -9,7 +9,7 @@ from tools.audit_povo_exterior_integrated import height_at
 class PlaytestCorrectionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        _,_,cls.boxes,cls.levels,_=build_geometry()
+        _,_,cls.boxes,cls.levels,cls.stair=build_geometry()
         cls.physics=collision_boxes(cls.boxes)
 
     def test_street_gap_has_full_width_support_and_connector_matches_road(self):
@@ -26,7 +26,7 @@ class PlaytestCorrectionTests(unittest.TestCase):
         self.assertAlmostEqual(max(v[2] for v in connector['vertices']),7.6)
 
     def test_stair_runs_are_supported_between_waypoints_with_standing_headroom(self):
-        link=self.levels[1]['connection']
+        link=next(l['connection'] for l in self.levels if 'connection' in l)
         routes=[[link['stair']['top'],*link['stair']['path'],link['stair']['bottom']],
                 *[r['points'] for r in link['povo2']['stairs']['path']]]
         core=[b for b in self.physics if b[1][0]<21 and b[2][0]>10
@@ -45,15 +45,36 @@ class PlaytestCorrectionTests(unittest.TestCase):
                               and lo[1]<y+.40 and hi[1]>y-.40 and lo[2]<foot+1.85 and hi[2]>foot+.37]
                     self.assertFalse(blockers,((x,y,z),blockers))
 
+    def test_povo1_all_three_floors_have_supported_corner_and_courtyard_stair_routes(self):
+        self.assertEqual([l['user_floor'] for l in self.levels],[-1,0,1])
+        routes=[core['path'] for segment in self.stair['segments'] for core in segment['cores']]
+        routes += [segment['path'] for segment in self.stair['courtyard']['segments']]
+        self.assertEqual(len(routes),10)
+        for route in routes:
+            for start,end in zip(route,route[1:]):
+                n=max(1,math.ceil(math.dist(start,end)/.08))
+                for i in range(n+1):
+                    x,y,z=[a+(b-a)*i/n for a,b in zip(start,end)]
+                    support=[hi[2] for _,lo,hi,m in self.physics
+                             if (m.startswith('floor_') or m in ('stair_red','metal_dark'))
+                             and lo[0]-.001<=x<=hi[0]+.001 and lo[1]-.001<=y<=hi[1]+.001
+                             and abs(hi[2]-z)<.23]
+                    self.assertTrue(support,(x,y,z))
+                    foot=max(support)
+                    blockers=[name for name,lo,hi,_ in self.physics
+                              if lo[0]<x+.4 and hi[0]>x-.4 and lo[1]<y+.4 and hi[1]>y-.4
+                              and lo[2]<foot+1.85 and hi[2]>foot+.37]
+                    self.assertFalse(blockers,((x,y,z),blockers))
+
     def test_both_ladders_extend_far_enough_above_the_upper_dismount(self):
         ladders=[self.levels[0]['elevator']['ladder'],
-                 self.levels[1]['connection']['povo2']['lift']['ladder']]
+                 next(l['connection'] for l in self.levels if 'connection' in l)['povo2']['lift']['ladder']]
         for lo,hi in ladders:
-            self.assertGreaterEqual(hi[2],7.6+1.6)
+            self.assertGreaterEqual(hi[2],11.2+1.6)
             axis=min(range(2),key=lambda j:hi[j]-lo[j])
             centre=[(a+b)/2 for a,b in zip(lo,hi)]
             centre[axis]=hi[axis]+.4072
-            foot=7.6+.25
+            foot=11.2+.25
             blockers=[name for name,a,b,_ in self.physics
                       if all(a[j]<centre[j]+.41 and b[j]>centre[j]-.41 for j in range(2))
                       and a[2]<foot+1.85 and b[2]>foot+.02]

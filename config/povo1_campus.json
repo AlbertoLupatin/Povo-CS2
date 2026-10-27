@@ -77,58 +77,6 @@
         "door_fraction": 0.12998510897522686
       },
       {
-        "id": "g_west1",
-        "label": "Studio W1",
-        "pixel_bounds": [
-          958,
-          470,
-          1116,
-          580
-        ],
-        "door_side": "v_min",
-        "teaching_side": "west",
-        "window_side": "east"
-      },
-      {
-        "id": "g_west2",
-        "label": "Studio W2",
-        "pixel_bounds": [
-          1116,
-          470,
-          1274,
-          580
-        ],
-        "door_side": "v_min",
-        "teaching_side": "west",
-        "window_side": "east"
-      },
-      {
-        "id": "g_west3",
-        "label": "Studio W3",
-        "pixel_bounds": [
-          1274,
-          470,
-          1432,
-          580
-        ],
-        "door_side": "v_min",
-        "teaching_side": "west",
-        "window_side": "east"
-      },
-      {
-        "id": "g_west4",
-        "label": "Studio W4",
-        "pixel_bounds": [
-          1432,
-          470,
-          1590,
-          580
-        ],
-        "door_side": "v_min",
-        "teaching_side": "west",
-        "window_side": "east"
-      },
-      {
         "id": "g_east1",
         "label": "RECEPTION",
         "pixel_bounds": [
@@ -248,6 +196,62 @@
         "door_side": "u_min",
         "window_side": "north",
         "teaching_side": "south"
+      },
+      {
+        "id": "g_copy_south",
+        "label": "Fotocopiatrici",
+        "pixel_bounds": [
+          958,
+          470,
+          1040,
+          580
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.5,
+        "kind": "service",
+        "source_photos": [
+          17,
+          18
+        ],
+        "identity_status": "Flanking photocopy space visible in entrance plan17; metric registration provisional"
+      },
+      {
+        "id": "acquario",
+        "label": "Acquario - SALA STUDIO",
+        "pixel_bounds": [
+          1040,
+          470,
+          1510,
+          580
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.1,
+        "kind": "study",
+        "source_photos": [
+          9,
+          10,
+          17,
+          18
+        ],
+        "identity_status": "Single SALA STUDIO west of courtyard in plan17; photo9 open tables and glazed corridor"
+      },
+      {
+        "id": "g_copy_north",
+        "label": "Fotocopiatrici",
+        "pixel_bounds": [
+          1510,
+          470,
+          1590,
+          580
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.5,
+        "kind": "service",
+        "source_photos": [
+          17,
+          18
+        ],
+        "identity_status": "Flanking photocopy space visible in entrance plan17; metric registration provisional"
       }
     ],
     "academic_first": [
@@ -387,10 +391,10 @@
       }
     ]
   },
-  "upper_playable_rooms": "all rooms, furnished with the repeated classroom kit",
+  "upper_playable_rooms": "A2xx classrooms keep established photo kits on floor0; upper floor1 offices and laboratories are unfurnished source traces.",
   "stairs": {
     "core": "stair_southeast",
-    "from_floor": 0,
+    "from_floor": -1,
     "to_floor": 1,
     "risers": 20,
     "flight_width_metres": 1.5,
@@ -404,26 +408,32 @@
     ],
     "door_centre_north_metres": -85.1,
     "door_width_metres": 1.65,
-    "note": "User-authorized identical mirrored ground-to-first red stairs opposite Studio N1/N2/S1/S2, each enclosed with open black doors. Not the central Aula studio rooms. Dimensions remain gameplay estimates.",
+    "note": "Four mirrored three-flight cores connect confirmed floors -1/0/1 in two storey segments. Each has black doors and glazing; metric fit remains provisional.",
     "cores": [
       "southeast",
       "southwest",
       "northeast",
       "northwest"
+    ],
+    "segments": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
     ]
   },
   "wall_height_metres": 3.35,
-  "assumptions": "Povo 1 has two floors, an enclosed reception replacing ground Studio E1, and separate male/female restrooms in each former upper north/south study room. Other room furniture and all dimensions remain approximate. Povo 2 ground, basement and parking connect to the compact bridge stair.",
+  "assumptions": "Povo1 has three confirmed floors: entrance -1/A1xx, intermediate0/A2xx and upper1/offices/labs/bridge. A202/A203 remain on their source intermediate floor. Reception and lower restroom details retain prior adaptations; unresolved lower locales and upper offices are unfurnished. Dimensions, door widths and photo registration remain approximate.",
   "future_povo2_connection": {
-    "status": "implemented first bridge and floor-1 arrival corridor",
-    "povo1_storeys": 2,
-    "bridge_corridor_origin": "current first-floor A202/A203 area",
-    "relocate_rooms": [
-      "A202",
-      "A203"
-    ],
-    "relocate_to": "empty ground-floor corner of the corresponding size",
-    "note": "A202/A203 relocated to the empty ground corner. User-authorized two-floor game adaptation; remaining Povo 2 interiors follow later."
+    "status": "Implemented bridge on confirmed Povo1 floor1",
+    "povo1_storeys": 3,
+    "bridge_corridor_origin": "Upper office/bridge floor1; source-backed layout",
+    "relocate_rooms": [],
+    "note": "Previous two-floor A202/A203 relocation superseded by confirmed three-floor survey."
   },
   "povo2_connection": "config/povo2_connection.json",
   "elevator": {

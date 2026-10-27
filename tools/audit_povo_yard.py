@@ -11,7 +11,7 @@ except ImportError:
 
 def audit():
     _,_,boxes,levels,_=build_geometry();physics=collision_boxes(boxes)
-    yard=levels[1]['connection']['povo2']['additions']['yard']
+    yard=next(l['connection'] for l in levels if l.get('connection'))['povo2']['additions']['yard']
     report,_,_=audit_level(physics,dict(id='p2_yard',floor_elevation_local=yard['z']),
                           yard['audit_stations'],width=.82,height=1.85)
     failures=[];samples=0

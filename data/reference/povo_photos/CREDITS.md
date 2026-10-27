@@ -315,3 +315,9 @@ Povo 1 outdoor area facing south, winter, as named by user. Supplied by the user
 | P115 | 26 | [image00026.jpeg](walk_2026-10-26/originals/image00026.jpeg) |
 | P116 | 27 | [image00027.jpeg](walk_2026-10-26/originals/image00027.jpeg) |
 | P117 | 28 | [image00028.jpeg](walk_2026-10-26/originals/image00028.jpeg) |
+
+## Walk of 27 October 2026
+
+44 original user-supplied photographs are retained unchanged in [walk_2026-10-27](walk_2026-10-27/README.md), with original filenames and SHA-256 hashes in its [manifest](walk_2026-10-27/manifest.json). Photos 03 and 29 were not supplied. The full user location guide and the confirmed 43-left-to41/42 garden route are preserved there. No additional redistribution licence is assumed.
+
+Canonical floor names: Povo 1 -1 entrance/A1xx, 0 A2xx, +1 offices/bridge; Povo 2 0 entrance and +1 bridge; amenities local 0/1 align with Povo 1 -1/0. Photo 4 is user-confirmed A103; the A103–A106 family correction retains approximate compass/metric registration. Photo 37's printed caption remains unresolved. Photo 46's right circled lab has one corridor entrance and a separate red-star courtyard exit, as confirmed by the user; the blue-obscured north door position remains uncertain. The [survey index](../../../docs/POVO_SURVEY_20261027.md) distinguishes active source geometry from separately traced full Povo 2 plans and records evidence limits.

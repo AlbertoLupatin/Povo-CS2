@@ -9,13 +9,16 @@ except ImportError:
     from audit_povo_interior import audit_level
 
 
-def audit():
-    _,_,boxes,levels,_=build_geometry();physics=collision_boxes(boxes)
-    spec=levels[0]['wings'];reports=[];failures=[];samples=0
+def audit(boxes=None,spec=None):
+    if boxes is None:
+        _,_,boxes,levels,_=build_geometry()
+        spec=levels[0]['wings']
+    physics=collision_boxes(boxes)
+    reports=[];failures=[];samples=0
     for level in spec['levels']:
         z=level['z'];prefix=level['id']
         support=[(prefix+'_alias_'+n,lo,hi,'floor_route') for n,lo,hi,m in physics
-                 if ((n.startswith(level['building']+'_') and m.startswith('floor_'))
+                 if ((n.startswith(level['building']+'_') and (m.startswith('floor_') or n=='canteen_1_street_terrace'))
                      or n=='exterior_povo1_front_walk') and abs(hi[2]-z)<.02]
         report,_,_=audit_level(physics+support,dict(id=prefix,floor_elevation_local=z),
                                level['audit_stations'],width=.82,height=1.85)
@@ -25,8 +28,11 @@ def audit():
             samples+=1
             supported=any(m.startswith('floor_') and lo[0]<=x<=hi[0] and lo[1]<=y<=hi[1]
                           and abs(hi[2]-z)<.02 for _,lo,hi,m in physics)
-            blockers=[n for n,lo,hi,m in physics if lo[0]<x+.41 and hi[0]>x-.41
-                      and lo[1]<y+.12 and hi[1]>y-.12 and lo[2]<z+1.85 and hi[2]>z+.19]
+            # The short longitudinal probe permits a single riser ahead; the
+            # transverse probe keeps the full standing-width envelope.
+            rx,ry=(.12,.41) if stair.get('axis')=='x' else (.41,.12)
+            blockers=[n for n,lo,hi,m in physics if lo[0]<x+rx and hi[0]>x-rx
+                      and lo[1]<y+ry and hi[1]>y-ry and lo[2]<z+1.85 and hi[2]>z+.19]
             if not supported or blockers:failures.append(dict(point=[x,y,z],supported=supported,obstacles=blockers))
     return dict(status='passed' if not failures and all(r['status']=='passed' for r in reports) else 'failed',
                 levels=reports,stair_samples=samples,stair_failures=failures,

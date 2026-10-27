@@ -3,6 +3,18 @@
 Open actions, most urgent first. Tick them off here and record evidence in
 [WORKLOG.md](WORKLOG.md).
 
+## 27 October photo-survey source revision
+
+- [x] Restore Povo 1 -1 A1xx / 0 A2xx / +1 offices-and-bridge convention at provisional 4/7.6/11.2 m, with connecting stair segments.
+- [x] Retain the active compact Povo 2 plan and two upper stair rises to the bridge; keep the full photographed plans separately reviewable.
+- [x] Integrate observed amenities partitions/openings, source-axis stairs, open terrace and thin walkable canopy with standing clearance.
+- [x] Update three-floor source previews and derive stair/bridge sound zones from current elevations.
+- [x] Record photo 46 right lab: one corridor entrance, plus the red-star exit to the external courtyard.
+- [x] Identify photo 4 as A103 from user clarification; scope the correction to the A103–A106 family.
+- [ ] Refine photo 4 compass/metric registration, photo 46's blue-obscured north door position, and photo 37 floor-caption mismatch against user evidence.
+- [ ] Improve metric/perspective registration and faint sanitary-core tracing; upper-library directory colours remain semantic zones.
+- [ ] Record the survey revision's native build/package result in the worklog. Earlier evidence below describes earlier geometry; no post-build engine testing is requested.
+
 ## Windows: verify the breakable glass, automatic doors and stairs
 
 Both initial Windows variants compile with zero failures and pass full CRC

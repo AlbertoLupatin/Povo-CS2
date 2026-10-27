@@ -1,5 +1,5 @@
 {
-  "status": "User-confirmed wing identity, entrance side and relative floors; interior dimensions estimated from photos",
+  "status": "Photo-traced observed partitions/openings; XY dimensions remain provisional; no claim of complete floor plan",
   "ground_z": 4.0,
   "first_z": 7.6,
   "wall_height": 3.35,
@@ -19,10 +19,10 @@
     ],
     "outer_y": -97,
     "stair": [
-      44,
-      -100.2,
-      49,
-      -94.2
+      41.5,
+      -99.65,
+      47.3,
+      -97.45
     ],
     "exit_y": -99.5,
     "serving_counter": [
@@ -80,6 +80,12 @@
         48.5,
         -100.5
       ]
+    ],
+    "terrace": [
+      52,
+      -104,
+      57,
+      -93
     ]
   },
   "library": {
@@ -91,30 +97,10 @@
     ],
     "entrance_y": -61,
     "stair": [
-      36.5,
-      -21,
-      41.5,
-      -15
-    ],
-    "rooms": [
-      [
-        39,
-        -68,
-        51.8,
-        -51
-      ],
-      [
-        39,
-        -51,
-        51.8,
-        -34
-      ],
-      [
-        39,
-        -34,
-        51.8,
-        -22
-      ]
+      36.8,
+      -18.5,
+      42.6,
+      -14.4
     ]
   },
   "assumptions": [
@@ -122,9 +108,15 @@
     "The short south wing is the canteen; the long north wing is the library. Both enter from the Povo 1 side.",
     "Canteen porch uses an L-shaped route with sliding banks at both ends, guided by photos 21-23.",
     "Canteen bar, orange counters, blue/orange dining furniture and stair fire doors are guided by photos 24-28; exact positions and capacities are estimates.",
-    "Library room count and partitions are an estimated playable subdivision; no detailed interior survey is available.",
     "Canteen upstairs exit uses an automatic bank to match the entrance family.",
     "User correction: entrance is farther south near the previous white counter. Enter facing east: bar on right/south, small ground dining area on left/north, stair directly ahead/east.",
-    "27 October draw.io: extend bar counter east; replace bar tables with six drawn orange tables around a white partition; move ground serving counter east and dining tables to its right; retain glazed entrance porch."
-  ]
+    "27 October draw.io: extend bar counter east; replace bar tables with six drawn orange tables around a white partition; move ground serving counter east and dining tables to its right; retain glazed entrance porch.",
+    "27 October plans12,13,15 visible wall paths and actual opening offsets integrated using provisional affine fit into existing wing bounds. Partial fine service tracing remains explicit.",
+    "Amenity0=P1-1 at4; amenity1=P1 0 at7.6. 3.6 spacing is provisional, not a survey. Upper library directory zones do not justify invented repeated ground-floor rooms."
+  ],
+  "canopy": {
+    "source": "image00014.jpeg",
+    "profile_source": "config/povo_exterior.json east_approach existing overhead roof",
+    "registration": "Provisional existing roof profile; thin walkable top retains canopy_clearance above lower landing/rise/upper street. Not a floor at local1."
+  }
 }

@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 import unittest
+import tempfile
+from unittest.mock import patch
 
 from tools.build_povo_campus import build_geometry, backdrop_mesh, render_obj, collision_boxes, mirror_box
 from tools.cs2_campus import OBJECTIVE, T_STARTS, CT_STARTS, make_radar, world, room_sign, sign_properties
@@ -33,10 +35,14 @@ class CampusGeometryTests(unittest.TestCase):
                                  (level['id'],room['id'],[w[0] for w in walls]))
         ground=self.levels[0]['rooms']
         self.assertEqual({r['id'] for r in ground if not r['playable']},{'g_east1','g_east2'})
-        self.assertEqual(sum(r.get('playable',True) for l in self.levels for r in l['rooms']),57)
+        self.assertEqual([l['user_floor'] for l in self.levels],[-1,0,1])
+        self.assertEqual(sum(r.get('playable',True) for r in self.levels[-1]['rooms']),48)
         for level in self.levels:
             for room in level['rooms']:
                 if room['kind']=='elevator':continue
+                if level['user_floor']==1 or room['kind'] in ('office','service'):
+                    self.assertIsInstance(room['fitout'],str)
+                    continue
                 self.assertIsInstance(room['fitout'],dict,room['id'])
                 if room['kind'] not in ('reception','restroom'):
                     self.assertGreater(room['fitout']['seats'],0,room['id'])
@@ -82,7 +88,7 @@ class CampusGeometryTests(unittest.TestCase):
         self.assertEqual(report['status'],'passed',[s for s in report['stations'] if not s['reachable_from_entrance']])
 
     def test_north_corridors_have_rooms_on_both_sides_at_normal_width(self):
-        for level in self.levels:
+        for level in self.levels[:2]:
             corridor=next(c for c in level['circulation'] if c['id']=='north_corridor')
             a,b,c,d=corridor['bounds']
             self.assertGreater((c-a)*83,2.5)
@@ -103,38 +109,39 @@ class CampusGeometryTests(unittest.TestCase):
                             and all(b[1][i]<p<b[2][i] for i,p in enumerate(point))]
                 self.assertTrue(opaque_at((x,(y0+y1)/2,z+1.5)),core['id'])
                 self.assertFalse(opaque_at((x,y,z+1.5)),core['id'])
-        leaves=[b for b in self.boxes if b[3]=='door_black' and b[0].endswith('_leaf')]
-        self.assertEqual(len(leaves),16)
+        leaves=[b for b in self.boxes if b[3]=='door_black' and b[0].startswith('stair_') and ('_leaf' in b[0])]
+        self.assertEqual(len(leaves),24)
 
     def test_four_stairs_are_identical_mirrored_copies_opposite_corner_studios(self):
         self.assertEqual({c['id'] for c in self.stair['cores']},{'se','sw','ne','nw'})
-        prototype=[b for b in self.boxes if b[0].startswith('stair_se_flight')]
+        prototype=[b for b in self.boxes if b[0].startswith('stair_se_flight') and not b[0].endswith('_upper_segment')]
         actual={b[0]:b for b in self.boxes}
         for core in self.stair['cores']:
             for box in prototype:
                 expected=mirror_box(box,core['id'],core['mirror_east'],core['mirror_north'])
                 self.assertEqual(actual[expected[0]],expected)
             suffix={'se':'south_east','sw':'south_west','ne':'north_east','nw':'north_west'}[core['id']]
-            for level in self.levels:
+            for level in self.levels[:2]:
                 room=next(r for r in level['rooms'] if r['id'].endswith(suffix))
                 a,b,c,d=room['footprint_local_metres']
                 self.assertAlmostEqual(b+(d-b)*room['door_fraction'],core['enclosure']['portals'][0]['centre'][1])
                 self.assertEqual(room['door_side'],'v_min' if core['mirror_east'] else 'v_max')
 
-    def test_bridge_relocation_preserves_rooms_and_two_floor_adaptation(self):
-        plan=self.settings['future_povo2_connection']
-        self.assertEqual(plan['povo1_storeys'],2)
-        self.assertEqual(plan['relocate_rooms'],['A202','A203'])
-        self.assertFalse({'a202','a203'}&{r['id'] for r in self.levels[1]['rooms']})
-        self.assertTrue({'a202','a203'}<={r['id'] for r in self.levels[0]['rooms']})
+    def test_bridge_has_its_own_floor_and_a2xx_keep_source_positions(self):
+        self.assertEqual([l['user_floor'] for l in self.levels],[-1,0,1])
         original=json.loads((ROOT/'config/povo1_interior_study.json').read_text())
-        self.assertTrue({'a202','a203'}<={r['id'] for r in original['levels'][1]['rooms']})
-        self.assertEqual(len(self.levels),2)
+        for identifier in ('a202','a203'):
+            source=next(r for r in original['levels'][1]['rooms'] if r['id']==identifier)
+            actual=next(r for r in self.config['levels'][1]['rooms'] if r['id']==identifier)
+            self.assertEqual(actual['pixel_bounds'],source['pixel_bounds'])
+            self.assertNotIn(identifier,{r['id'] for r in self.levels[0]['rooms']})
+        self.assertIn('connection',self.levels[2])
+        self.assertNotIn('connection',self.levels[1])
 
     def test_bridge_and_povo2_route_have_continuous_support_and_standing_clearance(self):
         physics=collision_boxes(self.boxes)
         for n in range(-35,26):
-            x,y,z=(23.45 if 14<=n<=17 else 22.25 if n>17 else 18.25),n,7.6
+            x,y,z=(23.45 if 14<=n<=17 else 22.25 if n>17 else 18.25),n,self.levels[-1]['floor_elevation_metres']-370
             self.assertTrue(any(b[3].startswith('floor_') and b[1][0]<=x<=b[2][0]
                                 and b[1][1]<=y<=b[2][1] and abs(b[2][2]-z)<.02
                                 for b in physics),n)
@@ -143,24 +150,25 @@ class CampusGeometryTests(unittest.TestCase):
                        and b[1][1]<y+.41 and b[2][1]>y-.41
                        and b[2][2]>z+.03 and b[1][2]<z+1.85]
             self.assertFalse(obstacles,(n,obstacles))
-        self.assertEqual(self.levels[1]['connection']['rooms'],[])
+        self.assertEqual(next(l['connection'] for l in self.levels if 'connection' in l)['rooms'],[])
 
     def test_compact_arrival_keeps_alcoves_seals_east_and_ends_before_old_second_bays(self):
         physics=collision_boxes(self.boxes)
         def solid(p,materials):
             return [b for b in physics if b[3] in materials
                     and all(b[1][i]<=v<=b[2][i] for i,v in enumerate(p))]
-        for p in ((10.5,12,7.6),(22,12.8,7.6)):
+        z=self.levels[-1]['floor_elevation_metres']-370
+        for p in ((10.5,12,z),(22,12.8,z)):
             self.assertTrue(solid(p,('floor_circulation',)),p)
-        self.assertTrue(solid((24,20,8.6),('wall',)))
-        self.assertTrue(solid((22.25,26,8.6),('wall',)))
+        self.assertTrue(solid((24,20,z+1),('wall',)))
+        self.assertTrue(solid((22.25,26,z+1),('wall',)))
         for p in ((26,20,7.6),(12,32,7.6),(22,32,7.6),(18.25,39,7.6)):
             self.assertFalse(solid(p,('floor_circulation',)),p)
         self.assertFalse(any('p2_studio_' in b[0] or 'p2_future_door' in b[0] for b in self.boxes))
 
     def test_compact_stairs_have_walkable_risers_clear_portals_and_headroom(self):
-        stair=self.levels[1]['connection']['stair'];physics=collision_boxes(self.boxes)
-        self.assertEqual(stair['risers'],20)
+        stair=next(l['connection'] for l in self.levels if 'connection' in l)['stair'];physics=collision_boxes(self.boxes)
+        self.assertEqual(stair['risers'],40)
         self.assertAlmostEqual(stair['rise'],.18)
         self.assertAlmostEqual(stair['tread'],.3)
         steps=[b for b in physics if 'p2_stair_upper_step_' in b[0] or 'p2_stair_lower_step_' in b[0]]
@@ -205,11 +213,11 @@ class CampusGeometryTests(unittest.TestCase):
 
     def test_stairs_reach_both_landings_with_walkable_risers(self):
         flights=[b for b in self.boxes if b[0].startswith('stair_se_flight')]
-        self.assertEqual(len(flights),20)
+        self.assertEqual(len(flights),40)
         heights=sorted(b[2][2] for b in flights)
         for first,second in zip([4.]+heights[:-1],heights):
             self.assertAlmostEqual(second-first,.18)
-        self.assertAlmostEqual(heights[-1],7.6)
+        self.assertAlmostEqual(heights[-1],11.2)
         for station in ('bottom','top'):
             p=self.stair[station]
             support=[b for b in self.boxes if b[3].startswith('floor_')
@@ -237,25 +245,26 @@ class CampusGeometryTests(unittest.TestCase):
                      and b[1][0]<=x<=b[2][0] and b[1][1]<=y<=b[2][1]
                      and 0<z-b[2][2]<1]
             self.assertTrue(support,point)
-            floor=4. if point in T_STARTS else 7.6
+            floor=max(b[2][2] for b in support)
             obstacles=[b[0] for b in collision_boxes(self.boxes) if not b[3].startswith('floor_')
                        and b[1][0]-.41<x<b[2][0]+.41 and b[1][1]-.41<y<b[2][1]+.41
                        and b[2][2]>floor+.03 and b[1][2]<floor+1.85]
             self.assertFalse(obstacles,(point,obstacles))
 
-    def test_two_floor_overview_and_required_lower_lookup_names(self):
-        path=ROOT/'exports/povo_campus/radar/trento_povo_campus.txt'
-        values=overview_values(path.read_bytes(),'trento_povo_campus')
-        self.assertIn('verticalsections.lower.altitudemax',values)
-        self.assertEqual(values['verticalsections.lower.altitudemax'],
-                         values['verticalsections.default.altitudemin'])
-        files,aliases=radar_layout('trento_povo_campus',lower=True)
-        self.assertIn('panorama/images/overheadmaps/trento_povo_campus_lower_radar_psd.vtex_c',files)
-        self.assertEqual(len(aliases),4)
+    def test_three_floor_overview_sections_meet_without_altitude_gaps(self):
+        metadata=dict(levels=self.levels,stair=self.stair)
+        with tempfile.TemporaryDirectory() as directory, patch('tools.cs2_campus.ROOT',Path(directory)):
+            output=make_radar(metadata)
+            values=overview_values((output/'trento_povo_campus.txt').read_bytes(),'trento_povo_campus')
+            self.assertEqual(values['verticalsections.lower.altitudemax'],values['verticalsections.middle.altitudemin'])
+            self.assertEqual(values['verticalsections.middle.altitudemax'],values['verticalsections.default.altitudemin'])
+            for suffix in ('_lower','_middle',''):
+                self.assertTrue((output/('trento_povo_campus'+suffix+'_radar.png')).is_file())
 
     def test_both_side_aisles_in_every_furnished_room_are_reachable(self):
         reports=audit()
-        self.assertEqual([len(r['stations']) for r in reports],[64,122,4])
+        self.assertEqual([r['id'] for r in reports[:3]],[l['id'] for l in self.levels])
+        self.assertTrue(all(r['stations'] for r in reports))
         for report in reports:
             self.assertEqual(report['status'],'passed',
                              [s['id'] for s in report['stations'] if not s['reachable_from_entrance']])

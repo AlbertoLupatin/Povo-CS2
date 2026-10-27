@@ -8,7 +8,7 @@ import unittest
 from tools.audit_povo_exterior_integrated import standing
 from tools.build_povo_campus import build_geometry, collision_boxes
 from tools.cs2_campus import DM_SPAWN_NAME, FFA_SCRIPT, UNITS, add_free_for_all
-from tools.povo_spawns import SPACING, VERTICAL_WEIGHT
+from tools.povo_spawns import SPACING, VERTICAL_WEIGHT, deathmatch_spawns
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -16,15 +16,15 @@ ROOT=Path(__file__).resolve().parents[1]
 class DeathmatchSpawnTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.spawns=json.loads((ROOT/'exports/povo_campus/provenance.json').read_text())['deathmatch_spawns']
         _,_,boxes,cls.levels,_=build_geometry()
         cls.physics=collision_boxes(boxes)
+        cls.spawns=deathmatch_spawns(cls.physics,cls.levels)
 
     def test_spawns_cover_the_whole_campus(self):
         self.assertGreaterEqual(len(self.spawns),48)
         areas={s['area'] for s in self.spawns}
         self.assertTrue(any(a.startswith('exterior_') for a in areas))
-        for area in ('academic_ground','academic_first','p2_ground','p2_basement','p2_parking'):
+        for area in ('academic_ground','academic_first','academic_upper','p2_ground','p2_basement','p2_parking'):
             self.assertIn(area,areas)
         self.assertTrue(any(a.startswith('library_') for a in areas))
         self.assertTrue(any(a.startswith('canteen_') for a in areas))
@@ -45,7 +45,7 @@ class DeathmatchSpawnTests(unittest.TestCase):
             self.assertFalse(obstacles,spawn)
 
     def test_no_spawn_inside_a_ladder_shaft(self):
-        ladders=[self.levels[0]['elevator']['ladder'],self.levels[1]['connection']['povo2']['lift']['ladder']]
+        ladders=[self.levels[0]['elevator']['ladder'],next(l['connection'] for l in self.levels if l.get('connection'))['povo2']['lift']['ladder']]
         for spawn in self.spawns:
             x,y,z=spawn['point']
             for lo,hi in ladders:

@@ -11,7 +11,7 @@ class SketchPavementTests(TestCase):
     @classmethod
     def setUpClass(cls):
         _,_,cls.boxes,cls.levels,_=build_geometry()
-        cls.spec=cls.levels[1]['connection']['povo2']
+        cls.spec=next(l['connection'] for l in cls.levels if l.get('connection'))['povo2']
 
     def test_basement_is_one_rigid_clockwise_rotation(self):
         p=self.spec['basement_placement'];cfg=self.spec['additions']['config']

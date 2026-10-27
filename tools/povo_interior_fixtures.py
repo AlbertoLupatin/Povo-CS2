@@ -259,7 +259,7 @@ def campus_staff_meshes(levels):
         for room in level['rooms']:
             if room['kind']=='reception':
                 faces.extend(reception_staff_mesh(level['id']+'_'+room['id'],room['footprint_local_metres'],z,'east'))
-    p2=levels[1].get('connection',{}).get('povo2')
+    p2=next((level['connection'].get('povo2') for level in levels if level.get('connection')),None)
     if p2:
         faces.extend(reception_staff_mesh('p2_ground_reception',p2['ground']['reception'],4,'east'))
     return faces

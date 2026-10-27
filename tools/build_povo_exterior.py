@@ -166,7 +166,7 @@ def build(root=ROOT, campus_geometry=None):
                 slab(f'residential_balcony_{i}_{floor}',(c,y,c+1.2,y+4.8),zz+.3,'concrete',.15)
                 fence(f'residential_guard_{i}_{floor}',(c+1.1,y),(c+1.1,y+4.8),zz+.3,.95)
     # Use the accepted bridge location/height; core masses are context only.
-    link=levels[1]['connection'];a,b,c,d=link['bridge'];z=link['floor_local_metres']
+    link=next(level['connection'] for level in levels if level.get('connection'));a,b,c,d=link['bridge'];z=link['floor_local_metres']
     slab('bridge_deck',(a,b,c,d),z,'concrete',.25)
     slab('bridge_roof',(a-.15,b,c+.15,d),z+3.1,'dark')
     for y in range(math.ceil(b),math.floor(d)+1,3):
@@ -301,11 +301,12 @@ def build(root=ROOT, campus_geometry=None):
     for i in range(len(ridge)-1):k=i*2;rf.extend([(k,k+2,k+3),(k,k+3,k+1)])
     meshes.append(dict(name='distant_ridge_proxy',vertices=rv,faces=rf,material='ridge'))
     cameras=[]
-    for room in levels[1]['rooms']:
-        if room['id'] not in cfg['review_rooms']:continue
-        a,b,c,d=room['footprint_local_metres'];floor=levels[1]['floor_elevation_metres']-cfg['origin'][2]
-        cameras.append(dict(room=room['label'],position=[a+1.8,(b+d)/2,floor+1.6],target=[-73,(b+d)/2,5.9],fov=70,
-                            source_room_bounds=room['footprint_local_metres']))
+    for level in levels:
+        for room in level['rooms']:
+            if room['id'] not in cfg['review_rooms']:continue
+            a,b,c,d=room['footprint_local_metres'];floor=level['floor_elevation_metres']-cfg['origin'][2]
+            cameras.append(dict(room=room['label'],position=[a+1.8,(b+d)/2,floor+1.6],target=[-73,(b+d)/2,5.9],fov=70,
+                                source_room_bounds=room['footprint_local_metres']))
     refs=[]
     for entry in cfg['new_photos']:
         path=root/cfg['photo_directory']/entry['file']

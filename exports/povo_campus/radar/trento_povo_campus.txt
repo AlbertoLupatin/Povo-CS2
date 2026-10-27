@@ -9,8 +9,9 @@
  "zoom" "1.000000000"
  "verticalsections"
  {
-  "default" { "AltitudeMin" "228.34645669199998" "AltitudeMax" "10000" }
-  "lower" { "AltitudeMin" "86.614173228" "AltitudeMax" "228.34645669199998" }
+  "default" { "AltitudeMin" "370.0787401560002" "AltitudeMax" "10000" }
+  "middle" { "AltitudeMin" "228.34645669200043" "AltitudeMax" "370.0787401560002" }
+  "lower" { "AltitudeMin" "86.614173228" "AltitudeMax" "228.34645669200043" }
   "basement1" { "AltitudeMin" "-55.11811023599999" "AltitudeMax" "86.614173228" }
   "basement2" { "AltitudeMin" "-10000" "AltitudeMax" "-55.11811023599999" }
  }

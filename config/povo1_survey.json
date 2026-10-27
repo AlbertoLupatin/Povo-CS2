@@ -1,0 +1,1133 @@
+{
+  "format_version": 1,
+  "status": "Three-level source-backed survey; physical floor correspondence confirmed, dimensions provisional",
+  "source_photo": "image00022.jpeg",
+  "crosscheck_photo": "image00032.jpeg",
+  "room_identity_photo": "image00031.jpeg",
+  "preview": {
+    "width": 1824,
+    "height": 1368,
+    "rotation_clockwise_degrees": 90,
+    "outer": [
+      136,
+      244,
+      1610,
+      1110
+    ]
+  },
+  "canonical_floors": [
+    {
+      "user_floor": -1,
+      "id": "academic_ground",
+      "source_photos": [
+        10,
+        17,
+        18
+      ],
+      "room_group": "A101-A110"
+    },
+    {
+      "user_floor": 0,
+      "id": "academic_first",
+      "source_photos": [
+        19,
+        20
+      ],
+      "room_group": "A201-A224; laboratory"
+    },
+    {
+      "user_floor": 1,
+      "id": "academic_upper",
+      "source_photos": [
+        22,
+        31,
+        32
+      ],
+      "room_group": "206-259 offices/labs; Garda241"
+    }
+  ],
+  "upper_level": {
+    "id": "academic_upper",
+    "user_floor": 1,
+    "height_offset_metres": 7.2,
+    "stair_openings": false,
+    "external_entrance": false,
+    "courtyard_pixels": [
+      620,
+      550,
+      1165,
+      815
+    ],
+    "circulation": [
+      {
+        "id": "west_corridor",
+        "pixel_bounds": [
+          403,
+          420,
+          1390,
+          470
+        ]
+      },
+      {
+        "id": "east_corridor",
+        "pixel_bounds": [
+          403,
+          900,
+          1390,
+          953
+        ]
+      },
+      {
+        "id": "south_corridor",
+        "pixel_bounds": [
+          403,
+          345,
+          450,
+          1015
+        ]
+      },
+      {
+        "id": "north_corridor",
+        "pixel_bounds": [
+          1320,
+          334,
+          1390,
+          1020
+        ]
+      },
+      {
+        "id": "south_cross",
+        "pixel_bounds": [
+          275,
+          345,
+          450,
+          400
+        ]
+      },
+      {
+        "id": "south_cross_east",
+        "pixel_bounds": [
+          275,
+          965,
+          450,
+          1015
+        ]
+      },
+      {
+        "id": "west_terrace",
+        "pixel_bounds": [
+          620,
+          465,
+          1165,
+          550
+        ]
+      },
+      {
+        "id": "east_terrace",
+        "pixel_bounds": [
+          620,
+          815,
+          1165,
+          905
+        ]
+      },
+      {
+        "id": "south_west_corner_return",
+        "pixel_bounds": [
+          275,
+          254,
+          309,
+          400
+        ]
+      },
+      {
+        "id": "south_east_corner_return",
+        "pixel_bounds": [
+          275,
+          965,
+          309,
+          1100
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "id": "p1_243",
+        "label": "243",
+        "pixel_bounds": [
+          610,
+          260,
+          681,
+          420
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.25,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_244",
+        "label": "244",
+        "pixel_bounds": [
+          681,
+          260,
+          752,
+          420
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.24,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_245",
+        "label": "245",
+        "pixel_bounds": [
+          752,
+          260,
+          823,
+          420
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.23,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_246",
+        "label": "246",
+        "pixel_bounds": [
+          823,
+          260,
+          895,
+          420
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.23,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_247",
+        "label": "247",
+        "pixel_bounds": [
+          895,
+          260,
+          967,
+          420
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.24,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_248",
+        "label": "248",
+        "pixel_bounds": [
+          967,
+          260,
+          1038,
+          420
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.21,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_249",
+        "label": "249",
+        "pixel_bounds": [
+          1038,
+          260,
+          1108,
+          420
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.25,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_250",
+        "label": "250",
+        "pixel_bounds": [
+          1108,
+          260,
+          1175,
+          420
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.24,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_217",
+        "label": "217",
+        "pixel_bounds": [
+          610,
+          953,
+          681,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.25,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_216",
+        "label": "216",
+        "pixel_bounds": [
+          681,
+          953,
+          751,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.26,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_215",
+        "label": "215",
+        "pixel_bounds": [
+          751,
+          953,
+          822,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.24,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_214",
+        "label": "214",
+        "pixel_bounds": [
+          822,
+          953,
+          893,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.24,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_213",
+        "label": "213",
+        "pixel_bounds": [
+          893,
+          953,
+          965,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.23,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_212",
+        "label": "212",
+        "pixel_bounds": [
+          965,
+          953,
+          1037,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.24,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_211",
+        "label": "211",
+        "pixel_bounds": [
+          1037,
+          953,
+          1107,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.22,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_210",
+        "label": "210",
+        "pixel_bounds": [
+          1107,
+          953,
+          1175,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.23,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_259",
+        "label": "259",
+        "pixel_bounds": [
+          1390,
+          282,
+          1596,
+          421
+        ],
+        "door_side": "u_min",
+        "door_fraction": 0.51,
+        "door_width_metres": 1.0,
+        "kind": "laboratory",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_258",
+        "label": "258",
+        "pixel_bounds": [
+          1390,
+          421,
+          1596,
+          558
+        ],
+        "door_side": "u_min",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "laboratory",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_257",
+        "label": "257",
+        "pixel_bounds": [
+          1390,
+          558,
+          1596,
+          690
+        ],
+        "door_side": "u_min",
+        "door_fraction": 0.47,
+        "door_width_metres": 1.0,
+        "kind": "laboratory",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_256",
+        "label": "256",
+        "pixel_bounds": [
+          1390,
+          690,
+          1596,
+          824
+        ],
+        "door_side": "u_min",
+        "door_fraction": 0.51,
+        "door_width_metres": 1.0,
+        "kind": "laboratory",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_255",
+        "label": "255",
+        "pixel_bounds": [
+          1390,
+          824,
+          1596,
+          961
+        ],
+        "door_side": "u_min",
+        "door_fraction": 0.51,
+        "door_width_metres": 1.0,
+        "kind": "laboratory",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_251",
+        "label": "251",
+        "pixel_bounds": [
+          1320,
+          280,
+          1390,
+          334
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.7,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_206",
+        "label": "206",
+        "pixel_bounds": [
+          1518,
+          1020,
+          1596,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_207",
+        "label": "207",
+        "pixel_bounds": [
+          1437,
+          1020,
+          1518,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_208",
+        "label": "208",
+        "pixel_bounds": [
+          1392,
+          1020,
+          1437,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_209",
+        "label": "209",
+        "pixel_bounds": [
+          1320,
+          1020,
+          1392,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_234",
+        "label": "234",
+        "pixel_bounds": [
+          145,
+          254,
+          275,
+          330
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "Manual photo22 corner trace corrected to retain visible corridor return between outer offices and end rooms; metric registration provisional",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_233",
+        "label": "233",
+        "pixel_bounds": [
+          145,
+          330,
+          275,
+          400
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "Manual photo22 corner trace corrected to retain visible corridor return between outer offices and end rooms; metric registration provisional",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_232",
+        "label": "232",
+        "pixel_bounds": [
+          145,
+          400,
+          309,
+          470
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_231",
+        "label": "231",
+        "pixel_bounds": [
+          145,
+          470,
+          309,
+          542
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_230",
+        "label": "230",
+        "pixel_bounds": [
+          145,
+          542,
+          309,
+          612
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_229",
+        "label": "229",
+        "pixel_bounds": [
+          145,
+          612,
+          309,
+          681
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_228",
+        "label": "228",
+        "pixel_bounds": [
+          145,
+          681,
+          309,
+          752
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_227",
+        "label": "227",
+        "pixel_bounds": [
+          145,
+          752,
+          309,
+          821
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_226",
+        "label": "226",
+        "pixel_bounds": [
+          145,
+          821,
+          309,
+          892
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_225",
+        "label": "225",
+        "pixel_bounds": [
+          145,
+          892,
+          309,
+          965
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_224",
+        "label": "224",
+        "pixel_bounds": [
+          145,
+          965,
+          275,
+          1035
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "Manual photo22 corner trace corrected to retain visible corridor return between outer offices and end rooms; metric registration provisional",
+        "door_status": "Estimated opening facing south_cross_east; moved inside observed corridor span to avoid neighbouring room wall"
+      },
+      {
+        "id": "p1_223",
+        "label": "223",
+        "pixel_bounds": [
+          145,
+          1035,
+          275,
+          1100
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.75,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "Manual photo22 corner trace corrected to retain visible corridor return between outer offices and end rooms; metric registration provisional",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_235",
+        "label": "235",
+        "pixel_bounds": [
+          309,
+          254,
+          377,
+          345
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.7,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_236",
+        "label": "236",
+        "pixel_bounds": [
+          377,
+          254,
+          450,
+          345
+        ],
+        "door_side": "v_max",
+        "door_fraction": 0.4,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Estimated opening on visible side, offset from provisional corner stair enclosure for standing clearance"
+      },
+      {
+        "id": "p1_222",
+        "label": "222",
+        "pixel_bounds": [
+          309,
+          1015,
+          377,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.7,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_221",
+        "label": "221",
+        "pixel_bounds": [
+          377,
+          1015,
+          450,
+          1100
+        ],
+        "door_side": "v_min",
+        "door_fraction": 0.4,
+        "door_width_metres": 1.0,
+        "kind": "office",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Estimated opening on visible side, offset from provisional corner stair enclosure for standing clearance"
+      },
+      {
+        "id": "p1_241",
+        "label": "Garda 241",
+        "pixel_bounds": [
+          450,
+          550,
+          620,
+          685
+        ],
+        "door_side": "u_min",
+        "door_fraction": 0.8,
+        "door_width_metres": 1.0,
+        "kind": "meeting",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_252",
+        "label": "252",
+        "pixel_bounds": [
+          1165,
+          570,
+          1310,
+          690
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.65,
+        "door_width_metres": 1.0,
+        "kind": "laboratory",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_cavedio_237",
+        "label": "Cavedio (237?)",
+        "pixel_bounds": [
+          348,
+          400,
+          403,
+          550
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.82,
+        "door_width_metres": 1.0,
+        "kind": "service_shaft",
+        "playable": false,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "directory_identity_unconfirmed": "237",
+        "identity_status": "Source22 says CAVEDIO; directory31 identifies office/lab near this position; no confident equivalence",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_cavedio_219",
+        "label": "Cavedio (219?)",
+        "pixel_bounds": [
+          348,
+          813,
+          403,
+          965
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "service_shaft",
+        "playable": false,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "directory_identity_unconfirmed": "219",
+        "identity_status": "Source22 says CAVEDIO; directory31 identifies office/lab near this position; no confident equivalence",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_wc_sw",
+        "label": "WC",
+        "pixel_bounds": [
+          450,
+          470,
+          560,
+          550
+        ],
+        "door_side": "u_min",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "restroom",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_wc_se",
+        "label": "WC",
+        "pixel_bounds": [
+          450,
+          744,
+          620,
+          815
+        ],
+        "door_side": "u_min",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "restroom",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_wc_nw",
+        "label": "WC",
+        "pixel_bounds": [
+          1220,
+          470,
+          1320,
+          565
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "restroom",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      },
+      {
+        "id": "p1_wc_ne",
+        "label": "WC",
+        "pixel_bounds": [
+          1220,
+          750,
+          1320,
+          815
+        ],
+        "door_side": "u_max",
+        "door_fraction": 0.5,
+        "door_width_metres": 1.0,
+        "kind": "restroom",
+        "playable": true,
+        "source": "image00022.jpeg",
+        "identity_source": "image00031.jpeg",
+        "trace_status": "manual photograph trace; perspective and door width estimated",
+        "door_status": "Manually estimated on visible door side; widths unmeasured"
+      }
+    ]
+  },
+  "limitations": [
+    "No metric survey: 47 x 83 m legacy registration is provisional.",
+    "Perspective not rectified; bounding rectangles and door positions are manual estimates.",
+    "Door widths and heights are gameplay assumptions, not measured.",
+    "Four corner stairs and courtyard steel stair integrated across -1/0/1; metric geometry and in-game traversal remain provisional.",
+    "206-209 corner boundaries need orthographic confirmation; four offices retained from directory.",
+    "Office IDs do not have an A prefix; A2xx is a separate floor.",
+    "Directory31 identifies 219/237 where fire-plan22 appears to retain CAVEDIO; source conflict retained explicitly."
+  ],
+  "unplaced_current_rooms": [
+    {
+      "id": 219,
+      "label": "SportTech",
+      "source": "image00031.jpeg",
+      "reason": "Nearby source22 shaft conflict; needs current layout confirmation"
+    },
+    {
+      "id": 237,
+      "label": "Ultrasound",
+      "source": "image00031.jpeg",
+      "reason": "Nearby source22 shaft conflict; needs current layout confirmation"
+    }
+  ]
+}

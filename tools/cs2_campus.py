@@ -27,8 +27,8 @@ MAP='trento_povo_campus'
 MODEL='povo1_campus'
 UNITS=39.37007874
 T_STARTS=[(x,y,4.8) for y in (-74.5,-73,-71.5) for x in (20.5,22.3)]
-CT_STARTS=[(x,-35.2,8.4) for x in (-2,0,2,4,6,8)]
-OBJECTIVE=(13.96,-57.6,8.2)
+CT_STARTS=[(x,-35.2,12.0) for x in (-2,0,2,4,6,8)]
+OBJECTIVE=(13.96,-57.6,11.8)
 
 
 def world(point):
@@ -172,10 +172,22 @@ def skip_nav_analysis(source):
                          world((-8,4,4)),(124*UNITS,86*UNITS,14*UNITS))
 
 
+def gameplay_points(metadata):
+    """Keep CT and the objective on the highest occupied Povo 1 storey."""
+    zs=[l['floor_elevation_metres']-370 for l in metadata['levels']]
+    ground,upper=min(zs),max(zs)
+    return ([(x,y,ground+.8) for x,y,_ in T_STARTS],
+            [(x,y,upper+.8) for x,y,_ in CT_STARTS],
+            (OBJECTIVE[0],OBJECTIVE[1],upper+.6))
+
+
 def map_text(source,metadata,season='standard'):
     source=source.replace('models/povo/povo_blockout.vmdl',f'models/povo/{MODEL}.vmdl')
-    spawns={'info_player_terrorist':iter(T_STARTS),'info_player_counterterrorist':iter(CT_STARTS)}
-    buy={'2':(21.4,-72,4.6),'3':(3,-35.2,8.2),'0':OBJECTIVE}
+    t_starts,ct_starts,objective=gameplay_points(metadata)
+    ground=min(l['floor_elevation_metres']-370 for l in metadata['levels'])
+    upper=max(l['floor_elevation_metres']-370 for l in metadata['levels'])
+    spawns={'info_player_terrorist':iter(t_starts),'info_player_counterterrorist':iter(ct_starts)}
+    buy={'2':(21.4,-72,ground+.6),'3':(3,-35.2,upper+.6),'0':objective}
     replacements=[]
     for start,end,classname,block in project._entity_ranges(source):
         updated=block
@@ -187,10 +199,10 @@ def map_text(source,metadata,season='standard'):
             updated=project._replace_entity_transform(block,world(buy[team]))
             if team in ('2','3'):updated=project.resize_trigger_mesh(updated,(220,300,95))
         elif classname=='func_bomb_target':
-            updated=project._replace_entity_transform(block,world(OBJECTIVE))
+            updated=project._replace_entity_transform(block,world(objective))
             updated=project.resize_trigger_mesh(updated,(140,46,95))
         elif classname in ('counterterrorist_wingman_intro','terrorist_wingman_intro','end_of_match'):
-            point=buy['3'] if classname.startswith('counterterrorist') else buy['2'] if classname.startswith('terrorist') else OBJECTIVE
+            point=buy['3'] if classname.startswith('counterterrorist') else buy['2'] if classname.startswith('terrorist') else objective
             updated=project._replace_entity_transform(block,world(point))
         elif classname=='post_processing_volume':
             updated=project._replace_entity_transform(block,world((0,-30,8)),scales='75 80 25')
@@ -226,7 +238,7 @@ def map_text(source,metadata,season='standard'):
             replacements.append((match.start(),b+1,updated))
     for a,b,s in reversed(replacements):source=source[:a]+s+source[b:]
     if metadata.get('exterior'):source=skip_nav_analysis(source)
-    source=project._insert_point_entity(source,'campus-upper-nav','point_nav_walkable',world((0,-35.2,7.75)))
+    source=project._insert_point_entity(source,'campus-upper-nav','point_nav_walkable',world((0,-35.2,upper+.15)))
     source=add_free_for_all(source,metadata.get('deathmatch_spawns',[]))
     for core in metadata['stair']['cores']:
         source=project._insert_point_entity(source,'campus-stair-'+core['id']+'-nav','point_nav_walkable',world(core['mid']))
@@ -264,7 +276,7 @@ def map_text(source,metadata,season='standard'):
             source=project._insert_point_entity(source,'p2-compact-stair-sign-'+str(i),'point_worldtext',
                 world((x+.15,y,z+2.44)),sign_properties('SCALE'),angles='0 180 90')
         for name,text,n,yaw in (('p1-to-p2','POVO 2',-20.13,90),('p2-arrival','POVO 2 - PIANO 1',9.87,90),('p2-to-p1','POVO 1',-19.87,270)):
-            source=project._insert_point_entity(source,name,'point_worldtext',world((18.25,n,10.64)),
+            source=project._insert_point_entity(source,name,'point_worldtext',world((18.25,n,metadata['connection']['floor_local_metres']+3.04)),
                 sign_properties(text,white=False),angles=f'0 {yaw} 90')
     if metadata.get('povo2'):
         p2=metadata['povo2'];lights.extend(p2['lights'])
@@ -407,7 +419,7 @@ def make_radar(metadata,map_name=MAP):
         shapes=[('floor',bounds((-23,-103,24,-20)),(84,97,104,255))]
         if metadata.get('exterior'):
             ext=metadata['exterior']
-            if level['id'] in ('academic_ground','academic_first'):
+            if level['id'].startswith('academic_'):
                 shapes.extend((m['name'],bounds((min(v[0] for v in m['vertices']),min(v[1] for v in m['vertices']),max(v[0] for v in m['vertices']),max(v[1] for v in m['vertices']))),(115,126,127,255))
                               for m in ext['meshes'] if m['name'].startswith('exterior_road_') and len(m['vertices'])==8)
                 shapes.extend((name,bounds(r),(152,163,162,255)) for name,r in
@@ -434,13 +446,14 @@ def make_radar(metadata,map_name=MAP):
             shapes.append(('p2_compact_stair',bounds(link['stair']['bounds']),(158,160,156,255)))
             for room in link['rooms']:
                 shapes.append((room['id'],bounds(room['bounds']),(160,175,181,255)))
-        if level['id']=='academic_first':shapes.extend(radar.objective_glyph(pixel(*OBJECTIVE[:2])))
+        if level['id']==max(metadata['levels'],key=lambda l:l['floor_elevation_metres'])['id']:
+            shapes.extend(radar.objective_glyph(pixel(*OBJECTIVE[:2])))
         if level['id']=='academic_ground' and metadata.get('connection',{}).get('ground'):
             shapes.append(('p2_lower_landing',bounds((7,14,20,26)),(200,210,209,255)))
             shapes.append(('p2_compact_stair',bounds(metadata['connection']['stair']['bounds']),(158,160,156,255)))
         p2=metadata.get('povo2')
         if p2:
-            floor=0 if level['id']=='academic_ground' else 1
+            floor=0 if level.get('user_floor',-1)==-1 else 1 if level.get('user_floor')==1 else None
             if floor==0:
                 shapes.append(('p2_ground',bounds(p2['footprint']),(200,210,209,255)))
                 shapes.append(('reception',bounds(p2['ground']['reception']),(83,109,117,255)))
@@ -451,11 +464,11 @@ def make_radar(metadata,map_name=MAP):
                     shapes.append((room['id'],bounds(room['bounds']),(160,175,181,255)))
             shapes.append(('p2_stairs',bounds(p2['stairs']['bounds']),(181,155,108,255)))
         for wing in metadata.get('wings',{}).get('levels',[]):
-            if wing['floor']!=(0 if level['id']=='academic_ground' else 1):continue
+            if wing['floor']!=level.get('user_floor',-1)+1:continue
             shapes.append((wing['id'],bounds(wing['bounds']),(200,210,209,255)))
             for room in wing['rooms']:
                 shapes.append((wing['id']+room['id'],bounds(room['bounds']),(160,175,181,255)))
-        suffix='_lower' if level['id']=='academic_ground' else ''
+        suffix={-1:'_lower',0:'_middle',1:''}[level.get('user_floor',-1)]
         image=MAP+suffix+'_radar.png';(out/image).write_bytes(radar.png_bytes(shapes))
         for spectate in ('','_spectate'):
             texture=MAP+suffix+'_radar'+spectate+'_tga.vtex'
@@ -477,15 +490,19 @@ def make_radar(metadata,map_name=MAP):
                 (out/texture).write_text(radar.texture_text().replace('trento_povo_radar.png',image),encoding='utf-8')
     text=['// Campus overview: upper, ground and optional Povo 2 basements.',f'"{MAP}"','{',f' "material" "overviews/{MAP}"']
     text.extend(f' "{k}" "{v:.9f}"' for k,v in overview.items())
-    threshold=5.8*UNITS
+    zs=sorted(l['floor_elevation_metres']-370 for l in metadata['levels'])
+    threshold=(zs[0]+zs[1])/2*UNITS
+    upper_threshold=(zs[-2]+zs[-1])/2*UNITS
     ground_min=str(2.2*UNITS) if p2 else '-10000'
-    text.extend([' "verticalsections"',' {','  "default" { "AltitudeMin" "'+str(threshold)+'" "AltitudeMax" "10000" }',
+    text.extend([' "verticalsections"',' {','  "default" { "AltitudeMin" "'+str(upper_threshold)+'" "AltitudeMax" "10000" }',
+                 '  "middle" { "AltitudeMin" "'+str(threshold)+'" "AltitudeMax" "'+str(upper_threshold)+'" }',
                  '  "lower" { "AltitudeMin" "'+ground_min+'" "AltitudeMax" "'+str(threshold)+'" }'])
     if p2:
         text.extend(['  "basement1" { "AltitudeMin" "'+str(-1.4*UNITS)+'" "AltitudeMax" "'+ground_min+'" }',
                      '  "basement2" { "AltitudeMin" "-10000" "AltitudeMax" "'+str(-1.4*UNITS)+'" }'])
     text.append(' }')
-    for label,p in [('CTSpawn',CT_STARTS[2]),('TSpawn',T_STARTS[2]),('bombA',OBJECTIVE)]:
+    t_starts,ct_starts,objective=gameplay_points(metadata)
+    for label,p in [('CTSpawn',ct_starts[2]),('TSpawn',t_starts[2]),('bombA',objective)]:
         x,y=pixel(*p[:2]);text.extend((f' "{label}_x" "{x/1024:.9f}"',f' "{label}_y" "{y/1024:.9f}"'))
     text.append('}');(out/(MAP+'.txt')).write_text('\n'.join(text)+'\n',encoding='utf-8')
     return out
@@ -541,7 +558,7 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
         compile_resource(content/'particles/povo/snow.vpcf')
     for chosen,map_name,radar_dir in prepared:
         compile_resource(content/'maps'/(map_name+'.vmap'))
-        radar_pattern=re.compile(re.escape(map_name)+r'(?:_(?:lower|basement1|basement2))?_radar(?:_spectate)?_tga\.vtex')
+        radar_pattern=re.compile(re.escape(map_name)+r'(?:_(?:lower|middle|basement1|basement2))?_radar(?:_spectate)?_tga\.vtex')
         for p in sorted(p for p in radar_dir.glob('*.vtex') if radar_pattern.fullmatch(p.name)):
             compile_resource(content/'panorama/images/overheadmaps'/p.name)
         game=cs2_root/'game/csgo_addons/trento_povo'

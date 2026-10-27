@@ -44,6 +44,17 @@ def extend(boxes,levels,root):
     def station(level,name,x,y):level['audit_stations'].append(dict(id=name,point=[x,y]))
 
     def table(name,x,y,z,orange=False,high=False):
+        for existing_name,lo,hi,material in result:
+            if '_survey_' not in existing_name or material!='wall' or abs(lo[2]-z)>.01:continue
+            if x<hi[0]+.25 and x+1.6>lo[0]-.25 and y-.6<hi[1]+.25 and y+1.45>lo[1]-.25:return
+        for level in spec['levels']:
+            if not name.startswith(level['id']+'_'):continue
+            for station in level['audit_stations']:
+                if not station['id'].startswith('observed_exit_'):continue
+                px,py=station['point']
+                if x<px+.6 and x+1.6>px-.6 and y-.6<py+.6 and y+1.45>py-.6:return
+        # Reserve both stair landing approaches, including the full chair envelope.
+        if name.startswith('canteen_') and x < 43.2 and x+1.6 > 41.0 and y-.6 < -97.0 and y+1.45 > -100.2:return
         h=1.02 if high else .74
         add(name+'_top',(x,y,z+h),(x+1.6,y+.8,z+h+.06),'canteen_orange' if orange else 'seat_wood')
         for dx in (.1,1.44):
@@ -61,25 +72,29 @@ def extend(boxes,levels,root):
                     'canteen_blue' if orange else 'seat_wood')
 
     def stair(kind,rect):
-        a,b,c,d=rect;w=(c-a-.2)/2;rise=(z1-z0)/20
-        if rise>.19 or d-b<6:raise ValueError('Wing stair does not fit')
-        prefix=kind+'_stairs';path=[];rails=[]
-        for z in (z0,z1):slab(prefix+f'_floor_landing_{z:g}',(a,b,c,b+1.5),z)
-        mid=(z0+z1)/2;add(prefix+'_mid_landing',(a,b+4.5,z0),(c,d,mid),'floor_p2_tile')
-        for flight in range(2):
-            for i in range(10):
-                x=a if flight==0 else c-w
-                y=b+1.5+i*.3 if flight==0 else b+4.5-(i+1)*.3
-                top=z0+(i+1)*rise if flight==0 else mid+(i+1)*rise
-                add(prefix+f'_step_{flight}_{i}',(x,y,z0),(x+w,y+.3,top),'floor_p2_tile')
-                path.append([x+w/2,y+.15,top])
-        railing(add,rails,prefix+'_inner_lower',(a+w-.04,b+1.5,z0+.18),(a+w-.04,b+4.5,mid))
-        railing(add,rails,prefix+'_inner_upper',(c-w+.04,b+4.5,mid+.18),(c-w+.04,b+1.5,z1))
-        # Perimeter guards at both landings leave the south approach clear.
-        add(prefix+'_mid_north_guard',(a,d-.07,mid),(c,d,mid+1.05),'metal_dark')
-        spec['stairs'].append(dict(building=kind,bounds=rect,path=path,rails=rails,
-                                   bottom=[a+w/2,b+.7,z0],top=[c-w/2,b+.7,z1]))
-        return ((a,b+1.5,z1-.3),(c,d,z1+.01))
+        if kind in ('canteen','library'):
+            # The plan13/15 end U stairs run across the short building
+            # dimension. Keep the stair inside its source
+            # core instead of cutting through kitchen/atrium wall paths.
+            if kind=='canteen':xa,xb=42.7,45.7;ya,yb=-99.65,-97.45;w=1.0
+            else:xa,xb=38.0,41.0;ya,yb=-18.5,-14.4;w=1.9
+            landing_x=xa-1.2
+            prefix=kind+'_stairs'
+            mid=(z0+z1)/2;path=[];rails=[];rise=(z1-z0)/20
+            slab(prefix+'_bottom',(landing_x,ya,xa,yb),z0)
+            slab(prefix+'_top',(landing_x,ya,xa,yb),z1)
+            add(prefix+'_mid_landing',(xb,ya,z0),(xb+1.6,yb,mid),'floor_p2_tile')
+            for flight in range(2):
+                for i in range(10):
+                    x=xa+i*.3 if flight==0 else xb-(i+1)*.3
+                    y=ya if flight==0 else yb-w
+                    top=z0+(i+1)*rise if flight==0 else mid+(i+1)*rise
+                    add(f'{prefix}_step_{flight}_{i}',(x,y,z0),(x+.3,y+w,top),'floor_p2_tile')
+                    path.append([x+.15,y+w/2,top])
+            spec['stairs'].append(dict(building=kind,bounds=[landing_x,ya,xb+1.6,yb],path=path,rails=rails,axis='x',
+                bottom=[xa-.6,ya+w/2,z0],top=[xa-.6,yb-w/2,z1],source='image00013.jpeg' if kind=='canteen' else 'image00015.jpeg'))
+            return ((xa,ya,z1-.3),(xb+1.6,yb,z1+.01))
+        raise ValueError('Unknown wing stair '+kind)
 
     def glazed_shell(kind,rect,z,level):
         a,b,c,d=rect;prefix=level['id']
@@ -128,30 +143,84 @@ def extend(boxes,levels,root):
         # Nav/sign metadata is separate from the original Povo 1 room records.
         spec['signs'].append(dict(text=kind.upper(),point=[36.2,building['entrance_y'],z0+2.5],angles='0 180 90'))
 
-    # Library: a continuous west-side circulation strip and three reading rooms
-    # per floor. Ground reception sits to the right when entering from Povo 1.
+    # Source-space traces retain observed door offsets, rather than making
+    # synthetic equal reading rooms with centred doors.
+    survey=json.loads((root/'config/povo_amenities_survey.json').read_text(encoding='utf-8'))
+    def project(key,point):
+        u,v=point
+        if key=='library0':return (52-(v-506)*16/475,-13-(u-132)*56/1497)
+        if key=='canteen0':return (52-(v-354)*16/496,-77-(u-67)*33/1256)
+        return (36+(v-324)*16/599,-77-(u-98)*33/1468)
+
+    def traced(level,key):
+        z=level['z'];source=survey[key];prefix=level['id']+'_survey'
+        level['layout_source']=source['source']
+        level['registration']='provisional existing XY footprint; actual image door offsets retained'
+        level['unresolved']=source.get('unresolved',[])
+        for wall in source.get('walls',[]):
+            name=prefix+'_'+wall['id'];points=[project(key,p) for p in wall['points']]
+            for i,(a,b) in enumerate(zip(points,points[1:])):
+                # Photo perspective is retained as a conservative short box
+                # envelope; no room is added merely from semantic zone bounds.
+                add(name+f'_wall_{i}',(min(a[0],b[0])-.065,min(a[1],b[1])-.065,z),
+                    (max(a[0],b[0])+.065,max(a[1],b[1])+.065,z+height),'wall')
+            gaps=wall.get('door_gaps',[])
+            if not isinstance(gaps,list):continue
+            for j,gap in enumerate(gaps):
+                a,b=[project(key,p) for p in gap]
+                hole=((min(a[0],b[0])-.18,min(a[1],b[1])-.18,z-.01),
+                      (max(a[0],b[0])+.18,max(a[1],b[1])+.18,z+2.25))
+                cut(hole,name)
+                level.setdefault('observed_openings',[]).append(dict(id=wall['id']+f'_{j}',ends=[a,b],source_gap=gap))
+            level['rooms'].append(dict(id=wall['id'],source_path=wall['points'],
+                bounds=[min(p[0] for p in points),min(p[1] for p in points),max(p[0] for p in points),max(p[1] for p in points)],
+                confidence='visible wall path; not asserted complete room'))
+        for j,opening in enumerate(source.get('interior_openings',[])):
+            a,b=[project(key,p) for p in opening['gap']]
+            cut(((min(a[0],b[0])-.2,min(a[1],b[1])-.2,z-.01),
+                 (max(a[0],b[0])+.2,max(a[1],b[1])+.2,z+2.25)),prefix)
+        for j,door in enumerate(source.get('exterior_doors',[])):
+            gap=door['segment'] if isinstance(door,dict) else door
+            a,b=[project(key,p) for p in gap]
+            # Photograph perspective/recesses do not coincide with our rectangular
+            # placeholder facade. Extend its aperture to that facade, retaining
+            # the observed long-axis offset; keep the standing station indoors.
+            west=cfg[level['building']]['bounds'][0]
+            cut(((west-.3,min(a[1],b[1])-.12,z-.01),
+                 (max(a[0],b[0])+.3,max(a[1],b[1])+.12,z+2.3)),level['id']+'_west')
+            station(level,f'observed_exit_{j}',max(west+.7,(a[0]+b[0])/2),(a[1]+b[1])/2)
+
+    for level in spec['levels']:
+        level['campus_floor']=-1 if level['floor']==0 else 0
+        key=level['building']+str(level['floor'])
+        if key in survey:traced(level,key)
+        elif level['building']=='library':
+            level['layout_source']='image00016.jpeg directory only'
+            level['semantic_zones']=['two adjacent group-study spaces along long edge','end reading area','remaining reading area']
+            level['unresolved']=['Detailed upper-floor partition/door plan not supplied; directory zones are not traced walls']
     for level in [l for l in spec['levels'] if l['building']=='library']:
         z=level['z'];prefix=level['id']
-        for i,rect in enumerate(cfg['library']['rooms']):
-            a,b,c,d=rect;door=b+2.5
-            add(prefix+f'_partition_west_{i}',(a-.08,b,z),(a+.08,d,z+height),'wall')
-            if i:add(prefix+f'_partition_south_{i}',(a,b-.08,z),(c,b+.08,z+height),'wall')
-            cut(((a-.2,door-.8,z-.01),(a+.2,door+.8,z+2.25)),prefix+'_partition_west')
-            level['rooms'].append(dict(id=f'reading_{i}',bounds=rect,door=[a,door]))
-            station(level,f'reading_{i}_door',a,door)
-            station(level,f'reading_{i}_back',50.5,d-1.2)
-            # Leave a 2 m cross aisle at each room entrance and north end.
-            for row,y in enumerate(range(math.ceil(b+5),int(d-2),3)):
-                for col,x in enumerate((41,45,48)):
-                    table(prefix+f'_reading_{i}_table_{row}_{col}',x,y,z)
-        station(level,'west_corridor_south',37.5,-65)
-        station(level,'west_corridor_middle',37.5,-40)
-        station(level,'west_corridor_north',37.5,-22.5)
+        # Representative furniture stays in the central open reading strip.
+        for i,y in enumerate((-58,-51,-44,-31)):
+            table(prefix+f'_open_reading_{i}',40,y,z)
+        for name,x,y in [('west_corridor_south',37.5,-65),('west_corridor_middle',37.5,-40),('west_corridor_north',37.5,-22.5)]:station(level,name,x,y)
         if level['floor']==0:
-            add(prefix+'_reception_counter',(40,-65,z),(43,-64.2,z+1.05),'seat_wood')
-            add(prefix+'_reception_monitor',(41,-64.35,z+1.08),(41.5,-64.3,z+1.4),'desk_dark')
             station(level,'entrance',37.5,cfg['library']['entrance_y'])
             station(level,'povo1_side_approach',32,cfg['library']['entrance_y'])
+    # The actual central narrow flight in plan15 connects the library reading
+    # floors; keep its traced axis and open corresponding upper slab/soffit.
+    p0=project('library0',[960,685]);p1=project('library0',[1211,721])
+    xa,xb=sorted((p0[0],p1[0]));ya,yb=sorted((p0[1],p1[1]))
+    path=[];count=math.ceil((z1-z0)/.18)
+    for i in range(count):
+        y=yb-(yb-ya)*(i+1)/count;top=z0+(z1-z0)*(i+1)/count
+        add(f'library_central_stair_{i}',(xa,y,z0),(xb,y+(yb-ya)/count,top),'floor_p2_tile')
+        path.append([(xa+xb)/2,y+(yb-ya)/count/2,top])
+    for prefix in ('library_1_slab','library_0_ceiling'):
+        cut(((xa-.08,ya-.08,z0+height-.1),(xb+.08,yb+.08,z1+.01)),prefix)
+    spec['stairs'].append(dict(building='library',kind='central_plan15',path=path,axis='y',
+        bottom=[(xa+xb)/2,yb+.4,z0],top=[(xa+xb)/2,ya-.4,z1],rails=[],
+        registration='source axis; storey rise provisional'))
     bank('exterior_library_entry',36,cfg['library']['entrance_y'],z0)
     # Wing facade names use library_0; explicitly open it before adding the bank.
     cut(((35.7,-62.85,z0-.01),(36.3,-59.15,z0+2.85)),'library_0_west')
@@ -161,22 +230,22 @@ def extend(boxes,levels,root):
     entrance_y=cfg['canteen']['entrance_y']
     for level in [l for l in spec['levels'] if l['building']=='canteen']:
         z=level['z'];prefix=level['id'];upper=level['floor']==1
-        serving=(37,-105,38.3,-94) if upper else cfg['canteen']['serving_counter']
+        serving=(40,-105,41.3,-101) if upper else (43,-91,44.3,-80)
         x0,y0,x1,y1=serving
         add(prefix+'_serving_counter',(x0,y0,z),(x1,y1,z+1.05),'canteen_orange')
         add(prefix+'_serving_counter_top',(x0-.05,y0-.05,z+1.05),(x1+.05,y1+.05,z+1.12),'sign_white')
         rows=range(-106,-79,3) if upper else (-90,-86,-82)
         sx0,sy0,sx1,sy1=cfg['canteen']['stair']
         for row,y in enumerate(rows):
-            for col,x in enumerate((41,45,48) if upper else (50.2,)):
+            for col,x in enumerate((41,45,48) if upper else (38,40.5)):
                 if y-.6<entrance_y+.7 and y+1.43>entrance_y-.7:continue
                 if x<sx1+.4 and x+1.6>sx0-.4 and y-.6<sy1+.4 and y+1.43>sy0-.4:continue
                 table(prefix+f'_dining_table_{row}_{col}',x,y,z,orange=True)
-        for i,y in enumerate((-90,-85,-80) if not upper else (-107.5,-90,-80)):
-            station(level,f'dining_aisle_{i}',39.5,y)
+        for i,y in enumerate((-90,-85,-80) if not upper else (-104.8,-90,-80)):
+            station(level,f'dining_aisle_{i}',36.9 if not upper else 37.5,y-1.0 if not upper else y)
             station(level,f'dining_outer_{i}',50.5 if upper else 46.8,y)
-        station(level,'cross_aisle',42,entrance_y)
-        station(level,'stair_approach',43,entrance_y)
+        station(level,'cross_aisle',40.8,entrance_y)
+        station(level,'stair_approach',42.1,-99.15 if not upper else -97.95)
         if not upper:
             a,b,c,d=cfg['canteen']['bar_counter']
             add(prefix+'_bar_counter',(a,b,z),(c,d,z+1.1),'canteen_orange')
@@ -190,9 +259,9 @@ def extend(boxes,levels,root):
             station(level,'bar_approach',42.5,-105)
             station(level,'entrance',37.2,entrance_y)
             # Open black double leaves mark the fire-door entrance straight ahead.
-            for i,y in enumerate((entrance_y-.65,entrance_y+.65)):
-                add(prefix+f'_stair_fire_door_{i}',(43.4,y-.025,z+.02),(44,y+.025,z+2.18),'door_black')
-                add(prefix+f'_stair_pushbar_{i}',(43.5,y-.05,z+1),(43.9,y+.05,z+1.05),'door_pushbar')
+            for i,y in enumerate((-99.8,-98.5)):
+                add(prefix+f'_stair_fire_door_{i}',(41.5,y-.025,z+.02),(42.1,y+.025,z+2.18),'door_black')
+                add(prefix+f'_stair_pushbar_{i}',(41.6,y-.05,z+1),(42,y+.05,z+1.05),'door_pushbar')
         else:
             station(level,'street_exit',50.5,cfg['canteen']['exit_y'])
             station(level,'street_pavement',53.5,cfg['canteen']['exit_y'])
@@ -217,12 +286,44 @@ def extend(boxes,levels,root):
     lower=next(l for l in spec['levels'] if l['id']=='canteen_0')
     for name,x,y in [('porch_outer',32,cfg['canteen']['outer_y']),('porch_turn',33.5,entrance_y),('porch_inner',35,entrance_y)]:station(lower,name,x,y)
     station(lower,'povo1_side_approach',30,cfg['canteen']['outer_y'])
+    # The two photographed plans have independent perspective fits. Preserve
+    # their paths but clear the registered stair standing envelope wherever a
+    # fitted core edge otherwise clips a flight or its upper-floor arrival.
+    for stair_spec in spec['stairs']:
+        if stair_spec['building']!='canteen':continue
+        for x,y,z in stair_spec['path']:
+            for floor in (0,1):
+                cut(((x-.15,y-.43,z+.19),(x+.15,y+.43,z+1.9)),f'canteen_{floor}_survey_')
+
     # Ground-level Povo 1-side access, not an entrance from the raised street.
     slab('canteen_0_access',(29,cfg['canteen']['porch'][1],31.5,-77),z0)
     slab('library_0_access',(29,-69,36,-13),z0)
     # Join the lower plaza around the original external stair footprint.
     slab('library_0_access_join',(25,-74,29,-65),z0)
     slab('canteen_0_access_join',(25,-83,31.5,-77),z0)
+    # Photo14 confirms this is the thin overhead canopy. Follow the existing
+    # entrance-cover profile, preserving its3.4m clearance above the stair;
+    # a slab at the floor elevation would wrongly fill the pedestrian route.
+    exterior_cfg=json.loads((root/'config/povo_exterior.json').read_text())
+    entry=exterior_cfg['east_approach'];cy=entry['entrance_y']
+    sx,_,ex,_=entry['stairs'];clearance=entry['canopy_clearance']
+    profile=[(24,entry['lower_z']+clearance),(sx,entry['lower_z']+clearance),
+             (ex,entry['upper_z']+clearance),(entry['canopy_end_x'],entry['upper_z']+clearance)]
+    for j,((x0,h0),(x1,h1)) in enumerate(zip(profile,profile[1:])):
+        count=max(1,math.ceil(abs(h1-h0)/.16))
+        for i in range(count):
+            left=x0+(x1-x0)*i/count;right=x0+(x1-x0)*(i+1)/count
+            top=h0+(h1-h0)*(i+1)/count
+            add(f'amenities_walkable_canopy_{j}_{i}',(left,cy-3.1,top-.08),(right,cy+3.1,top),'exterior_canopy_glass')
+    spec['canopy']=dict(profile=profile,width=6.2,walkable=True,enclosed=False,
+                         source='image00014.jpeg',registration='provisional existing entrance roof profile; clearance retained')
+    terrace=cfg['canteen']['terrace'];a,b,c,d=terrace
+    slab('canteen_1_street_terrace',terrace,z1,'exterior_concrete')
+    rails=[]
+    railing(add,rails,'canteen_terrace_outer',(c,b,z1),(c,d,z1))
+    railing(add,rails,'canteen_terrace_south',(a,b,z1),(c,b,z1))
+    spec['terrace']=dict(bounds=terrace,z=z1,rails=rails,source='image00011.jpeg',registration='provisional footprint')
+    spec['survey_hash']=hashlib.sha256((root/'config/povo_amenities_survey.json').read_bytes()).hexdigest()
     levels[0]['wings']=spec
     ext=levels[0].get('exterior',{})
     ext.setdefault('input_hashes',{})['config/povo_wings.json']=hashlib.sha256((root/'config/povo_wings.json').read_bytes()).hexdigest()

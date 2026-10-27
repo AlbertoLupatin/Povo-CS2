@@ -63,7 +63,7 @@ def write_materials(directory, prefix, colors):
         if name in ('metal_dark', 'window_frame'):
             roughness = 135
         (directory / (name + '_rough.png')).write_bytes(png((roughness,) * 3, 'flat', 4))
-        surface = ('wood' if name in ('floor_wood', 'seat_wood', 'desk_dark', 'desk_panel')
+        surface = ('wood' if name in ('floor_wood', 'seat_wood', 'seat_green', 'desk_dark', 'desk_panel')
                    else 'metal' if name in ('metal_dark', 'window_frame')
                    else 'asphalt' if name == 'floor_p2_asphalt'
                    else 'tile' if name in ('floor_room','floor_circulation','floor_p2_tile')
