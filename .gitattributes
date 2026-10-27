@@ -4,3 +4,6 @@ data/reference/povo_plans/mappe-povo/README.md -whitespace
 
 # Preserve the original user sketch bytes and provenance hash.
 data/reference/user_feedback/2026-10-27/povo2_corrected_layout.drawio -text
+
+# Preserve native compiler output bytes, including trailing whitespace.
+exports/povo_campus/runtime/survey_20261027/compile.log -text -whitespace
