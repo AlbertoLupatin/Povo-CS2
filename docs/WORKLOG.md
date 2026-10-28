@@ -1635,7 +1635,8 @@ facade was a bare 2.75 m pit. From the user's description and photo 2 of the
   the stair; a railing and hedge keep it apart from the stair, and a fence
   closes its top. As a game mechanic players can climb it from the courtyard.
 - Wall with a metal fence along the sidewalk from the library corner to the
-  crosswalk; a low edge continues west of it. Two generic road trees that
+  crosswalk; a low edge continues west of it. The wall is a sloping solid that
+  follows the sidewalk (5–10 cm above it) and the grass (0.5–1 m below it). Two generic road trees that
   stood in the pit are replaced by the grass trees.
 
 All 217 source tests pass, including walks up the stair and the grass and

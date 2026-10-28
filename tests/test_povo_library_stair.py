@@ -51,11 +51,17 @@ class LibraryStairTests(unittest.TestCase):
             x = 36+16*i/30
             self.assertTrue(self.solid(x, GRASS_Y[0], grass_z(x)+.6), x)
 
+    def wall_top(self, x, y=-9.5):
+        tops = [h for m in self.meshes if m['name'].startswith('exterior_library_street_wall_')
+                for h in height_at(m, x, y)]
+        return max(tops) if tops else None
+
     def test_fence_east_of_the_crosswalk_low_edge_west_of_it(self):
         for x in (46.0, 48.0, 50.0, 51.5):
+            self.assertAlmostEqual(self.wall_top(x), sidewalk_z(x)+.1, places=6)
             self.assertTrue(self.solid(x, -9.5, sidewalk_z(x)+.6), x)
-        for x in (33.0, 38.0, 42.0):
-            self.assertTrue(self.solid(x, -9.5, sidewalk_z(x)-.1), x)
+        for x in (25.0, 33.0, 38.0, 42.0):
+            self.assertAlmostEqual(self.wall_top(x), sidewalk_z(x)+.05, places=6)
             self.assertFalse(self.solid(x, -9.5, sidewalk_z(x)+.6), x)
         self.assertLess(CROSSWALK_EAST, TOP_X)
 

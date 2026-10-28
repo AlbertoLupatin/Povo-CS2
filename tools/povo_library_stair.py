@@ -37,7 +37,7 @@ def grass_z(x):
 
 def sidewalk_z(x):
     """South sidewalk of the bridge road (footway mesh grade, capped at the street)."""
-    return min(HIGH+.12, 4.12+max(0, x-32)*.2)
+    return min(HIGH+.12, 4.12+max(0, x-32)*.2)  # reaches the cap at x50
 
 
 def prism(name, top, material, thickness=.25):
@@ -79,14 +79,17 @@ def extend(boxes, levels):
         add(f'hedge_{x:.1f}', (x, GRASS_Y[0]+.05, grass_z(x)), (x1, GRASS_Y[0]+.6, grass_z(x1)+.85), 'exterior_tree')
         x = x1
     # Wall along the sidewalk: retaining wall + fence east of the crosswalk,
-    # a low edge to the west. Pieces follow both grades in 0.5 m steps.
-    x = FLAT_X
-    while x < TOP_X-.01:
-        x1 = min(TOP_X, x+.5)
-        bottom = min(grass_z(x), grass_z(x1))-.2
-        top = max(sidewalk_z(x), sidewalk_z(x1))+(.1 if x >= CROSSWALK_EAST else .05)
-        add(f'street_wall_{x:.1f}', (x, WALL_Y[0], bottom), (x1, WALL_Y[1], top), 'exterior_concrete')
-        x = x1
+    # a low edge to the west. Sloping solids follow both grades exactly.
+    breaks = [FLAT_X, 32.0, BOTTOM_X, CROSSWALK_EAST, 50.0, TOP_X]
+    for i, (x0, x1) in enumerate(zip(breaks, breaks[1:])):
+        lift = .1 if x0 >= CROSSWALK_EAST else .05
+        (y0, y1), (b0, b1) = WALL_Y, (grass_z(x0)-.2, grass_z(x1)-.2)
+        t0, t1 = sidewalk_z(x0)+lift, sidewalk_z(x1)+lift
+        vertices = [(x0, y0, b0), (x1, y0, b1), (x1, y1, b1), (x0, y1, b0),
+                    (x0, y0, t0), (x1, y0, t1), (x1, y1, t1), (x0, y1, t0)]
+        mesh(dict(name=f'exterior_library_street_wall_{i}', vertices=vertices, material='exterior_concrete',
+                  faces=[(0, 2, 1), (0, 3, 2), (4, 5, 6), (4, 6, 7), (0, 1, 5), (0, 5, 4),
+                         (1, 2, 6), (1, 6, 5), (2, 3, 7), (2, 7, 6), (3, 0, 4), (3, 4, 7)]))
     railing(add, rails, 'library_street_fence', (CROSSWALK_EAST, WALL_Y[1]-.1, sidewalk_z(CROSSWALK_EAST)+.1),
             (TOP_X, WALL_Y[1]-.1, sidewalk_z(TOP_X)+.1), height=1.1)
     # Join the sidewalk's end to the street corner above the library.
