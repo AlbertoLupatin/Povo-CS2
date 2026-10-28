@@ -74,6 +74,8 @@ certify the revised geometry.
 
 - [ ] Two independent clients join and finish a match (first milestone).
 - [ ] Full bot round with objectives and buy zones checked.
+- [ ] Library stair (28 October): walk up the red stair and the sloping grass in game;
+      the railing and street fence stop crossings.
 - [ ] Povo 2 T spawn (28 October): all six T starts spawn cleanly, the entrance-hall
       buy zone works, and T rounds reach A over the bridge and outside.
 - [ ] Clean-install test from the published Workshop item; see

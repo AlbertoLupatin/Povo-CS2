@@ -45822,6 +45822,114 @@
               ]
             ],
             "material": "exterior_paving"
+          },
+          {
+            "name": "exterior_library_grass_slope",
+            "vertices": [
+              [
+                36.0,
+                -11.45,
+                3.75
+              ],
+              [
+                52.0,
+                -11.45,
+                7.35
+              ],
+              [
+                52.0,
+                -9.55,
+                7.35
+              ],
+              [
+                36.0,
+                -9.55,
+                3.75
+              ],
+              [
+                36.0,
+                -11.45,
+                4.0
+              ],
+              [
+                52.0,
+                -11.45,
+                7.6
+              ],
+              [
+                52.0,
+                -9.55,
+                7.6
+              ],
+              [
+                36.0,
+                -9.55,
+                4.0
+              ]
+            ],
+            "faces": [
+              [
+                0,
+                2,
+                1
+              ],
+              [
+                0,
+                3,
+                2
+              ],
+              [
+                4,
+                5,
+                6
+              ],
+              [
+                4,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                5
+              ],
+              [
+                0,
+                5,
+                4
+              ],
+              [
+                1,
+                2,
+                6
+              ],
+              [
+                1,
+                6,
+                5
+              ],
+              [
+                2,
+                3,
+                7
+              ],
+              [
+                2,
+                7,
+                6
+              ],
+              [
+                3,
+                0,
+                4
+              ],
+              [
+                3,
+                4,
+                7
+              ]
+            ],
+            "material": "exterior_grass"
           }
         ],
         "collision_meshes": [
@@ -79052,6 +79160,114 @@
               ]
             ],
             "material": "exterior_paving"
+          },
+          {
+            "name": "exterior_library_grass_slope",
+            "vertices": [
+              [
+                36.0,
+                -11.45,
+                3.75
+              ],
+              [
+                52.0,
+                -11.45,
+                7.35
+              ],
+              [
+                52.0,
+                -9.55,
+                7.35
+              ],
+              [
+                36.0,
+                -9.55,
+                3.75
+              ],
+              [
+                36.0,
+                -11.45,
+                4.0
+              ],
+              [
+                52.0,
+                -11.45,
+                7.6
+              ],
+              [
+                52.0,
+                -9.55,
+                7.6
+              ],
+              [
+                36.0,
+                -9.55,
+                4.0
+              ]
+            ],
+            "faces": [
+              [
+                0,
+                2,
+                1
+              ],
+              [
+                0,
+                3,
+                2
+              ],
+              [
+                4,
+                5,
+                6
+              ],
+              [
+                4,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                5
+              ],
+              [
+                0,
+                5,
+                4
+              ],
+              [
+                1,
+                2,
+                6
+              ],
+              [
+                1,
+                6,
+                5
+              ],
+              [
+                2,
+                3,
+                7
+              ],
+              [
+                2,
+                7,
+                6
+              ],
+              [
+                3,
+                0,
+                4
+              ],
+              [
+                3,
+                4,
+                7
+              ]
+            ],
+            "material": "exterior_grass"
           }
         ],
         "door_opacity": 0.84,
@@ -82425,6 +82641,353 @@
           "registration": "provisional footprint"
         },
         "survey_hash": "a2172efdb8173bb6b341b6e78755ec10b10b97271f4f5607776a2436ae717ebe"
+      },
+      "library_stair": {
+        "rails": [
+          {
+            "name": "library_stair_grass_handrail",
+            "a": [
+              36.0,
+              -11.45,
+              4.0
+            ],
+            "b": [
+              52.0,
+              -11.45,
+              7.6
+            ],
+            "lift": 1.0,
+            "size": 0.025
+          },
+          {
+            "name": "library_stair_grass_railbar_0",
+            "a": [
+              36.0,
+              -11.45,
+              4.0
+            ],
+            "b": [
+              52.0,
+              -11.45,
+              7.6
+            ],
+            "lift": 0.12,
+            "size": 0.009
+          },
+          {
+            "name": "library_stair_grass_railbar_1",
+            "a": [
+              36.0,
+              -11.45,
+              4.0
+            ],
+            "b": [
+              52.0,
+              -11.45,
+              7.6
+            ],
+            "lift": 0.28,
+            "size": 0.009
+          },
+          {
+            "name": "library_stair_grass_railbar_2",
+            "a": [
+              36.0,
+              -11.45,
+              4.0
+            ],
+            "b": [
+              52.0,
+              -11.45,
+              7.6
+            ],
+            "lift": 0.44,
+            "size": 0.009
+          },
+          {
+            "name": "library_stair_grass_railbar_3",
+            "a": [
+              36.0,
+              -11.45,
+              4.0
+            ],
+            "b": [
+              52.0,
+              -11.45,
+              7.6
+            ],
+            "lift": 0.6000000000000001,
+            "size": 0.009
+          },
+          {
+            "name": "library_stair_grass_railbar_4",
+            "a": [
+              36.0,
+              -11.45,
+              4.0
+            ],
+            "b": [
+              52.0,
+              -11.45,
+              7.6
+            ],
+            "lift": 0.76,
+            "size": 0.009
+          },
+          {
+            "name": "library_stair_grass_railbar_5",
+            "a": [
+              36.0,
+              -11.45,
+              4.0
+            ],
+            "b": [
+              52.0,
+              -11.45,
+              7.6
+            ],
+            "lift": 0.92,
+            "size": 0.009
+          },
+          {
+            "name": "library_grass_top_handrail",
+            "a": [
+              51.95,
+              -11.45,
+              7.6
+            ],
+            "b": [
+              51.95,
+              -9.55,
+              7.6
+            ],
+            "lift": 1.1,
+            "size": 0.025
+          },
+          {
+            "name": "library_grass_top_railbar_0",
+            "a": [
+              51.95,
+              -11.45,
+              7.6
+            ],
+            "b": [
+              51.95,
+              -9.55,
+              7.6
+            ],
+            "lift": 0.12,
+            "size": 0.009
+          },
+          {
+            "name": "library_grass_top_railbar_1",
+            "a": [
+              51.95,
+              -11.45,
+              7.6
+            ],
+            "b": [
+              51.95,
+              -9.55,
+              7.6
+            ],
+            "lift": 0.30000000000000004,
+            "size": 0.009
+          },
+          {
+            "name": "library_grass_top_railbar_2",
+            "a": [
+              51.95,
+              -11.45,
+              7.6
+            ],
+            "b": [
+              51.95,
+              -9.55,
+              7.6
+            ],
+            "lift": 0.48000000000000004,
+            "size": 0.009
+          },
+          {
+            "name": "library_grass_top_railbar_3",
+            "a": [
+              51.95,
+              -11.45,
+              7.6
+            ],
+            "b": [
+              51.95,
+              -9.55,
+              7.6
+            ],
+            "lift": 0.66,
+            "size": 0.009
+          },
+          {
+            "name": "library_grass_top_railbar_4",
+            "a": [
+              51.95,
+              -11.45,
+              7.6
+            ],
+            "b": [
+              51.95,
+              -9.55,
+              7.6
+            ],
+            "lift": 0.8400000000000001,
+            "size": 0.009
+          },
+          {
+            "name": "library_grass_top_railbar_5",
+            "a": [
+              51.95,
+              -11.45,
+              7.6
+            ],
+            "b": [
+              51.95,
+              -9.55,
+              7.6
+            ],
+            "lift": 1.02,
+            "size": 0.009
+          },
+          {
+            "name": "library_street_fence_handrail",
+            "a": [
+              45.5,
+              -9.5,
+              6.92
+            ],
+            "b": [
+              52.0,
+              -9.5,
+              7.819999999999999
+            ],
+            "lift": 1.1,
+            "size": 0.025
+          },
+          {
+            "name": "library_street_fence_railbar_0",
+            "a": [
+              45.5,
+              -9.5,
+              6.92
+            ],
+            "b": [
+              52.0,
+              -9.5,
+              7.819999999999999
+            ],
+            "lift": 0.12,
+            "size": 0.009
+          },
+          {
+            "name": "library_street_fence_railbar_1",
+            "a": [
+              45.5,
+              -9.5,
+              6.92
+            ],
+            "b": [
+              52.0,
+              -9.5,
+              7.819999999999999
+            ],
+            "lift": 0.30000000000000004,
+            "size": 0.009
+          },
+          {
+            "name": "library_street_fence_railbar_2",
+            "a": [
+              45.5,
+              -9.5,
+              6.92
+            ],
+            "b": [
+              52.0,
+              -9.5,
+              7.819999999999999
+            ],
+            "lift": 0.48000000000000004,
+            "size": 0.009
+          },
+          {
+            "name": "library_street_fence_railbar_3",
+            "a": [
+              45.5,
+              -9.5,
+              6.92
+            ],
+            "b": [
+              52.0,
+              -9.5,
+              7.819999999999999
+            ],
+            "lift": 0.66,
+            "size": 0.009
+          },
+          {
+            "name": "library_street_fence_railbar_4",
+            "a": [
+              45.5,
+              -9.5,
+              6.92
+            ],
+            "b": [
+              52.0,
+              -9.5,
+              7.819999999999999
+            ],
+            "lift": 0.8400000000000001,
+            "size": 0.009
+          },
+          {
+            "name": "library_street_fence_railbar_5",
+            "a": [
+              45.5,
+              -9.5,
+              6.92
+            ],
+            "b": [
+              52.0,
+              -9.5,
+              7.819999999999999
+            ],
+            "lift": 1.02,
+            "size": 0.009
+          }
+        ],
+        "steps": 30,
+        "rise_metres": 0.11999999999999998,
+        "tread_metres": 0.5333333333333333,
+        "stair_y": [
+          -12.95,
+          -11.45
+        ],
+        "grass_y": [
+          -11.45,
+          -9.55
+        ],
+        "wall_y": [
+          -9.6,
+          -9.4
+        ],
+        "x": [
+          36.0,
+          52.0
+        ],
+        "z": [
+          4.0,
+          7.6
+        ],
+        "crosswalk_east": 45.5,
+        "source_photos": [
+          "walk_2026-10-27/image00002.jpeg"
+        ],
+        "status": "User-described layout; step count and widths fitted, not measured"
       },
       "interactions": {
         "doors": [
@@ -109116,8 +109679,8 @@
       ]
     }
   },
-  "visual_boxes": 23873,
-  "collision_boxes": 8577,
+  "visual_boxes": 24127,
+  "collision_boxes": 8777,
   "breakable_glass": [
     {
       "name": "academic_ground_court_0_0_tail_material1_windowcut_0_windowcut_0_glass",
@@ -118885,7 +119448,7 @@
     },
     "concrete": {
       "file": "povo1_campus_collision_concrete.obj",
-      "boxes": 2564,
+      "boxes": 2622,
       "meshes": 234
     },
     "glass": {
@@ -118895,12 +119458,12 @@
     },
     "grass": {
       "file": "povo1_campus_collision_grass.obj",
-      "boxes": 8,
-      "meshes": 0
+      "boxes": 9,
+      "meshes": 1
     },
     "metal": {
       "file": "povo1_campus_collision_metal.obj",
-      "boxes": 3633,
+      "boxes": 3771,
       "meshes": 6
     },
     "tile": {
@@ -118910,7 +119473,7 @@
     },
     "wood": {
       "file": "povo1_campus_collision_wood.obj",
-      "boxes": 1722,
+      "boxes": 1725,
       "meshes": 0
     }
   },
@@ -161889,6 +162452,114 @@
           ]
         ],
         "material": "exterior_paving"
+      },
+      {
+        "name": "exterior_library_grass_slope",
+        "vertices": [
+          [
+            36.0,
+            -11.45,
+            3.75
+          ],
+          [
+            52.0,
+            -11.45,
+            7.35
+          ],
+          [
+            52.0,
+            -9.55,
+            7.35
+          ],
+          [
+            36.0,
+            -9.55,
+            3.75
+          ],
+          [
+            36.0,
+            -11.45,
+            4.0
+          ],
+          [
+            52.0,
+            -11.45,
+            7.6
+          ],
+          [
+            52.0,
+            -9.55,
+            7.6
+          ],
+          [
+            36.0,
+            -9.55,
+            4.0
+          ]
+        ],
+        "faces": [
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            0,
+            3,
+            2
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            5
+          ],
+          [
+            0,
+            5,
+            4
+          ],
+          [
+            1,
+            2,
+            6
+          ],
+          [
+            1,
+            6,
+            5
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            7,
+            6
+          ],
+          [
+            3,
+            0,
+            4
+          ],
+          [
+            3,
+            4,
+            7
+          ]
+        ],
+        "material": "exterior_grass"
       }
     ],
     "collision_meshes": [
@@ -195119,6 +195790,114 @@
           ]
         ],
         "material": "exterior_paving"
+      },
+      {
+        "name": "exterior_library_grass_slope",
+        "vertices": [
+          [
+            36.0,
+            -11.45,
+            3.75
+          ],
+          [
+            52.0,
+            -11.45,
+            7.35
+          ],
+          [
+            52.0,
+            -9.55,
+            7.35
+          ],
+          [
+            36.0,
+            -9.55,
+            3.75
+          ],
+          [
+            36.0,
+            -11.45,
+            4.0
+          ],
+          [
+            52.0,
+            -11.45,
+            7.6
+          ],
+          [
+            52.0,
+            -9.55,
+            7.6
+          ],
+          [
+            36.0,
+            -9.55,
+            4.0
+          ]
+        ],
+        "faces": [
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            0,
+            3,
+            2
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            5
+          ],
+          [
+            0,
+            5,
+            4
+          ],
+          [
+            1,
+            2,
+            6
+          ],
+          [
+            1,
+            6,
+            5
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            7,
+            6
+          ],
+          [
+            3,
+            0,
+            4
+          ],
+          [
+            3,
+            4,
+            7
+          ]
+        ],
+        "material": "exterior_grass"
       }
     ],
     "door_opacity": 0.84,
@@ -195363,7 +196142,7 @@
       "junctions": "Closed collision matches rendered road disks; flat footway bends filled"
     }
   },
-  "exterior_collision_meshes": 271,
+  "exterior_collision_meshes": 272,
   "connection": {
     "status": "Compact Povo 2 bridge arrival with enclosed stairs down",
     "floor_local_metres": 11.2,
@@ -205685,13 +206464,13 @@
     }
   },
   "artifacts": {
-    "povo1_campus_collision_wood.obj": "f9d034c560958dd61c7997eed9225b303a73d9106adc5b2136117451c170d45d",
+    "povo1_campus_collision_wood.obj": "9bd945420a424dd10f17eaa833ba2dbb71f17dd71652071af318a2dd85050a4a",
     "povo1_campus_collision_asphalt.obj": "bcfe4769bc3fa0274191cc48cadaee193f8c42b867fd841a1cae7718faf84afb",
-    "povo1_campus_collision_metal.obj": "813164b6843303a335f077756e18b7bb6cbcc5431c94ed25a038dde25081df51",
-    "povo1_campus_collision.obj": "4f3668461e86070e62764cf7ad6c54801234d42dbbc83b0fc7e9d79b60195568",
-    "povo1_campus_collision_concrete.obj": "49a438032d7e4b5fb1ba7b4a1c10f6a5bd114d3414886180f4beac260de8691c",
-    "povo1_campus.obj": "56de15fcf0bb555a3347aa53dc39c2e758b140b2f8f2e4110f31a180c3099c05",
-    "povo1_campus_collision_grass.obj": "954b4382c75a954e5eba504c3e6594019cd1d6d7a6f01999fd794a50a69a9430",
+    "povo1_campus_collision_metal.obj": "91ba71fe64a4640292d1bfb46af19f6b3929a619ec086f0975ad90104ff80af2",
+    "povo1_campus_collision.obj": "faf69f9bf5ba3d9d4b55995c3a6ec76c536c82fe27e26922f2f8237841c9782c",
+    "povo1_campus_collision_concrete.obj": "62caec37a2032ea8aad70a99b581b80393f24fd5df9601473a70a37c2d435a47",
+    "povo1_campus.obj": "3d274c2fc253a3576e32d95de588dfb121af7e22925d6262ee469c9c24d94b6c",
+    "povo1_campus_collision_grass.obj": "81bb94a3e882fef78051f39015f0f7e20c0ef8e864c2d03b946f16f3b87c8f6a",
     "povo1_campus_collision_tile.obj": "b2e2894807c46b6552305fa9076793d5f04914caffab17600f079e340944bc79",
     "povo1_campus_collision_glass.obj": "ca4c4fcc1ec59e2eb477ba746011f8198456ffb4828fc138883f0932d58fb609"
   }

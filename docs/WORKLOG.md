@@ -1621,3 +1621,23 @@ plan 19 (and checked on plans 10 and 22):
   set back from the window so the stair door stays clear.
 
 All 213 source tests pass; model exports were regenerated. Nothing compiled.
+
+## 28 October 2026 — Library stair, sloping grass and street wall
+
+The strip between the bridge road's south sidewalk and the library's north
+facade was a bare 2.75 m pit. From the user's description and photo 2 of the
+27 October walk (`tools/povo_library_stair.py`):
+
+- Red stair along the whole library north side: 30 steps of 0.12 m from the
+  street corner (7.6 m) at the library's north-east corner down to the
+  courtyard (4.0 m), with a paved approach to the plaza.
+- Grass strip with five small trees, flat at courtyard level and rising with
+  the stair; a railing and hedge keep it apart from the stair, and a fence
+  closes its top. As a game mechanic players can climb it from the courtyard.
+- Wall with a metal fence along the sidewalk from the library corner to the
+  crosswalk; a low edge continues west of it. Two generic road trees that
+  stood in the pit are replaced by the grass trees.
+
+All 217 source tests pass, including walks up the stair and the grass and
+checks of the railing and fence. Model exports were regenerated; nothing
+was compiled.

@@ -643,11 +643,14 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         try:
             from .povo2_sketch import extend as apply_sketch
             from .povo_pavement import extend as repair_pavement
+            from .povo_library_stair import extend as add_library_stair
         except ImportError:
             from povo2_sketch import extend as apply_sketch
             from povo_pavement import extend as repair_pavement
+            from povo_library_stair import extend as add_library_stair
         boxes=apply_sketch(boxes,bridge_levels)
         boxes=repair_pavement(boxes,bridge_levels,root)
+        boxes=add_library_stair(boxes,bridge_levels)
     return settings,config,boxes,levels,stair
 
 
@@ -850,6 +853,7 @@ def all_rails(stair,levels):
     rails+=link.get('stair',{}).get('rails',[])
     rails+=link.get('povo2',{}).get('stairs',{}).get('rails',[])
     rails+=[r for wing in levels[0].get('wings',{}).get('stairs',[]) for r in wing.get('rails',[])]
+    rails+=levels[0].get('library_stair',{}).get('rails',[])
     return rails
 
 
