@@ -94,3 +94,7 @@ Catalogue IDs P091–P117 retain the exported source filenames under `walk_2026-
 44 original user-supplied photographs are retained unchanged in [walk_2026-10-27](walk_2026-10-27/README.md), with original filenames and SHA-256 hashes in its [manifest](walk_2026-10-27/manifest.json). Photos 03 and 29 were not supplied. The full user location guide and the confirmed 43-left-to41/42 garden route are preserved there. No additional redistribution licence is assumed.
 
 Canonical floor names: Povo 1 -1 entrance/A1xx, 0 A2xx, +1 offices/bridge; Povo 2 0 entrance and +1 bridge; amenities local 0/1 align with Povo 1 -1/0. Photo 4 is user-confirmed A103; the A103–A106 family correction retains approximate compass/metric registration. Photo 37's printed caption remains unresolved. Photo 46's right circled lab has one corridor entrance and a separate red-star courtyard exit, as confirmed by the user; the blue-obscured north door position remains uncertain. The [survey index](../../../docs/POVO_SURVEY_20261027.md) distinguishes active source geometry from separately traced full Povo 2 plans and records evidence limits.
+
+## Walk of 28 October 2026
+
+Five further user photographs are retained unchanged in [walk_2026-10-28](walk_2026-10-28/README.md), with hashes in its [manifest](walk_2026-10-28/manifest.json). Photo 01 shows the Povo1 floor 1 courtyard terrace paving; photos 02–05 show the Povo1 floor 0 coffee area behind the courtyard stair door.

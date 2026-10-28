@@ -47,7 +47,7 @@ COLORS = {**interior.COLORS, 'stair_red': (155, 43, 38),
           'sanitary_water': (72, 96, 102), **POVO2_COLORS, **FIXTURE_COLORS,
           **{'exterior_'+n:c for n,c in EXTERIOR_COLORS.items()},
           'canteen_orange': (220,109,47), 'canteen_blue': (43,81,142), 'floor_yard_grass': (95,121,65),
-          'floor_grating': (122,128,130), 'floor_terrace': (176,173,165)}
+          'floor_grating': (122,128,130), 'floor_terrace': (148,144,138)}
 
 
 def derived_config(root=ROOT):
@@ -912,14 +912,16 @@ def export(root=ROOT):
     # Keep original source bytes reproducible alongside derived geometry.
     survey_inputs=['config/povo1_survey.json','config/povo2_survey.json',
                    'config/povo_amenities_survey.json','config/povo_wings.json',
+                   'data/reference/povo_photos/walk_2026-10-28/manifest.json',
                    'data/reference/povo_photos/walk_2026-10-27/manifest.json']
-    manifest_file=root/survey_inputs[-1]
-    walk_manifest=json.loads(manifest_file.read_text())
-    for source in walk_manifest.get('files',[]):
-        relative=source.get('file') or source.get('path')
-        if relative:
-            photo=manifest_file.parent/relative
-            if photo.is_file():survey_inputs.append(photo.relative_to(root).as_posix())
+    for manifest in survey_inputs[-2:]:
+        manifest_file=root/manifest
+        walk_manifest=json.loads(manifest_file.read_text())
+        for source in walk_manifest.get('files',[]):
+            relative=source.get('file') or source.get('path')
+            if relative:
+                photo=manifest_file.parent/relative
+                if photo.is_file():survey_inputs.append(photo.relative_to(root).as_posix())
     metadata['inputs'].update({p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in survey_inputs})
     metadata['interactions']=levels[0]['interactions']
     metadata['deathmatch_spawns']=spawns

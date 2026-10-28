@@ -1589,3 +1589,18 @@ The user checked photos5–10, 19, 22–30 and confirmed the courtyard layout:
 All 212 source tests pass, including a full walk of both stair storeys and new
 courtyard checks. Model exports were regenerated. Nothing was compiled; the
 winter assets and the Windows build are still to do.
+
+## 28 October 2026 — Coffee area and terrace paving photos
+
+The user uploaded five photos (`data/reference/povo_photos/walk_2026-10-28/`,
+renamed from `walk_2026_10_28` to match the other walks, with a README,
+manifest and `LOCATIONS.md` section).
+
+- Photos 2–5: the floor-0 coffee area gets a pillar beside the stair door, six
+  vending machines on its east wall, four recycling bins under the courtyard
+  window, two light-wood tables and an extinguisher, replacing the two
+  placeholder machines. The corridor-to-stair line stays clear.
+- Photo 1: `floor_terrace` becomes grey exposed-aggregate slabs with dark joints.
+- The new manifest and its photo hashes join the export provenance inputs.
+
+All 213 source tests pass; model exports were regenerated. Nothing compiled.

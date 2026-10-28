@@ -46,6 +46,18 @@ class CourtyardTests(unittest.TestCase):
         self.assertAlmostEqual(coffee[2], female[0], places=6)
         self.assertTrue(coffee[0] < DOOR[0] and DOOR[1] < coffee[2])
 
+    def test_coffee_area_is_furnished_from_the_28_october_photos(self):
+        prefix = 'academic_first_f_south_coffee_'
+        names = [n[len(prefix):] for n, *_ in self.boxes if n.startswith(prefix)]
+        self.assertEqual(sum(n.startswith('vending_') and '_finish_' not in n for n in names), 6)
+        self.assertEqual(sum(n.startswith('recycling_bin_') for n in names), 4)
+        self.assertEqual(sum(n.endswith('_top') for n in names), 2)
+        # Nothing stands in the line between the corridor door and the stair door.
+        z = self.zs[1]
+        blocking = [n for n, lo, hi, m in self.physics if n.startswith(prefix)
+                    and overlaps(lo, hi, (DOOR[0]+.2, -85.9, z+.05), (DOOR[1]-.2, self.walls[1], z+1.8))]
+        self.assertFalse(blocking)
+
     def test_terraces_are_open_to_the_sky_and_paved(self):
         z = self.zs[-1]
         terraces = self.stair['courtyard']['terraces']

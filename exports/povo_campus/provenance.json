@@ -109044,8 +109044,8 @@
       ]
     }
   },
-  "visual_boxes": 23747,
-  "collision_boxes": 8539,
+  "visual_boxes": 23775,
+  "collision_boxes": 8559,
   "breakable_glass": [
     {
       "name": "academic_ground_court_0_0_tail_material1_windowcut_0_windowcut_0_glass",
@@ -118008,7 +118008,13 @@
     "config/povo2_survey.json": "e9ff8dff6b5f12261d9ef9fc11c3bca33b77aa137bcfd81d51370a4087734d46",
     "config/povo_amenities_survey.json": "a2172efdb8173bb6b341b6e78755ec10b10b97271f4f5607776a2436ae717ebe",
     "config/povo_wings.json": "839e5a96c4a61d3d0c6518dd46755b585a261b18cd02e2e66523739252b760b1",
+    "data/reference/povo_photos/walk_2026-10-28/manifest.json": "1ff5862fad5dec454242e633ba22a939d4cfc4c67ef55a37b831e95cebb654a6",
     "data/reference/povo_photos/walk_2026-10-27/manifest.json": "20338d639ff8b6f63b8929aaef6c744ae1d96691c0396c68d1461142db871b82",
+    "data/reference/povo_photos/walk_2026-10-28/wetransfer_image00001-jpeg_2026-10-28_1107/image00001.jpeg": "f6dfa7e1d68bcb49694398ae048aa7d74a6f06416a95710bd70cb3b432f8973d",
+    "data/reference/povo_photos/walk_2026-10-28/wetransfer_image00001-jpeg_2026-10-28_1107/image00002.jpeg": "536d4484dce55470e94343ad21a8d40b99a3e42d50d219143bd4f2620cc56d64",
+    "data/reference/povo_photos/walk_2026-10-28/wetransfer_image00001-jpeg_2026-10-28_1107/image00003.jpeg": "47e71b46bffadcdcdc434b3e25ad5c0bf450d89956e15c5de57ee6ba352969df",
+    "data/reference/povo_photos/walk_2026-10-28/wetransfer_image00001-jpeg_2026-10-28_1107/image00004.jpeg": "64e58645838a1e125250eee2a505426b9e34656f6896c27d2bcb5d00043d6584",
+    "data/reference/povo_photos/walk_2026-10-28/wetransfer_image00001-jpeg_2026-10-28_1107/image00005.jpeg": "97ba32d1cd88ad5c156167e6828436051308392852782af26d961d9d2718f86e",
     "data/reference/povo_photos/walk_2026-10-27/wetransfer_image00001-jpeg_2026-10-27_1300/image00001.jpeg": "0a7b6664a01ab684e41d3059167fa631ccef7316f99616d218021e6ed6b74a70",
     "data/reference/povo_photos/walk_2026-10-27/wetransfer_image00001-jpeg_2026-10-27_1300/image00002.jpeg": "88c9a037f4781c979e2d334270651d4cd6fcb93d5bcadd0b52f7694a0c792025",
     "data/reference/povo_photos/walk_2026-10-27/wetransfer_image00001-jpeg_2026-10-27_1300/image00004.jpeg": "057fa650c8b6f3f1f792fb837758c31d78fb9a6ecaf4a6454e5e87b8f59e7a8f",
@@ -118807,7 +118813,7 @@
     },
     "concrete": {
       "file": "povo1_campus_collision_concrete.obj",
-      "boxes": 2585,
+      "boxes": 2594,
       "meshes": 234
     },
     "glass": {
@@ -118822,7 +118828,7 @@
     },
     "metal": {
       "file": "povo1_campus_collision_metal.obj",
-      "boxes": 3578,
+      "boxes": 3587,
       "meshes": 6
     },
     "tile": {
@@ -118832,7 +118838,7 @@
     },
     "wood": {
       "file": "povo1_campus_collision_wood.obj",
-      "boxes": 1718,
+      "boxes": 1720,
       "meshes": 0
     }
   },
@@ -205607,12 +205613,12 @@
     }
   },
   "artifacts": {
-    "povo1_campus_collision_wood.obj": "459f5c4f6d6e3d320c0a91784f8312ad9ca01c3086c1e495ffa62cf688b64a8e",
+    "povo1_campus_collision_wood.obj": "e9a106c6907de082fed29c3cc59351eecf1f7d7f8e31f133ee1f070ca026789c",
     "povo1_campus_collision_asphalt.obj": "bcfe4769bc3fa0274191cc48cadaee193f8c42b867fd841a1cae7718faf84afb",
-    "povo1_campus_collision_metal.obj": "f99d20300174416bee1465b26246d1277e92128c7114e1de8c2ff048cdb8a3c3",
-    "povo1_campus_collision.obj": "7a273b2477214262b1e7eeb38b6374320544239b1cb84b01c75099aa69974de1",
-    "povo1_campus_collision_concrete.obj": "0318cdeb86d475ceacaa632e75b330ba79acf015ce26d322c2dfe7d57651a0fa",
-    "povo1_campus.obj": "668ad620dcceaaf4e19553e353924c9a6bc3462433d035ef4288c169a170ef9c",
+    "povo1_campus_collision_metal.obj": "9e77d1b9979664a0b1b32c6cf50d670b0a0dba0802dd9e43d5a2de5ee85f94d1",
+    "povo1_campus_collision.obj": "0eebada677fb227b2b4891d7244487a4a1324c8e8eb4471c17f3efd4ac7f2a14",
+    "povo1_campus_collision_concrete.obj": "c834c8be26fa6fa162c28a1ead35365fdb328fb0b41630686c6177a5d352154a",
+    "povo1_campus.obj": "f9746322c43a25870e13a1ab35fe0cbf415cbe68b5afed94ef0230ac862bac51",
     "povo1_campus_collision_grass.obj": "954b4382c75a954e5eba504c3e6594019cd1d6d7a6f01999fd794a50a69a9430",
     "povo1_campus_collision_tile.obj": "3f941b7fe2346250c91ca3002dad159d013d53f0b68ac38e61bf8b9532059f4e",
     "povo1_campus_collision_glass.obj": "ca4c4fcc1ec59e2eb477ba746011f8198456ffb4828fc138883f0932d58fb609"

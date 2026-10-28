@@ -185,16 +185,40 @@ def planters(boxes, levels, origin):
     return result, [dict(centre=[x, y], size=PLANTER_SIZE, z=z) for x, y in PLANTERS]
 
 
+# Coffee area from 28 October photos 2-5: water dispenser, four snack/drink
+# machines and a green one along the side wall; four recycling bins under the
+# courtyard window; two light-wood tables. Machine labels are not reproduced.
+VENDING = ('office_dark',)*5+('p2_accent_green',)
+BINS = ('canteen_orange', 'door_closed', 'canteen_blue', 'p2_accent_green')
+
+
 def coffee_room(boxes, levels, origin):
-    """Two vending machines in the floor-0 coffee room beside the stair door."""
+    """Fit out the floor-0 coffee area behind the courtyard stair door."""
     level = levels[1]; z = level['floor_elevation_metres']-origin[2]
     room = next((r for r in level['rooms'] if r['id'] == 'f_south_coffee'), None)
     if room is None:
         return boxes
     a, b, c, d = room['footprint_local_metres']
     result = list(boxes)
-    for i, y in enumerate((b+2.2, b+3.2)):
-        result.append((f'academic_first_f_south_coffee_vending_{i}', (a+.12, y, z), (a+.9, y+.9, z+1.85), 'office_dark'))
+    def add(name, lo, hi, mat):
+        result.append(('academic_first_f_south_coffee_'+name, tuple(lo), tuple(hi), mat))
+    add('pillar', (DOOR[0]-.45, d-.5, z), (DOOR[0]-.07, d, z+3.3), 'wall')
+    y = d-.6
+    for i, mat in enumerate(VENDING):
+        width = .45 if i == 0 else .75
+        add(f'vending_{i}', (c-.85, y-width, z), (c-.05, y, z+1.85), mat)
+        add(f'vending_{i}_finish_display', (c-.87, y-width+.08, z+.9), (c-.85, y-.08, z+1.75), 'office_screen')
+        y -= width+.03
+    for i, mat in enumerate(BINS):
+        y = d-.6-i*.33
+        add(f'recycling_bin_{i}', (a+.05, y-.3, z), (a+.45, y, z+.8), mat)
+    for i, y in enumerate((b+4.4, b+1.6)):
+        lo, hi = (a+.2, y), (DOOR[0]+.05, y+1.6)
+        add(f'table_{i}_top', (lo[0], lo[1], z+.71), (hi[0], hi[1], z+.75), 'floor_wood')
+        for j, (x, yy) in enumerate(((lo[0]+.05, lo[1]+.05), (hi[0]-.09, lo[1]+.05),
+                                     (lo[0]+.05, hi[1]-.09), (hi[0]-.09, hi[1]-.09))):
+            add(f'table_{i}_leg_{j}', (x, yy, z), (x+.04, yy+.04, z+.71), 'window_frame')
+    add('extinguisher', (a, b+.6, z+.15), (a+.12, b+.75, z+.7), 'door_pushbar')
     return result
 
 

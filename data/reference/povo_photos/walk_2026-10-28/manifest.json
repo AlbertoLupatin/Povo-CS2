@@ -1,0 +1,40 @@
+{
+  "source": "User 28 October 2026 photo walk archive",
+  "files": [
+    {
+      "file": "wetransfer_image00001-jpeg_2026-10-28_1107/image00001.jpeg",
+      "bytes": 6696111,
+      "sha256": "f6dfa7e1d68bcb49694398ae048aa7d74a6f06416a95710bd70cb3b432f8973d",
+      "captured": "2026:10:28 12:06:13",
+      "subject": "Povo1 floor 1 courtyard terrace paving through the corridor glazing: square exposed-aggregate concrete slabs with dark joints, white upstand on the right."
+    },
+    {
+      "file": "wetransfer_image00001-jpeg_2026-10-28_1107/image00002.jpeg",
+      "bytes": 4592171,
+      "sha256": "536d4484dce55470e94343ad21a8d40b99a3e42d50d219143bd4f2620cc56d64",
+      "captured": "2026:10:28 12:05:21",
+      "subject": "Povo1 floor 0 coffee area from its corridor: courtyard curtain wall, pillar, glass door to the steel emergency stair, four recycling bins under the window."
+    },
+    {
+      "file": "wetransfer_image00001-jpeg_2026-10-28_1107/image00003.jpeg",
+      "bytes": 6065259,
+      "sha256": "47e71b46bffadcdcdc434b3e25ad5c0bf450d89956e15c5de57ee6ba352969df",
+      "captured": "2026:10:28 12:05:13",
+      "subject": "Povo1 floor 0 coffee area: vending machines against the side wall near the courtyard window, two light-wood tables, terrazzo floor, extinguisher on the entrance pillar."
+    },
+    {
+      "file": "wetransfer_image00001-jpeg_2026-10-28_1107/image00004.jpeg",
+      "bytes": 3151675,
+      "sha256": "64e58645838a1e125250eee2a505426b9e34656f6896c27d2bcb5d00043d6584",
+      "captured": "2026:10:28 12:05:05",
+      "subject": "Povo1 floor 0 coffee area: four black vending machines, a water dispenser and a green machine along the side wall; stair door beside the window."
+    },
+    {
+      "file": "wetransfer_image00001-jpeg_2026-10-28_1107/image00005.jpeg",
+      "bytes": 5038622,
+      "sha256": "97ba32d1cd88ad5c156167e6828436051308392852782af26d961d9d2718f86e",
+      "captured": "2026:10:28 12:05:04",
+      "subject": "Povo1 floor 0 coffee area entrance from the main corridor, around the extinguisher pillar; corridor continues to the right."
+    }
+  ]
+}

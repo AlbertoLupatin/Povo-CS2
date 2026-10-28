@@ -39,6 +39,13 @@ def png(color, pattern='plain', size=256):
         elif pattern == 'perforated':
             if (x % 12 - 6) ** 2 + (y % 12 - 6) ** 2 < 5:
                 offset -= 25
+        elif pattern == 'aggregate':
+            # Exposed-aggregate concrete slab: dense pebbles, dark joint at the edge.
+            offset = (noise-.5)*30
+            if noise > .9:
+                offset += 28
+            if x < 4 or y < 4:
+                offset -= 48
         elif pattern == 'grating':
             # Open steel grating: dark gaps between 4 px bars.
             offset = (noise-.5)*4
@@ -63,7 +70,7 @@ def write_materials(directory, prefix, colors):
                    'floor_wood': 'wood', 'seat_wood': 'wood',
                    'ceiling_panel': 'ceiling', 'desk_panel': 'perforated',
                    'floor_p2_tile': 'tile', 'floor_p2_asphalt': 'asphalt',
-                   'floor_terrace': 'tile', 'floor_grating': 'grating'}.get(name, 'plain')
+                   'floor_terrace': 'aggregate', 'floor_grating': 'grating'}.get(name, 'plain')
         (directory / (name + '.png')).write_bytes(png(color, pattern))
         roughness = 215 if name in ('wall', 'ceiling_panel', 'courtyard_wall') else 175
         if name in ('metal_dark', 'window_frame', 'floor_grating'):
