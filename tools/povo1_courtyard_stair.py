@@ -5,7 +5,9 @@ south end. Its landings stack at one plan point: outside A107 on -1, the coffee
 room on 0 and the short ICT-panel corridor on 1 (photos 26-28). Photos 5-8 and
 23-25 show an exposed galvanised frame with cross bracing and grating treads.
 On floor 1 the courtyard's long sides are two separate open-air paved terraces
-behind glass, with railings over the court and no doors (photos 23, 24, 30).
+behind glass, with railings over the court (photos 23, 24, 30). Fire plan 22
+draws a double door from the corridor onto each terrace near both ends; the
+user confirms they exist.
 Planters with small trees stand on the -1 courtyard paving (photos 5-8).
 
 Dimensions are scaled from the fire plans, not photogrammetry: two 12-riser
@@ -34,6 +36,11 @@ PLANTER_SIZE = 1.4
 WEST_TERRACE, EAST_TERRACE = (-10.73, -6.39), (7.99, 12.6)
 # The Povo 1 lift shaft rises through the east terrace; it stays enclosed.
 LIFT_SPAN = (-69.3, -67.0)
+# Corridor-to-terrace double doors, read off fire plan 22 (about 1.6 m clear).
+# West ones sit against the terrace ends; east ones further in, the south one
+# just short of the lift shaft.
+TERRACE_DOORS = {'west': ((-75.6, -74.0), (-47.0, -45.4)),
+                 'east': ((-72.1, -70.5), (-50.8, -49.2))}
 
 
 def _clear(boxes, hole, materials=('wall', 'courtyard_wall', 'window_glass', 'window_frame')):
@@ -130,6 +137,20 @@ def _glass_wall(add, prefix, start, end, z, axis):
         box(f'frame_{i}', a-.025, a+.025, z+.1, z+3.05, 'window_frame', .07)
 
 
+def _glass_wall_with_doors(add, prefix, x, start, end, z, doors):
+    """Corridor glazing along y with framed open doorways; transom glass above each."""
+    edges = [start]+[y for door in doors if start < door[0] < end for y in door]+[end]
+    for k, (a, b) in enumerate(zip(edges[::2], edges[1::2])):
+        _glass_wall(add, f'{prefix}_{k}', (x, a), (x, b), z, 1)
+    for k, (a, b) in enumerate(d for d in doors if start < d[0] < end):
+        name = f'{prefix}_door_{k}'
+        add(name+'_finish_jamb_south', (x-.12, a-.06, z), (x+.12, a, z+2.26))
+        add(name+'_finish_jamb_north', (x-.12, b, z), (x+.12, b+.06, z+2.26))
+        add(name+'_finish_head', (x-.12, a-.06, z+2.2), (x+.12, b+.06, z+2.26))
+        add(name+'_transom', (x-.05, a, z+2.26), (x+.05, b, z+3.05), 'window_glass')
+        add(name+'_lintel', (x-.09, a, z+3.05), (x+.09, b, z+3.35), 'wall')
+
+
 def terraces(boxes, levels, origin, rails):
     """Floor-1 courtyard bands become open, paved terraces behind glass."""
     upper = levels[-1]; z = upper['floor_elevation_metres']-origin[2]
@@ -150,24 +171,26 @@ def terraces(boxes, levels, origin, rails):
         edge = x+inward*.1
         add(side+'_upstand', (min(x, x+inward*.2), y0+.09, z), (max(x, x+inward*.2), y1-.09, z+.25), 'wall')
         railing(add, rails, side+'_edge', (edge, y0+.09, z+.25), (edge, y1-.09, z+.25))
-    # Glass towards each corridor and across both terrace ends; no doors.
+    # Glass towards each corridor, with plan 22's double doors, and across both terrace ends.
     (wa, wb), (ea, eb) = WEST_TERRACE, EAST_TERRACE
-    _glass_wall(add, 'west_corridor', (wa, y0), (wa, y1), z, 1)
-    _glass_wall(add, 'east_corridor_south', (eb, y0), (eb, LIFT_SPAN[0]), z, 1)
-    _glass_wall(add, 'east_corridor_north', (eb, LIFT_SPAN[1]), (eb, y1), z, 1)
+    _glass_wall_with_doors(add, 'west_corridor', wa, y0, y1, z, TERRACE_DOORS['west'])
+    _glass_wall_with_doors(add, 'east_corridor_south', eb, y0, LIFT_SPAN[0], z, TERRACE_DOORS['east'])
+    _glass_wall_with_doors(add, 'east_corridor_north', eb, LIFT_SPAN[1], y1, z, TERRACE_DOORS['east'])
     for i, y in enumerate(LIFT_SPAN):  # close the strip between shaft and glazing
         add(f'east_lift_closer_{i}', (12.45, y-.05, z), (eb+.05, y+.05, z+3.35), 'wall')
     for side, (a, b) in (('west', (wa+.05, wb)), ('east', (ea, eb-.05))):
         _glass_wall(add, side+'_south_end', (a, y0), (b, y0), z, 0)
         _glass_wall(add, side+'_north_end', (a, y1), (b, y1), z, 0)
-    # Benches against the glazing (photos 23, 30).
-    for side, xs, ys in (('west', (wa+.15, wa+.6), (-66.0, -56.0)), ('east', (eb-.6, eb-.15), (-60.0, -52.0))):
+    # Benches against the glazing (photos 23, 30), clear of the doors.
+    for side, xs, ys in (('west', (wa+.15, wa+.6), (-66.0, -56.0)), ('east', (eb-.6, eb-.15), (-60.0, -54.0))):
         for i, y in enumerate(ys):
             add(f'{side}_bench_{i}_seat', (xs[0], y, z+.43), (xs[1], y+1.6, z+.48), 'seat_wood')
             for j, yy in enumerate((y+.1, y+1.42)):
                 add(f'{side}_bench_{i}_leg_{j}', (xs[0]+.05, yy, z), (xs[1]-.05, yy+.08, z+.43))
     return result, dict(west=list(WEST_TERRACE), east=list(EAST_TERRACE), y=[y0, y1], z=z,
-                        status='Open-air paved terraces; glazed towards the corridors, no doors')
+                        doors={side: [list(d) for d in spans] for side, spans in TERRACE_DOORS.items()},
+                        status='Open-air paved terraces; glazed towards the corridors with the fire-plan-22 '
+                               'double doors, user-confirmed')
 
 
 def planters(boxes, levels, origin):

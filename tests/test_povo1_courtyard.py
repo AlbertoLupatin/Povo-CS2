@@ -3,7 +3,7 @@ import unittest
 
 from tools.build_povo_campus import build_geometry, collision_boxes
 from tools.povo1_courtyard_stair import (DOOR, EAST, FLIGHT_TREADS, LANDING_EDGE, LIFT_SPAN, PLANTERS,
-                                         PLANTER_SIZE, WEST)
+                                         PLANTER_SIZE, TERRACE_DOORS, WEST)
 
 
 def overlaps(lo, hi, a, b):
@@ -82,18 +82,31 @@ class CourtyardTests(unittest.TestCase):
             floors = {m for n, lo, hi, m in self.boxes if n.startswith(f'academic_upper_{side}_terrace_0')}
             self.assertEqual(floors, {'floor_terrace'})
 
-    def test_terraces_are_glazed_from_the_corridors_without_doors(self):
+    def test_terraces_are_glazed_from_the_corridors_with_plan_22_doors(self):
         z = self.zs[-1]
         terraces = self.stair['courtyard']['terraces']
         y0, y1 = terraces['y']
-        for x in (terraces['west'][0], terraces['east'][1]):
-            for i in range(1, 30):
-                y = y0+(y1-y0)*i/30
+        for side, x in (('west', terraces['west'][0]), ('east', terraces['east'][1])):
+            doors = TERRACE_DOORS[side]
+            for i in range(1, 60):
+                y = y0+(y1-y0)*i/60
                 if x > 0 and LIFT_SPAN[0]-.1 <= y <= LIFT_SPAN[1]+.1:
                     continue  # the enclosed lift shaft is the wall here
+                if any(a-.1 <= y <= b+.1 for a, b in doors):
+                    continue
                 solid = [m for n, lo, hi, m in self.physics if lo[0] <= x <= hi[0] and lo[1] <= y <= hi[1]
                          and lo[2] <= z+1.5 <= hi[2]]
                 self.assertTrue(solid, (x, y))
+            # A standing player walks from the corridor through each doorway onto the terrace.
+            for a, b in doors:
+                lo, hi = (x-1.0, a+.1, z+.05), (x+1.0, b-.1, z+1.85)
+                blocking = [n for n, l, h, m in self.physics if overlaps(l, h, lo, hi)]
+                self.assertFalse(blocking, (side, a, b, blocking))
+                for dx in (-.8, .8):
+                    floor = [n for n, l, h, m in self.physics if l[0] <= x+dx <= h[0] and l[1] <= (a+b)/2 <= h[1]
+                             and abs(h[2]-z) < .05]
+                    self.assertTrue(floor, (side, a, dx))
+        self.assertEqual(terraces['doors'], {s: [list(d) for d in v] for s, v in TERRACE_DOORS.items()})
         panes = [n for n, lo, hi, m in self.boxes if n.startswith('p1_courtyard_terrace_') and m == 'window_glass']
         self.assertGreater(len(panes), 20)
 

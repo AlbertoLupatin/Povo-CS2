@@ -1642,3 +1642,22 @@ facade was a bare 2.75 m pit. From the user's description and photo 2 of the
 All 217 source tests pass, including walks up the stair and the grass and
 checks of the railing and fence. Model exports were regenerated; nothing
 was compiled.
+
+
+## 28 October 2026 — Povo 1 floor-1 terrace doors from fire plan 22
+
+The user confirms that the double doors drawn on fire plan 22 between the
+floor-1 corridors and the two courtyard terraces exist; they had been left out
+in favour of breaking the glass. `tools/povo1_courtyard_stair.py` now splits
+each corridor glazing around framed open doorways (about 1.6 m clear, transom
+glass above), two per terrace: west at y -75.6/-74.0 and -47.0/-45.4 against
+the terrace ends, east at y -72.1/-70.5 and -50.8/-49.2. The south east door
+stays clear of the lift shaft. One east bench moved 2 m south to clear the
+north door.
+
+The courtyard test now walks a standing player through all four doorways and
+checks the glazing is otherwise solid; all 9 courtyard tests pass. In
+`test_map_entities` and `test_playtest_corrections`, the only failure is the
+existing Povo 2 internal-stair support check, unchanged by this edit. Exports
+were not regenerated, and nothing was compiled, because another agent is
+regenerating Povo 2 at the same time.
