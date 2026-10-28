@@ -46,7 +46,9 @@ certify the revised geometry.
 - [x] Re-run the exterior walking checks (`python tools/playtest_povo_exterior.py`
       in a loaded solo session); both door banks must still pass.
 - [ ] Bots: they don't path through intact windows, and they get through the
-      entrance doors (touching a door also opens it).
+      entrance doors. Since 28 October the door sensors use spawnflags 1 instead
+      of 4097 (4096 is Source's "Disallow Bots"), so bots should open them from
+      the sensor like players; confirm after the next build.
 - [x] Stairs: normal walking up and down all four Povo 1 three-flight cores,
       Povo 2 from +1 to -2, and both library/canteen stairs.
 - [ ] Stairs: visually check red floors and all well railings.
@@ -58,7 +60,9 @@ certify the revised geometry.
 - [ ] Lift: in the shaft right of the reception, climb the ladder from the
       ground floor and step off onto the upper ledge, then climb back down.
       Check the ladder surface lines up with the visible rungs.
-- [ ] Lift: bots and the nav mesh handle the ladder (or ignore it safely).
+- [ ] Lift: bots and the nav mesh handle the ladder (or ignore it safely). The
+      winter compile reported two unconnected ladder tops, so bots probably
+      ignore both ladders; check that none stalls at a shaft.
 - [ ] Povo 2 lift (beside the stair door): climb from -1 to ground and on to
       +1, stepping off at each opening; check the ladder lines up with the rungs.
 - [ ] Stairs: railings show as continuous sloped handrails with bars (no
@@ -70,6 +74,8 @@ certify the revised geometry.
 
 - [ ] Two independent clients join and finish a match (first milestone).
 - [ ] Full bot round with objectives and buy zones checked.
+- [ ] Povo 2 T spawn (28 October): all six T starts spawn cleanly, the entrance-hall
+      buy zone works, and T rounds reach A over the bridge and outside.
 - [ ] Clean-install test from the published Workshop item; see
       [PUBLISH_AND_HOST.md](PUBLISH_AND_HOST.md).
 - [ ] Resolve redistribution rights for reference material before a public

@@ -127,6 +127,10 @@ class AutoDoorTests(unittest.TestCase):
         self.assertTrue(all('"targetname" "string" "trento_door_bank"' in d for d in doors))
         ids = re.findall(r'"elementid"\s+"([^"]+)"', text)
         self.assertEqual(len(ids), len(set(ids)))
+        # Clients, bots included: 4096 is Source's "Disallow Bots" trigger flag.
+        flags = int(re.search(r'"spawnflags"\s+"string"\s+"(\d+)"', trigger)[1])
+        self.assertTrue(flags & 1)
+        self.assertFalse(flags & 4096)
 
 
 class LadderTests(unittest.TestCase):

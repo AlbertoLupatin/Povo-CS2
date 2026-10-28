@@ -60,7 +60,7 @@ def playtest(season='standard',port=27400):
              'mp_freezetime 0','mp_roundtime_defuse 60','mp_startmoney 8000','mp_buytime 3600',
              'mp_buy_anywhere 0','mp_plant_c4_anywhere 0','mp_c4timer 40'])
         teams(2)
-        pose((21.4,-72,4.1));r=cmd('buy ak47',1)
+        pose((25.4,30.5,4.1));r=cmd('buy ak47',1)
         check('terrorist_buyzone_purchase','purchased "ak47"' in r or 'purchase: weapon_ak47' in r)
         pose((62,-70,5.9));r=cmd('buy awp',1)
         check('street_is_outside_buyzone','purchase: weapon_awp' not in r and 'purchased "awp"' not in r)

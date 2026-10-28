@@ -1552,3 +1552,21 @@ Native standard-map build/package completed with zero compile failures in
 after the build: CS2 will not be launched and engine walking is not scheduled.
 No Workshop upload is performed. Pre-task sources and the previous standard
 package are backed up under `build/sketch-corrections-backup-20261027/`.
+
+## 28 October 2026 — Povo 2 T spawn and bot door sensors
+
+Moved the six Terrorist starts and their buy zone from the Povo 1 ground
+entrance to the Povo 2 entrance hall, between the reception and the entrance
+doors (N29–32, E24.5–26.3, floor z4.0), clear of both door sensors. The CT
+starts and bomb site A stay in Povo 1, so attackers now cross from Povo 2 by
+the bridge, the street or the basement yard. Radar `TSpawn` marks and the
+local-match buy pose follow the new position.
+
+The automatic-door sensors used spawnflags 4097. Flag 4096 is Source's
+"Disallow Bots" trigger flag, so bots could only open a bank by touching a
+leaf. They now use 1 (clients, bots included).
+
+All 204 source tests pass, including new checks for the spawn split and the
+sensor flags. Nothing was compiled: the committed vmaps and VPKs predate these
+changes and need the Windows rebuild (`python tools/cs2_campus.py
+--season both`) before any engine check.

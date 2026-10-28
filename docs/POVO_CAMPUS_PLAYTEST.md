@@ -39,7 +39,7 @@ User feedback is implemented as follows:
 - The solid Povo 1 exterior mass has been replaced by the interior shell.
   Courtyard glazing, ceilings, lighting, room labels and a short entrance landing
   are included. Povo 2 and the bridge remain backdrop.
-- Ground T starts, upper CT starts, buy zones, one upper east-corridor bomb
+- T starts in the Povo 2 entrance hall, CT starts on Povo 1's top floor, buy zones, one upper east-corridor bomb
   target and a radar with separate floor images provide a playable prototype.
   Competitive balance remains open.
 

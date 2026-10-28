@@ -261,6 +261,12 @@ class CampusGeometryTests(unittest.TestCase):
             for suffix in ('_lower','_middle',''):
                 self.assertTrue((output/('trento_povo_campus'+suffix+'_radar.png')).is_file())
 
+    def test_terrorists_start_in_povo2_and_counter_terrorists_in_povo1(self):
+        # Povo 2 begins north of the bridge's far end (N10); Povo 1 ends at N-20.
+        self.assertTrue(all(y>14 for _x,y,_z in T_STARTS))
+        self.assertTrue(all(-103<y<-20 for _x,y,_z in CT_STARTS))
+        self.assertTrue(-103<OBJECTIVE[1]<-20)
+
     def test_both_side_aisles_in_every_furnished_room_are_reachable(self):
         reports=audit()
         self.assertEqual([r['id'] for r in reports[:3]],[l['id'] for l in self.levels])

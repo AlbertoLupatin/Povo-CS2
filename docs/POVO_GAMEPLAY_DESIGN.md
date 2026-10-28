@@ -88,7 +88,8 @@ second site in underground parking for the first iteration.
 
 ## Source evidence
 
-- `tools/cs2_campus.py`: six starts per team, T at the Povo 1 ground entrance,
+- `tools/cs2_campus.py`: six starts per team, T in the Povo 2 entrance hall (moved from the Povo 1
+  ground entrance on 28 October),
   CT upstairs, and a single upper east-corridor objective.
 - `exports/povo_campus/provenance.json`: room bounds, four stair cores, bridge
   bounds and integrated Povo 2 floor/stair layout.

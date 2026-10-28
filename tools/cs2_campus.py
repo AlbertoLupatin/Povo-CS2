@@ -26,7 +26,9 @@ ROOT=Path(__file__).resolve().parents[1]
 MAP='trento_povo_campus'
 MODEL='povo1_campus'
 UNITS=39.37007874
-T_STARTS=[(x,y,4.8) for y in (-74.5,-73,-71.5) for x in (20.5,22.3)]
+# Terrorists start in the Povo 2 entrance hall, between the reception and the
+# entrance doors, clear of the door sensors. Counter-terrorists hold Povo 1.
+T_STARTS=[(x,y,4.8) for y in (29,30.5,32) for x in (24.5,26.3)]
 CT_STARTS=[(x,-35.2,12.0) for x in (-2,0,2,4,6,8)]
 OBJECTIVE=(13.96,-57.6,11.8)
 
@@ -132,7 +134,12 @@ def connection(token,output,target,inputname):
 
 
 def add_auto_doors(source,doors):
-    """Sliding func_door leaves, opened by a players-only trigger in front of each bank."""
+    """Sliding func_door leaves, opened by a trigger in front of each bank.
+
+    The trigger's spawnflags are 1 (clients), which includes bots. 4096 is
+    Source's "Disallow Bots" trigger flag, so the former 4097 kept bots from
+    opening the doors except by touching a leaf.
+    """
     if not doors:return source
     template=next(block for _,_,classname,block in project._entity_ranges(source)
                   if classname=='func_buyzone' and '"CMapMesh"' in block)
@@ -145,7 +152,7 @@ def add_auto_doors(source,doors):
                 (('targetname',target),('movedir',f"0 {part['yaw']} 0"),('speed','60'),('wait','-1'),
                  ('lip','0'),('spawnpos','0'),('spawnflags','1024'),('forceclosed','0'),('dmg','0')),part['material']))
         trigger=box_entity(template,'door-trigger-'+door['name'],'trigger_multiple',door['trigger'],ids,
-            (('targetname',target+'_sensor'),('spawnflags','4097'),('wait','1'),('StartDisabled','0')))
+            (('targetname',target+'_sensor'),('spawnflags','1'),('wait','1'),('StartDisabled','0')))
         rows=',\n'.join((connection(f"door-io-{door['name']}-open",'OnStartTouch',target,'Open'),
                          connection(f"door-io-{door['name']}-close",'OnEndTouchAll',target,'Close')))
         trigger,count=re.subn(r'("connectionsData"\s+"element_array"\s*\[)\s*(\])',lambda m:m[1]+'\n'+rows+'\n'+m[2],trigger,count=1)
@@ -187,7 +194,7 @@ def map_text(source,metadata,season='standard'):
     ground=min(l['floor_elevation_metres']-370 for l in metadata['levels'])
     upper=max(l['floor_elevation_metres']-370 for l in metadata['levels'])
     spawns={'info_player_terrorist':iter(t_starts),'info_player_counterterrorist':iter(ct_starts)}
-    buy={'2':(21.4,-72,ground+.6),'3':(3,-35.2,upper+.6),'0':objective}
+    buy={'2':(25.4,30.5,ground+.6),'3':(3,-35.2,upper+.6),'0':objective}
     replacements=[]
     for start,end,classname,block in project._entity_ranges(source):
         updated=block
