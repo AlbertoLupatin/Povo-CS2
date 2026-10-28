@@ -46,7 +46,8 @@ COLORS = {**interior.COLORS, 'stair_red': (155, 43, 38),
           'door_pushbar': (179, 53, 37), 'sanitary_white': (225, 226, 222),
           'sanitary_water': (72, 96, 102), **POVO2_COLORS, **FIXTURE_COLORS,
           **{'exterior_'+n:c for n,c in EXTERIOR_COLORS.items()},
-          'canteen_orange': (220,109,47), 'canteen_blue': (43,81,142), 'floor_yard_grass': (95,121,65)}
+          'canteen_orange': (220,109,47), 'canteen_blue': (43,81,142), 'floor_yard_grass': (95,121,65),
+          'floor_grating': (122,128,130), 'floor_terrace': (176,173,165)}
 
 
 def derived_config(root=ROOT):

@@ -139,7 +139,9 @@ def restroom_boxes(level, room, z, height):
     # An interior privacy panel screens the toilets from courtyard glazing.
     fixture('privacy_screen',a+.15,0,c-a-.3,.045,.04,2.18,'office_light')
     stations=[[(a+c)/2,(b+d)/2]]
-    for i in range(4):
+    # Only as many stalls as keep the last cubicle door clear of the basins.
+    stalls=max(1,min(4,int((c-a-2.45)/1.45)+1))
+    for i in range(stalls):
         x=a+.25+i*1.45
         fixture(f'toilet_{i}_pedestal',x+.42,.28,.3,.48,0,.34)
         fixture(f'toilet_{i}_tank',x+.28,.065,.58,.2,.38,.83)
@@ -186,7 +188,7 @@ def restroom_boxes(level, room, z, height):
         for y in (5.40,6.70):fixture('bench_leg_'+str(y),a+.23,y,.40,.10,0,.43,'office_dark')
         for i in range(3):fixture('wall_hook_'+str(i),a+.13,5.40+i*.5,.09,.05,1.65,1.69,'window_frame')
     room['fitout']=dict(seats=0,rows=[],furniture=['toilets','washbasins','dispensers','dryer','bins','storage'],
-        audit_points_local_metres=stations,toilets=4,washbasins=3,urinals=2 if male else 0)
+        audit_points_local_metres=stations,toilets=stalls,washbasins=3,urinals=2 if male else 0)
     return boxes
 
 

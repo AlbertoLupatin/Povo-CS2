@@ -64,7 +64,8 @@ class CampusGeometryTests(unittest.TestCase):
             pair=[r for r in restrooms if wing in r['id']]
             self.assertEqual({r['label'] for r in pair},{'UOMINI','DONNE'})
             for room in pair:
-                self.assertEqual(room['fitout']['toilets'],4)
+                # The south women's restroom gave up width to the coffee room.
+                self.assertEqual(room['fitout']['toilets'],2 if room['id']=='f_south_centre_female' else 4)
                 self.assertEqual(room['fitout']['washbasins'],3)
                 self.assertEqual(room['fitout']['seats'],0)
                 prefix='academic_first_'+room['id']

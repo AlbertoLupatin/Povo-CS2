@@ -38,7 +38,8 @@ class AmenitiesTests(TestCase):
             names={n[len(prefix):] for n,_,_,_ in boxes if n.startswith(prefix)}
             for prop in ('privacy_screen','basin_counter','mirror','hand_dryer','waste_bin','cleaning_cabinet'):
                 self.assertIn(prop,names)
-            for i in range(4):
+            self.assertIn(room['fitout']['toilets'],(2,4))
+            for i in range(room['fitout']['toilets']):
                 self.assertIn(f'cubicle_{i}_paper_roll',names)
                 self.assertIn(f'cubicle_{i}_bin',names)
                 self.assertIn(f'toilet_{i}_tank',names)

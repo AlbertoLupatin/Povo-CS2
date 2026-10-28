@@ -1570,3 +1570,22 @@ All 204 source tests pass, including new checks for the spawn split and the
 sensor flags. Nothing was compiled: the committed vmaps and VPKs predate these
 changes and need the Windows rebuild (`python tools/cs2_campus.py
 --season both`) before any engine check.
+
+## 28 October 2026 — Povo 1 courtyard rebuilt from the user's review
+
+The user checked photos5–10, 19, 22–30 and confirmed the courtyard layout:
+
+- Stair: steel emergency switchback at the south end, stacking its landings at
+  one plan point (outside A107 on -1, the coffee room on 0, the ICT-panel
+  corridor on 1). Doors cut through the courtyard glazing on all three floors.
+  Grating treads and landings use the new `floor_grating` metal material.
+- Floor 0: coffee room between the south restrooms, which shrink to 4 (men) and
+  2 (women) stalls; stalls now fit the room width.
+- Floor 1: open-air paved terraces (`floor_terrace`) on both courtyard sides, no
+  ceiling, railings and an upstand over the court, glass towards the corridors
+  and terrace ends, no doors, benches. Breakable panes rise from 530 to 567.
+- Floor -1: four planters with small trees; canopies are visual only.
+
+All 212 source tests pass, including a full walk of both stair storeys and new
+courtyard checks. Model exports were regenerated. Nothing was compiled; the
+winter assets and the Windows build are still to do.

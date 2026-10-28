@@ -39,6 +39,11 @@ def png(color, pattern='plain', size=256):
         elif pattern == 'perforated':
             if (x % 12 - 6) ** 2 + (y % 12 - 6) ** 2 < 5:
                 offset -= 25
+        elif pattern == 'grating':
+            # Open steel grating: dark gaps between 4 px bars.
+            offset = (noise-.5)*4
+            if x % 16 > 3 and y % 6 > 1:
+                offset -= 70
         elif pattern == 'flat':
             offset = 0
         return bytes(round(max(0, min(255, c + offset))) for c in color)
@@ -57,16 +62,17 @@ def write_materials(directory, prefix, colors):
         pattern = {'floor_circulation': 'terrazzo', 'floor_room': 'terrazzo',
                    'floor_wood': 'wood', 'seat_wood': 'wood',
                    'ceiling_panel': 'ceiling', 'desk_panel': 'perforated',
-                   'floor_p2_tile': 'tile', 'floor_p2_asphalt': 'asphalt'}.get(name, 'plain')
+                   'floor_p2_tile': 'tile', 'floor_p2_asphalt': 'asphalt',
+                   'floor_terrace': 'tile', 'floor_grating': 'grating'}.get(name, 'plain')
         (directory / (name + '.png')).write_bytes(png(color, pattern))
         roughness = 215 if name in ('wall', 'ceiling_panel', 'courtyard_wall') else 175
-        if name in ('metal_dark', 'window_frame'):
+        if name in ('metal_dark', 'window_frame', 'floor_grating'):
             roughness = 135
         (directory / (name + '_rough.png')).write_bytes(png((roughness,) * 3, 'flat', 4))
         surface = ('wood' if name in ('floor_wood', 'seat_wood', 'seat_green', 'desk_dark', 'desk_panel')
-                   else 'metal' if name in ('metal_dark', 'window_frame')
+                   else 'metal' if name in ('metal_dark', 'window_frame', 'floor_grating')
                    else 'asphalt' if name == 'floor_p2_asphalt'
-                   else 'tile' if name in ('floor_room','floor_circulation','floor_p2_tile')
+                   else 'tile' if name in ('floor_room','floor_circulation','floor_p2_tile','floor_terrace')
                    else 'metal' if name in ('stair_red','stair_nosing','door_black','door_pushbar') else 'concrete')
         if name in ('window_glass','reception_glass'):
             # Deliberately tinted panes remain readable from indoors and out.

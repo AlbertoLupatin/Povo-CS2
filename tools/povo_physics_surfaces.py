@@ -22,9 +22,9 @@ def surface(material):
                 'metal' if m in ('fence','dark') else 'grass' if m in ('grass','tree') else
                 'wood' if m=='trunk' else 'concrete')
     return ('snow' if material=='snow' else 'concrete' if material=='wet' else
-            'tile' if material in ('floor_room','floor_circulation','floor_p2_tile') else
+            'tile' if material in ('floor_room','floor_circulation','floor_p2_tile','floor_terrace') else
             'wood' if material in ('floor_wood','seat_wood','seat_green','desk_dark','desk_panel') else
-            'metal' if material in ('metal_dark','window_frame','stair_red','stair_nosing','door_black','door_pushbar') else
+            'metal' if material in ('metal_dark','window_frame','stair_red','stair_nosing','door_black','door_pushbar','floor_grating') else
             'asphalt' if material=='floor_p2_asphalt' else
             'grass' if material=='courtyard_ground' else
             'glass' if material in ('window_glass','reception_glass') else 'concrete')

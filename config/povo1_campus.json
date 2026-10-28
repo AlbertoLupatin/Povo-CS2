@@ -336,7 +336,7 @@
           770,
           630,
           960,
-          785.0
+          781
         ],
         "door_side": "u_min",
         "teaching_side": "south",
@@ -346,11 +346,26 @@
         "door_fraction": 0.5
       },
       {
+        "id": "f_south_coffee",
+        "label": "COFFEE ROOM",
+        "pixel_bounds": [
+          770,
+          781,
+          960,
+          853
+        ],
+        "door_side": "u_min",
+        "teaching_side": "south",
+        "window_side": null,
+        "kind": "service",
+        "door_fraction": 0.5
+      },
+      {
         "id": "f_south_centre_female",
         "label": "DONNE",
         "pixel_bounds": [
           770,
-          785.0,
+          853,
           960,
           940
         ],

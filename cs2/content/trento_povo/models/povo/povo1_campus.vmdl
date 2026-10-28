@@ -87,6 +87,8 @@
                             { from = "campus_canteen_orange" to = "materials/trento/povo/campus/canteen_orange.vmat" },
                             { from = "campus_canteen_blue" to = "materials/trento/povo/campus/canteen_blue.vmat" },
                             { from = "campus_floor_yard_grass" to = "materials/trento/povo/campus/floor_yard_grass.vmat" },
+                            { from = "campus_floor_grating" to = "materials/trento/povo/campus/floor_grating.vmat" },
+                            { from = "campus_floor_terrace" to = "materials/trento/povo/campus/floor_terrace.vmat" },
 							{
 								from = "terrain_reference"
 								to = "materials/trento/povo/terrain_reference.vmat"

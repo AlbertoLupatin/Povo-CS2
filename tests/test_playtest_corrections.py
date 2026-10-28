@@ -56,7 +56,7 @@ class PlaytestCorrectionTests(unittest.TestCase):
                 for i in range(n+1):
                     x,y,z=[a+(b-a)*i/n for a,b in zip(start,end)]
                     support=[hi[2] for _,lo,hi,m in self.physics
-                             if (m.startswith('floor_') or m in ('stair_red','metal_dark'))
+                             if (m.startswith('floor_') or m in ('stair_red','metal_dark','courtyard_ground'))
                              and lo[0]-.001<=x<=hi[0]+.001 and lo[1]-.001<=y<=hi[1]+.001
                              and abs(hi[2]-z)<.23]
                     self.assertTrue(support,(x,y,z))
