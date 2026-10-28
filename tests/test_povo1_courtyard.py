@@ -2,7 +2,8 @@
 import unittest
 
 from tools.build_povo_campus import build_geometry, collision_boxes
-from tools.povo1_courtyard_stair import DOOR, EAST, LIFT_SPAN, PLANTERS, PLANTER_SIZE, WEST
+from tools.povo1_courtyard_stair import (DOOR, EAST, FLIGHT_TREADS, LANDING_EDGE, LIFT_SPAN, PLANTERS,
+                                         PLANTER_SIZE, WEST)
 
 
 def overlaps(lo, hi, a, b):
@@ -27,24 +28,32 @@ class CourtyardTests(unittest.TestCase):
         landings = [(lo, hi) for n, lo, hi, m in self.boxes
                     if n.startswith('p1_courtyard_stair_') and n.endswith('_landing')]
         self.assertEqual(len(landings), 2)
-        self.assertEqual({(lo[0], hi[0], hi[1]) for lo, hi in landings}, {(WEST, EAST, -74.3)})
+        self.assertEqual({(lo[0], hi[0], hi[1]) for lo, hi in landings}, {(WEST, EAST, LANDING_EDGE)})
         self.assertEqual(sorted(hi[2] for _, hi in landings), self.zs[1:])
 
     def test_treads_and_landings_are_steel_grating(self):
         walking = [m for n, lo, hi, m in self.boxes if n.startswith('p1_courtyard_stair_')
                    and any(t in n for t in ('_up_', '_down_', '_turn', '_landing'))
                    and not any(t in n for t in ('_post_', '_clip_', '_outer', '_well', '_finish_'))]
-        self.assertEqual(len(walking), 2*(2*9+1)+2)
+        self.assertEqual(len(walking), 2*(2*FLIGHT_TREADS+1)+2)
         self.assertEqual(set(walking), {'floor_grating'})
 
-    def test_coffee_room_sits_between_the_south_restrooms_behind_the_door(self):
+    def test_south_end_follows_fire_plan_19(self):
         rooms = {r['id']: r for r in self.levels[1]['rooms']}
-        coffee = rooms['f_south_coffee']['footprint_local_metres']
-        male = rooms['f_south_centre_male']['footprint_local_metres']
-        female = rooms['f_south_centre_female']['footprint_local_metres']
-        self.assertAlmostEqual(male[2], coffee[0], places=6)
-        self.assertAlmostEqual(coffee[2], female[0], places=6)
+        order = ['f_south_west', 'f_south_centre', 'f_south_coffee', 'f_south_centre_female']
+        spans = [rooms[i]['footprint_local_metres'] for i in order]
+        for left, right in zip(spans, spans[1:]):
+            self.assertAlmostEqual(left[2], right[0], places=6)
+        self.assertEqual([rooms[i]['kind'] for i in order], ['restroom', 'office', 'service', 'restroom'])
+        tables = [n for n, *_ in self.boxes if n.startswith('academic_first_f_south_centre_table_') and n.endswith('_top')]
+        self.assertEqual(len(tables), 2)
+        coffee = spans[2]
+        self.assertAlmostEqual(coffee[2]-coffee[0], 5.3, delta=.1)
         self.assertTrue(coffee[0] < DOOR[0] and DOOR[1] < coffee[2])
+        # The stair stands on the courtyard's centre line (plan 19: 3.1 m wide).
+        court = self.levels[1]['voids_local_metres'][0]
+        self.assertAlmostEqual((WEST+EAST)/2, (court[0]+court[2])/2, delta=.2)
+        self.assertAlmostEqual(EAST-WEST, 3.1, places=6)
 
     def test_coffee_area_is_furnished_from_the_28_october_photos(self):
         prefix = 'academic_first_f_south_coffee_'
@@ -52,11 +61,14 @@ class CourtyardTests(unittest.TestCase):
         self.assertEqual(sum(n.startswith('vending_') and '_finish_' not in n for n in names), 6)
         self.assertEqual(sum(n.startswith('recycling_bin_') for n in names), 4)
         self.assertEqual(sum(n.endswith('_top') for n in names), 2)
-        # Nothing stands in the line between the corridor door and the stair door.
-        z = self.zs[1]
-        blocking = [n for n, lo, hi, m in self.physics if n.startswith(prefix)
-                    and overlaps(lo, hi, (DOOR[0]+.2, -85.9, z+.05), (DOOR[1]-.2, self.walls[1], z+1.8))]
-        self.assertFalse(blocking)
+        # A standing player walks from the corridor door to the stair door.
+        room = next(r for r in self.levels[1]['rooms'] if r['id'] == 'f_south_coffee')
+        a, b, c, d = room['footprint_local_metres']
+        door = a+(c-a)*room['door_fraction']; stair = sum(DOOR)/2; z = self.zs[1]
+        for (x0, y0), (x1, y1) in (((door, b+.3), (door, d-1)), ((door, d-1), (stair, d-1)), ((stair, d-1), (stair, d-.3))):
+            lo = (min(x0, x1)-.4, min(y0, y1)-.4, z+.05); hi = (max(x0, x1)+.4, max(y0, y1)+.4, z+1.85)
+            blocking = [n for n, l, h, m in self.physics if n.startswith(prefix) and overlaps(l, h, lo, hi)]
+            self.assertFalse(blocking)
 
     def test_terraces_are_open_to_the_sky_and_paved(self):
         z = self.zs[-1]

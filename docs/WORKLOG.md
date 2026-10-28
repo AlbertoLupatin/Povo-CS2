@@ -1604,3 +1604,20 @@ manifest and `LOCATIONS.md` section).
 - The new manifest and its photo hashes join the export provenance inputs.
 
 All 213 source tests pass; model exports were regenerated. Nothing compiled.
+
+## 28 October 2026 — Plan-19 measurements for the stair and coffee area
+
+The user asked for the fire-plan measures. Scaled against the courtyard on
+plan 19 (and checked on plans 10 and 22):
+
+- The courtyard stair moves onto the courtyard's centre line, 3.1 m wide and
+  8.3 m long, with two 12-riser flights per storey. Its doors stay at one plan
+  point inside the floor-1 ICT corridor.
+- Floor 0 south end: men's WC in the south-west corner (formerly Studio S1;
+  its door still faces the red stair), an unlabelled Locale (semi-empty office,
+  two tables on its long side), the coffee area
+  at 5.3 m wide, and the women's WC to the courtyard's east edge. Both WCs
+  have 2 stalls. The coffee fit-out keeps its arrangement, with the machines
+  set back from the window so the stair door stays clear.
+
+All 213 source tests pass; model exports were regenerated. Nothing compiled.

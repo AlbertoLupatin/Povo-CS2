@@ -8,8 +8,8 @@ On floor 1 the courtyard's long sides are two separate open-air paved terraces
 behind glass, with railings over the court and no doors (photos 23, 24, 30).
 Planters with small trees stand on the -1 courtyard paving (photos 5-8).
 
-Dimensions are a gameplay fit to the plans, not photogrammetry: two 10-riser
-flights per storey, 1.2 m flights, 2.8 m treads run plus landings.
+Dimensions are scaled from the fire plans, not photogrammetry: two 12-riser
+flights per storey, 1.5 m flights, 3.3 m treads run plus landings.
 """
 import math
 
@@ -20,11 +20,13 @@ except ImportError:
     from povo_room_fitout import subtract_box
     from povo_stairs import railing
 
-# Stair frame in plan, centred on the floor-1 ICT corridor (E1.02-4.05).
-WEST, CENTRE, EAST = .75, 2.0, 3.25
-DOOR = (1.4, 2.6)
-TREAD, FLIGHT_TREADS, NORTH_LANDING = .28, 9, 1.5
-LANDING_EDGE = -74.3  # north edge of the stacked south landings
+# Stair frame measured on fire plan 19: on the courtyard's centre line, 3.1 m
+# wide and about 8.3 m long. The doors share one plan point inside the
+# floor-1 ICT corridor (E1.02-4.05).
+WEST, CENTRE, EAST = -.85, .7, 2.25
+DOOR = (1.1, 2.2)
+TREAD, FLIGHT_TREADS, NORTH_LANDING = .30, 11, 1.9
+LANDING_EDGE = -74.1  # north edge of the stacked south landings
 GRATING = 'floor_grating'
 # (x, y) planter centres on the -1 court, clear of the stair and both glazed sides.
 PLANTERS = ((-3.6, -70.5), (4.9, -64.0), (-3.6, -56.5), (4.9, -50.5))
@@ -77,16 +79,16 @@ def stair(boxes, levels, origin):
         railing(add, rails, f'{floor}_turn_west', (WEST, cap, mid), (WEST, north, mid))
         railing(add, rails, f'{floor}_down_outer', (WEST, north, mid), (WEST, LANDING_EDGE, hi))
         railing(add, rails, f'{floor}_down_well', (CENTRE, north, mid), (CENTRE, LANDING_EDGE, hi))
-        upper = (CENTRE+WEST)/2; lower = (CENTRE+EAST)/2
-        path = [[CENTRE, walls[floor]-.6, lo], [CENTRE, LANDING_EDGE-.5, lo], [lower, LANDING_EDGE-.5, lo],
+        upper = (CENTRE+WEST)/2; lower = (CENTRE+EAST)/2; door = sum(DOOR)/2
+        path = [[door, walls[floor]-.6, lo], [door, LANDING_EDGE-.5, lo], [lower, LANDING_EDGE-.5, lo],
                 [lower, LANDING_EDGE-.3, lo],
                 *[[lower, LANDING_EDGE+(i+.5)*TREAD, lo+(i+1)*rise] for i in range(FLIGHT_TREADS)],
                 [lower, north+NORTH_LANDING/2, mid], [upper, north+NORTH_LANDING/2, mid],
                 *[[upper, north-(i+.5)*TREAD, mid+(i+1)*rise] for i in range(FLIGHT_TREADS)],
-                [upper, LANDING_EDGE-.3, hi], [upper, LANDING_EDGE-.5, hi], [CENTRE, LANDING_EDGE-.5, hi],
-                [CENTRE, walls[floor+1]-.6, hi]]
+                [upper, LANDING_EDGE-.3, hi], [upper, LANDING_EDGE-.5, hi], [door, LANDING_EDGE-.5, hi],
+                [door, walls[floor+1]-.6, hi]]
         segments.append(dict(path=path, from_floor=floor-1, to_floor=floor, flights=2,
-                             risers=2*FLIGHT_TREADS+2, rise_metres=rise, flight_width_metres=1.2,
+                             risers=2*FLIGHT_TREADS+2, rise_metres=rise, flight_width_metres=CENTRE-.05-WEST,
                              bottom=path[0], top=path[-1], mid=[CENTRE, north+NORTH_LANDING/2, mid]))
     # Nothing climbs past the top landing over the last up flight.
     railing(add, rails, 'top_edge', (CENTRE, LANDING_EDGE, zs[-1]), (EAST, LANDING_EDGE, zs[-1]))
@@ -202,18 +204,20 @@ def coffee_room(boxes, levels, origin):
     result = list(boxes)
     def add(name, lo, hi, mat):
         result.append(('academic_first_f_south_coffee_'+name, tuple(lo), tuple(hi), mat))
+    # Pillar left of the stair door; bins under the window beside it; machines
+    # on the east wall, set back from the window so the door stays clear.
     add('pillar', (DOOR[0]-.45, d-.5, z), (DOOR[0]-.07, d, z+3.3), 'wall')
-    y = d-.6
+    for i, mat in enumerate(BINS):
+        x = DOOR[0]-.55-i*.33
+        add(f'recycling_bin_{i}', (x-.3, d-.45, z), (x, d-.05, z+.8), mat)
+    y = d-1.5
     for i, mat in enumerate(VENDING):
         width = .45 if i == 0 else .75
         add(f'vending_{i}', (c-.85, y-width, z), (c-.05, y, z+1.85), mat)
         add(f'vending_{i}_finish_display', (c-.87, y-width+.08, z+.9), (c-.85, y-.08, z+1.75), 'office_screen')
         y -= width+.03
-    for i, mat in enumerate(BINS):
-        y = d-.6-i*.33
-        add(f'recycling_bin_{i}', (a+.05, y-.3, z), (a+.45, y, z+.8), mat)
     for i, y in enumerate((b+4.4, b+1.6)):
-        lo, hi = (a+.2, y), (DOOR[0]+.05, y+1.6)
+        lo, hi = (a+.25, y), (a+1.45, y+1.6)
         add(f'table_{i}_top', (lo[0], lo[1], z+.71), (hi[0], hi[1], z+.75), 'floor_wood')
         for j, (x, yy) in enumerate(((lo[0]+.05, lo[1]+.05), (hi[0]-.09, lo[1]+.05),
                                      (lo[0]+.05, hi[1]-.09), (hi[0]-.09, hi[1]-.09))):
@@ -222,10 +226,28 @@ def coffee_room(boxes, levels, origin):
     return result
 
 
+def locale_office(boxes, levels, origin):
+    """The Locale beside the coffee area: a semi-empty office, two tables on its long side."""
+    level = levels[1]; z = level['floor_elevation_metres']-origin[2]
+    room = next((r for r in level['rooms'] if r['id'] == 'f_south_centre'), None)
+    if room is None:
+        return boxes
+    a, b, c, d = room['footprint_local_metres']
+    result = list(boxes)
+    for i, y in enumerate(((b+d)/2+.2, (b+d)/2-1.8)):
+        lo, hi = (a+.15, y), (a+.95, y+1.6)
+        result.append((f'academic_first_f_south_centre_table_{i}_top', (lo[0], lo[1], z+.71), (hi[0], hi[1], z+.75), 'floor_wood'))
+        for j, (x, yy) in enumerate(((lo[0]+.05, lo[1]+.05), (hi[0]-.09, lo[1]+.05),
+                                     (lo[0]+.05, hi[1]-.09), (hi[0]-.09, hi[1]-.09))):
+            result.append((f'academic_first_f_south_centre_table_{i}_leg_{j}', (x, yy, z), (x+.04, yy+.04, z+.71), 'window_frame'))
+    return result
+
+
 def extend(boxes, levels, origin):
     result, metadata = stair(boxes, levels, origin)
     result, metadata['terraces'] = terraces(result, levels, origin, metadata['rails'])
     result, metadata['planters'] = planters(result, levels, origin)
     result = coffee_room(result, levels, origin)
+    result = locale_office(result, levels, origin)
     levels[0]['courtyard_stair'] = metadata
     return result, metadata

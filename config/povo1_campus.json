@@ -317,7 +317,7 @@
       },
       {
         "id": "f_south_west",
-        "label": "Studio S1",
+        "label": "UOMINI",
         "pixel_bounds": [
           770,
           516,
@@ -327,22 +327,23 @@
         "door_side": "v_min",
         "teaching_side": "west",
         "window_side": null,
+        "kind": "restroom",
+        "sex": "male",
         "door_fraction": 0.09802155992390577
       },
       {
-        "id": "f_south_centre_male",
-        "label": "UOMINI",
+        "id": "f_south_centre",
+        "label": "Locale",
         "pixel_bounds": [
           770,
           630,
           960,
-          781
+          711
         ],
         "door_side": "u_min",
         "teaching_side": "south",
         "window_side": null,
-        "kind": "restroom",
-        "sex": "male",
+        "kind": "office",
         "door_fraction": 0.5
       },
       {
@@ -350,9 +351,9 @@
         "label": "COFFEE ROOM",
         "pixel_bounds": [
           770,
-          781,
+          711,
           960,
-          853
+          827
         ],
         "door_side": "u_min",
         "teaching_side": "south",
@@ -365,7 +366,7 @@
         "label": "DONNE",
         "pixel_bounds": [
           770,
-          853,
+          827,
           960,
           940
         ],
