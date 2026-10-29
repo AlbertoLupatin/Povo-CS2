@@ -1741,3 +1741,22 @@ The requested winter compilation was stopped before publication.
 Receipt: `build/workshop/bus-livery-upload-confirmed.json`. This records the
 previous upload, not the later basement/open-bus changes or the newer staged
 package. The newer Workshop snapshot and any other active build are retained.
+
+
+## 29 October 2026 — Povo 2 −1 West Offices
+
+Built the West Offices into the full-plan −1 review layout from the uncropped
+photo-46 strip: 22 rooms (W01–W23), internal spine WI1, return WI2, end
+return WI3, five C7 portals and estimated internal doors. Per the user, the
+former W03 strip is corridor WI4, which joins the spine straight to C7, and
+the spine's east end opens full-width onto C5. C8's untraced
+southern stub now ends at C7's south edge, because it crossed the spine and
+sealed W06. The office shell gives way to the retained stair-door threshold
+so that the −1 stair still reaches C5. The registered main stair core
+overlaps C7 by 2.46 m, which left C7 a dead end, so C7 now jogs south under
+the core at its own width to reach C5. W01 is shortened and W02 loses a
+corner; the core and the installed stair door are unchanged. Nine new tests
+pass, including flood fills of every room from C7 and of C7 to C5; nine −1
+layout review tests also pass. Review geometry only: the installed map was
+not changed.
+See [West Offices](POVO2_WEST_OFFICES_20261029.md).

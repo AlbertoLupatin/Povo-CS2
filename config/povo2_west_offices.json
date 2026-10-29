@@ -1,0 +1,38 @@
+{
+  "status": "West Offices extension of the approved full-plan SVG; main circulation retained",
+  "baseline_svg": "exports/povo2_west_offices_20261029/baseline/minus1_full_plan_restored.svg",
+  "baseline_layout": "exports/povo2_west_offices_20261029/baseline/layout.json",
+  "source_photo": "exports/povo2_survey/full_46.jpg",
+  "source_photo_plan": 46,
+  "local_trace": {
+    "size_pixels": [335, 1090],
+    "quad_original_pixels_ul_ll_lr_ur": [2945,3125,2935,4215,3270,4215,3280,3128],
+    "source_plan_bounds": [89.0625,49.0,105.0,99.6875],
+    "method": "Manual trace of the uncropped west office strip, locally straightened; keep accepted core-relative registration. The previous rectified image stopped at source x=100 and omitted the outer office row.",
+    "uncertainty": "Partitions are visible on the printed plan; local perspective, wall thickness and absolute dimensions are estimates. Room names W01-W23 are drawing references."
+  },
+  "internal_spine": [155,0,205,859],
+  "return_vestibule": [0,825,205,929],
+  "end_return": [205,859,255,929],
+  "c7_core_bypass": {"turn_metres": 1.5,
+    "status": "C7 continues to C5 south of the main stair core, as on photo 46. The registered core (shared with floors 0/-2 and the installed stair door) overlaps C7 by 2.46 m, so the C7 band jogs south under the core at C7's width; W01 loses its north 2.46 m and W02 a corner notch. The jog starts turn_metres west of the core."},
+  "c7_connector": [0,420,155,470],
+  "c7_connector_status": "User correction 29 Oct 2026: the former W03 strip is a corridor joining the internal spine (WI1) to C7; open at both ends. W03 is retired as a room ID.",
+  "main_corridor_entrance_pixels": [[0,835],[0,867]],
+  "main_corridor_entrance_status": "Approximate visible doorway/return at the west main corridor, fitted within its existing boundary; no main corridor is relocated.",
+  "inner_rooms": [
+    {"id":"W01","kind":"office","bounds":[0,0,155,212],"public_door_status":"Public-side leaf partly covered by blue annotation; no additional public doorway guessed"},
+    {"id":"W02","kind":"office","bounds":[0,212,155,420],"public_door_pixels":[[0,390],[0,415]]},
+    {"id":"W04","kind":"office","bounds":[0,470,155,630],"public_door_pixels":[[0,595],[0,625]]},
+    {"id":"W05","kind":"office","bounds":[0,630,155,755],"public_door_pixels":[[0,720],[0,750]]},
+    {"id":"W06","kind":"service","bounds":[0,755,155,825]}
+  ],
+  "outer_row": {"u_bounds":[205,335],"v_partitions":[0,72,144,212,287,357,429,501,571,640,711,781,859],"ids_start":7},
+  "end_row": {"u_partitions":[0,64,128,192,255],"v_bounds":[929,1090],"ids_start":19},
+  "corner_room": {"id":"W23","kind":"office","bounds":[255,859,335,1090]},
+  "door_width_metres": 0.95,
+  "estimated_door_policy": "Individual internal doors are necessary review openings inferred from the office-corridor photos where the emergency plan does not show readable swings. Mark these approximate; do not count them as image-traced portals.",
+  "finishes": {"floor":"wood","office_fronts":"glazing with frosted horizontal bands","solid_partitions":"white","ceiling":"suspended panels"},
+  "furniture_policy": "Copier, recycling bins and noticeboard are photographed but not assigned to unverified room positions.",
+  "scope": "Reproducible layout geometry, SVG/PNG, and OBJ for review. Does not compile or deploy the installed game. Existing restricted-lab access requirement remains unchanged."
+}

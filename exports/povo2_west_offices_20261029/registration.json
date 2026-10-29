@@ -1,0 +1,16 @@
+{
+  "baseline_svg": "exports/povo2_west_offices_20261029/baseline/minus1_full_plan_restored.svg",
+  "main_corridors_unchanged_except_c8_stub": true,
+  "added_corridors": [
+    "c7_core_bypass"
+  ],
+  "corridor_8_south_edge": {
+    "before": 6.923076923076923,
+    "after": 17.692307692307693
+  },
+  "other_floors_unchanged": true,
+  "new_rooms": 22,
+  "internal_corridors": 4,
+  "public_entrances": 6,
+  "approximate_internal_doors": 22
+}
