@@ -29,3 +29,12 @@ positions are retained.
 29 October. The user reports that many pavements flicker and identifies the
 brighter central region as an example. See
 [the source correction and verification](../../../../docs/POVO_PAVEMENT_FLICKER.md).
+
+## −1 external terrace
+
+`Povo2_Minus1_Terrace_Corrected.drawio` is the user's revision of the second
+terrace draft, supplied later on 29 October. `povo2_minus1_terrace_user_markup.png`
+renders its rectangles over the embedded draft image. Red rectangles are
+terrace that exists; light blue rectangles are holes looking down to the
+parking. The user also added a second metal stair at the east end of a new
+north run. See [the terrace notes](../../../../docs/POVO2_MINUS1_TERRACE_20261029.md).

@@ -1,0 +1,658 @@
+{
+  "status": "Third draft of the external -1 terrace: user's drawio markup of 29 Oct 2026 over the plan-46 draft; review geometry, not installed",
+  "user_description": "Starts at the outside metal stair that rises from the -2 garden and runs around the building at -1. Many interruptions are apertures that look down onto the exit ramp from the parking. On the C8 side the terrace widens to fill the gap between the office row (O13-O20) and the deeper rooms (Room 1, Room 2, L28).",
+  "user_markup": {
+    "file": "data/reference/user_feedback/2026-10-29/Povo2_Minus1_Terrace_Corrected.drawio",
+    "legend": "Red rectangles: terrace present. Light blue rectangles: holes in the floor looking down to the parking.",
+    "registration": "The markup sits on minus1_with_terrace.png (view east -30..46, north -3..107, 9 px/m, margins 70/150) placed at drawio (-30,-30). east = (X-40)/9 - 30; north = 107 - (Y-120)/9.",
+    "rectangles": [
+      {
+        "kind": "present",
+        "drawio": [
+          80,
+          1060,
+          510,
+          20
+        ],
+        "campus": "east -25.6..31.1, north 0.3..2.6: south run with the south-west corner"
+      },
+      {
+        "kind": "present",
+        "drawio": [
+          80,
+          740,
+          20,
+          170
+        ],
+        "campus": "west strip, north 19.2..38.1 (core 4, Room 1)"
+      },
+      {
+        "kind": "hole",
+        "drawio": [
+          80,
+          420,
+          20,
+          320
+        ],
+        "campus": "west strip, north 38.1..73.7 (both bays and L28)"
+      },
+      {
+        "kind": "present",
+        "drawio": [
+          80,
+          255,
+          20,
+          170
+        ],
+        "campus": "west strip, north 73.1..92.0 (Room 2, core 3)"
+      },
+      {
+        "kind": "hole",
+        "drawio": [
+          80,
+          99,
+          20,
+          156
+        ],
+        "campus": "west strip, north 92.0..109.3 (north-west block, up to the north run)"
+      },
+      {
+        "kind": "present",
+        "drawio": [
+          80,
+          79,
+          510,
+          20
+        ],
+        "campus": "east -25.6..31.1, north 109.3..111.6: new north run"
+      },
+      {
+        "kind": "stair",
+        "drawio": [
+          590,
+          73,
+          173.58,
+          65
+        ],
+        "campus": "copy of the south metal stair at the north run's east end"
+      }
+    ],
+    "unmarked": "West strip north 2.6..19.2 is not marked; it keeps the earlier hole, which the draft already showed in light blue."
+  },
+  "frame": "Campus metres of the -1 layout review: bounds are [east_min, north_min, east_max, north_max]",
+  "z": 0.4,
+  "slab_thickness": 0.3,
+  "barrier_height": 1.1,
+  "facade_east": -23.74285714285714,
+  "outer_edge_east": -25.45,
+  "width": 1.707142857142859,
+  "slabs": [
+    {
+      "id": "south_run",
+      "bounds": [
+        -25.45,
+        0.29,
+        31.8,
+        2.0
+      ]
+    },
+    {
+      "id": "north_run",
+      "bounds": [
+        -25.45,
+        105.38461538461539,
+        31.8,
+        107.09461538461538
+      ]
+    },
+    {
+      "id": "west_strip_0",
+      "bounds": [
+        -25.45,
+        19.2,
+        -23.74285714285714,
+        38.06
+      ]
+    },
+    {
+      "id": "west_strip_1",
+      "bounds": [
+        -25.45,
+        73.3,
+        -23.74285714285714,
+        92.15
+      ]
+    },
+    {
+      "id": "recess_room1_l28",
+      "bounds": [
+        -23.74285714285714,
+        38.06153846153846,
+        -17.5,
+        52.46153846153847
+      ]
+    },
+    {
+      "id": "recess_l28_room2",
+      "bounds": [
+        -23.74285714285714,
+        58.0,
+        -17.5,
+        72.46153846153847
+      ]
+    },
+    {
+      "id": "core_3_face_0",
+      "bounds": [
+        -23.74285714285714,
+        84.15384615384616,
+        -23.471428571428568,
+        92.15
+      ]
+    },
+    {
+      "id": "core_4_face_0",
+      "bounds": [
+        -23.74285714285714,
+        20.153846153846153,
+        -23.471428571428568,
+        26.615384615384617
+      ]
+    }
+  ],
+  "recesses": [
+    {
+      "id": "recess_room1_l28",
+      "bounds": [
+        -23.74285714285714,
+        38.06153846153846,
+        -17.5,
+        52.46153846153847
+      ],
+      "depth": 6.24285714285714,
+      "labels": "Room 1 to L28, in front of O16-O20",
+      "between": [
+        "annotated_lab_e",
+        "outer_center"
+      ],
+      "fronting": [
+        "office_outer04",
+        "office_outer05",
+        "office_outer06",
+        "office_outer07",
+        "office_outer08"
+      ],
+      "evidence": "Exits from Room 1 (north 38.31) and L28 (north 52.46) open sideways into this band; columns stand on the facade line."
+    },
+    {
+      "id": "recess_l28_room2",
+      "bounds": [
+        -23.74285714285714,
+        58.0,
+        -17.5,
+        72.46153846153847
+      ],
+      "depth": 6.24285714285714,
+      "labels": "L28 to Room 2, in front of O13-O15",
+      "between": [
+        "outer_center",
+        "annotated_lab_w"
+      ],
+      "fronting": [
+        "office_outer01",
+        "office_outer02",
+        "office_outer03"
+      ],
+      "evidence": "Exits from L28 (north 58.31) and Room 2 (north 72.46) open sideways into this band; columns stand on the facade line."
+    }
+  ],
+  "west_strip": [
+    {
+      "north": [
+        2.0,
+        19.2
+      ],
+      "kind": "hole",
+      "evidence": "unmarked; earlier plan-46 hole kept (no outer line on the plan)"
+    },
+    {
+      "north": [
+        19.2,
+        38.06
+      ],
+      "kind": "present",
+      "evidence": "red; top snapped to Room 1's north wall (38.11 drawn)"
+    },
+    {
+      "north": [
+        38.06,
+        73.3
+      ],
+      "kind": "hole",
+      "evidence": "light blue, in front of both bays and L28; top at the plan outer line's return (73.1-73.7 drawn)"
+    },
+    {
+      "north": [
+        73.3,
+        92.15
+      ],
+      "kind": "present",
+      "evidence": "red; top snapped to core 3's north wall (92.0 drawn)"
+    },
+    {
+      "north": [
+        92.15,
+        105.38461538461539
+      ],
+      "kind": "hole",
+      "evidence": "light blue, up to the north run"
+    }
+  ],
+  "holes": [
+    {
+      "bounds": [
+        -25.45,
+        2.0,
+        -23.74285714285714,
+        19.2
+      ],
+      "view": "down onto the parking exit ramp"
+    },
+    {
+      "bounds": [
+        -25.45,
+        38.06,
+        -23.74285714285714,
+        73.3
+      ],
+      "view": "down onto the parking exit ramp"
+    },
+    {
+      "bounds": [
+        -25.45,
+        92.15,
+        -23.74285714285714,
+        105.38461538461539
+      ],
+      "view": "down onto the parking exit ramp"
+    }
+  ],
+  "edges": [
+    {
+      "kind": "railing",
+      "side": "west",
+      "bounds": [
+        -25.45,
+        19.2,
+        -25.33,
+        38.06
+      ],
+      "evidence": "outer edge of the west strip"
+    },
+    {
+      "kind": "railing",
+      "side": "west",
+      "bounds": [
+        -25.45,
+        73.3,
+        -25.33,
+        92.15
+      ],
+      "evidence": "outer edge of the west strip"
+    },
+    {
+      "kind": "railing",
+      "side": "south_run",
+      "bounds": [
+        -25.45,
+        0.29,
+        31.8,
+        0.41
+      ],
+      "evidence": "outer edge of the run"
+    },
+    {
+      "kind": "railing",
+      "side": "south_run",
+      "bounds": [
+        -25.45,
+        0.29,
+        -25.33,
+        2.0
+      ],
+      "evidence": "west end of the run"
+    },
+    {
+      "kind": "railing",
+      "side": "north_run",
+      "bounds": [
+        -25.45,
+        106.97461538461538,
+        31.8,
+        107.09461538461538
+      ],
+      "evidence": "outer edge of the run"
+    },
+    {
+      "kind": "railing",
+      "side": "north_run",
+      "bounds": [
+        -25.45,
+        105.38461538461539,
+        -25.33,
+        107.09461538461538
+      ],
+      "evidence": "west end of the run"
+    },
+    {
+      "kind": "hole_rail",
+      "side": "hole",
+      "bounds": [
+        -25.45,
+        1.88,
+        -23.74285714285714,
+        2.0
+      ],
+      "evidence": "guard at a hole in the slab"
+    },
+    {
+      "kind": "hole_rail",
+      "side": "hole",
+      "bounds": [
+        -25.45,
+        105.38461538461539,
+        -23.74285714285714,
+        105.50461538461539
+      ],
+      "evidence": "guard at a hole in the slab"
+    },
+    {
+      "kind": "hole_rail",
+      "side": "hole",
+      "bounds": [
+        -25.45,
+        19.2,
+        -23.74285714285714,
+        19.32
+      ],
+      "evidence": "guard at a hole in the slab"
+    },
+    {
+      "kind": "hole_rail",
+      "side": "hole",
+      "bounds": [
+        -25.45,
+        37.940000000000005,
+        -23.74285714285714,
+        38.06
+      ],
+      "evidence": "guard at a hole in the slab"
+    },
+    {
+      "kind": "hole_rail",
+      "side": "hole",
+      "bounds": [
+        -25.45,
+        73.3,
+        -23.74285714285714,
+        73.42
+      ],
+      "evidence": "guard at a hole in the slab"
+    },
+    {
+      "kind": "hole_rail",
+      "side": "hole",
+      "bounds": [
+        -25.45,
+        92.03,
+        -23.74285714285714,
+        92.15
+      ],
+      "evidence": "guard at a hole in the slab"
+    },
+    {
+      "kind": "hole_rail",
+      "side": "hole",
+      "bounds": [
+        -23.74285714285714,
+        38.06153846153846,
+        -23.62285714285714,
+        52.46153846153847
+      ],
+      "evidence": "guard at a hole in the slab"
+    },
+    {
+      "kind": "hole_rail",
+      "side": "hole",
+      "bounds": [
+        -23.74285714285714,
+        58.0,
+        -23.62285714285714,
+        72.46153846153847
+      ],
+      "evidence": "guard at a hole in the slab"
+    },
+    {
+      "kind": "hole_rail",
+      "side": "hole",
+      "bounds": [
+        -23.74285714285714,
+        92.03,
+        -23.471428571428568,
+        92.15
+      ],
+      "evidence": "guard at a hole in the slab"
+    }
+  ],
+  "edge_kinds": {
+    "railing": "Metal railing on every open edge of present terrace, as on the dotted south line and the metal stairs.",
+    "hole_rail": "Railing along every terrace edge that borders a hole."
+  },
+  "columns": [
+    [
+      -23.47,
+      66.65,
+      -22.52,
+      67.35
+    ],
+    [
+      -23.47,
+      60.75,
+      -22.52,
+      61.45
+    ],
+    [
+      -23.47,
+      49.449999999999996,
+      -22.52,
+      50.15
+    ],
+    [
+      -23.47,
+      43.85,
+      -22.52,
+      44.550000000000004
+    ]
+  ],
+  "metal_stairs": [
+    {
+      "id": "south",
+      "run": "south_run",
+      "label": "metal stair to Garden \u22122",
+      "flights": [
+        [
+          31.8,
+          0.29,
+          36.5,
+          2.0
+        ],
+        [
+          37.6,
+          0.29,
+          42.3,
+          2.0
+        ]
+      ],
+      "mid_landing": [
+        36.5,
+        0.29,
+        37.6,
+        2.0
+      ],
+      "top_z": 0.4,
+      "bottom_z": -3.2,
+      "risers_per_flight": 10,
+      "evidence": "Hatched stair outside the south block on photo 46 (photo x 1155-1175 disp, y 925-1010 disp), with a mid landing. Photos 44 and 45 of 27 Oct show its perforated dark steel treads from the garden.",
+      "conflict": "config/povo2_gardens.json puts Garden -2 at north 8.75-20 and its fixed UP stair at east 33.25-35.75, north 2.75-8.75. Plan 46 puts this metal stair at north 0.3-2.0, running east. This terrace keeps the plan-46 position; the garden is not moved.",
+      "rails": [
+        [
+          31.8,
+          0.29,
+          42.3,
+          0.41
+        ],
+        [
+          31.8,
+          1.88,
+          42.3,
+          2.0
+        ]
+      ]
+    },
+    {
+      "id": "north",
+      "run": "north_run",
+      "label": "metal stair to \u22122 (north)",
+      "flights": [
+        [
+          31.8,
+          105.38461538461539,
+          36.5,
+          107.09461538461538
+        ],
+        [
+          37.6,
+          105.38461538461539,
+          42.3,
+          107.09461538461538
+        ]
+      ],
+      "mid_landing": [
+        36.5,
+        105.38461538461539,
+        37.6,
+        107.09461538461538
+      ],
+      "top_z": 0.4,
+      "bottom_z": -3.2,
+      "risers_per_flight": 10,
+      "evidence": "User markup copies the south stair to the north run's east end. Plan 46 draws a matching hatched stair outside the north facade (photo x 150-160 disp, y 900-990 disp). Its bottom level is assumed equal to the south one (-2); no north garden is modelled.",
+      "conflict": null,
+      "rails": [
+        [
+          31.8,
+          105.38461538461539,
+          42.3,
+          105.50461538461539
+        ],
+        [
+          31.8,
+          106.97461538461538,
+          42.3,
+          107.09461538461538
+        ]
+      ]
+    }
+  ],
+  "served_exits": [
+    {
+      "id": "research_exit_6",
+      "campus_point": [
+        -23.471428571428568,
+        91.53846153846155
+      ]
+    },
+    {
+      "id": "research_exit_7",
+      "campus_point": [
+        -23.471428571428568,
+        83.84615384615384
+      ]
+    },
+    {
+      "id": "research_exit_8",
+      "campus_point": [
+        -20.214285714285715,
+        72.46153846153847
+      ]
+    },
+    {
+      "id": "research_exit_9",
+      "campus_point": [
+        -20.214285714285715,
+        58.30769230769231
+      ]
+    },
+    {
+      "id": "research_exit_10",
+      "campus_point": [
+        -20.214285714285715,
+        52.46153846153847
+      ]
+    },
+    {
+      "id": "research_exit_11",
+      "campus_point": [
+        -20.214285714285715,
+        38.30769230769231
+      ]
+    },
+    {
+      "id": "research_exit_12",
+      "campus_point": [
+        -23.471428571428568,
+        28.76923076923077
+      ]
+    },
+    {
+      "id": "research_exit_13",
+      "campus_point": [
+        -23.471428571428568,
+        20.46153846153846
+      ]
+    }
+  ],
+  "hole_length": 65.67461538461538,
+  "area": 444.27404945054917,
+  "unresolved": [
+    {
+      "recess": "recess_room1_l28",
+      "east": -20.56,
+      "status": "A thin line crosses this recess at photo y 4126. It may be a step, planter or soffit edge. Not built."
+    },
+    "East of the West Offices (east 20.3-31.8) the -1 trace stops at north 6.92, because the rectified plan ends at source x = 100. Plan 46 shows the C5 end block reaching the same south facade at about north 1.5, so the south run is built along a facade the layout does not yet contain.",
+    "The north-west block (north 92.2-105.4, west of C8) has no traced rooms; the facade is assumed at east -23.74 there.",
+    "The north run's facade is the C5/C8 north end (105.38); the -1 trace has no rooms along most of it, and between east 25.5 and 31.8 the traced rooms stop at north 101."
+  ],
+  "photo_fit": {
+    "method": "Original-pixel fit on photo 46. Photo x to campus north from the eight detected west-facade exit stars, whose campus points the layout already carries (seven detected; the eighth is under the blue annotation). Photo y to campus east from two traced faces: the office-row outer wall (O13-O20, east -17.5) at y 4048 and the Room 1/Room 2 facade at y 4207.",
+    "north_from_photo_x": {
+      "north_at": 91.54,
+      "photo_x_at": 855,
+      "metres_per_pixel": -0.03481
+    },
+    "east_from_photo_y": {
+      "east_at": -23.74,
+      "photo_y_at": 4207,
+      "metres_per_pixel": -0.03925
+    },
+    "residual": "Exit stars fit within 0.7 m; perspective is not corrected."
+  },
+  "source_hashes": {
+    "config/povo2_minus1_terrace.json": "a31297d7ec825857cecc3a8aab5b1de57c10dd35f4c029d1eb0890a99dd3efb7",
+    "exports/povo2_west_offices_20261029/layout.json": "be0347949bd1d1c80df144b9ebbb645fd9e3e66b89038855cb396495b215812e",
+    "exports/povo2_survey/full_46.jpg": "1e73c805db8f815a1fdd921afc51b726225bb09da3830f1ecbba31300cbb09e3",
+    "data/reference/user_feedback/2026-10-29/Povo2_Minus1_Terrace_Corrected.drawio": "5d8f01c2a269d6da3209519290a511d686f7c947775b8c4a9f8e4ef16302542f",
+    "tools/build_povo2_minus1_terrace.py": "5f7632d80ff0010a446dc3b58ce509166dcf7f48ad837503c08728da5aa4e05e"
+  }
+}
