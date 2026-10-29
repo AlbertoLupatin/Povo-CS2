@@ -1,0 +1,21 @@
+{
+  "name": "west_strip_0_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        -24.596428571428568,
+        19.849999999999998,
+        0.4
+      ],
+      "position": [
+        -24.59641959049839,
+        19.846267673479385,
+        0.4007928230016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

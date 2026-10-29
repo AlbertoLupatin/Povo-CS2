@@ -1,0 +1,21 @@
+{
+  "name": "office_bay_0_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        -18.15,
+        38.71153846153846,
+        0.4
+      ],
+      "position": [
+        -18.150023923472602,
+        38.572492095554296,
+        0.4007920864016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

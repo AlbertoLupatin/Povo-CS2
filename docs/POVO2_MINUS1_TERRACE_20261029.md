@@ -115,3 +115,36 @@ The full test log is `build/terrace-commit-tests-20261029.log`.
 
 The successful campus build in `build/handoff/20261029T140538256109Z` predates
 completion of this review. It does not validate or install the terrace.
+
+
+## Native CS2 test — 29 October 2026
+
+The committed terrace OBJ from `5c0ec41` was compiled as both render and
+collision geometry in the separate `povo2_terrace_native_test` map. This
+uses the unchanged OBJ at campus scale, neutral review shading, daylight
+and a separate catch floor at z −3.2. No campus package was replaced.
+
+All **12 ordinary-walking routes** passed, including both stairs with their
+full north/south runs, both west strips and both office bays, each in both
+directions (**28 waypoint checks**). Each of the three hole-centre drops
+reached the catch floor at −3.2 rather than stopping at the terrace. Both
+west-strip railing pushes blocked the standing player at terrace level.
+These **five collision checks** also passed. CS2 was closed after testing.
+
+This verifies the terrace mesh in CS2; it does not resolve its garden
+registration or test connections to the campus building's doors.
+
+- [Native result](../exports/povo2_minus1_terrace_20261029/runtime/native-test.json)
+- [South stair screenshot](../exports/povo2_minus1_terrace_20261029/runtime/south_stair.png)
+- [North stair screenshot](../exports/povo2_minus1_terrace_20261029/runtime/north_stair.png)
+- [Middle hole screenshot](../exports/povo2_minus1_terrace_20261029/runtime/west_middle_hole.png)
+
+Reproduce with Steam running and CS2 closed:
+`py -3 -m tools.playtest_povo2_minus1_terrace`.
+The command builds a separate test map, launches a solo session, records
+results/screenshots and closes that session. `--run-only` requires unchanged
+source and compiled resource hashes from a preceding build. Compiler and
+console logs are kept in `build/terrace-native-test/`; movement results and
+screenshots are in the review's `runtime/` directory. Three additional unit
+tests ensure the runner rejects another map, loading or multiplayer sessions,
+and revokes authorization when another player joins.
