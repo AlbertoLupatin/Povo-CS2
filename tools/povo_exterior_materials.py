@@ -1,5 +1,9 @@
 """Exterior palette, explicit door opacity and isolated CS2 material sources."""
 COLORS = {
+    'bus_paint': (218,224,215), 'bus_rust': (113,65,43), 'bus_glass': (27,45,49),
+    'bus_green': (92,153,53), 'bus_lime': (146,193,66),
+    'bus_metal': (147,157,156), 'bus_led': (246,205,102),
+    'bus_seat': (73,87,69), 'bus_floor': (78,75,65),
     'asphalt': (91,94,95), 'paving': (167,163,151), 'marking': (229,229,215),
     'grass': (100,121,78), 'concrete': (159,160,151), 'fence': (139,152,155),
     'stone': (183,175,150), 'glass': (71,103,111), 'entry_glass': (96,126,133),
@@ -16,19 +20,19 @@ PREFIX = 'materials/trento/povo/campus/exterior/'
 
 def write_materials(directory):
     try:
-        from .povo_campus_finishes import png
+        from .povo_campus_finishes import png, write_png
     except ImportError:
-        from povo_campus_finishes import png
+        from povo_campus_finishes import png, write_png
     directory.mkdir(parents=True,exist_ok=True)
-    (directory/'neutral_normal.png').write_bytes(png((128,128,255),'flat',4))
-    (directory/'opaque_mask.png').write_bytes(png((255,255,255),'flat',4))
+    write_png(directory/'neutral_normal.png', png((128,128,255),'flat',4))
+    write_png(directory/'opaque_mask.png', png((255,255,255),'flat',4))
     for name,color in COLORS.items():
         pattern='asphalt' if name=='asphalt' else 'plain'
-        (directory/(name+'.png')).write_bytes(png(color,pattern,64))
-        (directory/(name+'_rough.png')).write_bytes(png((185,)*3,'flat',4))
+        write_png(directory/(name+'.png'), png(color,pattern,64))
+        write_png(directory/(name+'_rough.png'), png((185,)*3,'flat',4))
         transparent=name in OPACITY
         shader=('csgo_lightmappedgeneric.vfx' if transparent else
-                'csgo_unlitgeneric.vfx' if name=='context_concrete' else 'csgo_complex.vfx')
+                'csgo_unlitgeneric.vfx' if name in ('context_concrete','bus_led') else 'csgo_complex.vfx')
         flags=('    F_TRANSLUCENT "1"\n    F_RENDER_BACKFACES "1"\n'
                f'    g_flOpacityScale "{OPACITY[name]}"\n') if transparent else ''
         layer='Layer1' if transparent else ''
@@ -37,7 +41,7 @@ def write_materials(directory):
                   f'    Texture{layer}Roughness "{PREFIX}{name}_rough.png"\n')
         if transparent:textures+=f'    TextureLayer1Translucency "{PREFIX}opaque_mask.png"\n'
         surface=('glass' if transparent else 'asphalt' if name=='asphalt' else
-                 'tile' if name=='tile' else 'metal' if name in ('fence','dark') else
+                 'tile' if name=='tile' else 'metal' if name in ('fence','dark') or name.startswith('bus_') else
                  'grass' if name in ('grass','tree') else 'wood' if name=='trunk' else 'concrete')
         text=(f'Layer0\n{{\n    shader "{shader}"\n'+flags+textures+
               '    g_vColorTint "[1 1 1 0]"\n    g_flModelTintAmount "1"\n'

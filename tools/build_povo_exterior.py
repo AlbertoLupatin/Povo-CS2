@@ -124,6 +124,12 @@ def build(root=ROOT, campus_geometry=None):
         meshes.append(dict(name=f'road_joint_{i}',vertices=v,faces=[(0,k+1,(k+1)%n+1) for k in range(n)],material='asphalt'))
     road_run('road_north',cfg['north_road'])
     road_run('road_front',cfg['front_road'])
+    if cfg.get('abandoned_bus', {}).get('enabled'):
+        try:
+            from .povo_abandoned_bus import extend as add_bus
+        except ImportError:
+            from povo_abandoned_bus import extend as add_bus
+        add_bus(box, meshes, cfg['abandoned_bus'])
     # Match the actual bridge-road/front-road height. The old hardcoded
     # 5.8 m connector left a 1.8 m drop after the street was raised to 7.6 m.
     join_z=cfg['road']['points'][0][2]

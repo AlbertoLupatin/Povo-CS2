@@ -1,8 +1,24 @@
 """Original, deterministic finish maps for the photo-guided campus interior."""
 
 import math
+import os
 import struct
+import tempfile
 import zlib
+
+
+def write_png(path, data):
+    """Replace generated images without truncating a Windows-mapped preview."""
+    if path.exists() and path.read_bytes() == data:
+        return
+    with tempfile.NamedTemporaryFile(dir=path.parent, suffix='.tmp', delete=False) as stream:
+        temporary = stream.name
+        stream.write(data)
+    try:
+        os.replace(temporary, path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
 
 
 def png(color, pattern='plain', size=256):
@@ -64,18 +80,18 @@ def png(color, pattern='plain', size=256):
 
 def write_materials(directory, prefix, colors):
     directory.mkdir(parents=True, exist_ok=True)
-    (directory / 'neutral_normal.png').write_bytes(png((128, 128, 255), 'flat', 4))
+    write_png(directory / 'neutral_normal.png', png((128, 128, 255), 'flat', 4))
     for name, color in colors.items():
         pattern = {'floor_circulation': 'terrazzo', 'floor_room': 'terrazzo',
                    'floor_wood': 'wood', 'seat_wood': 'wood',
                    'ceiling_panel': 'ceiling', 'desk_panel': 'perforated',
                    'floor_p2_tile': 'tile', 'floor_p2_asphalt': 'asphalt',
                    'floor_terrace': 'aggregate', 'floor_grating': 'grating'}.get(name, 'plain')
-        (directory / (name + '.png')).write_bytes(png(color, pattern))
+        write_png(directory / (name + '.png'), png(color, pattern))
         roughness = 215 if name in ('wall', 'ceiling_panel', 'courtyard_wall') else 175
         if name in ('metal_dark', 'window_frame', 'floor_grating'):
             roughness = 135
-        (directory / (name + '_rough.png')).write_bytes(png((roughness,) * 3, 'flat', 4))
+        write_png(directory / (name + '_rough.png'), png((roughness,) * 3, 'flat', 4))
         surface = ('wood' if name in ('floor_wood', 'seat_wood', 'seat_green', 'desk_dark', 'desk_panel')
                    else 'metal' if name in ('metal_dark', 'window_frame', 'floor_grating')
                    else 'asphalt' if name == 'floor_p2_asphalt'
@@ -84,7 +100,7 @@ def write_materials(directory, prefix, colors):
         if name in ('window_glass','reception_glass'):
             # Deliberately tinted panes remain readable from indoors and out.
             # Use the same tested translucent shader as the entrance banks.
-            (directory/'glass_mask.png').write_bytes(png((255,255,255),'flat',4))
+            write_png(directory/'glass_mask.png', png((255,255,255),'flat',4))
             opacity=.32 if name=='window_glass' else .60
             text=(f'Layer0\n{{\n    shader "csgo_lightmappedgeneric.vfx"\n'
                   '    F_TRANSLUCENT "1"\n    F_RENDER_BACKFACES "1"\n'

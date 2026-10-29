@@ -1661,3 +1661,83 @@ checks the glazing is otherwise solid; all 9 courtyard tests pass. In
 existing Povo 2 internal-stair support check, unchanged by this edit. Exports
 were not regenerated, and nothing was compiled, because another agent is
 regenerating Povo 2 at the same time.
+
+
+## 28 October 2026 — abandoned bus before the bridge
+
+Added the requested static abandoned bus broadside across the eastern approach
+of the under-bridge street. Its centre is (25, -5, 4) local metres; the 9 m
+length follows north/south across the 6 m road and both 1.4 m footways. The
+2.5 m body width leaves 3.75 m between the body and the bridge's east edge.
+The bus has faded paint, rust patches, opaque dark windows, closed doors,
+circular tyres, bumpers and roof vent; continuous shell collision blocks the
+street and prevents passage through the windows. Bus materials use metal
+physics. The exterior route audit explicitly reports this requested closure as
+`blocked_as_designed`, retaining all other support/obstacle checks.
+
+Regenerated campus OBJ, collision, materials and provenance with
+`python tools/build_povo_campus.py`. Placement preview:
+`exports/povo_campus/abandoned_bus_review.png` (surrounding buildings hidden).
+Bus and exterior geometry tests pass; the broader integration group retains
+its existing garage route failure, unrelated to the bus. Native compilation,
+packaging and engine validation remain paused per the earlier user request.
+
+## 28 October 2026 — reference-inspired bus graphics and destination
+
+Updated the abandoned bus using the user-supplied white/green city-bus image
+(saved as `data/reference/user_feedback/2026-10-28/bus_livery_user_reference.png`).
+White roof and belt, alternating green mountain panels, dark glazing, silver
+hubs, mirrors and wipers follow the reference while retaining light rust wear.
+Placement and continuous collision are retained. The +Y front above the
+windshield now displays the exact destination `5/ Università di Povo` in amber.
+Glyphs are generated as visible planar geometry from a font mask, preserving
+the accent without world-scale UV repetition; LED material uses an unlit shader.
+
+All 15 bus/exterior geometry tests pass, including destination geometry and
+livery integration. Regenerated source mesh/collision/materials/provenance;
+Windows EINVAL on direct overwrites was handled by temporary-file replacement.
+Reviewed `exports/povo_campus/abandoned_bus_livery_review.png`, including a
+front close-up. Native compilation and engine validation remain paused.
+
+
+Stair-door build coordination update: the original stair_doors_build process
+was intentionally stopped by the concurrent "Add abandoned bus before bridge"
+chat to replace its obsolete bus snapshot. This was not a diagnosed compiler
+crash. The bus chat owns the single current combined build, logged in
+build/bus-livery-build.log. On the user's request, both that chat and
+"Publish compiled map to Steam" were sent the completed door scope, passing
+checks and native validation limits. Door source is stable; no competing
+build will be started here. Both standard/winter generated VMAPs from the
+initial preparation were decoded and verified for all 15 moving leaves,
+15 close relays at 2.5 seconds, sensors and separate sound references.
+
+## 29 October 2026 — open abandoned bus interior
+
+Replaced the solid passenger-cabin mass with perimeter walls and a supported
+floor. The eastern double doors now stand open between the axles, with three
+low entrance steps and a clear central aisle. Added nine passenger seats,
+two torn cushions with exposed foam, a missing seat at the entrance, driver
+fittings, grab poles, broken side panes, rusty bases, dirt and discarded papers.
+Retained the white/green mountain livery, roof, wheels, mirrors, wipers and
+`5/ Università di Povo` display; exterior graphics are clipped at the doorway.
+The opposite wall keeps the original road closure in place.
+
+All 21 bus/exterior/integration tests pass, including a standing-player hull
+clearance and support check over every tread and along the aisle in both
+directions. Regenerated standard/winter source meshes, collision, materials
+and provenance. Visually reviewed the full-roof exterior, entrance and interior
+views in `exports/povo_campus/abandoned_bus_open_review.png`. No native CS2
+compilation, package deployment or in-engine traversal was performed.
+
+## 29 October 2026 — record confirmed bus-livery Workshop upload
+
+The earlier standard bus-livery and stair-door build was successfully uploaded
+to the existing friends-only Workshop item 3827904476 from this chat. Workshop
+Manager explicitly reported successful upload. Published package identity:
+64,645,282 bytes, 1,077 CRC-verified entries, SHA-256
+`20ed56e33f4fc79970a8b726f361d63bbaf64ae2eff893167fe6b9ce26463c79`.
+The requested winter compilation was stopped before publication.
+
+Receipt: `build/workshop/bus-livery-upload-confirmed.json`. This records the
+previous upload, not the later basement/open-bus changes or the newer staged
+package. The newer Workshop snapshot and any other active build are retained.

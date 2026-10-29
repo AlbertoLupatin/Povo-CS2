@@ -54,6 +54,13 @@
     "walk_37_to_18",
     "walk_24_to_13"
   ],
+  "abandoned_bus": {
+    "enabled": true,
+    "centre": [25.0, -5.0, 4.0],
+    "length": 9.0,
+    "width": 2.5,
+    "placement": "Broadside across the east approach, before the bridge; covers the 6 m street and both 1.4 m footways"
+  },
   "road": {
     "width": 6.0,
     "footway_width": 1.4,

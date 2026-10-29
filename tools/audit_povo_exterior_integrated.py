@@ -80,12 +80,19 @@ def audit():
     meta=levels[0]['exterior'];meshes=meta['collision_meshes']
     reports=[]
     for name,path in exterior_routes().items():
-        points=route_points(path);failures=[]
+        points=route_points(path);failures=[];expected_blockage=[]
         for x,y,z in points:
             foot,obstacles=standing(x,y,z,boxes,meshes)
-            if foot is None or obstacles:failures.append(dict(point=[x,y,z],supported=foot is not None,obstacles=obstacles[:8]))
-        reports.append(dict(route=name,samples=len(points),status='failed' if failures else 'passed',failures=failures))
-    return dict(status='passed' if all(r['status']=='passed' for r in reports) else 'failed',routes=reports,
+            if foot is None or obstacles:
+                issue=dict(point=[x,y,z],supported=foot is not None,obstacles=obstacles[:8])
+                if (name=='bridge_road_to_straight_ramp' and foot is not None and obstacles
+                        and all(n.startswith('exterior_abandoned_bus_') for n in obstacles)):
+                    expected_blockage.append(issue)
+                else:failures.append(issue)
+        status='failed' if failures else 'blocked_as_designed' if expected_blockage else 'passed'
+        reports.append(dict(route=name,samples=len(points),status=status,failures=failures,
+                            expected_blockage=expected_blockage))
+    return dict(status='passed' if all(r['status']!='failed' for r in reports) else 'failed',routes=reports,
                 samples=sum(r['samples'] for r in reports),door_opacity=meta['door_opacity'],
                 limitations='Source support/standing checks; native engine movement and visuals still required')
 

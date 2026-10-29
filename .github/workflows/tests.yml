@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+      - name: Install bus destination font renderer
+        run: python -m pip install Pillow
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
 

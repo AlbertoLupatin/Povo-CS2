@@ -19,7 +19,7 @@ def surface(material):
         m=material.removeprefix('exterior_')
         return ('glass' if m in ('entry_glass','canopy_glass','glass') else
                 'asphalt' if m=='asphalt' else 'tile' if m=='tile' else
-                'metal' if m in ('fence','dark') else 'grass' if m in ('grass','tree') else
+                'metal' if m in ('fence','dark') or m.startswith('bus_') else 'grass' if m in ('grass','tree') else
                 'wood' if m=='trunk' else 'concrete')
     return ('snow' if material=='snow' else 'concrete' if material=='wet' else
             'tile' if material in ('floor_room','floor_circulation','floor_p2_tile','floor_terrace') else

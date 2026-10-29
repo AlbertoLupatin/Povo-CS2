@@ -62,7 +62,10 @@ class LibraryStairTests(unittest.TestCase):
             self.assertTrue(self.solid(x, -9.5, sidewalk_z(x)+.6), x)
         for x in (25.0, 33.0, 38.0, 42.0):
             self.assertAlmostEqual(self.wall_top(x), sidewalk_z(x)+.05, places=6)
-            self.assertFalse(self.solid(x, -9.5, sidewalk_z(x)+.6), x)
+            # The later bus occupies part of this crossing. Check the low
+            # wall/fence itself; bus collision is covered by its own tests.
+            self.assertFalse([n for n in self.solid(x, -9.5, sidewalk_z(x)+.6)
+                              if not n.startswith('exterior_abandoned_bus_')], x)
         self.assertLess(CROSSWALK_EAST, TOP_X)
 
 
