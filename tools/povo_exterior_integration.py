@@ -111,6 +111,7 @@ def extend(root,settings,config,boxes,levels,stair):
               street_end_gate=meta['config']['street_end_gate'],
               context_concrete=meta['config']['context_concrete'],
               input_hashes=meta['input_hashes'],photos=meta['photos'],
+              roadside_trees=[dict(t,name='exterior_'+t['name']) for t in meta['roadside_trees']],
               integration='Live interior retained; entrance widened; parking perimeters opened at overlap; P2 front level aligned to z4')
     levels[0]['exterior']=meta
     groundlevel=next(l for l in levels[1]['connection']['povo2']['levels'] if l['floor']==0)

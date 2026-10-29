@@ -1,0 +1,22 @@
+{
+  "name": "p2_basement_rotated_corridor_return",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        -3.8,
+        16.25,
+        0.4
+      ],
+      "position": [
+        -3.801331538815206,
+        16.18126812006473,
+        0.40079307700160316
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ],
+  "error": "Ordinary movement stalled: [19.99280601387997, 16.16711239526467, 0.4007931786016032] target [26.2, 16.25, 0.4]"
+}

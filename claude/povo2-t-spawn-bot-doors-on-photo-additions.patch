@@ -1,0 +1,243 @@
+From a2c8994d30f6929f96d627b3a962f49a6466c6fe Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Wed, 28 Oct 2026 09:54:16 +0000
+Subject: [PATCH] Move Terrorist starts to Povo 2 and let bots open the
+ automatic doors
+
+The six T starts and their buy zone move from the Povo 1 ground entrance to
+the Povo 2 entrance hall; CT starts and bomb site A stay in Povo 1, so
+attackers cross by the bridge, the street or the basement yard. Radar TSpawn
+marks and the local-match buy pose follow.
+
+Door sensors used spawnflags 4097, which includes Source's "Disallow Bots"
+(4096); they now use 1 so bots open the banks like players. Source changes
+only; the vmaps and VPKs need the Windows rebuild.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01BLxVVVeVh8Yof1CaUMK966
+---
+ docs/POVO_CAMPUS_PLAYTEST.md                   |  2 +-
+ docs/POVO_GAMEPLAY_DESIGN.md                   |  3 ++-
+ docs/TODO.md                                   | 10 ++++++++--
+ docs/WORKLOG.md                                | 18 ++++++++++++++++++
+ .../povo_campus/radar/trento_povo_campus.txt   |  4 ++--
+ .../radar/trento_povo_campus_winter.txt        |  4 ++--
+ tests/test_map_entities.py                     |  4 ++++
+ tests/test_povo_campus.py                      |  6 ++++++
+ tools/cs2_campus.py                            | 15 +++++++++++----
+ tools/playtest_povo_match.py                   |  2 +-
+ 10 files changed, 55 insertions(+), 13 deletions(-)
+
+diff --git a/docs/POVO_CAMPUS_PLAYTEST.md b/docs/POVO_CAMPUS_PLAYTEST.md
+index 0b772fc..2521064 100644
+--- a/docs/POVO_CAMPUS_PLAYTEST.md
++++ b/docs/POVO_CAMPUS_PLAYTEST.md
+@@ -39,7 +39,7 @@ User feedback is implemented as follows:
+ - The solid Povo 1 exterior mass has been replaced by the interior shell.
+   Courtyard glazing, ceilings, lighting, room labels and a short entrance landing
+   are included. Povo 2 and the bridge remain backdrop.
+-- Ground T starts, upper CT starts, buy zones, one upper east-corridor bomb
++- T starts in the Povo 2 entrance hall, CT starts on Povo 1's top floor, buy zones, one upper east-corridor bomb
+   target and a radar with separate floor images provide a playable prototype.
+   Competitive balance remains open.
+ 
+diff --git a/docs/POVO_GAMEPLAY_DESIGN.md b/docs/POVO_GAMEPLAY_DESIGN.md
+index 3915c4d..43262d0 100644
+--- a/docs/POVO_GAMEPLAY_DESIGN.md
++++ b/docs/POVO_GAMEPLAY_DESIGN.md
+@@ -88,7 +88,8 @@ second site in underground parking for the first iteration.
+ 
+ ## Source evidence
+ 
+-- `tools/cs2_campus.py`: six starts per team, T at the Povo 1 ground entrance,
++- `tools/cs2_campus.py`: six starts per team, T in the Povo 2 entrance hall (moved from the Povo 1
++  ground entrance on 28 October),
+   CT upstairs, and a single upper east-corridor objective.
+ - `exports/povo_campus/provenance.json`: room bounds, four stair cores, bridge
+   bounds and integrated Povo 2 floor/stair layout.
+diff --git a/docs/TODO.md b/docs/TODO.md
+index ea63691..c112f92 100644
+--- a/docs/TODO.md
++++ b/docs/TODO.md
+@@ -46,7 +46,9 @@ certify the revised geometry.
+ - [x] Re-run the exterior walking checks (`python tools/playtest_povo_exterior.py`
+       in a loaded solo session); both door banks must still pass.
+ - [ ] Bots: they don't path through intact windows, and they get through the
+-      entrance doors (touching a door also opens it).
++      entrance doors. Since 28 October the door sensors use spawnflags 1 instead
++      of 4097 (4096 is Source's "Disallow Bots"), so bots should open them from
++      the sensor like players; confirm after the next build.
+ - [x] Stairs: normal walking up and down all four Povo 1 three-flight cores,
+       Povo 2 from +1 to -2, and both library/canteen stairs.
+ - [ ] Stairs: visually check red floors and all well railings.
+@@ -58,7 +60,9 @@ certify the revised geometry.
+ - [ ] Lift: in the shaft right of the reception, climb the ladder from the
+       ground floor and step off onto the upper ledge, then climb back down.
+       Check the ladder surface lines up with the visible rungs.
+-- [ ] Lift: bots and the nav mesh handle the ladder (or ignore it safely).
++- [ ] Lift: bots and the nav mesh handle the ladder (or ignore it safely). The
++      winter compile reported two unconnected ladder tops, so bots probably
++      ignore both ladders; check that none stalls at a shaft.
+ - [ ] Povo 2 lift (beside the stair door): climb from -1 to ground and on to
+       +1, stepping off at each opening; check the ladder lines up with the rungs.
+ - [ ] Stairs: railings show as continuous sloped handrails with bars (no
+@@ -70,6 +74,8 @@ certify the revised geometry.
+ 
+ - [ ] Two independent clients join and finish a match (first milestone).
+ - [ ] Full bot round with objectives and buy zones checked.
++- [ ] Povo 2 T spawn (28 October): all six T starts spawn cleanly, the entrance-hall
++      buy zone works, and T rounds reach A over the bridge and outside.
+ - [ ] Clean-install test from the published Workshop item; see
+       [PUBLISH_AND_HOST.md](PUBLISH_AND_HOST.md).
+ - [ ] Resolve redistribution rights for reference material before a public
+diff --git a/docs/WORKLOG.md b/docs/WORKLOG.md
+index 0faf22a..f5e0f6d 100644
+--- a/docs/WORKLOG.md
++++ b/docs/WORKLOG.md
+@@ -1552,3 +1552,21 @@ Native standard-map build/package completed with zero compile failures in
+ after the build: CS2 will not be launched and engine walking is not scheduled.
+ No Workshop upload is performed. Pre-task sources and the previous standard
+ package are backed up under `build/sketch-corrections-backup-20261027/`.
++
++## 28 October 2026 — Povo 2 T spawn and bot door sensors
++
++Moved the six Terrorist starts and their buy zone from the Povo 1 ground
++entrance to the Povo 2 entrance hall, between the reception and the entrance
++doors (N29–32, E24.5–26.3, floor z4.0), clear of both door sensors. The CT
++starts and bomb site A stay in Povo 1, so attackers now cross from Povo 2 by
++the bridge, the street or the basement yard. Radar `TSpawn` marks and the
++local-match buy pose follow the new position.
++
++The automatic-door sensors used spawnflags 4097. Flag 4096 is Source's
++"Disallow Bots" trigger flag, so bots could only open a bank by touching a
++leaf. They now use 1 (clients, bots included).
++
++All 204 source tests pass, including new checks for the spawn split and the
++sensor flags. Nothing was compiled: the committed vmaps and VPKs predate these
++changes and need the Windows rebuild (`python tools/cs2_campus.py
++--season both`) before any engine check.
+diff --git a/exports/povo_campus/radar/trento_povo_campus.txt b/exports/povo_campus/radar/trento_povo_campus.txt
+index 8147f3f..d399187 100644
+--- a/exports/povo_campus/radar/trento_povo_campus.txt
++++ b/exports/povo_campus/radar/trento_povo_campus.txt
+@@ -17,8 +17,8 @@
+  }
+  "CTSpawn_x" "0.660800000"
+  "CTSpawn_y" "0.352000000"
+- "TSpawn_x" "0.812000000"
+- "TSpawn_y" "0.278000000"
++ "TSpawn_x" "0.398000000"
++ "TSpawn_y" "0.262000000"
+  "bombA_x" "0.750400000"
+  "bombA_y" "0.304160000"
+ }
+diff --git a/exports/povo_campus/radar/trento_povo_campus_winter.txt b/exports/povo_campus/radar/trento_povo_campus_winter.txt
+index c72b47d..1c8b789 100644
+--- a/exports/povo_campus/radar/trento_povo_campus_winter.txt
++++ b/exports/povo_campus/radar/trento_povo_campus_winter.txt
+@@ -16,8 +16,8 @@
+  }
+  "CTSpawn_x" "0.660800000"
+  "CTSpawn_y" "0.352000000"
+- "TSpawn_x" "0.812000000"
+- "TSpawn_y" "0.278000000"
++ "TSpawn_x" "0.398000000"
++ "TSpawn_y" "0.262000000"
+  "bombA_x" "0.750400000"
+  "bombA_y" "0.304160000"
+ }
+diff --git a/tests/test_map_entities.py b/tests/test_map_entities.py
+index 1c83b0d..704e1e0 100644
+--- a/tests/test_map_entities.py
++++ b/tests/test_map_entities.py
+@@ -127,6 +127,10 @@ class AutoDoorTests(unittest.TestCase):
+         self.assertTrue(all('"targetname" "string" "trento_door_bank"' in d for d in doors))
+         ids = re.findall(r'"elementid"\s+"([^"]+)"', text)
+         self.assertEqual(len(ids), len(set(ids)))
++        # Clients, bots included: 4096 is Source's "Disallow Bots" trigger flag.
++        flags = int(re.search(r'"spawnflags"\s+"string"\s+"(\d+)"', trigger)[1])
++        self.assertTrue(flags & 1)
++        self.assertFalse(flags & 4096)
+ 
+ 
+ class LadderTests(unittest.TestCase):
+diff --git a/tests/test_povo_campus.py b/tests/test_povo_campus.py
+index f58a0d9..ae5ba4a 100644
+--- a/tests/test_povo_campus.py
++++ b/tests/test_povo_campus.py
+@@ -261,6 +261,12 @@ class CampusGeometryTests(unittest.TestCase):
+             for suffix in ('_lower','_middle',''):
+                 self.assertTrue((output/('trento_povo_campus'+suffix+'_radar.png')).is_file())
+ 
++    def test_terrorists_start_in_povo2_and_counter_terrorists_in_povo1(self):
++        # Povo 2 begins north of the bridge's far end (N10); Povo 1 ends at N-20.
++        self.assertTrue(all(y>14 for _x,y,_z in T_STARTS))
++        self.assertTrue(all(-103<y<-20 for _x,y,_z in CT_STARTS))
++        self.assertTrue(-103<OBJECTIVE[1]<-20)
++
+     def test_both_side_aisles_in_every_furnished_room_are_reachable(self):
+         reports=audit()
+         self.assertEqual([r['id'] for r in reports[:3]],[l['id'] for l in self.levels])
+diff --git a/tools/cs2_campus.py b/tools/cs2_campus.py
+index 1d9ccde..0dc9fc1 100644
+--- a/tools/cs2_campus.py
++++ b/tools/cs2_campus.py
+@@ -26,7 +26,9 @@ ROOT=Path(__file__).resolve().parents[1]
+ MAP='trento_povo_campus'
+ MODEL='povo1_campus'
+ UNITS=39.37007874
+-T_STARTS=[(x,y,4.8) for y in (-74.5,-73,-71.5) for x in (20.5,22.3)]
++# Terrorists start in the Povo 2 entrance hall, between the reception and the
++# entrance doors, clear of the door sensors. Counter-terrorists hold Povo 1.
++T_STARTS=[(x,y,4.8) for y in (29,30.5,32) for x in (24.5,26.3)]
+ CT_STARTS=[(x,-35.2,12.0) for x in (-2,0,2,4,6,8)]
+ OBJECTIVE=(13.96,-57.6,11.8)
+ 
+@@ -132,7 +134,12 @@ def connection(token,output,target,inputname):
+ 
+ 
+ def add_auto_doors(source,doors):
+-    """Sliding func_door leaves, opened by a players-only trigger in front of each bank."""
++    """Sliding func_door leaves, opened by a trigger in front of each bank.
++
++    The trigger's spawnflags are 1 (clients), which includes bots. 4096 is
++    Source's "Disallow Bots" trigger flag, so the former 4097 kept bots from
++    opening the doors except by touching a leaf.
++    """
+     if not doors:return source
+     template=next(block for _,_,classname,block in project._entity_ranges(source)
+                   if classname=='func_buyzone' and '"CMapMesh"' in block)
+@@ -145,7 +152,7 @@ def add_auto_doors(source,doors):
+                 (('targetname',target),('movedir',f"0 {part['yaw']} 0"),('speed','60'),('wait','-1'),
+                  ('lip','0'),('spawnpos','0'),('spawnflags','1024'),('forceclosed','0'),('dmg','0')),part['material']))
+         trigger=box_entity(template,'door-trigger-'+door['name'],'trigger_multiple',door['trigger'],ids,
+-            (('targetname',target+'_sensor'),('spawnflags','4097'),('wait','1'),('StartDisabled','0')))
++            (('targetname',target+'_sensor'),('spawnflags','1'),('wait','1'),('StartDisabled','0')))
+         rows=',\n'.join((connection(f"door-io-{door['name']}-open",'OnStartTouch',target,'Open'),
+                          connection(f"door-io-{door['name']}-close",'OnEndTouchAll',target,'Close')))
+         trigger,count=re.subn(r'("connectionsData"\s+"element_array"\s*\[)\s*(\])',lambda m:m[1]+'\n'+rows+'\n'+m[2],trigger,count=1)
+@@ -187,7 +194,7 @@ def map_text(source,metadata,season='standard'):
+     ground=min(l['floor_elevation_metres']-370 for l in metadata['levels'])
+     upper=max(l['floor_elevation_metres']-370 for l in metadata['levels'])
+     spawns={'info_player_terrorist':iter(t_starts),'info_player_counterterrorist':iter(ct_starts)}
+-    buy={'2':(21.4,-72,ground+.6),'3':(3,-35.2,upper+.6),'0':objective}
++    buy={'2':(25.4,30.5,ground+.6),'3':(3,-35.2,upper+.6),'0':objective}
+     replacements=[]
+     for start,end,classname,block in project._entity_ranges(source):
+         updated=block
+diff --git a/tools/playtest_povo_match.py b/tools/playtest_povo_match.py
+index 7abb6e3..37e1aa9 100644
+--- a/tools/playtest_povo_match.py
++++ b/tools/playtest_povo_match.py
+@@ -60,7 +60,7 @@ def playtest(season='standard',port=27400):
+              'mp_freezetime 0','mp_roundtime_defuse 60','mp_startmoney 8000','mp_buytime 3600',
+              'mp_buy_anywhere 0','mp_plant_c4_anywhere 0','mp_c4timer 40'])
+         teams(2)
+-        pose((21.4,-72,4.1));r=cmd('buy ak47',1)
++        pose((25.4,30.5,4.1));r=cmd('buy ak47',1)
+         check('terrorist_buyzone_purchase','purchased "ak47"' in r or 'purchase: weapon_ak47' in r)
+         pose((62,-70,5.9));r=cmd('buy awp',1)
+         check('street_is_outside_buyzone','purchase: weapon_awp' not in r and 'purchased "awp"' not in r)
+-- 
+2.43.0
+

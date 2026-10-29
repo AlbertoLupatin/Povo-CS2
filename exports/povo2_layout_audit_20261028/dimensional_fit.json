@@ -1,0 +1,31 @@
+{
+  "status": "Local geometry fits registered core; metric and full basement registration provisional",
+  "scale_basis": "Existing 8 x 9.5 m core; no independent measured length",
+  "trace_axis_scale_difference_percent": 5.62248995983936,
+  "vestibule_dimensions_metres": [
+    9.5,
+    3.5999999999999996
+  ],
+  "inferred_depth_metres": 3.6363636363636367,
+  "door_inferred_east": 18.25,
+  "door_implemented_east": 18.2,
+  "core_inside_povo2_east_roof": true,
+  "vestibule_inside_povo2_east_roof": true,
+  "parking_bounds": [
+    -25.0,
+    -12.5,
+    11.0,
+    19.5
+  ],
+  "parking_to_povo1_north_gap_metres": 7.5,
+  "parking_size_preserved_metres": [
+    36.0,
+    32.0
+  ],
+  "external_garage_north_gap_metres": 10.5,
+  "limitations": [
+    "Aerial roofs cannot establish underground boundaries.",
+    "The existing larger exterior garage remains separately registered; its connection is not established by this local fit.",
+    "Trace/perspective and existing core scale uncertainty remain; estimates are not a survey."
+  ]
+}

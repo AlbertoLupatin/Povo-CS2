@@ -15,8 +15,10 @@ not measured.
 """
 try:
     from .povo_stairs import railing
+    from .povo_ginkgo import tree as ginkgo, height_for
 except ImportError:
     from povo_stairs import railing
+    from povo_ginkgo import tree as ginkgo, height_for
 
 # Plan bands between the library's north facade (N-13) and the sidewalk (N-9.5).
 STAIR_Y = (-12.95, -11.45)
@@ -53,6 +55,8 @@ def extend(boxes, levels):
         return boxes
     # The generic road trees stood in the old pit; the grass gets its own.
     result = [b for b in boxes if not b[0].startswith(('exterior_road_tree_5_', 'exterior_road_tree_6_'))]
+    exterior['meshes'] = [m for m in exterior['meshes'] if not m['name'].startswith(('exterior_road_tree_5_', 'exterior_road_tree_6_'))]
+    exterior['roadside_trees'] = [t for t in exterior['roadside_trees'] if t['name'] not in ('exterior_road_tree_5', 'exterior_road_tree_6')]
     rails = []
     def add(name, lo, hi, mat):
         result.append(('exterior_library_'+name, tuple(lo), tuple(hi), mat))
@@ -97,9 +101,10 @@ def extend(boxes, levels):
     # Small trees in the grass (photo 2); canopies are visual only.
     for i, x in enumerate(TREES):
         z = grass_z(x); y = (GRASS_Y[0]+GRASS_Y[1])/2+.2
-        add(f'tree_{i}_trunk', (x-.08, y-.08, z-.1), (x+.08, y+.08, z+2.4), 'exterior_trunk')
-        add(f'tree_{i}_canopy_low', (x-.9, y-.85, z+2.1), (x+.9, y+.85, z+3.3), 'exterior_tree')
-        add(f'tree_{i}_canopy_top', (x-.6, y-.6, z+3.3), (x+.6, y+.6, z+4.1), 'exterior_tree')
+        trunk, crown, record = ginkgo(f'exterior_library_tree_{i}', x, y, z, height_for(i), prefix='exterior_')
+        result.append(trunk)
+        exterior['meshes'].extend(crown)
+        exterior['roadside_trees'].append(record)
     levels[0]['library_stair'] = dict(
         rails=rails, steps=STEPS, rise_metres=rise, tread_metres=tread,
         stair_y=list(STAIR_Y), grass_y=list(GRASS_Y), wall_y=list(WALL_Y),

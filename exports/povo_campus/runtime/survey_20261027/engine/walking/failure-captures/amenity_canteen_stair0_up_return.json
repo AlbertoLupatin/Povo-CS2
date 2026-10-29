@@ -1,0 +1,22 @@
+{
+  "name": "amenity_canteen_stair0_up_return",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        42.85,
+        -97.95,
+        7.6
+      ],
+      "position": [
+        42.71154178037085,
+        -97.94997163879181,
+        7.600798082630403
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ],
+  "error": "Ordinary movement stalled: [45.29280745858117, -97.95042431759181, 6.530799054226123] target [45.550000000000004, -97.95, 5.9799999999999995]"
+}

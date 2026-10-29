@@ -7,9 +7,11 @@ from pathlib import Path
 try:
     from .build_povo_campus import build_geometry, collision_boxes
     from .audit_povo_interior import audit_level, map_png
+    from .povo_campus_finishes import write_png
 except ImportError:
     from build_povo_campus import build_geometry, collision_boxes
     from audit_povo_interior import audit_level, map_png
+    from povo_campus_finishes import write_png
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -47,19 +49,19 @@ def audit():
             stations.append(dict(id='elevator_'+floor,point=elevator['stations'][floor]))
         # Connection generator retains its legacy object prefix. Alias support
         # for this audit to the floor that now owns the bridge.
-        level_boxes=[((level['id']+'_'+n if level.get('connection') and n.startswith('academic_first_link_') else n),lo,hi,m)
+        level_boxes=[((level['id']+'_'+n if level.get('connection') and n.startswith(('academic_first_link_','p2_internal_new_core_floor_')) else n),lo,hi,m)
                      for n,lo,hi,m in boxes]
         report,free,visited=audit_level(level_boxes,dict(id=level['id'],floor_elevation_local=z),
                                       stations,width=.82,height=1.85)
         report['vertical_traversal']='Separate CS2 stair traversal test required'
         reports.append(report)
-        (output/(level['id']+'_clearance.png')).write_bytes(map_png(report,free,visited))
+        write_png(output/(level['id']+'_clearance.png'),map_png(report,free,visited))
     ground=next((l['connection'] for l in levels if 'connection' in l),{}).get('ground')
-    if ground:
+    if ground and not ground.get('integrated'):
         report,free,visited=audit_level(boxes,ground,ground['audit_stations'],width=.82,height=1.85)
         report['vertical_traversal']='Separate CS2 stair traversal test required'
         reports.append(report)
-        (output/(ground['id']+'_clearance.png')).write_bytes(map_png(report,free,visited))
+        write_png(output/(ground['id']+'_clearance.png'),map_png(report,free,visited))
     (output/'clearance.json').write_text(json.dumps(reports,indent=2)+'\n')
     return reports
 

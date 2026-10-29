@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "completed_utc": "2026-10-29T11:04:06.197646+00:00",
+  "package_sha256": "c916c179db8a9ea84adef59c428af6b801f1beca6ea89c98291ef77c3b64aa7f",
+  "package_bytes": 45393237,
+  "package_entries": 1082,
+  "crc_verified_entries": 1082,
+  "source_tests": {
+    "count": 265,
+    "log": "build/exterior-probe-tests.log",
+    "targeted_count": 10,
+    "targeted_log": "build/exterior-probe-targeted-tests.log"
+  },
+  "lighting": {
+    "quality": 0,
+    "max_resolution": 2048,
+    "pavement": "Lightprobed render-only surface, 3 mm normal offset"
+  },
+  "route_counts": {
+    "final-walking": 12,
+    "final-basement-walking": 24
+  },
+  "native_model_hashes": {
+    "models/povo/povo1_campus.vmdl_c": "f9e043e51d5ae6e90b64bce99d75be6270fb34c802f6fb7abcd52a2d300e999f",
+    "models/povo/povo1_campus_paving.vmdl_c": "dcdc937f1eec6337054cce9f611a7aec9dcb78cfb68c6f584fa1db8e05947137"
+  },
+  "winter_compiled": false,
+  "workshop_updated": false
+}

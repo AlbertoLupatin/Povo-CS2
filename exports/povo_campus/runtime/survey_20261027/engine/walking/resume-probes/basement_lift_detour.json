@@ -1,0 +1,36 @@
+{
+  "name": "basement_lift_detour",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        23.8,
+        16.25,
+        0.4
+      ],
+      "position": [
+        23.846359952695387,
+        16.249456223465,
+        0.40079307700160316
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        23.8,
+        17.3,
+        0.4
+      ],
+      "position": [
+        23.790374212495163,
+        17.239157038068956,
+        0.4007929754016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ],
+  "error": "Ordinary movement stalled: [11.507194511646029, 17.260479779269044, 0.4007929754016032] target [-3.8, 17.3, 0.4]"
+}

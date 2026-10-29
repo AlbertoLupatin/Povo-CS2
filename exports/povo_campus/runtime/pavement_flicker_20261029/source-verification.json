@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "scope": "Source/render topology and collision exports; native package checked separately",
+  "source_tests": 279,
+  "before_overlapping_pairs": 65784,
+  "before_by_orientation": {
+    "horizontal": 25056,
+    "vertical": 40722,
+    "sloped": 6
+  },
+  "models": {
+    "campus": {
+      "status": "passed",
+      "source": "exports\\povo_campus\\povo1_campus.obj",
+      "faces": 382712,
+      "overlapping_pairs": 0,
+      "by_orientation": {},
+      "by_material": {},
+      "overlap_square_metres": 0,
+      "obj_sha256": "ed3e22094e94231c8562b393f1cf8057602df05dbdb3c7043e666f029ec58d54"
+    },
+    "pavement": {
+      "status": "passed",
+      "source": "exports\\povo_campus\\povo1_campus_paving.obj",
+      "faces": 4095,
+      "overlapping_pairs": 0,
+      "by_orientation": {},
+      "by_material": {},
+      "overlap_square_metres": 0,
+      "obj_sha256": "aab955e8ba5dee8bebed10f755d247eb4916c1eb0cde2103d6f084b778e218aa"
+    },
+    "winter": {
+      "status": "passed",
+      "source": "exports\\povo_campus\\winter\\povo_winter.obj",
+      "faces": 3316,
+      "overlapping_pairs": 0,
+      "by_orientation": {},
+      "by_material": {},
+      "overlap_square_metres": 0,
+      "obj_sha256": "17b480c21d527892b7dc1452dd3b7b78fce19d8a62dd855be9b8c23c1350b879"
+    }
+  },
+  "floor_coverage": {
+    "status": "passed",
+    "grid_metres": 0.5,
+    "scope": "Every original floor sample remains covered by an upward rendered surface; coplanar trim/grass may own its patch",
+    "before_samples": 323619,
+    "after_samples": 323619,
+    "missing_samples": 0,
+    "added_samples": 0
+  },
+  "surface_coverage": {
+    "status": "passed",
+    "grid_metres": 2.0,
+    "scope": "All axis-aligned render surfaces, both normals, every material",
+    "before_samples": 1760041,
+    "after_samples": 1760041,
+    "missing_samples": 0,
+    "added_samples": 0,
+    "missing_examples": [],
+    "added_examples": []
+  },
+  "collision_unchanged": {
+    "exports\\povo_campus\\povo1_campus_collision.obj": true,
+    "exports\\povo_campus\\povo1_campus_collision_asphalt.obj": true,
+    "exports\\povo_campus\\povo1_campus_collision_concrete.obj": true,
+    "exports\\povo_campus\\povo1_campus_collision_glass.obj": true,
+    "exports\\povo_campus\\povo1_campus_collision_grass.obj": true,
+    "exports\\povo_campus\\povo1_campus_collision_metal.obj": true,
+    "exports\\povo_campus\\povo1_campus_collision_tile.obj": true,
+    "exports\\povo_campus\\povo1_campus_collision_wood.obj": true
+  }
+}

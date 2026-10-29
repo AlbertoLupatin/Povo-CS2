@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "bridge_courtyard_join",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        440,
+        1088,
+        760
+      ],
+      "samples": 286720,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "front_street_pavement",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        480,
+        1088,
+        760
+      ],
+      "samples": 250880,
+      "nearly_black_pixels": 57,
+      "nearly_black_fraction": 0.0002272002551020408,
+      "maximum_fraction": 0.02
+    }
+  ]
+}

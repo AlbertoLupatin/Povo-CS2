@@ -1,0 +1,185 @@
+{
+  "scope": "Three normally-lit native frames with 0.04-degree yaw steps; blur suppresses pixel-edge motion",
+  "views": [
+    {
+      "name": "povo2_entry",
+      "source_view": "povo2_entry",
+      "roi": [
+        0.15,
+        0.4,
+        0.85,
+        0.75
+      ],
+      "measurements": {
+        "before": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 0.3433155293367347,
+            "fraction_changing_over_8": 0.0
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 0.7817482461734694,
+            "fraction_changing_over_8": 0.0019252232142857144
+          }
+        ],
+        "after": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 0.23919005102040816,
+            "fraction_changing_over_8": 0.0
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 0.3778858418367347,
+            "fraction_changing_over_8": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "povo2_stair_hall",
+      "source_view": "povo2_stair_hall",
+      "roi": [
+        0.15,
+        0.4,
+        0.85,
+        0.75
+      ],
+      "measurements": {
+        "before": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 3.5215082908163264,
+            "fraction_changing_over_8": 0.034574298469387754
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 4.883649553571429,
+            "fraction_changing_over_8": 0.03450255102040816
+          }
+        ],
+        "after": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 3.3743861607142858,
+            "fraction_changing_over_8": 0.0
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 5.742163584183674,
+            "fraction_changing_over_8": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "povo2_wall",
+      "source_view": "povo2_wall",
+      "roi": [
+        0.55,
+        0.2,
+        0.95,
+        0.7
+      ],
+      "measurements": {
+        "before": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 3.9912158203125,
+            "fraction_changing_over_8": 0.0
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 6.791533203125,
+            "fraction_changing_over_8": 0.0054443359375
+          }
+        ],
+        "after": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 3.33541015625,
+            "fraction_changing_over_8": 0.0
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 5.8213330078125,
+            "fraction_changing_over_8": 0.00181640625
+          }
+        ]
+      }
+    },
+    {
+      "name": "povo2_door",
+      "source_view": "povo2_wall",
+      "roi": [
+        0.39,
+        0.41,
+        0.48,
+        0.79
+      ],
+      "measurements": {
+        "before": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 3.3212814645308923,
+            "fraction_changing_over_8": 0.06066933638443936
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 4.835440503432494,
+            "fraction_changing_over_8": 0.06318649885583524
+          }
+        ],
+        "after": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 3.146224256292906,
+            "fraction_changing_over_8": 0.06046910755148741
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 4.3867562929061785,
+            "fraction_changing_over_8": 0.06238558352402746
+          }
+        ]
+      }
+    },
+    {
+      "name": "povo2_ceiling",
+      "source_view": "povo2_ceiling",
+      "roi": [
+        0.25,
+        0.15,
+        0.75,
+        0.55
+      ],
+      "measurements": {
+        "before": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 3.24013671875,
+            "fraction_changing_over_8": 0.0
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 5.4353564453125,
+            "fraction_changing_over_8": 0.0
+          }
+        ],
+        "after": [
+          {
+            "frame": 1,
+            "mean_absolute_luma_difference": 2.2914794921875,
+            "fraction_changing_over_8": 0.0
+          },
+          {
+            "frame": 2,
+            "mean_absolute_luma_difference": 4.192470703125,
+            "fraction_changing_over_8": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}

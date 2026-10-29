@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "samples": 8408,
+  "failures": [],
+  "grid_metres": 0.5,
+  "scope": "Full repaired plaza areas and grade; source visual/collision support. Engine checks separate."
+}

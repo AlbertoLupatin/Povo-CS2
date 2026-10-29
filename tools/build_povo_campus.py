@@ -21,6 +21,7 @@ try:
     from .povo_interior_fixtures import reception_boxes, restroom_boxes, campus_staff_meshes, COLORS as FIXTURE_COLORS
     from .povo_stairs import railing, wall_handrail, mirrored, rail_faces
     from .povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
+    from .geometry_cache import memoize_geometry
 except ImportError:
     import build_povo_interior as interior
     from build_povo_blockout import write_box
@@ -32,6 +33,7 @@ except ImportError:
     from povo_interior_fixtures import reception_boxes, restroom_boxes, campus_staff_meshes, COLORS as FIXTURE_COLORS
     from povo_stairs import railing, wall_handrail, mirrored, rail_faces
     from povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
+    from geometry_cache import memoize_geometry
 
 ROOT = Path(__file__).resolve().parents[1]
 PHOTO4_CLASSROOMS = frozenset(('a103','a104','a105','a106'))
@@ -513,6 +515,7 @@ def enclose_stair(boxes, levels, stair, settings, config, *, include_top=True):
     return result
 
 
+@memoize_geometry
 def build_geometry(root=ROOT,*,include_exterior=True):
     settings, config = derived_config(root)
     alignment = json.loads((root / config['alignment']).read_text())
@@ -651,6 +654,27 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         boxes=apply_sketch(boxes,bridge_levels)
         boxes=repair_pavement(boxes,bridge_levels,root)
         boxes=add_library_stair(boxes,bridge_levels)
+        try:
+            from .povo2_gardens import extend as add_gardens
+        except ImportError:
+            from povo2_gardens import extend as add_gardens
+        try:
+            from .povo2_internal_stairs import extend as correct_internal_stairs
+        except ImportError:
+            from povo2_internal_stairs import extend as correct_internal_stairs
+        boxes=correct_internal_stairs(boxes,bridge_levels,root)
+        # Excavate the exit after the stair/garage infills have been added.
+        boxes=add_gardens(boxes,bridge_levels,root)
+        try:
+            from .povo2_basements import extend as rebuild_basements
+        except ImportError:
+            from povo2_basements import extend as rebuild_basements
+        boxes=rebuild_basements(boxes,bridge_levels,root)
+    try:
+        from .povo_room_furnishings import furnish
+    except ImportError:
+        from povo_room_furnishings import furnish
+    boxes=furnish(boxes,levels,stair,origin)
     return settings,config,boxes,levels,stair
 
 
@@ -889,7 +913,19 @@ def export(root=ROOT):
     output=root/'exports/povo_campus';output.mkdir(parents=True,exist_ok=True)
     scenery=backdrop_mesh(root)
     if exterior:scenery=exterior_backdrop(scenery)
-    (output/'povo1_campus.obj').write_text(render_obj(boxes,[*scenery,*campus_staff_meshes(levels),*mesh_faces(exterior),*rail_faces(all_rails(stair,levels))]),encoding='utf-8')
+    try:
+        from .povo_pavement import smooth_apron_lighting
+    except ImportError:
+        from povo_pavement import smooth_apron_lighting
+    visual=render_obj(boxes,[*scenery,*campus_staff_meshes(levels),*mesh_faces(exterior),*rail_faces(all_rails(stair,levels))])
+    visual_tmp=output/'povo1_campus.obj.tmp'
+    visual_tmp.write_text(smooth_apron_lighting(visual),encoding='utf-8')
+    visual_tmp.replace(output/'povo1_campus.obj')
+    try:
+        from .povo_pavement_lighting import write_assets as write_pavement_lighting
+    except ImportError:
+        from povo_pavement_lighting import write_assets as write_pavement_lighting
+    if exterior:write_pavement_lighting((output/'povo1_campus.obj').read_text(encoding='utf-8'),root)
     collision=io.StringIO();collision.write('o povo1_campus_collision\n');ci=0;collision_count=0
     last_material=None
     physics=collision_boxes(boxes)
@@ -948,7 +984,15 @@ def export(root=ROOT):
     write_soundevents(root)
     metadata['artifacts']={p.name:hashlib.sha256(p.read_bytes()).hexdigest()
                            for p in output.glob('povo1_campus*.obj')}
-    (output/'provenance.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8')
+    for relative in ('tools/povo2_internal_stairs.py','tools/povo2_basements.py','tools/povo_pavement.py',
+                     'tools/povo_pavement_lighting.py','tools/povo_floor_surfaces.py','tools/povo_render_surfaces.py','config/povo2_internal_dimensions.json',
+                     'tools/povo2_minus1_corrections.py','config/povo2_minus1_corrections.json',
+                     'data/reference/user_feedback/2026-10-29/povo2_minus1_corrections.png',
+                     'data/reference/user_feedback/2026-10-28/povo2_basement_stair_vestibule.jpg'):
+        metadata['inputs'][relative]=hashlib.sha256((root/relative).read_bytes()).hexdigest()
+    provenance_tmp=output/'provenance.json.tmp'
+    provenance_tmp.write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8')
+    provenance_tmp.replace(output/'provenance.json')
     materials=root/'cs2/content/trento_povo/materials/trento/povo/campus';materials.mkdir(parents=True,exist_ok=True)
     write_materials(materials, MATERIAL_PREFIX, {n:c for n,c in COLORS.items() if not n.startswith('exterior_')})
     write_exterior_materials(materials/'exterior')
@@ -967,18 +1011,22 @@ def export(root=ROOT):
     return metadata
 
 
-def render_obj(boxes,backdrop):
+def render_obj(boxes,backdrop,*,resolve_surfaces=True):
     """Write indexed attributes before faces, with explicit flat normals.
 
     Repeating vertices between individual terrain faces makes the native OBJ
     importer allocate excessively. Keep shared terrain vertices and bounded
     material sections, and give walls non-degenerate metre-based UVs.
     """
-    vertices={};uvs={};normals={};groups={}
+    try:
+        from .povo_render_surfaces import exclusive_faces
+    except ImportError:
+        from povo_render_surfaces import exclusive_faces
+    vertices={};uvs={};normals={};groups={};surfaces=[]
     def index(table,value):
         if value not in table:table[value]=len(table)+1
         return table[value]
-    def face(group,material,points,texcoords=None):
+    def face(group,material,points,texcoords=None,resolve=True):
         a,b,c=points[:3]
         u=[b[i]-a[i] for i in range(3)];v=[c[i]-a[i] for i in range(3)]
         normal=(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
@@ -988,6 +1036,9 @@ def render_obj(boxes,backdrop):
         if texcoords is None:
             axis=max(range(3),key=lambda i:abs(normal[i]));axes=[i for i in range(3) if i!=axis]
             texcoords=[tuple(p[i]/.6 for i in axes) for p in points]
+        if resolve and resolve_surfaces:
+            surfaces.append((group,material,points,texcoords))
+            return
         refs=[f'{index(vertices,tuple(p))}/{index(uvs,tuple(uv))}/{ni}' for p,uv in zip(points,texcoords)]
         groups.setdefault((group,material),[]).append('f '+' '.join(refs)+'\n')
     for name,material,points,texcoords in backdrop:
@@ -1005,6 +1056,8 @@ def render_obj(boxes,backdrop):
                 points.append(point)
             elif line.startswith('f '):
                 face(f'campus_section_{number//64}','campus_'+material,[points[int(i)-1] for i in line.split()[1:]])
+    for group,material,points,texcoords in exclusive_faces(surfaces):
+        face(group,material,points,texcoords,resolve=False)
     stream=io.StringIO();stream.write('# Povo 1 playable campus, local metres\n')
     for label,table in (('v',vertices),('vt',uvs),('vn',normals)):
         for values in table:stream.write(label+' '+' '.join(f'{x:.12g}' for x in values)+'\n')

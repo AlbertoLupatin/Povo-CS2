@@ -36,9 +36,12 @@ class PlaytestCorrectionTests(unittest.TestCase):
                 for i in range(max(1,math.ceil(math.dist(start,end)/.08))):
                     n=max(1,math.ceil(math.dist(start,end)/.08))
                     x,y,z=[a+(b-a)*i/n for a,b in zip(start,end)]
+                    # At a riser edge the standing hull is still supported by
+                    # the higher tread under its footprint, not the lower tread
+                    # beneath its centre. Use the actual upper riser envelope.
                     support=[hi[2] for _,lo,hi,m in core if m.startswith('floor_')
-                             and lo[0]-.001<=x<=hi[0]+.001 and lo[1]-.001<=y<=hi[1]+.001
-                             and abs(hi[2]-z)<.23]
+                             and lo[0]<x+.4 and hi[0]>x-.4 and lo[1]<y+.4 and hi[1]>y-.4
+                             and abs(hi[2]-z)<max(.23,link['stair']['rise']+.02)]
                     self.assertTrue(support,(x,y,z))
                     foot=max(support)
                     blockers=[name for name,lo,hi,_ in core if lo[0]<x+.40 and hi[0]>x-.40

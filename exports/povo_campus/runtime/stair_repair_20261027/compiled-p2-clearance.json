@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "scope": "Compiled world-physics triangle bounds at the three original upper-stair stops. Native traversal remains the acceptance test.",
+  "package_sha256": "e08a52bbf22d4b9e668d88cd5becbb8375f34831393fb1996dc59073332af3c4",
+  "overlapping_triangles": []
+}

@@ -1,0 +1,163 @@
+<div id="povo2-layout-review">
+  <div class="viz-controls">
+    <label class="form-label">View<select class="form-select" data-view><option value="iso">3D perspective</option><option value="top">Plan / overlay</option></select></label>
+    <label class="form-label">Floor spacing <span data-spacing-value>40</span><input class="form-range" data-spacing type="range" min="10" max="70" value="40" aria-label="Exploded floor spacing"></label>
+    <button class="btn" type="button" data-home>Fit visible floors</button>
+  </div>
+  <div class="viz-row" role="group" aria-label="Floor visibility">
+    <span class="text-small">Show floors</span>
+    <button class="btn" type="button" data-floor-toggle="0" aria-pressed="true">Floor 0 · shown</button>
+    <button class="btn" type="button" data-floor-toggle="-1" aria-pressed="true">Floor −1 · shown</button>
+    <button class="btn" type="button" data-floor-toggle="-2" aria-pressed="true">Floor −2 · shown</button>
+    <label class="form-check"><input class="form-check-input" type="checkbox" data-lab-context><span class="form-check-label">Restricted lab context</span></label>
+  </div>
+  <div class="p2-key text-small"><span data-swatch="room">Labs / rooms</span><span data-swatch="core">Stair cores</span><span data-swatch="parking">Parking</span><span data-swatch="garden">Gardens</span><span data-swatch="study">Office row / study</span></div>
+  <div class="p2-stage"><canvas aria-label="Interactive 3D model of Povo 2 floors zero, minus one and minus two. Drag to rotate, scroll to zoom, right-drag to pan. Select a floor surface to compare vertically aligned areas."></canvas><svg class="p2-labels" aria-hidden="true"></svg></div>
+  <div class="text-small" data-detail aria-live="polite">Loading 3D model…</div>
+  <div class="text-small text-muted">Drag to rotate · scroll to zoom · right-drag to pan · click to trace alignment</div>
+  <div class="text-small text-muted">Restored full −1 plan · photo corridor is internal to West Offices · dimensions estimated · layout review</div>
+</div>
+<style>
+#povo2-layout-review {width:100%;color:var(--foreground)}
+#povo2-layout-review .p2-key {display:flex;gap:8px 16px;flex-wrap:wrap;margin:10px 0}
+#povo2-layout-review .p2-key span {display:inline-flex;align-items:center;gap:5px}
+#povo2-layout-review .p2-key span::before {content:'';width:10px;height:10px;background:var(--p2-swatch);opacity:.7}
+#povo2-layout-review [data-swatch="room"] {--p2-swatch:var(--viz-series-1)}
+#povo2-layout-review [data-swatch="core"] {--p2-swatch:var(--viz-series-2)}
+#povo2-layout-review [data-swatch="parking"] {--p2-swatch:var(--viz-series-3)}
+#povo2-layout-review [data-swatch="garden"] {--p2-swatch:var(--viz-series-4)}
+#povo2-layout-review [data-swatch="study"] {--p2-swatch:var(--viz-series-5)}
+#povo2-layout-review [data-swatch="closed"] {--p2-swatch:var(--viz-series-6)}
+#povo2-layout-review .p2-stage {position:relative;width:100%;height:760px}
+#povo2-layout-review canvas {display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#povo2-layout-review canvas:active {cursor:grabbing}
+#povo2-layout-review .p2-labels {position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+#povo2-layout-review .p2-labels text {fill:var(--foreground);font-size:12px;font-weight:400;paint-order:stroke;stroke:var(--background);stroke-width:3px;stroke-linejoin:round}
+#povo2-layout-review .p2-labels .floor-label {font-size:14px;font-weight:500}
+#povo2-layout-review [data-detail] {margin:8px 0;min-height:2.5em}
+@media(max-width:450px){#povo2-layout-review .p2-stage {height:650px}}
+</style>
+<script type="application/json" id="povo2-layout-review-data">__LAYOUT_DATA__</script>
+<script type="module">
+import * as THREE from 'https://esm.sh/three@0.160.1';
+import {OrbitControls} from 'https://esm.sh/three@0.160.1/examples/jsm/controls/OrbitControls.js';
+const root=document.getElementById('povo2-layout-review');
+const stage=root.querySelector('.p2-stage'),canvas=root.querySelector('canvas'),labels=root.querySelector('.p2-labels'),detail=root.querySelector('[data-detail]');
+const data=JSON.parse(document.getElementById('povo2-layout-review-data').textContent);
+if(!data.restricted_lab_context)root.querySelector('[data-lab-context]').closest('label').hidden=true;
+const saved=window.openai?.widgetState?.privateContent;
+let state={view:'iso',spacing:55,point:[23,22],visibleFloors:[-1],labContext:false,...(saved||{})};
+function isShown(f){return !Array.isArray(state.visibleFloors)||state.visibleFloors.includes(f);}
+function visibleFloors(){return data.floors.filter(f=>isShown(f.f));}
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(37,1,.1,2000);
+let renderer;
+try {renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});}catch(e){detail.textContent='WebGL could not start. Enable hardware acceleration to view the 3D model.';throw e;}
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));renderer.setClearColor(0,0);
+const controls=new OrbitControls(camera,canvas);controls.enableDamping=false;controls.minDistance=30;controls.maxDistance=650;controls.maxPolarAngle=Math.PI*.49;
+scene.add(new THREE.HemisphereLight(0xffffff,0xffffff,2));
+const light=new THREE.DirectionalLight(0xffffff,2.3);light.position.set(40,110,60);scene.add(light);
+const theme={};const kindToken={room:1,core:2,parking:3,garden:4,study:5,closed:6};
+function readColor(token){const swatch=document.createElement('span');swatch.style.color=`var(${token})`;root.append(swatch);const c=getComputedStyle(swatch).color;swatch.remove();return new THREE.Color(c);}
+function updateTheme(){theme.neutral=readColor('--muted');theme.line=readColor('--muted-foreground');theme.text=readColor('--foreground');theme.circulation=readColor('--muted-foreground');for(const [k,n] of Object.entries(kindToken))theme[k]=readColor(`--viz-series-${n}`);theme.glass=theme.room.clone();}
+updateTheme();
+const groups=[],pickable=[],labelDefs=[];
+const boxGeo=new THREE.BoxGeometry(1,1,1),planeGeo=new THREE.PlaneGeometry(1,1),floorMats=[];
+function meshRect(group,r,y,height,material,hit=true){const w=r[2]-r[0],d=r[3]-r[1];if(w<=0||d<=0)return;const m=new THREE.Mesh(height?boxGeo:planeGeo,material);if(height)m.scale.set(w,height,d);else{m.rotation.x=-Math.PI/2;m.scale.set(w,d,1);}m.position.set((r[0]+r[2])/2,y+(height||0)/2,-(r[1]+r[3])/2);group.add(m);if(hit){m.userData.floor=group.userData.floor;pickable.push(m);}return m;}
+function material(color,opacity=1){return new THREE.MeshStandardMaterial({color,roughness:.9,metalness:0,transparent:opacity<1,opacity,side:THREE.DoubleSide});}
+for(const f of data.floors){
+  const g=new THREE.Group();g.userData.floor=f.f;scene.add(g);groups.push(g);
+  const base=material(theme.neutral,.94);floorMats.push({mat:base,kind:'base',floor:f.f});
+  for(const r of f.slabs)meshRect(g,r,-.3,.3,base);
+  const sorted=[...f.areas].sort((a,b)=>a.priority-b.priority);
+  for(let i=0;i<sorted.length;i++){
+    const ar=sorted[i],m=material(theme[ar.kind],ar.kind==='circulation'?.2:.72);floorMats.push({mat:m,kind:ar.kind,floor:f.f});
+    meshRect(g,ar.r,.025+i*.003,0,m);
+    if(ar.priority>=3||['Main hall','Lower corridor','Vestibule'].includes(ar.label))labelDefs.push({floor:f.f,p:[(ar.r[0]+ar.r[2])/2,1.1,-(ar.r[1]+ar.r[3])/2],text:ar.label==='Lab corridor · ~30 m'?'~30 m corridor':ar.label,priority:ar.priority});
+    const points=[[ar.r[0],.08,-ar.r[1]],[ar.r[2],.08,-ar.r[1]],[ar.r[2],.08,-ar.r[3]],[ar.r[0],.08,-ar.r[3]],[ar.r[0],.08,-ar.r[1]]].map(p=>new THREE.Vector3(...p));
+    const edge=new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineBasicMaterial({color:theme.line,transparent:true,opacity:.5}));g.add(edge);edge.userData.wall=true;
+  }
+  const wall=material(theme.line,.7);floorMats.push({mat:wall,kind:'wall',floor:f.f});
+  for(const r of f.walls){const m=meshRect(g,r,0,r[4],wall,false);m.userData.wall=true;}
+  if(f.glazing){const glass=material(theme.glass,.35);floorMats.push({mat:glass,kind:'glass',floor:f.f});for(const r of f.glazing){const m=meshRect(g,r,0,.9,glass,false);m.userData.wall=true;}}
+  for(const [p,q] of f.openings||[]){const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(p[0],.14,-p[1]),new THREE.Vector3(q[0],.14,-q[1])]),new THREE.LineBasicMaterial({color:theme.core}));line.userData.wall=true;g.add(line);}
+  const stair=material(theme.core),fixture=material(theme.line);
+  for(const r of f.details){const m=meshRect(g,r,.12,r[4]==='stair'?.08:.3,r[4]==='stair'?stair:fixture,false);m.userData.wall=true;}
+  for(const d of f.closed_doors||[]){const [x,y]=d.centre,h=d.width/2;const m=meshRect(g,d.axis===0?[x-.14,y-h,x+.14,y+h]:[x-h,y-.14,x+h,y+.14],0,.95,material(theme.closed),false);m.userData.wall=true;labelDefs.push({floor:f.f,p:[x,1.6,-y],text:'LOCKED · labs',priority:5});}
+}
+const labContext=new THREE.Group();scene.add(labContext);
+if(data.restricted_lab_context){
+  const context=data.restricted_lab_context.floor;
+  const lineMaterial=new THREE.LineBasicMaterial({color:theme.line,transparent:true,opacity:.28});
+  for(const ar of context.areas){const r=ar.r;const points=[[r[0],.06,-r[1]],[r[2],.06,-r[1]],[r[2],.06,-r[3]],[r[0],.06,-r[3]],[r[0],.06,-r[1]]].map(p=>new THREE.Vector3(...p));labContext.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),lineMaterial));}
+}
+const guides=new THREE.Group();scene.add(guides);
+function level(f){return state.view==='top'?(f+2)*.1:(f+2)*state.spacing;}
+function occupied(f,p){const inside=r=>p[0]>=r[0]&&p[0]<=r[2]&&p[1]>=r[1]&&p[1]<=r[3];const a=f.areas.filter(a=>inside(a.r)).sort((a,b)=>b.priority-a.priority);return a[0]?.label||(f.slabs.some(inside)?'Circulation / floor':'Outside shown footprint');}
+function refresh(){
+  root.querySelector('[data-view]').value=state.view;root.querySelector('[data-spacing]').value=state.spacing;root.querySelector('[data-spacing]').disabled=state.view==='top';root.querySelector('[data-spacing-value]').textContent=state.spacing;
+  root.querySelector('[data-lab-context]').checked=!!state.labContext;
+  labContext.visible=!!state.labContext&&isShown(-1);labContext.position.y=level(-1);
+  for(const button of root.querySelectorAll('[data-floor-toggle]')){const floor=Number(button.dataset.floorToggle),shown=isShown(floor),name=floor===0?'0':'−'+Math.abs(floor);button.setAttribute('aria-pressed',String(shown));button.setAttribute('aria-label',`${shown?'Hide':'Show'} floor ${name}`);button.textContent=`Floor ${name} · ${shown?'shown':'hidden'}`;}
+  const visible=visibleFloors(),low=visible.length?level(visible[0].f):0,high=visible.length?level(visible[visible.length-1].f):0;
+  root.querySelector('[data-home]').disabled=!visible.length;
+  for(const g of groups){g.visible=isShown(g.userData.floor);g.position.y=level(g.userData.floor);for(const o of g.children)if(o.userData.wall)o.visible=state.view!=='top'||visible.length===1;}
+  for(const x of floorMats){if(state.view==='top'&&visible.length>1){x.mat.color.copy(theme[['parking','core','room'][x.floor+2]]);x.mat.opacity=x.kind==='base'?.12:.18;x.mat.depthWrite=false;x.mat.transparent=true;}else{x.mat.color.copy(x.kind==='base'?theme.neutral:x.kind==='wall'?theme.line:theme[x.kind]);if(!['base','wall'].includes(x.kind))x.mat.color.lerp(theme.neutral,x.kind==='circulation'?.8:.4);x.mat.opacity=x.kind==='glass'?.35:1;x.mat.depthWrite=x.kind!=='glass';x.mat.transparent=x.kind==='glass';}x.mat.needsUpdate=true;}
+  while(guides.children.length){const o=guides.children[0];guides.remove(o);o.geometry?.dispose();o.material?.dispose();}
+  if(state.view!=='top'&&visible.length>1)for(const [x,y] of [[data.core[0],data.core[1]],[data.core[2],data.core[3]]]){const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,low,-y),new THREE.Vector3(x,high,-y)]),new THREE.LineDashedMaterial({color:theme.core,dashSize:1,gapSize:1,transparent:true,opacity:.6}));line.computeLineDistances();guides.add(line);}
+  const [x,y]=state.point;
+  if(visible.length>1){const trace=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,low+.5,-y),new THREE.Vector3(x,high+.5,-y)]),new THREE.LineDashedMaterial({color:theme.text,dashSize:1.5,gapSize:.8}));trace.computeLineDistances();guides.add(trace);}
+  for(const f of visible){const ring=new THREE.Mesh(new THREE.RingGeometry(.65,1,24),new THREE.MeshBasicMaterial({color:theme.text,side:THREE.DoubleSide,depthTest:false}));ring.rotation.x=-Math.PI/2;ring.position.set(x,level(f.f)+.5,-y);ring.renderOrder=10;guides.add(ring);}
+  for(const f of visible){const axis=data.alignment.centreline;const points=data.alignment.axis.startsWith('campus east')?[new THREE.Vector3(axis,level(f.f)+.17,-11),new THREE.Vector3(axis,level(f.f)+.17,-29.5)]:[new THREE.Vector3(2,level(f.f)+.17,-axis),new THREE.Vector3(31,level(f.f)+.17,-axis)];const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineDashedMaterial({color:theme.text,dashSize:.8,gapSize:.65}));line.computeLineDistances();guides.add(line);}
+  detail.textContent=[...visible].reverse().map(f=>`${f.f===0?'0':'−'+Math.abs(f.f)}: ${occupied(f,state.point)}`).join('  ·  ')||'All floors hidden';
+  draw();
+}
+function home(){
+  const visible=visibleFloors();if(!visible.length){draw();return;}
+  const corners=visible.flatMap(f=>f.slabs.flatMap(r=>[[r[0],r[1]],[r[2],r[1]],[r[0],r[3]],[r[2],r[3]]].map(([x,y])=>new THREE.Vector3(x,level(f.f),-y))));
+  if(labContext.visible)for(const r of data.restricted_lab_context.floor.slabs)for(const [x,y] of [[r[0],r[1]],[r[2],r[3]]])corners.push(new THREE.Vector3(x,level(-1),-y));
+  const center=new THREE.Box3().setFromPoints(corners).getCenter(new THREE.Vector3());
+  controls.target.copy(center);
+  {
+    const direction=(state.view==='top'?new THREE.Vector3(0,1,.0001):new THREE.Vector3(1.1,1.4,1.45)).normalize();let distance=250;
+    for(let i=0;i<7;i++){
+      camera.position.copy(center).addScaledVector(direction,distance);camera.lookAt(center);camera.updateMatrixWorld();
+      const ps=corners.map(p=>p.clone().project(camera));
+      const factor=Math.max(...ps.map(p=>Math.max(Math.abs(p.x)/.93,Math.abs(p.y)/.87)));
+      distance*=Math.max(.7,Math.min(1.4,factor));
+    }
+    camera.position.copy(center).addScaledVector(direction,distance);
+  }
+  controls.update();draw();
+}
+function screen(p){const v=p.clone().project(camera);return {x:(v.x+1)*stage.clientWidth/2,y:(1-v.y)*stage.clientHeight/2,z:v.z};}
+function svgNode(tag,attr,text){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attr))n.setAttribute(k,v);if(text)n.textContent=text;labels.append(n);return n;}
+function draw(){
+  renderer.render(scene,camera);labels.replaceChildren();const w=stage.clientWidth,h=stage.clientHeight;labels.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  const placed=[];
+  if(state.view!=='top')for(const f of visibleFloors()){const corners=f.slabs.flatMap(r=>[[r[0],r[1]],[r[2],r[1]],[r[0],r[3]],[r[2],r[3]]]).map(([x,y])=>screen(new THREE.Vector3(x,level(f.f),-y)));const yy=Math.min(...corners.map(p=>p.y));if(yy>15&&yy<h-10){svgNode('text',{x:10,y:yy-10,class:'floor-label'},`${f.f===0?'0':'−'+Math.abs(f.f)} · ${f.f===0?'Ground':f.f===-1?'Restored full plan':'Parking & garden'}`);placed.push([0,yy-26,w,yy-5]);}}
+  for(const l of [...labelDefs].sort((a,b)=>b.priority-a.priority)){
+    if((state.view==='top'&&visibleFloors().length>1)||!isShown(l.floor))continue;const p=screen(new THREE.Vector3(l.p[0],l.p[1]+level(l.floor),l.p[2]));
+    const tw=l.text.length*6,box=[p.x-tw/2-3,p.y-12,p.x+tw/2+3,p.y+4];
+    if(p.z>1||box[0]<8||box[2]>w-8||box[1]<10||box[3]>h-15||placed.some(b=>box[0]<b[2]&&box[2]>b[0]&&box[1]<b[3]&&box[3]>b[1]))continue;
+    placed.push(box);svgNode('text',{x:p.x,y:p.y,'text-anchor':'middle'},l.text);
+  }
+  if(state.view==='top')for(const [i,f] of visibleFloors().entries())svgNode('text',{x:10,y:20+i*20},`Floor ${f.f} · ${f.f===0?'ground reference':f.f===-1?'restored full plan':'parking'}`);
+  const visible=visibleFloors();if(!visible.length)return;
+  if(labContext.visible){const p=screen(new THREE.Vector3(45,level(-1)+1,-55));svgNode('text',{x:p.x,y:p.y,'text-anchor':'middle'},'RESTRICTED LABS · access closed');}
+  const compassLevel=level(visible[visible.length-1].f),n0=screen(new THREE.Vector3(52,compassLevel,-62)),n1=screen(new THREE.Vector3(52,compassLevel,-72));
+  if(n0.x>15&&n0.x<w-15&&n1.y>15&&n1.y<h-15){svgNode('line',{x1:n0.x,y1:n0.y,x2:n1.x,y2:n1.y,stroke:'var(--foreground)','stroke-width':1.5});svgNode('text',{x:n1.x,y:n1.y-5},'N');}
+}
+function save(){window.openai?.setWidgetState({modelContent:{visibleFloors:visibleFloors().map(f=>f.f),selectedCampusPoint:state.point,areas:data.floors.map(f=>({floor:f.f,visible:isShown(f.f),area:occupied(f,state.point)}))},privateContent:state})?.catch(()=>{});}
+controls.addEventListener('change',draw);
+let down=null;canvas.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY]);
+canvas.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5)return;const r=canvas.getBoundingClientRect(),mouse=new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1),ray=new THREE.Raycaster();ray.setFromCamera(mouse,camera);const hits=ray.intersectObjects(pickable.filter(m=>isShown(m.userData.floor)));if(hits.length){const p=hits[0].point;state.point=[Math.round(p.x*100)/100,Math.round(-p.z*100)/100];refresh();save();}});
+for(const button of root.querySelectorAll('[data-floor-toggle]'))button.addEventListener('click',()=>{const floor=Number(button.dataset.floorToggle);state.visibleFloors=data.floors.map(f=>f.f).filter(f=>f===floor?!isShown(f):isShown(f));refresh();save();});
+root.querySelector('[data-view]').addEventListener('change',e=>{state.view=e.target.value;refresh();home();save();});
+root.querySelector('[data-spacing]').addEventListener('input',e=>{state.spacing=Number(e.target.value);refresh();save();});
+root.querySelector('[data-home]').addEventListener('click',home);
+root.querySelector('[data-lab-context]').addEventListener('change',e=>{state.labContext=e.target.checked;refresh();home();save();});
+new ResizeObserver(()=>{const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();home();}).observe(stage);
+window.addEventListener('openai:set_globals',e=>{const s=e.detail?.globals?.widgetState?.privateContent;if(s){state={...state,...s};refresh();home();}});
+new MutationObserver(()=>{updateTheme();refresh();}).observe(document.documentElement,{attributes:true,attributeFilter:['class','style','data-theme']});
+refresh();home();
+</script>

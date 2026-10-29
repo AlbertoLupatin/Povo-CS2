@@ -1,0 +1,210 @@
+[
+  {
+    "name": "bridge_street",
+    "intended_feet": [
+      40,
+      -5,
+      5.6
+    ],
+    "actual_feet": [
+      39.99999566676001,
+      -4.9999901524200006,
+      5.682088839022729
+    ],
+    "pitch": 30,
+    "yaw": -90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\bridge_street.png"
+  },
+  {
+    "name": "povo1_external_courtyard",
+    "intended_feet": [
+      29,
+      -70,
+      4
+    ],
+    "actual_feet": [
+      28.999994222516005,
+      -70.00001255268,
+      4.000796875216003
+    ],
+    "pitch": 25,
+    "yaw": 0,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\povo1_external_courtyard.png"
+  },
+  {
+    "name": "povo1_street",
+    "intended_feet": [
+      54.5,
+      -40,
+      7.6
+    ],
+    "actual_feet": [
+      54.499991203218,
+      -39.99999566676001,
+      7.600794958430404
+    ],
+    "pitch": 30,
+    "yaw": 90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\povo1_street.png"
+  },
+  {
+    "name": "bridge_courtyard_join",
+    "intended_feet": [
+      0,
+      -14,
+      3.7
+    ],
+    "actual_feet": [
+      0.0,
+      -13.999998162056,
+      3.833308259215334
+    ],
+    "pitch": 35,
+    "yaw": -90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\bridge_courtyard_join.png"
+  },
+  {
+    "name": "povo2_entry_courtyard",
+    "intended_feet": [
+      49,
+      33.5,
+      4
+    ],
+    "actual_feet": [
+      49.000004438396005,
+      33.500007904734,
+      4.0999919778164005
+    ],
+    "pitch": 30,
+    "yaw": 90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\povo2_entry_courtyard.png"
+  },
+  {
+    "name": "povo2_north_pavement",
+    "intended_feet": [
+      35,
+      115,
+      4
+    ],
+    "actual_feet": [
+      35.00000627634,
+      115.00000068326,
+      4.000788747216004
+    ],
+    "pitch": 30,
+    "yaw": 180,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\povo2_north_pavement.png"
+  },
+  {
+    "name": "povo1_lower_plaza",
+    "intended_feet": [
+      25.5,
+      -64,
+      4
+    ],
+    "actual_feet": [
+      25.500000104902,
+      -64.000000498856,
+      4.0007964942160035
+    ],
+    "pitch": 30,
+    "yaw": 0,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\povo1_lower_plaza.png"
+  },
+  {
+    "name": "povo1_inner_courtyard",
+    "intended_feet": [
+      1,
+      -60,
+      3.98
+    ],
+    "actual_feet": [
+      0.9999979746040001,
+      -60.000008981440004,
+      3.9807965596159236
+    ],
+    "pitch": 25,
+    "yaw": 0,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\povo1_inner_courtyard.png"
+  },
+  {
+    "name": "povo2_entry_approach",
+    "intended_feet": [
+      54,
+      35.65,
+      4.12
+    ],
+    "actual_feet": [
+      53.999990730016,
+      35.64999141274261,
+      4.000792227016004
+    ],
+    "pitch": 25,
+    "yaw": -90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\povo2_entry_approach.png"
+  },
+  {
+    "name": "povo2_north_approach",
+    "intended_feet": [
+      35,
+      116,
+      4
+    ],
+    "actual_feet": [
+      35.00000627634,
+      116.00000165506401,
+      4.000788366216004
+    ],
+    "pitch": 25,
+    "yaw": 0,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\povo2_north_approach.png"
+  },
+  {
+    "name": "west_street",
+    "intended_feet": [
+      -48,
+      -60,
+      3
+    ],
+    "actual_feet": [
+      -48.000006565392006,
+      -60.000008981440004,
+      3.0007964876120035
+    ],
+    "pitch": 30,
+    "yaw": 0,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\west_street.png"
+  },
+  {
+    "name": "front_street_pavement",
+    "intended_feet": [
+      56.5,
+      -35,
+      7.6
+    ],
+    "actual_feet": [
+      56.499986974626,
+      -35.00000627634,
+      7.720795404230884
+    ],
+    "pitch": 30,
+    "yaw": 0,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\front_street_pavement.png"
+  },
+  {
+    "name": "bridge_footway",
+    "intended_feet": [
+      38,
+      -8.7,
+      5.32
+    ],
+    "actual_feet": [
+      37.999999895352,
+      -8.700007720634801,
+      5.402090034021609
+    ],
+    "pitch": 30,
+    "yaw": -90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\after\\bridge_footway.png"
+  }
+]

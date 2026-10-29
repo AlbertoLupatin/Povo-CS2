@@ -1,0 +1,35 @@
+{
+  "status": "Restored full-plan -1 layout before the west-office rearrangement, 29 October 2026",
+  "layout_mode": "full_plan_restored",
+  "focus": "User selected the full-plan layout before the west-office rearrangement. Preserve that corridor geometry. Today's photographed corridor is internal to West Offices, not a main circulation corridor.",
+  "photo_corridor_scope": "Internal circulation within West Offices. The photographs do not establish its exact plan position and do not justify moving the main corridors.",
+  "west_offices_context_source_bounds": [89.0625, 49.0, 100.0, 86.25],
+  "floor0_west_corridor": [2.0, 8.0, 31.0, 11.0],
+  "source_west_corridor_index": 6,
+  "west_outer_rooms": [
+    {"id":"west_office_outer_1","source_bounds":[89.0625,49.0,97.75,59.6875],"door_status":"Corridor-side boundary partly hidden by blue core annotation; exact opening unresolved"},
+    {"id":"west_office_outer_2","source_bounds":[89.0625,59.875,97.5,69.0625],"opening_trace":{"side":"west","start":66.3125,"end":68.0}},
+    {"id":"west_office_outer_3","source_bounds":[89.0625,69.25,97.1875,77.8125],"opening_trace":{"side":"west","start":76.0,"end":77.5}},
+    {"id":"west_office_outer_4","source_bounds":[89.0625,78.0,96.875,86.25],"opening_trace":{"side":"west","start":83.0,"end":84.5}}
+  ],
+  "western_trace_status": "Visible outer-room partitions and corridor-side leaf locations traced approximately from the right edge of rectified photo46; cropped exterior boundary and exact glazing subdivisions remain uncertain. Local source-x corridor width is fitted to floor 0, without moving the stair core.",
+  "source_plan": "config/povo2_survey.json",
+  "source_floor": -1,
+  "source_image": "exports/povo2_survey/rectified_46.png",
+  "anchor_source_core": "annotated_corridor_exit_core",
+  "anchor_campus_core": "stairs.well_bounds",
+  "floor0_reference_corridor": [20.5, 11.0, 25.5, 29.5],
+  "source_aligned_corridor_index": 4,
+  "registration": "Swap photo axes: photo x increases toward campus south; photo y increases toward campus west. Fit the annotated core to the retained core; normalize only the adjacent main-corridor width to floor 0.",
+  "minus2_aligned_branch_bounds_before": [20.5, 12.5, 24.0, 23.5],
+  "minus2_aligned_branch_width": 3.5,
+  "new_walk_photos": [
+    "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.19 PM.jpeg",
+    "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM.jpeg",
+    "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (1).jpeg"
+  ],
+  "office_finish_evidence": "Three indoor photos show wood flooring, full-height glazed partitions with frosted horizontal bands, white service walls, suspended ceilings, and a copier/recycling/noticeboard recess. Exact photo-to-room identification is unconfirmed.",
+  "door_policy": "Use the 79 image-traced openings. The one annotated lab has a confirmed single corridor entrance but an obscured opening position: mark it unresolved without inserting a guessed opening.",
+  "metric_status": "Core-relative registration and existing floor-0 corridor width, not a new measured survey. Other room labels remain descriptive trace IDs.",
+  "build_scope": "Generate a complete layout model and updated interactive review. This review does not replace or compile the installed campus package. The former two-room markup and its fixed doors remain in that package until integration."
+}

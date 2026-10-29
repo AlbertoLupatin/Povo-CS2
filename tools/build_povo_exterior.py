@@ -15,12 +15,14 @@ try:
     from .povo2_exterior_entrance import extend as add_double_entrance
     from .povo_exterior_materials import COLORS, OPACITY
     from .povo_room_fitout import subtract_box
+    from .povo_ginkgo import tree as ginkgo, height_for
 except ImportError:
     from build_povo_blockout import write_box
     from build_povo_campus import build_geometry
     from povo2_exterior_entrance import extend as add_double_entrance
     from povo_exterior_materials import COLORS, OPACITY
     from povo_room_fitout import subtract_box
+    from povo_ginkgo import tree as ginkgo, height_for
 
 ROOT = Path(__file__).resolve().parents[1]
 FACES = ((0,2,1),(0,3,2),(4,5,6),(4,6,7),(0,1,5),(0,5,4),
@@ -42,7 +44,7 @@ def strip(name, a, b, width, material, thickness=.16):
 def build(root=ROOT, campus_geometry=None):
     cfg=json.loads((root/'config/povo_exterior.json').read_text())
     _settings,interior,live_boxes,levels,_stairs=campus_geometry or build_geometry(root,include_exterior=False)
-    boxes=[];meshes=[]
+    boxes=[];meshes=[];trees=[]
     def box(name,lo,hi,mat):
         if any(a>=b for a,b in zip(lo,hi)):raise ValueError(name)
         boxes.append((name,tuple(lo),tuple(hi),mat))
@@ -54,9 +56,9 @@ def build(root=ROOT, campus_geometry=None):
             f=i/n;x=a[0]+(b[0]-a[0])*f;y=a[1]+(b[1]-a[1])*f
             box(name+f'_bar_{i}',(x-.025,y-.025,z+.45),(x+.025,y+.025,z+height),'fence')
         meshes.append(strip(name+'_top',(*a,z+height),(*b,z+height),.05,'fence',.05))
-    def tree(name,x,y,z,h=7):
-        box(name+'_trunk',(x-.16,y-.16,z),(x+.16,y+.16,z+h*.7),'trunk')
-        box(name+'_crown',(x-1.5,y-1.5,z+h*.4),(x+1.5,y+1.5,z+h),'tree')
+    def tree(name,x,y,z):
+        trunk,crown,record=ginkgo(name,x,y,z,height_for(len(trees)))
+        boxes.append(trunk);meshes.extend(crown);trees.append(record)
     def road_run(prefix,settings):
         for i,(a,b) in enumerate(zip(settings['points'],settings['points'][1:])):
             meshes.append(strip(f'{prefix}_{i}',a,b,settings['width'],'asphalt'))
@@ -271,14 +273,14 @@ def build(root=ROOT, campus_geometry=None):
         levelz=p2z if ident=='povo2' else fz
         slab(ident+'_front_green_strip',(x0,y0,x1+1.2,y1),levelz-.04,'grass')
         for i,y in enumerate(range(y0+5,y1,13)):
-            tree(f'{ident}_front_tree_{i}',59,y,levelz,6)
+            tree(f'{ident}_front_tree_{i}',59,y,levelz)
             box(f'{ident}_front_lamp_{i}',(55.5,y+.5,levelz),(55.65,y+.65,levelz+5),'fence')
             box(f'{ident}_front_lamp_head_{i}',(55.5,y+.5,levelz+4.9),(56.5,y+.75,levelz+5.1),'white')
     for i,y in enumerate(range(-99,-20,12)):
-        tree(f'west_tree_{i}',-83,y,3,6+(i%3))
+        tree(f'west_tree_{i}',-83,y,3)
         box(f'parking_lamp_{i}',(-33.1,y,3),(-32.95,y+.15,9),'fence')
         box(f'parking_lamp_head_{i}',(-33.1,y,8.85),(-31.8,y+.25,9.05),'white')
-    for i,x in enumerate(range(-17,48,10)):tree(f'road_tree_{i}',x,-11,3,6)
+    for i,x in enumerate(range(-17,48,10)):tree(f'road_tree_{i}',x,-11,3)
     boxes,entry_metadata=add_double_entrance(boxes,cfg['povo2_double_entrance'],
                                            link.get('povo2',{}).get('ground',{}).get('entrance_world'))
     terrace=front['povo2_left_terrace'];a,b,c,d=terrace
@@ -338,12 +340,12 @@ def build(root=ROOT, campus_geometry=None):
     endpoint=bb
     gap=None if actual is None else math.hypot(max(actual[0]-endpoint[0],0,endpoint[0]-actual[2]),max(actual[1]-endpoint[1],0,endpoint[1]-actual[3]))
     metadata=dict(config=cfg,photos=refs,prior_photo_evidence=prior,cameras=cameras,boxes=boxes,meshes=meshes,material_opacity=OPACITY,
-                  povo2_double_entrance=entry_metadata,
+                  povo2_double_entrance=entry_metadata,roadside_trees=trees,
                   garage_integration=dict(endpoint=endpoint,exterior_parking_bounds=garage['bounds'],exterior_gap_metres=0,
                                           portal=dict(centre=bb,width=garage['portal_width'],headroom=roof-gz),
                                           current_parking_bounds=actual,horizontal_gap_metres=gap,
                                           status='Straight ramp meets covered Povo 2 exterior basement; separate interior source still requires alignment'),
-                  input_hashes={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in ['config/povo_exterior.json','config/povo1_campus.json','config/povo1_interior_study.json','config/povo2_planimetry.json','config/povo2_connection.json','config/povo1_plan_alignment.json']})
+                  input_hashes={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in ['config/povo_exterior.json','config/povo1_campus.json','config/povo1_interior_study.json','config/povo2_planimetry.json','config/povo2_connection.json','config/povo1_plan_alignment.json','tools/povo_ginkgo.py']})
     return boxes,meshes,metadata,live_boxes
 
 

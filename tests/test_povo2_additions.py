@@ -59,7 +59,7 @@ class Povo2AdditionTests(TestCase):
         from tools.audit_povo_yard import audit
         result=audit()
         self.assertEqual(result['status'],'passed',result)
-        self.assertEqual(result['stair_and_landing_samples'],22)
+        self.assertGreater(result['stair_and_landing_samples'],500)
         self.assertFalse(result['failures'])
 
     def test_existing_bridge_and_povo2_floor_elevations_are_preserved(self):

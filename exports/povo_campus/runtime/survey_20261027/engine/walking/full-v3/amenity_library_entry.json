@@ -1,0 +1,22 @@
+{
+  "name": "amenity_library_entry",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        37.5,
+        -61.0,
+        4.0
+      ],
+      "position": [
+        37.432552363749735,
+        -60.998044196444,
+        4.0007964942160035
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ],
+  "error": "Ordinary movement stalled: [37.749119091551, -54.321893566017295, 4.000796113216004] target [37.5, -22.5, 4.0]"
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "name": "povo2_entry",
+    "frame": 0,
+    "feet": [
+      26.999995352308,
+      30.999989968524005,
+      4.0007926080160034
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_entry_0.png"
+  },
+  {
+    "name": "povo2_entry",
+    "frame": 1,
+    "feet": [
+      26.999995352308,
+      30.999989968524005,
+      4.0007926080160034
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_entry_1.png"
+  },
+  {
+    "name": "povo2_entry",
+    "frame": 2,
+    "feet": [
+      26.999995352308,
+      30.999989968524005,
+      4.0007926080160034
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_entry_2.png"
+  },
+  {
+    "name": "povo2_stair_hall",
+    "frame": 0,
+    "feet": [
+      24.000003282696003,
+      23.000005409692,
+      4.000793014416003
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_stair_hall_0.png"
+  },
+  {
+    "name": "povo2_stair_hall",
+    "frame": 1,
+    "feet": [
+      24.000003282696003,
+      23.000005409692,
+      4.000793014416003
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_stair_hall_1.png"
+  },
+  {
+    "name": "povo2_stair_hall",
+    "frame": 2,
+    "feet": [
+      24.000003282696003,
+      23.000005409692,
+      4.000793014416003
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_stair_hall_2.png"
+  },
+  {
+    "name": "povo1_lower_plaza",
+    "frame": 0,
+    "feet": [
+      26.999995352308,
+      -64.000000498856,
+      4.0007964942160035
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo1_lower_plaza_0.png"
+  },
+  {
+    "name": "povo1_lower_plaza",
+    "frame": 1,
+    "feet": [
+      26.999995352308,
+      -64.000000498856,
+      4.0007964942160035
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo1_lower_plaza_1.png"
+  },
+  {
+    "name": "povo1_lower_plaza",
+    "frame": 2,
+    "feet": [
+      26.999995352308,
+      -64.000000498856,
+      4.0007964942160035
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo1_lower_plaza_2.png"
+  },
+  {
+    "name": "povo1_front_walk",
+    "frame": 0,
+    "feet": [
+      54.499991203218,
+      -75.00000504190001,
+      7.600796533230405
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo1_front_walk_0.png"
+  },
+  {
+    "name": "povo1_front_walk",
+    "frame": 1,
+    "feet": [
+      54.499991203218,
+      -75.00000504190001,
+      7.600796533230405
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo1_front_walk_1.png"
+  },
+  {
+    "name": "povo1_front_walk",
+    "frame": 2,
+    "feet": [
+      54.499991203218,
+      -75.00000504190001,
+      7.600796533230405
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo1_front_walk_2.png"
+  },
+  {
+    "name": "povo2_wall",
+    "frame": 0,
+    "feet": [
+      24.000003282696003,
+      23.000005409692,
+      4.000793014416003
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_wall_0.png"
+  },
+  {
+    "name": "povo2_wall",
+    "frame": 1,
+    "feet": [
+      24.000003282696003,
+      23.000005409692,
+      4.000793014416003
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_wall_1.png"
+  },
+  {
+    "name": "povo2_wall",
+    "frame": 2,
+    "feet": [
+      24.000003282696003,
+      23.000005409692,
+      4.000793014416003
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_wall_2.png"
+  },
+  {
+    "name": "povo2_ceiling",
+    "frame": 0,
+    "feet": [
+      26.999995352308,
+      30.999989968524005,
+      4.0007926080160034
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_ceiling_0.png"
+  },
+  {
+    "name": "povo2_ceiling",
+    "frame": 1,
+    "feet": [
+      26.999995352308,
+      30.999989968524005,
+      4.0007926080160034
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_ceiling_1.png"
+  },
+  {
+    "name": "povo2_ceiling",
+    "frame": 2,
+    "feet": [
+      26.999995352308,
+      30.999989968524005,
+      4.0007926080160034
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo2_ceiling_2.png"
+  },
+  {
+    "name": "povo1_facade",
+    "frame": 0,
+    "feet": [
+      26.999995352308,
+      -64.000000498856,
+      4.0007964942160035
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo1_facade_0.png"
+  },
+  {
+    "name": "povo1_facade",
+    "frame": 1,
+    "feet": [
+      26.999995352308,
+      -64.000000498856,
+      4.0007964942160035
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo1_facade_1.png"
+  },
+  {
+    "name": "povo1_facade",
+    "frame": 2,
+    "feet": [
+      26.999995352308,
+      -64.000000498856,
+      4.0007964942160035
+    ],
+    "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\pavement_flicker_20261029\\before\\povo1_facade_2.png"
+  }
+]

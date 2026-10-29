@@ -1,0 +1,21 @@
+{
+  "name": "p2_rebuilt_cibio_office_1_entrance",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        -8.0,
+        38.0,
+        0.4
+      ],
+      "position": [
+        -7.993041570431973,
+        37.999296061352005,
+        0.4007920864016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

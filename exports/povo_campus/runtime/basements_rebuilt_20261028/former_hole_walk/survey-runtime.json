@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "routes": [
+    {
+      "name": "former_parking_shaft",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -3,
+            17,
+            -3.2
+          ],
+          "position": [
+            -3.0178995014120717,
+            16.999177888867997,
+            -3.199206276212797
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "former_parking_shaft_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -12,
+            17,
+            -3.2
+          ],
+          "position": [
+            -12.038837263448157,
+            16.999906538668,
+            -3.199206276212797
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "planned_routes": 2,
+  "package_sha256": "d0caba55484840059666c257662b7d4b6df9b4adfbc34e57154c10913178dc52",
+  "started_at_utc": "2026-10-29T00:13:39.347556+00:00",
+  "movement": "One initial placement per route, ordinary walking across the former floor hole, noclip 0",
+  "finished_at_utc": "2026-10-29T00:13:53.831865+00:00"
+}

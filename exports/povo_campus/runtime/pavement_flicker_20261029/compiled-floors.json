@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "physics_dump_sha256": "cbc0c418373fe3dd92264d503aa9dbe6bf9cc6d0f974ad484bce4da9f3d3c578",
+  "metadata_sha256": "4a6cba09f8580120dfb6ce35500aeeeb69d17c1743ef724d58e8c03cf42c1077",
+  "scope": "Compiled PHYS floors, columns and fixed shut door surfaces; engine movement checked separately",
+  "levels": [
+    {
+      "floor": -1,
+      "samples": 5311,
+      "missing_samples": 0,
+      "missing_points": []
+    },
+    {
+      "floor": -2,
+      "samples": 10290,
+      "missing_samples": 0,
+      "missing_points": []
+    }
+  ],
+  "columns": {
+    "samples": 72,
+    "missing_points": []
+  },
+  "locked_doors": [
+    {
+      "id": "upper_junction_door",
+      "samples": 12,
+      "missing_points": []
+    },
+    {
+      "id": "lower_junction_door",
+      "samples": 12,
+      "missing_points": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "C:\Users\Alberto\Desktop\trento_fps\tools\cs2_console.py", line 44, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Alberto\Desktop\trento_fps\tools\cs2_console.py", line 35, in main
+    output = run(args.commands, port=args.port, seconds=args.seconds)
+  File "C:\Users\Alberto\Desktop\trento_fps\tools\cs2_console.py", line 12, in run
+    with socket.create_connection(('127.0.0.1', port), timeout=5) as connection:
+         ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alberto\AppData\Local\Python\pythoncore-3.15-64\Lib\socket.py", line 883, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Alberto\AppData\Local\Python\pythoncore-3.15-64\Lib\socket.py", line 868, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it

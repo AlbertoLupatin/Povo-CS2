@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "physics_dump_sha256": "9027aaf4aff0f344c1cdb070e8adae5e035a56816925713ba7dccf5c1a344178",
+  "metadata_sha256": "0a9d012b72e0c544e801530cd57d2e6c16aea1fcab95a62ea41c9680573ad266",
+  "scope": "Compiled PHYS floors and column surfaces; headroom and engine movement checked separately",
+  "levels": [
+    {
+      "floor": -1,
+      "samples": 4181,
+      "missing_samples": 0,
+      "missing_points": []
+    },
+    {
+      "floor": -2,
+      "samples": 10290,
+      "missing_samples": 0,
+      "missing_points": []
+    }
+  ],
+  "columns": {
+    "samples": 72,
+    "missing_points": []
+  }
+}

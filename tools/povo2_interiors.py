@@ -21,6 +21,9 @@ def mesh_intersects_box(mesh, hole):
                         clipped.append([a[k]+t*(b[k]-a[k]) for k in range(3)])
                 polygon=clipped
         if polygon:return True
+    # Excavated surface meshes are no longer convex solids. Test their actual
+    # triangles above, never the original prism's implicit interior.
+    if mesh.get('surface_clipped'):return False
     # A box entirely inside a convex prism need not intersect any face.
     centre=[sum(v[i] for v in mesh['vertices'])/len(mesh['vertices']) for i in range(3)]
     point=[(hole[0][i]+hole[1][i])/2 for i in range(3)]
@@ -128,6 +131,21 @@ def extend_layout(boxes, levels, root, wall_height):
                 if all(lo[i]<hole[1][i] and hi[i]>hole[0][i] for i in range(3)):
                     if len(mesh['vertices'])!=8 or not all(all(abs(v[i]-lo[i])<1e-7 or abs(v[i]-hi[i])<1e-7 for i in range(3)) for v in mesh['vertices']):
                         if mesh_intersects_box(mesh,hole):
+                            # Carve tree bark/leaves at the same room boundaries
+                            # as the former box-shaped roadside vegetation.
+                            if any(mesh['name'].startswith(t['name']+'_') for t in ext.get('roadside_trees',[])):
+                                try:
+                                    from .build_povo_campus import subtract_polygon_box
+                                except ImportError:
+                                    from build_povo_campus import subtract_polygon_box
+                                vertices=[];faces=[]
+                                for face in mesh['faces']:
+                                    poly=[(tuple(mesh['vertices'][i]),(0,0)) for i in face]
+                                    for part in subtract_polygon_box(poly,*hole):
+                                        start=len(vertices);vertices.extend(p for p,uv in part)
+                                        faces.extend((start,start+i,start+i+1) for i in range(1,len(part)-1))
+                                if faces:kept.append(dict(mesh,vertices=vertices,faces=faces))
+                                continue
                             raise ValueError('Addition overlaps non-box exterior mesh '+mesh['name'])
                         kept.append(mesh)
                         continue

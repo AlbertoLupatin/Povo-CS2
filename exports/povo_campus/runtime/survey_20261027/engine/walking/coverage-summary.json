@@ -1,0 +1,363 @@
+{
+  "status": "failed",
+  "route_objectives": 50,
+  "passed": 44,
+  "failed": 6,
+  "scope": "Combined latest evidence per original route objective; not a new complete single sweep. Original 36/50 aggregate remains failed. Revised paths and jump-assisted ladder dismounts are explicitly retained in linked reports.",
+  "package_sha256": "2edab45d2625ec635410e0d9af5f353842e6ca51d1cee8b225adb48b05692b61",
+  "finished_at_utc": "2026-10-27T19:23:05.227844+00:00",
+  "routes": [
+    {
+      "original_name": "p1_se_segment0_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_se_segment0_up"
+    },
+    {
+      "original_name": "p1_se_segment0_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_se_segment0_up_return"
+    },
+    {
+      "original_name": "p1_sw_segment0_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_sw_segment0_up"
+    },
+    {
+      "original_name": "p1_sw_segment0_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_sw_segment0_up_return"
+    },
+    {
+      "original_name": "p1_ne_segment0_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_ne_segment0_up"
+    },
+    {
+      "original_name": "p1_ne_segment0_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_ne_segment0_up_return"
+    },
+    {
+      "original_name": "p1_nw_segment0_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_nw_segment0_up"
+    },
+    {
+      "original_name": "p1_nw_segment0_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_nw_segment0_up_return"
+    },
+    {
+      "original_name": "p1_se_segment1_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_se_segment1_up"
+    },
+    {
+      "original_name": "p1_se_segment1_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_se_segment1_up_return"
+    },
+    {
+      "original_name": "p1_sw_segment1_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_sw_segment1_up"
+    },
+    {
+      "original_name": "p1_sw_segment1_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_sw_segment1_up_return"
+    },
+    {
+      "original_name": "p1_ne_segment1_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_ne_segment1_up"
+    },
+    {
+      "original_name": "p1_ne_segment1_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_ne_segment1_up_return"
+    },
+    {
+      "original_name": "p1_nw_segment1_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_nw_segment1_up"
+    },
+    {
+      "original_name": "p1_nw_segment1_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_nw_segment1_up_return"
+    },
+    {
+      "original_name": "p1_courtyard_segment0_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_courtyard_segment0_up"
+    },
+    {
+      "original_name": "p1_courtyard_segment0_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_courtyard_segment0_up_return"
+    },
+    {
+      "original_name": "p1_courtyard_segment1_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_courtyard_segment1_up"
+    },
+    {
+      "original_name": "p1_courtyard_segment1_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_courtyard_segment1_up_return"
+    },
+    {
+      "original_name": "p2_upper_module0_down",
+      "original_status": "failed",
+      "latest_status": "failed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p2_module0_continuous"
+    },
+    {
+      "original_name": "p2_upper_module0_down_return",
+      "original_status": "failed",
+      "latest_status": "failed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p2_module0_continuous_return"
+    },
+    {
+      "original_name": "p2_upper_module1_down",
+      "original_status": "failed",
+      "latest_status": "failed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p2_module1_continuous"
+    },
+    {
+      "original_name": "p2_upper_module1_down_return",
+      "original_status": "failed",
+      "latest_status": "failed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p2_module1_continuous_return"
+    },
+    {
+      "original_name": "p2_to_floor-1_down",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p2_lower-1_floor_landings"
+    },
+    {
+      "original_name": "p2_to_floor-1_down_return",
+      "original_status": "failed",
+      "latest_status": "passed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p2_lower-1_floor_landings_return"
+    },
+    {
+      "original_name": "p2_to_floor-2_down",
+      "original_status": "failed",
+      "latest_status": "passed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p2_lower-2_floor_landings"
+    },
+    {
+      "original_name": "p2_to_floor-2_down_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p2_lower-2_floor_landings_return"
+    },
+    {
+      "original_name": "p1_p2_bridge",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_p2_bridge"
+    },
+    {
+      "original_name": "p1_p2_bridge_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "p1_p2_bridge_return"
+    },
+    {
+      "original_name": "acquario_door_and_long_aisle",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "acquario_door_and_long_aisle"
+    },
+    {
+      "original_name": "acquario_door_and_long_aisle_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "acquario_door_and_long_aisle_return"
+    },
+    {
+      "original_name": "a103_side_aisle0",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "a103_side_aisle0"
+    },
+    {
+      "original_name": "a103_side_aisle0_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "a103_side_aisle0_return"
+    },
+    {
+      "original_name": "a103_side_aisle1",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "a103_side_aisle1"
+    },
+    {
+      "original_name": "a103_side_aisle1_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "a103_side_aisle1_return"
+    },
+    {
+      "original_name": "amenity_canteen_stair0_up",
+      "original_status": "failed",
+      "latest_status": "failed",
+      "evidence": "failure-captures/survey-runtime.json",
+      "tested_name": "amenity_canteen_stair0_up"
+    },
+    {
+      "original_name": "amenity_canteen_stair0_up_return",
+      "original_status": "failed",
+      "latest_status": "failed",
+      "evidence": "failure-captures/survey-runtime.json",
+      "tested_name": "amenity_canteen_stair0_up_return"
+    },
+    {
+      "original_name": "amenity_library_stair1_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "amenity_library_stair1_up"
+    },
+    {
+      "original_name": "amenity_library_stair1_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "amenity_library_stair1_up_return"
+    },
+    {
+      "original_name": "amenity_library_stair2_up",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "amenity_library_stair2_up"
+    },
+    {
+      "original_name": "amenity_library_stair2_up_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "amenity_library_stair2_up_return"
+    },
+    {
+      "original_name": "amenity_canteen_entry",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "amenity_canteen_entry"
+    },
+    {
+      "original_name": "amenity_canteen_entry_return",
+      "original_status": "passed",
+      "latest_status": "passed",
+      "evidence": "full-v3/survey-runtime.json",
+      "tested_name": "amenity_canteen_entry_return"
+    },
+    {
+      "original_name": "amenity_library_entry",
+      "original_status": "failed",
+      "latest_status": "passed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "library_partition_detour"
+    },
+    {
+      "original_name": "amenity_library_entry_return",
+      "original_status": "failed",
+      "latest_status": "passed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "library_partition_detour_return"
+    },
+    {
+      "original_name": "p2_basement_rotated_corridor",
+      "original_status": "failed",
+      "latest_status": "passed",
+      "evidence": "basement-portals/survey-runtime.json",
+      "tested_name": "basement_portal_detour"
+    },
+    {
+      "original_name": "p2_basement_rotated_corridor_return",
+      "original_status": "failed",
+      "latest_status": "passed",
+      "evidence": "basement-portals/survey-runtime.json",
+      "tested_name": "basement_portal_detour_return"
+    },
+    {
+      "original_name": "p1_lift_climb_and_dismount",
+      "original_status": "failed",
+      "latest_status": "passed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p1_lift_climb_and_dismount",
+      "scope": "Jump-assisted dismount, not a walk-off"
+    },
+    {
+      "original_name": "p2_lift_climb_and_dismount",
+      "original_status": "failed",
+      "latest_status": "passed",
+      "evidence": "resume-probes/survey-runtime.json",
+      "tested_name": "p2_lift_climb_and_dismount",
+      "scope": "Jump-assisted dismount, not a walk-off"
+    }
+  ]
+}

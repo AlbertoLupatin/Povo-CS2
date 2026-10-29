@@ -1,0 +1,813 @@
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    15:12    0    0     active 786432 'albylupatin2000'
+#end
+
+> log on
+> mp_logmoney 1
+> sv_cheats 1
+> mp_autoteambalance 0
+> mp_limitteams 0
+> mp_warmup_offline_enabled 0
+> mp_warmup_pausetimer 0
+> mp_warmup_end
+> mp_respawn_on_death_ct 0
+> mp_respawn_on_death_t 0
+> mp_ignore_round_win_conditions 0
+> mp_freezetime 0
+> mp_roundtime_defuse 60
+> mp_startmoney 8000
+> mp_buytime 3600
+> mp_buy_anywhere 0
+> mp_plant_c4_anywhere 0
+> mp_c4timer 40
+> god 1
+> noclip 0
+Server logging enabled.
+NumAliveTerrorist( rnd 0 ) = 1
+NumAliveCT( rnd 0 ) = 0
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 911.30 
+Using spawn points configuration 0xC3480357
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+L 10/27/2026 - 19:53:26: server_cvar: "mp_roundtime_defuse" "60"
+L 10/27/2026 - 19:53:26: World triggered "Round_Start"
+CL:  Forcing ExecuteQueuedOperations due to entity slot re-use (444 point_worldtext)
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CQ: Server set re-sync at cmd 58221
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    15:13    0    0     active 786432 'albylupatin2000'
+#end
+
+> bot_quota 0
+> bot_kick
+> bot_stop 1
+> mp_respawn_on_death_ct 0
+> mp_respawn_on_death_t 0
+
+> cmd jointeam 2
+> mp_restartgame 1
+L 10/27/2026 - 19:53:29: "albylupatin2000<0><[U:1:319081618]><TERRORIST>" triggered "Dropped_The_Bomb"
+L 10/27/2026 - 19:53:29: "albylupatin2000<0><[U:1:319081618]><TERRORIST>" [2874 807 158] committed suicide with "world"
+L 10/27/2026 - 19:53:29: World triggered "SFUI_Notice_Round_Draw" (CT "0") (T "0")
+L 10/27/2026 - 19:53:29: Team "CT" scored "0" with "0" players
+L 10/27/2026 - 19:53:29: Team "TERRORIST" scored "0" with "1" players
+L 10/27/2026 - 19:53:29: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:53:29: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:53:29: MatchStatus: Score: 0:0 on map "trento_povo_campus" RoundsPlayed: 0
+L 10/27/2026 - 19:53:29: World triggered "Round_End"
+Achievements disabled: cheats turned on in this app session.
+L 10/27/2026 - 19:53:29: World triggered "Restart_Round_(1_second)"
+L 10/27/2026 - 19:53:29: Team "CT" scored "0" with "0" players
+L 10/27/2026 - 19:53:29: Team "TERRORIST" scored "0" with "1" players
+The game will restart in 1 second
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 915.73 
+Using spawn points configuration 0xC3480357
+L 10/27/2026 - 19:53:30: Starting Freeze period
+L 10/27/2026 - 19:53:30: JSON_BEGIN{
+L 10/27/2026 - 19:53:30: "name": "round_stats",
+L 10/27/2026 - 19:53:30: "round_number" : "1",
+L 10/27/2026 - 19:53:30: "score_t" : "0",
+L 10/27/2026 - 19:53:30: "score_ct" : "0",
+L 10/27/2026 - 19:53:30: "map" : "trento_povo_campus",
+L 10/27/2026 - 19:53:30: "server" : "albylupatin2000",
+L 10/27/2026 - 19:53:30: "fields" : "             accountid,   team,  money,  kills, deaths,assists,    dmg,    hsp,    kdr,    adr,    mvp,     ef,     ud,     3k,     4k,     5k,clutchk, firstk,pistolk,sniperk, blindk,  bombk,firedmg,uniquek,  dinks,chickenk"
+L 10/27/2026 - 19:53:30: "players" : {
+L 10/27/2026 - 19:53:30: "player_0" : "           319081618,      2,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:53:30: }}JSON_END
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+L 10/27/2026 - 19:53:30: World triggered "Match_Start" on "trento_povo_campus"
+L 10/27/2026 - 19:53:30: "albylupatin2000<0><[U:1:319081618]><TERRORIST>" triggered "Got_The_Bomb"
+L 10/27/2026 - 19:53:31: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:53:31: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:53:31: MatchStatus: Score: 0:0 on map "trento_povo_campus" RoundsPlayed: 0
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+BeginMatch
+L 10/27/2026 - 19:53:31: World triggered "Round_Start"
+CQ: Server set re-sync at cmd 58506
+
+> bot_join_team any
+> bot_quota_mode fill
+> bot_quota 4
+> bot_stop 1
+L 10/27/2026 - 19:53:32: "Irwin<1><BOT><>" connected, address "(unknown)"
+ClientPutInServer create new player controller [Irwin]
+L 10/27/2026 - 19:53:32: "Irwin<1><BOT><>" entered the game
+[Irwin] cl_interp_ratio='', LerpTime=0
+"Irwin<1><BOT><Unassigned>" ChangeTeam() CTMDBG , team 0, req team 3 willSwitch 0, 917.59 
+L 10/27/2026 - 19:53:32: "Irwin<1><BOT>" switched from team <Unassigned> to <CT>
+L 10/27/2026 - 19:53:32: Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "0") (T "1")
+L 10/27/2026 - 19:53:32: Team "CT" scored "0" with "1" players
+L 10/27/2026 - 19:53:32: Team "TERRORIST" scored "1" with "1" players
+L 10/27/2026 - 19:53:32: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:53:32: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:53:32: MatchStatus: Score: 0:1 on map "trento_povo_campus" RoundsPlayed: 1
+L 10/27/2026 - 19:53:32: World triggered "Round_End"
+NumAliveTerrorist( rnd 0 ) = 1
+NumAliveCT( rnd 0 ) = 0
+Ts won by ELIMINATION
+L 10/27/2026 - 19:53:32: "Rivers<2><BOT><>" connected, address "(unknown)"
+ClientPutInServer create new player controller [Rivers]
+L 10/27/2026 - 19:53:32: "Rivers<2><BOT><>" entered the game
+[Rivers] cl_interp_ratio='', LerpTime=0
+"Rivers<2><BOT><Unassigned>" ChangeTeam() CTMDBG , team 0, req team 3 willSwitch 0, 917.59 
+L 10/27/2026 - 19:53:32: "Rivers<2><BOT>" switched from team <Unassigned> to <CT>
+L 10/27/2026 - 19:53:32: "Clarence<3><BOT><>" connected, address "(unknown)"
+ClientPutInServer create new player controller [Clarence]
+L 10/27/2026 - 19:53:32: "Clarence<3><BOT><>" entered the game
+[Clarence] cl_interp_ratio='', LerpTime=0
+"Clarence<3><BOT><Unassigned>" ChangeTeam() CTMDBG , team 0, req team 2 willSwitch 0, 917.59 
+L 10/27/2026 - 19:53:32: "Clarence<3><BOT>" switched from team <Unassigned> to <TERRORIST>
+Achievements disabled: cheats turned on in this app session.
+Achievements disabled: cheats turned on in this app session.
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    15:23    0    0     active 786432 'albylupatin2000'
+   1      BOT    0    0     active      0 'Irwin'
+   2      BOT    0    0     active      0 'Rivers'
+   3      BOT    0    0     active      0 'Clarence'
+#end
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    15:24    0    0     active 786432 'albylupatin2000'
+   1      BOT    0    0     active      0 'Irwin'
+   2      BOT    0    0     active      0 'Rivers'
+   3      BOT    0    0     active      0 'Clarence'
+#end
+
+> -attack
+> -use
+> -forward 42
+> setpos 2874.016 842.520 162.205
+> setang 0 0 0
+
+> +forward 42
+
+> -forward 42
+
+> setpos 2874.016 842.520 162.205
+NumAliveTerrorist( rnd 0 ) = 1
+NumAliveCT( rnd 0 ) = 0
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 924.59 
+"Irwin<1><BOT><CT>" OnPreResetRound => CTMDBG, team 3  will switch 0 924.59 
+"Rivers<2><BOT><CT>" OnPreResetRound => CTMDBG, team 3  will switch 0 924.59 
+"Clarence<3><BOT><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 924.59 
+Using spawn points configuration 0xC3480357
+L 10/27/2026 - 19:53:39: Starting Freeze period
+L 10/27/2026 - 19:53:39: JSON_BEGIN{
+L 10/27/2026 - 19:53:39: "name": "round_stats",
+L 10/27/2026 - 19:53:39: "round_number" : "2",
+L 10/27/2026 - 19:53:39: "score_t" : "1",
+L 10/27/2026 - 19:53:39: "score_ct" : "0",
+L 10/27/2026 - 19:53:39: "map" : "trento_povo_campus",
+L 10/27/2026 - 19:53:39: "server" : "albylupatin2000",
+L 10/27/2026 - 19:53:39: "fields" : "             accountid,   team,  money,  kills, deaths,assists,    dmg,    hsp,    kdr,    adr,    mvp,     ef,     ud,     3k,     4k,     5k,clutchk, firstk,pistolk,sniperk, blindk,  bombk,firedmg,uniquek,  dinks,chickenk"
+L 10/27/2026 - 19:53:39: "players" : {
+L 10/27/2026 - 19:53:39: "player_0" : "           319081618,      2,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:53:39: "player_1" : "                   0,      3,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:53:39: "player_2" : "                   0,      3,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:53:39: "player_3" : "                   0,      2,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:53:39: }}JSON_END
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+[AI]: Using regular AI code, bot skill = '0.05'
+[AI]: Using regular AI code, bot skill = '0.05'
+[AI]: Using regular AI code, bot skill = '0.05'
+L 10/27/2026 - 19:53:39: "albylupatin2000<0><[U:1:319081618]><TERRORIST>" triggered "Got_The_Bomb"
+L 10/27/2026 - 19:53:39: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:53:39: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:53:39: MatchStatus: Score: 0:1 on map "trento_povo_campus" RoundsPlayed: 1
+L 10/27/2026 - 19:53:39: World triggered "Round_Start"
+CL:  Forcing ExecuteQueuedOperations due to entity slot re-use (450 point_worldtext)
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CQ: Server set re-sync at cmd 59073
+
+> buy ak47
+L 10/27/2026 - 19:53:40: "albylupatin2000<1><[U:1:319081618]><TERRORIST>" money change 8000-2700 = $5300 (tracked) (purchase: weapon_ak47)
+L 10/27/2026 - 19:53:40: "albylupatin2000<0><[U:1:319081618]><TERRORIST>" purchased "ak47"
+
+> status
+Achievements disabled: cheats turned on in this app session.
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.027 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    15:27    0    0     active 786432 'albylupatin2000'
+   1      BOT    0    0     active      0 'Irwin'
+   2      BOT    0    0     active      0 'Rivers'
+   3      BOT    0    0     active      0 'Clarence'
+#end
+
+> -attack
+> -use
+> -forward 42
+> setpos 3543.307 -1889.764 122.835
+> setang 0 0 0
+
+> +forward 42
+
+> -forward 42
+
+> setpos 3543.307 -1889.764 122.835
+
+> buy awp
+
+> ent_fire weapon_c4 Kill
+
+> cmd give weapon_c4
+L 10/27/2026 - 19:53:45: "albylupatin2000<0><[U:1:319081618]><TERRORIST>" triggered "Got_The_Bomb"
+
+> slot5
+
+> +attack
+
+> -attack
+
+> ent_find planted_c4
+Searching for entities with class/target name containing substrings: "planted_c4"
+Found 0 matches.
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    15:39    0    0     active 786432 'albylupatin2000'
+   1      BOT    0    0     active      0 'Irwin'
+   2      BOT    0    0     active      0 'Rivers'
+   3      BOT    0    0     active      0 'Clarence'
+#end
+
+> -attack
+> -use
+> -forward 42
+> setpos 2267.717 549.606 445.669
+> setang 0 0 0
+
+> +forward 42
+
+> -forward 42
+
+> setpos 2267.717 549.606 445.669
+
+> slot5
+
+> +attack
+L 10/27/2026 - 19:53:56: "albylupatin2000<0><[U:1:319081618]><TERRORIST>" triggered "Bomb_Begin_Plant" at bombsite A
+L 10/27/2026 - 19:53:59: "albylupatin2000<1><[U:1:319081618]><TERRORIST>" money change 5300+300 = $5600 (tracked)
+L 10/27/2026 - 19:53:59: "albylupatin2000<0><[U:1:319081618]><TERRORIST>" triggered "Planted_The_Bomb" at bombsite A
+Achievements disabled: cheats turned on in this app session.
+
+> -attack
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    15:48    0    0     active 786432 'albylupatin2000'
+   1      BOT    0    0     active      0 'Irwin'
+   2      BOT    0    0     active      0 'Rivers'
+   3      BOT    0    0     active      0 'Clarence'
+#end
+
+> mp_respawn_on_death_ct 1
+> mp_respawnwavetime_ct 0
+> ent_fire cs_player_controller ChangeTeam 3
+> ent_fire player ChangeTeam 3
+"Clarence<3><BOT><TERRORIST>" ChangeTeam() CTMDBG , team 2, req team 3 willSwitch 0, 947.14 
+L 10/27/2026 - 19:54:02: "Clarence<3><BOT>" switched from team <TERRORIST> to <CT>
+L 10/27/2026 - 19:54:02: "albylupatin2000<1><[U:1:319081618]><TERRORIST>" money change 5600+300 = $5900 (tracked)
+L 10/27/2026 - 19:54:02: "Clarence<3><BOT><CT>" [2815 807 158] committed suicide with "world"
+[AI]: Using regular AI code, bot skill = '0.05'
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" ChangeTeam() CTMDBG , team 2, req team 3 willSwitch 0, 947.14 
+L 10/27/2026 - 19:54:02: "albylupatin2000<0><[U:1:319081618]>" switched from team <TERRORIST> to <CT>
+L 10/27/2026 - 19:54:02: "albylupatin2000<0><[U:1:319081618]><CT>" [2268 550 441] committed suicide with "world"
+Achievements disabled: cheats turned on in this app session.
+Failed to set animgraph param e_face_idle of type unknown
+Failed to set animgraph param e_body_idle of type unknown
+
+> cmd give item_defuser
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.026 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    15:51    0    0     active 786432 'albylupatin2000'
+   1      BOT    0    0     active      0 'Irwin'
+   2      BOT    0    0     active      0 'Rivers'
+   3      BOT    0    0     active      0 'Clarence'
+#end
+
+> -attack
+> -use
+> -forward 42
+> setpos 2303.150 549.606 445.669
+> setang 62 180 0
+
+> +forward 42
+
+> -forward 42
+
+> setpos 2303.150 549.606 445.669
+
+> +use
+L 10/27/2026 - 19:54:07: "albylupatin2000<0><[U:1:319081618]><CT>" triggered "Begin_Bomb_Defuse_With_Kit"
+L 10/27/2026 - 19:54:12: "albylupatin2000<1><[U:1:319081618]><CT>" money change 5900+300 = $6200 (tracked)
+L 10/27/2026 - 19:54:12: Team "CT" triggered "SFUI_Notice_Bomb_Defused" (CT "1") (T "1")
+L 10/27/2026 - 19:54:12: Team "CT" scored "1" with "6" players
+L 10/27/2026 - 19:54:12: Team "TERRORIST" scored "1" with "1" players
+L 10/27/2026 - 19:54:12: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:54:12: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:54:12: MatchStatus: Score: 1:1 on map "trento_povo_campus" RoundsPlayed: 2
+L 10/27/2026 - 19:54:12: World triggered "Round_End"
+L 10/27/2026 - 19:54:12: "albylupatin2000<1><[U:1:319081618]><CT>" money change 6200+3000 = $8000 (tracked)
+NumAliveTerrorist( rnd 1 ) = 0
+NumAliveCT( rnd 1 ) = 4
+CTs won by DEFUSE
+DURATION OF SOUND: 1.775601
+
+> -use
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.026 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    16:01    0    0     active 786432 'albylupatin2000'
+   1      BOT    0    0     active      0 'Irwin'
+   2      BOT    0    0     active      0 'Rivers'
+   3      BOT    0    0     active      0 'Clarence'
+#end
+
+> bot_quota 0
+> bot_kick
+> bot_stop 1
+> mp_respawn_on_death_ct 0
+> mp_respawn_on_death_t 0
+Irwin kicked by Console (NETWORK_DISCONNECT_KICKED)
+L 10/27/2026 - 19:54:15: "Irwin<1><BOT><CT>" disconnected (reason "NETWORK_DISCONNECT_KICKED")
+Rivers kicked by Console (NETWORK_DISCONNECT_KICKED)
+L 10/27/2026 - 19:54:15: "Rivers<2><BOT><CT>" disconnected (reason "NETWORK_DISCONNECT_KICKED")
+Clarence kicked by Console (NETWORK_DISCONNECT_KICKED)
+L 10/27/2026 - 19:54:15: "Clarence<3><BOT><CT>" disconnected (reason "NETWORK_DISCONNECT_KICKED")
+
+> cmd jointeam 3
+> mp_restartgame 1
+L 10/27/2026 - 19:54:18: "albylupatin2000<0><[U:1:319081618]><CT>" [2303 550 441] committed suicide with "world"
+L 10/27/2026 - 19:54:18: World triggered "Restart_Round_(1_second)"
+L 10/27/2026 - 19:54:18: Team "CT" scored "1" with "1" players
+L 10/27/2026 - 19:54:18: Team "TERRORIST" scored "1" with "0" players
+The game will restart in 1 second
+NumAliveTerrorist( rnd 1 ) = 0
+NumAliveCT( rnd 1 ) = 0
+"albylupatin2000<0><[U:1:319081618]><CT>" OnPreResetRound => CTMDBG, team 3  will switch 0 964.48 
+Using spawn points configuration 0xC3480357
+L 10/27/2026 - 19:54:19: Starting Freeze period
+L 10/27/2026 - 19:54:19: JSON_BEGIN{
+L 10/27/2026 - 19:54:19: "name": "round_stats",
+L 10/27/2026 - 19:54:19: "round_number" : "1",
+L 10/27/2026 - 19:54:19: "score_t" : "0",
+L 10/27/2026 - 19:54:19: "score_ct" : "0",
+L 10/27/2026 - 19:54:19: "map" : "trento_povo_campus",
+L 10/27/2026 - 19:54:19: "server" : "albylupatin2000",
+L 10/27/2026 - 19:54:19: "fields" : "             accountid,   team,  money,  kills, deaths,assists,    dmg,    hsp,    kdr,    adr,    mvp,     ef,     ud,     3k,     4k,     5k,clutchk, firstk,pistolk,sniperk, blindk,  bombk,firedmg,uniquek,  dinks,chickenk"
+L 10/27/2026 - 19:54:19: "players" : {
+L 10/27/2026 - 19:54:19: "player_0" : "           319081618,      3,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:54:19: }}JSON_END
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+L 10/27/2026 - 19:54:19: World triggered "Match_Start" on "trento_povo_campus"
+L 10/27/2026 - 19:54:19: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:54:19: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:54:19: MatchStatus: Score: 0:0 on map "trento_povo_campus" RoundsPlayed: 0
+BeginMatch
+L 10/27/2026 - 19:54:19: World triggered "Round_Start"
+CL:  Forcing ExecuteQueuedOperations due to entity slot re-use (572 )
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CQ: Server set re-sync at cmd 61626
+
+> bot_join_team any
+> bot_quota_mode fill
+> bot_quota 4
+> bot_stop 1
+L 10/27/2026 - 19:54:21: "Rivers<4><BOT><>" connected, address "(unknown)"
+ClientPutInServer create new player controller [Rivers]
+L 10/27/2026 - 19:54:21: "Rivers<4><BOT><>" entered the game
+[Rivers] cl_interp_ratio='', LerpTime=0
+"Rivers<4><BOT><Unassigned>" ChangeTeam() CTMDBG , team 0, req team 2 willSwitch 0, 965.95 
+L 10/27/2026 - 19:54:21: "Rivers<4><BOT>" switched from team <Unassigned> to <TERRORIST>
+L 10/27/2026 - 19:54:21: Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "1") (T "0")
+L 10/27/2026 - 19:54:21: Team "CT" scored "1" with "1" players
+L 10/27/2026 - 19:54:21: Team "TERRORIST" scored "0" with "1" players
+L 10/27/2026 - 19:54:21: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:54:21: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:54:21: MatchStatus: Score: 1:0 on map "trento_povo_campus" RoundsPlayed: 1
+L 10/27/2026 - 19:54:21: World triggered "Round_End"
+NumAliveTerrorist( rnd 0 ) = 0
+NumAliveCT( rnd 0 ) = 1
+CTs won by ELIMINATION
+L 10/27/2026 - 19:54:21: "Maru<5><BOT><>" connected, address "(unknown)"
+ClientPutInServer create new player controller [Maru]
+L 10/27/2026 - 19:54:21: "Maru<5><BOT><>" entered the game
+[Maru] cl_interp_ratio='', LerpTime=0
+"Maru<5><BOT><Unassigned>" ChangeTeam() CTMDBG , team 0, req team 2 willSwitch 0, 965.95 
+L 10/27/2026 - 19:54:21: "Maru<5><BOT>" switched from team <Unassigned> to <TERRORIST>
+L 10/27/2026 - 19:54:21: "Bassey<6><BOT><>" connected, address "(unknown)"
+ClientPutInServer create new player controller [Bassey]
+L 10/27/2026 - 19:54:21: "Bassey<6><BOT><>" entered the game
+[Bassey] cl_interp_ratio='', LerpTime=0
+"Bassey<6><BOT><Unassigned>" ChangeTeam() CTMDBG , team 0, req team 3 willSwitch 0, 965.95 
+L 10/27/2026 - 19:54:21: "Bassey<6><BOT>" switched from team <Unassigned> to <CT>
+Achievements disabled: cheats turned on in this app session.
+Achievements disabled: cheats turned on in this app session.
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    16:11    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+   4      BOT    0    0     active      0 'Rivers'
+   5      BOT    0    0     active      0 'Maru'
+   6      BOT    0    0     active      0 'Bassey'
+#end
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.026 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    16:12    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+   4      BOT    0    0     active      0 'Rivers'
+   5      BOT    0    0     active      0 'Maru'
+   6      BOT    0    0     active      0 'Bassey'
+#end
+
+> -attack
+> -use
+> -forward 42
+> setpos 1385.827 118.110 445.669
+> setang 0 0 0
+
+> +forward 42
+
+> -forward 42
+
+> setpos 1385.827 118.110 445.669
+NumAliveTerrorist( rnd 0 ) = 0
+NumAliveCT( rnd 0 ) = 1
+"albylupatin2000<0><[U:1:319081618]><CT>" OnPreResetRound => CTMDBG, team 3  will switch 0 972.95 
+"Rivers<4><BOT><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 972.95 
+"Maru<5><BOT><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 972.95 
+"Bassey<6><BOT><CT>" OnPreResetRound => CTMDBG, team 3  will switch 0 972.95 
+Using spawn points configuration 0xC3480357
+L 10/27/2026 - 19:54:28: Starting Freeze period
+L 10/27/2026 - 19:54:28: JSON_BEGIN{
+L 10/27/2026 - 19:54:28: "name": "round_stats",
+L 10/27/2026 - 19:54:28: "round_number" : "2",
+L 10/27/2026 - 19:54:28: "score_t" : "0",
+L 10/27/2026 - 19:54:28: "score_ct" : "1",
+L 10/27/2026 - 19:54:28: "map" : "trento_povo_campus",
+L 10/27/2026 - 19:54:28: "server" : "albylupatin2000",
+L 10/27/2026 - 19:54:28: "fields" : "             accountid,   team,  money,  kills, deaths,assists,    dmg,    hsp,    kdr,    adr,    mvp,     ef,     ud,     3k,     4k,     5k,clutchk, firstk,pistolk,sniperk, blindk,  bombk,firedmg,uniquek,  dinks,chickenk"
+L 10/27/2026 - 19:54:28: "players" : {
+L 10/27/2026 - 19:54:28: "player_0" : "           319081618,      3,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:54:28: "player_4" : "                   0,      2,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:54:28: "player_5" : "                   0,      2,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:54:28: "player_6" : "                   0,      3,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:54:28: }}JSON_END
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+[AI]: Using regular AI code, bot skill = '0.05'
+[AI]: Using regular AI code, bot skill = '0.05'
+[AI]: Using regular AI code, bot skill = '0.05'
+L 10/27/2026 - 19:54:28: "Rivers<4><BOT><TERRORIST>" triggered "Got_The_Bomb"
+L 10/27/2026 - 19:54:28: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:54:28: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:54:28: MatchStatus: Score: 1:0 on map "trento_povo_campus" RoundsPlayed: 1
+CL:  Forcing ExecuteQueuedOperations due to entity slot re-use (340 point_worldtext)
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+L 10/27/2026 - 19:54:28: World triggered "Round_Start"
+CQ: Server set re-sync at cmd 62168
+
+> buy m4a1
+L 10/27/2026 - 19:54:28: "albylupatin2000<1><[U:1:319081618]><CT>" money change 8000-2900 = $5100 (tracked) (purchase: weapon_m4a1)
+L 10/27/2026 - 19:54:28: "albylupatin2000<0><[U:1:319081618]><CT>" purchased "m4a1"
+Achievements disabled: cheats turned on in this app session.
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    16:16    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+   4      BOT    0    0     active      0 'Rivers'
+   5      BOT    0    0     active      0 'Maru'
+   6      BOT    0    0     active      0 'Bassey'
+#end
+
+> bot_kill all
+L 10/27/2026 - 19:54:30: "Rivers<4><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+L 10/27/2026 - 19:54:30: "albylupatin2000<1><[U:1:319081618]><CT>" money change 5100+300 = $5400 (tracked)
+L 10/27/2026 - 19:54:30: "Rivers<4><BOT><TERRORIST>" [2815 878 158] committed suicide with "world"
+L 10/27/2026 - 19:54:30: "albylupatin2000<1><[U:1:319081618]><CT>" money change 5400+300 = $5700 (tracked)
+L 10/27/2026 - 19:54:30: "Maru<5><BOT><TERRORIST>" [2815 807 158] committed suicide with "world"
+L 10/27/2026 - 19:54:30: Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "2") (T "0")
+L 10/27/2026 - 19:54:30: Team "CT" scored "2" with "3" players
+L 10/27/2026 - 19:54:30: Team "TERRORIST" scored "0" with "4" players
+L 10/27/2026 - 19:54:30: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:54:30: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:54:30: MatchStatus: Score: 2:0 on map "trento_povo_campus" RoundsPlayed: 2
+L 10/27/2026 - 19:54:30: World triggered "Round_End"
+L 10/27/2026 - 19:54:30: "albylupatin2000<1><[U:1:319081618]><CT>" money change 5700+2750 = $8000 (tracked)
+NumAliveTerrorist( rnd 1 ) = 0
+NumAliveCT( rnd 1 ) = 2
+CTs won by ELIMINATION
+L 10/27/2026 - 19:54:30: "Bassey<6><BOT><CT>" [1386 315 441] committed suicide with "world"
+Achievements disabled: cheats turned on in this app session.
+Achievements disabled: cheats turned on in this app session.
+
+> bot_stop 0
+> bot_dont_shoot 0
+> mp_restartgame 1
+L 10/27/2026 - 19:54:33: World triggered "Restart_Round_(1_second)"
+L 10/27/2026 - 19:54:33: Team "CT" scored "2" with "2" players
+L 10/27/2026 - 19:54:33: Team "TERRORIST" scored "0" with "2" players
+The game will restart in 1 second
+NumAliveTerrorist( rnd 1 ) = 0
+NumAliveCT( rnd 1 ) = 1
+"albylupatin2000<0><[U:1:319081618]><CT>" OnPreResetRound => CTMDBG, team 3  will switch 0 979.72 
+"Rivers<4><BOT><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 979.72 
+"Maru<5><BOT><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 979.72 
+"Bassey<6><BOT><CT>" OnPreResetRound => CTMDBG, team 3  will switch 0 979.72 
+Using spawn points configuration 0xC3480357
+L 10/27/2026 - 19:54:34: Starting Freeze period
+L 10/27/2026 - 19:54:34: JSON_BEGIN{
+L 10/27/2026 - 19:54:34: "name": "round_stats",
+L 10/27/2026 - 19:54:34: "round_number" : "1",
+L 10/27/2026 - 19:54:34: "score_t" : "0",
+L 10/27/2026 - 19:54:34: "score_ct" : "0",
+L 10/27/2026 - 19:54:34: "map" : "trento_povo_campus",
+L 10/27/2026 - 19:54:34: "server" : "albylupatin2000",
+L 10/27/2026 - 19:54:34: "fields" : "             accountid,   team,  money,  kills, deaths,assists,    dmg,    hsp,    kdr,    adr,    mvp,     ef,     ud,     3k,     4k,     5k,clutchk, firstk,pistolk,sniperk, blindk,  bombk,firedmg,uniquek,  dinks,chickenk"
+L 10/27/2026 - 19:54:34: "players" : {
+L 10/27/2026 - 19:54:34: "player_0" : "           319081618,      3,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:54:34: "player_4" : "                   0,      2,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:54:34: "player_5" : "                   0,      2,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:54:34: "player_6" : "                   0,      3,   8000,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 10/27/2026 - 19:54:34: }}JSON_END
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+[AI]: Using regular AI code, bot skill = '0.05'
+[AI]: Using regular AI code, bot skill = '0.05'
+[AI]: Using regular AI code, bot skill = '0.05'
+L 10/27/2026 - 19:54:35: World triggered "Match_Start" on "trento_povo_campus"
+L 10/27/2026 - 19:54:35: "Maru<5><BOT><TERRORIST>" triggered "Got_The_Bomb"
+L 10/27/2026 - 19:54:35: MatchStatus: Team "CT" is unset.
+L 10/27/2026 - 19:54:35: MatchStatus: Team "TERRORIST" is unset.
+L 10/27/2026 - 19:54:35: MatchStatus: Score: 0:0 on map "trento_povo_campus" RoundsPlayed: 0
+CL:  Forcing ExecuteQueuedOperations due to entity slot re-use (426 )
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+BeginMatch
+L 10/27/2026 - 19:54:35: World triggered "Round_Start"
+CQ: Server set re-sync at cmd 62602
+L 10/27/2026 - 19:54:35: "Rivers<5><BOT><TERRORIST>" money change 8000-3000 = $5000 (tracked) (purchase: weapon_sg556)
+L 10/27/2026 - 19:54:35: "Rivers<4><BOT><TERRORIST>" purchased "sg556"
+L 10/27/2026 - 19:54:35: "Rivers<5><BOT><TERRORIST>" money change 5000-1000 = $4000 (tracked) (purchase: item_assaultsuit)
+L 10/27/2026 - 19:54:35: "Rivers<4><BOT><TERRORIST>" purchased "item_assaultsuit"
+L 10/27/2026 - 19:54:35: "Rivers<5><BOT><TERRORIST>" money change 4000-700 = $3300 (tracked) (purchase: weapon_deagle)
+L 10/27/2026 - 19:54:35: "Rivers<4><BOT><TERRORIST>" purchased "deagle"
+L 10/27/2026 - 19:54:35: "Rivers<5><BOT><TERRORIST>" money change 3300-200 = $3100 (tracked) (purchase: weapon_flashbang)
+L 10/27/2026 - 19:54:35: "Rivers<4><BOT><TERRORIST>" purchased "flashbang"
+L 10/27/2026 - 19:54:35: "Maru<6><BOT><TERRORIST>" money change 8000-1800 = $6200 (tracked) (purchase: weapon_galilar)
+L 10/27/2026 - 19:54:35: "Maru<5><BOT><TERRORIST>" purchased "galilar"
+L 10/27/2026 - 19:54:35: "Maru<6><BOT><TERRORIST>" money change 6200-1000 = $5200 (tracked) (purchase: item_assaultsuit)
+L 10/27/2026 - 19:54:35: "Maru<5><BOT><TERRORIST>" purchased "item_assaultsuit"
+L 10/27/2026 - 19:54:35: "Maru<6><BOT><TERRORIST>" money change 5200-700 = $4500 (tracked) (purchase: weapon_deagle)
+L 10/27/2026 - 19:54:35: "Maru<5><BOT><TERRORIST>" purchased "deagle"
+L 10/27/2026 - 19:54:35: "Bassey<7><BOT><CT>" money change 8000-1700 = $6300 (tracked) (purchase: weapon_ssg08)
+L 10/27/2026 - 19:54:35: "Bassey<6><BOT><CT>" purchased "ssg08"
+L 10/27/2026 - 19:54:35: "Bassey<7><BOT><CT>" money change 6300-1000 = $5300 (tracked) (purchase: item_assaultsuit)
+L 10/27/2026 - 19:54:35: "Bassey<6><BOT><CT>" purchased "item_assaultsuit"
+L 10/27/2026 - 19:54:35: "Bassey<7><BOT><CT>" money change 5300-700 = $4600 (tracked) (purchase: weapon_deagle)
+L 10/27/2026 - 19:54:35: "Bassey<6><BOT><CT>" purchased "deagle"
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.027 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    16:31    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+   4      BOT    0    0     active      0 'Rivers'
+   5      BOT    0    0     active      0 'Maru'
+   6      BOT    0    0     active      0 'Bassey'
+#end
+
+> -attack
+> -use
+> -forward 42
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    16:33    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+   4      BOT    0    0     active      0 'Rivers'
+   5      BOT    0    0     active      0 'Maru'
+   6      BOT    0    0     active      0 'Bassey'
+#end
+
+> -attack
+> -use
+> -forward 42
+> bot_mimic 0
+> bot_stop 0
+> bot_dont_shoot 0
+> mp_c4timer 40
+> mp_buytime 20
+> mp_roundtime_defuse 1.5
+> mp_logmoney 0
+L 10/27/2026 - 19:54:47: server_cvar: "mp_roundtime_defuse" "1.5"

@@ -13,13 +13,19 @@ class SketchPavementTests(TestCase):
         _,_,cls.boxes,cls.levels,_=build_geometry()
         cls.spec=next(l['connection'] for l in cls.levels if l.get('connection'))['povo2']
 
-    def test_basement_is_one_rigid_clockwise_rotation(self):
+    def test_rigid_placement_precedes_later_lab_gap_correction(self):
         p=self.spec['basement_placement'];cfg=self.spec['additions']['config']
         self.assertEqual(p['degrees_clockwise'],90)
-        self.assertEqual(self.spec['basement']['cibio_corridor'],rotate_rect(cfg['cibio_corridor'],p))
+        old=rotate_rect(cfg['cibio_corridor'],p);new=self.spec['basement']['cibio_corridor']
+        shift=self.spec['minus1_corrections']['room2_north_shift_metres']
+        self.assertEqual(new,old[:3]+[old[3]+shift])
         for i,r in enumerate(cfg['cibio_offices']):
-            self.assertEqual(self.spec['basement'][f'cibio_office_{i}'],rotate_rect(r,p))
-        self.assertEqual(self.spec['basement']['yard'],rotate_rect(cfg['basement_exit']['yard'],p))
+            expected=rotate_rect(r,p)
+            if i==1:expected=[expected[0],expected[1]+shift,expected[2],expected[3]+shift]
+            self.assertEqual(self.spec['basement'][f'cibio_office_{i}'],expected)
+        # The later Gardens sketch supersedes only the old exterior yard.
+        self.assertNotIn('yard',self.spec['basement'])
+        self.assertEqual(self.spec['additions']['yard']['user_floor'],-2)
         a=[17.5,-5];b=[18.5,27.5]
         self.assertAlmostEqual(math.dist(a,b),math.dist(rotate_point(a,p),rotate_point(b,p)))
         south=next(p for p in self.spec['stairs']['portals'] if p['floor']==-1)

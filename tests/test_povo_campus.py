@@ -40,7 +40,7 @@ class CampusGeometryTests(unittest.TestCase):
         for level in self.levels:
             for room in level['rooms']:
                 if room['kind']=='elevator':continue
-                if level['user_floor']==1 or room['kind'] in ('office','service'):
+                if not room.get('playable',True) and level['user_floor']==1:
                     self.assertIsInstance(room['fitout'],str)
                     continue
                 self.assertIsInstance(room['fitout'],dict,room['id'])
@@ -169,13 +169,13 @@ class CampusGeometryTests(unittest.TestCase):
 
     def test_compact_stairs_have_walkable_risers_clear_portals_and_headroom(self):
         stair=next(l['connection'] for l in self.levels if 'connection' in l)['stair'];physics=collision_boxes(self.boxes)
-        self.assertEqual(stair['risers'],40)
-        self.assertAlmostEqual(stair['rise'],.18)
+        self.assertEqual(stair['risers'],26)
+        self.assertAlmostEqual(stair['rise'],(stair['top'][2]-stair['bottom'][2])/26)
         self.assertAlmostEqual(stair['tread'],.3)
-        steps=[b for b in physics if 'p2_stair_upper_step_' in b[0] or 'p2_stair_lower_step_' in b[0]]
-        self.assertEqual(len(steps),20)
+        steps=[b for b in physics if b[0].startswith('p2_internal_0_flight') and '_step_' in b[0]]
+        self.assertEqual(len(steps),26)
         heights=sorted(b[2][2] for b in steps)
-        for a,b in zip(heights,heights[1:]):self.assertAlmostEqual(b-a,.18)
+        for a,b in zip(heights,heights[1:]):self.assertAlmostEqual(b-a,stair['rise'])
         for portal in stair['portals']:
             x,y,z=portal['centre']
             self.assertFalse([b[0] for b in physics if b[1][0]<x+.41 and b[2][0]>x-.41
@@ -253,13 +253,14 @@ class CampusGeometryTests(unittest.TestCase):
             self.assertFalse(obstacles,(point,obstacles))
 
     def test_three_floor_overview_sections_meet_without_altitude_gaps(self):
-        metadata=dict(levels=self.levels,stair=self.stair)
+        p2=next(l['connection']['povo2'] for l in self.levels if l.get('connection'))
+        metadata=dict(levels=self.levels,stair=self.stair,povo2=p2)
         with tempfile.TemporaryDirectory() as directory, patch('tools.cs2_campus.ROOT',Path(directory)):
             output=make_radar(metadata)
             values=overview_values((output/'trento_povo_campus.txt').read_bytes(),'trento_povo_campus')
             self.assertEqual(values['verticalsections.lower.altitudemax'],values['verticalsections.middle.altitudemin'])
             self.assertEqual(values['verticalsections.middle.altitudemax'],values['verticalsections.default.altitudemin'])
-            for suffix in ('_lower','_middle',''):
+            for suffix in ('_lower','_middle','','_basement1','_basement2'):
                 self.assertTrue((output/('trento_povo_campus'+suffix+'_radar.png')).is_file())
 
     def test_terrorists_start_in_povo2_and_counter_terrorists_in_povo1(self):

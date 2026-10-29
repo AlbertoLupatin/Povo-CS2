@@ -1,0 +1,54 @@
+[
+  {
+    "name": "canteen_up_next_tread",
+    "standing_feet": [
+      45.15,
+      -99.15,
+      5.8008
+    ],
+    "half_width": 0.4064,
+    "height": 1.8288,
+    "intersections": [
+      {
+        "name": "canteen_1_survey_men_wc_north_west_wall_5_windowcut_0",
+        "lo": [
+          44.24217863105176,
+          -98.84769754768392,
+          7.6
+        ],
+        "hi": [
+          45.400000000000006,
+          -98.71769754768393,
+          10.95
+        ],
+        "material": "wall"
+      }
+    ]
+  },
+  {
+    "name": "canteen_reverse_turn",
+    "standing_feet": [
+      45.55,
+      -97.95,
+      6.5308
+    ],
+    "half_width": 0.4064,
+    "height": 1.8288,
+    "intersections": [
+      {
+        "name": "canteen_0_survey_atrium_stair_west_wall_2_windowcut_0_windowcut_1",
+        "lo": [
+          45.7,
+          -97.76882165605096,
+          4.0
+        ],
+        "hi": [
+          47.35532258064516,
+          -97.63882165605096,
+          7.35
+        ],
+        "material": "wall"
+      }
+    ]
+  }
+]

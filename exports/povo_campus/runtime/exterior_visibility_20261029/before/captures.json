@@ -1,0 +1,98 @@
+[
+  {
+    "name": "bridge_street",
+    "intended_feet": [
+      40,
+      -5,
+      5.6
+    ],
+    "actual_feet": [
+      39.99999566676001,
+      -4.9999901524200006,
+      5.682088839022729
+    ],
+    "pitch": 30,
+    "yaw": -90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\before\\bridge_street.png"
+  },
+  {
+    "name": "povo1_external_courtyard",
+    "intended_feet": [
+      29,
+      -70,
+      4
+    ],
+    "actual_feet": [
+      28.999994222516005,
+      -70.00001255268,
+      4.000796875216003
+    ],
+    "pitch": 25,
+    "yaw": 0,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\before\\povo1_external_courtyard.png"
+  },
+  {
+    "name": "povo1_street",
+    "intended_feet": [
+      54.5,
+      -40,
+      7.6
+    ],
+    "actual_feet": [
+      54.499991203218,
+      -39.99999566676001,
+      7.600794958430404
+    ],
+    "pitch": 30,
+    "yaw": 90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\before\\povo1_street.png"
+  },
+  {
+    "name": "bridge_courtyard_join",
+    "intended_feet": [
+      0,
+      -14,
+      3.7
+    ],
+    "actual_feet": [
+      0.0,
+      -13.999998162056,
+      3.833308259215334
+    ],
+    "pitch": 35,
+    "yaw": -90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\before\\bridge_courtyard_join.png"
+  },
+  {
+    "name": "povo2_entry_courtyard",
+    "intended_feet": [
+      49,
+      33.5,
+      4
+    ],
+    "actual_feet": [
+      49.000004438396005,
+      33.500007904734,
+      4.0999919778164005
+    ],
+    "pitch": 30,
+    "yaw": 90,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\before\\povo2_entry_courtyard.png"
+  },
+  {
+    "name": "povo2_north_pavement",
+    "intended_feet": [
+      35,
+      115,
+      4
+    ],
+    "actual_feet": [
+      35.00000627634,
+      115.00000068326,
+      4.000788747216004
+    ],
+    "pitch": 30,
+    "yaw": 180,
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\before\\povo2_north_pavement.png"
+  }
+]

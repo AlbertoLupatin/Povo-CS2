@@ -1,0 +1,29 @@
+Packaged asset check: passed (942 VPK entries)
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_radar_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_radar_spectate_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_radar_psd.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_radar_spectate_psd.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_basement1_radar_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_basement1_radar_spectate_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_basement1_radar_psd.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_basement1_radar_spectate_psd.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_basement2_radar_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_basement2_radar_spectate_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_basement2_radar_psd.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_basement2_radar_spectate_psd.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_lower_radar_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_lower_radar_spectate_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_lower_radar_psd.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_lower_radar_spectate_psd.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_middle_radar_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_middle_radar_spectate_tga.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_middle_radar_psd.vtex_c
+  present_crc_ok: panorama/images/overheadmaps/trento_povo_campus_middle_radar_spectate_psd.vtex_c
+  present_crc_ok: resource/overviews/trento_povo_campus.txt
+  present_crc_ok: maps/trento_povo_campus.vmap_c
+  present_crc_ok: models/povo/povo1_campus.vmdl_c
+  present_crc_ok: cfg/maps/trento_povo_campus.cfg
+In-game radar, dependency completeness, signatures and clean installation are not validated by this check.
+Waiting for the Povo campus to finish loading...
+Solo exploration ready: no bots, paused warmup, automatic respawn.
+Walk normally; open the developer console and enter noclip to toggle flying.

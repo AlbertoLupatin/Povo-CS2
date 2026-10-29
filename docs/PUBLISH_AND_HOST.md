@@ -25,7 +25,9 @@ To host: in normal CS2 with Open Party enabled, start the Povo map in
 Deathmatch. Friends join through the Steam friends list. Console fallback:
 `exec povo_ffa_start`, installed by `host_campus.cmd`. No command is needed
 after the map loads. For a local tools-mode check, use
-`play_campus.cmd -Deathmatch`.
+`play_campus_ffa.cmd` (or `play_campus.cmd -Deathmatch`). Close CS2 first;
+the launcher uses the latest locally built standard campus package. Add
+`-Winter` to use the separately built winter package.
 
 The Workshop item needs a new upload with this map. It also needs the
 **Deathmatch** tag, so Workshop Maps offers that mode.

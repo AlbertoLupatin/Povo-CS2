@@ -1,0 +1,1441 @@
+> status
+Steam AppId(730), BreakpadId(2347779)
+InitSteamLogin: Initializing breakpad.
+SteamAPI_Init succeeded.  SteamID is [U:1:319081618] (76561198279347346), AppID is 730
+ResetBreakpadAppId: Universe is 1 (k_EUniversePublic)
+ResetBreakpadAppId: Setting non standard break pad app id: 2347779
+CSteam3Client::Activate succeeded.  SteamID is [U:1:319081618] (76561198279347346), AppID is 730
+Steam text filtering initialized (priority one, worldwide) successfully
+Visibility enabled.
+USRLOCAL path using Steam profile data folder:
+C:\Program Files (x86)\Steam\userdata\319081618\730\local
+Determined driver version for graphics adapter 0 [output 0] '': 32.0.101.8626
+
+> status
+
+> status
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Loaded video settings config from 'cfg\cs2_video_tools.txt'
+
+> status
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+Successfully created dx11 swap chain [    Discard |    NoTear]
+Pagefile: estimated 3388mb CPU, 17466mb GPU needed. Pagefile free 17370mb, need ~3995mb, maximum 56734mb disk free
+---------------
+Path ID:             File Path:
+ADDONS               "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\" 
+CONTENT              "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo_basement_rebuild_test\" 
+CONTENT              "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo\" 
+CONTENT              "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\core\" 
+CONTENTADDONS        "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\" 
+CONTENTROOT          "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\" 
+DEFAULT_WRITE_PATH   "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo_basement_rebuild_test\" 
+DEFAULT_WRITE_PATH   "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\pak01.vpk" (vpk) C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\pak01.vpk
+DEFAULT_WRITE_PATH   "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\" 
+EXECUTABLE_PATH      "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\bin\win64\" 
+EXECUTABLE_PATH      "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\bin\" 
+GAME                 "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo_basement_rebuild_test\" 
+GAME                 "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\pak01.vpk" (vpk) C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\pak01.vpk
+GAME                 "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\pak01.vpk" (vpk) C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\pak01.vpk
+GAME                 "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\shaders_pc.vpk" (vpk) C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\shaders_pc.vpk
+GAME                 "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\shaders_pc.vpk" (vpk) C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\shaders_pc.vpk
+GAME                 "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\" 
+GAME                 "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\" 
+GAMEBIN              "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\bin\win64\" 
+GAMEBIN              "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\bin\" 
+GAMEBIN              "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\bin\win64\" 
+GAMEBIN              "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\bin\" 
+GAMEROOT             "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\" 
+MOD                  "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\pak01.vpk" (vpk) C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\pak01.vpk
+MOD                  "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\" 
+OFFICIAL_ADDONS      "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_community_addons\" 
+PLATFORM             "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\pak01.vpk" (vpk) C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\pak01.vpk
+PLATFORM             "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\" 
+SHADER_SOURCE        "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\src\shaders\csgo\" 
+SHADER_SOURCE        "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\src\shaders\core\" 
+SHADER_SOURCE        "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\src\shaders\csgo_community_addons\" 
+SHADER_SOURCE_MOD    "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\src\shaders\csgo\" 
+SHADER_SOURCE_ROOT   "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\src\shaders\" 
+USRLOCAL             "C:\Program Files (x86)\Steam\userdata\319081618\730\local\" 
+command line arguments:
+-steam -retail -addon trento_povo_basement_rebuild_test -tools -insecure -condebug -vconsole -netconport 27400 -windowed -w 1280 -h 800 +r_always_render_all_windows 1 +engine_no_focus_sleep 0 +game_type 0 +game_mode 2 +map maps/trento_povo_campus.vpk +bot_quota 0 +mp_warmup_pausetimer 1
+Initialized low level socket/threading support.
+
+> status
+Set SteamNetworkingSockets P2P_STUN_ServerList to '162.254.197.38:3478' as per SteamNetworkingSocketsSerialized
+SDR RelayNetworkStatus:  avail=Attempting  config=Attempting  anyrelay=Not Attempted   (Attempt #1 to fetch config (only-if-cached) from https://api.steampowered.com/ISteamApps/GetSDRConfig/v1?appid=730)
+AuthStatus (steamid:76561198279347346):  Attempting  (Requesting cert)
+Pending ping measurement until network config is obtained.
+SDR RelayNetworkStatus:  avail=Attempting  config=Attempting  anyrelay=Waiting   (Attempt #1 to fetch config (only-if-cached) from https://api.steampowered.com/ISteamApps/GetSDRConfig/v1?appid=730)
+Got ISteamNetworkingSockets user interfaces from standalone lib
+Network System Initialized
+Initialized Embree v4.04.00.
+Attempted to register duplicate manifest name C4Precache.vrnmd!
+AssetSystem: Mod 'csgo' set to read-only
+AssetSystem: Mod 'core' set to read-only
+Failed to find mod help file 'resource/toolhelp_models_gamedata_fgd_italian.txt' (csgo) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\resource\toolhelp_models_gamedata_fgd_italian.txt'
+Failed to find mod help file 'resource/toolhelp_models_base_fgd_italian.txt' (core) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\resource\toolhelp_models_base_fgd_italian.txt'
+Failed to find mod help file 'resource/toolhelp_models_base_breakables_fgd_italian.txt' (core) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\resource\toolhelp_models_base_breakables_fgd_italian.txt'
+Failed to find mod help file 'resource/toolhelp_modeldoc_editor_italian.txt' (csgo) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\resource\toolhelp_modeldoc_editor_italian.txt'
+Failed to find help file 'resource/toolhelp_helpsystem_italian.txt' - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\resource\toolhelp_helpsystem_italian.txt'
+Failed to find mod help file 'resource/toolhelp_csgo_fgd_italian.txt' (csgo) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\resource\toolhelp_csgo_fgd_italian.txt'
+Failed to find mod help file 'resource/toolhelp_base_fgd_italian.txt' (core) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\resource\toolhelp_base_fgd_italian.txt'
+Failed to find mod help file 'resource/toolhelp_lights_fgd_italian.txt' (core) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\resource\toolhelp_lights_fgd_italian.txt'
+Failed to find mod help file 'resource/toolhelp_lights_base_fgd_italian.txt' (core) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\resource\toolhelp_lights_base_fgd_italian.txt'
+Failed to find mod help file 'resource/toolhelp_lights2_fgd_italian.txt' (core) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\resource\toolhelp_lights2_fgd_italian.txt'
+Failed to find mod help file 'resource/toolhelp_markup_volumes_fgd_italian.txt' (core) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\resource\toolhelp_markup_volumes_fgd_italian.txt'
+Failed to find mod help file 'resource/toolhelp_postprocessing_fgd_italian.txt' (csgo) - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\resource\toolhelp_postprocessing_fgd_italian.txt'
+
+> status
+Registering system tool for extension:           '.css':                       Visual Studio Code (exe 'C:\Users\Alberto\AppData\Local\Programs\Microsoft VS Code\Code.exe' args '"{FilePath}"')
+Registering system tool for extension:           '.xml':                           Microsoft Edge (exe 'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe' args '--single-argument {FilePath}')
+Registering system tool for extension:           '.svg':                                  Firefox (exe 'C:\Program Files\Mozilla Firefox\firefox.exe' args '-osint -url "{FilePath}"')
+Registering system tool for extension:           '.txt':                                  Notepad (exe 'C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe' args ' {MultipleFilePaths}')
+WARNING: Asset database 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\readonly_tools_asset_info.bin' discarding assets for stale extension 'vcompmat' (current 1 != db 0)
+WARNING: Asset database 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\readonly_tools_asset_info.bin' discarding assets for stale extension 'econitem' (current 1 != db 0)
+AssetSystem loaded persistent info from 3 layers / 136562 assets in 0.19s
+Scanning for Asset Files (1/6): 'Game (csgo_addons/trento_povo_basement_rebuild_test)' = C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo_basement_rebuild_test\, previously scanned 0 directories and 0 files
+Scanning for Asset Files (2/6): 'Game (csgo)' = C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\, previously scanned 8 directories and 117 files
+Scanning for Asset Files (3/6): 'Game (core)' = C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\, previously scanned 8 directories and 117 files
+Scanning for Asset Files (4/6): 'Content (csgo_addons/trento_povo_basement_rebuild_test)' = C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo_basement_rebuild_test\, previously scanned 8 directories and 117 files
+Scanning for Asset Files (5/6): 'Content (csgo)' = C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo\, previously scanned 8 directories and 117 files
+Scanning for Asset Files (6/6): 'Content (core)' = C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\core\, previously scanned 8 directories and 117 files
+AssetSystem files scanned in 0.02 seconds.
+AssetSystem pruned 0 stale assets
+Asset System - Updating dependency information...
+AssetSystem dependency data propagated in 0.86s (refreshed 2 of 136468)
+AssetSystem dependency graph created in 0.87 seconds.
+AssetSystem saved persistent info for 1 layers / 3 assets in 0.003 sec
+AssetSystem initialized in 1.08 seconds. [0.19 load, 0.02 scan, 0.87 dependencies, 0.00 save]
+Failed to find help file 'resource/toolhelp_fgd_from_asset_italian.txt' - new help will be written to 'C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\resource\toolhelp_fgd_from_asset_italian.txt'
+Clamping split screen users to 1 due to -tools mode.
+Sound Initialization: Finish, Device Sampling Rate: 44100
+ILocalize::AddFile() failed to load file "resource/keybindings_italian.txt".
+Failed loading resource "panorama/dynamic_images.vpdi_c" (ERROR_FILEOPEN: File not found)
+CClientSteamContext init ok, logged on = 1
+PlayerManager::OnGameUsersChanged
+Steam config directory: C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\core\config
+ILocalize::AddFile() failed to load file "resource/platform_english.txt".
+ILocalize::AddFile() failed to load file "resource/platform_italian.txt".
+Unable to read video config convar videocfg_dynamic_shadows
+Failed CVar: lb_dynamic_shadow_resolution_base_cmp_shadowmapsize 
+Failed CVar: sparseshadowtree_cascade_mask 
+Failed CVar: sparseshadowtree_leaf_precision 
+Failed CVar: sparseshadowtree_plane_max_error 
+Failed CVar: sparseshadowtree_plane_incr_per_step 
+
+Scratch RT Allocations:
+RT 1280x800 RGBA16161616F 4xMSAA : 32768000 Bytes
+RT 1024x1024 RGBA16161616F 4xMSAA : 33554432 Bytes
+RT 1280x800 RGBA8888 4xMSAA : 16384000 Bytes
+RT 1280x800 RGBA32323232F  : 16384000 Bytes
+RT 1280x800 D24S8 4xMSAA : 16384000 Bytes
+RT 1024x1024 D24S8 4xMSAA : 16777216 Bytes
+RT 1280x800 RGBA16161616F  : 8192000 Bytes
+RT 1280x800 RGBA16161616F  : 8192000 Bytes
+RT 1280x800 RGBA16161616F  : 8192000 Bytes
+RT 1280x800 RGBA16161616F  : 8192000 Bytes
+RT 1280x800 RG3232F  : 8192000 Bytes
+RT 1024x1024 RGBA16161616F  : 8388608 Bytes
+RT 1024x1024 RGBA16161616F  : 8388608 Bytes
+RT 1280x800 RGBA8888  : 4096000 Bytes
+RT 1280x800 RGBA8888  : 4096000 Bytes
+RT 1280x800 R32F  : 4096000 Bytes
+RT 640x400 RGBA32323232F  : 4096000 Bytes
+RT 1280x800 RG1616F  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 RG1616  : 4096000 Bytes
+RT 1280x800 RG1616  : 4096000 Bytes
+RT 1024x1024 D24S8  : 4194304 Bytes
+RT 1024x1024 D24S8  : 4194304 Bytes
+RT 640x400 RGBA16161616F  : 2048000 Bytes
+RT 640x400 RGBA16161616F  : 2048000 Bytes
+RT 640x400 RGBA16161616F  : 2048000 Bytes
+RT 640x400 RGBA16161616  : 2048000 Bytes
+RT 640x400 RG3232F  : 2048000 Bytes
+RT 1280x800 R16F  : 2048000 Bytes
+RT 640x400 RGBA8888  : 1024000 Bytes
+RT 640x400 R32F  : 1024000 Bytes
+RT 320x200 RGBA32323232F  : 1024000 Bytes
+RT 640x400 RG1616F  : 1024000 Bytes
+RT 640x400 RG1616F  : 1024000 Bytes
+RT 640x400 D24S8  : 1024000 Bytes
+RT 640x400 D24S8  : 1024000 Bytes
+RT 512x384 RGBA16161616F  : 1572864 Bytes
+RT 512x384 RGBA16161616F  : 1572864 Bytes
+RT 512x384 RGBA16161616F  : 1572864 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RG3232F  : 512000 Bytes
+RT 640x400 R16F  : 512000 Bytes
+RT 320x400 RGBA16161616  : 1024000 Bytes
+RT 512x384 D24S8  : 786432 Bytes
+RT 512x384 D24S8  : 786432 Bytes
+RT 256x256 RGBA16161616F  : 524288 Bytes
+RT 320x200 RGBA8888  : 256000 Bytes
+RT 320x200 RGBA8888  : 256000 Bytes
+RT 320x200 RGBA8888  : 256000 Bytes
+RT 320x200 R32F  : 256000 Bytes
+RT 320x200 RG1616F  : 256000 Bytes
+RT 320x200 D24S8  : 256000 Bytes
+RT 320x200 D24S8  : 256000 Bytes
+RT 320x200 D24S8  : 256000 Bytes
+RT 640x400 R8_UNORM  : 256000 Bytes
+RT 320x400 D24S8  : 512000 Bytes
+RT 320x200 R16F  : 128000 Bytes
+RT 320x200 R8_UNORM  : 64000 Bytes
+RT 128x96 RGBA16161616F  : 98304 Bytes
+RT 128x96 RGBA8888  : 49152 Bytes
+RT 128x96 D24S8  : 49152 Bytes
+RT 4x4 D24S8  : 64 Bytes
+71 RTs, Total = 282125888 Bytes
+
+Event System loaded 94 events from file: vpk:C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/core/pak01.vpk:resource/core.gameevents.
+Event System loaded 50 events from file: vpk:C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/pak01.vpk:resource/game.gameevents.
+Event System loaded 145 events from file: vpk:C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/pak01.vpk:./resource/mod.gameevents.
+GameTypes: initializing game types interface from gamemodes.txt.
+GameTypes: merging game types interface from gamemodes_server.txt.
+Failed to load gamemodes_server.txt
+GameTypes: missing mapgroupsSP entry for game type/mode (custom/custom).
+GameTypes: missing mapgroupsSP entry for game type/mode (cooperative/cooperative).
+GameTypes: missing mapgroupsSP entry for game type/mode (cooperative/coopmission).
+GameTypes: empty mapgroupsSP entry for game type/mode (workshop/workshop).
+CEntitySystem::BuildEntityNetworking (parallel build of client) took 16.188 msecs for 229 out of 315 classes
+Event System loaded 94 events from file: vpk:C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/core/pak01.vpk:resource/core.gameevents.
+Event System loaded 50 events from file: vpk:C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/pak01.vpk:resource/game.gameevents.
+Event System loaded 145 events from file: vpk:C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/pak01.vpk:./resource/mod.gameevents.
+CEntitySystem::BuildEntityNetworking (parallel build of server) took 20.196 msecs for 222 out of 308 classes
+[STARTUP] {11.509} server module init ok
+CUiComponent_OptionsMenu::CUiComponent_OptionsMenu
+
+> status
+
+> status
+Failed loading resource "scripts/detail_prop_types.vdata_c" (ERROR_FILEOPEN: File not found)
+
+> status
+CHostStateMgr::QueueNewRequest( Idle (levelload), 1 )
+
+> status
+
+> status
+ChangeGameUIState: CSGO_GAME_UI_STATE_INVALID -> CSGO_GAME_UI_STATE_MAINMENU
+Source2Init OK
+HostStateRequest::Start(HSR_IDLE):  loop(levelload) id(1) addons() desc(Idle (levelload))
+SwitchToLoop levelload requested:  id [1] addons []
+Time: 0.027626
+CLocalize::CompileString failed to localize: '#matchdraft_phase_action_wait'
+CLocalize::CompileString failed to localize: '#Movie_Playing'
+CLocalize::CompileString failed to localize: '#PANOHUD_Spectate_Navigation_ViewHighlight'
+CLocalize::CompileString failed to localize: '#PANOHUD_Spectate_Navigation_InspectLoadout_Show'
+CLocalize::CompileString failed to localize: '#Movie_Playing'
+CGameEventManager::AddListener: event 'ggprogressive_player_levelup' unknown.
+CLocalize::CompileString failed to localize: '#Panorama_CSGO_Spray_Cursor_Hint'
+CGameEventManager::AddListener: event 'ggprogressive_player_levelup' unknown.
+svg format not supported for default images, panorama\images\icons\ui\random_map.vsvg not loaded.
+!svg format not supported for default images, panorama\images\icons\ui\random_map.vsvg not loaded.
+!CLocalize::CompileString failed to localize: '#Movie_Playing'
+CLocalize::CompileString failed to localize: '#Movie_Playing'
+Requesting Blog RSS Feed[0] - https://store.steampowered.com/events/ajaxgetpartnereventspageable/?clan_accountid=0&appid=730&offset=0&count=50&exclude_tags=hide_library_detail,mod_hide_library_detail&origin=https:%2F%2Fwww.counter-strike.net&l=italian.
+CCSGO_MainMenu - bWasVisible=false
+Scheduled config settings write (cl_debounce_zoom = 1)...
+Scheduled config settings write (rate = 786432)...
+Scheduled config settings write (cl_teamcounter_playercount_instead_of_avatars = 0)...
+Scheduled config settings write (ui_steam_overlay_notification_position = bottomleft)...
+Scheduled config settings write (cl_weapon_selection_rarity_color = 0)...
+Scheduled config settings write (lobby_default_privacy_bits = 1)...
+Scheduled config settings write (ui_setting_advertiseforhire_auto = 1)...
+Scheduled config settings write (cl_mute_enemy_team = 0)...
+Scheduled config settings write (cl_sanitize_player_names = 0)...
+Scheduled config settings write (cl_scoreboard_survivors_always_on = 0)...
+Scheduled config settings write (cl_silencer_mode = 0)...
+Scheduled config settings write (cl_use_opens_buy_menu = 0)...
+Scheduled config settings write (cl_radar_scale_dynamic = 0)...
+Scheduled config settings write (cl_predict_body_shot_fx = 0)...
+Scheduled config settings write (cl_predict_head_shot_fx = 0)...
+Scheduled config settings write (cl_hud_telemetry_frametime_show = 1)...
+Scheduled config settings write (cl_hud_telemetry_ping_show = 1)...
+Scheduled config settings write (cl_hud_telemetry_net_misdelivery_show = 1)...
+Scheduled config settings write (snd_mute_losefocus = 1)...
+Scheduled config settings write (voice_always_sample_mic = 0)...
+Scheduled config settings write (snd_mute_mvp_music_live_players = 0)...
+Failed to find ui preference 'snd_eq_competitive'
+Failed to find ui preference 'snd_eq_competitive'
+Failed to find ui preference 'snd_eq_casual'
+Failed to find ui preference 'snd_eq_casual'
+Failed to find ui preference 'snd_eq_deathmatch'
+Failed to find ui preference 'snd_eq_deathmatch'
+Failed to find ui preference 'snd_eq_arms_race'
+Failed to find ui preference 'snd_eq_arms_race'
+Failed to find ui preference 'snd_eq_competitive'
+Failed to find ui preference 'snd_eq_casual'
+Failed to find ui preference 'snd_eq_deathmatch'
+Failed to find ui preference 'snd_eq_arms_race'
+Unable to write video config convar videocfg_dynamic_shadows
+Unable to write video config convar videocfg_dynamic_shadows
+Scheduled config settings write (cl_crosshairstyle = 2)...
+Scheduled config settings write (cl_crosshair_t = 0)...
+Scheduled config settings write (cl_ironsight_usecrosshaircolor = 0)...
+Scheduled config settings write (cl_crosshair_friendly_warning = 1)...
+Scheduled config settings write (cl_show_observer_crosshair = 2)...
+Scheduled config settings write (cl_observed_bot_crosshair = 2)...
+Scheduled config settings write (cl_sniper_delay_unscope = 0)...
+Unable to write video config convar videocfg_dynamic_shadows
+Trying to send message type 9194 before GC connection established.  This is guaranteed to fail.
+Failed to find ui preference 'panorama_play_movie_ambient_sound'
+Scheduled config settings write (ui_playsettings_flags_official_casual = 0)...
+Scheduled config settings write (ui_playsettings_mode_official = casual)...
+Scheduled config settings write (ui_playsettings_maps_official_casual = mg_casualdelta)...
+AddGameInputHandler - handle=1, flags=0xfd dbgContextName=MainMenu, panelName=MainMenu
+Host activate: Idle (levelload)
+Raw keyboard mode: 0
+Writing configuration for slot 0
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+Loading map "trento_povo_campus"
+CHostStateMgr::QueueNewRequest( Loading (trento_povo_campus), 2 )
+Unknown command 'single_player_pause'!
+Writing configuration for slot 0
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+Writing configuration for slot 0
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+Writing configuration for slot 0
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+Writing configuration for slot 0
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+Writing configuration for slot 0
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+Writing configuration for slot 0
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+Server:  Inactive
+Client:  Disconnected
+----- Status -----
+@ Current  :  levelload
+Running SteamAPI_RunCallbacks for first time
+Certificate expires in 31h43m at 1793389919 (current time 1793275738), will renew in 29h43m
+Received client welcome from GC.
+Received recurring missions partial progress:
+None
+Client hello received: 1304cc92/ok (0/0 sec) R0 W0 V0 C[0-0-0]
+Got SDR network config.  Loaded revision 1793064244 OK
+Performing ping measurement
+SDR RelayNetworkStatus:  avail=Attempting  config=OK  anyrelay=Attempting   (Performing ping measurement)
+AuthStatus (steamid:76561198279347346):  OK  (OK)
+Telling Steam it is safe to update the app
+Requesting tournament info...Success.
+**** Panel  has fill-parent-flow for height, but isn't in a flowing down or up layout
+CCSGO_BlurTarget - Unable to find panel with the given id "CSGOLoadingScreen"! Panel is possibly created dynamically.
+CCSGO_BlurTarget - Unable to find panel with the given id "eom-winner"! Panel is possibly created dynamically.
+CCSGO_BlurTarget - Unable to find panel with the given id "id-op-mainmenu-top"! Panel is possibly created dynamically.
+CCSGO_BlurTarget - Unable to find panel with the given id "JsWatchNoticePanel"! Panel is possibly created dynamically.
+CCSGO_BlurTarget - Unable to find panel with the given id "id-op-mainmenu-rewards"! Panel is possibly created dynamically.
+CCSGO_BlurTarget - Unable to find panel with the given id "CSGOLoadingScreen"! Panel is possibly created dynamically.
+CCSGO_BlurTarget - Unable to find panel with the given id "CSGOLoadingScreen"! Panel is possibly created dynamically.
+L4S detection: no.  up_ecn1=plain_extra(DSCPOther)  down_dscp45=plain_extra(DSCPOther)
+We will send ECN=0 (ECN config value=-1)
+[Relay par#56 (185.25.182.19:27024) only] L4S detection: neutral.  up_ecn1=pass_ecn1  down_dscp45=pass_dscp45.
+[Relay par#56 (185.25.182.19:27024) only] We will send ECN=0 (ECN config value -1)
+[Relay fra#182 (155.133.226.77:27058) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay fra#182 (155.133.226.77:27058) only] We will send ECN=0 (ECN config value -1)
+UpdateCompleterDataModelstime: 138.8379ms
+[Relay mad#155 (155.133.246.50:27031) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay mad#155 (155.133.246.50:27031) only] We will send ECN=0 (ECN config value -1)
+[Relay ams#153 (155.133.248.41:27029) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay ams#153 (155.133.248.41:27029) only] We will send ECN=0 (ECN config value -1)
+[Relay lhr#150 (162.254.196.85:27026) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay lhr#150 (162.254.196.85:27026) only] We will send ECN=0 (ECN config value -1)
+HostStateRequest::Start(HSR_GAME):  loop(levelload) id(2) addons() desc(Loading (trento_povo_campus))
+SwitchToLoop levelload requested:  id [2] addons []
+Server:  Inactive
+Client:  Disconnected
+----- Status -----
+  Requested:  levelload
+@ Current  :  levelload
+Received profile items for 76561198279347346
+WARNING: You are trying to mount an addon (3827904476) in tools mode that is different from the addon tools mode was launched with (trento_povo_basement_rebuild_test).
+WARNING: You are trying to mount an addon (3827904476) in tools mode that is different from the addon tools mode was launched with (trento_povo_basement_rebuild_test).
+Request for blog RSS feed succeeded: (code: 200, size: 285319)...
+CLocalize::CompileString failed to localize: '#Movie_Playing'
+CLocalize::CompileString failed to localize: '#Movie_Playing'
+CLocalize::CompileString failed to localize: '#Movie_Playing'
+ChangeGameUIState: CSGO_GAME_UI_STATE_MAINMENU -> CSGO_GAME_UI_STATE_LOADINGSCREEN
+CCSGO_MainMenu - bWasVisible=true
+ReleaseGameInputHandler - handle=1
+CL:  CLoopModeLevelLoad::MaybeSwitchToGameLoop switching to "game" loopmode with addons ()
+SwitchToLoop game requested:  id [2] addons []
+Failed loading resource "panorama/images/map_icons/map_icon_trento_povo_campus.vsvg_c" (ERROR_FILEOPEN: File not found)
+Failed loading resource "panorama/images/econ/set_icons/.vsvg_c" (ERROR_FILEOPEN: File not found)
+SteamGameServer_Init()
+ResetBreakpadAppId: Universe is 1 (k_EUniversePublic)
+ResetBreakpadAppId: Setting non standard break pad app id: 2347779
+SteamGameServer_Init() OK, logging on to Steam
+Logging into anonymous listen server account.
+CNetworkSystem::InitGameServer: SteamGameServerNetworking() OK
+src\steamnetworkingsockets\clientlib\steam\csteamnetworkingsockets_steam.cpp(344): Assertion Failed: m_hSteamPipe == 0
+CNetworkGameServerBase::SetServerState (ss_dead -> ss_waitingforgamesessionmanifest)
+SV:  maxplayers set to 64
+Created poll group for socket 'server'
+AuthStatus (invalid):  Waiting  (Waiting for Steam login)
+Network socket 'server' opened on port 27015
+Initializing CSGO VScript Game System
+[Relay jnb#62 (155.133.238.194:27030) only] L4S detection: neutral.  up_ecn1=pass_ecn1  down_dscp45=pass_dscp45.
+[Relay jnb#62 (155.133.238.194:27030) only] We will send ECN=0 (ECN config value -1)
+[Relay gru#179 (155.133.227.51:27055) only] L4S detection: neutral.  up_ecn1=pass_ecn1  down_dscp45=pass_dscp45.
+[Relay gru#179 (155.133.227.51:27055) only] We will send ECN=0 (ECN config value -1)
+SV:  Executing server defaults
+SV:  Executing listen server config file
+[STARTUP] {21.434} created game rules
+GameTypes: could not find matching game mode value of "" in any game type.
+GameTypes: set convars for game type/mode (classic:0/scrimcomp2v2:2):
+  exec {
+    exec gamemode_competitive2v2.cfg
+    exec_offline gamemode_competitive2v2_offline.cfg
+    exec gamemode_competitive2v2_server.cfg
+  }
+GameTypes: set convars for bot difficulty (easy:2):
+  convars {
+    bot_difficulty 0
+    bot_dont_shoot 0
+  }
+SV:  CGameRulesGameSystem::GameInit installed game rules
+CPlayerVoiceListener::GameInit()
+LoadResponseSystem scripts/talker/response_rules.vrr - Start
+CResponseSystem:  scripts/talker/response_rules.vrr (7681 rules, 811 criteria, and 7681 responses)
+LoadResponseSystem scripts/talker/response_rules.vrr - Finish
+Entry player was not found in surfaceproperties_footsteps.txt
+execing gamemode_competitive2v2.cfg
+Unknown command 'mp_weapons_glow_on_ground'!
+execing gamemode_competitive2v2_offline.cfg
+exec: couldn't exec '{*}cfg/gamemode_competitive2v2_server.cfg', unable to read file
+execing server_default.cfg
+exec: couldn't exec '{*}cfg/maps/trento_povo_campus.cfg', unable to read file
+[Relay ord#133 (162.254.193.73:27021) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay ord#133 (162.254.193.73:27021) only] We will send ECN=0 (ECN config value -1)
+Failed loading resource "panorama/images/econ/set_icons/_small_png.vtex_c" (ERROR_FILEOPEN: File not found)
+Writing configuration for slot 0
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+**** Panel  has fill-parent-flow for height, but isn't in a flowing down or up layout
+
+> status
+[Relay atl#352 (162.254.199.178:27114) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay atl#352 (162.254.199.178:27114) only] We will send ECN=0 (ECN config value -1)
+[Relay dfw#23 (162.254.194.37:27037) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay dfw#23 (162.254.194.37:27037) only] We will send ECN=0 (ECN config value -1)
+[Relay hkg#418 (103.28.54.189:27018) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay hkg#418 (103.28.54.189:27018) only] We will send ECN=0 (ECN config value -1)
+[Relay sgp#91 (103.10.124.117:27059) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay sgp#91 (103.10.124.117:27059) only] We will send ECN=0 (ECN config value -1)
+SV:  ServerSteamID=[A:1:2738803715:52171] (90296068025013251).
+[STARTUP] {22.393} logged on to Steam
+Gameserver logged on to Steam, assigned identity steamid:90296068025013251
+AuthStatus (steamid:90296068025013251):  Attempting  (Requesting cert)
+Server:  Inactive
+Client:  Disconnected
+----- Status -----
+  Queued   :  game
+@ Current  :  levelload
+CL:  CGameClientConnectPrerequisite status
+CL:  sequential     :  'CGameClientConnectPrerequisite'
+CL:  pending        :  1/7 [1139.721 msec]
+CL:  prerequisite   :  .'CWaitForGameServerStartupPrerequisite'
+CL:  waiting        :  ..waiting for IsServerRunning()
+CL:  pending        :  2/7 [not started]
+CL:  prerequisite   :  .'CCreateGameClientPrerequisite'
+CL:  pending        :  3/7 [not started]
+CL:  prerequisite   :  .'CConnectGameClientPrerequisite'
+CL:  pending        :  4/7 [not started]
+CL:                 :  .'CLoadStartupResourcePrerequisite'
+CL:  waiting        :  ..waiting for startup resource list
+CL:  pending        :  5/7 [not started]
+CL:  prerequisite   :  .'CLoadSpawnGroupsPrerequisite'
+CL:  firstspawngroup:  ..waiting for first spawn group
+CL:  pending        :  6/7 [not started]
+CL:  prerequisite   :  .'CAsyncShaderCompilePrerequisite'
+CL:  pending        :  7/7 [not started]
+CL:  prerequisite   :  .'CFinalizeConnectionPrerequisite'
+---
+Received empty command line from steam
+AuthStatus (steamid:90296068025013251):  OK  (OK)
+Certificate expires in 48h00m at 1793448541 (current time 1793275740), will renew in 46h00m
+SV:  VAC secure mode disabled.
+Received server welcome from GC.
+GC Connection established for server version 2000938, instance idx 1
+Job CUiComponent_Leaderboards::AsyncQueryLeaderboardsForTheLocalPlayer has spent >3.000ms without yielding: 4.633ms
+[Relay eze#159 (155.133.255.163:27035) only] L4S detection: neutral.  up_ecn1=pass_ecn1  down_dscp45=pass_dscp45.
+[Relay eze#159 (155.133.255.163:27035) only] We will send ECN=0 (ECN config value -1)
+SV:  Spawn Server: trento_povo_campus
+CSource2Server::ApplyGameSettings game settings payload received:
+  ::ExecGameTypeCfg {
+    map {
+      mapname trento_povo_campus
+    }
+    launchoptions {
+      address loopback
+      levelname trento_povo_campus
+      mode listenserver
+      loadmap int( 1 = 0x1 )
+      changelevel int( 0 = 0x0 )
+      map trento_povo_campus
+      mapgroup 
+      requires_attr 
+      requires_attr_value int( -1 = 0xFFFFFFFF )
+      requires_attr_reward 
+      reward_drop_list int( -1 = 0xFFFFFFFF )
+      numSlots int( 4 = 0x4 )
+      c_game_type int( 0 = 0x0 )
+      c_game_mode int( 2 = 0x2 )
+      default_game_type int( -1 = 0xFFFFFFFF )
+      default_game_mode int( -1 = 0xFFFFFFFF )
+      ct_arms 
+      t_arms 
+    }
+  }
+CNetworkGameServerBase::SetServerState (ss_waitingforgamesessionmanifest -> ss_loading)
+CNetworkGameServerBase::SetServerState (ss_loading -> ss_active)
+CL:  CWaitForGameServerStartupPrerequisite done waiting for server
+CL:  CCreateGameClientJob creating client connection to 'loopback'
+[#1364254695 pipe] connected
+[#2603087982 pipe] connected
+Created poll group for socket 'client'
+Connected loopback client=5150dfe7@loopback:1 <-> server=9b27f86e@loopback:0
+Tick packet desired receive margin now 36.2ms.  cl_tickpacket_recvmargin_desired=5  cl_tickpacket_desired_queuelength=0.  engine_frametime_warnings_enable=0, cl_async_usercmd_send=1
+Scheduled config settings write (ui_playsettings_flags_official_casual = 0)...
+Scheduled config settings write (ui_playsettings_mode_official = casual)...
+Scheduled config settings write (ui_playsettings_maps_official_casual = mg_casualdelta)...
+Scheduled config settings write (ui_playsettings_flags_official_casual = 0)...
+Scheduled config settings write (ui_playsettings_flags_official_casual = 0)...
+Scheduled config settings write (ui_playsettings_flags_official_casual = 0)...
+Associating NetChan albylupatin2 @ loopback:0 (loopback:0) with Steam Net Connection handle #2603087982 (userdata 0)
+Associating NetChan server @ loopback:1 (loopback:1) with Steam Net Connection handle #1364254695 (userdata 1)
+CL:  Connected to 'loopback:1'
+ClientPutInServer create new player controller [albylupatin2000]
+Client 0 'albylupatin2000' setting rate to 786432
+[albylupatin2000] cl_interp_ratio='0', LerpTime=0
+Telling clients to connect (64 maxclients)
+Game: "Counter-Strike 2"
+Map: "trento_povo_campus"
+Players: 1 (0 bots) / 64 humans
+Build: 10955 (revision 11181008)
+Server Number: 1
+CL:  CNetworkGameClient::ProcessServerInfo
+GameTypes: setting game type to 0.
+GameTypes: setting game mode to 2.
+Initializing CSGO VScript Game System
+CLocalize::CompileString failed to localize: '#matchdraft_phase_action_wait'
+CLocalize::CompileString failed to localize: '#Movie_Playing'
+CLocalize::CompileString failed to localize: '#PANOHUD_Spectate_Navigation_ViewHighlight'
+CLocalize::CompileString failed to localize: '#PANOHUD_Spectate_Navigation_InspectLoadout_Show'
+CLocalize::CompileString failed to localize: '#Movie_Playing'
+CGameEventManager::AddListener: event 'ggprogressive_player_levelup' unknown.
+CLocalize::CompileString failed to localize: '#Panorama_CSGO_Spray_Cursor_Hint'
+CGameEventManager::AddListener: event 'ggprogressive_player_levelup' unknown.
+CL:  CGameRulesGameSystem::GameInit installed game rules
+ReadSteamRemoteStorageFile( bufOut, "voice_ban.dt" ) -> 0.000965 seconds
+CNetworkGameClient::ProcessClassInfo: create on client true
+CNetworkGameClient::ProcessClassInfo: creating client serializers from local server serializers (crc 0, server api exists)
+CL:  loaded 39 replay compatability settings from 'vpk:C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/core/pak01.vpk:./scripts/replay_compatability_settings.txt'
+CL:  loaded 9 replay compatability settings from 'vpk:C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/pak01.vpk:./scripts/replay_compatability_settings.txt'
+CNetworkGameClientBase::LinkClasses took 14.169 msec
+**** Panel  has fill-parent-flow for height, but isn't in a flowing down or up layout
+Failed loading resource "maps/trento_povo_campus/cubemaps/env_cubemap_array.vtex_c" (ERROR_FILEOPEN: File not found)
+[Relay lim#166 (155.133.244.52:27042) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay lim#166 (155.133.244.52:27042) only] We will send ECN=0 (ECN config value -1)
+
+> status
+[Relay scl#24 (155.133.249.163:27038) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay scl#24 (155.133.249.163:27038) only] We will send ECN=0 (ECN config value -1)
+Writing configuration for slot 0
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+SV:  "albylupatin2000<0><[U:1:319081618]><>" STEAM USERID validated
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.008 sec ago]
+----- Status -----
+  Queued   :  game
+@ Current  :  levelload
+CL:  CGameClientConnectPrerequisite status
+CL:  sequential  :  'CGameClientConnectPrerequisite'
+CL:  completed   :  1/5 [1735.220 msec]
+CL:  prerequisite:  .'CWaitForGameServerStartupPrerequisite'
+CL:  completed   :  2/5 [1.964 msec]
+CL:  prerequisite:  .'CCreateGameClientPrerequisite'
+CL:  completed   :  3/5 [31.042 msec]
+CL:  prerequisite:  .'CConnectGameClientPrerequisite'
+CL:  signon      :  ...SIGNONSTATE_SPAWN
+CL:  completed   :  4/5 [220.792 msec]
+CL:  manifest    :  ..0/2: 'Client GameSessionManifest' loading
+CL:              :  ...   vdata: 1     entries, 'decalgroups', ...
+CL:              :  ...    vmat: 25    entries, 'inferno', ...
+CL:              :  ...    vmdl: 330   entries, 'weapon_pist_tec9', ...
+CL:              :  ... vnmskel: 65    entries, 'usp_silencer', ...
+CL:              :  ...    vpcf: 78    entries, 'ui_hud_kill_streaks_4', ...
+CL:  manifest    :  ..1/2: 'Client GameSessionManifest received from server' loading
+CL:              :  ...   vdata: 1     entries, 'decalgroups', ...
+CL:              :  ...    vmat: 3     entries, 'blueglow1', ...
+CL:              :  ...    vmdl: 337   entries, 'weapon_pist_taser', ...
+CL:              :  ... vnmskel: 65    entries, 'm4a1_silencer', ...
+CL:              :  ...    vpcf: 61    entries, 'explosion_molotov_air', ...
+CL:              :  .'CLoadStartupResourcePrerequisite'
+CL:  secondary   :  ..3
+CL:  manifest    :  ...0/1: 'CPhysicsGameSystem::GameWorldInit' loading
+CL:              :  ....    vmat: 4     entries, 'show_collision_geometry_wire_nodepth', ...
+CL:  manifest    :  ...0/1: 'CDecalGameSystem::LoopInit' loading
+CL:  completed   :  5/5 [0.008 msec]
+CL:  prerequisite:  .'CLoadSpawnGroupsPrerequisite'
+CL:  spawngroup  :  ..0/4: CL:  [1: trento_povo_campus | main lump | mapload]
+CL:              :  ...     vjs: 1     entries, 'povo_ffa', ...
+CL:              :  ...    vmat: 2     entries, 'blueglow1', ...
+CL:              :  ...    vmdl: 670   entries, 'povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_0_windowcut_0_windowcut_0_glass_1454', ...
+CL:              :  ...   vpost: 1     entries, 'basepostprocess_filmic', ...
+CL:              :  ...vsndevts: 2     entries, 'soundevents_addon', ...
+CL:              :  ...    vtex: 3     entries, 'env_light_probe_volume_atlas_dlshd', ...
+CL:  spawngroup  :  ..1/4: CL:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload]
+CL:  spawngroup  :  ..2/4: CL:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload]
+CL:  spawngroup  :  ..3/4: CL:  [4: prefabs/misc/end_of_match | main lump | mapload]
+CL:  satisfied   :  ..4 spawn groups
+CL:  pending     :  1/2 [1125.306 msec]
+CL:  prerequisite:  .'CAsyncShaderCompilePrerequisite'
+CL:  pending     :  2/2 [not started]
+CL:  prerequisite:  .'CFinalizeConnectionPrerequisite'
+---
+[Relay gum#85 (185.25.180.19:27053) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay gum#85 (185.25.180.19:27053) only] We will send ECN=0 (ECN config value -1)
+CL:  CGameClientConnectPrerequisite connection succeeded
+ChangeGameUIState: CSGO_GAME_UI_STATE_LOADINGSCREEN -> CSGO_GAME_UI_STATE_INGAME
+CCSGO_MainMenu - bWasVisible=false
+SV:  IGameSystem::LoopActivateAllSystems {
+HO:  IGameSystem::LoopActivateAllSystems {
+HO:  } IGameSystem::LoopActivateAllSystems done
+SV:  } IGameSystem::LoopActivateAllSystems done
+Created physics for trento_povo_campus
+ERROR: Unconnected ladder #1 top at ( 2683.07, 410.236, 444 )
+nav_unmark; nav_mark ladder 1; nav_warp_to_mark
+ERROR: Unconnected ladder #2 top at ( -571.653, 860.236, 444 )
+nav_unmark; nav_mark ladder 2; nav_warp_to_mark
+Nav mesh (v36/1) loaded with 14266 nav areas for 1 hulls.
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+Invalid terrorist spawnpoint at (-1141.7,964.6,189.0)
+Nav mesh (v35/1) loaded with 0 nav areas for 1 hulls.
+Nav mesh (v35/1) loaded with 0 nav areas for 1 hulls.
+CNavGenParams - Nav mesh requests project default generation parameters but actual parameters
+  used during construction differ from defaults. Please re-export the map.
+Nav mesh (v33/1) loaded with 0 nav areas for 3 hulls.
+SV:  64 player server started
+CSource2Server::GameServerSteamAPIActivated()
+CL:  IGameSystem::LoopActivateAllSystems {
+CL:  } IGameSystem::LoopActivateAllSystems done
+Host activate: Loading (trento_povo_campus)
+CL:  CNetworkGameClient::OnSwitchLoopModeFinished( game : success )
+
+Scratch RT Allocations:
+RT 1280x800 RGBA16161616F 4xMSAA : 32768000 Bytes
+RT 1280x800 RGBA8888 4xMSAA : 16384000 Bytes
+RT 1280x800 RGBA32323232F  : 16384000 Bytes
+RT 1280x800 D24S8 4xMSAA : 16384000 Bytes
+RT 800x800 RGBA16161616F 4xMSAA : 20480000 Bytes
+RT 1280x800 RGBA16161616F  : 8192000 Bytes
+RT 1280x800 RGBA16161616F  : 8192000 Bytes
+RT 1280x800 RGBA16161616F  : 8192000 Bytes
+RT 1280x800 RGBA16161616F  : 8192000 Bytes
+RT 1280x800 RG3232F  : 8192000 Bytes
+RT 800x800 D24S8 4xMSAA : 10240000 Bytes
+RT 1280x800 RGBA8888  : 4096000 Bytes
+RT 1280x800 RGBA8888  : 4096000 Bytes
+RT 1280x800 R32F  : 4096000 Bytes
+RT 640x400 RGBA32323232F  : 4096000 Bytes
+RT 1280x800 RG1616F  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 D24S8  : 4096000 Bytes
+RT 1280x800 RG1616  : 4096000 Bytes
+RT 1280x800 RG1616  : 4096000 Bytes
+RT 800x800 RGBA16161616F  : 5120000 Bytes
+RT 800x800 RGBA16161616F  : 5120000 Bytes
+RT 640x400 RGBA16161616F  : 2048000 Bytes
+RT 640x400 RGBA16161616F  : 2048000 Bytes
+RT 640x400 RGBA16161616F  : 2048000 Bytes
+RT 640x400 RGBA16161616  : 2048000 Bytes
+RT 640x400 RG3232F  : 2048000 Bytes
+RT 1280x800 R16F  : 2048000 Bytes
+RT 800x800 D24S8  : 2560000 Bytes
+RT 800x800 D24S8  : 2560000 Bytes
+RT 640x400 RGBA8888  : 1024000 Bytes
+RT 640x400 R32F  : 1024000 Bytes
+RT 320x200 RGBA32323232F  : 1024000 Bytes
+RT 640x400 RG1616F  : 1024000 Bytes
+RT 640x400 RG1616F  : 1024000 Bytes
+RT 640x400 D24S8  : 1024000 Bytes
+RT 640x400 D24S8  : 1024000 Bytes
+RT 512x384 RGBA16161616F  : 1572864 Bytes
+RT 512x384 RGBA16161616F  : 1572864 Bytes
+RT 512x384 RGBA16161616F  : 1572864 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RGBA16161616F  : 512000 Bytes
+RT 320x200 RG3232F  : 512000 Bytes
+RT 640x400 R16F  : 512000 Bytes
+RT 320x400 RGBA16161616  : 1024000 Bytes
+RT 512x384 D24S8  : 786432 Bytes
+RT 512x384 D24S8  : 786432 Bytes
+RT 256x256 RGBA16161616F  : 524288 Bytes
+RT 320x200 RGBA8888  : 256000 Bytes
+RT 320x200 RGBA8888  : 256000 Bytes
+RT 320x200 RGBA8888  : 256000 Bytes
+RT 320x200 R32F  : 256000 Bytes
+RT 320x200 RG1616F  : 256000 Bytes
+RT 320x200 D24S8  : 256000 Bytes
+RT 320x200 D24S8  : 256000 Bytes
+RT 320x200 D24S8  : 256000 Bytes
+RT 640x400 R8_UNORM  : 256000 Bytes
+RT 320x400 D24S8  : 512000 Bytes
+RT 320x200 R16F  : 128000 Bytes
+RT 320x200 R8_UNORM  : 64000 Bytes
+RT 128x96 RGBA16161616F  : 98304 Bytes
+RT 128x96 RGBA8888  : 49152 Bytes
+RT 128x96 D24S8  : 49152 Bytes
+RT 4x4 D24S8  : 64 Bytes
+71 RTs, Total = 252708416 Bytes
+
+
+> status
+CRecipientFilter::AddAllPlayers - no recipients for this message, but 1 player in process of connecting was not included.
+[SERVER] Error loading maps/trento_povo_campus_camera_nodes.kv3 : Missing file 'maps/trento_povo_campus_camera_nodes.kv3'SV:  Sending full update to client albylupatin2000 (reason:  initial update)
+4.75 OnHltvReplay END
+CNetworkGameClientBase::OnReceivedUncompressedPacket(), received full update
+Resetting prediction state because we received a full update
+Receiving 48.2K non-incremental update from server
+change callback spew threshold 0.200000 msecs
+Created physics for trento_povo_campus
+Loaded radar vertical section keyvalues.
+Loaded radar vertical section keyvalues.
+AddGameInputHandler - handle=2, flags=0xfd dbgContextName=TeamSelect, panelName=TeamSelectMenu
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+albylupatin2000 si è connesso.
+server @ loopback:1:  NetChan Setting Timeout to 30.00 seconds
+CL:  Signon traffic "server":  incoming 67.171 KB [236 netframes], outgoing 3.679 KB [235 netframes]
+Added prediction for player slot 0 (albylupatin2000)
+Scanned 1879 entities, activated prediction for 2, total predictable entities now 2
+ReleaseGameInputHandler - handle=2
+AddGameInputHandler - handle=3, flags=0xfd dbgContextName=TeamSelect, panelName=TeamSelectMenu
+[CLIENT] Error loading maps/trento_povo_campus_camera_nodes.kv3 : Missing file 'maps/trento_povo_campus_camera_nodes.kv3'cl: ReadFrameInput - Presented data has no mod info
+CCSGO_BlurTarget - Unable to find panel with the given id "loadingscreen__blur-target"! Panel is possibly created dynamically.
+Failed loading resource "panorama/images/map_icons/screenshots/1080p/trento_povo_campus_png.vtex_c" (ERROR_FILEOPEN: File not found)
+SST shadow focus region for [trento_povo_campus]
+   [*][shear]:      minz -6653.6, maxz 177.2, (range 6830.8), (precision 0.1042)
+   [ ][light-axis]: minz -13059.0, maxz 6794.5, (range 19853.4 ), (precision 0.3029)
+   [ ][legacy]:     minz -7897.6, maxz 1677.2, (range 9574.8 ), (precision 0.1461)
+      sun dir  0.259  0.000  0.966, world bounds -25591 -25591 -177 ..  25591  25591  6398
+Setting cl_cq_min_queue=2
+albylupatin2 @ loopback:0:  NetChan Setting Timeout to 20.00 seconds
+SV: 1(albylupatin2000) changed min command queue size to 2
+[Server] Unpacked damage data for 1 bomb sites (1221670 values) on trento_povo_campus.
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.146 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:02    0    0     active 786432 'albylupatin2000'
+#end
+[Client] Unpacked damage data for 1 bomb sites (1221670 values) on maps/trento_povo_campus.vpk.
+
+> sv_cheats 1
+> r_always_render_all_windows true
+> bot_quota 0
+> bot_kick
+> mp_autoteambalance 0
+> mp_limitteams 0
+> mp_team_intro_time 0
+> mp_freezetime 0
+> mp_ignore_round_win_conditions 1
+> mp_timelimit 0
+> mp_respawn_on_death_t 1
+> mp_respawn_on_death_ct 1
+> mp_warmup_offline_enabled 1
+> mp_warmup_online_enabled 1
+> mp_warmuptime_all_players_connected 0
+> mp_warmup_pausetimer 1
+> mp_warmuptime 60
+> jointeam 2
+> mp_warmup_start
+> mat_fullbright 0
+> engine_no_focus_sleep 0
+> fps_max 120
+"albylupatin2000<0><[U:1:319081618]><Unassigned>" OnPreResetRound => CTMDBG, team 0  will switch 0 5.28 
+Using spawn points configuration 0x09D19C02
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+"albylupatin2000<0><[U:1:319081618]><Unassigned>" ChangeTeam() CTMDBG , team 0, req team 2 willSwitch 0, 5.30 
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 5.30 
+Using spawn points configuration 0x09D19C02
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CL:  Forcing ExecuteQueuedOperations due to entity slot re-use (341 point_worldtext)
+ReleaseGameInputHandler - handle=3
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+Failed to find ui preference 'spec_autodirector_cameraman'
+CQ: Server set re-sync at cmd 41
+Named camera 'cam_default' not found in map 'ui/xpshop_item'
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:05    0    0     active 786432 'albylupatin2000'
+#end
+non-moveable func_door_rotating 'stair_ne_2' is pushed
+Ping measurement completed in 10.4s.  Relays: 44 valid, 7 great, 11 good+, 17 ok+, 0 ignored
+Ping location: vie=16+1,dvie=17+1/16+1,fra=21+2,par=21+2,dfra=24+2/22+2,mad=26+2,ams=27+2,lhr=27+2,waw=54+5/28+1,iad=114+11/98+2,sgp=250+25/170+11,gru=196+19
+SDR RelayNetworkStatus:  avail=OK  config=OK  anyrelay=OK   (OK.  Relays: 44 valid, 7 great, 11 good+, 17 ok+, 0 ignored)
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:07    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -2273.622 -129.921 19.685
+
+> getpos_exact
+setpos_exact -2273.622070 -129.921021 15.779184;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 90.0 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2272.306396 -108.157227 15.779186;setang_exact 0.000000 90.000000 0.000000
+
+> +use
+
+> -use
+
+> setang 0 90.0 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2272.306396 -108.157227 15.779186;setang_exact 0.000000 90.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:11    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -2273.622 -51.181 19.685
+
+> getpos_exact
+setpos_exact -2273.622070 -51.181030 15.779182;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 -90.0 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2273.616699 -72.945129 15.779186;setang_exact 0.000000 -90.000000 0.000000
+
+> +use
+
+> -use
+
+> setang 0 -90.0 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2273.616699 -72.945129 15.779186;setang_exact 0.000000 -90.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.023 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:15    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -669.291 1358.268 19.685
+
+> getpos_exact
+setpos_exact -669.291016 1358.267944 15.779253;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 180.0 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.055359 1358.273315 15.779251;setang_exact 0.000000 -180.000000 0.000000
+
+> +use
+
+> -use
+
+> setang 0 180.0 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.055359 1358.273315 15.779251;setang_exact 0.000000 -180.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.014 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:19    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -748.031 1358.268 19.685
+
+> getpos_exact
+setpos_exact -748.031006 1358.267944 15.779250;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 0.0 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -726.267517 1358.268188 15.779251;setang_exact 0.000000 0.000000 0.000000
+
+> +use
+
+> -use
+
+> setang 0 0.0 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -726.267517 1358.268188 15.779251;setang_exact 0.000000 0.000000 0.000000
+
+> cl_drawhud 0
+> r_drawviewmodel 0
+> mat_fullbright 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.022 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:23    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1102.362 -120.079 19.685
+
+> getpos_exact
+setpos_exact -1102.362061 -120.078979 15.779232;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 180 0
+
+> png_screenshot minus1_correction_long_gap_from_south
+Screenshot written to: screenshots\minus1_correction_long_gap_from_south_0000.png
+
+> getpos_exact
+setpos_exact -1102.362061 -120.078979 15.779232;setang_exact 0.000000 -180.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:27    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -2165.354 -120.079 19.685
+
+> getpos_exact
+setpos_exact -2165.354004 -120.078979 15.779186;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 0 0
+
+> png_screenshot minus1_correction_long_gap_from_north
+Screenshot written to: screenshots\minus1_correction_long_gap_from_north_0000.png
+
+> getpos_exact
+setpos_exact -2165.354004 -120.078979 15.779186;setang_exact 0.000000 0.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.018 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:31    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -2273.622 -127.953 19.685
+
+> getpos_exact
+setpos_exact -2273.622070 -127.953003 15.779182;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 90 0
+
+> png_screenshot minus1_correction_upper_door_locked
+Screenshot written to: screenshots\minus1_correction_upper_door_locked_0000.png
+
+> getpos_exact
+setpos_exact -2273.622070 -127.953003 15.779182;setang_exact 0.000000 90.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:36    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -649.606 1358.268 19.685
+
+> getpos_exact
+setpos_exact -649.606018 1358.267944 15.779253;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 180 0
+
+> png_screenshot minus1_correction_lower_door_locked
+Screenshot written to: screenshots\minus1_correction_lower_door_locked_0000.png
+
+> getpos_exact
+setpos_exact -649.606018 1358.267944 15.779253;setang_exact 0.000000 -180.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:40    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -675.197 1122.047 19.685
+
+> getpos_exact
+setpos_exact -675.197021 1122.046997 15.779251;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 90 0
+
+> png_screenshot minus1_correction_new_lower_connection
+Screenshot written to: screenshots\minus1_correction_new_lower_connection_0000.png
+
+> getpos_exact
+setpos_exact -675.197021 1122.046997 15.779251;setang_exact 0.000000 90.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.018 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:44    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -2381.890 -374.016 19.685
+
+> getpos_exact
+setpos_exact -2381.889893 -374.015991 15.779179;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90 0
+
+> png_screenshot minus1_correction_room2_moved
+Screenshot written to: screenshots\minus1_correction_room2_moved_0000.png
+
+> getpos_exact
+setpos_exact -2381.889893 -374.015991 15.779179;setang_exact 0.000000 90.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:48    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -393.701 1358.268 19.685
+
+> getpos_exact
+setpos_exact -393.700989 1358.267944 15.779263;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 0 0
+
+> png_screenshot minus1_correction_exit_up_stairs
+Screenshot written to: screenshots\minus1_correction_exit_up_stairs_0000.png
+
+> getpos_exact
+setpos_exact -393.700989 1358.267944 15.779263;setang_exact 0.000000 0.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:52    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 551.181 0.000 154.724
+
+> getpos_exact
+setpos_exact 551.181030 0.000000 150.917648;setang_exact 0.000000 0.000000 0.000000
+
+> setang 35 -90 0
+
+> png_screenshot minus1_correction_bridge_courtyard_join
+Screenshot written to: screenshots\minus1_correction_bridge_courtyard_join_0000.png
+
+> getpos_exact
+setpos_exact 551.181030 0.000000 150.917648;setang_exact 35.000031 -90.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:56    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1574.803 2145.669 303.150
+
+> getpos_exact
+setpos_exact 1574.802979 2145.668945 299.243896;setang_exact 35.000031 -90.000000 0.000000
+
+> setang 30 90 0
+
+> png_screenshot minus1_correction_povo1_street
+Screenshot written to: screenshots\minus1_correction_povo1_street_0000.png
+
+> getpos_exact
+setpos_exact 1574.802979 2145.668945 299.243896;setang_exact 29.999878 90.000000 0.000000
+
+> cl_drawhud 1
+> r_drawviewmodel 1

@@ -2,6 +2,14 @@
 
 Verdict: the main classroom arrangement is broadly consistent with the photos, but the building is not yet a faithful room-by-room reconstruction. This is a source/export review while the native build runs; no map geometry, build inputs or running game were changed.
 
+**29 October recheck before implementation:** original plan photos 10/17/19/20,
+the separate classroom map and fresh current generated-wall slices confirm the
+floor-0 north WC/study-block mismatch, floor--1 placeholder service corners and
+three offices occupying the planned open entrance hall. The unnamed rooms,
+paired lifts, service shafts and vestibules must be traced together rather than
+replacing the blocks with uniform WCs. Exact metric registration and the ladder
+shaft replacement remain unresolved. [Recheck and fresh comparison drawings](../exports/povo1_layout_recheck_20261029/README.md).
+
 Compared the current campus provenance and generator with photographed plans 10/17/19/22, the existing upper-plan overlay, interior photos 9/23/26/28 from 27 October, and coffee photos 2/4/5 from 28 October. The four Povo 1 configuration hashes match the current export provenance. The older `adjustments_layout_review.png` is stale: it has 33 floor-0 rooms and the old southern toilets, whereas current provenance has 34 rooms including the coffee room.
 
 ## Findings

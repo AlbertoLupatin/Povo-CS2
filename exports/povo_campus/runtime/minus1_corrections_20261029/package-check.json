@@ -1,0 +1,143 @@
+{
+  "format_version": 1,
+  "status": "passed",
+  "scope": "Radar, map, model and configuration inclusion; overview alignment and entry CRCs",
+  "package": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "vpk_version": 2,
+  "package_sha256": "d6891711d74524fe0c5cfb62087d6e5fd8809e915f8ded32d83094d1e8c17f48",
+  "package_entries": 1082,
+  "crc_verified_entries": 1082,
+  "all_entry_crc_requested": true,
+  "signature_verification": "not performed",
+  "expected_overview_sha256": "75f48225c3cdddad18b86b82bc5f35f0d9c067faca96a387e2bf9618dd166f03",
+  "checks": [
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_radar_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19398
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_radar_spectate_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19398
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_radar_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19398
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_radar_spectate_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19398
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_basement1_radar_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18726
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_basement1_radar_spectate_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18726
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_basement1_radar_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18726
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_basement1_radar_spectate_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18726
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_basement2_radar_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18712
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_basement2_radar_spectate_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18712
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_basement2_radar_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18712
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_basement2_radar_spectate_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 18712
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_lower_radar_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19472
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_lower_radar_spectate_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19488
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_lower_radar_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19472
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_lower_radar_spectate_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19488
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_middle_radar_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19133
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_middle_radar_spectate_tga.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19149
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_middle_radar_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19133
+    },
+    {
+      "file": "panorama/images/overheadmaps/trento_povo_campus_middle_radar_spectate_psd.vtex_c",
+      "status": "present_crc_ok",
+      "bytes": 19149
+    },
+    {
+      "file": "resource/overviews/trento_povo_campus.txt",
+      "status": "present_crc_ok",
+      "bytes": 853,
+      "matches_generated_overview": true
+    },
+    {
+      "file": "maps/trento_povo_campus.vmap_c",
+      "status": "present_crc_ok",
+      "bytes": 90416
+    },
+    {
+      "file": "models/povo/povo1_campus.vmdl_c",
+      "status": "present_crc_ok",
+      "bytes": 7421576
+    },
+    {
+      "file": "cfg/maps/trento_povo_campus.cfg",
+      "status": "present_crc_ok",
+      "bytes": 71
+    }
+  ],
+  "errors": [],
+  "still_required": [
+    "Actual radar lookup/alignment in CS2",
+    "Complete custom dependency packaging",
+    "Clean-install test without loose development files",
+    "Gameplay and independent-client validation"
+  ]
+}

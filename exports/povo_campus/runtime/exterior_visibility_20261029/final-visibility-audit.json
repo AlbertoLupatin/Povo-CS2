@@ -1,0 +1,132 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "bridge_courtyard_join",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        440,
+        1088,
+        760
+      ],
+      "samples": 286720,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "povo1_street",
+      "passed": true,
+      "roi_pixels": [
+        64,
+        416,
+        1216,
+        760
+      ],
+      "samples": 396288,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "povo1_lower_plaza",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        440,
+        960,
+        760
+      ],
+      "samples": 245760,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "povo1_inner_courtyard",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        480,
+        1088,
+        760
+      ],
+      "samples": 250880,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "povo2_entry_approach",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        520,
+        1088,
+        760
+      ],
+      "samples": 215040,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "povo2_north_approach",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        480,
+        1088,
+        760
+      ],
+      "samples": 250880,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "west_street",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        480,
+        1088,
+        760
+      ],
+      "samples": 250880,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "front_street_pavement",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        480,
+        1088,
+        760
+      ],
+      "samples": 250880,
+      "nearly_black_pixels": 57,
+      "nearly_black_fraction": 0.0002272002551020408,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "bridge_footway",
+      "passed": true,
+      "roi_pixels": [
+        512,
+        480,
+        1088,
+        760
+      ],
+      "samples": 161280,
+      "nearly_black_pixels": 8,
+      "nearly_black_fraction": 4.96031746031746e-05,
+      "maximum_fraction": 0.02
+    }
+  ],
+  "scope": "Foreground ground pixels in nine matched normal-lighting engine views; geometry and walking checks are separate"
+}

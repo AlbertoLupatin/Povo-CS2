@@ -1,0 +1,22 @@
+{
+  "name": "basement_lift_detour_return",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        -3.8,
+        17.3,
+        0.4
+      ],
+      "position": [
+        -3.7999928572152006,
+        17.36283786766945,
+        0.4007930516016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ],
+  "error": "Ordinary movement stalled: [-2.807192988611229, 17.132997636468534, 0.4007929754016032] target [23.8, 17.3, 0.4]"
+}

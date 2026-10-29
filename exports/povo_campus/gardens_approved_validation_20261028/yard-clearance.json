@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "yard": {
+    "status": "passed",
+    "stations": []
+  },
+  "stair_and_landing_samples": 2121,
+  "failures": [],
+  "limitations": "Source support/headroom checks; provisional metric dimensions; native engine traversal separate."
+}

@@ -42,6 +42,18 @@ Evidence: [library and canteen audit](AMENITIES_LAYOUT_AUDIT_20261028.md).
 
 ## Povo 2
 
+**29 October -1 correction supersedes the earlier “retain -1 layout” scope:**
+the user's markup is implemented and verified in the standard native package.
+The inter-lab gap is provisionally 30 m; only its right/east corridor half is
+retained. The lower corridor joins the outdoor exit, and two permanently closed
+static doors isolate the upper/right L. The stair core and -2 stay in place.
+All 12 selected -1 walking routes and eight fixed-door walk/Use attempts pass.
+See [latest geometry and native results](POVO2_MINUS1_CORRECTIONS_20261029.md).
+
+- [x] **Rebuild -1 from the 29 October corrections and seal the L.** Includes the
+  longer/narrower lab corridor, lower connection, two unopenable doors, corrected
+  radar, readable outdoor-stair review, and native validation.
+
 **Latest stair clarification:** the user confirms the existing -1 layout/exit should stay. Correct -2's stair exit into a vestibule with right-hand parking and left-hand office/garden circulation, plus the confirmed flight/step counts. This supersedes the earlier opposite-wall interpretation below. The second sketch supplies connectivity; dimensions must come from planimetry, whose metric registration remains unresolved. See the updated internal-stair reference in data/reference/user_feedback/2026-10-28/povo2_internal_stairs.md. No game launch or geometry change was performed for this clarification.
 
 

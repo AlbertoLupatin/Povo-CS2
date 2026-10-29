@@ -1,0 +1,49 @@
+{
+  "name": "p2_rebuilt_vestibule_0_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        18.2,
+        18.6,
+        -3.2
+      ],
+      "position": [
+        18.1999387080728,
+        18.61967121887448,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        19.2,
+        18.6,
+        -3.2
+      ],
+      "position": [
+        19.185858377076745,
+        18.6000414130744,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        19.2,
+        22.0,
+        -3.2
+      ],
+      "position": [
+        19.2000668068768,
+        22.016141438888067,
+        -3.199207825612797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

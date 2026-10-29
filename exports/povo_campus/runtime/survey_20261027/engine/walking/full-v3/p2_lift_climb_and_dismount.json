@@ -1,0 +1,18 @@
+{
+  "name": "p2_lift_climb_and_dismount",
+  "kind": "ladder",
+  "status": "failed",
+  "checks": [
+    {
+      "kind": "ladder_climb",
+      "target_floor": 11.199999999999989,
+      "position": [
+        21.849994984287402,
+        14.927198949259708,
+        11.453415625045814
+      ],
+      "passed": true
+    }
+  ],
+  "error": "Ordinary movement stalled: [21.849994984287402, 14.927198949259708, 7.643018750030572] target [21.85, 15.850000000000001, 11.199999999999989]"
+}

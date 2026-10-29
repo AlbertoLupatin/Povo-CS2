@@ -1,0 +1,86 @@
+{
+  "status": "Relative photo-plan inference, not a measured survey",
+  "source_photo": "data/reference/povo_photos/walk_2026-10-27/wetransfer_image00001-jpeg_2026-10-27_1300/image00037.jpeg",
+  "review_crop": "exports/povo2_layout_audit_20261028/plan37_core_detail.png",
+  "crop_original_pixels": [
+    1112,
+    1801,
+    2255,
+    2615
+  ],
+  "trace_crop_pixels_approx": {
+    "stair_enclosure": [
+      370,
+      95,
+      612,
+      399
+    ],
+    "vestibule": [
+      260,
+      95,
+      370,
+      399
+    ],
+    "stair_door_wall_interval": [
+      300,
+      354
+    ],
+    "cross_corridor_band": [
+      370,
+      399,
+      615,
+      510
+    ]
+  },
+  "registration": {
+    "plan_horizontal_maps_to": "campus north coordinate",
+    "plan_vertical_maps_to": "campus east coordinate",
+    "core_registered_span_metres": [
+      8.0,
+      9.5
+    ],
+    "basis": "Retain the existing core and -1 interface; infer local ratios from photo37",
+    "scale_metres_per_crop_pixel": [
+      0.03305785123966942,
+      0.03125
+    ],
+    "uncertainty": "Manual trace and perspective; assumed existing core scale. No independent surveyed length."
+  },
+  "inferred": {
+    "vestibule_span_along_core_metres": 9.5,
+    "vestibule_depth_metres": 3.6363636363636362,
+    "door_width_crosscheck_metres": 1.6875,
+    "door_fraction_from_parking_end": 0.7631578947368421,
+    "door_east_coordinate_metres": 18.25,
+    "parking_lobe_bounds_metres_approx": [
+      -26.2,
+      -10.3,
+      11,
+      18
+    ],
+    "cross_corridor_width_metres": 3.46875
+  },
+  "implementation": {
+    "stair_door_east": 18.2,
+    "vestibule_parking_end_east": 11.0,
+    "vestibule_front_north": 14.4,
+    "door_width": 1.65,
+    "rounding": "Vestibule depth rounded to 3.6 m; door location rounded to 0.1 m. Absolute dimensions remain provisional.",
+    "parking_bounds": [
+      -25,
+      -12.5,
+      11,
+      19.5
+    ],
+    "parking_basis": "Rigid placement of existing 36 x 32 m schematic parking lobe close to the photo-derived 37 x 28 m estimate; retain dimensions of cars, bays and columns. Placement/extent uncertain by several metres. Larger exterior garage registration remains separate.",
+    "cross_corridor_width_retained": 3.5
+  },
+  "trace_original_pixels_approx": {
+    "parking_lobe": [
+      626,
+      705,
+      1482,
+      1896
+    ]
+  }
+}

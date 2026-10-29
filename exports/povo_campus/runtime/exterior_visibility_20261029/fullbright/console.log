@@ -1,0 +1,239 @@
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:07    0    0     active 786432 'albylupatin2000'
+#end
+
+> cl_drawhud 0
+> r_drawviewmodel 0
+> mat_fullbright 1
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.021 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:07    0    0     active 786432 'albylupatin2000'
+#end
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 196.850 1574.803 224.409
+
+> getpos_exact
+setpos_exact 196.850006 1574.802979 223.704285;setang_exact 29.999878 -180.000000 0.000000
+
+> setang 30 -90 0
+
+> png_screenshot exterior_visibility_fullbright_bridge_street
+Screenshot written to: screenshots\exterior_visibility_fullbright_bridge_street_0000.png
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:12    0    0     active 786432 'albylupatin2000'
+#end
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2755.906 1141.732 161.417
+
+> getpos_exact
+setpos_exact 2755.906006 1141.732056 157.511688;setang_exact 29.999878 -90.000000 0.000000
+
+> setang 25 0 0
+
+> png_screenshot exterior_visibility_fullbright_povo1_external_courtyard
+Screenshot written to: screenshots\exterior_visibility_fullbright_povo1_external_courtyard_0000.png
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.019 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:16    0    0     active 786432 'albylupatin2000'
+#end
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1574.803 2145.669 303.150
+
+> getpos_exact
+setpos_exact 1574.802979 2145.668945 299.243896;setang_exact 25.000076 0.000000 0.000000
+
+> setang 30 90 0
+
+> png_screenshot exterior_visibility_fullbright_povo1_street
+Screenshot written to: screenshots\exterior_visibility_fullbright_povo1_street_0000.png
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:20    0    0     active 786432 'albylupatin2000'
+#end
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 551.181 0.000 149.606
+setpos into world, use noclip to unstick yourself!
+
+> getpos_exact
+setpos_exact 551.181030 0.000000 150.917648;setang_exact 29.999878 90.000000 0.000000
+
+> setang 35 -90 0
+
+> png_screenshot exterior_visibility_fullbright_bridge_courtyard_join
+Screenshot written to: screenshots\exterior_visibility_fullbright_bridge_courtyard_join_0000.png
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.021 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:25    0    0     active 786432 'albylupatin2000'
+#end
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1318.898 1929.134 161.417
+setpos into world, use noclip to unstick yourself!
+
+> getpos_exact
+setpos_exact -1318.897949 1929.134033 161.417007;setang_exact 35.000031 -90.000000 0.000000
+
+> setang 30 90 0
+
+> png_screenshot exterior_visibility_fullbright_povo2_entry_courtyard
+Screenshot written to: screenshots\exterior_visibility_fullbright_povo2_entry_courtyard_0000.png
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:29    0    0     active 786432 'albylupatin2000'
+#end
+
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -4527.559 1377.953 161.417
+
+> getpos_exact
+setpos_exact -4527.559082 1377.953003 157.511368;setang_exact 29.999878 90.000000 0.000000
+
+> setang 30 180 0
+
+> png_screenshot exterior_visibility_fullbright_povo2_north_pavement
+Screenshot written to: screenshots\exterior_visibility_fullbright_povo2_north_pavement_0000.png
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> cl_drawhud 1
+> r_drawviewmodel 1
+> mat_fullbright 0

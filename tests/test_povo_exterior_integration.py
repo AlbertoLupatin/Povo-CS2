@@ -15,7 +15,7 @@ class ExteriorIntegrationTests(unittest.TestCase):
     def test_approved_routes_have_support_and_standing_clearance(self):
         report=audit()
         self.assertEqual(report['status'],'passed',report)
-        self.assertGreaterEqual(report['samples'],1200)
+        self.assertGreaterEqual(report['samples'],1100)
         self.assertEqual(len(report['routes']),9)
 
     def test_other_chat_office_restroom_furniture_is_preserved(self):

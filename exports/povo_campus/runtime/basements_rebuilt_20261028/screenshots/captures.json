@@ -1,0 +1,152 @@
+[
+  {
+    "name": "minus1_stair_exit",
+    "feet": [
+      19.2,
+      21.3,
+      0.4
+    ],
+    "yaw": 0,
+    "position": [
+      19.200012552476803,
+      21.3000084032852,
+      0.4007927722016032
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus1_stair_exit.png"
+  },
+  {
+    "name": "minus1_corridor",
+    "feet": [
+      17,
+      17.1,
+      0.4
+    ],
+    "yaw": -90,
+    "position": [
+      16.999991806468003,
+      17.099991885868402,
+      0.4007929754016032
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus1_corridor.png"
+  },
+  {
+    "name": "minus1_lab_branch",
+    "feet": [
+      -3.8,
+      19.5,
+      0.4
+    ],
+    "yaw": 180,
+    "position": [
+      -3.7999928572152006,
+      19.500011292078003,
+      0.4007929500016032
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus1_lab_branch.png"
+  },
+  {
+    "name": "minus1_exit_corridor",
+    "feet": [
+      34.5,
+      29,
+      0.4
+    ],
+    "yaw": 0,
+    "position": [
+      34.500005777738004,
+      28.999994222516005,
+      0.40079249280160323
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus1_exit_corridor.png"
+  },
+  {
+    "name": "minus2_vestibule",
+    "feet": [
+      18.2,
+      17,
+      -3.2
+    ],
+    "yaw": 0,
+    "position": [
+      18.29210982167317,
+      16.838113313867357,
+      -3.199206276212797
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus2_vestibule.png"
+  },
+  {
+    "name": "minus2_vestibule_parking",
+    "feet": [
+      18.2,
+      16.05,
+      -3.2
+    ],
+    "yaw": -90,
+    "position": [
+      18.1999883142728,
+      16.0500063810642,
+      -3.199206276212797
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus2_vestibule_parking.png"
+  },
+  {
+    "name": "minus2_vestibule_offices",
+    "feet": [
+      18.2,
+      16.05,
+      -3.2
+    ],
+    "yaw": 90,
+    "position": [
+      18.1999883142728,
+      16.0500063810642,
+      -3.199206276212797
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus2_vestibule_offices.png"
+  },
+  {
+    "name": "minus2_parking",
+    "feet": [
+      6,
+      5,
+      -3.2
+    ],
+    "yaw": -90,
+    "position": [
+      5.999988025424001,
+      4.999989390420001,
+      -3.199206276212797
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus2_parking.png"
+  },
+  {
+    "name": "minus2_former_hole",
+    "feet": [
+      -8,
+      16.5,
+      -3.2
+    ],
+    "yaw": 0,
+    "position": [
+      -8.000009374632,
+      16.499992857266,
+      -3.199206276212797
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus2_former_hole.png"
+  },
+  {
+    "name": "minus2_garden_corridor",
+    "feet": [
+      23,
+      13.5,
+      -3.2
+    ],
+    "yaw": 90,
+    "position": [
+      23.000005409692,
+      13.499997688854002,
+      -3.199206276212797
+    ],
+    "file": "exports\\povo_campus\\runtime\\basements_rebuilt_20261028\\screenshots\\minus2_garden_corridor.png"
+  }
+]

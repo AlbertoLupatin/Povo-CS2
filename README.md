@@ -18,14 +18,24 @@ outdoor arena, built from the same source).
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
 - **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.
 
-Windows STANDARD build completed on 27 October 2026 at 19:17 Europe/Rome:
-zero compile failures, 61,351,046-byte VPK, 976 entries and all 976 CRCs verified.
-Before the build, 203 source tests ran: 202 passed and one skipped. Five radar
-sections and 12,566 navigation areas were generated. The known DuplicateBone
-warning and two unconnected ladder-top warnings remain. No post-build engine
-checks were run at the user's request; the winter VPK was not rebuilt.
-See the [saved native/package evidence](exports/povo_campus/runtime/survey_20261027/README.md)
-and [worklog](docs/WORKLOG.md) for scope and limitations.
+Latest local standard-season build: **29 October 2026**, with Povo 2 floors
+**-1 and -2 rebuilt from the approved layout**. Continuous floors/ceilings,
+clean corridor walls, restored stair doors and full-height parking columns are
+verified in CS2. All 256 source tests pass; 26 native walking routes pass in both
+directions, and all 1,075 VPK entry CRCs are verified. The local package uses
+normal-quality lighting with a 2048-pixel atlas; reproduce with
+`build_campus.cmd --fast-lighting`. Winter and the Workshop upload remain at
+their previous versions. See the [rebuild details and in-game screenshots](docs/POVO2_BASEMENTS_REBUILD.md).
+
+The later 29 October [exterior visibility investigation](docs/POVO_EXTERIOR_VISIBILITY.md)
+updated the local package's lighting and fixed a frontage seam. Large black
+courtyard patches remain under investigation. CS2 is closed between test batches
+to avoid idling on battery.
+
+The [floor and wall flicker correction](docs/POVO_PAVEMENT_FLICKER.md) removes
+coplanar render overlaps throughout the campus, paving finish and winter model
+while preserving collision and texture alignment. All three model audits report
+zero remaining overlaps, including vertical and sloped faces.
 
 Interiors are reconstructed from public floor plans and photographs, so room
 dimensions and seat counts are estimates, and surfaces are blockout-level art
@@ -53,6 +63,9 @@ unobserved details.
 
 ## Build it
 
+**Building on another person's PC:** follow the [Windows build handoff](docs/BUILD_HANDOFF.md)
+for source transfer, dependencies and the checked `build_campus.cmd` command.
+
 The compiled VPK is not committed (`build/` is git-ignored); build it from source.
 
 - **Any platform** (Python 3): data preparation, map generation, audits, tests.
@@ -71,7 +84,7 @@ standard and winter variants. The `cs2_project.py compile --target all` command
 builds the earlier outdoor arena; use the campus pipeline above for this map.
 
 Set `CS2_ROOT` (or pass `--cs2-root`) if Steam is not in a default library.
-To explore solo on Windows with CS2 closed, run `play_campus.cmd` (`-Fly` for noclip,
+To explore solo on Windows with Steam running and CS2 closed, run `play_campus.cmd` (`-Fly` for noclip,
 `-Match` for match defaults). Details: [CS2 workflow](docs/CS2_WORKFLOW.md),
 [playtest guide](docs/POVO_CAMPUS_PLAYTEST.md), [package check](docs/CS2_PACKAGE_CHECK.md).
 

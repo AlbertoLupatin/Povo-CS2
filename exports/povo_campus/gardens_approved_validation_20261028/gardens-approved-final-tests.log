@@ -1,0 +1,108 @@
+Waiting for the Povo campus to finish loading...
+Solo exploration ready: no bots, paused warmup, automatic respawn.
+Walk normally; open the developer console and enter noclip to toggle flying.
+Waiting for the Povo campus to finish loading...
+Solo exploration ready: no bots, paused warmup, automatic respawn.
+Walk normally; open the developer console and enter noclip to toggle flying.
+Waiting for the Povo campus to finish loading...
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpxq8tkw7i\cs2-install\content\csgo_addons\trento_povo\models\povo\povo_blockout.vmdl
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpxq8tkw7i\cs2-install\content\csgo_addons\trento_povo\maps\trento_povo.vmap
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpxq8tkw7i\cs2-install\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_radar_tga.vtex
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpxq8tkw7i\cs2-install\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_radar_spectate_tga.vtex
+   update  C:\Users\Alberto\AppData\Local\Temp\tmpxq8tkw7i\cs2-install\game\csgo_addons\trento_povo\resource\overviews\trento_povo.txt
+Radar compiled as loose addon resources; verify VPK inclusion on Windows.
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmprh8ah00u\cs2-install\content\csgo_addons\trento_povo\models\povo\povo_blockout.vmdl
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmprh8ah00u\cs2-install\content\csgo_addons\trento_povo\maps\trento_povo.vmap
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpeuzfyxbc\cs2-install\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_radar_tga.vtex
+{'route': 'route', 'waypoint': 0, 'target': (1, 0, 4), 'position': (0.999998000004, -0.0, -3.1999936000128), 'passed': False}
+one blocked Other player joined
+bad failed Blocked actual doorway
+good passed 
+======================================================================
+FAIL: test_stair_runs_are_supported_between_waypoints_with_standing_headroom (test_playtest_corrections.PlaytestCorrectionTests.test_stair_runs_are_supported_between_waypoints_with_standing_headroom)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alberto\Desktop\trento_fps\tests\test_playtest_corrections.py", line 42, in test_stair_runs_are_supported_between_waypoints_with_standing_headroom
+    self.assertTrue(support,(x,y,z))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true : (18.20333333333333, 19.35, 10.959999999999999)
+
+======================================================================
+FAIL: test_actual_campus_has_clear_connected_lower_floors_and_stacked_stairs (test_povo2_integration.Povo2IntegrationTests.test_actual_campus_has_clear_connected_lower_floors_and_stacked_stairs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alberto\Desktop\trento_fps\tests\test_povo2_integration.py", line 69, in test_actual_campus_has_clear_connected_lower_floors_and_stacked_stairs
+    self.assertEqual([len(l['stations']) for l in result['levels']],[12,18,50])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [12, 20, 50] != [12, 18, 50]
+
+First differing element 1:
+20
+18
+
+- [12, 20, 50]
+?      ^^
+
++ [12, 18, 50]
+?      ^^
+
+
+======================================================================
+FAIL: test_replaced_leaves_have_no_static_collision_and_keep_actual_frames (test_povo_atmosphere.SeasonalCampusTests.test_replaced_leaves_have_no_static_collision_and_keep_actual_frames)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alberto\Desktop\trento_fps\tests\test_povo_atmosphere.py", line 27, in test_replaced_leaves_have_no_static_collision_and_keep_actual_frames
+    self.assertTrue(any(n.startswith('p2_basement_core_door_') for n in names))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_both_side_aisles_in_every_furnished_room_are_reachable (test_povo_campus.CampusGeometryTests.test_both_side_aisles_in_every_furnished_room_are_reachable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alberto\Desktop\trento_fps\tests\test_povo_campus.py", line 276, in test_both_side_aisles_in_every_furnished_room_are_reachable
+    self.assertEqual(report['status'],'passed',
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     [s['id'] for s in report['stations'] if not s['reachable_from_entrance']])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'failed' != 'passed'
+- failed
++ passed
+ : ['stair_upper_inside']
+
+======================================================================
+FAIL: test_compact_stairs_have_walkable_risers_clear_portals_and_headroom (test_povo_campus.CampusGeometryTests.test_compact_stairs_have_walkable_risers_clear_portals_and_headroom)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alberto\Desktop\trento_fps\tests\test_povo_campus.py", line 172, in test_compact_stairs_have_walkable_risers_clear_portals_and_headroom
+    self.assertEqual(stair['risers'],40)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 26 != 40
+
+======================================================================
+FAIL: test_approved_routes_have_support_and_standing_clearance (test_povo_exterior_integration.ExteriorIntegrationTests.test_approved_routes_have_support_and_standing_clearance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alberto\Desktop\trento_fps\tests\test_povo_exterior_integration.py", line 17, in test_approved_routes_have_support_and_standing_clearance
+    self.assertEqual(report['status'],'passed',report)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'failed' != 'passed'
+- failed
++ passed
+ : {'status': 'failed', 'routes': [{'route': 'povo1_entrance_to_front', 'samples': 76, 'status': 'passed', 'failures': []}, {'route': 'front_walk_to_povo2', 'samples': 223, 'status': 'passed', 'failures': []}, {'route': 'bridge_road_to_straight_ramp', 'samples': 241, 'status': 'passed', 'failures': []}, {'route': 'ramp_into_existing_parking', 'samples': 144, 'status': 'failed', 'failures': [{'point': [19.8, 30.17142857142857, -3.2], 'supported': True, 'obstacles': ['exterior_garage_relocated_infill_south']}, {'point': [19.8, 29.685714285714283, -3.2], 'supported': False, 'obstacles': ['exterior_garage_relocated_infill_south']}, {'point': [19.8, 29.2, -3.2], 'supported': False, 'obstacles': []}, {'point': [20.3, 29.2, -3.2], 'supported': False, 'obstacles': []}, {'point': [20.8, 29.2, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.3, 29.2, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 29.2, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 28.72, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 28.24, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 27.759999999999998, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 27.28, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 26.8, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 26.32, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 25.84, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 25.36, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 24.88, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 24.4, -3.2], 'supported': False, 'obstacles': []}, {'point': [21.8, 23.92, -3.2], 'supported': False, 'obstacles': ['p2_parking_office_end']}, {'point': [21.8, 23.439999999999998, -3.2], 'supported': True, 'obstacles': ['p2_parking_office_end']}]}, {'route': 'road_to_north_end', 'samples': 288, 'status': 'passed', 'failures': []}, {'route': 'surface_parking', 'samples': 93, 'status': 'passed', 'failures': []}, {'route': 'p2_yard_outer_pavement', 'samples': 34, 'status': 'passed', 'failures': []}, {'route': 'p2_door_bank_0', 'samples': 66, 'status': 'passed', 'failures': []}, {'route': 'p2_door_bank_1', 'samples': 66, 'status': 'passed', 'failures': []}], 'samples': 1231, 'door_opacity': 0.84, 'limitations': 'Source support/standing checks; native engine movement and visuals still required'}
+
+======================================================================
+FAIL: test_basement_turns_right_west_and_retains_only_actual_stair_door (test_user_geometry_corrections.UserGeometryCorrections.test_basement_turns_right_west_and_retains_only_actual_stair_door)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alberto\Desktop\trento_fps\tests\test_user_geometry_corrections.py", line 57, in test_basement_turns_right_west_and_retains_only_actual_stair_door
+    self.assertEqual(set(doors),{'p2_basement_core_door_south_0','p2_basement_core_door_south_1'})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the second set but not the first:
+'p2_basement_core_door_south_0'
+'p2_basement_core_door_south_1'
+
+----------------------------------------------------------------------
+Ran 239 tests in 107.319s
+
+FAILED (failures=7)

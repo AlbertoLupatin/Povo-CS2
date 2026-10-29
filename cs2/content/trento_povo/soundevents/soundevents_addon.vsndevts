@@ -255,6 +255,16 @@
   volume = 0.35
   vsnd_files_track_01 = "sounds/doors/metal_door_full_close_01.vsnd"
 }
+"Povo.Door.Open" = {
+  type = "csgo_mega"
+  volume = 0.45
+  vsnd_files_track_01 = "sounds/doors/metal_door_open_01.vsnd"
+}
+"Povo.Door.Close" = {
+  type = "csgo_mega"
+  volume = 0.45
+  vsnd_files_track_01 = "sounds/doors/metal_door_full_close_01.vsnd"
+}
 "Povo.Room" = {
   base = "amb.soundscapeParent.base"
   enable_child_events = true

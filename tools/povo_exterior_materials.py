@@ -10,6 +10,7 @@ COLORS = {
     'dark': (49,59,64), 'white': (217,215,203), 'residential_grey': (132,143,149),
     'orange': (159,70,46), 'car_blue': (55,72,87), 'car_white': (207,210,208),
     'car_red': (149,48,42), 'tree': (59,88,62), 'trunk': (94,82,66),
+    'ginkgo_leaf': (103,143,58), 'ginkgo_leaf_light': (137,166,72), 'ginkgo_leaf_dark': (71,112,45),
     'ridge': (106,124,134), 'tile': (191,188,166), 'grout': (136,137,125),
     'light': (245,237,190), 'canopy_glass': (135,171,180), 'context_concrete': (159,160,151)
 }
@@ -35,6 +36,7 @@ def write_materials(directory):
                 'csgo_unlitgeneric.vfx' if name in ('context_concrete','bus_led') else 'csgo_complex.vfx')
         flags=('    F_TRANSLUCENT "1"\n    F_RENDER_BACKFACES "1"\n'
                f'    g_flOpacityScale "{OPACITY[name]}"\n') if transparent else ''
+        if name.startswith('ginkgo_leaf'):flags+='    F_RENDER_BACKFACES "1"\n'
         layer='Layer1' if transparent else ''
         textures=(f'    Texture{layer}Color "{PREFIX}{name}.png"\n'
                   f'    Texture{layer}Normal "{PREFIX}neutral_normal.png"\n'
@@ -42,7 +44,7 @@ def write_materials(directory):
         if transparent:textures+=f'    TextureLayer1Translucency "{PREFIX}opaque_mask.png"\n'
         surface=('glass' if transparent else 'asphalt' if name=='asphalt' else
                  'tile' if name=='tile' else 'metal' if name in ('fence','dark') or name.startswith('bus_') else
-                 'grass' if name in ('grass','tree') else 'wood' if name=='trunk' else 'concrete')
+                 'grass' if name in ('grass','tree') or name.startswith('ginkgo_leaf') else 'wood' if name=='trunk' else 'concrete')
         text=(f'Layer0\n{{\n    shader "{shader}"\n'+flags+textures+
               '    g_vColorTint "[1 1 1 0]"\n    g_flModelTintAmount "1"\n'
               '    SystemAttributes { PhysicsSurfaceProperties "'+surface+'" }\n}\n')

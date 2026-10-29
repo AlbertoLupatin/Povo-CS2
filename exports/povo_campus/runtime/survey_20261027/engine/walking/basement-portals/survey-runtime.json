@@ -1,0 +1,287 @@
+{
+  "status": "passed",
+  "routes": [
+    {
+      "name": "basement_portal_detour",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            23.8,
+            16.25,
+            0.4
+          ],
+          "position": [
+            23.808903309295236,
+            16.250239102265002,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            23.8,
+            17.15,
+            0.4
+          ],
+          "position": [
+            23.803254044495215,
+            17.172919222868693,
+            0.4007929754016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            11.7,
+            17.15,
+            0.4
+          ],
+          "position": [
+            11.67956228984672,
+            17.149990388868602,
+            0.4007931278016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            11.7,
+            16.85,
+            0.4
+          ],
+          "position": [
+            11.699358745046798,
+            16.85973679106744,
+            0.40079302620160323
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -3.8,
+            16.85,
+            0.4
+          ],
+          "position": [
+            -3.8059971378152246,
+            16.8500304096674,
+            0.4007929754016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -3.8,
+            38.5,
+            0.4
+          ],
+          "position": [
+            -3.800073476815201,
+            38.5225447481541,
+            0.4007920102016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "basement_portal_detour_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -3.8,
+            16.85,
+            0.4
+          ],
+          "position": [
+            -3.8000409140152005,
+            16.835916544067345,
+            0.4007930008016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            11.7,
+            16.85,
+            0.4
+          ],
+          "position": [
+            11.702872479446812,
+            16.850019563867402,
+            0.40079302620160323
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            11.7,
+            17.15,
+            0.4
+          ],
+          "position": [
+            11.6997533086468,
+            17.143169091868575,
+            0.40079302620160323
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            23.8,
+            17.15,
+            0.4
+          ],
+          "position": [
+            23.78724107169515,
+            17.1502523898686,
+            0.40079302620160323
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            23.8,
+            16.25,
+            0.4
+          ],
+          "position": [
+            23.7997829566952,
+            16.251333613665008,
+            0.4007931278016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            26.2,
+            16.25,
+            0.4
+          ],
+          "position": [
+            26.215416885904865,
+            16.250057720865,
+            0.4007930516016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "planned_routes": 2,
+  "route_plan": [
+    {
+      "name": "basement_portal_detour",
+      "kind": "walk",
+      "category": "p2_basement_route",
+      "path": [
+        [
+          26.2,
+          16.25,
+          0.4
+        ],
+        [
+          23.8,
+          16.25,
+          0.4
+        ],
+        [
+          23.8,
+          17.15,
+          0.4
+        ],
+        [
+          11.7,
+          17.15,
+          0.4
+        ],
+        [
+          11.7,
+          16.85,
+          0.4
+        ],
+        [
+          -3.8,
+          16.85,
+          0.4
+        ],
+        [
+          -3.8,
+          38.5,
+          0.4
+        ]
+      ],
+      "xy_tolerance": 0.025,
+      "timings": {
+        "broad_pulse_min": 0.012,
+        "broad_pulse_max": 0.25
+      }
+    },
+    {
+      "name": "basement_portal_detour_return",
+      "kind": "walk",
+      "category": "p2_basement_route",
+      "path": [
+        [
+          -3.8,
+          38.5,
+          0.4
+        ],
+        [
+          -3.8,
+          16.85,
+          0.4
+        ],
+        [
+          11.7,
+          16.85,
+          0.4
+        ],
+        [
+          11.7,
+          17.15,
+          0.4
+        ],
+        [
+          23.8,
+          17.15,
+          0.4
+        ],
+        [
+          23.8,
+          16.25,
+          0.4
+        ],
+        [
+          26.2,
+          16.25,
+          0.4
+        ]
+      ],
+      "xy_tolerance": 0.025,
+      "timings": {
+        "broad_pulse_min": 0.012,
+        "broad_pulse_max": 0.25
+      }
+    }
+  ],
+  "started_at_utc": "2026-10-27T19:21:48.748616+00:00",
+  "package_sha256": "2edab45d2625ec635410e0d9af5f353842e6ca51d1cee8b225adb48b05692b61",
+  "finished_at_utc": "2026-10-27T19:23:05.227844+00:00"
+}

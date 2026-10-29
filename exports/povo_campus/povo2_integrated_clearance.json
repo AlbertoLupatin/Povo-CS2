@@ -9,32 +9,23 @@
       "standing_height_metres": 1.85,
       "cell_metres": 0.1,
       "grid_dimensions": [
-        360,
-        375
+        805,
+        384
       ],
       "grid_bounds_local": [
-        -1.5,
-        14,
-        34.5,
-        51.5
+        -25.0,
+        -12.5,
+        55.5,
+        25.89
       ],
-      "walkable_cells": 88588,
-      "reachable_cells": 85116,
+      "walkable_cells": 106857,
+      "reachable_cells": 106445,
       "stations": [
-        {
-          "id": "stair_approach",
-          "point_local_metres": [
-            21.8,
-            22
-          ],
-          "has_clearance": true,
-          "reachable_from_entrance": true
-        },
         {
           "id": "aisle_west",
           "point_local_metres": [
-            32.5,
-            36.5
+            9.0,
+            2.5
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -42,8 +33,8 @@
         {
           "id": "aisle_east",
           "point_local_metres": [
-            0.5,
-            36.5
+            -23.0,
+            2.5
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -51,8 +42,8 @@
         {
           "id": "aisle_centre",
           "point_local_metres": [
-            15.5,
-            36.5
+            -8.0,
+            2.5
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -60,8 +51,8 @@
         {
           "id": "north_east_bays",
           "point_local_metres": [
-            4.5,
-            22.5
+            -19.0,
+            16.5
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -69,17 +60,8 @@
         {
           "id": "north_west_bays",
           "point_local_metres": [
-            29.5,
-            22.5
-          ],
-          "has_clearance": true,
-          "reachable_from_entrance": true
-        },
-        {
-          "id": "core_door",
-          "point_local_metres": [
-            21.8,
-            22
+            6.0,
+            16.5
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -89,6 +71,60 @@
           "point_local_metres": [
             19.2,
             22
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "core_door",
+          "point_local_metres": [
+            18.2,
+            17
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "vestibule",
+          "point_local_metres": [
+            18.2,
+            16.05
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "parking_branch",
+          "point_local_metres": [
+            12,
+            16.05
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "office_branch",
+          "point_local_metres": [
+            22.5,
+            22.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "garden_door",
+          "point_local_metres": [
+            34,
+            13.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "junction",
+          "point_local_metres": [
+            22.5,
+            16.05
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -104,17 +140,17 @@
       "standing_height_metres": 1.85,
       "cell_metres": 0.1,
       "grid_dimensions": [
-        440,
-        540
+        518,
+        558
       ],
       "grid_bounds_local": [
         -13.8,
-        -14.5,
-        30.2,
-        39.5
+        8.75,
+        38,
+        64.5
       ],
-      "walkable_cells": 25975,
-      "reachable_cells": 25287,
+      "walkable_cells": 35272,
+      "reachable_cells": 24687,
       "stations": [
         {
           "id": "stair_approach",
@@ -155,7 +191,7 @@
         {
           "id": "cross_corridor",
           "point_local_metres": [
-            -3.8,
+            -3.05,
             26.5
           ],
           "has_clearance": true,
@@ -165,7 +201,7 @@
           "id": "cross_corridor_end",
           "point_local_metres": [
             -3.8,
-            37.5
+            62.5
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -219,7 +255,7 @@
           "id": "cibio_office_1_door",
           "point_local_metres": [
             -5.3,
-            38.0
+            63.0
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -228,7 +264,7 @@
           "id": "cibio_office_1_inside",
           "point_local_metres": [
             -6.5,
-            35.5
+            60.5
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -246,25 +282,7 @@
           "id": "cibio_end",
           "point_local_metres": [
             -3.8,
-            37.5
-          ],
-          "has_clearance": true,
-          "reachable_from_entrance": true
-        },
-        {
-          "id": "left_exit_start",
-          "point_local_metres": [
-            28.7,
-            15.9
-          ],
-          "has_clearance": true,
-          "reachable_from_entrance": true
-        },
-        {
-          "id": "locker_return",
-          "point_local_metres": [
-            28.3,
-            12.5
+            62.5
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -272,8 +290,44 @@
         {
           "id": "exit_stair_approach",
           "point_local_metres": [
-            28.3,
-            -13.5
+            34.5,
+            12.25
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "narrow_gap_south",
+          "point_local_metres": [
+            -3.05,
+            27.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "narrow_gap_mid",
+          "point_local_metres": [
+            -3.05,
+            41.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "narrow_gap_north",
+          "point_local_metres": [
+            -3.05,
+            55.5
+          ],
+          "has_clearance": true,
+          "reachable_from_entrance": true
+        },
+        {
+          "id": "lower_exit_junction",
+          "point_local_metres": [
+            34.5,
+            17.15
           ],
           "has_clearance": true,
           "reachable_from_entrance": true
@@ -290,16 +344,16 @@
       "cell_metres": 0.1,
       "grid_dimensions": [
         545,
-        1170
+        930
       ],
       "grid_bounds_local": [
         2,
-        -23.5,
+        0.5,
         56.5,
         93.5
       ],
-      "walkable_cells": 116807,
-      "reachable_cells": 108848,
+      "walkable_cells": 116708,
+      "reachable_cells": 113118,
       "stations": [
         {
           "id": "entrance",
@@ -755,7 +809,7 @@
       "vertical_traversal": "not checked; stair flights are absent"
     }
   ],
-  "stair_samples": 233,
+  "stair_samples": 1901,
   "stair_failures": [],
   "limitations": "Source geometry only; engine walking is checked separately."
 }

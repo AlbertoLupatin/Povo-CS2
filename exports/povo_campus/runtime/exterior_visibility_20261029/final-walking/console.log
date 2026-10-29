@@ -1,0 +1,2950 @@
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.008 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:28    0    0     active 786432 'albylupatin2000'
+#end
+
+> fps_max
+> engine_no_focus_sleep
+fps_max = 120
+engine_no_focus_sleep = 0
+
+> engine_no_focus_sleep 0
+> fps_max 120
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.038 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:30    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 669.291 0.000 157.787
+
+> getpos_exact
+setpos_exact 669.291016 0.000000 154.467209;setang_exact 0.000000 -90.000000 0.000000
+
+> getpos_exact
+setpos_exact 669.291016 0.000000 154.467209;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 631.959961 -1.366586 153.354172;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 179.671 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 572.755554 -1.179461 151.551895;setang_exact 0.000000 179.671082 0.000000
+
+> setang 0 179.623 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 511.575745 -0.830757 149.730484;setang_exact 0.000000 179.623047 0.000000
+
+> setang 0 179.596 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 449.600189 -0.453085 147.885574;setang_exact 0.000000 179.595917 0.000000
+
+> setang 0 179.536 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 393.229279 -0.053788 146.207932;setang_exact 0.000000 179.536163 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.021 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:35    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 393.701 0.000 149.315
+
+> getpos_exact
+setpos_exact 393.700989 0.000000 146.222412;setang_exact 0.000000 179.536163 0.000000
+
+> getpos_exact
+setpos_exact 393.700989 0.000000 146.222412;setang_exact 0.000000 179.536163 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 432.087067 0.000000 147.366882;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 489.876862 0.000000 149.089874;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 548.300781 0.000000 150.831772;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 607.608215 0.000000 152.600021;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 669.426758 0.000000 154.471252;setang_exact 0.000000 0.000000 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:40    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2362.205 1003.937 161.417
+
+> getpos_exact
+setpos_exact 2362.205078 1003.937012 157.511658;setang_exact 0.000000 0.000000 0.000000
+
+> getpos_exact
+setpos_exact 2362.205078 1003.937012 157.511658;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2398.917236 1003.937012 157.511658;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2455.695557 1003.937012 157.511673;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2517.759277 1003.937012 157.511673;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2580.204102 1003.937012 157.511673;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2643.437012 1003.937012 157.511673;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2690.671875 1003.937012 157.511673;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2768.214355 1003.937012 157.511688;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2824.218506 1003.937012 157.511688;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2883.425049 1003.937012 157.511688;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2945.074463 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3004.775635 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3066.380127 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3130.170654 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3154.220459 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> getpos_exact
+setpos_exact 3159.825684 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3197.733398 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3256.174316 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3316.437988 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3376.376709 1003.937012 157.511703;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3436.338379 1003.937012 157.511719;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3497.592529 1003.937012 157.511719;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3557.920410 1003.937012 157.511719;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3616.878662 1003.937012 157.511719;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3680.117920 1003.937012 157.511719;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3745.271973 1003.937012 157.511719;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3805.214844 1003.937012 157.511734;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+[Relay par#65 (185.25.182.19:27033) only] L4S detection: neutral.  up_ecn1=pass_ecn1  down_dscp45=pass_dscp45.
+[Relay par#65 (185.25.182.19:27033) only] We will send ECN=0 (ECN config value -1)
+[Relay fra#258 (155.133.226.85:27042) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay fra#258 (155.133.226.85:27042) only] We will send ECN=0 (ECN config value -1)
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3870.052734 1003.937012 157.511734;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+[Relay mad#79 (155.133.246.39:27047) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay mad#79 (155.133.246.39:27047) only] We will send ECN=0 (ECN config value -1)
+[Relay lhr#80 (162.254.196.70:27048) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay lhr#80 (162.254.196.70:27048) only] We will send ECN=0 (ECN config value -1)
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3928.774414 1003.937012 157.511734;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3945.727539 1003.937012 157.511734;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3950.235596 1003.937744 157.511734;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.997 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3946.577148 1003.939514 157.511734;setang_exact 0.000000 -179.996918 0.000000
+
+> setang 0 -179.985 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3943.194092 1003.938293 157.511734;setang_exact 0.000000 -179.984894 0.000000
+[Relay ord#336 (162.254.193.98:27098) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay ord#336 (162.254.193.98:27098) only] We will send ECN=0 (ECN config value -1)
+
+> setang 0 -179.988 0
+> +sprint 42
+> +forward 42
+[Relay atl#291 (162.254.199.178:27053) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay atl#291 (162.254.199.178:27053) only] We will send ECN=0 (ECN config value -1)
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3941.804443 1003.937256 157.511734;setang_exact 0.000000 -179.987976 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+[Relay dfw#86 (162.254.194.37:27100) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay dfw#86 (162.254.194.37:27100) only] We will send ECN=0 (ECN config value -1)
+[Relay jnb#54 (155.133.238.194:27022) only] L4S detection: neutral.  up_ecn1=pass_ecn1  down_dscp45=pass_dscp45.
+[Relay jnb#54 (155.133.238.194:27022) only] We will send ECN=0 (ECN config value -1)
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.020 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    02:00    0    0     active 786432 'albylupatin2000'
+#end
+[Relay gru#186 (155.133.227.56:27016) only] L4S detection: neutral.  up_ecn1=pass_ecn1  down_dscp45=pass_dscp45.
+[Relay gru#186 (155.133.227.56:27016) only] We will send ECN=0 (ECN config value -1)
+[Relay hkg#194 (103.28.54.174:27024) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay hkg#194 (103.28.54.174:27024) only] We will send ECN=0 (ECN config value -1)
+[Relay sgp#203 (103.10.124.120:27033) only] L4S detection: unusual.  up_ecn1=pass_ecn1  down_dscp45=unusual(ECN0,DSCPOther).
+[Relay sgp#203 (103.10.124.120:27033) only] We will send ECN=0 (ECN config value -1)
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3937.008 1003.937 161.417
+
+> getpos_exact
+setpos_exact 3937.008057 1003.937012 157.511734;setang_exact 0.000000 -179.987976 0.000000
+
+> getpos_exact
+setpos_exact 3937.008057 1003.937012 157.511734;setang_exact 0.000000 -179.987976 0.000000
+
+> setang 0 -180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3900.452393 1003.944275 157.511734;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3841.321777 1003.954041 157.511734;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3779.960693 1003.963379 157.511734;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3721.799561 1003.973022 157.511719;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.996 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3660.608154 1003.982483 157.511719;setang_exact 0.000000 -179.995880 0.000000
+
+> setang 0 -179.995 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3603.815918 1003.991882 157.511719;setang_exact 0.000000 -179.994843 0.000000
+
+> setang 0 -179.993 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3544.078369 1004.001404 157.511719;setang_exact 0.000000 -179.993134 0.000000
+
+> setang 0 -179.991 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3483.702881 1004.010925 157.511719;setang_exact 0.000000 -179.991074 0.000000
+
+> setang 0 -179.987 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3421.899414 1004.020325 157.511703;setang_exact 0.000000 -179.986954 0.000000
+
+> setang 0 -179.982 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3358.766357 1004.028198 157.511703;setang_exact 0.000000 -179.982147 0.000000
+
+> setang 0 -179.975 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3298.383057 1004.035828 157.511703;setang_exact 0.000000 -179.974945 0.000000
+
+> setang 0 -179.962 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3236.063721 1004.043945 157.511703;setang_exact 0.000000 -179.961884 0.000000
+
+> setang 0 -179.929 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3175.856201 1004.049744 157.511703;setang_exact 0.000000 -179.928925 0.000000
+
+> setang 0 -179.754 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3146.661865 1003.996887 157.511703;setang_exact 0.000000 -179.753845 0.000000
+
+> getpos_exact
+setpos_exact 3140.678467 1003.976807 157.511703;setang_exact 0.000000 -179.753845 0.000000
+
+> setang 0 -179.997 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3102.975098 1003.966064 157.511703;setang_exact 0.000000 -179.996918 0.000000
+
+> setang 0 -179.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3046.755615 1003.956726 157.511703;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2987.098389 1003.947144 157.511703;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2930.617676 1003.937683 157.511703;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2874.583496 1003.928223 157.511688;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2817.510254 1003.918640 157.511688;setang_exact 0.000000 179.998962 0.000000
+
+> setang 0 179.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2759.876465 1003.908936 157.511688;setang_exact 0.000000 179.997925 0.000000
+
+> setang 0 179.996 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2701.614990 1003.899231 157.511673;setang_exact 0.000000 179.995880 0.000000
+
+> setang 0 179.994 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2640.689453 1003.889587 157.511673;setang_exact 0.000000 179.994171 0.000000
+
+> setang 0 179.990 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2577.927002 1003.880005 157.511673;setang_exact 0.000000 179.990051 0.000000
+
+> setang 0 179.985 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2521.118164 1003.872253 157.511673;setang_exact 0.000000 179.984894 0.000000
+
+> setang 0 179.977 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2460.653320 1003.864441 157.511673;setang_exact 0.000000 179.976990 0.000000
+
+> setang 0 179.958 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2402.779297 1003.856934 157.511673;setang_exact 0.000000 179.958130 0.000000
+
+> setang 0 179.887 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2364.479004 1003.877930 157.511658;setang_exact 0.000000 179.887054 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    02:19    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2559.055 2125.984 303.150
+
+> getpos_exact
+setpos_exact 2559.054932 2125.983887 299.243958;setang_exact 0.000000 179.887054 0.000000
+
+> getpos_exact
+setpos_exact 2559.054932 2125.983887 299.243958;setang_exact 0.000000 179.887054 0.000000
+
+> setang 0 180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2521.037842 2125.991943 299.243958;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2460.152588 2126.001465 299.243958;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2399.647705 2126.010986 299.243927;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2337.302734 2126.020752 299.243927;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.996 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2277.964844 2126.030273 299.243927;setang_exact 0.000000 -179.995880 0.000000
+
+> setang 0 -179.995 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2216.344482 2126.039795 299.243927;setang_exact 0.000000 -179.994843 0.000000
+
+> setang 0 -179.993 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2155.420166 2126.049561 299.243927;setang_exact 0.000000 -179.993134 0.000000
+
+> setang 0 -179.990 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2093.373779 2126.059326 299.243927;setang_exact 0.000000 -179.990051 0.000000
+
+> setang 0 -179.987 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2031.610718 2126.069092 299.243927;setang_exact 0.000000 -179.986954 0.000000
+
+> setang 0 -179.981 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1971.483032 2126.078369 299.243927;setang_exact 0.000000 -179.981110 0.000000
+
+> setang 0 -179.973 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1909.151123 2126.087891 299.243927;setang_exact 0.000000 -179.972870 0.000000
+
+> setang 0 -179.957 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1845.410034 2126.097900 299.243927;setang_exact 0.000000 -179.957092 0.000000
+
+> setang 0 -179.912 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1787.545654 2126.087158 299.243927;setang_exact 0.000000 -179.912109 0.000000
+
+> setang 0 -179.629 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1767.693970 2126.041260 299.243927;setang_exact 0.000000 -179.628876 0.000000
+
+> getpos_exact
+setpos_exact 1761.921509 2126.014893 299.243927;setang_exact 0.000000 -179.628876 0.000000
+
+> setang 0 -179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1724.431763 2126.017578 299.243927;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1668.239624 2126.027344 299.243896;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1605.135986 2126.036865 299.243896;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.997 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1547.157715 2126.046387 299.243896;setang_exact 0.000000 -179.996918 0.000000
+
+> setang 0 -179.996 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1483.122437 2126.056152 299.243896;setang_exact 0.000000 -179.995880 0.000000
+
+> setang 0 -179.995 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1421.204224 2126.065674 299.243896;setang_exact 0.000000 -179.994843 0.000000
+
+> setang 0 -179.994 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1363.671021 2126.075195 299.243896;setang_exact 0.000000 -179.994171 0.000000
+
+> setang 0 -179.993 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1303.132446 2126.084717 299.243896;setang_exact 0.000000 -179.993134 0.000000
+
+> setang 0 -179.992 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1244.053955 2126.094238 299.243896;setang_exact 0.000000 -179.992096 0.000000
+
+> setang 0 -179.990 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1180.611816 2126.104248 299.243896;setang_exact 0.000000 -179.990051 0.000000
+
+> setang 0 -179.988 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1122.230347 2126.113525 299.243896;setang_exact 0.000000 -179.987976 0.000000
+
+> setang 0 -179.986 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1064.327515 2126.123047 299.243896;setang_exact 0.000000 -179.985931 0.000000
+
+> setang 0 -179.983 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1004.716003 2126.132568 299.243896;setang_exact 0.000000 -179.982834 0.000000
+
+> setang 0 -179.979 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 947.423767 2126.142090 299.243896;setang_exact 0.000000 -179.979065 0.000000
+
+> setang 0 -179.975 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 888.180054 2126.151611 299.243896;setang_exact 0.000000 -179.974945 0.000000
+
+> setang 0 -179.968 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 826.683960 2126.161133 299.243866;setang_exact 0.000000 -179.968079 0.000000
+
+> setang 0 -179.957 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 766.331055 2126.170654 299.243866;setang_exact 0.000000 -179.957092 0.000000
+
+> setang 0 -179.939 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 707.446655 2126.179932 299.243866;setang_exact 0.000000 -179.938889 0.000000
+
+> setang 0 -179.904 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 646.722717 2126.159668 299.243866;setang_exact 0.000000 -179.903870 0.000000
+
+> setang 0 -179.821 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 587.736023 2126.048584 299.243866;setang_exact 0.000000 -179.821136 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.028 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    02:42    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 590.551 2125.984 303.150
+
+> getpos_exact
+setpos_exact 590.551025 2125.983887 299.243866;setang_exact 0.000000 -179.821136 0.000000
+
+> getpos_exact
+setpos_exact 590.551025 2125.983887 299.243866;setang_exact 0.000000 -179.821136 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 627.049377 2125.983887 299.243866;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 683.008728 2125.983887 299.243866;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 745.794250 2125.983887 299.243866;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 804.725037 2125.983887 299.243866;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 866.737610 2125.983887 299.243866;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 926.106445 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 987.107971 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1048.316162 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1107.988647 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1168.203491 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1225.216919 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1290.801270 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1355.588379 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1420.253662 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1482.226685 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1547.710205 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1609.525635 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1666.568481 2125.983887 299.243896;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1724.777222 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1772.350586 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> getpos_exact
+setpos_exact 1780.443115 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1818.415283 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1873.857544 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1933.170288 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 1997.049805 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2058.765137 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2120.267578 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2181.650879 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2242.027100 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2300.950195 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2360.402832 2125.983887 299.243927;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2420.926514 2125.983887 299.243958;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2480.545654 2125.983887 299.243958;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2539.165283 2125.983887 299.243958;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.001 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2562.493652 2125.986572 299.243958;setang_exact 0.000000 0.001038 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    03:05    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -4566.929 1062.992 161.417
+
+> getpos_exact
+setpos_exact -4566.929199 1062.991943 157.511353;setang_exact 0.000000 0.001038 0.000000
+
+> getpos_exact
+setpos_exact -4566.929199 1062.991943 157.511353;setang_exact 0.000000 0.001038 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1097.503296 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1157.125122 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1217.160645 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1278.743896 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1336.370972 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1397.216919 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1456.798584 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1517.739746 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1578.945557 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> getpos_exact
+setpos_exact -4566.929199 1586.493164 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1625.320068 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1681.834229 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1742.644531 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1804.848267 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1860.022827 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1921.505615 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1980.041748 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 2037.753174 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 2095.687256 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 2155.934326 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 2207.281250 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.022 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    03:19    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -4566.929 2204.724 161.417
+
+> getpos_exact
+setpos_exact -4566.929199 2204.724121 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> getpos_exact
+setpos_exact -4566.929199 2204.724121 157.511353;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 2167.636719 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 2106.407715 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 2045.032959 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1984.803223 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1920.654663 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1857.305908 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1797.292114 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1738.109131 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1676.184082 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1612.239746 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1574.041748 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> getpos_exact
+setpos_exact -4566.929199 1566.804688 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1529.955688 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1474.258179 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1415.902344 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1356.773193 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1295.152466 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1235.272461 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1173.923096 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1111.816162 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -4566.929199 1065.372681 157.511353;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    03:33    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1003.937 2263.780 166.142
+
+> getpos_exact
+setpos_exact -1003.937012 2263.780029 162.235931;setang_exact 0.000000 -90.000000 0.000000
+
+> getpos_exact
+setpos_exact -1003.937012 2263.780029 162.235931;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1042.630737 2263.366943 162.235931;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 179.956 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1100.806519 2263.327148 162.235931;setang_exact 0.000000 179.956055 0.000000
+
+> setang 0 179.945 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1157.951050 2263.313477 162.235916;setang_exact 0.000000 179.945068 0.000000
+
+> setang 0 179.936 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1214.435425 2263.303955 162.235916;setang_exact 0.000000 179.936157 0.000000
+
+> setang 0 179.924 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1273.159668 2263.309082 162.235916;setang_exact 0.000000 179.924133 0.000000
+
+> setang 0 179.911 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1335.191284 2263.325684 162.235916;setang_exact 0.000000 179.911072 0.000000
+
+> setang 0 179.891 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1399.604004 2263.366943 162.235916;setang_exact 0.000000 179.890808 0.000000
+
+> setang 0 179.865 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1457.647705 2263.440186 162.235901;setang_exact 0.000000 179.865082 0.000000
+
+> setang 0 179.834 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1520.729370 2263.561523 162.235901;setang_exact 0.000000 179.833832 0.000000
+
+> setang 0 179.769 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1574.508789 2263.727539 162.235901;setang_exact 0.000000 179.768951 0.000000
+
+> getpos_exact
+setpos_exact -1582.819214 2263.748047 162.235901;setang_exact 0.000000 179.768951 0.000000
+
+> setang 0 179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1623.244385 2263.764404 162.235901;setang_exact 0.000000 179.998962 0.000000
+
+> setang 0 179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1676.339722 2263.773926 162.235901;setang_exact 0.000000 179.998962 0.000000
+
+> setang 0 180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1732.586670 2263.783447 162.235901;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1790.214966 2263.792725 162.235901;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1850.158081 2263.802734 162.235886;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1908.028687 2263.812256 162.235886;setang_exact 0.000000 -179.998962 0.000000
+
+> setang 0 -179.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1969.169556 2263.821533 162.235886;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2034.272339 2263.831299 162.235886;setang_exact 0.000000 -179.997940 0.000000
+
+> setang 0 -179.997 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2096.329346 2263.841064 162.235886;setang_exact 0.000000 -179.996918 0.000000
+
+> setang 0 -179.997 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2157.009521 2263.850830 162.235870;setang_exact 0.000000 -179.996918 0.000000
+
+> setang 0 -179.996 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2215.424561 2263.860352 162.235870;setang_exact 0.000000 -179.995880 0.000000
+
+> setang 0 -179.995 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2275.273438 2263.869873 162.235870;setang_exact 0.000000 -179.994843 0.000000
+
+> setang 0 -179.994 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2336.347412 2263.879639 162.235870;setang_exact 0.000000 -179.994171 0.000000
+
+> setang 0 -179.993 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2397.666016 2263.889404 162.235870;setang_exact 0.000000 -179.993134 0.000000
+
+> setang 0 -179.992 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2458.314697 2263.898926 162.235870;setang_exact 0.000000 -179.992096 0.000000
+
+> setang 0 -179.990 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2516.936279 2263.908691 162.235855;setang_exact 0.000000 -179.990051 0.000000
+
+> setang 0 -179.988 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2576.639160 2263.918213 162.235855;setang_exact 0.000000 -179.987976 0.000000
+
+> setang 0 -179.986 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2638.408691 2263.927979 162.235855;setang_exact 0.000000 -179.985931 0.000000
+
+> setang 0 -179.983 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2699.164551 2263.937500 162.235855;setang_exact 0.000000 -179.982834 0.000000
+
+> setang 0 -179.980 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2763.299805 2263.947266 162.235855;setang_exact 0.000000 -179.980087 0.000000
+
+> setang 0 -179.975 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2821.786621 2263.956543 162.235840;setang_exact 0.000000 -179.974945 0.000000
+
+> setang 0 -179.969 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2885.082764 2263.966309 162.235840;setang_exact 0.000000 -179.969101 0.000000
+
+> setang 0 -179.960 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2946.636719 2263.975830 162.235840;setang_exact 0.000000 -179.960175 0.000000
+
+> setang 0 -179.945 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3005.820312 2263.985107 162.235840;setang_exact 0.000000 -179.945068 0.000000
+
+> setang 0 -179.918 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3068.970947 2263.979736 162.235840;setang_exact 0.000000 -179.917938 0.000000
+
+> setang 0 -179.858 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3125.196777 2263.904785 162.235840;setang_exact 0.000000 -179.857864 0.000000
+
+> setang 0 -179.706 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3155.402832 2263.802979 162.235840;setang_exact 0.000000 -179.706116 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    03:58    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -3149.606 2263.780 166.142
+
+> getpos_exact
+setpos_exact -3149.605957 2263.780029 162.235840;setang_exact 0.000000 -179.706116 0.000000
+
+> getpos_exact
+setpos_exact -3149.605957 2263.780029 162.235840;setang_exact 0.000000 -179.706116 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3113.911133 2263.780029 162.235840;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -3057.393066 2263.780029 162.235840;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2996.855469 2263.780029 162.235840;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2936.982666 2263.780029 162.235840;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2876.315186 2263.780029 162.235840;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2816.363037 2263.780029 162.235840;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2757.556152 2263.780029 162.235855;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2701.285645 2263.780029 162.235855;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2647.693604 2263.780029 162.235855;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2589.866455 2263.780029 162.235855;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2529.145752 2263.780029 162.235855;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2468.950439 2263.780029 162.235855;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2409.749268 2263.780029 162.235870;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2349.125488 2263.780029 162.235870;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2286.875732 2263.780029 162.235870;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2227.435547 2263.780029 162.235870;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2167.886963 2263.780029 162.235870;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2104.093018 2263.780029 162.235870;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -2044.800659 2263.780029 162.235886;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1985.646362 2263.780029 162.235886;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1923.950195 2263.780029 162.235886;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1864.711060 2263.780029 162.235886;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1805.537476 2263.780029 162.235886;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1744.883545 2263.780029 162.235901;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1683.373291 2263.780029 162.235901;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1622.496216 2263.780029 162.235901;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 -0.001 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1577.701294 2263.786133 162.235901;setang_exact 0.000000 -0.001038 0.000000
+
+> getpos_exact
+setpos_exact -1569.371094 2263.787842 162.235901;setang_exact 0.000000 -0.001038 0.000000
+
+> setang 0 -0.001 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1532.086914 2263.796875 162.235901;setang_exact 0.000000 -0.001038 0.000000
+
+> setang 0 -0.002 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1477.150024 2263.806152 162.235901;setang_exact 0.000000 -0.002060 0.000000
+
+> setang 0 -0.003 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1418.254517 2263.815430 162.235901;setang_exact 0.000000 -0.003082 0.000000
+
+> setang 0 -0.005 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1359.942505 2263.825195 162.235916;setang_exact 0.000000 -0.005157 0.000000
+
+> setang 0 -0.007 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1301.993530 2263.834473 162.235916;setang_exact 0.000000 -0.006866 0.000000
+
+> setang 0 -0.011 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1240.580811 2263.844238 162.235916;setang_exact 0.000000 -0.010986 0.000000
+
+> setang 0 -0.016 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1181.085693 2263.853760 162.235916;setang_exact 0.000000 -0.016144 0.000000
+
+> setang 0 -0.024 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1119.352051 2263.863525 162.235916;setang_exact 0.000000 -0.024033 0.000000
+
+> setang 0 -0.042 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1057.456665 2263.873291 162.235931;setang_exact 0.000000 -0.041885 0.000000
+
+> setang 0 -0.100 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1001.367920 2263.849121 162.235931;setang_exact 0.000000 -0.099915 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    04:23    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 196.850 1614.173 232.283
+
+> getpos_exact
+setpos_exact 196.850006 1614.172974 231.578262;setang_exact 0.000000 -0.099915 0.000000
+
+> getpos_exact
+setpos_exact 196.850006 1614.172974 231.578262;setang_exact 0.000000 -0.099915 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.856888 1650.694946 238.882675;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.001 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.865753 1707.988159 250.341309;setang_exact 0.000000 90.001038 0.000000
+
+> setang 0 90.004 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.874908 1769.590820 262.661835;setang_exact 0.000000 90.004120 0.000000
+
+> setang 0 90.009 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.883331 1825.353516 273.814392;setang_exact 0.000000 90.008911 0.000000
+
+> setang 0 90.018 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.891998 1887.017578 286.147186;setang_exact 0.000000 90.017853 0.000000
+
+> setang 0 90.057 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.897217 1929.052246 294.554108;setang_exact 0.000000 90.057007 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    04:29    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 196.850 1929.134 295.276
+
+> getpos_exact
+setpos_exact 196.850006 1929.134033 294.570465;setang_exact 0.000000 90.057007 0.000000
+
+> getpos_exact
+setpos_exact 196.850006 1929.134033 294.570465;setang_exact 0.000000 90.057007 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.856659 1894.573730 287.658417;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.001 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.865845 1835.345337 275.812744;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -90.004 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.874664 1778.866821 264.517029;setang_exact 0.000000 -90.004120 0.000000
+
+> setang 0 -90.008 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.883774 1714.239990 251.591705;setang_exact 0.000000 -90.007896 0.000000
+
+> setang 0 -90.019 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.891998 1652.728027 239.289261;setang_exact 0.000000 -90.018883 0.000000
+
+> setang 0 -90.062 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 196.896698 1613.974976 231.538696;setang_exact 0.000000 -90.062141 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> fps_max 120
+> engine_no_focus_sleep 0

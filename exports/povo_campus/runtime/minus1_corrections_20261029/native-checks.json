@@ -1,0 +1,273 @@
+{
+  "status": "passed",
+  "package_sha256": "d6891711d74524fe0c5cfb62087d6e5fd8809e915f8ded32d83094d1e8c17f48",
+  "captures": [
+    {
+      "name": "long_gap_from_south",
+      "actual_feet": [
+        -3.0500060666122004,
+        27.999996349512003,
+        0.40079249280160323
+      ],
+      "pitch": 0,
+      "yaw": 180,
+      "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\minus1_corrections_20261029\\screenshots\\long_gap_from_south.png"
+    },
+    {
+      "name": "long_gap_from_north",
+      "actual_feet": [
+        -3.0500060666122004,
+        54.99999170182,
+        0.4007913244016032
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\minus1_corrections_20261029\\screenshots\\long_gap_from_north.png"
+    },
+    {
+      "name": "upper_door_locked",
+      "actual_feet": [
+        -3.250006276213,
+        57.750000578231,
+        0.40079122280160323
+      ],
+      "pitch": 0,
+      "yaw": 90,
+      "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\minus1_corrections_20261029\\screenshots\\upper_door_locked.png"
+    },
+    {
+      "name": "lower_door_locked",
+      "actual_feet": [
+        34.500005777738004,
+        16.499992857266,
+        0.40079302620160323
+      ],
+      "pitch": 0,
+      "yaw": 180,
+      "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\minus1_corrections_20261029\\screenshots\\lower_door_locked.png"
+    },
+    {
+      "name": "new_lower_connection",
+      "actual_feet": [
+        28.499993723914,
+        17.1500043334686,
+        0.4007929754016032
+      ],
+      "pitch": 0,
+      "yaw": 90,
+      "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\minus1_corrections_20261029\\screenshots\\new_lower_connection.png"
+    },
+    {
+      "name": "room2_moved",
+      "actual_feet": [
+        -9.500006171438,
+        60.50000328244201,
+        0.4007911466016032
+      ],
+      "pitch": 0,
+      "yaw": 90,
+      "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\minus1_corrections_20261029\\screenshots\\room2_moved.png"
+    },
+    {
+      "name": "exit_up_stairs",
+      "actual_feet": [
+        34.500005777738004,
+        10.000005120640001,
+        0.4007932802016032
+      ],
+      "pitch": 0,
+      "yaw": 0,
+      "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\minus1_corrections_20261029\\screenshots\\exit_up_stairs.png"
+    },
+    {
+      "name": "bridge_courtyard_join",
+      "actual_feet": [
+        0.0,
+        -13.999998162056,
+        3.833308259215334
+      ],
+      "pitch": 35,
+      "yaw": -90,
+      "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\minus1_corrections_20261029\\screenshots\\bridge_courtyard_join.png"
+    },
+    {
+      "name": "povo1_street",
+      "actual_feet": [
+        54.499991203218,
+        -39.99999566676001,
+        7.600794958430404
+      ],
+      "pitch": 30,
+      "yaw": 90,
+      "file": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\runtime\\minus1_corrections_20261029\\screenshots\\povo1_street.png"
+    }
+  ],
+  "locked_door_checks": [
+    {
+      "door": "upper_junction_door",
+      "side": -1,
+      "attempt": "walk",
+      "start": [
+        -3.3,
+        57.75,
+        0.4
+      ],
+      "position": [
+        -2.747193565810989,
+        57.71658245863087,
+        0.4007913244016032
+      ],
+      "signed_distance_from_door": 0.4471935658109891,
+      "passed": true
+    },
+    {
+      "door": "upper_junction_door",
+      "side": -1,
+      "attempt": "use_then_walk",
+      "start": [
+        -3.3,
+        57.75,
+        0.4
+      ],
+      "position": [
+        -2.747193565810989,
+        57.71658245863087,
+        0.4007913244016032
+      ],
+      "signed_distance_from_door": 0.4471935658109891,
+      "passed": true
+    },
+    {
+      "door": "upper_junction_door",
+      "side": 1,
+      "attempt": "walk",
+      "start": [
+        -1.2999999999999998,
+        57.75,
+        0.4
+      ],
+      "position": [
+        -1.8528062766074112,
+        57.74986415483101,
+        0.4007913244016032
+      ],
+      "signed_distance_from_door": 0.44719372339258867,
+      "passed": true
+    },
+    {
+      "door": "upper_junction_door",
+      "side": 1,
+      "attempt": "use_then_walk",
+      "start": [
+        -1.2999999999999998,
+        57.75,
+        0.4
+      ],
+      "position": [
+        -1.8528062766074112,
+        57.74986415483101,
+        0.4007913244016032
+      ],
+      "signed_distance_from_door": 0.44719372339258867,
+      "passed": true
+    },
+    {
+      "door": "lower_junction_door",
+      "side": -1,
+      "attempt": "walk",
+      "start": [
+        34.5,
+        17.0,
+        0.4
+      ],
+      "position": [
+        34.500142201138004,
+        17.552806118670212,
+        0.4007929754016032
+      ],
+      "signed_distance_from_door": 0.4471938813297882,
+      "passed": true
+    },
+    {
+      "door": "lower_junction_door",
+      "side": -1,
+      "attempt": "use_then_walk",
+      "start": [
+        34.5,
+        17.0,
+        0.4
+      ],
+      "position": [
+        34.500142201138004,
+        17.552806118670212,
+        0.4007929754016032
+      ],
+      "signed_distance_from_door": 0.4471938813297882,
+      "passed": true
+    },
+    {
+      "door": "lower_junction_door",
+      "side": 1,
+      "attempt": "walk",
+      "start": [
+        34.5,
+        19.0,
+        0.4
+      ],
+      "position": [
+        34.500011975338005,
+        18.447194931873792,
+        0.4007929754016032
+      ],
+      "signed_distance_from_door": 0.447194931873792,
+      "passed": true
+    },
+    {
+      "door": "lower_junction_door",
+      "side": 1,
+      "attempt": "use_then_walk",
+      "start": [
+        34.5,
+        19.0,
+        0.4
+      ],
+      "position": [
+        34.500011975338005,
+        18.447194931873792,
+        0.4007929754016032
+      ],
+      "signed_distance_from_door": 0.447194931873792,
+      "passed": true
+    }
+  ],
+  "pavement_checks": [
+    {
+      "name": "bridge_courtyard_join",
+      "passed": true,
+      "roi_pixels": [
+        192,
+        440,
+        1088,
+        760
+      ],
+      "samples": 286720,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    },
+    {
+      "name": "povo1_street",
+      "passed": true,
+      "roi_pixels": [
+        64,
+        416,
+        1216,
+        760
+      ],
+      "samples": 396288,
+      "nearly_black_pixels": 0,
+      "nearly_black_fraction": 0.0,
+      "maximum_fraction": 0.02
+    }
+  ]
+}

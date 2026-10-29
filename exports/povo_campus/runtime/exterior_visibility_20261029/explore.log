@@ -1,0 +1,107 @@
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    02:05    0    0     active 786432 'albylupatin2000'
+   1      BOT    0    0     active      0 'Niles'
+   2      BOT    0    0     active      0 'Ulric'
+   3      BOT    0    0     active      0 'Azul'
+#end
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.019 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 3 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    02:05    0    0     active 786432 'albylupatin2000'
+   1      BOT    0    0     active      0 'Niles'
+   2      BOT    0    0     active      0 'Ulric'
+   3      BOT    0    0     active      0 'Azul'
+#end
+
+Niles kicked by Console (NETWORK_DISCONNECT_KICKED)
+Ulric kicked by Console (NETWORK_DISCONNECT_KICKED)
+NumAliveTerrorist( rnd 0 ) = 2
+NumAliveCT( rnd 0 ) = 0
+Ts won by ELIMINATION
+Azul kicked by Console (NETWORK_DISCONNECT_KICKED)
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 127.59 
+"Niles<1><STEAM_ID_LAN><CT>" OnPreResetRound => CTMDBG, team 3  will switch 0 127.59 
+"Ulric<2><STEAM_ID_LAN><CT>" OnPreResetRound => CTMDBG, team 3  will switch 0 127.59 
+"Azul<3><STEAM_ID_LAN><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 127.59 
+Using spawn points configuration 0x79954B2E
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CL:  Forcing ExecuteQueuedOperations due to entity slot re-use (341 point_worldtext)
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+Achievements disabled: cheats turned on in this app session.
+CQ: Server set re-sync at cmd 7829
+
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    02:08    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+#end
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 129.61 
+Using spawn points configuration 0x79954B2E
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+mp_warmup_pausetimer = 1
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+setpos_exact -1141.732056 1035.432983 157.511520;setang_exact 0.000000 0.000000 0.000000
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    02:08    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+#end
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CQ: Server set re-sync at cmd 7958
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]

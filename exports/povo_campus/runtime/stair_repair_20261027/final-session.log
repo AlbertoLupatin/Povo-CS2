@@ -1,0 +1,96 @@
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.018 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    17:03    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -787.402 755.906 444.882
+L 10/27/2026 - 21:44:48: World triggered "Warmup_Start"
+
+> getpos_exact
+setpos_exact -787.401978 755.906006 440.976105;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 25 -90 0
+
+> getpos_exact
+setpos_exact -787.401978 755.906006 440.976105;setang_exact 25.000076 -90.000000 0.000000
+
+> png_screenshot repaired_p2_upper_stairs
+Screenshot written to: screenshots\repaired_p2_upper_stairs_0000.png
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3856.299 1657.480 303.150
+
+> getpos_exact
+setpos_exact 3856.299072 1657.479980 299.243988;setang_exact 25.000076 -90.000000 0.000000
+
+> setang 25 90 0
+
+> getpos_exact
+setpos_exact 3856.299072 1657.479980 299.243988;setang_exact 25.000076 90.000000 0.000000
+
+> png_screenshot repaired_canteen_stairs
+Screenshot written to: screenshots\repaired_canteen_stairs_0000.png
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2902.756 972.441 161.417
+
+> getpos_exact
+setpos_exact 2902.756104 972.440979 157.511688;setang_exact 25.000076 90.000000 0.000000
+
+> setang 0 -90 0
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0
+
+> getpos_exact
+setpos_exact 2902.756104 972.440979 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> -forward 42
+> -sprint 42
+> -jump 42
+> -jump
+> -attack
+> noclip 0

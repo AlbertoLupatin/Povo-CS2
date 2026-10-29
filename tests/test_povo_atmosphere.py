@@ -1,4 +1,5 @@
 import json
+import math
 from pathlib import Path
 import re
 import tempfile
@@ -24,7 +25,7 @@ class SeasonalCampusTests(unittest.TestCase):
     def test_replaced_leaves_have_no_static_collision_and_keep_actual_frames(self):
         names={b[0] for b in self.boxes}
         self.assertFalse(any('_parked_leaf' in n for n in names))
-        self.assertTrue(any(n.startswith('p2_basement_core_door_') for n in names))
+        self.assertIn('p2_internal_door_0_-1',names)
         self.assertTrue(any('stair_door_0_head' in n for n in names))
         self.assertTrue(any('p2_entry_outer_bank_0_head' in n for n in names))
         doors=self.interactions['doors']
@@ -50,7 +51,7 @@ class SeasonalCampusTests(unittest.TestCase):
     def test_automatic_banks_replace_the_older_entrance_leaves(self):
         from tools.povo_interactions import door_selection
         doors=door_selection(self.levels,self.stair,automatic_entrances=True)
-        self.assertFalse(any(d['kind']=='fire' for d in doors))
+        self.assertEqual(sum(d['kind']=='fire' for d in doors),12)
         self.assertFalse(any(d['kind'] in ('sliding','entrance') for d in doors))
 
     def test_door_leaves_fit_existing_structural_openings(self):
@@ -59,6 +60,56 @@ class SeasonalCampusTests(unittest.TestCase):
             lo,hi=door['bounds']
             hits=[n for n,a,b,m in walls if all(min(hi[i],b[i])-max(lo[i],a[i])>.002 for i in range(3))]
             self.assertEqual(hits,[],door['id'])
+
+    def test_stairs_keep_one_open_leaf_and_replace_only_its_partner(self):
+        original=[b for b in self.original if re.match(
+            r'^stair_(?:(?:sw|ne|nw)_)?door_\d+_[01]_leaf',b[0])]
+        remaining=[b for b in self.boxes if b in original]
+        self.assertEqual(len(original),24)
+        self.assertEqual(len(remaining),12)
+        self.assertTrue(all('_0_leaf' in b[0] for b in remaining))
+        self.assertEqual(sum(d['kind']=='fire' for d in self.interactions['doors']),15)
+
+    def test_stair_sensor_cancels_close_on_return_and_waits_for_everyone(self):
+        from tests.test_map_entities import minimal_map
+        from tools.povo_interactions import insert_entities
+        fire=next(d for d in self.interactions['doors'] if d['kind']=='fire')
+        fixture=minimal_map().replace('"origin" "vector3" "0 0 0"',
+            '"origin" "vector3" "0 0 0" "angles" "qangle" "0 0 0" "scales" "vector3" "1 1 1"')
+        result=insert_entities(fixture,dict(doors=[fire],glass=[]))
+        entities={c:b for _,_,c,b in _entity_ranges(result)}
+        door=entities['func_door_rotating'];sensor=entities['trigger_multiple']
+        relay=entities['logic_relay']
+        self.assertIn('"noise1" "string" "Povo.Door.Open"',door)
+        self.assertIn('"startclosesound" "string" "Povo.Door.Close"',door)
+        self.assertIn('"wait" "string" "-1"',door)
+        self.assertIn('"dmg" "string" "0"',door)
+        self.assertIn('"forceclosed" "string" "0"',door)
+        self.assertIn('"spawnflags" "string" "1"',sensor)
+        self.assertEqual(re.findall(r'"outputName" "string" "([^"]+)"',sensor),
+                         ['OnStartTouchAll','OnStartTouchAll','OnEndTouchAll'])
+        self.assertEqual(re.findall(r'"inputName" "string" "([^"]+)"',sensor),
+                         ['CancelPending','Open','Trigger'])
+        self.assertIn('"delay" "float" "2.5"',relay)
+        self.assertIn('"inputName" "string" "Close"',relay)
+        self.assertIn('"outputName" "string" "OnSpawn"',relay)
+        self.assertIn('"FastRetrigger" "string" "1"',relay)
+        ids=re.findall(r'"elementid"\s+"([0-9a-f-]+)"',result)
+        self.assertEqual(len(ids),len(set(ids)))
+
+    def test_mirrored_stair_leaves_swing_back_to_the_original_parked_side(self):
+        for d in self.interactions['doors']:
+            if d['kind']!='fire':continue
+            p=d['pivot'];lo,hi=d['bounds']
+            dx=(lo[0]+hi[0])/2-p[0];dy=(lo[1]+hi[1])/2-p[1]
+            angle=math.radians(-90 if d['reverse'] else 90)
+            opened=(p[0]+dx*math.cos(angle)-dy*math.sin(angle),
+                    p[1]+dx*math.sin(angle)+dy*math.cos(angle))
+            candidates=[b for b in self.original if b[3]=='door_black'
+                        and abs(b[1][2]-lo[2])<.01
+                        and b[1][0]-.03<=opened[0]<=b[2][0]+.03
+                        and b[1][1]-.03<=opened[1]<=b[2][1]+.03]
+            self.assertEqual(len(candidates),1,d['id'])
 
     def test_winter_layers_do_not_cover_indoor_or_sheltered_entrance_floors(self):
         snow,wet=winter_layers(self.boxes,self.levels[0]['exterior'])

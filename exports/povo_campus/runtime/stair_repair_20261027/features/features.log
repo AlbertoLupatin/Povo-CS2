@@ -1,0 +1,1111 @@
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:12    0    0     active 786432 'albylupatin2000'
+#end
+
+> ent_find func_breakable
+Searching for entities with class/target name containing substrings: "func_breakable"
+   'func_breakable' : 'povo_glass_academic_ground_court_0_0_tail_material1_windowcut_0_windowcut_0_glass' (entindex 1430) 
+   'func_breakable' : 'povo_glass_academic_ground_court_0_0_tail_material1_windowcut_1_windowcut_0_windowcut_0_glass' (entindex 1431) 
+   'func_breakable' : 'povo_glass_academic_ground_court_0_0_tail_material1_windowcut_1_windowcut_0_windowcut_1_glass' (entindex 1432) 
+   'func_breakable' : 'povo_glass_academic_ground_court_1_0_tail_material1_windowcut_0_windowcut_0_glass' (entindex 1433) 
+   'func_breakable' : 'povo_glass_academic_ground_court_1_0_tail_material1_windowcut_1_windowcut_0_glass' (entindex 1434) 
+   'func_breakable' : 'povo_glass_academic_ground_court_1_0_tail_material1_windowcut_1_windowcut_1_windowcut_0_glass' (entindex 1435) 
+   'func_breakable' : 'povo_glass_academic_ground_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_0_glass' (entindex 1436) 
+   'func_breakable' : 'povo_glass_academic_ground_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_glass' (entindex 1437) 
+   'func_breakable' : 'povo_glass_academic_ground_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_1_windowcut_1_glass' (entindex 1438) 
+   'func_breakable' : 'povo_glass_academic_ground_court_3_0_tail_material0_windowcut_0_windowcut_0_windowcut_0_glass' (entindex 1439) 
+   'func_breakable' : 'povo_glass_academic_ground_court_3_0_tail_material0_windowcut_0_windowcut_0_windowcut_1_windowcut_0_glass' (entindex 1440) 
+   'func_breakable' : 'povo_glass_academic_ground_court_3_0_tail_material0_windowcut_0_windowcut_0_windowcut_1_windowcut_1_glass' (entindex 1441) 
+   'func_breakable' : 'povo_glass_academic_first_court_0_1_tail_material1_windowcut_0_windowcut_0_windowcut_0_glass_windowcut_0' (entindex 1442) 
+   'func_breakable' : 'povo_glass_academic_first_court_0_1_tail_material1_windowcut_0_windowcut_0_windowcut_0_glass_windowcut_1' (entindex 1443) 
+   'func_breakable' : 'povo_glass_academic_first_court_0_1_tail_material1_windowcut_0_windowcut_0_windowcut_1_glass_windowcut_0' (entindex 1444) 
+   'func_breakable' : 'povo_glass_academic_first_court_0_1_tail_material1_windowcut_0_windowcut_0_windowcut_1_glass_windowcut_1' (entindex 1445) 
+   'func_breakable' : 'povo_glass_academic_first_court_1_1_tail_material1_windowcut_0_windowcut_0_windowcut_0_glass' (entindex 1446) 
+   'func_breakable' : 'povo_glass_academic_first_court_1_1_tail_material1_windowcut_0_windowcut_0_windowcut_1_glass' (entindex 1447) 
+   'func_breakable' : 'povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_0_windowcut_0_windowcut_0_glass' (entindex 1448) 
+   'func_breakable' : 'povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_0_glass' (entindex 1449) 
+   'func_breakable' : 'povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_1_glass' (entindex 1450) 
+   'func_breakable' : 'povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_glass' (entindex 1451) 
+   'func_breakable' : 'povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_1_windowcut_1_glass' (entindex 1452) 
+   'func_breakable' : 'povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_1_windowcut_0_glass' (entindex 1453) 
+   'func_breakable' : 'povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_1_windowcut_1_glass' (entindex 1454) 
+   'func_breakable' : 'povo_glass_academic_first_court_2_0_tail_material1_windowcut_1_windowcut_0_glass' (entindex 1455) 
+   'func_breakable' : 'povo_glass_academic_first_court_3_0_tail_material1_windowcut_0_windowcut_0_glass' (entindex 1456) 
+   'func_breakable' : 'povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_0_windowcut_0_glass' (entindex 1457) 
+   'func_breakable' : 'povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_0_windowcut_1_glass' (entindex 1458) 
+   'func_breakable' : 'povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_0_windowcut_0_glass' (entindex 1459) 
+   'func_breakable' : 'povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_glass' (entindex 1460) 
+   'func_breakable' : 'povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_0_glass' (entindex 1461) 
+   'func_breakable' : 'povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_glass' (entindex 1462) 
+   'func_breakable' : 'povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_glass' (entindex 1463) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a101_window_glass' (entindex 1464) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a102_window_glass' (entindex 1465) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a103_window_glass' (entindex 1466) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a104_window_glass' (entindex 1467) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a105_window_glass' (entindex 1468) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a106_window_glass' (entindex 1469) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a107_window_glass_windowcut_0' (entindex 1470) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a107_window_glass_windowcut_1' (entindex 1471) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a107_window_glass_windowcut_2' (entindex 1472) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a108_window_glass' (entindex 1473) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a109_window_glass' (entindex 1474) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a110_window_glass' (entindex 1475) 
+   'func_breakable' : 'povo_glass_academic_first_room_a201_window_glass' (entindex 1476) 
+   'func_breakable' : 'povo_glass_academic_first_room_a202_window_glass' (entindex 1477) 
+   'func_breakable' : 'povo_glass_academic_first_room_a203_window_glass' (entindex 1478) 
+   'func_breakable' : 'povo_glass_academic_first_room_a204_window_glass' (entindex 1479) 
+   'func_breakable' : 'povo_glass_academic_first_room_a205_window_glass' (entindex 1480) 
+   'func_breakable' : 'povo_glass_academic_first_room_a206_window_glass' (entindex 1481) 
+   'func_breakable' : 'povo_glass_academic_first_room_a207_window_glass' (entindex 1482) 
+   'func_breakable' : 'povo_glass_academic_first_room_a208_window_glass' (entindex 1483) 
+   'func_breakable' : 'povo_glass_academic_first_room_a209_window_glass' (entindex 1484) 
+   'func_breakable' : 'povo_glass_academic_first_room_a210_window_glass' (entindex 1485) 
+   'func_breakable' : 'povo_glass_academic_first_room_a211_window_glass' (entindex 1486) 
+   'func_breakable' : 'povo_glass_academic_first_room_a212_window_glass' (entindex 1487) 
+   'func_breakable' : 'povo_glass_academic_first_room_a213_window_glass' (entindex 1488) 
+   'func_breakable' : 'povo_glass_academic_first_room_a214_window_glass' (entindex 1489) 
+   'func_breakable' : 'povo_glass_academic_first_room_a215_window_glass' (entindex 1490) 
+   'func_breakable' : 'povo_glass_academic_first_room_a216_window_glass' (entindex 1491) 
+   'func_breakable' : 'povo_glass_academic_first_room_a217_window_glass' (entindex 1492) 
+   'func_breakable' : 'povo_glass_academic_first_room_a218_window_glass' (entindex 1493) 
+   'func_breakable' : 'povo_glass_academic_first_room_a219_window_glass' (entindex 1494) 
+   'func_breakable' : 'povo_glass_academic_first_room_a220_window_glass' (entindex 1495) 
+   'func_breakable' : 'povo_glass_academic_first_room_a221_window_glass' (entindex 1496) 
+   'func_breakable' : 'povo_glass_academic_first_room_a222_window_glass' (entindex 1497) 
+   'func_breakable' : 'povo_glass_academic_first_room_a223_window_glass' (entindex 1498) 
+   'func_breakable' : 'povo_glass_academic_first_room_a224_window_glass' (entindex 1499) 
+   'func_breakable' : 'povo_glass_academic_first_room_lab_window_glass' (entindex 1500) 
+   'func_breakable' : 'povo_glass_academic_ground_acquario_corridor_glass_0' (entindex 1501) 
+   'func_breakable' : 'povo_glass_academic_ground_acquario_corridor_glass_1' (entindex 1502) 
+   'func_breakable' : 'povo_glass_academic_ground_acquario_corridor_glass_head' (entindex 1503) 
+   'func_breakable' : 'povo_glass_academic_ground_room_a103_side_window_glass' (entindex 1504) 
+   'func_breakable' : 'povo_glass_stair_window_0' (entindex 1505) 
+   'func_breakable' : 'povo_glass_stair_sw_window_0' (entindex 1506) 
+   'func_breakable' : 'povo_glass_stair_ne_window_0' (entindex 1507) 
+   'func_breakable' : 'povo_glass_stair_nw_window_0' (entindex 1508) 
+   'func_breakable' : 'povo_glass_academic_upper_court_0_0_tail_material0_glass_windowcut_0' (entindex 1509) 
+   'func_breakable' : 'povo_glass_academic_upper_court_0_0_tail_material0_glass_windowcut_1' (entindex 1510) 
+   'func_breakable' : 'povo_glass_academic_upper_court_0_0_tail_material0_glass_windowcut_2' (entindex 1511) 
+   'func_breakable' : 'povo_glass_academic_upper_court_1_0_tail_material0_glass' (entindex 1512) 
+   'func_breakable' : 'povo_glass_academic_upper_court_2_1_tail_material1_glass' (entindex 1513) 
+   'func_breakable' : 'povo_glass_academic_upper_court_3_0_tail_material1_glass' (entindex 1514) 
+   'func_breakable' : 'povo_glass_stair_window_0_upper_segment' (entindex 1515) 
+   'func_breakable' : 'povo_glass_stair_window_1_upper_segment' (entindex 1516) 
+   'func_breakable' : 'povo_glass_stair_sw_window_0_upper_segment' (entindex 1517) 
+   'func_breakable' : 'povo_glass_stair_sw_window_1_upper_segment' (entindex 1518) 
+   'func_breakable' : 'povo_glass_stair_ne_window_0_upper_segment' (entindex 1519) 
+   'func_breakable' : 'povo_glass_stair_ne_window_1_upper_segment' (entindex 1520) 
+   'func_breakable' : 'povo_glass_stair_nw_window_0_upper_segment' (entindex 1521) 
+   'func_breakable' : 'povo_glass_stair_nw_window_1_upper_segment' (entindex 1522) 
+   'func_breakable' : 'povo_glass_academic_first_link_bridge_west_glass' (entindex 1523) 
+   'func_breakable' : 'povo_glass_academic_first_link_bridge_east_glass' (entindex 1524) 
+   'func_breakable' : 'povo_glass_academic_first_link_p2_window_west_0' (entindex 1525) 
+   'func_breakable' : 'povo_glass_academic_first_link_p2_window_west_1' (entindex 1526) 
+   'func_breakable' : 'povo_glass_academic_first_link_p2_window_east_0' (entindex 1527) 
+   'func_breakable' : 'povo_glass_academic_first_link_povo1_bridge_door_west_glass' (entindex 1528) 
+   'func_breakable' : 'povo_glass_academic_first_link_povo1_bridge_door_east_glass' (entindex 1529) 
+   'func_breakable' : 'povo_glass_academic_first_link_povo2_bridge_door_west_glass' (entindex 1530) 
+   'func_breakable' : 'povo_glass_academic_first_link_povo2_bridge_door_east_glass' (entindex 1531) 
+   'func_breakable' : 'povo_glass_p2_basement_display_glass_windowcut_0' (entindex 1532) 
+   'func_breakable' : 'povo_glass_p2_ground_b111_window_glass' (entindex 1533) 
+   'func_breakable' : 'povo_glass_p2_ground_b112_window_glass' (entindex 1534) 
+   'func_breakable' : 'povo_glass_p2_ground_b113_window_glass' (entindex 1535) 
+   'func_breakable' : 'povo_glass_p2_ground_b114_window_glass' (entindex 1080) 
+   'func_breakable' : 'povo_glass_exterior_p2_entry_outer_bank_0_fixed_-1' (entindex 1081) 
+   'func_breakable' : 'povo_glass_exterior_p2_entry_outer_bank_0_fixed_1' (entindex 340) 
+   'func_breakable' : 'povo_glass_exterior_p2_entry_outer_bank_1_fixed_-1' (entindex 341) 
+   'func_breakable' : 'povo_glass_exterior_p2_entry_outer_bank_1_fixed_1' (entindex 342) 
+   'func_breakable' : 'povo_glass_exterior_p2_entry_inner_bank_0_fixed_-1' (entindex 343) 
+   'func_breakable' : 'povo_glass_exterior_p2_entry_inner_bank_0_fixed_1' (entindex 344) 
+   'func_breakable' : 'povo_glass_exterior_p2_entry_inner_bank_1_fixed_-1' (entindex 345) 
+   'func_breakable' : 'povo_glass_exterior_p2_entry_inner_bank_1_fixed_1' (entindex 346) 
+   'func_breakable' : 'povo_glass_exterior_p1_entry_bank_0_fixed_-1' (entindex 347) 
+   'func_breakable' : 'povo_glass_exterior_p1_entry_bank_0_fixed_1' (entindex 348) 
+   'func_breakable' : 'povo_glass_p2_ground_b106_window_glass' (entindex 349) 
+   'func_breakable' : 'povo_glass_p2_ground_b108_window_glass' (entindex 350) 
+   'func_breakable' : 'povo_glass_p2_ground_b109_window_glass' (entindex 351) 
+   'func_breakable' : 'povo_glass_p2_ground_aula_lobby_glass_0' (entindex 352) 
+   'func_breakable' : 'povo_glass_p2_ground_aula_lobby_glass_1' (entindex 353) 
+   'func_breakable' : 'povo_glass_p2_basement_cibio_entry_glass_0' (entindex 354) 
+   'func_breakable' : 'povo_glass_p2_basement_cibio_entry_glass_1' (entindex 355) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_0_windowcut_0' (entindex 356) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_0_windowcut_1' (entindex 357) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_1_windowcut_0' (entindex 358) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_1_windowcut_1' (entindex 359) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_2' (entindex 360) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_3' (entindex 361) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_4' (entindex 362) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_5' (entindex 363) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_6_windowcut_0_windowcut_0' (entindex 364) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_6_windowcut_0_windowcut_1' (entindex 365) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_6_windowcut_1_windowcut_0' (entindex 366) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_7_windowcut_0_windowcut_0' (entindex 367) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_7_windowcut_1_windowcut_0' (entindex 368) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_8_windowcut_0' (entindex 369) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_9_windowcut_0' (entindex 370) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_9_windowcut_1' (entindex 371) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_10' (entindex 372) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_11' (entindex 373) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_12' (entindex 374) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_13' (entindex 375) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_14' (entindex 376) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_15' (entindex 377) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_16_windowcut_0' (entindex 378) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_16_windowcut_1' (entindex 379) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_17_windowcut_0' (entindex 380) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_17_windowcut_1' (entindex 381) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_18' (entindex 382) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_19' (entindex 383) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_20_windowcut_0' (entindex 384) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_20_windowcut_1' (entindex 385) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_21_windowcut_0' (entindex 386) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_21_windowcut_1' (entindex 387) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_22' (entindex 388) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_23' (entindex 389) 
+   'func_breakable' : 'povo_glass_canteen_0_west_glass_24' (entindex 390) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_0' (entindex 391) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_1' (entindex 392) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_2' (entindex 393) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_3' (entindex 394) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_4' (entindex 395) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_5' (entindex 396) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_6' (entindex 397) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_7' (entindex 398) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_8' (entindex 399) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_9' (entindex 400) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_10' (entindex 401) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_11' (entindex 402) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_12' (entindex 403) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_13' (entindex 404) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_14' (entindex 405) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_15' (entindex 406) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_16' (entindex 407) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_17' (entindex 408) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_18' (entindex 409) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_19' (entindex 410) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_20' (entindex 411) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_21' (entindex 412) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_22' (entindex 413) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_23' (entindex 414) 
+   'func_breakable' : 'povo_glass_canteen_0_east_glass_24' (entindex 415) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_0' (entindex 416) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_1' (entindex 417) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_2' (entindex 418) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_3' (entindex 419) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_4' (entindex 420) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_5' (entindex 421) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_6' (entindex 422) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_7' (entindex 423) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_8' (entindex 424) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_9' (entindex 425) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_10' (entindex 426) 
+   'func_breakable' : 'povo_glass_canteen_0_south_glass_11' (entindex 427) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_0' (entindex 428) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_1' (entindex 429) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_2' (entindex 430) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_3' (entindex 431) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_4' (entindex 432) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_5' (entindex 433) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_6' (entindex 434) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_7' (entindex 435) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_8' (entindex 436) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_9' (entindex 437) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_10' (entindex 438) 
+   'func_breakable' : 'povo_glass_canteen_0_north_glass_11' (entindex 439) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_0' (entindex 440) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_1' (entindex 441) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_2_windowcut_0' (entindex 442) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_2_windowcut_1' (entindex 443) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_3_windowcut_0' (entindex 444) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_4_windowcut_0' (entindex 445) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_4_windowcut_1' (entindex 446) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_5' (entindex 447) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_6' (entindex 448) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_7' (entindex 449) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_8' (entindex 450) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_9' (entindex 451) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_10' (entindex 452) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_11' (entindex 453) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_12_windowcut_0' (entindex 454) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_12_windowcut_1' (entindex 455) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_13_windowcut_0' (entindex 456) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_14_windowcut_0' (entindex 457) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_14_windowcut_1' (entindex 458) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_15' (entindex 459) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_16' (entindex 460) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_17' (entindex 461) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_18' (entindex 462) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_19' (entindex 463) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_20' (entindex 464) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_21' (entindex 465) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_22_windowcut_0' (entindex 466) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_22_windowcut_1' (entindex 467) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_23_windowcut_0' (entindex 468) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_24_windowcut_0' (entindex 469) 
+   'func_breakable' : 'povo_glass_canteen_1_west_glass_24_windowcut_1' (entindex 470) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_0' (entindex 471) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_1' (entindex 472) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_2' (entindex 473) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_3' (entindex 474) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_4' (entindex 475) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_5' (entindex 476) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_6_windowcut_0' (entindex 477) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_6_windowcut_1' (entindex 478) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_7_windowcut_0' (entindex 479) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_8_windowcut_0' (entindex 480) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_9_windowcut_0' (entindex 481) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_9_windowcut_1' (entindex 482) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_10' (entindex 483) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_11' (entindex 484) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_12' (entindex 485) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_13' (entindex 486) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_14' (entindex 487) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_15' (entindex 488) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_16' (entindex 489) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_17' (entindex 490) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_18' (entindex 491) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_19' (entindex 492) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_20' (entindex 493) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_21' (entindex 494) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_22' (entindex 495) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_23' (entindex 496) 
+   'func_breakable' : 'povo_glass_canteen_1_east_glass_24' (entindex 497) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_0' (entindex 498) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_1' (entindex 499) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_2' (entindex 500) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_3' (entindex 501) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_4' (entindex 502) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_5' (entindex 503) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_6' (entindex 504) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_7' (entindex 505) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_8' (entindex 506) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_9' (entindex 507) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_10' (entindex 508) 
+   'func_breakable' : 'povo_glass_canteen_1_south_glass_11' (entindex 509) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_0' (entindex 510) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_1' (entindex 511) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_2' (entindex 512) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_3' (entindex 513) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_4' (entindex 514) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_5' (entindex 515) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_6' (entindex 516) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_7' (entindex 517) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_8' (entindex 518) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_9' (entindex 519) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_10' (entindex 520) 
+   'func_breakable' : 'povo_glass_canteen_1_north_glass_11' (entindex 521) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_0' (entindex 522) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_1' (entindex 523) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_2' (entindex 524) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_3' (entindex 525) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_4_windowcut_0' (entindex 526) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_4_windowcut_1' (entindex 527) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_5_windowcut_0' (entindex 528) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_6_windowcut_0' (entindex 529) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_7_windowcut_0' (entindex 530) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_7_windowcut_1' (entindex 531) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_8' (entindex 532) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_9' (entindex 533) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_10' (entindex 534) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_11' (entindex 535) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_12' (entindex 536) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_13_windowcut_0' (entindex 537) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_13_windowcut_1' (entindex 538) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_14_windowcut_0' (entindex 539) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_15_windowcut_0' (entindex 540) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_15_windowcut_1' (entindex 541) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_16' (entindex 542) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_17' (entindex 543) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_18' (entindex 544) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_19' (entindex 545) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_20' (entindex 546) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_21' (entindex 547) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_22' (entindex 548) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_23' (entindex 549) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_24' (entindex 550) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_25' (entindex 551) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_26' (entindex 552) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_27' (entindex 553) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_28' (entindex 554) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_29' (entindex 555) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_30' (entindex 556) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_31' (entindex 557) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_32' (entindex 558) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_33' (entindex 559) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_34' (entindex 560) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_35_windowcut_0' (entindex 561) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_35_windowcut_1' (entindex 562) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_36_windowcut_0' (entindex 563) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_37_windowcut_0' (entindex 564) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_37_windowcut_1' (entindex 565) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_38_windowcut_0' (entindex 566) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_38_windowcut_1' (entindex 567) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_39_windowcut_0' (entindex 568) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_39_windowcut_1' (entindex 569) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_40' (entindex 570) 
+   'func_breakable' : 'povo_glass_library_0_west_glass_41' (entindex 571) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_0' (entindex 572) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_1' (entindex 573) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_2' (entindex 574) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_3' (entindex 575) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_4' (entindex 576) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_5' (entindex 577) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_6' (entindex 578) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_7' (entindex 579) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_8' (entindex 580) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_9' (entindex 581) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_10' (entindex 582) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_11' (entindex 583) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_12' (entindex 584) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_13' (entindex 585) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_14' (entindex 586) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_15' (entindex 587) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_16' (entindex 588) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_17' (entindex 589) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_18' (entindex 590) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_19' (entindex 591) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_20' (entindex 592) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_21' (entindex 593) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_22' (entindex 594) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_23' (entindex 595) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_24' (entindex 596) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_25' (entindex 597) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_26' (entindex 598) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_27' (entindex 599) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_28' (entindex 600) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_29' (entindex 601) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_30' (entindex 602) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_31' (entindex 603) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_32' (entindex 604) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_33' (entindex 605) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_34' (entindex 606) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_35' (entindex 607) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_36' (entindex 608) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_37' (entindex 609) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_38' (entindex 610) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_39' (entindex 611) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_40' (entindex 612) 
+   'func_breakable' : 'povo_glass_library_0_east_glass_41' (entindex 613) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_0' (entindex 614) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_1' (entindex 1084) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_2' (entindex 1365) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_3' (entindex 1364) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_4' (entindex 1363) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_5' (entindex 1361) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_6' (entindex 1362) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_7' (entindex 618) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_8' (entindex 619) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_9' (entindex 620) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_10' (entindex 621) 
+   'func_breakable' : 'povo_glass_library_0_south_glass_11' (entindex 622) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_0' (entindex 623) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_1' (entindex 624) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_2' (entindex 625) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_3' (entindex 626) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_4' (entindex 627) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_5' (entindex 628) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_6' (entindex 629) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_7' (entindex 630) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_8' (entindex 631) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_9' (entindex 632) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_10' (entindex 633) 
+   'func_breakable' : 'povo_glass_library_0_north_glass_11' (entindex 634) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_0' (entindex 635) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_1' (entindex 636) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_2' (entindex 637) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_3' (entindex 638) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_4' (entindex 639) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_5' (entindex 640) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_6' (entindex 641) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_7' (entindex 642) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_8' (entindex 643) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_9' (entindex 644) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_10' (entindex 645) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_11' (entindex 646) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_12' (entindex 647) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_13' (entindex 648) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_14' (entindex 649) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_15' (entindex 650) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_16' (entindex 651) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_17' (entindex 652) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_18' (entindex 653) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_19' (entindex 654) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_20' (entindex 655) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_21' (entindex 656) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_22' (entindex 657) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_23' (entindex 658) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_24' (entindex 659) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_25' (entindex 660) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_26' (entindex 661) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_27' (entindex 662) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_28' (entindex 663) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_29' (entindex 664) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_30' (entindex 665) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_31' (entindex 666) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_32' (entindex 667) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_33' (entindex 668) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_34' (entindex 669) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_35' (entindex 670) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_36' (entindex 671) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_37' (entindex 672) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_38' (entindex 673) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_39' (entindex 674) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_40' (entindex 675) 
+   'func_breakable' : 'povo_glass_library_1_west_glass_41' (entindex 676) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_0' (entindex 677) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_1' (entindex 678) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_2' (entindex 679) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_3' (entindex 680) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_4' (entindex 681) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_5' (entindex 682) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_6' (entindex 683) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_7' (entindex 684) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_8' (entindex 685) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_9' (entindex 686) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_10' (entindex 687) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_11' (entindex 688) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_12' (entindex 689) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_13' (entindex 690) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_14' (entindex 691) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_15' (entindex 692) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_16' (entindex 693) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_17' (entindex 694) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_18' (entindex 695) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_19' (entindex 696) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_20' (entindex 697) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_21' (entindex 698) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_22' (entindex 699) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_23' (entindex 700) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_24' (entindex 701) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_25' (entindex 702) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_26' (entindex 703) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_27' (entindex 704) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_28' (entindex 705) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_29' (entindex 706) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_30' (entindex 707) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_31' (entindex 708) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_32' (entindex 709) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_33' (entindex 710) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_34' (entindex 711) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_35' (entindex 712) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_36' (entindex 713) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_37' (entindex 714) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_38' (entindex 715) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_39' (entindex 716) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_40' (entindex 717) 
+   'func_breakable' : 'povo_glass_library_1_east_glass_41' (entindex 718) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_0' (entindex 719) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_1' (entindex 720) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_2' (entindex 721) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_3' (entindex 722) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_4' (entindex 723) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_5' (entindex 724) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_6' (entindex 725) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_7' (entindex 726) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_8' (entindex 727) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_9' (entindex 728) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_10' (entindex 729) 
+   'func_breakable' : 'povo_glass_library_1_south_glass_11' (entindex 730) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_0' (entindex 731) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_1' (entindex 732) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_2' (entindex 733) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_3' (entindex 734) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_4' (entindex 735) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_5' (entindex 736) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_6' (entindex 737) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_7' (entindex 738) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_8' (entindex 739) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_9' (entindex 740) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_10' (entindex 741) 
+   'func_breakable' : 'povo_glass_library_1_north_glass_11' (entindex 742) 
+   'func_breakable' : 'povo_glass_exterior_library_entry_bank_0_fixed_-1' (entindex 743) 
+   'func_breakable' : 'povo_glass_exterior_library_entry_bank_0_fixed_1' (entindex 744) 
+   'func_breakable' : 'povo_glass_canteen_0_porch_south_glass' (entindex 745) 
+   'func_breakable' : 'povo_glass_canteen_0_porch_north_glass' (entindex 746) 
+   'func_breakable' : 'povo_glass_canteen_0_porch_west_glass_windowcut_0' (entindex 747) 
+   'func_breakable' : 'povo_glass_canteen_0_porch_west_glass_windowcut_1' (entindex 748) 
+   'func_breakable' : 'povo_glass_canteen_0_porch_west_glass_windowcut_2' (entindex 749) 
+   'func_breakable' : 'povo_glass_canteen_0_porch_east_glass_windowcut_0' (entindex 750) 
+   'func_breakable' : 'povo_glass_canteen_0_porch_east_glass_windowcut_1' (entindex 751) 
+   'func_breakable' : 'povo_glass_canteen_0_porch_east_glass_windowcut_2' (entindex 752) 
+   'func_breakable' : 'povo_glass_exterior_canteen_outer_entry_bank_0_fixed_-1' (entindex 753) 
+   'func_breakable' : 'povo_glass_exterior_canteen_outer_entry_bank_0_fixed_1' (entindex 754) 
+   'func_breakable' : 'povo_glass_exterior_canteen_inner_entry_bank_0_fixed_-1' (entindex 755) 
+   'func_breakable' : 'povo_glass_exterior_canteen_inner_entry_bank_0_fixed_1' (entindex 756) 
+   'func_breakable' : 'povo_glass_exterior_canteen_upper_entry_bank_0_fixed_-1' (entindex 757) 
+   'func_breakable' : 'povo_glass_exterior_canteen_upper_entry_bank_0_fixed_1' (entindex 758) 
+Found 530 matches.
+
+> ent_find func_door
+Searching for entities with class/target name containing substrings: "func_door"
+   'func_door' : 'trento_door_canteen_inner_entry_bank_0' (entindex 1367) 
+   'func_door' : 'trento_door_canteen_inner_entry_bank_0' (entindex 1368) 
+   'func_door' : 'trento_door_canteen_inner_entry_bank_0' (entindex 1369) 
+   'func_door' : 'trento_door_canteen_inner_entry_bank_0' (entindex 1370) 
+   'func_door' : 'trento_door_canteen_inner_entry_bank_0' (entindex 1371) 
+   'func_door' : 'trento_door_canteen_inner_entry_bank_0' (entindex 1372) 
+   'func_door' : 'trento_door_canteen_outer_entry_bank_0' (entindex 1374) 
+   'func_door' : 'trento_door_canteen_outer_entry_bank_0' (entindex 1375) 
+   'func_door' : 'trento_door_canteen_outer_entry_bank_0' (entindex 1376) 
+   'func_door' : 'trento_door_canteen_outer_entry_bank_0' (entindex 1377) 
+   'func_door' : 'trento_door_canteen_outer_entry_bank_0' (entindex 1378) 
+   'func_door' : 'trento_door_canteen_outer_entry_bank_0' (entindex 1379) 
+   'func_door' : 'trento_door_canteen_upper_entry_bank_0' (entindex 1381) 
+   'func_door' : 'trento_door_canteen_upper_entry_bank_0' (entindex 1382) 
+   'func_door' : 'trento_door_canteen_upper_entry_bank_0' (entindex 1383) 
+   'func_door' : 'trento_door_canteen_upper_entry_bank_0' (entindex 1384) 
+   'func_door' : 'trento_door_canteen_upper_entry_bank_0' (entindex 1385) 
+   'func_door' : 'trento_door_canteen_upper_entry_bank_0' (entindex 1386) 
+   'func_door' : 'trento_door_library_entry_bank_0' (entindex 1388) 
+   'func_door' : 'trento_door_library_entry_bank_0' (entindex 1389) 
+   'func_door' : 'trento_door_library_entry_bank_0' (entindex 1390) 
+   'func_door' : 'trento_door_library_entry_bank_0' (entindex 1391) 
+   'func_door' : 'trento_door_library_entry_bank_0' (entindex 1392) 
+   'func_door' : 'trento_door_library_entry_bank_0' (entindex 1393) 
+   'func_door' : 'trento_door_p1_entry_bank_0' (entindex 1395) 
+   'func_door' : 'trento_door_p1_entry_bank_0' (entindex 1396) 
+   'func_door' : 'trento_door_p1_entry_bank_0' (entindex 1397) 
+   'func_door' : 'trento_door_p1_entry_bank_0' (entindex 1398) 
+   'func_door' : 'trento_door_p1_entry_bank_0' (entindex 1399) 
+   'func_door' : 'trento_door_p1_entry_bank_0' (entindex 1400) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_0' (entindex 1402) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_0' (entindex 1403) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_0' (entindex 1404) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_0' (entindex 1405) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_0' (entindex 1406) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_0' (entindex 1407) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_1' (entindex 1409) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_1' (entindex 1410) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_1' (entindex 1411) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_1' (entindex 1412) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_1' (entindex 1413) 
+   'func_door' : 'trento_door_p2_entry_inner_bank_1' (entindex 1414) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_0' (entindex 1416) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_0' (entindex 1417) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_0' (entindex 1418) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_0' (entindex 1419) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_0' (entindex 1420) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_0' (entindex 1421) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_1' (entindex 1423) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_1' (entindex 1424) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_1' (entindex 1425) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_1' (entindex 1426) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_1' (entindex 1427) 
+   'func_door' : 'trento_door_p2_entry_outer_bank_1' (entindex 1428) 
+   'func_door_rotating' : 'classroom_a224' (entindex 759) 
+   'func_door_rotating' : 'classroom_a223' (entindex 760) 
+   'func_door_rotating' : 'classroom_a215' (entindex 761) 
+   'func_door_rotating' : 'classroom_a208' (entindex 762) 
+Found 58 matches.
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:13    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> gameui_hide
+> setpos 2902.735 1044.685 171.260
+
+> ent_fire trento_door_p1_entry_bank_0 Close
+
+> setang 0 -90 0
+
+> +forward 42
+non-moveable func_door 'trento_door_p1_entry_bank_0' is pushed
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.744385 1006.914307 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.750488 991.950195 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.755859 979.130493 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.761230 966.310791 157.511688;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.766357 953.971313 157.984146;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.771240 942.900513 157.984146;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.776611 930.080811 157.984146;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2902.781982 917.261108 157.984146;setang_exact 0.000000 -90.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:23    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> gameui_hide
+> setpos -1234.252 2044.685 171.260
+
+> ent_fire trento_door_p2_entry_outer_bank_0 Close
+
+> setang 0 -90 0
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.246826 2031.865356 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.241333 2017.234009 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.236206 2004.414307 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.231079 1991.594604 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.225952 1978.774902 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.220459 1964.143555 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.214966 1949.512207 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.210327 1938.441406 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1234.204834 1923.810059 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:34    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> gameui_hide
+> setpos 2401.575 1517.126 171.260
+
+> ent_fire trento_door_library_entry_bank_0 Close
+
+> setang 0 -90 0
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2401.580566 1502.494629 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2401.585938 1489.674927 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2401.591309 1476.855225 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2401.596680 1464.035522 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2401.602295 1449.404175 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2401.607666 1436.584473 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2401.613037 1423.764771 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2401.618652 1409.133423 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2401.624268 1394.502075 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:44    0    0     active 786432 'albylupatin2000'
+#end
+
+> ent_find povo_glass_academic_ground_room_a103_window_glass
+Searching for entities with class/target name containing substrings: "povo_glass_academic_ground_room_a103_window_glass"
+   'func_breakable' : 'povo_glass_academic_ground_room_a103_window_glass' (entindex 1466) 
+Found 1 matches.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> gameui_hide
+> setpos 4005.906 909.449 167.323
+
+> getpos_exact
+setpos_exact 4005.906006 909.448975 163.023544;setang_exact 0.000000 -90.000000 0.000000
+
+> cmd give weapon_ak47
+> slot1
+> setang 14.2044 -0.0002 0
+
+> +attack
+
+> -attack
+
+> ent_find povo_glass_academic_ground_room_a103_window_glass
+Searching for entities with class/target name containing substrings: "povo_glass_academic_ground_room_a103_window_glass"
+Found 0 matches.
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:48    0    0     active 786432 'albylupatin2000'
+#end
+
+> ent_find povo_glass_academic_ground_acquario_corridor_glass_1
+Searching for entities with class/target name containing substrings: "povo_glass_academic_ground_acquario_corridor_glass_1"
+   'func_breakable' : 'povo_glass_academic_ground_acquario_corridor_glass_1' (entindex 1502) 
+Found 1 matches.
+Achievements disabled: cheats turned on in this app session.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> gameui_hide
+> setpos 2363.072 -530.430 161.417
+
+> getpos_exact
+setpos_exact 2363.072021 -530.429993 157.984116;setang_exact 14.204285 -0.000336 0.000000
+
+> cmd give weapon_ak47
+> slot1
+> setang 8.5710 89.9995 0
+
+> +attack
+
+> -attack
+Achievements disabled: cheats turned on in this app session.
+
+> ent_find povo_glass_academic_ground_acquario_corridor_glass_1
+Searching for entities with class/target name containing substrings: "povo_glass_academic_ground_acquario_corridor_glass_1"
+Found 0 matches.
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.018 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:52    0    0     active 786432 'albylupatin2000'
+#end
+
+> ent_find povo_glass_library_0_west_glass_0
+Searching for entities with class/target name containing substrings: "povo_glass_library_0_west_glass_0"
+   'func_breakable' : 'povo_glass_library_0_west_glass_0' (entindex 522) 
+Found 1 matches.
+
+> -forward 42
+> -attack
+> sv_cheats 1
+> god 1
+> noclip 0
+> gameui_hide
+> setpos 2690.289 1368.110 161.417
+
+> getpos_exact
+setpos_exact 2690.289062 1368.109985 157.511688;setang_exact 8.571045 89.999664 0.000000
+
+> cmd give weapon_ak47
+> slot1
+> setang 8.0324 90.0004 0
+
+> +attack
+
+> -attack
+
+> ent_find povo_glass_library_0_west_glass_0
+Searching for entities with class/target name containing substrings: "povo_glass_library_0_west_glass_0"
+Found 0 matches.
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.017 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:56    0    0     active 786432 'albylupatin2000'
+#end
+
+> mp_warmup_end
+> mp_restartgame 1
+NumAliveTerrorist( rnd 0 ) = 1
+NumAliveCT( rnd 0 ) = 0
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 116.55 
+Using spawn points configuration 0x100648D0
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+BeginMatch
+CL:  Forcing ExecuteQueuedOperations due to entity slot re-use (340 point_worldtext)
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CQ: Server set re-sync at cmd 7294
+VProfLite started.
+La partita verrà riavviata fra 1 secondo
+NumAliveTerrorist( rnd 0 ) = 1
+NumAliveCT( rnd 0 ) = 0
+"albylupatin2000<0><[U:1:319081618]><TERRORIST>" OnPreResetRound => CTMDBG, team 2  will switch 0 118.42 
+Using spawn points configuration 0x100648D0
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+CGameEventManager::AddListener: event 'player_respawned' unknown.
+BeginMatch
+CQ: Server set re-sync at cmd 7413
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    02:00    0    0     active 786432 'albylupatin2000'
+#end
+
+> ent_find povo_glass_academic_ground_room_a103_window_glass
+Searching for entities with class/target name containing substrings: "povo_glass_academic_ground_room_a103_window_glass"
+   'func_breakable' : 'povo_glass_academic_ground_room_a103_window_glass' (entindex 551) 
+Found 1 matches.
+
+> ent_find povo_glass_academic_ground_acquario_corridor_glass_1
+Searching for entities with class/target name containing substrings: "povo_glass_academic_ground_acquario_corridor_glass_1"
+   'func_breakable' : 'povo_glass_academic_ground_acquario_corridor_glass_1' (entindex 587) 
+Found 1 matches.
+
+> ent_find povo_glass_library_0_west_glass_0
+Searching for entities with class/target name containing substrings: "povo_glass_library_0_west_glass_0"
+   'func_breakable' : 'povo_glass_library_0_west_glass_0' (entindex 802) 
+Found 1 matches.
+
+> -forward 42
+> -attack

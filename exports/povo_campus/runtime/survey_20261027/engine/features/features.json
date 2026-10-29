@@ -1,0 +1,199 @@
+{
+  "status": "passed",
+  "map": "trento_povo_campus",
+  "started_at_utc": "2026-10-27T18:41:50.588182+00:00",
+  "package_sha256": "2edab45d2625ec635410e0d9af5f353842e6ca51d1cee8b225adb48b05692b61",
+  "package_identity_scope": "On-disk package hash; live status checks map name, not loaded bytes",
+  "plan": {
+    "shots": [
+      {
+        "id": "a103_teaching_front",
+        "targetname": "povo_glass_academic_ground_room_a103_window_glass",
+        "start": [
+          23.1,
+          -101.75,
+          4.25
+        ],
+        "target": [
+          23.1,
+          -103.0,
+          5.45
+        ]
+      },
+      {
+        "id": "acquario_corridor",
+        "targetname": "povo_glass_academic_ground_acquario_corridor_glass_1",
+        "start": [
+          -13.472929936251603,
+          -60.022041062498474,
+          4.1
+        ],
+        "target": [
+          -12.222929936251603,
+          -60.022041062498474,
+          5.45
+        ]
+      },
+      {
+        "id": "library_glazing",
+        "targetname": "povo_glass_library_0_west_glass_0",
+        "start": [
+          34.75,
+          -68.33333333333334,
+          4.1
+        ],
+        "target": [
+          36.0,
+          -68.33333333333334,
+          5.45
+        ]
+      }
+    ],
+    "doors": [
+      {
+        "id": "p1_entry_bank_0",
+        "targetname": "trento_door_p1_entry_bank_0",
+        "start": [
+          26.535,
+          -73.72946859896183,
+          4.135
+        ],
+        "target": [
+          23.0485,
+          -73.72946859896183,
+          4.135
+        ],
+        "plane": 24.0485
+      },
+      {
+        "id": "p2_entry_outer_bank_0",
+        "targetname": "trento_door_p2_entry_outer_bank_0",
+        "start": [
+          51.934999999999995,
+          31.35,
+          4.135
+        ],
+        "target": [
+          48.448499999999996,
+          31.35,
+          4.135
+        ],
+        "plane": 49.448499999999996
+      },
+      {
+        "id": "library_entry_bank_0",
+        "targetname": "trento_door_library_entry_bank_0",
+        "start": [
+          38.535,
+          -61.0,
+          4.135
+        ],
+        "target": [
+          35.0485,
+          -61.0,
+          4.135
+        ],
+        "plane": 36.0485
+      }
+    ],
+    "expected_glass": 530,
+    "expected_doors": 58
+  },
+  "checks": [
+    {
+      "name": "native_glass_count",
+      "passed": true,
+      "expected": 530
+    },
+    {
+      "name": "native_door_count",
+      "passed": true,
+      "expected": 58
+    },
+    {
+      "name": "p1_entry_bank_0_sensor_opens_for_walking",
+      "passed": true,
+      "position": [
+        22.993458508891976,
+        -73.73006084569492,
+        4.012797308416052
+      ]
+    },
+    {
+      "name": "p2_entry_outer_bank_0_sensor_opens_for_walking",
+      "passed": true,
+      "position": [
+        48.465283587593866,
+        31.3494352945254,
+        4.0007926080160034
+      ]
+    },
+    {
+      "name": "library_entry_bank_0_sensor_opens_for_walking",
+      "passed": true,
+      "position": [
+        34.93416533613974,
+        -61.000592883244,
+        4.0007964942160035
+      ]
+    },
+    {
+      "name": "a103_teaching_front_present",
+      "passed": true
+    },
+    {
+      "name": "a103_teaching_front_breaks_from_bullets",
+      "passed": true,
+      "position": [
+        23.1000039650924,
+        -101.75001255280701,
+        4.1407980176165635
+      ],
+      "yaw": -0.0001817482730885648,
+      "pitch": 14.204418410670243
+    },
+    {
+      "name": "acquario_corridor_present",
+      "passed": true
+    },
+    {
+      "name": "acquario_corridor_breaks_from_bullets",
+      "passed": true,
+      "position": [
+        -13.472921822253891,
+        -60.02202933364009,
+        4.012796546416052
+      ],
+      "yaw": 89.9994623852432,
+      "pitch": 8.571006561907735
+    },
+    {
+      "name": "library_glazing_present",
+      "passed": true
+    },
+    {
+      "name": "library_glazing_breaks_from_bullets",
+      "passed": true,
+      "position": [
+        34.749993619139005,
+        -68.33334217507334,
+        4.000796875216003
+      ],
+      "yaw": 90.00040527343955,
+      "pitch": 8.032357485470945
+    },
+    {
+      "name": "a103_teaching_front_restored_next_round",
+      "passed": true
+    },
+    {
+      "name": "acquario_corridor_restored_next_round",
+      "passed": true
+    },
+    {
+      "name": "library_glazing_restored_next_round",
+      "passed": true
+    }
+  ],
+  "finished_at_utc": "2026-10-27T18:42:27.057906+00:00"
+}

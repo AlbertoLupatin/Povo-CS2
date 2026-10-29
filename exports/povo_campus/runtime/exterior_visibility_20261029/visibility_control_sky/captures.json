@@ -1,0 +1,38 @@
+[
+  {
+    "name": "paving",
+    "feet": [
+      0,
+      -14,
+      3.82
+    ],
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\visibility_control_sky\\paving.png"
+  },
+  {
+    "name": "asphalt",
+    "feet": [
+      0,
+      11,
+      3.82
+    ],
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\visibility_control_sky\\asphalt.png"
+  },
+  {
+    "name": "flat",
+    "feet": [
+      37,
+      -14,
+      4
+    ],
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\visibility_control_sky\\flat.png"
+  },
+  {
+    "name": "paving_fullbright",
+    "feet": [
+      0,
+      -14,
+      3.82
+    ],
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\visibility_control_sky\\paving_fullbright.png"
+  }
+]

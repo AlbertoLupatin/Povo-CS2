@@ -1,0 +1,910 @@
+{
+  "status": "passed",
+  "started_at_utc": "2026-10-27T20:27:51.483558+00:00",
+  "routes": [
+    {
+      "name": "p2_upper_module0_down",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            19.2,
+            19.35,
+            7.6
+          ],
+          "position": [
+            19.200189285676803,
+            19.48407893887794,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            15.35,
+            19.35,
+            5.799999999999999
+          ],
+          "position": [
+            15.262375368061049,
+            19.34721131827739,
+            5.980793067623924
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            19.35,
+            5.799999999999999
+          ],
+          "position": [
+            13.221127888452886,
+            19.347747715477393,
+            5.800793224423204
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            22.65,
+            5.799999999999999
+          ],
+          "position": [
+            13.14726572985259,
+            22.666545141890666,
+            5.800792437023204
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            15.35,
+            22.65,
+            5.619999999999999
+          ],
+          "position": [
+            15.460569485261844,
+            22.654806328690622,
+            5.800792818023203
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            19.2,
+            22.65,
+            4.0
+          ],
+          "position": [
+            19.251210976877008,
+            22.646403729290586,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            19.2,
+            22.0,
+            4.0
+          ],
+          "position": [
+            19.255128571277023,
+            22.12702612948851,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_upper_module0_down_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            19.2,
+            22.65,
+            4.0
+          ],
+          "position": [
+            19.2000032560768,
+            22.53258897089013,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            15.35,
+            22.65,
+            5.619999999999999
+          ],
+          "position": [
+            15.334192699661338,
+            22.649927547490602,
+            5.800792818023203
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            22.65,
+            5.799999999999999
+          ],
+          "position": [
+            13.187255540652748,
+            22.65176620269061,
+            5.800792437023204
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            19.35,
+            5.799999999999999
+          ],
+          "position": [
+            13.14467363445258,
+            19.332633902677333,
+            5.800793224423204
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            15.35,
+            19.35,
+            5.799999999999999
+          ],
+          "position": [
+            15.318764180861276,
+            19.315403965077262,
+            5.980793067623924
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            19.2,
+            19.35,
+            7.6
+          ],
+          "position": [
+            19.205630803876826,
+            19.35187305647741,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            19.2,
+            20.0,
+            7.6
+          ],
+          "position": [
+            19.268664180477078,
+            19.867839995079475,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_upper_module1_down",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            19.2,
+            19.35,
+            11.2
+          ],
+          "position": [
+            19.200007904276802,
+            19.475698056477906,
+            11.200793067044804
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            15.35,
+            19.35,
+            9.399999999999999
+          ],
+          "position": [
+            15.28476470606114,
+            19.348325971877397,
+            9.580792725638325
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            19.35,
+            9.399999999999999
+          ],
+          "position": [
+            13.195946480852784,
+            19.347887237677394,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            22.65,
+            9.399999999999999
+          ],
+          "position": [
+            13.14719285725259,
+            22.658358036090636,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            15.35,
+            22.65,
+            9.219999999999999
+          ],
+          "position": [
+            15.298187158261195,
+            22.670485977290685,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            18.049999999999997,
+            22.65,
+            7.599999999999999
+          ],
+          "position": [
+            18.171659821272687,
+            22.650618986290606,
+            7.7807932776311235
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            19.2,
+            22.0,
+            7.6
+          ],
+          "position": [
+            19.22959059847692,
+            21.980481591487923,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            19.2,
+            20.0,
+            7.6
+          ],
+          "position": [
+            19.214744984276862,
+            19.99700575147999,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_upper_module1_down_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            19.2,
+            22.0,
+            7.6
+          ],
+          "position": [
+            19.200386161076803,
+            21.989178729287957,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            18.049999999999997,
+            22.65,
+            7.599999999999999
+          ],
+          "position": [
+            18.134446586072542,
+            22.664666176890663,
+            7.7807932776311235
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            15.35,
+            22.65,
+            9.219999999999999
+          ],
+          "position": [
+            15.210679306860843,
+            22.648228439890595,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            22.65,
+            9.399999999999999
+          ],
+          "position": [
+            13.189999553452761,
+            22.6491090070906,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            19.35,
+            9.399999999999999
+          ],
+          "position": [
+            13.151381749052607,
+            19.27926042547712,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            15.35,
+            19.35,
+            9.399999999999999
+          ],
+          "position": [
+            15.277943409061113,
+            19.31718059347727,
+            9.580792725638325
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            19.2,
+            19.35,
+            11.2
+          ],
+          "position": [
+            19.205286633876824,
+            19.351769170477407,
+            11.200793067044804
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            19.2,
+            20.0,
+            11.2
+          ],
+          "position": [
+            19.285083324677142,
+            19.885896270879545,
+            11.200793067044804
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "amenity_canteen_stair0_up",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            42.85,
+            -99.15,
+            4.18
+          ],
+          "position": [
+            42.70605063057083,
+            -99.14999141299661,
+            4.360798161817444
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            45.550000000000004,
+            -99.15,
+            5.8
+          ],
+          "position": [
+            45.572805882582294,
+            -99.15053090899661,
+            5.800798634623204
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            45.550000000000004,
+            -97.95,
+            5.9799999999999995
+          ],
+          "position": [
+            45.5504475579822,
+            -98.00298545199202,
+            6.160797990824643
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            42.85,
+            -97.95,
+            7.6
+          ],
+          "position": [
+            42.76631053037107,
+            -97.95250170739182,
+            7.600798082630403
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            42.1,
+            -97.95,
+            7.6
+          ],
+          "position": [
+            42.23949926496896,
+            -97.95231567779182,
+            7.600797295230404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "amenity_canteen_stair0_up_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            42.85,
+            -97.95,
+            7.6
+          ],
+          "position": [
+            42.72741987917091,
+            -97.9502010769918,
+            7.600798082630403
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            45.550000000000004,
+            -97.95,
+            5.9799999999999995
+          ],
+          "position": [
+            45.572805882582294,
+            -97.9496677785918,
+            6.160798371824644
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            45.550000000000004,
+            -99.15,
+            5.8
+          ],
+          "position": [
+            45.5495669907822,
+            -99.14908602999661,
+            5.800798634623204
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            42.85,
+            -99.15,
+            4.18
+          ],
+          "position": [
+            42.70330042017081,
+            -99.14506147619659,
+            4.360798161817444
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            42.1,
+            -99.15,
+            4.0
+          ],
+          "position": [
+            42.22825653916892,
+            -99.14873876119661,
+            4.000798043616003
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "planned_routes": 6,
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "e08a52bbf22d4b9e668d88cd5becbb8375f34831393fb1996dc59073332af3c4",
+  "package_bytes": 61507512,
+  "metadata_sha256": "ea85a8bddb0b548c3d36b8931496d6625f7972a829a904971ed7c03c60bf7dd4",
+  "map_name": "trento_povo_campus",
+  "package_identity_scope": "On-disk bytes verified; native status confirms loaded map name, not loaded VPK bytes",
+  "fresh_map_scope": "Operator must load a fresh map before running; status checks map name and one human/zero bots",
+  "movement": "One initial placement per route; ordinary walking/climbing only; noclip0 enforced at placement/cleanup",
+  "route_plan": [
+    {
+      "name": "p2_upper_module0_down",
+      "kind": "walk",
+      "category": "p2_upper_stair",
+      "path": [
+        [
+          19.2,
+          20.0,
+          7.6
+        ],
+        [
+          19.2,
+          19.35,
+          7.6
+        ],
+        [
+          15.35,
+          19.35,
+          5.799999999999999
+        ],
+        [
+          13.15,
+          19.35,
+          5.799999999999999
+        ],
+        [
+          13.15,
+          22.65,
+          5.799999999999999
+        ],
+        [
+          15.35,
+          22.65,
+          5.619999999999999
+        ],
+        [
+          19.2,
+          22.65,
+          4.0
+        ],
+        [
+          19.2,
+          22.0,
+          4.0
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "p2_upper_module0_down_return",
+      "kind": "walk",
+      "category": "p2_upper_stair",
+      "path": [
+        [
+          19.2,
+          22.0,
+          4.0
+        ],
+        [
+          19.2,
+          22.65,
+          4.0
+        ],
+        [
+          15.35,
+          22.65,
+          5.619999999999999
+        ],
+        [
+          13.15,
+          22.65,
+          5.799999999999999
+        ],
+        [
+          13.15,
+          19.35,
+          5.799999999999999
+        ],
+        [
+          15.35,
+          19.35,
+          5.799999999999999
+        ],
+        [
+          19.2,
+          19.35,
+          7.6
+        ],
+        [
+          19.2,
+          20.0,
+          7.6
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "p2_upper_module1_down",
+      "kind": "walk",
+      "category": "p2_upper_stair",
+      "path": [
+        [
+          19.2,
+          20.0,
+          11.2
+        ],
+        [
+          19.2,
+          19.35,
+          11.2
+        ],
+        [
+          15.35,
+          19.35,
+          9.399999999999999
+        ],
+        [
+          13.15,
+          19.35,
+          9.399999999999999
+        ],
+        [
+          13.15,
+          22.65,
+          9.399999999999999
+        ],
+        [
+          15.35,
+          22.65,
+          9.219999999999999
+        ],
+        [
+          18.049999999999997,
+          22.65,
+          7.599999999999999
+        ],
+        [
+          19.2,
+          22.0,
+          7.6
+        ],
+        [
+          19.2,
+          20.0,
+          7.6
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "p2_upper_module1_down_return",
+      "kind": "walk",
+      "category": "p2_upper_stair",
+      "path": [
+        [
+          19.2,
+          20.0,
+          7.6
+        ],
+        [
+          19.2,
+          22.0,
+          7.6
+        ],
+        [
+          18.049999999999997,
+          22.65,
+          7.599999999999999
+        ],
+        [
+          15.35,
+          22.65,
+          9.219999999999999
+        ],
+        [
+          13.15,
+          22.65,
+          9.399999999999999
+        ],
+        [
+          13.15,
+          19.35,
+          9.399999999999999
+        ],
+        [
+          15.35,
+          19.35,
+          9.399999999999999
+        ],
+        [
+          19.2,
+          19.35,
+          11.2
+        ],
+        [
+          19.2,
+          20.0,
+          11.2
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "amenity_canteen_stair0_up",
+      "kind": "walk",
+      "category": "amenity_stair",
+      "path": [
+        [
+          42.1,
+          -99.15,
+          4.0
+        ],
+        [
+          42.85,
+          -99.15,
+          4.18
+        ],
+        [
+          45.550000000000004,
+          -99.15,
+          5.8
+        ],
+        [
+          45.550000000000004,
+          -97.95,
+          5.9799999999999995
+        ],
+        [
+          42.85,
+          -97.95,
+          7.6
+        ],
+        [
+          42.1,
+          -97.95,
+          7.6
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "amenity_canteen_stair0_up_return",
+      "kind": "walk",
+      "category": "amenity_stair",
+      "path": [
+        [
+          42.1,
+          -97.95,
+          7.6
+        ],
+        [
+          42.85,
+          -97.95,
+          7.6
+        ],
+        [
+          45.550000000000004,
+          -97.95,
+          5.9799999999999995
+        ],
+        [
+          45.550000000000004,
+          -99.15,
+          5.8
+        ],
+        [
+          42.85,
+          -99.15,
+          4.18
+        ],
+        [
+          42.1,
+          -99.15,
+          4.0
+        ]
+      ],
+      "xy_tolerance": 0.15
+    }
+  ],
+  "controller_timings": {
+    "position_read": 0.1,
+    "guard_read": 0.35,
+    "stop_read": 0.04,
+    "placement_settle": 0.5,
+    "broad_pulse_max": 0.45,
+    "narrow_pulse_max": 0.25,
+    "broad_pulse_min": 0.04,
+    "narrow_pulse_min": 0.035
+  },
+  "initial_status": "Server:  Running [172.26.128.1:27015]\r\nClient:  Connected [loopback:1] [last packet 0.034 sec ago]\r\n----- Status -----\r\n@ Current  :  game\r\nsource   : slot 0\r\nversion  : 1.41.9.2/14192 10955 insecure  public\r\nsteamid  : [I:1:0] (72057594037927936)\r\nplayers  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)\r\n---------spawngroups----\r\nloaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]\r\nloaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]\r\nloaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]\r\nloaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]\r\n---------players--------\r\n  id     time ping loss      state   rate name\r\n   0    00:07    0    0     active 786432 'albylupatin2000'\r\n#end\r\n",
+  "loaded_map_name": "trento_povo_campus",
+  "finished_at_utc": "2026-10-27T20:28:56.355445+00:00"
+}

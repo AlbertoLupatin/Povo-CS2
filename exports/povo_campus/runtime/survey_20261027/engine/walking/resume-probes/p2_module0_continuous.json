@@ -1,0 +1,22 @@
+{
+  "name": "p2_module0_continuous",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        19.2,
+        19.35,
+        7.6
+      ],
+      "position": [
+        19.2000048054768,
+        19.426296402677707,
+        7.600792647030404
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ],
+  "error": "Ordinary movement stalled: [16.663193750066654, 19.378598555477517, 6.880793172627524] target [14.5, 19.35, 5.8]"
+}

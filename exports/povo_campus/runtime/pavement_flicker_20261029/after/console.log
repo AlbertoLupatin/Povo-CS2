@@ -1,0 +1,830 @@
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.033 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:08    0    0     active 786432 'albylupatin2000'
+#end
+
+> getpos_exact
+setpos_exact -1141.732056 1035.432983 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> sv_cheats 1
+> god 1
+> cl_drawhud 0
+> r_drawviewmodel 0
+> mat_fullbright 0
+> engine_no_focus_sleep 0
+> fps_max 90
+> gameui_hide
+non-moveable func_door_rotating 'stair_p2_internal_door_-2_1' is pushed
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1220.472 1062.992 161.417
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 35 -90 0
+
+> setang 35 -90.0 0
+
+> png_screenshot flicker_after_povo2_entry_0
+Screenshot written to: screenshots\flicker_after_povo2_entry_0_0000.png
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact 35.000031 -90.000000 0.000000
+
+> setang 35 -89.96 0
+
+> png_screenshot flicker_after_povo2_entry_1
+Screenshot written to: screenshots\flicker_after_povo2_entry_1_0000.png
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact 35.000031 -89.959831 0.000000
+
+> setang 35 -89.92 0
+
+> png_screenshot flicker_after_povo2_entry_2
+Screenshot written to: screenshots\flicker_after_povo2_entry_2_0000.png
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact 35.000031 -89.920006 0.000000
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -905.512 944.882 161.417
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 35.000031 -89.920006 0.000000
+
+> setang 45 -90 0
+
+> setang 45 -90.0 0
+
+> png_screenshot flicker_after_povo2_stair_hall_0
+Screenshot written to: screenshots\flicker_after_povo2_stair_hall_0_0000.png
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 45.000000 -90.000000 0.000000
+
+> setang 45 -89.96 0
+
+> png_screenshot flicker_after_povo2_stair_hall_1
+Screenshot written to: screenshots\flicker_after_povo2_stair_hall_1_0000.png
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 45.000000 -89.959831 0.000000
+
+> setang 45 -89.92 0
+
+> png_screenshot flicker_after_povo2_stair_hall_2
+Screenshot written to: screenshots\flicker_after_povo2_stair_hall_2_0000.png
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 45.000000 -89.920006 0.000000
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2519.685 1062.992 161.417
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact 45.000000 -89.920006 0.000000
+
+> setang 35 0 0
+
+> setang 35 0.0 0
+
+> png_screenshot flicker_after_povo1_lower_plaza_0
+Screenshot written to: screenshots\flicker_after_povo1_lower_plaza_0_0000.png
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact 35.000031 0.000000 0.000000
+
+> setang 35 0.04 0
+
+> png_screenshot flicker_after_povo1_lower_plaza_1
+Screenshot written to: screenshots\flicker_after_povo1_lower_plaza_1_0000.png
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact 35.000031 0.039825 0.000000
+
+> setang 35 0.08 0
+
+> png_screenshot flicker_after_povo1_lower_plaza_2
+Screenshot written to: screenshots\flicker_after_povo1_lower_plaza_2_0000.png
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact 35.000031 0.079987 0.000000
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2952.756 2145.669 303.150
+
+> getpos_exact
+setpos_exact 2952.756104 2145.668945 299.243958;setang_exact 35.000031 0.079987 0.000000
+
+> setang 35 0 0
+
+> setang 35 0.0 0
+
+> png_screenshot flicker_after_povo1_front_walk_0
+Screenshot written to: screenshots\flicker_after_povo1_front_walk_0_0000.png
+
+> getpos_exact
+setpos_exact 2952.756104 2145.668945 299.243958;setang_exact 35.000031 0.000000 0.000000
+
+> setang 35 0.04 0
+
+> png_screenshot flicker_after_povo1_front_walk_1
+Screenshot written to: screenshots\flicker_after_povo1_front_walk_1_0000.png
+
+> getpos_exact
+setpos_exact 2952.756104 2145.668945 299.243958;setang_exact 35.000031 0.039825 0.000000
+
+> setang 35 0.08 0
+
+> png_screenshot flicker_after_povo1_front_walk_2
+Screenshot written to: screenshots\flicker_after_povo1_front_walk_2_0000.png
+
+> getpos_exact
+setpos_exact 2952.756104 2145.668945 299.243958;setang_exact 35.000031 0.079987 0.000000
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -905.512 944.882 161.417
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 35.000031 0.079987 0.000000
+
+> setang 0 -90 0
+
+> setang 0 -90.0 0
+
+> png_screenshot flicker_after_povo2_wall_0
+Screenshot written to: screenshots\flicker_after_povo2_wall_0_0000.png
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -89.96 0
+
+> png_screenshot flicker_after_povo2_wall_1
+Screenshot written to: screenshots\flicker_after_povo2_wall_1_0000.png
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 0.000000 -89.959831 0.000000
+
+> setang 0 -89.92 0
+
+> png_screenshot flicker_after_povo2_wall_2
+Screenshot written to: screenshots\flicker_after_povo2_wall_2_0000.png
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 0.000000 -89.920006 0.000000
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1220.472 1062.992 161.417
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact 0.000000 -89.920006 0.000000
+
+> setang -65 0 0
+
+> setang -65 0.0 0
+
+> png_screenshot flicker_after_povo2_ceiling_0
+Screenshot written to: screenshots\flicker_after_povo2_ceiling_0_0000.png
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact -64.999924 0.000000 0.000000
+
+> setang -65 0.04 0
+
+> png_screenshot flicker_after_povo2_ceiling_1
+Screenshot written to: screenshots\flicker_after_povo2_ceiling_1_0000.png
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact -64.999924 0.039825 0.000000
+
+> setang -65 0.08 0
+
+> png_screenshot flicker_after_povo2_ceiling_2
+Screenshot written to: screenshots\flicker_after_povo2_ceiling_2_0000.png
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact -64.999924 0.079987 0.000000
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2519.685 1062.992 161.417
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact -64.999924 0.079987 0.000000
+
+> setang 0 -90 0
+
+> setang 0 -90.0 0
+
+> png_screenshot flicker_after_povo1_facade_0
+Screenshot written to: screenshots\flicker_after_povo1_facade_0_0000.png
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -89.96 0
+
+> png_screenshot flicker_after_povo1_facade_1
+Screenshot written to: screenshots\flicker_after_povo1_facade_1_0000.png
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact 0.000000 -89.959831 0.000000
+
+> setang 0 -89.92 0
+
+> png_screenshot flicker_after_povo1_facade_2
+Screenshot written to: screenshots\flicker_after_povo1_facade_2_0000.png
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact 0.000000 -89.920006 0.000000
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 551.181 0.000 154.724
+
+> getpos_exact
+setpos_exact 551.181030 0.000000 150.917648;setang_exact 0.000000 -89.920006 0.000000
+
+> setang 35 -90 0
+
+> setang 35 -90.0 0
+
+> png_screenshot flicker_after_bridge_courtyard_join_0
+Screenshot written to: screenshots\flicker_after_bridge_courtyard_join_0_0000.png
+
+> getpos_exact
+setpos_exact 551.181030 0.000000 150.917648;setang_exact 35.000031 -90.000000 0.000000
+
+> setang 35 -89.96 0
+
+> png_screenshot flicker_after_bridge_courtyard_join_1
+Screenshot written to: screenshots\flicker_after_bridge_courtyard_join_1_0000.png
+
+> getpos_exact
+setpos_exact 551.181030 0.000000 150.917648;setang_exact 35.000031 -89.959831 0.000000
+
+> setang 35 -89.92 0
+
+> png_screenshot flicker_after_bridge_courtyard_join_2
+Screenshot written to: screenshots\flicker_after_bridge_courtyard_join_2_0000.png
+
+> getpos_exact
+setpos_exact 551.181030 0.000000 150.917648;setang_exact 35.000031 -89.920006 0.000000
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 1377.953 2224.409 307.874
+
+> getpos_exact
+setpos_exact 1377.953003 2224.408936 303.968323;setang_exact 35.000031 -89.920006 0.000000
+
+> setang 30 0 0
+
+> setang 30 0.0 0
+
+> png_screenshot flicker_after_front_street_pavement_0
+Screenshot written to: screenshots\flicker_after_front_street_pavement_0_0000.png
+
+> getpos_exact
+setpos_exact 1377.953003 2224.408936 303.968323;setang_exact 29.999878 0.000000 0.000000
+
+> setang 30 0.04 0
+
+> png_screenshot flicker_after_front_street_pavement_1
+Screenshot written to: screenshots\flicker_after_front_street_pavement_1_0000.png
+
+> getpos_exact
+setpos_exact 1377.953003 2224.408936 303.968323;setang_exact 29.999878 0.039825 0.000000
+
+> setang 30 0.08 0
+
+> png_screenshot flicker_after_front_street_pavement_2
+Screenshot written to: screenshots\flicker_after_front_street_pavement_2_0000.png
+
+> getpos_exact
+setpos_exact 1377.953003 2224.408936 303.968323;setang_exact 29.999878 0.079987 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:46    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1220.472 1062.992 161.417
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact 29.999878 0.079987 0.000000
+
+> getpos_exact
+setpos_exact -1220.472046 1062.991943 157.511520;setang_exact 29.999878 0.079987 0.000000
+
+> setang 0 180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1254.551270 1062.999878 157.511505;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.990 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1291.967529 1063.007324 157.511505;setang_exact 0.000000 -179.990051 0.000000
+
+> setang 0 -179.880 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1308.404419 1063.003784 157.511505;setang_exact 0.000000 -179.879837 0.000000
+
+> setang 0 -0.073 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1310.891235 1062.996460 157.511505;setang_exact 0.000000 -0.073120 0.000000
+
+> setang 0 -0.021 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1307.457764 1062.994385 157.511505;setang_exact 0.000000 -0.020935 0.000000
+
+> setang 0 -0.016 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1305.000244 1062.992310 157.511505;setang_exact 0.000000 -0.016144 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.023 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:49    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1299.213 1062.992 161.417
+
+> getpos_exact
+setpos_exact -1299.213013 1062.991943 157.511505;setang_exact 0.000000 -0.016144 0.000000
+
+> getpos_exact
+setpos_exact -1299.213013 1062.991943 157.511505;setang_exact 0.000000 -0.016144 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1263.785767 1062.984741 157.511505;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.010 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1220.060181 1062.976929 157.511520;setang_exact 0.000000 0.009949 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:51    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -905.512 944.882 161.417
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 0.000000 0.009949 0.000000
+
+> getpos_exact
+setpos_exact -905.512024 944.882019 157.511536;setang_exact 0.000000 0.009949 0.000000
+
+> setang 0 -180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -942.647949 944.889404 157.511536;setang_exact 0.000000 -180.000000 0.000000
+SteamNetworkingSockets lock held for 6.0ms.  (Performance warning.)  GetConnectionRealTimeStatus
+This is usually a symptom of a general performance problem such as thread starvation.
+
+> setang 0 -179.990 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -983.240479 944.896667 157.511536;setang_exact 0.000000 -179.990051 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.030 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:54    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -984.252 944.882 161.417
+
+> getpos_exact
+setpos_exact -984.252014 944.882019 157.511536;setang_exact 0.000000 -179.990051 0.000000
+
+> getpos_exact
+setpos_exact -984.252014 944.882019 157.511536;setang_exact 0.000000 -179.990051 0.000000
+
+> setang 0 -0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -948.132629 944.881714 157.511536;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -907.020691 944.881714 157.511536;setang_exact 0.000000 0.000000 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.028 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:56    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2519.685 1062.992 161.417
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact 0.000000 0.000000 0.000000
+
+> getpos_exact
+setpos_exact 2519.685059 1062.991943 157.511673;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2484.489258 1062.999146 157.511673;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.991 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2439.897705 1063.006714 157.511673;setang_exact 0.000000 -179.991074 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.026 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:58    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2440.945 1062.992 161.417
+
+> getpos_exact
+setpos_exact 2440.945068 1062.991943 157.511673;setang_exact 0.000000 -179.991074 0.000000
+
+> getpos_exact
+setpos_exact 2440.945068 1062.991943 157.511673;setang_exact 0.000000 -179.991074 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2474.776855 1062.991699 157.511673;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.001 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2516.639160 1062.997070 157.511673;setang_exact 0.000000 0.001038 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.026 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:00    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2952.756 2145.669 303.150
+
+> getpos_exact
+setpos_exact 2952.756104 2145.668945 299.243958;setang_exact 0.000000 0.001038 0.000000
+
+> getpos_exact
+setpos_exact 2952.756104 2145.668945 299.243958;setang_exact 0.000000 0.001038 0.000000
+
+> setang 0 180.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2915.539551 2145.676514 299.243958;setang_exact 0.000000 -180.000000 0.000000
+
+> setang 0 -179.990 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2877.511963 2145.684082 299.243958;setang_exact 0.000000 -179.990051 0.000000
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.018 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.3/14193 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    01:02    0    0     active 786432 'albylupatin2000'
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 2874.016 2145.669 303.150
+
+> getpos_exact
+setpos_exact 2874.016113 2145.668945 299.243958;setang_exact 0.000000 -179.990051 0.000000
+
+> getpos_exact
+setpos_exact 2874.016113 2145.668945 299.243958;setang_exact 0.000000 -179.990051 0.000000
+
+> setang 0 0.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2906.921631 2145.668457 299.243958;setang_exact 0.000000 0.000000 0.000000
+
+> setang 0 0.001 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 2949.172852 2145.674072 299.243958;setang_exact 0.000000 0.001038 0.000000
+
+> cl_drawhud 1
+> r_drawviewmodel 1

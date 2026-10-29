@@ -1,0 +1,769 @@
+{
+  "academic_first": [
+    {
+      "id": "f_north_west",
+      "label": "Locale",
+      "pixel_bounds": [
+        1640,
+        516,
+        1840,
+        630
+      ],
+      "door_side": "v_min",
+      "teaching_side": "east",
+      "window_side": null,
+      "door_fraction": 0.8668795180722896,
+      "door_width_metres": 1.2,
+      "kind": "office",
+      "identity_status": "Legacy provisional cell; current use not identified in photos",
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.6881243063263041,
+        0.23883495145631067,
+        0.7991120976692564,
+        0.34951456310679613
+      ],
+      "footprint_local_metres": [
+        -11.774757281527855,
+        -45.88568257447332,
+        -6.572815533960238,
+        -36.67369589302689
+      ],
+      "approximate_dimensions_metres": [
+        5.201941747567616,
+        9.211986681446433
+      ],
+      "approximate_area_square_metres": 47.920218096253066,
+      "fitout": {
+        "kind": "office",
+        "desks": 1,
+        "toilets": 0,
+        "washbasins": 0,
+        "rows": [],
+        "seats": 1,
+        "furniture": [
+          "desk",
+          "computer",
+          "chair",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            -11.124757281527854,
+            -37.899999999572685
+          ],
+          [
+            -10.724757281527854,
+            -41.279689233750105
+          ],
+          [
+            -9.173786407744046,
+            -41.279689233750105
+          ]
+        ],
+        "status": "Estimated room-type furnishing; wall plan retained, exact furniture placement not surveyed"
+      }
+    },
+    {
+      "id": "f_north_centre_male",
+      "label": "UOMINI",
+      "pixel_bounds": [
+        1640,
+        630,
+        1840,
+        785.0
+      ],
+      "door_side": "u_max",
+      "teaching_side": "north",
+      "window_side": null,
+      "kind": "restroom",
+      "sex": "male",
+      "door_fraction": 0.5,
+      "door_width_metres": 1.2,
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.6881243063263041,
+        0.34951456310679613,
+        0.7991120976692564,
+        0.5
+      ],
+      "footprint_local_metres": [
+        -6.572815533960238,
+        -45.88568257447332,
+        0.5,
+        -36.67369589302689
+      ],
+      "approximate_dimensions_metres": [
+        7.072815533960238,
+        9.211986681446433
+      ],
+      "approximate_area_square_metres": 65.15468249916916,
+      "fitout": {
+        "seats": 0,
+        "rows": [],
+        "furniture": [
+          "toilets",
+          "washbasins",
+          "dispensers",
+          "dryer",
+          "bins",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            -3.036407766980119,
+            -41.279689233750105
+          ],
+          [
+            -5.542815533960238,
+            -44.27568257447332
+          ],
+          [
+            -4.092815533960238,
+            -44.27568257447332
+          ],
+          [
+            -2.6428155339602384,
+            -44.27568257447332
+          ],
+          [
+            -1.1928155339602384,
+            -44.27568257447332
+          ],
+          [
+            -0.95,
+            -42.37568257447332
+          ],
+          [
+            -0.95,
+            -41.32568257447332
+          ],
+          [
+            -0.95,
+            -40.27568257447332
+          ],
+          [
+            -5.452815533960238,
+            -40.28568257447332
+          ],
+          [
+            -5.452815533960238,
+            -38.935682574473326
+          ]
+        ],
+        "toilets": 4,
+        "washbasins": 3,
+        "urinals": 2
+      }
+    },
+    {
+      "id": "f_north_centre_female",
+      "label": "DONNE",
+      "pixel_bounds": [
+        1640,
+        785.0,
+        1840,
+        940
+      ],
+      "door_side": "u_max",
+      "teaching_side": "north",
+      "window_side": null,
+      "kind": "restroom",
+      "sex": "female",
+      "door_fraction": 0.5,
+      "door_width_metres": 1.2,
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.6881243063263041,
+        0.5,
+        0.7991120976692564,
+        0.6504854368932039
+      ],
+      "footprint_local_metres": [
+        0.5,
+        -45.88568257447332,
+        7.572815533960238,
+        -36.67369589302689
+      ],
+      "approximate_dimensions_metres": [
+        7.072815533960238,
+        9.211986681446433
+      ],
+      "approximate_area_square_metres": 65.15468249916916,
+      "fitout": {
+        "seats": 0,
+        "rows": [],
+        "furniture": [
+          "toilets",
+          "washbasins",
+          "dispensers",
+          "dryer",
+          "bins",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            4.036407766980119,
+            -41.279689233750105
+          ],
+          [
+            1.53,
+            -44.27568257447332
+          ],
+          [
+            2.9800000000000004,
+            -44.27568257447332
+          ],
+          [
+            4.43,
+            -44.27568257447332
+          ],
+          [
+            5.88,
+            -44.27568257447332
+          ],
+          [
+            6.122815533960238,
+            -42.37568257447332
+          ],
+          [
+            6.122815533960238,
+            -41.32568257447332
+          ],
+          [
+            6.122815533960238,
+            -40.27568257447332
+          ]
+        ],
+        "toilets": 4,
+        "washbasins": 3,
+        "urinals": 0
+      }
+    },
+    {
+      "id": "f_north_east",
+      "label": "Locale",
+      "pixel_bounds": [
+        1640,
+        940,
+        1840,
+        1050
+      ],
+      "door_side": "v_max",
+      "teaching_side": "west",
+      "window_side": null,
+      "door_fraction": 0.8668795180722896,
+      "door_width_metres": 1.2,
+      "kind": "office",
+      "identity_status": "Legacy provisional cell; current use not identified in photos",
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.6881243063263041,
+        0.6504854368932039,
+        0.7991120976692564,
+        0.7572815533980582
+      ],
+      "footprint_local_metres": [
+        7.572815533960238,
+        -45.88568257447332,
+        12.592233009752817,
+        -36.67369589302689
+      ],
+      "approximate_dimensions_metres": [
+        5.019417475792579,
+        9.211986681446433
+      ],
+      "approximate_area_square_metres": 46.238806935620715,
+      "fitout": {
+        "kind": "office",
+        "desks": 1,
+        "toilets": 0,
+        "washbasins": 0,
+        "rows": [],
+        "seats": 1,
+        "furniture": [
+          "desk",
+          "computer",
+          "chair",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            11.942233009752817,
+            -37.899999999572685
+          ],
+          [
+            11.542233009752817,
+            -41.279689233750105
+          ],
+          [
+            10.082524271856528,
+            -41.279689233750105
+          ]
+        ],
+        "status": "Estimated room-type furnishing; wall plan retained, exact furniture placement not surveyed"
+      }
+    }
+  ],
+  "academic_ground": [
+    {
+      "id": "g_north_west",
+      "label": "Locale",
+      "pixel_bounds": [
+        1590,
+        470,
+        1764,
+        580
+      ],
+      "door_side": "v_min",
+      "teaching_side": "east",
+      "window_side": null,
+      "door_fraction": 0.8900152333471819,
+      "door_width_metres": 1.2,
+      "kind": "office",
+      "identity_status": "Legacy provisional cell; current use not identified in photos",
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.6908212560386473,
+        0.22929936305732485,
+        0.7958937198067633,
+        0.346072186836518
+      ],
+      "footprint_local_metres": [
+        -12.222929936251603,
+        -45.66183574870229,
+        -6.734607218648307,
+        -36.94082125648856
+      ],
+      "approximate_dimensions_metres": [
+        5.488322717603296,
+        8.721014492213726
+      ],
+      "approximate_area_square_metres": 47.86374195816416,
+      "fitout": {
+        "kind": "office",
+        "desks": 1,
+        "toilets": 0,
+        "washbasins": 0,
+        "rows": [],
+        "seats": 1,
+        "furniture": [
+          "desk",
+          "computer",
+          "chair",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            -11.572929936251603,
+            -37.900000000390534
+          ],
+          [
+            -11.172929936251602,
+            -41.301328502595425
+          ],
+          [
+            -9.478768577449955,
+            -41.301328502595425
+          ]
+        ],
+        "status": "Estimated room-type furnishing; wall plan retained, exact furniture placement not surveyed"
+      }
+    },
+    {
+      "id": "g_north_east",
+      "label": "Locale",
+      "pixel_bounds": [
+        1590,
+        786,
+        1764,
+        970
+      ],
+      "door_side": "v_max",
+      "teaching_side": "north",
+      "window_side": null,
+      "door_fraction": 0.8900152333471819,
+      "door_width_metres": 1.2,
+      "kind": "office",
+      "identity_status": "Legacy provisional cell; current use not identified in photos",
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.6908212560386473,
+        0.564755838641189,
+        0.7958937198067633,
+        0.7600849256900213
+      ],
+      "footprint_local_metres": [
+        3.5435244161635637,
+        -45.66183574870229,
+        12.723991507431492,
+        -36.94082125648856
+      ],
+      "approximate_dimensions_metres": [
+        9.180467091267928,
+        8.721014492213726
+      ],
+      "approximate_area_square_metres": 80.0629865482388,
+      "fitout": {
+        "kind": "office",
+        "desks": 1,
+        "toilets": 0,
+        "washbasins": 0,
+        "rows": [],
+        "seats": 1,
+        "furniture": [
+          "desk",
+          "computer",
+          "chair",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            12.073991507431492,
+            -37.900000000390534
+          ],
+          [
+            11.673991507431491,
+            -41.301328502595425
+          ],
+          [
+            8.133757961797528,
+            -41.301328502595425
+          ]
+        ],
+        "status": "Estimated room-type furnishing; wall plan retained, exact furniture placement not surveyed"
+      }
+    },
+    {
+      "id": "g_south_west",
+      "label": "Locale",
+      "pixel_bounds": [
+        780,
+        470,
+        958,
+        580
+      ],
+      "door_side": "v_min",
+      "teaching_side": "west",
+      "window_side": null,
+      "door_fraction": 0.12998510897522686,
+      "door_width_metres": 1.2,
+      "kind": "office",
+      "identity_status": "Legacy provisional cell; current use not identified in photos",
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.20169082125603865,
+        0.22929936305732485,
+        0.30917874396135264,
+        0.346072186836518
+      ],
+      "footprint_local_metres": [
+        -12.222929936251603,
+        -86.25966183561832,
+        -6.734607218648307,
+        -77.33816425129771
+      ],
+      "approximate_dimensions_metres": [
+        5.488322717603296,
+        8.921497584320605
+      ],
+      "approximate_area_square_metres": 48.964057867069705,
+      "fitout": {
+        "kind": "office",
+        "desks": 1,
+        "toilets": 0,
+        "washbasins": 0,
+        "rows": [],
+        "seats": 1,
+        "furniture": [
+          "desk",
+          "computer",
+          "chair",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            -11.572929936251603,
+            -85.09999999989817
+          ],
+          [
+            -11.172929936251602,
+            -81.79891304345801
+          ],
+          [
+            -9.478768577449955,
+            -81.79891304345801
+          ]
+        ],
+        "status": "Estimated room-type furnishing; wall plan retained, exact furniture placement not surveyed"
+      }
+    },
+    {
+      "id": "g_south_east",
+      "label": "Locale",
+      "pixel_bounds": [
+        780,
+        786,
+        958,
+        970
+      ],
+      "door_side": "v_max",
+      "teaching_side": "south",
+      "window_side": null,
+      "door_fraction": 0.12998510897522686,
+      "door_width_metres": 1.2,
+      "kind": "office",
+      "identity_status": "Legacy provisional cell; current use not identified in photos",
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.20169082125603865,
+        0.564755838641189,
+        0.30917874396135264,
+        0.7600849256900213
+      ],
+      "footprint_local_metres": [
+        3.5435244161635637,
+        -86.25966183561832,
+        12.723991507431492,
+        -77.33816425129771
+      ],
+      "approximate_dimensions_metres": [
+        9.180467091267928,
+        8.921497584320605
+      ],
+      "approximate_area_square_metres": 81.90351497768164,
+      "fitout": {
+        "kind": "office",
+        "desks": 1,
+        "toilets": 0,
+        "washbasins": 0,
+        "rows": [],
+        "seats": 1,
+        "furniture": [
+          "desk",
+          "computer",
+          "chair",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            12.073991507431492,
+            -85.09999999989817
+          ],
+          [
+            11.673991507431491,
+            -81.79891304345801
+          ],
+          [
+            8.133757961797528,
+            -81.79891304345801
+          ]
+        ],
+        "status": "Estimated room-type furnishing; wall plan retained, exact furniture placement not surveyed"
+      }
+    },
+    {
+      "id": "g_outer_east1",
+      "label": "Locale",
+      "pixel_bounds": [
+        1110,
+        1030,
+        1270,
+        1196
+      ],
+      "door_side": "v_min",
+      "teaching_side": "west",
+      "window_side": "east",
+      "door_width_metres": 1.2,
+      "kind": "office",
+      "identity_status": "Legacy provisional cell; current use not identified in photos",
+      "door_fraction": 0.85,
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.40096618357487923,
+        0.8237791932059448,
+        0.4975845410628019,
+        1.0
+      ],
+      "footprint_local_metres": [
+        15.717622080701403,
+        -69.71980676334351,
+        24.0,
+        -61.70048309210688
+      ],
+      "approximate_dimensions_metres": [
+        8.282377919298597,
+        8.019323671236634
+      ],
+      "approximate_area_square_metres": 66.41906930235886,
+      "fitout": {
+        "kind": "office",
+        "desks": 1,
+        "toilets": 0,
+        "washbasins": 0,
+        "rows": [],
+        "seats": 1,
+        "furniture": [
+          "desk",
+          "computer",
+          "chair",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            16.367622080701402,
+            -62.903381642792375
+          ],
+          [
+            16.767622080701404,
+            -65.7101449277252
+          ],
+          [
+            19.8588110403507,
+            -65.7101449277252
+          ]
+        ],
+        "status": "Estimated room-type furnishing; wall plan retained, exact furniture placement not surveyed"
+      }
+    },
+    {
+      "id": "g_outer_east2",
+      "label": "Locale",
+      "pixel_bounds": [
+        1270,
+        1030,
+        1430,
+        1196
+      ],
+      "door_side": "v_min",
+      "teaching_side": "west",
+      "window_side": "east",
+      "door_width_metres": 1.2,
+      "kind": "office",
+      "identity_status": "Legacy provisional cell; current use not identified in photos",
+      "door_fraction": 0.85,
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.4975845410628019,
+        0.8237791932059448,
+        0.5942028985507246,
+        1.0
+      ],
+      "footprint_local_metres": [
+        15.717622080701403,
+        -61.70048309210688,
+        24.0,
+        -53.68115941993892
+      ],
+      "approximate_dimensions_metres": [
+        8.282377919298597,
+        8.019323672167957
+      ],
+      "approximate_area_square_metres": 66.41906931007243,
+      "fitout": {
+        "kind": "office",
+        "desks": 1,
+        "toilets": 0,
+        "washbasins": 0,
+        "rows": [],
+        "seats": 1,
+        "furniture": [
+          "desk",
+          "computer",
+          "chair",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            16.367622080701402,
+            -54.88405797076412
+          ],
+          [
+            16.767622080701404,
+            -57.6908212560229
+          ],
+          [
+            19.8588110403507,
+            -57.6908212560229
+          ]
+        ],
+        "status": "Estimated room-type furnishing; wall plan retained, exact furniture placement not surveyed"
+      }
+    },
+    {
+      "id": "g_outer_east3",
+      "label": "Locale",
+      "pixel_bounds": [
+        1430,
+        1030,
+        1590,
+        1196
+      ],
+      "door_side": "v_min",
+      "teaching_side": "west",
+      "window_side": "east",
+      "door_width_metres": 1.2,
+      "kind": "office",
+      "identity_status": "Legacy provisional cell; current use not identified in photos",
+      "door_fraction": 0.85,
+      "playable": true,
+      "room_template": "existing_upper_room",
+      "bounds": [
+        0.5942028985507246,
+        0.8237791932059448,
+        0.6908212560386473,
+        1.0
+      ],
+      "footprint_local_metres": [
+        15.717622080701403,
+        -53.68115941993892,
+        24.0,
+        -45.66183574870229
+      ],
+      "approximate_dimensions_metres": [
+        8.282377919298597,
+        8.019323671236634
+      ],
+      "approximate_area_square_metres": 66.41906930235886,
+      "fitout": {
+        "kind": "office",
+        "desks": 1,
+        "toilets": 0,
+        "washbasins": 0,
+        "rows": [],
+        "seats": 1,
+        "furniture": [
+          "desk",
+          "computer",
+          "chair",
+          "storage"
+        ],
+        "audit_points_local_metres": [
+          [
+            16.367622080701402,
+            -46.864734299387784
+          ],
+          [
+            16.767622080701404,
+            -49.671497584320605
+          ],
+          [
+            19.8588110403507,
+            -49.671497584320605
+          ]
+        ],
+        "status": "Estimated room-type furnishing; wall plan retained, exact furniture placement not surveyed"
+      }
+    }
+  ]
+}

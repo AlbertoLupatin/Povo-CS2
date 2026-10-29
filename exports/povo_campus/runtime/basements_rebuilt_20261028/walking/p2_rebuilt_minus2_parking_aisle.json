@@ -1,0 +1,49 @@
+{
+  "name": "p2_rebuilt_minus2_parking_aisle",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        9.65,
+        5.0,
+        -3.2
+      ],
+      "position": [
+        9.649925709038602,
+        4.976803203619907,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        -23.5,
+        5.0,
+        -3.2
+      ],
+      "position": [
+        -23.491804857893968,
+        4.999413445419998,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        -23.5,
+        -8.0,
+        -3.2
+      ],
+      "position": [
+        -23.499946980294002,
+        -8.005902022232025,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

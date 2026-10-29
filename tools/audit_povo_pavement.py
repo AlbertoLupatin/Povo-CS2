@@ -18,6 +18,7 @@ def audit(boxes=None, levels=None, step=.5):
     def check(x,y,z):
         nonlocal samples
         if yard[0]-.12<=x<=yard[2]+.12 and yard[1]-.12<=y<=yard[3]+.12:return
+        if any(a<=x<=c and b<=y<=d for a,b,c,d in repairs.get('garden_exclusions',[])):return
         samples+=1
         def supported(bs,ms):
             return any(lo[0]-1e-6<=x<=hi[0]+1e-6 and lo[1]-1e-6<=y<=hi[1]+1e-6

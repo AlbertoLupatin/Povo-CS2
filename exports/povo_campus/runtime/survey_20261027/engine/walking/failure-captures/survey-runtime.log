@@ -1,0 +1,2347 @@
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    41:36    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -866.142 755.906 161.417
+
+> getpos_exact
+setpos_exact -866.142029 755.906006 157.511520;setang_exact 0.000000 0.531128 0.000000
+
+> getpos_exact
+setpos_exact -866.142029 755.906006 157.511520;setang_exact 0.000000 0.531128 0.000000
+
+> setang 0 -119.475 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -879.500000 731.690125 157.511536;setang_exact 0.000000 -119.474945 0.000000
+
+> setang 0 -120.149 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -891.351501 710.968445 164.598145;setang_exact 0.000000 -120.148888 0.000000
+
+> getpos_exact
+setpos_exact -894.609741 705.334717 171.684769;setang_exact 0.000000 -120.148888 0.000000
+
+> setang 0 -88.368 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -893.904846 666.196289 192.944611;setang_exact 0.000000 -88.367844 0.000000
+
+> setang 0 -87.989 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -892.003906 608.777893 228.377670;setang_exact 0.000000 -87.989159 0.000000
+
+> getpos_exact
+setpos_exact -891.733826 600.914490 228.377670;setang_exact 0.000000 -87.989159 0.000000
+
+> setang 0 -89.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -891.589844 560.930115 228.377670;setang_exact 0.000000 -89.998970 0.000000
+
+> setang 0 -90.189 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -891.662537 520.770020 228.377670;setang_exact 0.000000 -90.189171 0.000000
+
+> getpos_exact
+setpos_exact -891.680054 512.759644 228.377670;setang_exact 0.000000 -90.189171 0.000000
+
+> setang 0 2.186 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -856.755798 512.247375 228.377670;setang_exact 0.000000 2.185944 0.000000
+
+> setang 0 3.297 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -801.192749 515.150879 228.377670;setang_exact 0.000000 3.296936 0.000000
+
+> setang 0 3.727 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.727112 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 3.761 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> getpos_exact
+setpos_exact -784.031555 516.255920 228.377670;setang_exact 0.000000 3.761108 0.000000
+
+> -forward 42
+> -sprint 42
+
+> png_screenshot resume_p2_upper_module0_down_return
+Screenshot written to: screenshots\resume_p2_upper_module0_down_return_0000.png
+
+> -forward 42
+> -sprint 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    41:48    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3903.543 1657.480 161.417
+
+> getpos_exact
+setpos_exact 3903.542969 1657.479980 157.511734;setang_exact 0.000000 3.761108 0.000000
+
+> getpos_exact
+setpos_exact 3903.542969 1657.479980 157.511734;setang_exact 0.000000 3.761108 0.000000
+
+> setang 0 89.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.925537 1669.813843 164.598343;setang_exact 0.000000 89.998962 0.000000
+
+> setang 0 91.273 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.831543 1679.189819 171.684967;setang_exact 0.000000 91.273041 0.000000
+
+> setang 0 92.111 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.773926 1681.369507 171.684967;setang_exact 0.000000 92.111084 0.000000
+
+> getpos_exact
+setpos_exact 3903.773926 1681.369507 171.684967;setang_exact 0.000000 92.111084 0.000000
+
+> setang 0 90.118 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.714600 1716.553711 192.944809;setang_exact 0.000000 90.118103 0.000000
+
+> setang 0 90.128 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.347046 221.291260;setang_exact 0.000000 90.128052 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.263 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> getpos_exact
+setpos_exact 3903.644043 1771.370361 221.291260;setang_exact 0.000000 90.263000 0.000000
+
+> -forward 42
+> -sprint 42
+
+> png_screenshot resume_amenity_canteen_stair0_up
+Screenshot written to: screenshots\resume_amenity_canteen_stair0_up_0000.png
+
+> -forward 42
+> -sprint 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    41:56    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos 3856.299 1657.480 303.150
+
+> getpos_exact
+setpos_exact 3856.299072 1657.479980 299.243988;setang_exact 0.000000 90.263000 0.000000
+
+> getpos_exact
+setpos_exact 3856.299072 1657.479980 299.243988;setang_exact 0.000000 90.263000 0.000000
+
+> setang 0 90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.302734 1668.388916 299.244019;setang_exact 0.000000 90.000000 0.000000
+
+> setang 0 90.011 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.302490 1676.435547 299.244019;setang_exact 0.000000 90.010986 0.000000
+
+> setang 0 90.018 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.299805 1679.756714 299.244019;setang_exact 0.000000 90.017853 0.000000
+
+> setang 0 90.005 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.298096 1681.556763 299.244019;setang_exact 0.000000 90.005157 0.000000
+
+> getpos_exact
+setpos_exact 3856.298096 1681.556763 299.244019;setang_exact 0.000000 90.005157 0.000000
+
+> setang 0 89.999 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.305420 1717.565308 292.157410;setang_exact 0.000000 89.998962 0.000000
+
+> setang 0 90.005 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315186 1778.226074 264.204651;setang_exact 0.000000 90.005157 0.000000
+
+> setang 0 90.061 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.061096 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 90.095 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> getpos_exact
+setpos_exact 3856.315918 1783.181396 257.118073;setang_exact 0.000000 90.095093 0.000000
+
+> -forward 42
+> -sprint 42
+
+> png_screenshot resume_amenity_canteen_stair0_up_return
+Screenshot written to: screenshots\resume_amenity_canteen_stair0_up_return_0000.png
+
+> -forward 42
+> -sprint 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.024 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    42:04    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -637.795 1031.496 19.685
+
+> getpos_exact
+setpos_exact -637.794983 1031.495972 15.779255;setang_exact 0.000000 90.095093 0.000000
+
+> getpos_exact
+setpos_exact -637.794983 1031.495972 15.779255;setang_exact 0.000000 90.095093 0.000000
+
+> setang 0 -90.000 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -637.791382 1017.964111 15.779255;setang_exact 0.000000 -90.000000 0.000000
+
+> setang 0 -90.003 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -637.784973 992.130615 15.779255;setang_exact 0.000000 -90.003090 0.000000
+
+> setang 0 -90.009 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -637.778748 961.585938 15.779255;setang_exact 0.000000 -90.008926 0.000000
+
+> setang 0 -90.029 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -637.773254 928.246155 15.779255;setang_exact 0.000000 -90.028839 0.000000
+
+> getpos_exact
+setpos_exact -637.771790 921.685913 15.779255;setang_exact 0.000000 -90.028839 0.000000
+
+> setang 0 169.294 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -649.868408 923.841858 15.779255;setang_exact 0.000000 169.294159 0.000000
+
+> setang 0 169.028 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -663.391357 926.439941 15.779251;setang_exact 0.000000 169.028076 0.000000
+
+> setang 0 168.934 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.487854 927.625183 15.779251;setang_exact 0.000000 168.934021 0.000000
+
+> setang 0 168.883 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -670.787842 927.880005 15.779251;setang_exact 0.000000 168.882874 0.000000
+
+> setang 0 168.877 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -671.367065 927.993530 15.779251;setang_exact 0.000000 168.877014 0.000000
+
+> setang 0 168.874 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -671.946289 928.107056 15.779251;setang_exact 0.000000 168.873932 0.000000
+
+> setang 0 168.870 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -672.525513 928.220581 15.779251;setang_exact 0.000000 168.870178 0.000000
+
+> setang 0 168.865 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -673.397888 928.391785 15.779251;setang_exact 0.000000 168.865021 0.000000
+
+> setang 0 168.857 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -674.622986 928.633850 15.779251;setang_exact 0.000000 168.857117 0.000000
+
+> setang 0 168.874 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -675.727112 928.850891 15.779251;setang_exact 0.000000 168.873932 0.000000
+
+> setang 0 168.869 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -676.776855 929.056885 15.779251;setang_exact 0.000000 168.869141 0.000000
+
+> getpos_exact
+setpos_exact -676.794312 929.060303 15.779251;setang_exact 0.000000 168.869141 0.000000
+
+> setang 0 -90.045 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.157715 916.172668 15.779253;setang_exact 0.000000 -90.044975 0.000000
+
+> setang 0 -90.001 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.183594 894.266968 15.779255;setang_exact 0.000000 -90.001030 0.000000
+
+> setang 0 -89.998 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.193909 871.475952 15.779255;setang_exact 0.000000 -89.997940 0.000000
+
+> setang 0 -89.996 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.200317 844.356995 15.779255;setang_exact 0.000000 -89.995880 0.000000
+
+> setang 0 -89.995 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.206848 814.614441 15.779257;setang_exact 0.000000 -89.994850 0.000000
+
+> setang 0 -89.993 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.213684 780.118286 15.779253;setang_exact 0.000000 -89.993134 0.000000
+
+> setang 0 -89.991 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.220093 748.374207 15.779256;setang_exact 0.000000 -89.991074 0.000000
+
+> setang 0 -89.989 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.226440 714.278015 15.779254;setang_exact 0.000000 -89.989014 0.000000
+
+> setang 0 -89.986 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.231873 678.768005 15.779251;setang_exact 0.000000 -89.985924 0.000000
+
+> setang 0 -89.983 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.237366 643.593079 15.779251;setang_exact 0.000000 -89.982834 0.000000
+
+> setang 0 -89.978 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.242920 611.058716 15.779251;setang_exact 0.000000 -89.978027 0.000000
+
+> setang 0 -89.971 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.248047 581.423706 15.779259;setang_exact 0.000000 -89.971161 0.000000
+
+> setang 0 -89.962 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.253784 549.555969 15.779252;setang_exact 0.000000 -89.961891 0.000000
+
+> setang 0 -89.945 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.258301 518.566284 15.779254;setang_exact 0.000000 -89.945068 0.000000
+
+> setang 0 -89.914 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.253662 487.379211 15.779252;setang_exact 0.000000 -89.914169 0.000000
+
+> setang 0 -89.835 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.206360 459.304596 15.779255;setang_exact 0.000000 -89.834862 0.000000
+
+> setang 0 -89.100 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.192749 453.039154 15.779255;setang_exact 0.000000 -89.100151 0.000000
+
+> setang 0 89.570 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.185425 454.058319 15.779251;setang_exact 0.000000 89.570160 0.000000
+
+> setang 0 89.564 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.178101 455.077484 15.779255;setang_exact 0.000000 89.563965 0.000000
+
+> setang 0 89.548 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -677.170715 456.096649 15.779251;setang_exact 0.000000 89.547852 0.000000
+
+> getpos_exact
+setpos_exact -677.170715 456.096649 15.779251;setang_exact 0.000000 89.547852 0.000000
+
+> setang 0 4.328 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -676.105286 456.500488 15.779251;setang_exact 0.000000 4.327927 0.000000
+
+> setang 0 1.618 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -674.470032 456.571594 15.779254;setang_exact 0.000000 1.618073 0.000000
+
+> setang 0 1.342 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -673.346375 456.600311 15.779255;setang_exact 0.000000 1.342041 0.000000
+
+> setang 0 1.308 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -672.327209 456.623230 15.779251;setang_exact 0.000000 1.308060 0.000000
+
+> setang 0 1.315 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -670.773438 456.658600 15.779252;setang_exact 0.000000 1.314926 0.000000
+
+> setang 0 1.326 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.647888 456.684723 15.779251;setang_exact 0.000000 1.325912 0.000000
+
+> getpos_exact
+setpos_exact -669.647888 456.684723 15.779251;setang_exact 0.000000 1.325912 0.000000
+
+> setang 0 -89.961 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.642883 442.876068 15.779254;setang_exact 0.000000 -89.960861 0.000000
+
+> setang 0 -89.960 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.635376 418.724365 15.779255;setang_exact 0.000000 -89.959831 0.000000
+
+> setang 0 -89.959 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.627625 388.078857 15.779256;setang_exact 0.000000 -89.959145 0.000000
+
+> setang 0 -89.957 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.619995 356.545715 15.779253;setang_exact 0.000000 -89.957085 0.000000
+
+> setang 0 -89.955 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.612427 325.579071 15.779255;setang_exact 0.000000 -89.955025 0.000000
+
+> setang 0 -89.953 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.604797 291.707275 15.779256;setang_exact 0.000000 -89.952965 0.000000
+
+> setang 0 -89.949 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.597229 257.097687 15.779249;setang_exact 0.000000 -89.948845 0.000000
+
+> setang 0 -89.945 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.589722 225.115036 15.779249;setang_exact 0.000000 -89.945068 0.000000
+
+> setang 0 -89.941 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.582336 197.062393 15.779249;setang_exact 0.000000 -89.940948 0.000000
+
+> setang 0 -89.936 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.574463 169.376480 15.779249;setang_exact 0.000000 -89.936142 0.000000
+
+> setang 0 -89.930 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.566162 140.499771 15.779249;setang_exact 0.000000 -89.929962 0.000000
+
+> setang 0 -89.923 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.557495 107.293854 15.779249;setang_exact 0.000000 -89.923096 0.000000
+
+> setang 0 -89.910 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.548767 72.331192 15.779249;setang_exact 0.000000 -89.910049 0.000000
+
+> setang 0 -89.891 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.525391 38.678768 15.779249;setang_exact 0.000000 -89.891167 0.000000
+
+> setang 0 -89.868 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.479858 6.808996 15.779249;setang_exact 0.000000 -89.868164 0.000000
+
+> setang 0 -89.845 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.421936 -21.431620 15.779249;setang_exact 0.000000 -89.845161 0.000000
+
+> setang 0 -89.820 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.354126 -47.848862 15.779249;setang_exact 0.000000 -89.820099 0.000000
+
+> setang 0 -89.762 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.316711 -60.423962 15.779249;setang_exact 0.000000 -89.762077 0.000000
+
+> setang 0 -89.434 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -669.300964 -62.843445 15.779249;setang_exact 0.000000 -89.433861 0.000000
+
+> getpos_exact
+setpos_exact -669.300964 -62.843445 15.779249;setang_exact 0.000000 -89.433861 0.000000
+
+> setang 0 -1.080 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -667.621826 -62.875366 15.779249;setang_exact 0.000000 -1.080093 0.000000
+
+> setang 0 -1.078 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -665.863953 -62.908936 15.779249;setang_exact 0.000000 -1.078033 0.000000
+
+> setang 0 -1.072 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -664.844788 -62.928101 15.779249;setang_exact 0.000000 -1.071854 0.000000
+
+> setang 0 -1.070 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -663.825623 -62.947266 15.779249;setang_exact 0.000000 -1.070129 0.000000
+
+> setang 0 -1.067 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -662.806458 -62.966370 15.779249;setang_exact 0.000000 -1.067047 0.000000
+
+> setang 0 -1.062 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -662.216614 -62.977295 15.779257;setang_exact 0.000000 -1.061890 0.000000
+
+> getpos_exact
+setpos_exact -662.216614 -62.977295 15.779257;setang_exact 0.000000 -1.061890 0.000000
+
+> setang 0 -89.169 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -661.612854 -78.272003 15.779255;setang_exact 0.000000 -89.169159 0.000000
+
+> setang 0 -89.719 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -661.386658 -105.388023 15.779255;setang_exact 0.000000 -89.719162 0.000000
+
+> setang 0 -90.138 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -661.348511 -118.197113 15.779255;setang_exact 0.000000 -90.138016 0.000000
+
+> getpos_exact
+setpos_exact -661.349854 -120.396362 15.779255;setang_exact 0.000000 -90.138016 0.000000
+
+> setang 0 179.842 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -674.470581 -120.731636 15.779254;setang_exact 0.000000 179.842072 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 179.815 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> getpos_exact
+setpos_exact -691.842346 -120.683350 15.779255;setang_exact 0.000000 179.814941 0.000000
+
+> -forward 42
+> -sprint 42
+
+> png_screenshot resume_basement_source_planned_detour
+Screenshot written to: screenshots\resume_basement_source_planned_detour_0000.png
+
+> -forward 42
+> -sprint 42
+> -jump
+> -attack
+> noclip 0
+
+> status
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.2/14192 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    42:36    0    0     active 786432 'albylupatin2000'
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+65535 [NoChan]    0    0 challenging      0 ''
+#end
+
+> -forward 42
+> -sprint 42
+> sv_cheats 1
+> god 1
+> noclip 0
+> slot3
+> gameui_hide
+> setpos -1519.685 -149.606 19.685
+
+> getpos_exact
+setpos_exact -1519.685059 -149.606018 15.779213;setang_exact 0.000000 179.814941 0.000000
+
+> getpos_exact
+setpos_exact -1519.685059 -149.606018 15.779213;setang_exact 0.000000 179.814941 0.000000
+
+> setang 0 -0.002 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1519.169922 -149.604553 15.779213;setang_exact 0.000000 -0.002060 0.000000
+
+> setang 0 -0.014 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1516.991211 -149.603348 15.779213;setang_exact 0.000000 -0.014069 0.000000
+
+> setang 0 -0.033 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1515.211304 -149.604218 15.779213;setang_exact 0.000000 -0.032959 0.000000
+
+> setang 0 -0.035 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1514.072754 -149.605347 15.779213;setang_exact 0.000000 -0.035019 0.000000
+
+> setang 0 -0.024 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1513.053589 -149.606201 15.779213;setang_exact 0.000000 -0.024033 0.000000
+
+> setang 0 -0.005 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1512.034424 -149.606934 15.779213;setang_exact 0.000000 -0.005157 0.000000
+
+> getpos_exact
+setpos_exact -1512.034424 -149.606934 15.779213;setang_exact 0.000000 -0.005157 0.000000
+
+> setang 0 88.375 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1511.990356 -148.042389 15.779213;setang_exact 0.000000 88.375061 0.000000
+
+> setang 0 88.372 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1511.944336 -146.401779 15.779213;setang_exact 0.000000 88.371948 0.000000
+
+> setang 0 88.365 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1511.912354 -145.267578 15.779213;setang_exact 0.000000 88.365112 0.000000
+
+> setang 0 88.358 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1511.883423 -144.248413 15.779213;setang_exact 0.000000 88.357880 0.000000
+
+> setang 0 88.352 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1511.866577 -143.658569 15.779213;setang_exact 0.000000 88.352051 0.000000
+
+> setang 0 88.348 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1511.837524 -142.639465 15.779213;setang_exact 0.000000 88.347931 0.000000
+
+> getpos_exact
+setpos_exact -1511.837524 -142.639465 15.779213;setang_exact 0.000000 88.347931 0.000000
+
+> setang 0 6.550 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1510.187866 -142.451050 15.779214;setang_exact 0.000000 6.549911 0.000000
+
+> setang 0 6.559 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1509.174927 -142.335266 15.779217;setang_exact 0.000000 6.558838 0.000000
+
+> setang 0 6.567 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1507.622192 -142.157623 15.779217;setang_exact 0.000000 6.567078 0.000000
+
+> setang 0 6.584 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1506.938965 -142.079712 15.779217;setang_exact 0.000000 6.583893 0.000000
+
+> setang 0 6.602 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1506.352661 -142.011963 15.779217;setang_exact 0.000000 6.602097 0.000000
+
+> setang 0 6.604 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1505.441284 -141.906265 15.779217;setang_exact 0.000000 6.604156 0.000000
+
+> setang 0 6.597 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1504.275757 -141.771210 15.779217;setang_exact 0.000000 6.596954 0.000000
+
+> getpos_exact
+setpos_exact -1504.259277 -141.769287 15.779217;setang_exact 0.000000 6.596954 0.000000
+
+> setang 0 87.667 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1503.855225 -140.093597 15.779217;setang_exact 0.000000 87.667114 0.000000
+
+> setang 0 90.751 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1503.841797 -138.896820 15.779217;setang_exact 0.000000 90.750854 0.000000
+
+> setang 0 91.083 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1503.861084 -137.870361 15.779217;setang_exact 0.000000 91.082825 0.000000
+
+> setang 0 91.084 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1503.880371 -136.851196 15.779217;setang_exact 0.000000 91.083862 0.000000
+
+> setang 0 91.084 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1503.899658 -135.831970 15.779217;setang_exact 0.000000 91.083862 0.000000
+
+> setang 0 91.084 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1503.918945 -134.812805 15.779217;setang_exact 0.000000 91.083862 0.000000
+
+> getpos_exact
+setpos_exact -1503.918945 -134.812805 15.779217;setang_exact 0.000000 91.083862 0.000000
+
+> setang 0 6.928 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1503.306396 -134.429504 15.779217;setang_exact 0.000000 6.927917 0.000000
+
+> setang 0 4.509 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1501.726440 -134.304764 15.779217;setang_exact 0.000000 4.508850 0.000000
+
+> setang 0 4.508 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1500.107178 -134.176880 15.779217;setang_exact 0.000000 4.507828 0.000000
+
+> setang 0 4.505 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1498.912598 -134.082565 15.779217;setang_exact 0.000000 4.505081 0.000000
+
+> setang 0 4.501 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1497.821045 -133.996338 15.779217;setang_exact 0.000000 4.500961 0.000000
+
+> setang 0 4.491 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1496.736816 -133.910706 15.779217;setang_exact 0.000000 4.490997 0.000000
+
+> getpos_exact
+setpos_exact -1496.736816 -133.910706 15.779217;setang_exact 0.000000 4.490997 0.000000
+
+> setang 0 85.141 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1496.248901 -132.156876 15.779217;setang_exact 0.000000 85.140961 0.000000
+
+> setang 0 88.275 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1496.215820 -131.117920 15.779217;setang_exact 0.000000 88.275146 0.000000
+
+> setang 0 88.295 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1496.185791 -130.098816 15.779217;setang_exact 0.000000 88.295044 0.000000
+
+> setang 0 88.291 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1496.139893 -128.553757 15.779217;setang_exact 0.000000 88.290955 0.000000
+
+> setang 0 88.286 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1496.105957 -127.419556 15.779217;setang_exact 0.000000 88.286133 0.000000
+
+> setang 0 88.285 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1496.078613 -126.507904 15.779217;setang_exact 0.000000 88.285095 0.000000
+
+> getpos_exact
+setpos_exact -1496.075439 -126.400391 15.779217;setang_exact 0.000000 88.285095 0.000000
+
+> setang 0 3.020 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1494.384399 -125.974251 15.779217;setang_exact 0.000000 3.019867 0.000000
+
+> setang 0 -0.092 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1493.314819 -125.970947 15.779217;setang_exact 0.000000 -0.092010 0.000000
+
+> setang 0 -0.149 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1491.769653 -125.974396 15.779217;setang_exact 0.000000 -0.149002 0.000000
+
+> setang 0 -0.158 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1490.635498 -125.977173 15.779217;setang_exact 0.000000 -0.157928 0.000000
+
+> setang 0 -0.166 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1489.616333 -125.980225 15.779217;setang_exact 0.000000 -0.166168 0.000000
+
+> setang 0 -0.162 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1488.597168 -125.983276 15.779217;setang_exact 0.000000 -0.162048 0.000000
+
+> getpos_exact
+setpos_exact -1488.597168 -125.983276 15.779217;setang_exact 0.000000 -0.162048 0.000000
+
+> setang 0 87.032 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1488.510620 -124.326141 15.779217;setang_exact 0.000000 87.031982 0.000000
+
+> setang 0 87.038 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1488.418579 -122.552185 15.779217;setang_exact 0.000000 87.038147 0.000000
+
+> setang 0 87.041 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1488.365479 -121.535034 15.779217;setang_exact 0.000000 87.040894 0.000000
+
+> setang 0 87.050 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1488.313110 -120.517944 15.779217;setang_exact 0.000000 87.049835 0.000000
+
+> setang 0 87.049 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1488.260742 -119.500793 15.779217;setang_exact 0.000000 87.049133 0.000000
+
+> setang 0 87.046 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1488.230225 -118.912415 15.779217;setang_exact 0.000000 87.046051 0.000000
+
+> getpos_exact
+setpos_exact -1488.230225 -118.912415 15.779217;setang_exact 0.000000 87.046051 0.000000
+
+> setang 0 0.056 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1472.866211 -118.515121 15.779217;setang_exact 0.000000 0.055969 0.000000
+
+> setang 0 0.029 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1447.377197 -118.490181 15.779217;setang_exact 0.000000 0.028839 0.000000
+
+> setang 0 0.028 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1417.932373 -118.470688 15.779221;setang_exact 0.000000 0.028152 0.000000
+
+> setang 0 0.027 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1387.077393 -118.450974 15.779222;setang_exact 0.000000 0.027130 0.000000
+
+> setang 0 0.027 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1352.888550 -118.431473 15.779223;setang_exact 0.000000 0.027130 0.000000
+
+> setang 0 0.027 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1317.998169 -118.411942 15.779224;setang_exact 0.000000 0.027130 0.000000
+
+> setang 0 0.026 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1284.638916 -118.392303 15.779224;setang_exact 0.000000 0.026093 0.000000
+
+> setang 0 0.026 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1251.638550 -118.373772 15.779224;setang_exact 0.000000 0.026093 0.000000
+
+> setang 0 0.026 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1216.207275 -118.354111 15.779232;setang_exact 0.000000 0.026093 0.000000
+
+> setang 0 0.025 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1186.952271 -118.334908 15.779228;setang_exact 0.000000 0.025055 0.000000
+
+> setang 0 0.024 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1160.259521 -118.315994 15.779230;setang_exact 0.000000 0.024033 0.000000
+
+> setang 0 0.024 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1134.102661 -118.296707 15.779232;setang_exact 0.000000 0.024033 0.000000
+
+> setang 0 0.023 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1109.348877 -118.277885 15.779232;setang_exact 0.000000 0.023010 0.000000
+
+> setang 0 0.021 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1084.431519 -118.258904 15.779232;setang_exact 0.000000 0.020935 0.000000
+
+> setang 0 0.020 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1053.055054 -118.239243 15.779232;setang_exact 0.000000 0.019913 0.000000
+
+> setang 0 0.019 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -1023.491882 -118.220840 15.779239;setang_exact 0.000000 0.018890 0.000000
+
+> setang 0 0.018 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -995.773132 -118.201859 15.779238;setang_exact 0.000000 0.017853 0.000000
+
+> setang 0 0.016 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -969.412903 -118.182938 15.779238;setang_exact 0.000000 0.016144 0.000000
+
+> setang 0 0.014 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -937.565796 -118.163605 15.779240;setang_exact 0.000000 0.014069 0.000000
+
+> setang 0 0.011 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -907.765625 -118.145370 15.779240;setang_exact 0.000000 0.010986 0.000000
+
+> setang 0 0.008 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -879.298767 -118.126335 15.779240;setang_exact 0.000000 0.007904 0.000000
+
+> setang 0 0.004 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -850.010376 -118.107574 15.779246;setang_exact 0.000000 0.004120 0.000000
+
+> setang 0 -0.001 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -819.101257 -118.088654 15.779243;setang_exact 0.000000 -0.001038 0.000000
+
+> setang 0 -0.008 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -788.114746 -118.070183 15.779247;setang_exact 0.000000 -0.007904 0.000000
+
+> setang 0 -0.018 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -757.948853 -118.052368 15.779247;setang_exact 0.000000 -0.017853 0.000000
+
+> setang 0 -0.034 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -727.332275 -118.034630 15.779247;setang_exact 0.000000 -0.033997 0.000000
+
+> setang 0 -0.066 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.065918 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> setang 0 -0.069 0
+> +sprint 42
+> +forward 42
+
+> -forward 42
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> getpos_exact
+setpos_exact -725.479675 -118.033630 15.779247;setang_exact 0.000000 -0.069000 0.000000
+
+> -forward 42
+> -sprint 42
+
+> png_screenshot resume_basement_source_planned_detour_return
+Screenshot written to: screenshots\resume_basement_source_planned_detour_return_0000.png
+
+> -forward 42
+> -sprint 42
+> -jump
+> -attack
+> noclip 0
+
+> -forward 42
+> -sprint 42
+> -jump
+> -attack
+> noclip 0

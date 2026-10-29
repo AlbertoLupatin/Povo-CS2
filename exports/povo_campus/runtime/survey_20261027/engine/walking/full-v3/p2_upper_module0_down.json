@@ -1,0 +1,22 @@
+{
+  "name": "p2_upper_module0_down",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        18.049999999999997,
+        19.35,
+        7.42
+      ],
+      "position": [
+        18.004519617072017,
+        19.318397558277276,
+        7.600792647030404
+      ],
+      "passed": true,
+      "height_tolerance": 0.42
+    }
+  ],
+  "error": "Ordinary movement stalled: [16.663193750066654, 19.27668072527711, 6.880793172627524] target [15.35, 19.35, 5.799999999999999]"
+}

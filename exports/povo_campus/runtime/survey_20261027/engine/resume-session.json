@@ -1,0 +1,12 @@
+{
+  "package_sha256": "2edab45d2625ec635410e0d9af5f353842e6ca51d1cee8b225adb48b05692b61",
+  "staged_package_sha256": "2edab45d2625ec635410e0d9af5f353842e6ca51d1cee8b225adb48b05692b61",
+  "final_position": [
+    24.7000008666988,
+    -73.73000504189493,
+    4.000796875216003
+  ],
+  "final_state": "Solo exploration at Povo 1 entrance, noclip disabled, scripted inputs released",
+  "source_tests": 215,
+  "source_tests_status": "passed"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "p1_p2_bridge_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        18.25,
+        -35.2,
+        11.199999999999989
+      ],
+      "position": [
+        18.250002311273,
+        -35.292831801941176,
+        11.212795430644853
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

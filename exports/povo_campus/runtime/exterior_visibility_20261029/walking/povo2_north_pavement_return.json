@@ -1,0 +1,35 @@
+{
+  "name": "povo2_north_pavement_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        40,
+        116,
+        4
+      ],
+      "position": [
+        40.03369283076014,
+        116.00000165506401,
+        4.000788366216004
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        27,
+        116,
+        4
+      ],
+      "position": [
+        26.88411717410754,
+        116.00000165506401,
+        4.000788366216004
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

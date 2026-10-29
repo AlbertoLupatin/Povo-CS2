@@ -1,0 +1,165 @@
+{
+  "status": "passed",
+  "routes": [
+    {
+      "name": "p2_entry",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            27,
+            33,
+            4
+          ],
+          "position": [
+            27.000004674108006,
+            33.147006197732594,
+            4.000792227016004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_entry_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            27,
+            31,
+            4
+          ],
+          "position": [
+            26.999613996708,
+            30.98952859752396,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_hall",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            24,
+            25,
+            4
+          ],
+          "position": [
+            24.000375341896003,
+            24.9743081666999,
+            4.000793014416003
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_hall_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            24,
+            23,
+            4
+          ],
+          "position": [
+            23.999995535696,
+            23.038325551492157,
+            4.000793014416003
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p1_plaza",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            27,
+            -62,
+            4
+          ],
+          "position": [
+            27.000370535708008,
+            -61.973401707247895,
+            4.0007964942160035
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p1_plaza_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            27,
+            -64,
+            4
+          ],
+          "position": [
+            27.000125578108,
+            -63.9226346642557,
+            4.0007964942160035
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p1_walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            54.5,
+            -73,
+            7.6
+          ],
+          "position": [
+            54.500375683018014,
+            -73.08880386049236,
+            7.600796533230405
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p1_walk_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            54.5,
+            -75,
+            7.6
+          ],
+          "position": [
+            54.500121429018,
+            -74.90899044109965,
+            7.600796533230405
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ]
+}

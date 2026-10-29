@@ -1,0 +1,35 @@
+{
+  "name": "p2_rebuilt_minus2_garden_exit_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        22.5,
+        13.5,
+        -3.2
+      ],
+      "position": [
+        22.480061948689922,
+        13.499985268254003,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        22.5,
+        16.05,
+        -3.2
+      ],
+      "position": [
+        22.500125840490004,
+        16.071654674064288,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

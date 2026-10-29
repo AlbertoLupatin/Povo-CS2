@@ -1,0 +1,49 @@
+{
+  "name": "p2_rebuilt_minus1_stair_to_labs_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        -3.8,
+        17.15,
+        0.4
+      ],
+      "position": [
+        -3.7999851102152005,
+        17.138946113268556,
+        0.4007929754016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        19.2,
+        17.15,
+        0.4
+      ],
+      "position": [
+        19.198172347876795,
+        17.1495485558686,
+        0.4007930516016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        19.2,
+        22.0,
+        0.4
+      ],
+      "position": [
+        19.200336554876802,
+        21.98936630828796,
+        0.4007928230016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

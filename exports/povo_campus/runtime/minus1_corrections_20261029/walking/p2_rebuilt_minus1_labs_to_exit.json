@@ -1,0 +1,49 @@
+{
+  "name": "p2_rebuilt_minus1_labs_to_exit",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        -3.05,
+        17.15,
+        0.4
+      ],
+      "position": [
+        -3.0499892264122,
+        17.15767518426863,
+        0.4007929246016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        34.5,
+        17.15,
+        0.4
+      ],
+      "position": [
+        34.51677686433807,
+        17.1498555148686,
+        0.40079307700160316
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        34.5,
+        10.0,
+        0.4
+      ],
+      "position": [
+        34.500539076138004,
+        10.00456142344002,
+        0.4007932802016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

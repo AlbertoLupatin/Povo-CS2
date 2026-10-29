@@ -1,59 +1,352 @@
 {
-  "status": "passed",
+  "status": "failed",
   "routes": [
     {
       "route": "povo1_entrance_to_front",
       "samples": 76,
       "status": "passed",
-      "failures": []
+      "failures": [],
+      "expected_blockage": []
     },
     {
       "route": "front_walk_to_povo2",
       "samples": 223,
       "status": "passed",
-      "failures": []
+      "failures": [],
+      "expected_blockage": []
     },
     {
       "route": "bridge_road_to_straight_ramp",
       "samples": 241,
-      "status": "passed",
-      "failures": []
+      "status": "blocked_as_designed",
+      "failures": [],
+      "expected_blockage": [
+        {
+          "point": [
+            26.5,
+            -5.0,
+            4.0
+          ],
+          "supported": true,
+          "obstacles": [
+            "exterior_abandoned_bus_chassis",
+            "exterior_abandoned_bus_body",
+            "exterior_abandoned_bus_cabin",
+            "exterior_abandoned_bus_window_1_3",
+            "exterior_abandoned_bus_rust_1_3",
+            "exterior_abandoned_bus_rub_strip_1"
+          ]
+        },
+        {
+          "point": [
+            26.0,
+            -5.0,
+            4.0
+          ],
+          "supported": true,
+          "obstacles": [
+            "exterior_abandoned_bus_chassis",
+            "exterior_abandoned_bus_body",
+            "exterior_abandoned_bus_cabin",
+            "exterior_abandoned_bus_window_1_3",
+            "exterior_abandoned_bus_rust_1_3",
+            "exterior_abandoned_bus_rub_strip_1"
+          ]
+        },
+        {
+          "point": [
+            25.5,
+            -5.0,
+            4.0
+          ],
+          "supported": true,
+          "obstacles": [
+            "exterior_abandoned_bus_chassis",
+            "exterior_abandoned_bus_body",
+            "exterior_abandoned_bus_cabin"
+          ]
+        },
+        {
+          "point": [
+            25.0,
+            -5.0,
+            4.0
+          ],
+          "supported": true,
+          "obstacles": [
+            "exterior_abandoned_bus_chassis",
+            "exterior_abandoned_bus_body",
+            "exterior_abandoned_bus_cabin"
+          ]
+        },
+        {
+          "point": [
+            24.5,
+            -5.0,
+            4.0
+          ],
+          "supported": true,
+          "obstacles": [
+            "exterior_abandoned_bus_chassis",
+            "exterior_abandoned_bus_body",
+            "exterior_abandoned_bus_cabin"
+          ]
+        },
+        {
+          "point": [
+            24.0,
+            -5.0,
+            4.0
+          ],
+          "supported": true,
+          "obstacles": [
+            "exterior_abandoned_bus_chassis",
+            "exterior_abandoned_bus_body",
+            "exterior_abandoned_bus_cabin",
+            "exterior_abandoned_bus_window_-1_3",
+            "exterior_abandoned_bus_rust_-1_3",
+            "exterior_abandoned_bus_rub_strip_-1"
+          ]
+        },
+        {
+          "point": [
+            23.5,
+            -5.0,
+            4.0
+          ],
+          "supported": true,
+          "obstacles": [
+            "exterior_abandoned_bus_chassis",
+            "exterior_abandoned_bus_body",
+            "exterior_abandoned_bus_cabin",
+            "exterior_abandoned_bus_window_-1_3",
+            "exterior_abandoned_bus_rust_-1_3",
+            "exterior_abandoned_bus_rub_strip_-1"
+          ]
+        }
+      ]
     },
     {
       "route": "ramp_into_existing_parking",
       "samples": 144,
-      "status": "passed",
-      "failures": []
+      "status": "failed",
+      "failures": [
+        {
+          "point": [
+            19.8,
+            30.17142857142857,
+            -3.2
+          ],
+          "supported": true,
+          "obstacles": [
+            "exterior_garage_relocated_infill_south"
+          ]
+        },
+        {
+          "point": [
+            19.8,
+            29.685714285714283,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": [
+            "exterior_garage_relocated_infill_south"
+          ]
+        },
+        {
+          "point": [
+            19.8,
+            29.2,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            20.3,
+            29.2,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            20.8,
+            29.2,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.3,
+            29.2,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            29.2,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            28.72,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            28.24,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            27.759999999999998,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            27.28,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            26.8,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            26.32,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            25.84,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            25.36,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            24.88,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            24.4,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": []
+        },
+        {
+          "point": [
+            21.8,
+            23.92,
+            -3.2
+          ],
+          "supported": false,
+          "obstacles": [
+            "p2_parking_office_end"
+          ]
+        },
+        {
+          "point": [
+            21.8,
+            23.439999999999998,
+            -3.2
+          ],
+          "supported": true,
+          "obstacles": [
+            "p2_parking_office_end"
+          ]
+        }
+      ],
+      "expected_blockage": []
     },
     {
       "route": "road_to_north_end",
       "samples": 288,
       "status": "passed",
-      "failures": []
+      "failures": [],
+      "expected_blockage": []
     },
     {
       "route": "surface_parking",
       "samples": 93,
       "status": "passed",
-      "failures": []
+      "failures": [],
+      "expected_blockage": []
     },
     {
       "route": "p2_yard_outer_pavement",
       "samples": 34,
       "status": "passed",
-      "failures": []
+      "failures": [],
+      "expected_blockage": []
     },
     {
       "route": "p2_door_bank_0",
       "samples": 66,
       "status": "passed",
-      "failures": []
+      "failures": [],
+      "expected_blockage": []
     },
     {
       "route": "p2_door_bank_1",
       "samples": 66,
       "status": "passed",
-      "failures": []
+      "failures": [],
+      "expected_blockage": []
     }
   ],
   "samples": 1231,

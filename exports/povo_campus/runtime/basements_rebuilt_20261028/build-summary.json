@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "completed_utc": "2026-10-29T06:39:12.058158+00:00",
+  "season": "standard",
+  "lighting": {
+    "quality": 0,
+    "max_resolution": 2048,
+    "cli": "build_campus.cmd --fast-lighting"
+  },
+  "source_tests": 256,
+  "model_sha256": "2260dd191fd3f2e7adabfb03ad81ef43b4c04af4f096a2887563f94b3477326d",
+  "package_sha256": "d0caba55484840059666c257662b7d4b6df9b4adfbc34e57154c10913178dc52",
+  "package_bytes": 45193069,
+  "crc_verified_entries": 1075,
+  "compiled_floor_samples": 14471,
+  "compiled_column_samples": 72,
+  "walking_routes": 26,
+  "walking_waypoints": 96,
+  "screenshots": 10,
+  "workshop_updated": false,
+  "winter_built": false
+}

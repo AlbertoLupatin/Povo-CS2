@@ -1,0 +1,35 @@
+{
+  "name": "povo1_lower_plaza",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        25.5,
+        -80,
+        4
+      ],
+      "position": [
+        25.500000104902,
+        -80.1232396011205,
+        4.0007972562160035
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        25.5,
+        -100,
+        4
+      ],
+      "position": [
+        25.500020247102004,
+        -100.1468855838006,
+        4.000798043616003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

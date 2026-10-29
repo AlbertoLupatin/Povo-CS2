@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "completed_utc": "2026-10-29T12:15:17.090928+00:00",
+  "package_sha256": "d6891711d74524fe0c5cfb62087d6e5fd8809e915f8ded32d83094d1e8c17f48",
+  "package_bytes": 45089434,
+  "package_entries": 1082,
+  "crc_verified_entries": 1082,
+  "source_tests": 269,
+  "radar_regression": "passed",
+  "walking_routes": 12,
+  "fixed_door_attempts": 8,
+  "compiled_door_samples": 24,
+  "floor_samples": 15601,
+  "column_samples": 72,
+  "restricted_grid_samples": 19916,
+  "spawns_in_closed_L": 0,
+  "lighting": {
+    "quality": 0,
+    "max_resolution": 2048
+  },
+  "workshop_updated": false,
+  "winter_compiled": false
+}

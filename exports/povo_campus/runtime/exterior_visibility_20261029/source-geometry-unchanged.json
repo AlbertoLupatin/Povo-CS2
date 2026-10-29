@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "vertex_and_uv_tables_unchanged": true,
+  "face_winding_and_uv_references_unchanged": true,
+  "collision_files_unchanged": true,
+  "collision_sha256": {
+    "povo1_campus_collision.obj": "c4d0c685f9cbeed62a97514e012c291ab23bba6595c8b154182040e8ad1bb7a9",
+    "povo1_campus_collision_asphalt.obj": "c9f63d49d13db32de090604177913f575387cfa148377509b7fa0b8263e20820",
+    "povo1_campus_collision_concrete.obj": "ed259f26463e8135a7e15575045af487232747846f47a116e9367e92ef8d1c29",
+    "povo1_campus_collision_glass.obj": "94e5b7022dc9ef61be41199b3f6642ef88cb28d1d5dae47a0d9b2d5c8a0ab459",
+    "povo1_campus_collision_grass.obj": "d3003042b5dd6486bd3a744f7a0a8f05548f9b7a8df04b7d7c421c299c9cc465",
+    "povo1_campus_collision_metal.obj": "4895835f00f58dc716daba7982b402ed340cdaf321109515dd4b7919bf99167d",
+    "povo1_campus_collision_tile.obj": "eb00f31f287a9af93255fdcf36866b3dee201a828ac29cb80ac97e30de52ef8b",
+    "povo1_campus_collision_wood.obj": "19afa07399a3b4370d5f74bcd0f77b106a111c7b75dc78e42ec4577b4a072f78"
+  }
+}

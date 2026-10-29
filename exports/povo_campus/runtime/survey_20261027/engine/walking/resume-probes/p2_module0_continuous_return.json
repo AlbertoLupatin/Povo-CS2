@@ -1,0 +1,50 @@
+{
+  "name": "p2_module0_continuous_return",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        19.2,
+        22.65,
+        3.9999999999999996
+      ],
+      "position": [
+        19.2000482140768,
+        22.589174659090357,
+        4.0007926080160034
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        14.5,
+        22.65,
+        5.8
+      ],
+      "position": [
+        14.53004333005812,
+        22.649614390890598,
+        5.800792437023204
+      ],
+      "passed": true,
+      "height_tolerance": 0.42
+    },
+    {
+      "target": [
+        13.15,
+        22.65,
+        5.8
+      ],
+      "position": [
+        13.15513345605262,
+        22.650420536090603,
+        5.800792437023204
+      ],
+      "passed": true,
+      "height_tolerance": 0.42
+    }
+  ],
+  "error": "Ordinary movement stalled: [13.143955855852576, 19.914393750079658, 5.800793224423204] target [13.15, 19.35, 5.8]"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "bridge_courtyard_grade",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        0,
+        -10,
+        3.6925925925925926
+      ],
+      "position": [
+        0.0010266426000041066,
+        -9.919083692439678,
+        3.711644367414847
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "former_parking_shaft_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        -12,
+        17,
+        -3.2
+      ],
+      "position": [
+        -12.038837263448157,
+        16.999906538668,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

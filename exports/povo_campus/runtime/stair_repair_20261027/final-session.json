@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "package_sha256": "e08a52bbf22d4b9e668d88cd5becbb8375f34831393fb1996dc59073332af3c4",
+  "staged_package_sha256": "e08a52bbf22d4b9e668d88cd5becbb8375f34831393fb1996dc59073332af3c4",
+  "final_position": [
+    24.7000008666988,
+    -73.73000504189493,
+    4.000796875216003
+  ],
+  "captures": [
+    {
+      "name": "repaired_p2_upper_stairs",
+      "position": [
+        19.200012552476803,
+        20.000010241280002,
+        11.200793067044804
+      ],
+      "response": "Screenshot written to: screenshots\\repaired_p2_upper_stairs_0000.png\r\n"
+    },
+    {
+      "name": "repaired_canteen_stairs",
+      "position": [
+        42.09999149216841,
+        -97.9499964291918,
+        7.600797295230404
+      ],
+      "response": "Screenshot written to: screenshots\\repaired_canteen_stairs_0000.png\r\n"
+    }
+  ],
+  "final_state": "Solo exploration at Povo 1 entrance, noclip disabled and scripted inputs released"
+}

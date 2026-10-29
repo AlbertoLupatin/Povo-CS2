@@ -1,0 +1,21 @@
+{
+  "name": "bridge_street_grade",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        49,
+        -5,
+        7.4
+      ],
+      "position": [
+        49.08678983759635,
+        -5.001157130020005,
+        7.499447663029999
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

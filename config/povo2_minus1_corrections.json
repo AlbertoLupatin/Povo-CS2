@@ -1,0 +1,13 @@
+{
+  "source": "data/reference/user_feedback/2026-10-29/povo2_minus1_corrections.png",
+  "gap_metres": 30.0,
+  "gap_basis": "User counted approximately 35–40 long steps. Provisional 0.8 m per step gives 28–32 m; use 30 m pending measurement.",
+  "gap_clear_width_metres": 1.5,
+  "narrowing": "Remove the left/west half only between the two labs; keep both lab rooms and their entrance approaches.",
+  "upper_junction_door_width_metres": 1.65,
+  "both_new_doors_permanently_closed": true,
+  "lower_junction_door_north_coordinate": 18.0,
+  "closed_corridor": "Upper return and northward exit-corridor branch form an inaccessible L between the two fixed shut doors.",
+  "connect_lower_corridor_to_exit": true,
+  "black_block_identity": "Outdoor stairs UP to street, including railing collision shown by the former plan slice."
+}

@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "file": "povo1_campus.obj",
+      "source_sha256": "8fc5569575979a9cd48c0cc7becc77983b6a31c30a33d7a95c534f0fac986555",
+      "installed_sha256": "8fc5569575979a9cd48c0cc7becc77983b6a31c30a33d7a95c534f0fac986555",
+      "passed": true
+    },
+    {
+      "file": "povo1_campus_collision.obj",
+      "source_sha256": "ddc98620b4aea500a88bb5d87732806e770e97a13fb4e380d24e46fb307ae0b9",
+      "installed_sha256": "ddc98620b4aea500a88bb5d87732806e770e97a13fb4e380d24e46fb307ae0b9",
+      "passed": true
+    },
+    {
+      "file": "povo1_campus_collision_asphalt.obj",
+      "source_sha256": "c9f63d49d13db32de090604177913f575387cfa148377509b7fa0b8263e20820",
+      "installed_sha256": "c9f63d49d13db32de090604177913f575387cfa148377509b7fa0b8263e20820",
+      "passed": true
+    },
+    {
+      "file": "povo1_campus_collision_concrete.obj",
+      "source_sha256": "7df77575c7ea20409dedff44a8160d70165b004538b18bc3a7b823372904c055",
+      "installed_sha256": "7df77575c7ea20409dedff44a8160d70165b004538b18bc3a7b823372904c055",
+      "passed": true
+    },
+    {
+      "file": "povo1_campus_collision_glass.obj",
+      "source_sha256": "94e5b7022dc9ef61be41199b3f6642ef88cb28d1d5dae47a0d9b2d5c8a0ab459",
+      "installed_sha256": "94e5b7022dc9ef61be41199b3f6642ef88cb28d1d5dae47a0d9b2d5c8a0ab459",
+      "passed": true
+    },
+    {
+      "file": "povo1_campus_collision_grass.obj",
+      "source_sha256": "d3003042b5dd6486bd3a744f7a0a8f05548f9b7a8df04b7d7c421c299c9cc465",
+      "installed_sha256": "d3003042b5dd6486bd3a744f7a0a8f05548f9b7a8df04b7d7c421c299c9cc465",
+      "passed": true
+    },
+    {
+      "file": "povo1_campus_collision_metal.obj",
+      "source_sha256": "d9a983ed3f9d723f92c03b6e73f631c617d1c5b4f688248216c81358ed8287c0",
+      "installed_sha256": "d9a983ed3f9d723f92c03b6e73f631c617d1c5b4f688248216c81358ed8287c0",
+      "passed": true
+    },
+    {
+      "file": "povo1_campus_collision_tile.obj",
+      "source_sha256": "eb00f31f287a9af93255fdcf36866b3dee201a828ac29cb80ac97e30de52ef8b",
+      "installed_sha256": "eb00f31f287a9af93255fdcf36866b3dee201a828ac29cb80ac97e30de52ef8b",
+      "passed": true
+    },
+    {
+      "file": "povo1_campus_collision_wood.obj",
+      "source_sha256": "19afa07399a3b4370d5f74bcd0f77b106a111c7b75dc78e42ec4577b4a072f78",
+      "installed_sha256": "19afa07399a3b4370d5f74bcd0f77b106a111c7b75dc78e42ec4577b4a072f78",
+      "passed": true
+    },
+    {
+      "file": "maps/trento_povo_campus.vmap",
+      "source_sha256": "0b9206adcc14d007f1d074cdb89d3514d966a6933fc0eaa92f63882d6845b7d9",
+      "installed_sha256": "0b9206adcc14d007f1d074cdb89d3514d966a6933fc0eaa92f63882d6845b7d9",
+      "passed": true
+    },
+    {
+      "file": "models/povo/povo1_campus.vmdl",
+      "source_sha256": "55e7565a2864ed60d1db1517e9b07cca7b3dde486156f1ad92fdd372f16f963e",
+      "installed_sha256": "55e7565a2864ed60d1db1517e9b07cca7b3dde486156f1ad92fdd372f16f963e",
+      "passed": true
+    }
+  ]
+}

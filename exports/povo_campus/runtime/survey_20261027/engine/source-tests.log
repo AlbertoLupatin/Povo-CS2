@@ -1,0 +1,24 @@
+Waiting for the Povo campus to finish loading...
+Solo exploration ready: no bots, paused warmup, automatic respawn.
+Walk normally; open the developer console and enter noclip to toggle flying.
+Waiting for the Povo campus to finish loading...
+Solo exploration ready: no bots, paused warmup, automatic respawn.
+Walk normally; open the developer console and enter noclip to toggle flying.
+Waiting for the Povo campus to finish loading...
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpwhz16yjj\cs2-install\content\csgo_addons\trento_povo\models\povo\povo_blockout.vmdl
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpwhz16yjj\cs2-install\content\csgo_addons\trento_povo\maps\trento_povo.vmap
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpwhz16yjj\cs2-install\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_radar_tga.vtex
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpwhz16yjj\cs2-install\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_radar_spectate_tga.vtex
+   update  C:\Users\Alberto\AppData\Local\Temp\tmpwhz16yjj\cs2-install\game\csgo_addons\trento_povo\resource\overviews\trento_povo.txt
+Radar compiled as loose addon resources; verify VPK inclusion on Windows.
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpfm6h0axs\cs2-install\content\csgo_addons\trento_povo\models\povo\povo_blockout.vmdl
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpfm6h0axs\cs2-install\content\csgo_addons\trento_povo\maps\trento_povo.vmap
+Compiling C:\Users\Alberto\AppData\Local\Temp\tmpg9jsnf_3\cs2-install\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_radar_tga.vtex
+{'route': 'route', 'waypoint': 0, 'target': (1, 0, 4), 'position': (0.999998000004, -0.0, -3.1999936000128), 'passed': False}
+one blocked Other player joined
+bad failed Blocked actual doorway
+good passed 
+----------------------------------------------------------------------
+Ran 215 tests in 46.784s
+
+OK

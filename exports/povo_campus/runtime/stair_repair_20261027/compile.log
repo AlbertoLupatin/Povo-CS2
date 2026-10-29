@@ -1,0 +1,1815 @@
+Found 1 file(s) matching nonrecursive specification "C:\Users\Alberto\Desktop\trento_fps\cs2\content\trento_povo\maps\trento_povo.vmap"
+dmxconvert - Successfully upconverted "C:\Users\Alberto\AppData\Local\Temp\povo-campus-map-oohdt3at\base.vmap"
+Found 1 file(s) matching nonrecursive specification "C:\Users\Alberto\AppData\Local\Temp\povo-campus-map-oohdt3at\base.vmap"
+dmxconvert - Successfully upconverted "C:\Users\Alberto\AppData\Local\Temp\povo-campus-map-oohdt3at\campus.vmap"
+Exported 23020 visual boxes, 8275 collision boxes; 112 playable rooms
+Prepared C:\Users\Alberto\Desktop\trento_fps\cs2\content\trento_povo\maps\trento_povo_campus.vmap
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\models\povo\povo1_campus.vmdl
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\models\povo\povo1_campus.vmdl
+RESOURCE COMPILE WARNING: RenderMeshFile: povo1_campus : Duplicate Bone: povo1_campus, Duplicates Renamed: povo1_campus_duplicate, povo1_campus_duplicate1, povo1_campus_duplicate2, povo1_campus_duplicate3, povo1_campus_duplicate4, povo1_campus_duplicate5, povo1_campus_duplicate6, povo1_campus_duplicate7, povo1_campus_duplicate8, povo1_campus_duplicate9, povo1_campus_duplicate10, povo1_campus_duplicate11, povo1_campus_duplicate12, povo1_campus_duplicate13, povo1_campus_duplicate14, povo1_campus_duplicate15, povo1_campus_duplicate16, povo1_campus_duplicate17, povo1_campus_duplicate18, povo1_campus_duplicate19, povo1_campus_duplicate20, povo1_campus_duplicate21, povo1_campus_duplicate22, povo1_campus_duplicate23, povo1_campus_duplicate24, povo1_campus_duplicate25, povo1_campus_duplicate26, povo1_campus_duplicate27, povo1_campus_duplicate28, povo1_campus_duplicate29, povo1_campus_duplicate30, povo1_campus_duplicate31, povo1_campus_duplicate32, povo1_campus_duplicate33, povo1_campus_duplicate34, povo1_campus_duplicate35, povo1_campus_duplicate36, povo1_campus_duplicate37, povo1_campus_duplicate38, povo1_campus_duplicate39, povo1_campus_duplicate40, povo1_campus_duplicate41, povo1_campus_duplicate42, povo1_campus_duplicate43, povo1_campus_duplicate44, povo1_campus_duplicate45, povo1_campus_duplicate46, povo1_campus_duplicate47, povo1_campus_duplicate48, povo1_campus_duplicate49, povo1_campus_duplicate50, povo1_campus_duplicate51, povo1_campus_duplicate52, povo1_campus_duplicate53, povo1_campus_duplicate54, povo1_campus_duplicate55, povo1_campus_duplicate56, povo1_campus_duplicate57, povo1_campus_duplicate58, povo1_campus_duplicate59, povo1_campus_duplicate60, povo1_campus_duplicate61, povo1_campus_duplicate62, povo1_campus_duplicate63, povo1_campus_duplicate64, povo1_campus_duplicate65, povo1_campus_duplicate66, povo1_campus_duplicate67, povo1_campus_duplicate68, povo1_campus_duplicate69, povo1_campus_duplicate70, povo1_campus_duplicate71, povo1_campus_duplicate72, povo1_campus_duplicate73, povo1_campus_duplicate74, p     0/   1 (elapsed 587.891):  C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\models\povo\povo1_campus.vmdl
+Compile of 1 file(s) matching nonrecursive specification "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\models\povo\povo1_campus.vmdl" took 587.892 seconds
+
+---------------------------------------------------------------------
+ 1 Compile WARNINGS
+ These may represent problems, but will not cause the compile to fail.
+ Look for "RESOURCE COMPILE WARNING:" in the log above.
+---------------------------------------------------------------------
+  Duplicate Bone: povo1_campus, Duplicates Renamed: povo1_campus_duplicate, povo1_campus_duplicate1, povo1_campus_duplicate2, povo1_campus_duplicate3, povo1_campus_duplicate4, povo1_campus_duplicate5, povo1_campus_duplicate6, povo1_campus_duplicate7, povo1_campus_duplicate8, povo1_campus_duplicate9, povo1_campus_duplicate10, povo1_campus_duplicate11, povo1_campus_duplicate12, povo1_campus_duplicate13, povo1_campus_duplicate14, povo1_campus_duplicate15, povo1_campus_duplicate16, povo1_campus_duplicate17, povo1_campus_duplicate18, povo1_campus_duplicate19, povo1_campus_duplicate20, povo1_campus_duplicate21, povo1_campus_duplicate22, povo1_campus_duplicate23, povo1_campus_duplicate24, povo1_campus_duplicate25, povo1_campus_duplicate26, povo1_campus_duplicate27, povo1_campus_duplicate28, povo1_campus_duplicate29, povo1_campus_duplicate30, povo1_campus_duplicate31, povo1_campus_duplicate32, povo1_campus_duplicate33, povo1_campus_duplicate34, povo1_campus_duplicate35, povo1_campus_duplicate36, povo1_campus_duplicate37, povo1_campus_duplicate38, povo1_campus_duplicate39, povo1_campus_duplicate40, povo1_campus_duplicate41, povo1_campus_duplicate42, povo1_campus_duplicate43, povo1_campus_duplicate44, povo1_campus_duplicate45, povo1_campus_duplicate46, povo1_campus_duplicate47, povo1_campus_duplicate48, povo1_campus_duplicate49, povo1_campus_duplicate50, povo1_campus_duplicate51, povo1_campus_duplicate52, povo1_campus_duplicate53, povo1_campus_duplicate54, povo1_campus_duplicate55, povo1_campus_duplicate56, povo1_campus_duplicate57, povo1_campus_duplicate58, povo1_campus_duplicate59, povo1_campus_duplicate60, povo1_campus_duplicate61, povo1_campus_duplicate62, povo1_campus_duplicate63, povo1_campus_duplicate64, povo1_campus_duplicate65, povo1_campus_duplicate66, povo1_campus_duplicate67, povo1_campus_duplicate68, povo1_campus_duplicate69, povo1_campus_duplicate70, povo1_campus_duplicate71, povo1_campus_duplicate72, povo1_campus_duplicate73, povo1_campus_duplicate74, povo1_campus_duplicate75, povo1_campus_duplicate76, povo
+-----------------------------------------------------------------
+ WARNING: 1 compiled, 0 failed, 0 skipped, 9m:49s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\materials\trento\povo\campus\door_closed.vmat
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\materials\trento\povo\campus\door_closed.vmat
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\neutral_normal_png_75e96b93.vtex
+       Read 2 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to BC7 (Q=3): 28ms
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\door_closed_png_43a5c901.vtex
+       Read 1 Input(s): 0ms
+       Generated Mips and Output: 1ms
+       Encoding 256x256x1 texture to DXT1 (Q=3): 10ms
+  +- csgo_addons\trento_povo\materials\default\default_ao_tga_559f1ac6.vtex
+       Read 1 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to ATI1N (Q=3): 0ms
+
+-----------------------------------------------------------------
+ OK: 4 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\materials\trento\povo\campus\exterior\entry_glass.vmat
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\materials\trento\povo\campus\exterior\entry_glass.vmat
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\exterior\entry_glass_png_9c4f930c.vtex
+       Read 3 Input(s): 0ms
+       Generated Mips and Output: 2ms
+       Encoding 64x64x1 texture to BC7 (Q=3): 30ms
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\exterior\neutral_normal_png_951b7af5.vtex
+       Read 2 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to BC7 (Q=3): 0ms
+  +- csgo_addons\trento_povo\materials\default\default_ao_tga_559f1ac6.vtex
+       Read 1 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to ATI1N (Q=3): 0ms
+
+-----------------------------------------------------------------
+ OK: 4 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\materials\trento\povo\campus\exterior\fence.vmat
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\materials\trento\povo\campus\exterior\fence.vmat
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\exterior\neutral_normal_png_39ad9517.vtex
+       Read 2 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to BC7 (Q=3): 28ms
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\exterior\fence_png_fa34021c.vtex
+       Read 1 Input(s): 0ms
+       Generated Mips and Output: 1ms
+       Encoding 64x64x1 texture to DXT1 (Q=3): 7ms
+  +- csgo_addons\trento_povo\materials\default\default_ao_tga_559f1ac6.vtex
+       Read 1 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to ATI1N (Q=3): 0ms
+
+-----------------------------------------------------------------
+ OK: 4 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\materials\trento\povo\campus\exterior\white.vmat
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\materials\trento\povo\campus\exterior\white.vmat
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\exterior\neutral_normal_png_f450b818.vtex
+       Read 2 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to BC7 (Q=3): 28ms
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\exterior\white_png_b987d7f0.vtex
+       Read 1 Input(s): 0ms
+       Generated Mips and Output: 1ms
+       Encoding 64x64x1 texture to DXT1 (Q=3): 6ms
+  +- csgo_addons\trento_povo\materials\default\default_ao_tga_559f1ac6.vtex
+       Read 1 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to ATI1N (Q=3): 0ms
+
+-----------------------------------------------------------------
+ OK: 4 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\materials\trento\povo\campus\window_glass.vmat
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\materials\trento\povo\campus\window_glass.vmat
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\window_glass_png_f1ca2ea6.vtex
+       Read 3 Input(s): 1ms
+       Generated Mips and Output: 6ms
+       Encoding 256x256x1 texture to BC7 (Q=3): 43ms
+       Compressed lz4 85kb -> on disk 22kb (26%): 0ms
+  +- csgo_addons\trento_povo\materials\trento\povo\campus\neutral_normal_png_89a52966.vtex
+       Read 2 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to BC7 (Q=3): 0ms
+  +- csgo_addons\trento_povo\materials\default\default_ao_tga_559f1ac6.vtex
+       Read 1 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 4x4x1 texture to ATI1N (Q=3): 0ms
+
+-----------------------------------------------------------------
+ OK: 4 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\soundevents\soundevents_addon.vsndevts
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\soundevents\soundevents_addon.vsndevts
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\maps\scripts\povo_ffa.js
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\maps\scripts\povo_ffa.js
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Leaked KeyValues blocks: 594
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\maps\trento_povo_campus.vmap
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+Failed loading resource "scripts/detail_prop_types.vdata_c" (ERROR_FILEOPEN: File not found)
+- csgo_addons\trento_povo\maps\trento_povo_campus.vmap
+Initialized Embree v4.04.00.
+Settling physics objects...
+no objects to settle
+Preprocessing Lights [0....1....2....3....4....5....6....7....8....9....] Done (21.97 seconds)
+Assigned 1 Light Shadow Slots, 0 failed (max slot 0).
+Building map "maps\trento_povo_campus"...
+
+
+... Building 'world'
+Loading Map...
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_inner_entry_bank_0_2316.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_inner_entry_bank_0_2318.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_inner_entry_bank_0_2320.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_inner_entry_bank_0_2322.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_inner_entry_bank_0_2324.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_inner_entry_bank_0_2326.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_inner_entry_bank_0_sensor_2328.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_outer_entry_bank_0_2330.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_outer_entry_bank_0_2332.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_outer_entry_bank_0_2334.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_outer_entry_bank_0_2336.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_outer_entry_bank_0_2338.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_outer_entry_bank_0_2340.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_outer_entry_bank_0_sensor_2342.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_upper_entry_bank_0_2344.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_upper_entry_bank_0_2346.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_upper_entry_bank_0_2348.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_upper_entry_bank_0_2350.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_upper_entry_bank_0_2352.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_upper_entry_bank_0_2354.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_canteen_upper_entry_bank_0_sensor_2356.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_library_entry_bank_0_2358.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_library_entry_bank_0_2360.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_library_entry_bank_0_2362.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_library_entry_bank_0_2364.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_library_entry_bank_0_2366.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_library_entry_bank_0_2368.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_library_entry_bank_0_sensor_2370.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p1_entry_bank_0_2372.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p1_entry_bank_0_2374.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p1_entry_bank_0_2376.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p1_entry_bank_0_2378.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p1_entry_bank_0_2380.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p1_entry_bank_0_2382.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p1_entry_bank_0_sensor_2384.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_0_2386.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_0_2388.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_0_2390.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_0_2392.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_0_2394.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_0_2396.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_0_sensor_2398.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_1_2400.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_1_2402.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_1_2404.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_1_2406.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_1_2408.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_1_2410.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_inner_bank_1_sensor_2412.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_0_2414.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_0_2416.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_0_2418.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_0_2420.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_0_2422.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_0_2424.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_0_sensor_2426.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_1_2428.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_1_2430.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_1_2432.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_1_2434.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_1_2436.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_1_2438.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\trento_door_p2_entry_outer_bank_1_sensor_2440.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_0_0_tail_material1_windowcut_0_windowcut_0_glass_1256.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_0_0_tail_material1_windowcut_1_windowcut_0_windowcut_0_glass_1258.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_0_0_tail_material1_windowcut_1_windowcut_0_windowcut_1_glass_1260.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_1_0_tail_material1_windowcut_0_windowcut_0_glass_1262.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_1_0_tail_material1_windowcut_1_windowcut_0_glass_1264.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_1_0_tail_material1_windowcut_1_windowcut_1_windowcut_0_glass_1266.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_0_glass_1268.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_glass_1270.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_1_windowcut_1_glass_1272.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_3_0_tail_material0_windowcut_0_windowcut_0_windowcut_0_glass_1274.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_3_0_tail_material0_windowcut_0_windowcut_0_windowcut_1_windowcut_0_glass_1276.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_court_3_0_tail_material0_windowcut_0_windowcut_0_windowcut_1_windowcut_1_glass_1278.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_0_1_tail_material1_windowcut_0_windowcut_0_windowcut_0_glass_windowcut_0_1280.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_0_1_tail_material1_windowcut_0_windowcut_0_windowcut_0_glass_windowcut_1_1282.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_0_1_tail_material1_windowcut_0_windowcut_0_windowcut_1_glass_windowcut_0_1284.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_0_1_tail_material1_windowcut_0_windowcut_0_windowcut_1_glass_windowcut_1_1286.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_1_1_tail_material1_windowcut_0_windowcut_0_windowcut_0_glass_1288.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_1_1_tail_material1_windowcut_0_windowcut_0_windowcut_1_glass_1290.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_0_windowcut_0_windowcut_0_glass_1292.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_0_glass_1294.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_0_windowcut_1_windowcut_1_glass_1296.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_glass_1298.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_0_windowcut_1_windowcut_1_glass_1300.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_1_windowcut_0_glass_1302.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_2_0_tail_material1_windowcut_0_windowcut_1_windowcut_1_glass_1304.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_2_0_tail_material1_windowcut_1_windowcut_0_glass_1306.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_3_0_tail_material1_windowcut_0_windowcut_0_glass_1308.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_0_windowcut_0_glass_1310.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_0_windowcut_1_glass_1312.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_0_windowcut_0_glass_1314.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_glass_1316.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_0_glass_1318.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_1_glass_1320.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_court_3_0_tail_material1_windowcut_1_windowcut_1_windowcut_1_windowcut_1_windowcut_0_glass_1322.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a101_window_glass_1324.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a102_window_glass_1326.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a103_window_glass_1328.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a104_window_glass_1330.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a105_window_glass_1332.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a106_window_glass_1334.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a107_window_glass_windowcut_0_1336.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a107_window_glass_windowcut_1_1338.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a107_window_glass_windowcut_2_1340.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a108_window_glass_1342.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a109_window_glass_1344.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a110_window_glass_1346.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a201_window_glass_1348.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a202_window_glass_1350.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a203_window_glass_1352.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a204_window_glass_1354.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a205_window_glass_1356.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a206_window_glass_1358.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a207_window_glass_1360.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a208_window_glass_1362.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a209_window_glass_1364.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a210_window_glass_1366.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a211_window_glass_1368.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a212_window_glass_1370.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a213_window_glass_1372.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a214_window_glass_1374.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a215_window_glass_1376.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a216_window_glass_1378.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a217_window_glass_1380.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a218_window_glass_1382.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a219_window_glass_1384.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a220_window_glass_1386.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a221_window_glass_1388.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a222_window_glass_1390.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a223_window_glass_1392.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_a224_window_glass_1394.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_room_lab_window_glass_1396.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_acquario_corridor_glass_0_1398.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_acquario_corridor_glass_1_1400.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_acquario_corridor_glass_head_1402.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_ground_room_a103_side_window_glass_1404.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_window_0_1406.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_sw_window_0_1408.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_ne_window_0_1410.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_nw_window_0_1412.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_upper_court_0_0_tail_material0_glass_windowcut_0_1414.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_upper_court_0_0_tail_material0_glass_windowcut_1_1416.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_upper_court_0_0_tail_material0_glass_windowcut_2_1418.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_upper_court_1_0_tail_material0_glass_1420.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_upper_court_2_1_tail_material1_glass_1422.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_upper_court_3_0_tail_material1_glass_1424.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_window_0_upper_segment_1426.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_window_1_upper_segment_1428.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_sw_window_0_upper_segment_1430.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_sw_window_1_upper_segment_1432.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_ne_window_0_upper_segment_1434.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_ne_window_1_upper_segment_1436.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_nw_window_0_upper_segment_1438.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_stair_nw_window_1_upper_segment_1440.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_link_bridge_west_glass_1442.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_link_bridge_east_glass_1444.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_link_p2_window_west_0_1446.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_link_p2_window_west_1_1448.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_link_p2_window_east_0_1450.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_link_povo1_bridge_door_west_glass_1452.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_link_povo1_bridge_door_east_glass_1454.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_link_povo2_bridge_door_west_glass_1456.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_academic_first_link_povo2_bridge_door_east_glass_1458.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_basement_display_glass_windowcut_0_1460.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_ground_b111_window_glass_1462.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_ground_b112_window_glass_1464.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_ground_b113_window_glass_1466.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_ground_b114_window_glass_1468.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p2_entry_outer_bank_0_fixed_-1_1470.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p2_entry_outer_bank_0_fixed_1_1472.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p2_entry_outer_bank_1_fixed_-1_1474.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p2_entry_outer_bank_1_fixed_1_1476.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p2_entry_inner_bank_0_fixed_-1_1478.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p2_entry_inner_bank_0_fixed_1_1480.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p2_entry_inner_bank_1_fixed_-1_1482.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p2_entry_inner_bank_1_fixed_1_1484.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p1_entry_bank_0_fixed_-1_1486.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_p1_entry_bank_0_fixed_1_1488.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_ground_b106_window_glass_1490.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_ground_b108_window_glass_1492.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_ground_b109_window_glass_1494.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_ground_aula_lobby_glass_0_1496.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_ground_aula_lobby_glass_1_1498.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_basement_cibio_entry_glass_0_1500.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_p2_basement_cibio_entry_glass_1_1502.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_0_windowcut_0_1504.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_0_windowcut_1_1506.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_1_windowcut_0_1508.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_1_windowcut_1_1510.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_2_1512.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_3_1514.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_4_1516.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_5_1518.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_6_windowcut_0_windowcut_0_1520.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_6_windowcut_0_windowcut_1_1522.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_6_windowcut_1_windowcut_0_1524.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_7_windowcut_0_windowcut_0_1526.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_7_windowcut_1_windowcut_0_1528.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_8_windowcut_0_1530.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_9_windowcut_0_1532.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_9_windowcut_1_1534.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_10_1536.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_11_1538.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_12_1540.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_13_1542.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_14_1544.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_15_1546.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_16_windowcut_0_1548.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_16_windowcut_1_1550.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_17_windowcut_0_1552.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_17_windowcut_1_1554.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_18_1556.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_19_1558.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_20_windowcut_0_1560.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_20_windowcut_1_1562.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_21_windowcut_0_1564.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_21_windowcut_1_1566.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_22_1568.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_23_1570.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_west_glass_24_1572.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_0_1574.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_1_1576.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_2_1578.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_3_1580.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_4_1582.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_5_1584.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_6_1586.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_7_1588.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_8_1590.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_9_1592.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_10_1594.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_11_1596.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_12_1598.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_13_1600.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_14_1602.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_15_1604.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_16_1606.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_17_1608.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_18_1610.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_19_1612.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_20_1614.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_21_1616.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_22_1618.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_23_1620.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_east_glass_24_1622.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_0_1624.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_1_1626.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_2_1628.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_3_1630.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_4_1632.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_5_1634.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_6_1636.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_7_1638.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_8_1640.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_9_1642.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_10_1644.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_south_glass_11_1646.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_0_1648.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_1_1650.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_2_1652.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_3_1654.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_4_1656.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_5_1658.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_6_1660.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_7_1662.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_8_1664.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_9_1666.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_10_1668.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_north_glass_11_1670.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_0_1672.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_1_1674.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_2_windowcut_0_1676.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_2_windowcut_1_1678.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_3_windowcut_0_1680.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_4_windowcut_0_1682.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_4_windowcut_1_1684.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_5_1686.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_6_1688.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_7_1690.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_8_1692.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_9_1694.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_10_1696.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_11_1698.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_12_windowcut_0_1700.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_12_windowcut_1_1702.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_13_windowcut_0_1704.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_14_windowcut_0_1706.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_14_windowcut_1_1708.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_15_1710.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_16_1712.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_17_1714.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_18_1716.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_19_1718.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_20_1720.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_21_1722.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_22_windowcut_0_1724.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_22_windowcut_1_1726.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_23_windowcut_0_1728.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_24_windowcut_0_1730.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_west_glass_24_windowcut_1_1732.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_0_1734.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_1_1736.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_2_1738.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_3_1740.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_4_1742.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_5_1744.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_6_windowcut_0_1746.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_6_windowcut_1_1748.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_7_windowcut_0_1750.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_8_windowcut_0_1752.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_9_windowcut_0_1754.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_9_windowcut_1_1756.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_10_1758.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_11_1760.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_12_1762.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_13_1764.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_14_1766.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_15_1768.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_16_1770.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_17_1772.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_18_1774.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_19_1776.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_20_1778.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_21_1780.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_22_1782.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_23_1784.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_east_glass_24_1786.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_0_1788.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_1_1790.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_2_1792.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_3_1794.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_4_1796.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_5_1798.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_6_1800.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_7_1802.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_8_1804.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_9_1806.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_10_1808.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_south_glass_11_1810.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_0_1812.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_1_1814.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_2_1816.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_3_1818.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_4_1820.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_5_1822.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_6_1824.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_7_1826.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_8_1828.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_9_1830.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_10_1832.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_1_north_glass_11_1834.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_0_1836.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_1_1838.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_2_1840.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_3_1842.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_4_windowcut_0_1844.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_4_windowcut_1_1846.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_5_windowcut_0_1848.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_6_windowcut_0_1850.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_7_windowcut_0_1852.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_7_windowcut_1_1854.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_8_1856.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_9_1858.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_10_1860.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_11_1862.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_12_1864.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_13_windowcut_0_1866.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_13_windowcut_1_1868.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_14_windowcut_0_1870.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_15_windowcut_0_1872.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_15_windowcut_1_1874.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_16_1876.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_17_1878.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_18_1880.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_19_1882.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_20_1884.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_21_1886.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_22_1888.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_23_1890.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_24_1892.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_25_1894.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_26_1896.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_27_1898.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_28_1900.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_29_1902.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_30_1904.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_31_1906.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_32_1908.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_33_1910.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_34_1912.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_35_windowcut_0_1914.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_35_windowcut_1_1916.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_36_windowcut_0_1918.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_37_windowcut_0_1920.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_37_windowcut_1_1922.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_38_windowcut_0_1924.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_38_windowcut_1_1926.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_39_windowcut_0_1928.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_39_windowcut_1_1930.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_40_1932.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_west_glass_41_1934.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_0_1936.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_1_1938.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_2_1940.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_3_1942.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_4_1944.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_5_1946.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_6_1948.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_7_1950.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_8_1952.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_9_1954.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_10_1956.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_11_1958.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_12_1960.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_13_1962.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_14_1964.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_15_1966.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_16_1968.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_17_1970.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_18_1972.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_19_1974.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_20_1976.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_21_1978.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_22_1980.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_23_1982.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_24_1984.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_25_1986.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_26_1988.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_27_1990.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_28_1992.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_29_1994.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_30_1996.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_31_1998.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_32_2000.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_33_2002.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_34_2004.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_35_2006.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_36_2008.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_37_2010.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_38_2012.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_39_2014.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_40_2016.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_east_glass_41_2018.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_0_2020.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_1_2022.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_2_2024.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_3_2026.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_4_2028.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_5_2030.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_6_2032.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_7_2034.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_8_2036.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_9_2038.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_10_2040.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_south_glass_11_2042.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_0_2044.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_1_2046.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_2_2048.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_3_2050.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_4_2052.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_5_2054.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_6_2056.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_7_2058.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_8_2060.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_9_2062.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_10_2064.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_0_north_glass_11_2066.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_0_2068.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_1_2070.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_2_2072.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_3_2074.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_4_2076.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_5_2078.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_6_2080.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_7_2082.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_8_2084.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_9_2086.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_10_2088.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_11_2090.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_12_2092.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_13_2094.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_14_2096.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_15_2098.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_16_2100.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_17_2102.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_18_2104.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_19_2106.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_20_2108.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_21_2110.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_22_2112.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_23_2114.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_24_2116.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_25_2118.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_26_2120.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_27_2122.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_28_2124.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_29_2126.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_30_2128.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_31_2130.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_32_2132.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_33_2134.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_34_2136.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_35_2138.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_36_2140.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_37_2142.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_38_2144.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_39_2146.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_40_2148.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_west_glass_41_2150.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_0_2152.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_1_2154.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_2_2156.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_3_2158.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_4_2160.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_5_2162.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_6_2164.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_7_2166.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_8_2168.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_9_2170.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_10_2172.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_11_2174.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_12_2176.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_13_2178.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_14_2180.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_15_2182.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_16_2184.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_17_2186.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_18_2188.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_19_2190.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_20_2192.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_21_2194.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_22_2196.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_23_2198.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_24_2200.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_25_2202.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_26_2204.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_27_2206.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_28_2208.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_29_2210.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_30_2212.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_31_2214.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_32_2216.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_33_2218.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_34_2220.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_35_2222.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_36_2224.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_37_2226.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_38_2228.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_39_2230.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_40_2232.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_east_glass_41_2234.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_0_2236.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_1_2238.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_2_2240.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_3_2242.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_4_2244.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_5_2246.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_6_2248.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_7_2250.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_8_2252.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_9_2254.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_10_2256.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_south_glass_11_2258.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_0_2260.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_1_2262.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_2_2264.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_3_2266.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_4_2268.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_5_2270.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_6_2272.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_7_2274.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_8_2276.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_9_2278.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_10_2280.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_library_1_north_glass_11_2282.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_library_entry_bank_0_fixed_-1_2284.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_library_entry_bank_0_fixed_1_2286.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_porch_south_glass_2288.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_porch_north_glass_2290.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_porch_west_glass_windowcut_0_2292.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_porch_west_glass_windowcut_1_2294.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_porch_west_glass_windowcut_2_2296.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_porch_east_glass_windowcut_0_2298.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_porch_east_glass_windowcut_1_2300.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_canteen_0_porch_east_glass_windowcut_2_2302.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_canteen_outer_entry_bank_0_fixed_-1_2304.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_canteen_outer_entry_bank_0_fixed_1_2306.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_canteen_inner_entry_bank_0_fixed_-1_2308.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_canteen_inner_entry_bank_0_fixed_1_2310.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_canteen_upper_entry_bank_0_fixed_-1_2312.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\povo_glass_exterior_canteen_upper_entry_bank_0_fixed_1_2314.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\classroom_a224_1253.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\classroom_a223_1250.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\classroom_a215_1247.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\classroom_a208_1244.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\unnamed_113.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\unnamed_33.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\unnamed_67.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\unnamed_78.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\unnamed_94.vmdl
+Done (4.56 seconds)                    
+Building ray trace environment...
+Wrote C:\Users\Alberto\AppData\Local\Temp\csgo_addons\trento_povo\maps\trento_povo_campus.rte
+Wrote C:\Users\Alberto\AppData\Local\Temp\csgo_addons\trento_povo\maps\trento_povo_campus.viscfg
+Done (0.01 seconds)                    
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\world_visibility.vvis
+Building map visibility
+
+Loading kd-trees
+Successfully read C:\Users\Alberto\AppData\Local\Temp\csgo_addons\trento_povo\maps\trento_povo_campus.rte
+Successfully unserialized ray tracing environment.
+Convert RTE with 20 triangles in 0.00s
+Loaded 0 LOS hints from c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\game\csgo_addons\trento_povo\maps\trento_povo_campus.los! (0.0 seconds)
+Loaded 0 LOS hints from C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\maps\trento_povo_campus.los! (0.0 seconds)
+VIS3: Build partitioned PVS!
+Voxelize (8 units) took 2.26 seconds (385,993 nodes)
+Outside detection took 0.44 seconds
+Generated clusters for 321716 regions in 117.07 seconds
+4258220 clusters generated
+Distance merged regions (28592 merged to 1870)
+pre-merged to 4231498 clusters
+MergeClusterSet costs after first pass   min:20.0 max:928050.2 avg:843975.9
+MergeClusterSet costs after first pass   min:843975.9 max:843975.9 avg:843970.4
+Merged to 976 clusters in first pass
+MergeClusterSet costs after first pass   min:843970.4 max:843970.4 avg:843970.4
+MergeClusterSet costs after first pass   min:843970.4 max:843970.4 avg:843970.4
+Merged to 976 clusters in second pass
+MergeClusterSet costs after first pass   min:843970.4 max:843970.4 avg:843970.2
+Merged cluster lists in 569.64 seconds [976 clusters]
+Compacted to 611080 regions (976 clusters) in 0.01 seconds [target 16382 clusters]
+Assigned 976 clusters in 0.08 seconds
+12.87 MB bytes tree size
+Sample vis for 976 clusters
+CNeighboringClustersList::Build() completed 12450 neighbors (10.6s)
+NeighborsScan BuildTracePointsForClusters() completed - 23340 points, 4.0 per cluster side (0.2s)
+Creating thread pool with 13 threads
+ClusterCenterRayGenerator pass 1: 0...1...2...3...4...5...6...7...8...9...10
+ClusterCenterRayGenerator pass 2: 0...1...2...3...4...5...6...7...8...9...10
+ClusterCenterRayGenerator pass 3: 0...1...2...3...4...5...6...7...8...9...10
+ClusterCenterRayGenerator pass 4: 0...1...2...3...4...5...6...7...8...9...10
+ClusterCenterRayGenerator complete in 0.1s, 305,199 rays cast, 138,362 useful rays found
+CBoundaryPointsRayGenerator complete in 0.0s, 1,454 rays cast, 22 useful rays found
+LargeClusterRegionsRayGenerator complete in 0.0s, 0 rays cast, 0 useful rays found
+CLOSRayGenerator complete in 0.0s, 0 rays cast, 0 useful rays found
+CLOSRayGenerator rays complete.
+LOS Scan tried 306,653, found 138,384 useful LOS rays (0s).
+Target 30656 clusters, clamped to 4094, grid size 8.0
+Built 976 clusters in 0.2s
+976 clusters, 1 steps
+Merge vis clusters:0...1...2...3...4...5...6...7...8...9...10
+Merged to 978 clusters in 0.0s (0.0s recompute, 0 passes)
+0.2s total merge time
+Adaptive border clusters (2s)
+Computed 977 clusters visible to sky
+Skipping solid voxels in sunlight visibility
+Raytraced sun visibility in 497.981ms (976 visible clusters)
+Collapsing resolution of 385993 nodes
+Reduced node memory from 8,369,288 bytes to 205,512 bytes in 5 iterations
+Reduced node count from 385993 to 9833, regions from 330084 to 7928
+Initial regions 611080, collapsed to 7928
+51 unique masks (of 7,928 regions)
+Compute enclosed cluster lists
+1298 cluster lists, 8734 elements (0.00376s) (1 zeros)
+Wrote vis resource 292.35 KB bytes
+Visibility complete in 704.26s.
+Building path trace scene info...
+
+
+This map uses 2.04% of the available kv3 file for 'scene_meshes.kv3' before passing to vrad.
+ [*-------------------------------] 2.04% kv3 buffer
+
+Done (0.06 seconds)                    
+Precomputing light vis membershipDone (0.01 seconds)                    
+Collecting Mesh Edges [0....1....2....3....4....5....6....7....8....9....] Done (0.06 seconds)
+Fixing T-junction Edge Cracks [0....1....2....3....4....5....6....7....8....9....] Done (0.26 seconds)
+
+Bake Lighting
+Build: pc64 Oct 22 2026 09:03:44
+Charting 0 instances    	 [0....1....2....3....4....5....6....7....8....9....] Done (0.00 seconds)
+Charting 69 unique meshes	 [0....1....2....3....4....5....6....7....8....9....] Done (0.20 seconds)
+Packing 140422 UV charts onto atlas...
+  Pass 1 of 7 ->[0....1....2....3....4....5....6....7....8....9....] Done (0.39 seconds) - (0.065674)
+  Pass 2 of 7 ->[0....1....2....3....4....5....6....7....8....9....] Done (0.48 seconds) + (0.032837)
+  Pass 3 of 7 ->[0....1....2....3....4....5....6....7....8....9....] Done (0.42 seconds) - (0.049255)
+  Pass 4 of 7 ->[0....1....2....3....4....5....6....7....8....9....] Done (0.60 seconds) - (0.041046)
+  Pass 5 of 7 ->[0....1....2....3....4....5....6....7....8....9....] Done (0.55 seconds) + (0.036941)
+  Pass 6 of 7 ->[0....1....2....3....4....5....6....7....8....9....] Done (0.61 seconds) + (0.038994)
+  Pass 7 of 7 ->[0....1....2....3....4....5....6....7....8....9....] Done (0.61 seconds) - (0.040020)
+LPV Atlas Size: 132x92x16 Size Increase: 54.54%
+==== Baking 4096 x 4096 lightmap ====
+SetupTexels   [0....1....2....3....4....5....6....7....8....9....] Done (0.11 seconds)
+Write Lightmap Edge Seams
+Weld Unique Vertices [0....1....2....3....4....5....6....7....8....9....] Done (0.21 seconds)
+Build Adjacency      [0....1....2....3....4....5....6....7....8....9....] Done (0.04 seconds)
+Edge Equations       [0....1....2....3....4....5....6....7....8....9....] Done (0.00 seconds)
+VRAD3-GPU   VRAD3 - Distributed Lighting Tool
+  Copyright (c) Valve Corporation, All rights reserved.
+  Build: pc64 Oct 22 2026 08:59:58 (SIMD: 4x fp32)
+  WD: C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo\_vrad3
+  Command: vrad3.exe -map maps/trento_povo_campus.vmap -script script-gpu.vrad3 -trackmemorycounts -aftermath -aftermath_full -vulkan -gpuraytracing -allthreads -unbufferedio 
+  Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 0.406.434.0
+  Vulkan Physical Device: Intel(R) Arc(TM) 130T GPU (16GB)
+  VK_EXT_extended_dynamic_state_2 does not support extendedDynamicState2PatchControlPoints, disabling.
+  VK_KHR_shader_clock does not support shaderDeviceClock, disabling.
+  Num Threads: 13
+  Loading 71 resources... Done (0.15 seconds)
+  Creating VB/IB/BLAS for 70 meshes... Done (1.75 seconds)
+  Creating ray trace scene world with 70 instances... Done (0.00 seconds)
+  6.71 MB mesh positions (559.25 KB verts), 3.44 MB mesh indices (859.37 KB verts)
+  70 mesh instances
+  Loading lightmap_packing_geometry.dat... Done (0.02 seconds)
+  Compute block 1/16 on GPU... Done (27.88 seconds)  [GPU memory usage (WDDM): 1.10 GB / 18.32 GB (rendersystem: 800.89 MB)]
+  Compute block 2/16 on GPU... Done (31.01 seconds)  [GPU memory usage (WDDM): 1.38 GB / 18.32 GB (rendersystem: 834.44 MB)]
+  Compute block 3/16 on GPU... Done (30.58 seconds)  [GPU memory usage (WDDM): 1.36 GB / 18.32 GB (rendersystem: 834.44 MB)]
+  Compute block 4/16 on GPU... Done (33.20 seconds)  [GPU memory usage (WDDM): 1.36 GB / 18.32 GB (rendersystem: 834.44 MB)]
+  Compute block 5/16 on GPU... Done (39.60 seconds)  [GPU memory usage (WDDM): 1.36 GB / 18.32 GB (rendersystem: 834.44 MB)]
+  Compute block 6/16 on GPU... Done (52.63 seconds)  [GPU memory usage (WDDM): 1.36 GB / 18.32 GB (rendersystem: 834.44 MB)]
+  Compute block 7/16 on GPU... Done (49.61 seconds)  [GPU memory usage (WDDM): 1.37 GB / 18.32 GB (rendersystem: 823.95 MB)]
+  Compute block 8/16 on GPU... Done (49.55 seconds)  [GPU memory usage (WDDM): 1.37 GB / 18.32 GB (rendersystem: 823.95 MB)]
+  Compute block 9/16 on GPU... Done (63.30 seconds)  [GPU memory usage (WDDM): 1.37 GB / 18.32 GB (rendersystem: 823.95 MB)]
+  Compute block 10/16 on GPU... Done (62.79 seconds)  [GPU memory usage (WDDM): 1.37 GB / 18.32 GB (rendersystem: 820.81 MB)]
+  Compute block 11/16 on GPU... Done (58.99 seconds)  [GPU memory usage (WDDM): 1.37 GB / 18.32 GB (rendersystem: 820.81 MB)]
+  Compute block 12/16 on GPU... Done (64.97 seconds)  [GPU memory usage (WDDM): 1.37 GB / 18.32 GB (rendersystem: 820.81 MB)]
+  Compute block 13/16 on GPU... Done (52.59 seconds)  [GPU memory usage (WDDM): 1.37 GB / 18.32 GB (rendersystem: 820.81 MB)]
+  Compute block 14/16 on GPU... Done (49.58 seconds)  [GPU memory usage (WDDM): 1.37 GB / 18.32 GB (rendersystem: 820.81 MB)]
+  Compute block 15/16 on GPU... Done (53.24 seconds)  [GPU memory usage (WDDM): 1.37 GB / 18.32 GB (rendersystem: 821.86 MB)]
+  Compute block 16/16 on GPU... Done (54.44 seconds)  [GPU memory usage (WDDM): 1.40 GB / 18.32 GB (rendersystem: 821.86 MB)]
+  Lightmapping took 779.09 seconds
+  Removing fireflies... found 193920 fireflies in 0.7s
+  Wrote fireflies.exr
+  Available OIDN devices:
+  Intel(R) Arc(TM) 130T GPU (16GB)
+  Intel(R) Core(TM) Ultra 5 225H
+  OIDN selecting device: Intel(R) Arc(TM) 130T GPU (16GB)
+  Created OIDN device of type: OIDN_DEVICE_TYPE_SYCL
+  OIDN Filter (lg) ao [0....1....2....3....4....5....6....7....8....9....] Done (2.21 seconds)
+  OIDN Filter (sm) ao [0....1....2....3....4....5....6....7....8....9....] Done (0.34 seconds)
+  OIDN Filter (lg) irradiance [0....1....2....3....4....5....6....7....8....9....] Done (2.05 seconds)
+  OIDN Filter (sm) irradiance [0....1....2....3....4....5....6....7....8....9....] Done (0.38 seconds)
+  OIDN Filter (lg) sh radiance L0 [0....1....2....3....4....5....6....7....8....9....] Done (1.89 seconds)
+  OIDN Filter (sm) sh radiance L0 [0....1....2....3....4....5....6....7....8....9....] Done (0.40 seconds)
+  OIDN Filter (lg) sh radiance c1 [0....1....2....3....4....5....6....7....8....9....] Done (1.86 seconds)
+  OIDN Filter (sm) sh radiance c1 [0....1....2....3....4....5....6....7....8....9....] Done (0.34 seconds)
+  OIDN Filter (lg) sh radiance c2 [0....1....2....3....4....5....6....7....8....9....] Done (1.72 seconds)
+  OIDN Filter (sm) sh radiance c2 [0....1....2....3....4....5....6....7....8....9....] Done (0.33 seconds)
+  OIDN Filter (lg) sh radiance c3 [0....1....2....3....4....5....6....7....8....9....] Done (1.73 seconds)
+  OIDN Filter (sm) sh radiance c3 [0....1....2....3....4....5....6....7....8....9....] Done (0.36 seconds)
+  OIDN Filter (lg) sh radiance c4 [0....1....2....3....4....5....6....7....8....9....] Done (1.59 seconds)
+  OIDN Filter (sm) sh radiance c4 [0....1....2....3....4....5....6....7....8....9....] Done (0.38 seconds)
+  OIDN Filter (lg) sh radiance c5 [0....1....2....3....4....5....6....7....8....9....] Done (1.73 seconds)
+  OIDN Filter (sm) sh radiance c5 [0....1....2....3....4....5....6....7....8....9....] Done (0.33 seconds)
+  OIDN Filter (lg) sh radiance c6 [0....1....2....3....4....5....6....7....8....9....] Done (1.57 seconds)
+  OIDN Filter (sm) sh radiance c6 [0....1....2....3....4....5....6....7....8....9....] Done (0.34 seconds)
+  OIDN Filter (lg) sh radiance c7 [0....1....2....3....4....5....6....7....8....9....] Done (1.62 seconds)
+  OIDN Filter (sm) sh radiance c7 [0....1....2....3....4....5....6....7....8....9....] Done (0.33 seconds)
+  OIDN Filter (lg) sh radiance c8 [0....1....2....3....4....5....6....7....8....9....] Done (1.60 seconds)
+  OIDN Filter (sm) sh radiance c8 [0....1....2....3....4....5....6....7....8....9....] Done (0.36 seconds)
+  Dilate Over Invalid Using JFA... Done (0.43 seconds)
+  Transforming AHD to world space... Done (0.06 seconds)
+  Welding seams... Done (0.06 seconds)
+  Transforming AHD back to tangent space... Done (0.08 seconds)
+  Ameliorate Block Compression Artifacts
+  ... Sanitizing line charts... Done (0.01 seconds)
+  Forcing zero-variation charts to be single pixel... Done (0.02 seconds)
+  Calculating hash for each luxel... Done (0.24 seconds)
+  Counting luxels sharing hash value... Done (0.43 seconds)
+  Allocating arrays of luxels sharing hash value... Done (0.71 seconds)
+  Computing single-pixel chart aliases... Done (0.48 seconds)
+  19785/31628 (62.56%) Pixel charts aliased to other luxels.
+  Arranging line charts by length... Done (0.00 seconds)
+  Packing line charts into temporary storage... Done (0.07 seconds)
+  Finding free lines of 4x4 blocks... Done (0.01 seconds)
+  Packing longest line charts into their own lines of 4x4 blocks... Done (0.02 seconds)
+  Repack 4096/64711 remaining line charts (up to length 24) into 21581 remaining free lines
+    Update Block Endpoints... Done (0.09 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.00 seconds)
+    9 search groups (2307720 total ops)
+    Placement Search... Done (0.05 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    3134/4102 Placements Approved (76.40%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 1 cumulative runtime: 0m 2s
+    Performance: 19.36k approvals/sec
+  Repack 3136/61577 remaining line charts (up to length 24) into 23140 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.00 seconds)
+    9 search groups (2232504 total ops)
+    Placement Search... Done (0.04 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    1815/3136 Placements Approved (57.88%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 2 cumulative runtime: 0m 2s
+    Performance: 32.34k approvals/sec
+  Repack 1816/59762 remaining line charts (up to length 20) into 24506 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.00 seconds)
+    9 search groups (2187680 total ops)
+    Placement Search... Done (0.03 seconds)
+    Placement Request Sort... Done (0.00 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    1817/1817 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 3 cumulative runtime: 0m 2s
+    Performance: 39.96k approvals/sec
+  Repack 2048/57945 remaining line charts (up to length 16) into 25978 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.00 seconds)
+    9 search groups (2189424 total ops)
+    Placement Search... Done (0.03 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    2054/2054 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 4 cumulative runtime: 0m 2s
+    Performance: 39.64k approvals/sec
+  Repack 4096/55891 remaining line charts (up to length 12) into 27680 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    9 search groups (2205120 total ops)
+    Placement Search... Done (0.09 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    4098/4099 Placements Approved (99.98%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 5 cumulative runtime: 0m 2s
+    Performance: 35.73k approvals/sec
+  Repack 4104/51793 remaining line charts (up to length 8) into 30804 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    9 search groups (2215896 total ops)
+    Placement Search... Done (0.11 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    4055/4104 Placements Approved (98.81%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 6 cumulative runtime: 0m 3s
+    Performance: 29.17k approvals/sec
+  Repack 4056/47738 remaining line charts (up to length 8) into 33154 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    9 search groups (2183456 total ops)
+    Placement Search... Done (0.11 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    4056/4056 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 7 cumulative runtime: 0m 3s
+    Performance: 28.62k approvals/sec
+  Repack 4096/43682 remaining line charts (up to length 8) into 35811 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    9 search groups (2151008 total ops)
+    Placement Search... Done (0.11 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    4043/4096 Placements Approved (98.71%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 8 cumulative runtime: 0m 3s
+    Performance: 28.21k approvals/sec
+  Repack 4048/39639 remaining line charts (up to length 8) into 37778 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    9 search groups (2118664 total ops)
+    Placement Search... Done (0.11 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    4048/4048 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 9 cumulative runtime: 0m 3s
+    Performance: 28.94k approvals/sec
+  Repack 4096/35591 remaining line charts (up to length 8) into 39899 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    8 search groups (2086280 total ops)
+    Placement Search... Done (0.12 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    4096/4096 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 10 cumulative runtime: 0m 3s
+    Performance: 27.66k approvals/sec
+  Repack 8192/31495 remaining line charts (up to length 8) into 41631 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    8 search groups (2053512 total ops)
+    Placement Search... Done (0.22 seconds)
+    Placement Request Sort... Done (0.03 seconds)
+    Placement Review... Done (0.01 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    8190/8192 Placements Approved (99.98%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 11 cumulative runtime: 0m 3s
+    Performance: 29.92k approvals/sec
+  Repack 8192/23305 remaining line charts (up to length 8) into 44454 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    8 search groups (1987992 total ops)
+    Placement Search... Done (0.23 seconds)
+    Placement Request Sort... Done (0.02 seconds)
+    Placement Review... Done (0.01 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    8176/8192 Placements Approved (99.80%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 12 cumulative runtime: 0m 4s
+    Performance: 29.28k approvals/sec
+  Repack 8176/15129 remaining line charts (up to length 8) into 46715 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    8 search groups (1922584 total ops)
+    Placement Search... Done (0.23 seconds)
+    Placement Request Sort... Done (0.03 seconds)
+    Placement Review... Done (0.01 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    8164/8176 Placements Approved (99.85%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 13 cumulative runtime: 0m 4s
+    Performance: 28.89k approvals/sec
+  Repack 8168/6965 remaining line charts (up to length 8) into 48894 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    8 search groups (1857272 total ops)
+    Placement Search... Done (0.19 seconds)
+    Placement Request Sort... Done (0.02 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    4744/6965 Placements Approved (68.11%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 14 cumulative runtime: 0m 4s
+    Performance: 20.87k approvals/sec
+  Repack 4744/2221 remaining line charts (up to length 8) into 49662 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.01 seconds)
+    7 search groups (1819320 total ops)
+    Placement Search... Done (0.06 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    2220/2221 Placements Approved (99.95%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 15 cumulative runtime: 0m 4s
+    Performance: 27.22k approvals/sec
+  Repack 2224/1 remaining line charts (up to length 4) into 50845 remaining free lines
+    Update Block Endpoints... Done (0.00 seconds)
+    Partition Free Lines... Done (0.00 seconds)
+    Enumerate Placement Opportunities... Done (0.02 seconds)
+    8 search groups (1872680 total ops)
+    Placement Search... Done (0.00 seconds)
+    Placement Request Sort... Done (0.00 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    1/1 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 16 cumulative runtime: 0m 4s
+    Performance: 0.04k approvals/sec
+  Repack 256/11843 remaining single pixel charts
+    Update Block Endpoints... Done (0.00 seconds)
+    1 search groups (197071 total ops)
+    Placement Search... Done (0.03 seconds)
+    Placement Request Sort... Done (0.00 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    256/256 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 17 cumulative runtime: 0m 4s
+    Performance: 7.85k approvals/sec
+  Repack 512/11587 remaining single pixel charts
+    Update Block Endpoints... Done (0.00 seconds)
+    1 search groups (197067 total ops)
+    Placement Search... Done (0.06 seconds)
+    Placement Request Sort... Done (0.00 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    512/512 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 18 cumulative runtime: 0m 4s
+    Performance: 8.07k approvals/sec
+  Repack 1024/11075 remaining single pixel charts
+    Update Block Endpoints... Done (0.00 seconds)
+    1 search groups (197065 total ops)
+    Placement Search... Done (0.12 seconds)
+    Placement Request Sort... Done (0.00 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    1024/1024 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 19 cumulative runtime: 0m 5s
+    Performance: 8.20k approvals/sec
+  Repack 2048/10051 remaining single pixel charts
+    Update Block Endpoints... Done (0.00 seconds)
+    1 search groups (197041 total ops)
+    Placement Search... Done (0.25 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    2048/2048 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 20 cumulative runtime: 0m 5s
+    Performance: 7.95k approvals/sec
+  Repack 4096/8003 remaining single pixel charts
+    Update Block Endpoints... Done (0.00 seconds)
+    1 search groups (196988 total ops)
+    Placement Search... Done (0.51 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    4096/4096 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 21 cumulative runtime: 0m 5s
+    Performance: 7.81k approvals/sec
+  Repack 3907/3907 remaining single pixel charts
+    Update Block Endpoints... Done (0.00 seconds)
+    1 search groups (196903 total ops)
+    Placement Search... Done (0.47 seconds)
+    Placement Request Sort... Done (0.01 seconds)
+    Placement Review... Done (0.00 seconds)
+    Free Line Cleanup... Done (0.00 seconds)
+    3907/3907 Placements Approved (100.00%)
+    Execute Approved Placements... Done (0.00 seconds)
+    Round 22 cumulative runtime: 0m 6s
+    Performance: 8.02k approvals/sec
+  Done (6.53 seconds)
+  Writing irradiance.exr... Done (0.11 seconds)
+  Writing directional_irradiance.exr... Done (0.14 seconds)
+  Writing direct_light_shadows.exr... Done (0.10 seconds)
+  Writing lightmap_chart_color.exr... Done (0.10 seconds)
+  lightmap_free_memory: released 1600.0 MB (+packing geo)
+  Compute 127x127x11 LPV_811106141 [..voxelize....0....1....2....3....4....5....6....7....8....9....10....] Done in 15.88 seconds
+  Wrote lpv_811106141_ambientcube_noisy.exr (1397x630x1).
+  Wrote lpv_811106141_fireflies.exr (8583 fireflies)
+  LPV Resolve... Done (0.03 seconds)
+  Wrote lpv_811106141_ambientcube.exr (1397x630x1).
+  Wrote lpv_811106141_dlshd.exr (1397x90x1).
+  lpv_free_memory: released 33.2 MB
+  Exiting (code 0)
+0....1....2....3....4....5....6....7....8....9....] Done (839.25 seconds)
+ProcessReceivedLightingPackets [0....1....2....3....4....5....6....7....8....9....] Done (1.85 seconds)
+Writing C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo\_vrad3\lpv_atlas_ambientcube.exr (2112x644x1)...Done
+Writing C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo\_vrad3\lpv_atlas_dlshd.exr (2112x92x1)...  +- csgo_addons\trento_povo\maps\trento_povo_campus\lightmaps\env_light_probe_volume_atlas.vtex
+       Read 1 Input(s): 5ms
+       Generated Mips and Output: 8ms
+       Encoding 132x92x96 texture to BC6H (Q=3): 333ms
+       Compressed lz4 1138kb -> on disk 730kb (64%): 17ms
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\lightmaps\env_light_probe_volume_atlas_dlshd.vtex
+       Read 1 Input(s): 0ms
+       Generated Mips and Output: 0ms
+       Encoding 132x92x16 texture to BC7 (Q=3): 55ms
+       Compressed lz4 189kb -> on disk 15kb (7%): 2ms
+Compressing Lightmaps...
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\lightmaps\direct_light_shadows.vtex
+       Read 1 Input(s): 12ms
+       Generated Mips and Output: 186ms
+       Encoding 4096x4096x1 texture to ATI1N (Q=3): 65ms
+       Compressed lz4 8192kb -> on disk 303kb (3%): 35ms
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\lightmaps\irradiance.vtex
+       Read 1 Input(s): 13ms
+       Generated Mips and Output: 54ms
+       Encoding 4096x4096x1 texture to BC6H (Q=3): 2677ms
+       Compressed lz4 16384kb -> on disk 14148kb (86%): 509ms
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\lightmaps\debug_chart_color.vtex
+       Read 1 Input(s): 14ms
+       Generated Mips and Output: 56ms
+       Encoding 4096x4096x1 texture to DXT1 (Q=3): 497ms
+       Compressed lz4 8192kb -> on disk 718kb (8%): 92ms
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\lightmaps\directional_irradiance.vtex
+       Read 1 Input(s): 12ms
+       Generated Mips and Output: 52ms
+       Encoding 4096x4096x1 texture to DXT1 (Q=3): 1292ms
+       Compressed lz4 8192kb -> on disk 6616kb (80%): 221ms
+564 / 286396 (00%) of triangles are at least 240.000000 units away from lightmap resolution volumes
+LIGHTMAP QUERY SIMPLIFY: indices 857496->847032
+LIGHTMAP QUERY MEM: verts 567169->560089, indices 859188->847032 (11mb -> 11mb)
+Added lightmap query data to VPK: maps\trento_povo_campus\lightmaps\lightmap_query_data.kv3
+  Vertex Data Uncompressed: 8961424 bytes
+  Index Data Uncompressed: 3388128 bytes
+Baked Lighting Total Time : (0 hrs 14 mins 12 seconds)
+Splitting geometry using visibility...[0....1....2....3....4....5....6....7....8....9....] Done (0.04 seconds)
+Found 50/283072 triangles outside of vis, 22/283072 with too many overlaps
+Clustering 4 meshes with no vis membership (volume size 1024, max 2048 triangles, from game default)
+Building render clusters... 4 meshes, 72 triangles... 1 clusters (0.00 seconds)
+Splitting geometry using visibility...[0....1....2....3....4....5....6....7....8....9....] Done (0.00 seconds)
+Building render clusters... 0 meshes, 0 triangles... 1 clusters (0.00 seconds)
+Splitting geometry using visibility...[0....1....2....3....4....5....6....7....8....9....] Done (0.00 seconds)
+Building render clusters... 0 meshes, 0 triangles... 1 clusters (0.00 seconds)
+Created 0+0 overlay sceneobjects for 0 meshes in 0 groups, 0 materials
+Created 0+0 overlay sceneobjects for 0 meshes in 0 groups, 0 materials
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_c0_s_cb_b_nomerge0_glass.vmdl
+Added aggregate with 1 meshes, 1 fragments, 2,016 tris [materials/trento/povo/campus/canteen_blue.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_canteen_blue_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 372 tris [materials/trento/povo/campus/canteen_orange.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_canteen_orange_0.vmdl
+Added aggregate with 1 meshes, 1 fragments, 1,560 tris [materials/trento/povo/campus/ceiling_panel.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_ceiling_panel_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 6,060 tris [materials/trento/povo/campus/desk_dark.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_desk_dark_0.vmdl
+Added aggregate with 1 meshes, 1 fragments, 2,664 tris [materials/trento/povo/campus/desk_panel.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_desk_panel_0.vmdl
+Added aggregate with 5 meshes, 5 fragments, 552 tris [materials/trento/povo/campus/door_black.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_door_black_0.vmdl
+Added aggregate with 5 meshes, 5 fragments, 384 tris [materials/trento/povo/campus/door_pushbar.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_door_pushbar_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 900 tris [materials/trento/povo/campus/exterior/asphalt.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_asphalt_0.vmdl
+Added aggregate with 5 meshes, 5 fragments, 120 tris [materials/trento/povo/campus/exterior/car_blue.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_car_blue_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 72 tris [materials/trento/povo/campus/exterior/car_red.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_car_red_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 252 tris [materials/trento/povo/campus/exterior/car_white.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_car_white_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 1,872 tris [materials/trento/povo/campus/exterior/concrete.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_concrete_0.vmdl
+Added aggregate with 4 meshes, 4 fragments, 60 tris [materials/trento/povo/campus/exterior/context_concrete.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_context_concrete_0.vmdl
+Added aggregate with 5 meshes, 5 fragments, 12,768 tris [materials/trento/povo/campus/exterior/dark.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_dark_0.vmdl
+Added aggregate with 4 meshes, 4 fragments, 8,784 tris [materials/trento/povo/campus/exterior/fence.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_fence_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 84 tris [materials/trento/povo/campus/exterior/grass.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_grass_0.vmdl
+Added aggregate with 1 meshes, 1 fragments, 552 tris [materials/trento/povo/campus/exterior/grout.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_grout_0.vmdl
+Added aggregate with 1 meshes, 1 fragments, 1,116 tris [materials/trento/povo/campus/exterior/marking.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_marking_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 360 tris [materials/trento/povo/campus/exterior/orange.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_orange_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 2,796 tris [materials/trento/povo/campus/exterior/paving.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_paving_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 360 tris [materials/trento/povo/campus/exterior/tree.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_tree_0.vmdl
+Added aggregate with 4 meshes, 4 fragments, 372 tris [materials/trento/povo/campus/exterior/trunk.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_trunk_0.vmdl
+Added aggregate with 4 meshes, 4 fragments, 792 tris [materials/trento/povo/campus/exterior/white.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_white_0.vmdl
+Added aggregate with 1 meshes, 1 fragments, 792 tris [materials/trento/povo/campus/floor_circulation.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_floor_circulation_0.vmdl
+Added aggregate with 1 meshes, 1 fragments, 3,108 tris [materials/trento/povo/campus/floor_p2_tile.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_floor_p2_tile_0.vmdl
+Added aggregate with 1 meshes, 1 fragments, 372 tris [materials/trento/povo/campus/floor_room.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_floor_room_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 684 tris [materials/trento/povo/campus/floor_wood.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_floor_wood_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 7,500 tris [materials/trento/povo/campus/light_diffuser.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_light_diffuser_0.vmdl
+Added aggregate with 7 meshes, 7 fragments, 66,240 tris [materials/trento/povo/campus/metal_dark.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_metal_dark_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 48 tris [materials/trento/povo/campus/mirror_silver.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_mirror_silver_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 2,088 tris [materials/trento/povo/campus/office_dark.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_office_dark_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 72 tris [materials/trento/povo/campus/office_display.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_office_display_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 1,704 tris [materials/trento/povo/campus/office_gray.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_office_gray_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 540 tris [materials/trento/povo/campus/office_light.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_office_light_0.vmdl
+Added aggregate with 1 meshes, 1 fragments, 360 tris [materials/trento/povo/campus/parking_line.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_parking_line_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 1,020 tris [materials/trento/povo/campus/projection_screen.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_projection_screen_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 384 tris [materials/trento/povo/campus/sanitary_water.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_sanitary_water_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 1,968 tris [materials/trento/povo/campus/sanitary_white.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_sanitary_white_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 14,040 tris [materials/trento/povo/campus/seat_green.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_seat_green_0.vmdl
+Added aggregate with 7 meshes, 7 fragments, 63,396 tris [materials/trento/povo/campus/seat_wood.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_seat_wood_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 1,380 tris [materials/trento/povo/campus/sign_blue.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_sign_blue_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 360 tris [materials/trento/povo/campus/sign_white.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_sign_white_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 1,172 tris [materials/trento/povo/campus/staff_hair.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_staff_hair_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 1,560 tris [materials/trento/povo/campus/staff_shirt.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_staff_shirt_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 2,064 tris [materials/trento/povo/campus/staff_skin.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_staff_skin_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 1,368 tris [materials/trento/povo/campus/staff_trousers.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_staff_trousers_0.vmdl
+Added aggregate with 4 meshes, 4 fragments, 1,920 tris [materials/trento/povo/campus/stair_nosing.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_stair_nosing_0.vmdl
+Added aggregate with 5 meshes, 5 fragments, 2,472 tris [materials/trento/povo/campus/stair_red.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_stair_red_0.vmdl
+Added aggregate with 2 meshes, 2 fragments, 516 tris [materials/trento/povo/campus/teaching_board.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_teaching_board_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 15,816 tris [materials/trento/povo/campus/wall.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_wall_0.vmdl
+Added aggregate with 3 meshes, 3 fragments, 43,932 tris [materials/trento/povo/campus/window_frame.vmat]
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_agg_merge_window_frame_0.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_c2_s_cb_mesh.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_c2_s_cb_b_mesh.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0_lr0_c2_s_cb_b_nv_mesh.vmdl
+Generated 51 aggregates, 139 total fragments.  Deduplicated 0 bytes -> 0 bytes of vertex albedo and 0 bytes -> 0 bytes of vertex emissive
+ Mesh Memory Stats
+ __________ Aggregates __________
+    |  agg | fragmt | unique | instnc | meshlt ( V, T) |                vertex |                 index |       instance stream | material
+    |  102 |    139 |    139 |      0 |   5925 (94,48) |    557207 ( 15.60 MB) |    845232 (  1.69 MB) |                     - | TOTAL
+    |    1 |      7 |      7 |      0 |   1383 (96,48) |    132768 (  3.72 MB) |    198720 (397.44 KB) |                     - | materials/trento/povo/campus/metal_dark.vmat
+    |    1 |      7 |      7 |      0 |   1323 (96,48) |    126604 (  3.54 MB) |    190188 (380.38 KB) |                     - | materials/trento/povo/campus/seat_wood.vmat
+    |    1 |      3 |      3 |      0 |    917 (95,48) |     86868 (  2.43 MB) |    131796 (263.59 KB) |                     - | materials/trento/povo/campus/window_frame.vmat
+    |    1 |      3 |      3 |      0 |    331 (87,48) |     28717 (804.08 KB) |     47448 ( 94.90 KB) |                     - | materials/trento/povo/campus/wall.vmat
+    |    1 |      2 |      2 |      0 |    293 (96,48) |     28080 (786.24 KB) |     42120 ( 84.24 KB) |                     - | materials/trento/povo/campus/seat_green.vmat
+    |    1 |      5 |      5 |      0 |    268 (95,48) |     25532 (714.90 KB) |     38304 ( 76.61 KB) |                     - | materials/trento/povo/campus/exterior/dark.vmat
+    |    1 |      4 |      4 |      0 |    185 (95,47) |     17548 (491.34 KB) |     26352 ( 52.70 KB) |                     - | materials/trento/povo/campus/exterior/fence.vmat
+    |    1 |      2 |      2 |      0 |    157 (96,48) |     15000 (   420 KB) |     22500 (    45 KB) |                     - | materials/trento/povo/campus/light_diffuser.vmat
+    |    1 |      3 |      3 |      0 |    127 (95,48) |     12118 (339.30 KB) |     18180 ( 36.36 KB) |                     - | materials/trento/povo/campus/desk_dark.vmat
+    |    1 |      1 |      1 |      0 |     65 (91,48) |      5901 (165.23 KB) |      9324 ( 18.65 KB) |                     - | materials/trento/povo/campus/floor_p2_tile.vmat
+    |    1 |      1 |      1 |      0 |     56 (95,48) |      5328 (149.18 KB) |      7992 ( 15.98 KB) |                     - | materials/trento/povo/campus/desk_panel.vmat
+    |    1 |      5 |      5 |      0 |     54 (90,46) |      4814 (134.79 KB) |      7416 ( 14.83 KB) |                     - | materials/trento/povo/campus/stair_red.vmat
+    |    1 |      2 |      2 |      0 |     59 (82,47) |      4728 (132.38 KB) |      8388 ( 16.78 KB) |                     - | materials/trento/povo/campus/exterior/paving.vmat
+    |    1 |      2 |      2 |      0 |     44 (102,47) |      4476 (125.33 KB) |      6192 ( 12.38 KB) |                     - | materials/trento/povo/campus/staff_skin.vmat
+    |    1 |      3 |      3 |      0 |     44 (99,47) |      4344 (121.63 KB) |      6264 ( 12.53 KB) |                     - | materials/trento/povo/campus/office_dark.vmat
+    |    1 |      1 |      1 |      0 |     42 (92,48) |      3864 (108.19 KB) |      6048 ( 12.10 KB) |                     - | materials/trento/povo/campus/canteen_blue.vmat
+    |    1 |      4 |      4 |      0 |     40 (96,48) |      3840 (107.52 KB) |      5760 ( 11.52 KB) |                     - | materials/trento/povo/campus/stair_nosing.vmat
+    |    1 |      3 |      3 |      0 |     42 (91,47) |      3808 (106.62 KB) |      5904 ( 11.81 KB) |                     - | materials/trento/povo/campus/sanitary_white.vmat
+    |    1 |      2 |      2 |      0 |     40 (87,47) |      3452 ( 96.66 KB) |      5616 ( 11.23 KB) |                     - | materials/trento/povo/campus/exterior/concrete.vmat
+    |    1 |      3 |      3 |      0 |     36 (95,47) |      3408 ( 95.42 KB) |      5112 ( 10.22 KB) |                     - | materials/trento/povo/campus/office_gray.vmat
+    |    1 |      1 |      1 |      0 |     33 (88,47) |      2891 ( 80.95 KB) |      4680 (  9.36 KB) |                     - | materials/trento/povo/campus/ceiling_panel.vmat
+    |    1 |      2 |      2 |      0 |     34 (83,46) |      2820 ( 78.96 KB) |      4680 (  9.36 KB) |                     - | materials/trento/povo/campus/staff_shirt.vmat
+    |    1 |      2 |      2 |      0 |     29 (95,48) |      2760 ( 77.28 KB) |      4140 (  8.28 KB) |                     - | materials/trento/povo/campus/sign_blue.vmat
+    |    1 |      2 |      2 |      0 |     26 (103,45) |      2652 ( 74.26 KB) |      3516 (  7.03 KB) |                     - | materials/trento/povo/campus/staff_hair.vmat
+    |    1 |      2 |      2 |      0 |     30 (85,46) |      2520 ( 70.56 KB) |      4104 (  8.21 KB) |                     - | materials/trento/povo/campus/staff_trousers.vmat
+    |    1 |      1 |      1 |      0 |     24 (91,47) |      2184 ( 61.15 KB) |      3348 (  6.70 KB) |                     - | materials/trento/povo/campus/exterior/marking.vmat
+    |    1 |      2 |      2 |      0 |     22 (93,46) |      2040 ( 57.12 KB) |      3060 (  6.12 KB) |                     - | materials/trento/povo/campus/projection_screen.vmat
+    |    1 |      4 |      4 |      0 |     18 (88,44) |      1582 ( 44.30 KB) |      2376 (  4.75 KB) |                     - | materials/trento/povo/campus/exterior/white.vmat
+    |    1 |      2 |      2 |      0 |     20 (77,45) |      1514 ( 42.39 KB) |      2700 (  5.40 KB) |                     - | materials/trento/povo/campus/exterior/asphalt.vmat
+    |    1 |      1 |      1 |      0 |     17 (86,47) |      1455 ( 40.74 KB) |      2376 (  4.75 KB) |                     - | materials/trento/povo/campus/floor_circulation.vmat
+    |    1 |      2 |      2 |      0 |     15 (89,46) |      1338 ( 37.46 KB) |      2052 (  4.10 KB) |                     - | materials/trento/povo/campus/floor_wood.vmat
+    |    1 |      1 |      1 |      0 |     12 (92,46) |      1104 ( 30.91 KB) |      1656 (  3.31 KB) |                     - | materials/trento/povo/campus/exterior/grout.vmat
+    |    1 |      5 |      5 |      0 |     13 (85,42) |      1101 ( 30.83 KB) |      1656 (  3.31 KB) |                     - | materials/trento/povo/campus/door_black.vmat
+    |    1 |      3 |      3 |      0 |     13 (83,42) |      1080 ( 30.24 KB) |      1620 (  3.24 KB) |                     - | materials/trento/povo/campus/office_light.vmat
+    |    1 |      2 |      2 |      0 |     11 (94,47) |      1030 ( 28.84 KB) |      1548 (  3.10 KB) |                     - | materials/trento/povo/campus/teaching_board.vmat
+    |    1 |      5 |      5 |      0 |     10 (77,38) |       768 ( 21.50 KB) |      1152 (  2.30 KB) |                     - | materials/trento/povo/campus/door_pushbar.vmat
+    |    1 |      2 |      2 |      0 |      8 (96,48) |       768 ( 21.50 KB) |      1152 (  2.30 KB) |                     - | materials/trento/povo/campus/sanitary_water.vmat
+    |    1 |      2 |      2 |      0 |      9 (83,41) |       744 ( 20.83 KB) |      1116 (  2.23 KB) |                     - | materials/trento/povo/campus/canteen_orange.vmat
+    |    1 |      4 |      4 |      0 |      8 (93,47) |       742 ( 20.78 KB) |      1116 (  2.23 KB) |                     - | materials/trento/povo/campus/exterior/trunk.vmat
+    |    1 |      2 |      2 |      0 |      9 (80,40) |       720 ( 20.16 KB) |      1080 (  2.16 KB) |                     - | materials/trento/povo/campus/sign_white.vmat
+    |    1 |      3 |      3 |      0 |      8 (90,45) |       720 ( 20.16 KB) |      1080 (  2.16 KB) |                     - | materials/trento/povo/campus/exterior/tree.vmat
+    |    1 |      1 |      1 |      0 |      8 (90,45) |       720 ( 20.16 KB) |      1080 (  2.16 KB) |                     - | materials/trento/povo/campus/parking_line.vmat
+    |    1 |      3 |      3 |      0 |      9 (76,40) |       682 ( 19.10 KB) |      1080 (  2.16 KB) |                     - | materials/trento/povo/campus/exterior/orange.vmat
+    |    1 |      1 |      1 |      0 |      8 (83,47) |       660 ( 18.48 KB) |      1116 (  2.23 KB) |                     - | materials/trento/povo/campus/floor_room.vmat
+    |    1 |      3 |      3 |      0 |      6 (84,42) |       504 ( 14.11 KB) |       756 (  1.51 KB) |                     - | materials/trento/povo/campus/exterior/car_white.vmat
+    |    1 |      5 |      5 |      0 |      6 (40,20) |       240 (  6.72 KB) |       360 (720 bytes) |                     - | materials/trento/povo/campus/exterior/car_blue.vmat
+    |    1 |      3 |      3 |      0 |      3 (54,28) |       162 (  4.54 KB) |       252 (504 bytes) |                     - | materials/trento/povo/campus/exterior/grass.vmat
+    |    1 |      2 |      2 |      0 |      2 (72,36) |       144 (  4.03 KB) |       216 (432 bytes) |                     - | materials/trento/povo/campus/exterior/car_red.vmat
+    |    1 |      2 |      2 |      0 |      2 (72,36) |       144 (  4.03 KB) |       216 (432 bytes) |                     - | materials/trento/povo/campus/office_display.vmat
+    |    1 |      4 |      4 |      0 |      4 (31,15) |       124 (  2.98 KB) |       180 (360 bytes) |                     - | materials/trento/povo/campus/exterior/context_concrete.vmat
+    |    1 |      2 |      2 |      0 |      2 (48,24) |        96 (  2.69 KB) |       144 (288 bytes) |                     - | materials/trento/povo/campus/mirror_silver.vmat
+ __________ SceneObjects __________
+    | obj |                vertex |                 index | material
+    |   0 |      9318 (341.47 KB) |     14136 ( 28.27 KB) | TOTAL
+    |   1 |      5918 (236.72 KB) |      8928 ( 17.86 KB) | materials/trento/povo/campus/exterior/glass.vmat
+    |   1 |       652 ( 26.08 KB) |      1008 (  2.02 KB) | materials/trento/povo/campus/exterior/canopy_glass.vmat
+    |   1 |       504 ( 14.11 KB) |       756 (  1.51 KB) | materials/trento/povo/campus/courtyard_wall.vmat
+    |   1 |       480 ( 13.44 KB) |       720 (  1.44 KB) | materials/trento/povo/campus/car_tyre.vmat
+    |   1 |       432 ( 12.10 KB) |       648 (  1.30 KB) | materials/trento/povo/campus/exterior/residential_grey.vmat
+    |   1 |       280 (  7.84 KB) |       468 (936 bytes) | materials/trento/povo/campus/floor_p2_asphalt.vmat
+    |   1 |       144 (  5.76 KB) |       216 (432 bytes) | materials/trento/povo/campus/reception_glass.vmat
+    |   1 |       192 (  5.38 KB) |       288 (576 bytes) | materials/trento/povo/campus/exterior/light.vmat
+    |   1 |       190 (  5.32 KB) |       288 (576 bytes) | materials/trento/povo/campus/exterior/stone.vmat
+    |   1 |       120 (  3.36 KB) |       180 (360 bytes) | materials/trento/povo/campus/car_glass.vmat
+    |   1 |        96 (  2.69 KB) |       144 (288 bytes) | materials/trento/povo/campus/car_blue.vmat
+    |   1 |        96 (  2.69 KB) |       144 (288 bytes) | materials/trento/povo/campus/car_silver.vmat
+    |   1 |        48 (  1.34 KB) |        72 (144 bytes) | materials/trento/povo/campus/car_red.vmat
+    |   1 |        46 (  1.29 KB) |        72 (144 bytes) | materials/trento/povo/campus/exterior/tile.vmat
+    |   1 |        28 (784 bytes) |        36 ( 72 bytes) | materials/trento/povo/campus/courtyard_ground.vmat
+    |   1 |        24 (672 bytes) |        36 ( 72 bytes) | materials/trento/povo/campus/p2_accent_green.vmat
+    |   1 |        24 (672 bytes) |        66 (132 bytes) | materials/trento/povo/campus/exterior/ridge.vmat
+    |   1 |        24 (672 bytes) |        36 ( 72 bytes) | materials/trento/povo/campus/floor_yard_grass.vmat
+    |   1 |        20 (560 bytes) |        30 ( 60 bytes) | materials/dev/reflectivity_30.vmat
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0.vwnod
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\entities\default_ents.vents
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\world.vwrld
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\worldnodes\n0.vrman
+
+
+... Building 'phys'
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\world_physics.vmdl
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\world_physics.vrman
+
+
+... Building 'vis'
+
+
+... Building 'nav'
+Nav settings not found, using default settings.
+>>NAVGEN: pass 1/1: orig tris 103114
+>>NAVGEN: -- Start --
+>>NAVGEN: stage 01 / 31: ValidateVertices took 0.003 sec, produced 103114 polys
+>>NAVGEN: stage 02 / 31: WeldVertices took 0.091 sec, produced 103114 polys
+>>NAVGEN: stage 03 / 31: RemoveDegens took 0.006 sec, produced 103114 polys
+>>NAVGEN: stage 04 / 31: RemovePolysMarkedNoNav took 0.017 sec, produced 103114 polys
+>>NAVGEN: stage 05 / 31: TransformRecastNonZup took 0.000 sec, produced 103114 polys
+>>NAVGEN: stage 06 / 31: Recast took 14.883 sec, produced 35370 polys
+>>NAVGEN: stage 07 / 31: UnTransformRecastNonZup took 0.000 sec, produced 35370 polys
+>>NAVGEN: stage 08 / 31: WeldVertices took 0.024 sec, produced 35370 polys
+>>NAVGEN: stage 09 / 31: RemoveDegens took 0.002 sec, produced 35370 polys
+>>NAVGEN: stage 10 / 31: RemovePolysMarkedNoNav took 0.008 sec, produced 35370 polys
+>>NAVGEN: stage 11 / 31: RemoveStrayVerticalPolys took 0.001 sec, produced 35357 polys
+>>NAVGEN: stage 12 / 31: WeldVertices took 0.004 sec, produced 35357 polys
+>>NAVGEN: stage 13 / 31: RemoveDegens took 0.002 sec, produced 35357 polys
+>>NAVGEN: stage 14 / 31: MergePolys took 0.553 sec, produced 11500 polys
+>>NAVGEN: stage 15 / 31: LimitMaxPolyEdges took 0.000 sec, produced 11500 polys
+>>NAVGEN: stage 16 / 31: LimitMaxPolyEdgeLen took 0.001 sec, produced 13670 polys
+>>NAVGEN: stage 17 / 31: RemoveStrayVerticalPolys took 0.000 sec, produced 13670 polys
+>>NAVGEN: stage 18 / 31: WeldVertices took 0.005 sec, produced 13670 polys
+>>NAVGEN: stage 19 / 31: RemoveDegens took 0.001 sec, produced 13670 polys
+>>NAVGEN: stage 20 / 31: SplitPolysByMarkup took 0.000 sec, produced 13670 polys
+>>NAVGEN: stage 21 / 31: WeldVertices took 0.002 sec, produced 13670 polys
+>>NAVGEN: stage 22 / 31: RemoveDegens took 0.001 sec, produced 13670 polys
+>>NAVGEN: stage 23 / 31: ClipPolysToHullClearance took 0.052 sec, produced 13658 polys
+>>NAVGEN: stage 24 / 31: GenerateConnections took 0.108 sec, produced 13658 polys
+>>NAVGEN: stage 25 / 31: SplitBottleneckPolys took 0.266 sec, produced 13828 polys
+>>NAVGEN: stage 26 / 31: SplitPolysWithMultipleConnections took 0.006 sec, produced 13831 polys
+>>NAVGEN: stage 27 / 31: SplitBoundaryPolysWithConnections, disabled
+>>NAVGEN: stage 28 / 31: AddJumps took 0.493 sec, produced 13831 polys
+>>NAVGEN: stage 29 / 31: RemoveSmallAreasOnEdge took 0.001 sec, produced 13831 polys
+>>NAVGEN: stage 30 / 31: LadderConnect took 0.004 sec, produced 13831 polys
+>>NAVGEN: stage 31 / 31: IslandRemoval, disabled
+>>NAVGEN: -- End --
+>>NAVGEN: -- Start --
+>>NAVGEN: stage 01 / 01: IslandRemoval took 0.054 sec, produced 12480 polys
+>>NAVGEN: -- End --
+NavGeometryManager -> Computing Vertex Attributes...
+NavGeometryManager -> Computing Vertex Attributes - done
+CSGO Compute AI Data
+-------------------------------
+CSGO: Compute Early Occupy Times [ disabled for survival maps ]
+CSGO: CSGO: Compute Hiding spots [ disabled for survival maps ]
+CSGO: Compute Encounter spots [ disabled for survival maps ]
+CSGO: Compute Approach areas [ disabled for survival maps ]
+Size of nav file 'maps/trento_povo_campus.nav' is 1385654 bytes.
+
+
+... Building 'bakedlighting'
+
+
+... Building 'sareverb'
+Steam Audio: Rebake option set to MANUAL, which is deprecated. Proceeding as if set to CLEANUP.
+Steam Audio: Bake set to cleanup, baked data file (maps\trento_povo_campus.sareverb) will be deleted.
+
+
+... Building 'sapaths'
+Steam Audio: Rebake option set to MANUAL, which is deprecated. Proceeding as if set to CLEANUP.
+Steam Audio: Bake set to cleanup, baked data file (maps\trento_povo_campus.sapaths) will be deleted.
+
+
+... Building 'sacustomdata'
+ERROR: Unconnected ladder #2 top at ( -571.653, 860.236, 444 )
+nav_unmark; nav_mark ladder 2; nav_warp_to_mark
+Nav mesh (v36/1) loaded with 12480 nav areas for 1 hulls.
+Baking CS2 Bomb Damage:
+-> Sampling NavMesh....................[ 2488790 points ]
+-> Cascading neighboring samples.......[ 29296122 nodes ]
+-> Detonating Site A...................[ 713 iterations ]
+-> Gathering runtime data..............[ done ]
+-> Preparing vdata content.............[ done ]
+-> Produced 1223070 data points ( ~11.66 MB pre-compression )
+Bomb Damage bake completed in 249.4 seconds.
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\baked_bomb_damage.vdata
+  +- csgo_addons\trento_povo\maps\trento_povo_campus\world.vrman
+--> Map build finished.
+Pack trento_povo_campus.vpk (C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo\maps\trento_povo_campus.vpk):
+Hashing metadata...Writing...Hashing embedded chunk (50767075 bytes)
+Attempting to load signing keys.
+Couldn't load public key C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\src\devtools\bin\certificates\game\csgo/vpk.publickey.vdf, will not sign C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo\maps\trento_povo_campus.vpk.
+Not signing; keys not set.
+VPK: Wrote file C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo\maps\trento_povo_campus.vpk Length 50811394 MD5 01d87475ee42da95e06dac5d8b4420ac 
+VPK: Check file C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo_addons\trento_povo\maps\trento_povo_campus.vpk Length 50811394 MD5 01d87475ee42da95e06dac5d8b4420ac 
+ Done.
+     0/   1 (elapsed 1856.847):  C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\maps\trento_povo_campus.vmap
+Compile of 1 file(s) matching nonrecursive specification "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\maps\trento_povo_campus.vmap" took 1856.847 seconds
+
+-----------------------------------------------------------------
+ OK: 673 compiled, 0 failed, 0 skipped, 30m:58s
+-----------------------------------------------------------------
+Leaked KeyValues blocks: 594
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_basement1_radar_spectate_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_basement1_radar_spectate_tga.vtex
+       Read 1 Input(s): 8ms
+       Generated Mips and Output: 11ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 5ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 1ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_basement1_radar_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_basement1_radar_tga.vtex
+       Read 1 Input(s): 8ms
+       Generated Mips and Output: 18ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 10ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 3ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_basement2_radar_spectate_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_basement2_radar_spectate_tga.vtex
+       Read 1 Input(s): 7ms
+       Generated Mips and Output: 11ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 5ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 2ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_basement2_radar_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_basement2_radar_tga.vtex
+       Read 1 Input(s): 7ms
+       Generated Mips and Output: 13ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 5ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 2ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_lower_radar_spectate_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_lower_radar_spectate_tga.vtex
+       Read 1 Input(s): 13ms
+       Generated Mips and Output: 13ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 5ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 2ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_lower_radar_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_lower_radar_tga.vtex
+       Read 1 Input(s): 10ms
+       Generated Mips and Output: 12ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 5ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 3ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_middle_radar_spectate_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_middle_radar_spectate_tga.vtex
+       Read 1 Input(s): 14ms
+       Generated Mips and Output: 13ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 4ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 2ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_middle_radar_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_middle_radar_tga.vtex
+       Read 1 Input(s): 8ms
+       Generated Mips and Output: 13ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 5ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 2ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_radar_spectate_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_radar_spectate_tga.vtex
+       Read 1 Input(s): 17ms
+       Generated Mips and Output: 13ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 5ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 2ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Compiling C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\content\csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_radar_tga.vtex
+Creating render device for graphics adapter 0 'Intel(R) Arc(TM) 130T GPU (16GB)' [VendorId 0x8086 / DeviceId 0x7D51]: 32.0.101.8626
+Intel extension library loaded.
+Intel extension library version supported.  HWFeatureLevel: 1 APIVersion: 0 Revision: 0.
+Intel D3D11 extensions initialized.  GPU info
+	GPUMaxFrequency: 2200 Mhz
+	GTGeneration: 1273
+	EUCount: 112
+	PackageTDP: 28 Watts
+	MaxFillRate: 28 pixels/clock@32bpp
+- csgo_addons\trento_povo\panorama\images\overheadmaps\trento_povo_campus_radar_tga.vtex
+       Read 1 Input(s): 8ms
+       Generated Mips and Output: 13ms
+       Encoding 1024x1024x1 texture to BGRA8888 (Q=3): 5ms
+       Compressed lz4 4096kb -> on disk 16kb (0%): 2ms
+
+-----------------------------------------------------------------
+ OK: 1 compiled, 0 failed, 0 skipped, 0m:01s
+-----------------------------------------------------------------
+Successfully created pack file at "C:/Users/Alberto/Desktop/trento_fps/build/package/povo-package-evj2isyi/trento_povo_campus.vpk".
+Packaged standard: 61507512 bytes, 942 entries

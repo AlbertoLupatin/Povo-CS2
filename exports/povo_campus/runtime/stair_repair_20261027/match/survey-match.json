@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "map": "trento_povo_campus",
+  "checks": [
+    {
+      "name": "two_versus_two_2",
+      "passed": true
+    },
+    {
+      "name": "terrorist_buyzone_purchase",
+      "passed": true
+    },
+    {
+      "name": "audited_outdoor_point_is_outside_buyzone",
+      "passed": true
+    },
+    {
+      "name": "controlled_c4_assigned",
+      "passed": true
+    },
+    {
+      "name": "plant_rejected_outside_site",
+      "passed": true
+    },
+    {
+      "name": "plant_at_site_a",
+      "passed": true
+    },
+    {
+      "name": "native_bomb_defuse",
+      "passed": true
+    },
+    {
+      "name": "two_versus_two_3",
+      "passed": true
+    },
+    {
+      "name": "counterterrorist_buyzone_purchase",
+      "passed": true
+    },
+    {
+      "name": "elimination_round_win",
+      "passed": true
+    },
+    {
+      "name": "normal_bot_round_running",
+      "passed": true
+    }
+  ],
+  "started_at_utc": "2026-10-27T20:43:21.632400+00:00",
+  "package_sha256": "e08a52bbf22d4b9e668d88cd5becbb8375f34831393fb1996dc59073332af3c4",
+  "plan": {
+    "terrorist_buy": [
+      21.400000000000002,
+      -73.0,
+      4.12
+    ],
+    "counterterrorist_buy": [
+      3.0,
+      -35.2,
+      11.319999999999988
+    ],
+    "outside": [
+      -48,
+      -90,
+      3.12
+    ],
+    "plant": [
+      13.96,
+      -57.6,
+      11.319999999999988
+    ],
+    "defuse": [
+      13.96,
+      -58.5,
+      11.319999999999988
+    ]
+  },
+  "package_identity_scope": "On-disk package hash; live status checks map name, not loaded bytes",
+  "scope": "Local 2v2 with three bots; controlled placements and temporary roster team change for the isolated defuse check",
+  "finished_at_utc": "2026-10-27T20:44:47.395650+00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "garden_and_basement_tests": 11,
+  "targeted_status": "passed",
+  "integrated_followup_tests": 1,
+  "integrated_status": "passed",
+  "garden_clearance_samples": 2121,
+  "garden_clearance_status": "passed",
+  "native_compilation": "stopped at user request; not restarted",
+  "source_export": "regenerated",
+  "full_suite": {
+    "tests_run": 239,
+    "passed": 232,
+    "failed": 7,
+    "followup": "The station-count expectation was updated for the two added garden-route stations and that test then passed. Six broader stair/door/garage test failures remain; this is not a new passing full-suite run."
+  }
+}

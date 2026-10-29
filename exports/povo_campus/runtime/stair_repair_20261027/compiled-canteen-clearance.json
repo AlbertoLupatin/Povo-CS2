@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "scope": "Compiled static model triangle bounds; excludes VMAP brush entities/world mesh. Runtime checks still required.",
+  "compiled_model_sha256": "80dbbc335994f59cea590268dc0135207468cd734762eac5fc570fb224ec43b9",
+  "checks": [
+    {
+      "name": "canteen_next_tread",
+      "point": [
+        45.15,
+        -99.15,
+        5.8
+      ],
+      "passed": true,
+      "overlapping_triangles": []
+    },
+    {
+      "name": "canteen_reverse_turn",
+      "point": [
+        45.55,
+        -97.95,
+        6.53
+      ],
+      "passed": true,
+      "overlapping_triangles": []
+    }
+  ]
+}

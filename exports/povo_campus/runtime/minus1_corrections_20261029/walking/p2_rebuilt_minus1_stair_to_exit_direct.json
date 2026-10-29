@@ -1,0 +1,49 @@
+{
+  "name": "p2_rebuilt_minus1_stair_to_exit_direct",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        19.2,
+        17.15,
+        0.4
+      ],
+      "position": [
+        19.2000637080768,
+        17.131850420068528,
+        0.40079307700160316
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        34.5,
+        17.15,
+        0.4
+      ],
+      "position": [
+        34.49727106133799,
+        17.1500074576686,
+        0.40079302620160323
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        34.5,
+        10.0,
+        0.4
+      ],
+      "position": [
+        34.500055383938,
+        9.984482799639938,
+        0.4007932802016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

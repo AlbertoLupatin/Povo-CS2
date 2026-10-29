@@ -1,0 +1,80 @@
+{
+  "source": "data/reference/user_feedback/2026-10-28/povo2_gardens_user_markup.png",
+  "status": "User-approved marked-image topology; provisional metric dimensions",
+  "annotation_colours_are_materials": false,
+  "passage": [
+    33.25,
+    8.75,
+    38,
+    11.25
+  ],
+  "passage_z": 0.4,
+  "up_stair": [
+    33.25,
+    2.75,
+    35.75,
+    8.75
+  ],
+  "up_top": [
+    33.25,
+    1.25,
+    58,
+    2.75
+  ],
+  "down_landing": [
+    35.75,
+    8.75,
+    38,
+    11.25
+  ],
+  "down_stair": [
+    38,
+    8.75,
+    46.75,
+    11.25
+  ],
+  "garden": [
+    38,
+    8.75,
+    55.5,
+    20
+  ],
+  "street_side_walk": [
+    55.5,
+    8.75,
+    58,
+    20
+  ],
+  "garden_z": -3.2,
+  "street_garden": [
+    35.75,
+    2.75,
+    58,
+    8.75
+  ],
+  "entrance_courtyard": [
+    34.5,
+    20.0,
+    58.0,
+    28.3
+  ],
+  "street_z": 4.0,
+  "risers": 20,
+  "note": "Approved proposal v2: straight indoor corridor to south-facing exit; distant left turn lies outside the local review. UP is directly ahead/south; level passage heads east and continues straight into DOWN. Down flight starts at garden west edge and ends at its midpoint. Garden footprint extends south underneath the fixed stairs; elevation stays -2. Metric corridor length, stair dimensions and step counts remain provisional. Street garden extends west to meet the fixed UP stair side.",
+  "exit_door": [
+    34.5,
+    11.25
+  ],
+  "indoor_corridor": [
+    33.25,
+    11.25,
+    35.75,
+    34
+  ],
+  "indoor_turn": [
+    -3.8,
+    31.5,
+    35.75,
+    34
+  ]
+}

@@ -1,0 +1,619 @@
+{
+  "status": "passed",
+  "routes": [
+    {
+      "name": "bridge_courtyard_grade",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            0,
+            -10,
+            3.6925925925925926
+          ],
+          "position": [
+            -0.001366215200005465,
+            -9.988023686639954,
+            3.713681472814855
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "bridge_courtyard_grade_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            0,
+            -17,
+            3.9077777777777776
+          ],
+          "position": [
+            0.0,
+            -17.003439653268014,
+            3.9235698008156943
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo1_lower_plaza",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            25.5,
+            -80,
+            4
+          ],
+          "position": [
+            25.500000104902,
+            -80.11719965892048,
+            4.0007972562160035
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            25.5,
+            -100,
+            4
+          ],
+          "position": [
+            25.500006302502005,
+            -100.12183285260049,
+            4.000798043616003
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo1_lower_plaza_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            25.5,
+            -80,
+            4
+          ],
+          "position": [
+            25.501520929902007,
+            -79.9252113713197,
+            4.0007972562160035
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            25.5,
+            -60,
+            4
+          ],
+          "position": [
+            25.498499422101997,
+            -60.05776670184023,
+            4.000796113216004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo1_street_pavement",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            54,
+            -45,
+            7.6
+          ],
+          "position": [
+            54.00144800421601,
+            -44.8994268381796,
+            7.600795745830403
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54,
+            -15,
+            7.6
+          ],
+          "position": [
+            54.00163403381601,
+            -14.928494984259716,
+            7.600794196430405
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo1_street_pavement_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            54,
+            -45,
+            7.6
+          ],
+          "position": [
+            53.999990730016,
+            -45.01770488458008,
+            7.600795745830403
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54,
+            -65,
+            7.6
+          ],
+          "position": [
+            54.000058929016,
+            -65.08733876106035,
+            7.600796533230405
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo2_north_pavement",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            40,
+            116,
+            4
+          ],
+          "position": [
+            40.105217147960424,
+            116.00000165506401,
+            4.000788366216004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            56,
+            116,
+            4
+          ],
+          "position": [
+            56.064943750224266,
+            116.00000165506401,
+            4.000788366216004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo2_north_pavement_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            40,
+            116,
+            4
+          ],
+          "position": [
+            39.98066039935993,
+            116.00000165506401,
+            4.000788366216004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            27,
+            116,
+            4
+          ],
+          "position": [
+            27.060466097508247,
+            116.00000165506401,
+            4.000788366216004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo2_street_pavement",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            57.5,
+            40,
+            4.12
+          ],
+          "position": [
+            57.49867949083,
+            39.99252324075997,
+            4.120791885416484
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            80,
+            4.12
+          ],
+          "position": [
+            57.50059566683001,
+            80.14723193312061,
+            4.1207903360164835
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo2_street_pavement_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            57.5,
+            40,
+            4.12
+          ],
+          "position": [
+            57.500167778430004,
+            40.073612867760296,
+            4.120791885416484
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            25.5,
+            4.12
+          ],
+          "position": [
+            57.50176767363002,
+            25.434745168101742,
+            4.120792647416484
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "bridge_street_grade",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            49,
+            -5,
+            7.4
+          ],
+          "position": [
+            48.997927048596,
+            -5.0011893118200055,
+            7.481674343229927
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "bridge_street_grade_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            41,
+            -5,
+            5.8
+          ],
+          "position": [
+            40.994964390563986,
+            -5.0011761292200045,
+            5.881082878423524
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "planned_routes": 12,
+  "route_plan": [
+    {
+      "name": "bridge_courtyard_grade",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          0,
+          -17,
+          3.9077777777777776
+        ],
+        [
+          0,
+          -10,
+          3.6925925925925926
+        ]
+      ]
+    },
+    {
+      "name": "bridge_courtyard_grade_return",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          0,
+          -10,
+          3.6925925925925926
+        ],
+        [
+          0,
+          -17,
+          3.9077777777777776
+        ]
+      ]
+    },
+    {
+      "name": "povo1_lower_plaza",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          25.5,
+          -60,
+          4
+        ],
+        [
+          25.5,
+          -80,
+          4
+        ],
+        [
+          25.5,
+          -100,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "povo1_lower_plaza_return",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          25.5,
+          -100,
+          4
+        ],
+        [
+          25.5,
+          -80,
+          4
+        ],
+        [
+          25.5,
+          -60,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "povo1_street_pavement",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          54,
+          -65,
+          7.6
+        ],
+        [
+          54,
+          -45,
+          7.6
+        ],
+        [
+          54,
+          -15,
+          7.6
+        ]
+      ]
+    },
+    {
+      "name": "povo1_street_pavement_return",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          54,
+          -15,
+          7.6
+        ],
+        [
+          54,
+          -45,
+          7.6
+        ],
+        [
+          54,
+          -65,
+          7.6
+        ]
+      ]
+    },
+    {
+      "name": "povo2_north_pavement",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          27,
+          116,
+          4
+        ],
+        [
+          40,
+          116,
+          4
+        ],
+        [
+          56,
+          116,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "povo2_north_pavement_return",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          56,
+          116,
+          4
+        ],
+        [
+          40,
+          116,
+          4
+        ],
+        [
+          27,
+          116,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "povo2_street_pavement",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          57.5,
+          25.5,
+          4.12
+        ],
+        [
+          57.5,
+          40,
+          4.12
+        ],
+        [
+          57.5,
+          80,
+          4.12
+        ]
+      ]
+    },
+    {
+      "name": "povo2_street_pavement_return",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          57.5,
+          80,
+          4.12
+        ],
+        [
+          57.5,
+          40,
+          4.12
+        ],
+        [
+          57.5,
+          25.5,
+          4.12
+        ]
+      ]
+    },
+    {
+      "name": "bridge_street_grade",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          41,
+          -5,
+          5.8
+        ],
+        [
+          49,
+          -5,
+          7.4
+        ]
+      ]
+    },
+    {
+      "name": "bridge_street_grade_return",
+      "kind": "walk",
+      "category": "exterior_visibility",
+      "path": [
+        [
+          49,
+          -5,
+          7.4
+        ],
+        [
+          41,
+          -5,
+          5.8
+        ]
+      ]
+    }
+  ],
+  "package_sha256": "c916c179db8a9ea84adef59c428af6b801f1beca6ea89c98291ef77c3b64aa7f",
+  "fresh_session": "New isolated addon launch after staging this package",
+  "movement": "One placement per route, ordinary walking thereafter, noclip0"
+}

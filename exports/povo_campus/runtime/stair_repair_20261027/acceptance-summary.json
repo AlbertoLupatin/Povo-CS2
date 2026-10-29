@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "scope": "Standard map; combined 50-route coverage across the complete sweep and the corrected intermediate-landing retest. Local controlled match only.",
+  "package_sha256": "e08a52bbf22d4b9e668d88cd5becbb8375f34831393fb1996dc59073332af3c4",
+  "package_bytes": 61507512,
+  "package_entries": 942,
+  "crc_verified_entries": 942,
+  "route_objectives": 50,
+  "route_objectives_passed": 50,
+  "critical_stairs": 6,
+  "feature_checks": 14,
+  "local_match_checks": 11,
+  "source_tests": 219,
+  "source_tests_status": "passed",
+  "known_limits": [
+    "One unconnected Povo 2 ladder-top navigation link; both player ladders pass jump-assisted dismounts.",
+    "Duplicate Bone model import warning persists.",
+    "Winter and independent-client multiplayer not tested."
+  ],
+  "input_sha256": {
+    "tools/cs2_campus.py": "255223368639de87a5d91c6bddfa3970624e7b9fa2c2b59f5f3e924f5f4e95be",
+    "tools/povo_wings.py": "e86f89b679a1da4d1ee12bb0f3fd06b565991a491d88cd5378f767ba974c9900",
+    "tools/playtest_povo_survey.py": "24ade15ff89707728042a1b1ef4bf9946f0770c438680d0ef6c81e46193419b0",
+    "exports/povo_campus/provenance.json": "ea85a8bddb0b548c3d36b8931496d6625f7972a829a904971ed7c03c60bf7dd4",
+    "cs2/content/trento_povo/maps/trento_povo_campus.vmap": "c915169604b7f6537a8f8e5926a823ef94a42186e2df2046e3b9ad963119400e"
+  }
+}

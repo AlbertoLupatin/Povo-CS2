@@ -14,6 +14,7 @@ except ImportError:
 
 UNITS = 39.37007874
 PREFIX = 'materials/trento/povo/campus/'
+FIRE_DOOR_CLOSE_DELAY = 2.5
 
 
 def world(point):
@@ -31,8 +32,19 @@ def door_selection(levels, stair, *, automatic_entrances=False):
                 kind=kind,pivot=[x,edge,z],bounds=[[x-.024,min(y,edge)+.018,z+.025],
                 [x+.024,max(y,edge)-.018,z+height-.025]],reverse=sign>0,
                 material=PREFIX+'door_black.vmat'))
-    # The black fire doors use the original fixed 90-degree open geometry.
-    # They have no moving entity and cannot swing shut across a route.
+    # Move just the second leaf of each portal; the first stays parked open.
+    # Enumerate by elevation: upper stair segments reuse their floor numbers.
+    for core in stair['cores']:
+        for index,portal in enumerate(core['enclosure']['portals']):
+            x,y,z=portal['centre'];half=portal['width']/2
+            sign=-1 if core['mirror_north'] else 1
+            edge=y+sign*half
+            doors.append(dict(id=f'stair_{core["id"]}_{index}',kind='fire',
+                pivot=[x,edge,z],bounds=[[x-.024,min(y,edge)+.018,z+.025],
+                [x+.024,max(y,edge)-.018,z+portal['height']-.025]],
+                reverse=not (core['mirror_east'] != core['mirror_north']),
+                sensor=[[x-1.5,y-half,z+.02],[x+1.5,y+half,z+2.2]],
+                material=PREFIX+'door_black.vmat'))
     # Four photo-referenced teaching rooms; the rest retain clear openings.
     for level in levels:
         z=level['floor_elevation_metres']-370
@@ -67,12 +79,30 @@ def door_selection(levels, stair, *, automatic_entrances=False):
 
 
 def extract_static_leaves(boxes, levels, stair, *, automatic_entrances=False):
-    """Retain fixed-open fire doors and extract two small stair window panes."""
+    """Replace one stair leaf per pair, keeping its partner and all frames."""
     result=[];panes=[]
+    doors=door_selection(levels,stair,automatic_entrances=automatic_entrances)
     for box in boxes:
         name,lo,hi,mat=box
-        # Keep these leaves in their generated open position. Only classroom
-        # doors and the glazed entrance banks remain interactive.
+        if re.match(r'^stair_(?:(?:sw|ne|nw)_)?door_\d+_1_(?:leaf|pushbar)(?:_upper_segment)?$',name):
+            continue
+        # The newer Povo 2 stair portals have their own fixed-open pair names.
+        # Their leaves are offset .05 m from the hinge wall in the source.
+        match=re.fullmatch(r'p2_internal_door_(-?\d+)_1',name)
+        if match:
+            floor=int(match[1]);axis=1 if hi[0]-lo[0]>hi[1]-lo[1] else 0
+            across=1-axis
+            edge=(lo[axis]+hi[axis])/2
+            hinge=lo[across]-.05 if floor>=0 else hi[across]+.05
+            a=list(lo);b=list(hi);a[axis]=edge-.825+.018;b[axis]=edge-.018
+            a[across]=hinge-.024;b[across]=hinge+.024
+            pivot=[0,0,lo[2]-.02];pivot[axis]=edge;pivot[across]=hinge
+            sensor_lo=list(a);sensor_hi=list(b)
+            sensor_lo[across]=hinge-1.5;sensor_hi[across]=hinge+1.5
+            sensor_lo[axis]=edge-1.65;sensor_hi[axis]=edge
+            doors.append(dict(id='stair_'+name,kind='fire',pivot=pivot,bounds=[a,b],
+                reverse=False,sensor=[sensor_lo,sensor_hi],material=PREFIX+'door_black.vmat'))
+            continue
         if name.startswith('exterior_') and '_parked_leaf' in name:continue
         # One framed pane on each ground-level east stair window. The other
         # panes and the entire large curtain wall remain structural glazing.
@@ -82,8 +112,8 @@ def extract_static_leaves(boxes, levels, stair, *, automatic_entrances=False):
             panes.append(dict(id='glass_'+name,bounds=[list(lo),list(pane_hi)],health=20))
             result.append((name,(lo[0],cut+.025,lo[2]),hi,mat))
         else:result.append(box)
-    spec=dict(doors=door_selection(levels,stair,automatic_entrances=automatic_entrances),glass=panes,
-              policy='Black fire doors fixed open; native classroom doors and automatic glazed entrances')
+    spec=dict(doors=doors,glass=panes,
+              policy='One stair leaf fixed open; sensor opens partner, closes 2.5 seconds after clear')
     levels[0]['interactions']=spec
     return result
 
@@ -143,6 +173,13 @@ def insert_entities(source, spec):
         else:
             props.extend((('distance','90'),('solidbsp','0')))
             props=[(k,('1314' if door['reverse'] else '1312') if k=='spawnflags' else v) for k,v in props]
+            if door['kind']=='fire':
+                # One-way prevents touch direction from changing the parked side.
+                # Only the sensor controls this leaf; the relay owns its timer.
+                overrides=dict(spawnflags=str(18 if door['reverse'] else 16),
+                    noise1='Povo.Door.Open',noise2='',wait='-1')
+                props=[(k,overrides.get(k,v)) for k,v in props]
+                props.extend((('startclosesound','Povo.Door.Close'),('closesound','')))
             if hi[0]-lo[0]<hi[1]-lo[1]:
                 bar=([lo[0]-.045,lo[1]+.09,lo[2]+.99],[hi[0]+.045,hi[1]-.09,lo[2]+1.035])
             else:
@@ -150,9 +187,44 @@ def insert_entities(source, spec):
             parts.append((*bar,PREFIX+'door_pushbar.vmat'))
         source=brush_entity(source,'interactive-'+door['id'],
                 'func_door' if sliding else 'func_door_rotating',parts,props,door.get('pivot'))
+        if door['kind']=='fire':source=insert_fire_sensor(source,door)
     for pane in spec['glass']:
         source=brush_entity(source,'interactive-'+pane['id'],'func_breakable',
             [(*pane['bounds'],'materials/glass/glass01.vmat')],
             [('targetname',pane['id']),('health',str(pane['health'])),('material','0'),
              ('spawnflags','0'),('explosion','0'),('minhealthdmg','0')])
     return source
+
+
+def with_outputs(source, target, rows):
+    """Attach Hammer I/O to a named entity without disturbing mesh children."""
+    for a,b,_,block in project._entity_ranges(source):
+        if f'"targetname" "string" "{target}"' not in block:continue
+        replacement,count=re.subn(r'("connectionsData"\s+"element_array"\s*\[)\s*\]',
+            lambda m:m[1]+'\n'+',\n'.join(rows)+'\n]',block,count=1)
+        if not count:raise ValueError('Entity has no empty connectionsData: '+target)
+        return source[:a]+replacement+source[b:]
+    raise ValueError('Missing I/O target: '+target)
+
+
+def insert_fire_sensor(source,door):
+    try:
+        from .cs2_campus import connection,TRIGGER_MATERIAL
+    except ImportError:
+        from cs2_campus import connection,TRIGGER_MATERIAL
+    target=door['id'];relay=target+'_close_timer';sensor=target+'_sensor'
+    source=project._insert_point_entity(source,relay,'logic_relay',
+        ' '.join(str(v) for v in world(door['pivot'])),
+        (('targetname',relay),('TriggerOnce','0'),('FastRetrigger','1')))
+    close=connection(relay+'-close','OnTrigger',target,'Close').replace(
+        '"delay" "float" "0"',f'"delay" "float" "{FIRE_DOOR_CLOSE_DELAY}"')
+    # OnSpawn also closes the initially open leaf after navigation baking.
+    startup=connection(relay+'-startup','OnSpawn',relay,'Trigger')
+    source=with_outputs(source,relay,[close,startup])
+    source=brush_entity(source,sensor,'trigger_multiple',
+        [(*door['sensor'],TRIGGER_MATERIAL)],
+        [('targetname',sensor),('spawnflags','1'),('wait','.1'),('StartDisabled','0')])
+    rows=[connection(sensor+'-cancel','OnStartTouchAll',relay,'CancelPending'),
+          connection(sensor+'-open','OnStartTouchAll',target,'Open'),
+          connection(sensor+'-close','OnEndTouchAll',relay,'Trigger')]
+    return with_outputs(source,sensor,rows)

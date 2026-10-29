@@ -50,7 +50,8 @@ def audit():
             dict(id=prefix,floor_elevation_local=z),level['audit_stations'],width=.82,height=1.85)
         reports.append(report)
     routes=[dict(lower_floor=0,points=[link['stair']['top'],*link['stair']['path'],link['stair']['bottom']]),
-            *spec['stairs']['path']]
+            *spec['stairs']['path'],*spec['parking'].get('routes',[]),
+            *spec.get('basement_rebuild',{}).get('routes',[])]
     samples,failures=audit_stair_routes(physics,routes)
     return dict(status='passed' if not failures and all(r['status']=='passed' for r in reports) else 'failed',
                 levels=reports,stair_samples=samples,stair_failures=failures,

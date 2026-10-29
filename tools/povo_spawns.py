@@ -52,7 +52,9 @@ def storeys(physics,levels):
                              and m.startswith('floor_'))
             result.append((level['id'],z,level['audit_stations'][0]['point'],support))
         yard=spec.get('additions',{}).get('yard')
-        if yard:result.append(('p2_yard',yard['z'],yard['audit_stations'][0]['point'],[]))
+        if yard:
+            support=_aliased(physics,'p2_yard',yard['z'],lambda n,m:n.startswith('p2_gardens_') and m.startswith('floor_'))
+            result.append(('p2_yard',yard['z'],yard['audit_stations'][0]['point'],support))
     for level in levels[0].get('wings',{}).get('levels',[]):
         z=level['z'];building=level['building']
         support=_aliased(physics,level['id'],z,lambda n,m:(n.startswith(building+'_') and m.startswith('floor_'))

@@ -16,8 +16,8 @@
       24,
       -20
     ],
-    "walkable_cells": 159338,
-    "reachable_cells": 155610,
+    "walkable_cells": 156485,
+    "reachable_cells": 152757,
     "stations": [
       {
         "id": "entry",
@@ -317,7 +317,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_north_west",
+        "id": "g_north_west_aisle0",
+        "point_local_metres": [
+          -11.572929936251603,
+          -37.900000000390534
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_north_west_aisle1",
+        "point_local_metres": [
+          -11.172929936251602,
+          -41.301328502595425
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_north_west_aisle2",
         "point_local_metres": [
           -9.478768577449955,
           -41.301328502595425
@@ -326,7 +344,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_north_east",
+        "id": "g_north_east_aisle0",
+        "point_local_metres": [
+          12.073991507431492,
+          -37.900000000390534
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_north_east_aisle1",
+        "point_local_metres": [
+          11.673991507431491,
+          -41.301328502595425
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_north_east_aisle2",
         "point_local_metres": [
           8.133757961797528,
           -41.301328502595425
@@ -335,7 +371,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_south_west",
+        "id": "g_south_west_aisle0",
+        "point_local_metres": [
+          -11.572929936251603,
+          -85.09999999989817
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_south_west_aisle1",
+        "point_local_metres": [
+          -11.172929936251602,
+          -81.79891304345801
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_south_west_aisle2",
         "point_local_metres": [
           -9.478768577449955,
           -81.79891304345801
@@ -344,7 +398,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_south_east",
+        "id": "g_south_east_aisle0",
+        "point_local_metres": [
+          12.073991507431492,
+          -85.09999999989817
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_south_east_aisle1",
+        "point_local_metres": [
+          11.673991507431491,
+          -81.79891304345801
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_south_east_aisle2",
         "point_local_metres": [
           8.133757961797528,
           -81.79891304345801
@@ -353,7 +425,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_east3",
+        "id": "g_east3_aisle0",
+        "point_local_metres": [
+          12.073991507431492,
+          -54.768780193198474
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_east3_aisle1",
+        "point_local_metres": [
+          11.673991507431491,
+          -57.54045893717557
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_east3_aisle2",
         "point_local_metres": [
           10.029723991523497,
           -57.54045893717557
@@ -362,7 +452,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_east4",
+        "id": "g_east4_aisle0",
+        "point_local_metres": [
+          12.073991507431492,
+          -46.84969806754962
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_east4_aisle1",
+        "point_local_metres": [
+          11.673991507431491,
+          -49.621376811526716
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_east4_aisle2",
         "point_local_metres": [
           10.029723991523497,
           -49.621376811526716
@@ -371,7 +479,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_outer_east1",
+        "id": "g_outer_east1_aisle0",
+        "point_local_metres": [
+          16.367622080701402,
+          -62.903381642792375
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_outer_east1_aisle1",
+        "point_local_metres": [
+          16.767622080701404,
+          -65.7101449277252
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_outer_east1_aisle2",
         "point_local_metres": [
           19.8588110403507,
           -65.7101449277252
@@ -380,7 +506,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_outer_east2",
+        "id": "g_outer_east2_aisle0",
+        "point_local_metres": [
+          16.367622080701402,
+          -54.88405797076412
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_outer_east2_aisle1",
+        "point_local_metres": [
+          16.767622080701404,
+          -57.6908212560229
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_outer_east2_aisle2",
         "point_local_metres": [
           19.8588110403507,
           -57.6908212560229
@@ -389,7 +533,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_outer_east3",
+        "id": "g_outer_east3_aisle0",
+        "point_local_metres": [
+          16.367622080701402,
+          -46.864734299387784
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_outer_east3_aisle1",
+        "point_local_metres": [
+          16.767622080701404,
+          -49.671497584320605
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_outer_east3_aisle2",
         "point_local_metres": [
           19.8588110403507,
           -49.671497584320605
@@ -398,7 +560,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_copy_south",
+        "id": "g_copy_south_aisle0",
+        "point_local_metres": [
+          -11.572929936251603,
+          -75.283212560229
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_copy_south_aisle1",
+        "point_local_metres": [
+          -11.172929936251602,
+          -75.283212560229
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_copy_south_aisle2",
         "point_local_metres": [
           -9.478768577449955,
           -75.283212560229
@@ -434,7 +614,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "g_copy_north",
+        "id": "g_copy_north_aisle0",
+        "point_local_metres": [
+          -11.572929936251603,
+          -47.666666666511446
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_copy_north_aisle1",
+        "point_local_metres": [
+          -11.172929936251602,
+          -47.666666666511446
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "g_copy_north_aisle2",
         "point_local_metres": [
           -9.478768577449955,
           -47.666666666511446
@@ -463,16 +661,16 @@
     "cell_metres": 0.1,
     "grid_dimensions": [
       470,
-      1272
+      830
     ],
     "grid_bounds_local": [
       -23.0,
       -103.0,
       24.0,
-      24.15
+      -20.0
     ],
-    "walkable_cells": 103787,
-    "reachable_cells": 102888,
+    "walkable_cells": 101777,
+    "reachable_cells": 101697,
     "stations": [
       {
         "id": "entry",
@@ -1042,7 +1240,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "f_north_west",
+        "id": "f_north_west_aisle0",
+        "point_local_metres": [
+          -11.124757281527854,
+          -37.899999999572685
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_north_west_aisle1",
+        "point_local_metres": [
+          -10.724757281527854,
+          -41.279689233750105
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_north_west_aisle2",
         "point_local_metres": [
           -9.173786407744046,
           -41.279689233750105
@@ -1213,7 +1429,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "f_north_east",
+        "id": "f_north_east_aisle0",
+        "point_local_metres": [
+          11.942233009752817,
+          -37.899999999572685
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_north_east_aisle1",
+        "point_local_metres": [
+          11.542233009752817,
+          -41.279689233750105
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_north_east_aisle2",
         "point_local_metres": [
           10.082524271856528,
           -41.279689233750105
@@ -1294,7 +1528,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "f_south_centre",
+        "id": "f_south_centre_aisle0",
+        "point_local_metres": [
+          -4.724757281539496,
+          -85.3078246390447
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_south_centre_aisle1",
+        "point_local_metres": [
+          -4.724757281539496,
+          -84.9078246390447
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_south_centre_aisle2",
         "point_local_metres": [
           -4.724757281539496,
           -81.58213096531108
@@ -1303,7 +1555,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "f_south_coffee",
+        "id": "f_south_coffee_aisle0",
+        "point_local_metres": [
+          -0.2300970873911865,
+          -85.3078246390447
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_south_coffee_aisle1",
+        "point_local_metres": [
+          -0.2300970873911865,
+          -84.9078246390447
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_south_coffee_aisle2",
         "point_local_metres": [
           -0.2300970873911865,
           -81.58213096531108
@@ -1366,7 +1636,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "f_south_east",
+        "id": "f_south_east_aisle0",
+        "point_local_metres": [
+          11.942233009752817,
+          -85.09999999974764
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_south_east_aisle1",
+        "point_local_metres": [
+          11.542233009752817,
+          -81.58213096531108
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "f_south_east_aisle2",
         "point_local_metres": [
           10.082524271856528,
           -81.58213096531108
@@ -1403,8 +1691,8 @@
       25,
       26
     ],
-    "walkable_cells": 236128,
-    "reachable_cells": 212124,
+    "walkable_cells": 207708,
+    "reachable_cells": 203021,
     "stations": [
       {
         "id": "entry",
@@ -1524,7 +1812,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_243",
+        "id": "p1_243_aisle0",
+        "point_local_metres": [
+          -14.098036951478571,
+          -75.30987109895796
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_243_aisle1",
+        "point_local_metres": [
+          -14.498036951478571,
+          -74.3103799186647
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_243_aisle2",
         "point_local_metres": [
           -17.789838337164838,
           -74.3103799186647
@@ -1533,7 +1839,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_244",
+        "id": "p1_244_aisle0",
+        "point_local_metres": [
+          -14.098036951478571,
+          -71.35188602477312
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_244_aisle1",
+        "point_local_metres": [
+          -14.498036951478571,
+          -70.31241519702598
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_244_aisle2",
         "point_local_metres": [
           -17.789838337164838,
           -70.31241519702598
@@ -1542,7 +1866,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_245",
+        "id": "p1_245_aisle0",
+        "point_local_metres": [
+          -14.098036951478571,
+          -67.3939009498898
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_245_aisle1",
+        "point_local_metres": [
+          -14.498036951478571,
+          -66.31445047492161
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_245_aisle2",
         "point_local_metres": [
           -17.789838337164838,
           -66.31445047492161
@@ -1551,7 +1893,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_246",
+        "id": "p1_246_aisle0",
+        "point_local_metres": [
+          -14.098036951478571,
+          -63.38298507453874
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_246_aisle1",
+        "point_local_metres": [
+          -14.498036951478571,
+          -62.28833107184619
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_246_aisle2",
         "point_local_metres": [
           -17.789838337164838,
           -62.28833107184619
@@ -1560,7 +1920,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_247",
+        "id": "p1_247_aisle0",
+        "point_local_metres": [
+          -14.098036951478571,
+          -59.28816824965179
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_247_aisle1",
+        "point_local_metres": [
+          -14.498036951478571,
+          -58.234056987799704
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_247_aisle2",
         "point_local_metres": [
           -17.789838337164838,
           -58.234056987799704
@@ -1569,7 +1947,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_248",
+        "id": "p1_248_aisle0",
+        "point_local_metres": [
+          -14.098036951478571,
+          -55.367347354134544
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_248_aisle1",
+        "point_local_metres": [
+          -14.498036951478571,
+          -54.20793758472428
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_248_aisle2",
         "point_local_metres": [
           -17.789838337164838,
           -54.20793758472428
@@ -1578,7 +1974,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_249",
+        "id": "p1_249_aisle0",
+        "point_local_metres": [
+          -14.098036951478571,
+          -51.22354138386436
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_249_aisle1",
+        "point_local_metres": [
+          -14.498036951478571,
+          -50.238127544056624
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_249_aisle2",
         "point_local_metres": [
           -17.789838337164838,
           -50.238127544056624
@@ -1587,7 +2001,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_250",
+        "id": "p1_250_aisle0",
+        "point_local_metres": [
+          -14.098036951478571,
+          -47.36184531904757
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_250_aisle1",
+        "point_local_metres": [
+          -14.498036951478571,
+          -46.38093622820452
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_250_aisle2",
         "point_local_metres": [
           -17.789838337164838,
           -46.38093622820452
@@ -1596,7 +2028,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_217",
+        "id": "p1_217_aisle0",
+        "point_local_metres": [
+          16.12921478061471,
+          -75.30987109895796
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_217_aisle1",
+        "point_local_metres": [
+          16.529214780614712,
+          -74.3103799186647
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_217_aisle2",
         "point_local_metres": [
           19.468244803720154,
           -74.3103799186647
@@ -1605,7 +2055,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_216",
+        "id": "p1_216_aisle0",
+        "point_local_metres": [
+          16.12921478061471,
+          -71.28656716443598
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_216_aisle1",
+        "point_local_metres": [
+          16.529214780614712,
+          -70.34056987799704
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_216_aisle2",
         "point_local_metres": [
           19.468244803720154,
           -70.34056987799704
@@ -1614,7 +2082,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_215",
+        "id": "p1_215_aisle0",
+        "point_local_metres": [
+          16.12921478061471,
+          -67.41023066461086
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_215_aisle1",
+        "point_local_metres": [
+          16.529214780614712,
+          -66.37075983686373
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_215_aisle2",
         "point_local_metres": [
           19.468244803720154,
           -66.37075983686373
@@ -1623,7 +2109,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_214",
+        "id": "p1_214_aisle0",
+        "point_local_metres": [
+          16.12921478061471,
+          -63.41226594273001
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_214_aisle1",
+        "point_local_metres": [
+          16.529214780614712,
+          -62.37279511522502
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_214_aisle2",
         "point_local_metres": [
           19.468244803720154,
           -62.37279511522502
@@ -1632,7 +2136,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_213",
+        "id": "p1_213_aisle0",
+        "point_local_metres": [
+          16.12921478061471,
+          -59.4413297153078
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_213_aisle1",
+        "point_local_metres": [
+          16.529214780614712,
+          -58.34667571261525
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_213_aisle2",
         "point_local_metres": [
           19.468244803720154,
           -58.34667571261525
@@ -1641,7 +2163,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_212",
+        "id": "p1_212_aisle0",
+        "point_local_metres": [
+          16.12921478061471,
+          -55.346512890420854
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_212_aisle1",
+        "point_local_metres": [
+          16.529214780614712,
+          -54.29240162856877
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_212_aisle2",
         "point_local_metres": [
           19.468244803720154,
           -54.29240162856877
@@ -1650,7 +2190,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_211",
+        "id": "p1_211_aisle0",
+        "point_local_metres": [
+          16.12921478061471,
+          -51.39810040730983
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_211_aisle1",
+        "point_local_metres": [
+          16.529214780614712,
+          -50.2944369064644
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_211_aisle2",
         "point_local_metres": [
           19.468244803720154,
           -50.2944369064644
@@ -1659,7 +2217,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_210",
+        "id": "p1_210_aisle0",
+        "point_local_metres": [
+          16.12921478061471,
+          -47.44293080046773
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_210_aisle1",
+        "point_local_metres": [
+          16.529214780614712,
+          -46.409090909175575
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_210_aisle2",
         "point_local_metres": [
           19.468244803720154,
           -46.409090909175575
@@ -1668,7 +2244,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_259",
+        "id": "p1_259_aisle0",
+        "point_local_metres": [
+          -17.090265588919866,
+          -31.738059701770545
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_259_aisle1",
+        "point_local_metres": [
+          -17.16570438799681,
+          -31.338059701770543
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_259_aisle2",
         "point_local_metres": [
           -17.16570438799681,
           -26.588195386808366
@@ -1677,7 +2271,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_258",
+        "id": "p1_258_aisle0",
+        "point_local_metres": [
+          -9.676096997689456,
+          -31.738059701770545
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_258_aisle1",
+        "point_local_metres": [
+          -9.676096997689456,
+          -31.338059701770543
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_258_aisle2",
         "point_local_metres": [
           -9.676096997689456,
           -26.588195386808366
@@ -1686,7 +2298,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_257",
+        "id": "p1_257_aisle0",
+        "point_local_metres": [
+          -2.591362586625619,
+          -31.738059701770545
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_257_aisle1",
+        "point_local_metres": [
+          -2.3764434180338867,
+          -31.338059701770543
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_257_aisle2",
         "point_local_metres": [
           -2.3764434180338867,
           -26.588195386808366
@@ -1695,7 +2325,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_256",
+        "id": "p1_256_aisle0",
+        "point_local_metres": [
+          4.9145265588967595,
+          -31.738059701770545
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_256_aisle1",
+        "point_local_metres": [
+          4.841801385686267,
+          -31.338059701770543
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_256_aisle2",
         "point_local_metres": [
           4.841801385686267,
           -26.588195386808366
@@ -1704,7 +2352,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_255",
+        "id": "p1_255_aisle0",
+        "point_local_metres": [
+          12.270080831400119,
+          -31.738059701770545
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_255_aisle1",
+        "point_local_metres": [
+          12.195727482670918,
+          -31.338059701770543
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_255_aisle2",
         "point_local_metres": [
           12.195727482670918,
           -26.588195386808366
@@ -1713,7 +2379,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_251",
+        "id": "p1_251_aisle0",
+        "point_local_metres": [
+          -18.76547344108112,
+          -33.570556309539825
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_251_aisle1",
+        "point_local_metres": [
+          -19.165473441081122,
+          -34.35888738138601
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_251_aisle2",
         "point_local_metres": [
           -19.580831408733502,
           -34.35888738138601
@@ -1722,7 +2406,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_206",
+        "id": "p1_206_aisle0",
+        "point_local_metres": [
+          19.76547344108112,
+          -22.98439620062709
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_206_aisle1",
+        "point_local_metres": [
+          20.165473441081122,
+          -22.98439620062709
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_206_aisle2",
         "point_local_metres": [
           21.28637413395336,
           -22.98439620062709
@@ -1731,7 +2433,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_207",
+        "id": "p1_207_aisle0",
+        "point_local_metres": [
+          19.76547344108112,
+          -27.460990502033383
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_207_aisle1",
+        "point_local_metres": [
+          20.165473441081122,
+          -27.460990502033383
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_207_aisle2",
         "point_local_metres": [
           21.28637413395336,
           -27.460990502033383
@@ -1740,7 +2460,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_208",
+        "id": "p1_208_aisle0",
+        "point_local_metres": [
+          19.76547344108112,
+          -31.008480325806886
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_208_aisle1",
+        "point_local_metres": [
+          20.165473441081122,
+          -31.008480325806886
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_208_aisle2",
         "point_local_metres": [
           21.28637413395336,
           -31.008480325806886
@@ -1749,7 +2487,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_209",
+        "id": "p1_209_aisle0",
+        "point_local_metres": [
+          19.76547344108112,
+          -34.30257801897824
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_209_aisle1",
+        "point_local_metres": [
+          20.165473441081122,
+          -34.30257801897824
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_209_aisle2",
         "point_local_metres": [
           21.28637413395336,
           -34.30257801897824
@@ -1758,7 +2514,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_234",
+        "id": "p1_234_aisle0",
+        "point_local_metres": [
+          -19.363741339504486,
+          -95.82299864348025
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_234_aisle1",
+        "point_local_metres": [
+          -20.394919168611523,
+          -96.22299864348024
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_234_aisle2",
         "point_local_metres": [
           -20.394919168611523,
           -98.83310719160363
@@ -1767,7 +2541,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_233",
+        "id": "p1_233_aisle0",
+        "point_local_metres": [
+          -15.483256351057207,
+          -95.82299864348025
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_233_aisle1",
+        "point_local_metres": [
+          -16.43302540417062,
+          -96.22299864348024
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_233_aisle2",
         "point_local_metres": [
           -16.43302540417062,
           -98.83310719160363
@@ -1776,7 +2568,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_232",
+        "id": "p1_232_aisle0",
+        "point_local_metres": [
+          -11.684180138603551,
+          -93.90848032534123
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_232_aisle1",
+        "point_local_metres": [
+          -12.633949191716965,
+          -94.30848032534122
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_232_aisle2",
         "point_local_metres": [
           -12.633949191716965,
           -97.87584803253412
@@ -1785,7 +2595,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_231",
+        "id": "p1_231_aisle0",
+        "point_local_metres": [
+          -7.803695150156273,
+          -93.90848032534123
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_231_aisle1",
+        "point_local_metres": [
+          -8.780600461934227,
+          -94.30848032534122
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_231_aisle2",
         "point_local_metres": [
           -8.780600461934227,
           -97.87584803253412
@@ -1794,7 +2622,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_230",
+        "id": "p1_230_aisle0",
+        "point_local_metres": [
+          -3.9774826789507642,
+          -93.90848032534123
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_230_aisle1",
+        "point_local_metres": [
+          -4.927251732093282,
+          -94.30848032534122
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_230_aisle2",
         "point_local_metres": [
           -4.927251732093282,
           -97.87584803253412
@@ -1803,7 +2649,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_229",
+        "id": "p1_229_aisle0",
+        "point_local_metres": [
+          -0.21911085446481593,
+          -93.90848032534123
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_229_aisle1",
+        "point_local_metres": [
+          -1.1553117782459594,
+          -94.30848032534122
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_229_aisle2",
         "point_local_metres": [
           -1.1553117782459594,
           -97.87584803253412
@@ -1812,7 +2676,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_228",
+        "id": "p1_228_aisle0",
+        "point_local_metres": [
+          3.607101616653381,
+          -93.90848032534123
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_228_aisle1",
+        "point_local_metres": [
+          2.6437644342076965,
+          -94.30848032534122
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_228_aisle2",
         "point_local_metres": [
           2.6437644342076965,
           -97.87584803253412
@@ -1821,7 +2703,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_227",
+        "id": "p1_227_aisle0",
+        "point_local_metres": [
+          7.379041570442496,
+          -93.90848032534123
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_227_aisle1",
+        "point_local_metres": [
+          6.442840646661352,
+          -94.30848032534122
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_227_aisle2",
         "point_local_metres": [
           6.442840646661352,
           -97.87584803253412
@@ -1830,7 +2730,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_226",
+        "id": "p1_226_aisle0",
+        "point_local_metres": [
+          11.205254041560693,
+          -93.90848032534123
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_226_aisle1",
+        "point_local_metres": [
+          10.241916859115008,
+          -94.30848032534122
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_226_aisle2",
         "point_local_metres": [
           10.241916859115008,
           -97.87584803253412
@@ -1839,7 +2757,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_225",
+        "id": "p1_225_aisle0",
+        "point_local_metres": [
+          15.140011547337053,
+          -93.90848032534123
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_225_aisle1",
+        "point_local_metres": [
+          14.149538106226828,
+          -94.30848032534122
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_225_aisle2",
         "point_local_metres": [
           14.149538106226828,
           -97.87584803253412
@@ -1848,7 +2784,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_224",
+        "id": "p1_224_aisle0",
+        "point_local_metres": [
+          18.030023094674107,
+          -95.82299864348025
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_224_aisle1",
+        "point_local_metres": [
+          18.030023094674107,
+          -96.22299864348024
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_224_aisle2",
         "point_local_metres": [
           18.030023094674107,
           -98.83310719160363
@@ -1857,7 +2811,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_223",
+        "id": "p1_223_aisle0",
+        "point_local_metres": [
+          22.57534642034443,
+          -95.82299864348025
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_223_aisle1",
+        "point_local_metres": [
+          21.693418013863266,
+          -96.22299864348024
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_223_aisle2",
         "point_local_metres": [
           21.693418013863266,
           -98.83310719160363
@@ -1866,7 +2838,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_235",
+        "id": "p1_235_aisle0",
+        "point_local_metres": [
+          -18.168475750577635,
+          -90.57815468125045
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_235_aisle1",
+        "point_local_metres": [
+          -18.568475750577637,
+          -91.34396200813353
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_235_aisle2",
         "point_local_metres": [
           -19.987875288701616,
           -91.34396200813353
@@ -1875,7 +2865,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_236",
+        "id": "p1_236_aisle0",
+        "point_local_metres": [
+          -18.168475750577635,
+          -87.78521031215787
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_236_aisle1",
+        "point_local_metres": [
+          -18.568475750577637,
+          -87.37415196746588
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_236_aisle2",
         "point_local_metres": [
           -19.987875288701616,
           -87.37415196746588
@@ -1884,7 +2892,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_222",
+        "id": "p1_222_aisle0",
+        "point_local_metres": [
+          19.494110854552126,
+          -90.57815468125045
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_222_aisle1",
+        "point_local_metres": [
+          19.894110854552128,
+          -91.34396200813353
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_222_aisle2",
         "point_local_metres": [
           21.150692840688862,
           -91.34396200813353
@@ -1893,7 +2919,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_221",
+        "id": "p1_221_aisle0",
+        "point_local_metres": [
+          19.494110854552126,
+          -87.78521031215787
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_221_aisle1",
+        "point_local_metres": [
+          19.894110854552128,
+          -87.37415196746588
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_221_aisle2",
         "point_local_metres": [
           21.150692840688862,
           -87.37415196746588
@@ -1902,16 +2946,61 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_241",
+        "id": "p1_241_aisle0",
+        "point_local_metres": [
+          -0.5311778291361406,
+          -84.66886024400591
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_241_aisle1",
         "point_local_metres": [
           -2.7292147806147113,
-          -80.53256445052102
+          -84.26886024400592
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_252",
+        "id": "p1_241_aisle2",
+        "point_local_metres": [
+          -5.692609699745662,
+          -81.489823609218
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_241_aisle3",
+        "point_local_metres": [
+          0.23418013851623964,
+          -81.489823609218
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_252_aisle0",
+        "point_local_metres": [
+          -1.073903002333827,
+          -37.54280868414789
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_252_aisle1",
+        "point_local_metres": [
+          -2.050808314117603,
+          -37.94280868414789
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_252_aisle2",
         "point_local_metres": [
           -2.050808314117603,
           -40.975237449165434
@@ -1920,7 +3009,25 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_wc_sw",
+        "id": "p1_wc_sw_aisle0",
+        "point_local_metres": [
+          -8.5635103926179,
+          -84.66886024400591
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_sw_aisle1",
+        "point_local_metres": [
+          -8.5635103926179,
+          -84.26886024400592
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_sw_aisle2",
         "point_local_metres": [
           -8.5635103926179,
           -82.22184531856328
@@ -1929,7 +3036,70 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_wc_se",
+        "id": "p1_wc_sw_aisle3",
+        "point_local_metres": [
+          -9.877444187866057,
+          -80.77483039312065
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_sw_aisle4",
+        "point_local_metres": [
+          -8.5635103926179,
+          -80.77483039312065
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_sw_aisle5",
+        "point_local_metres": [
+          -7.2495765973697415,
+          -80.77483039312065
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_sw_aisle6",
+        "point_local_metres": [
+          -9.434411085490137,
+          -84.27886024400591
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_sw_aisle7",
+        "point_local_metres": [
+          -9.434411085490137,
+          -83.37886024400592
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_se_aisle0",
+        "point_local_metres": [
+          6.062933025357779,
+          -84.66886024400591
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_se_aisle1",
+        "point_local_metres": [
+          6.062933025357779,
+          -84.26886024400592
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_se_aisle2",
         "point_local_metres": [
           6.062933025357779,
           -80.53256445052102
@@ -1938,7 +3108,61 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_wc_nw",
+        "id": "p1_wc_se_aisle3",
+        "point_local_metres": [
+          5.199595842912094,
+          -77.39626865703613
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_se_aisle4",
+        "point_local_metres": [
+          6.926270207803464,
+          -77.39626865703613
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_se_aisle5",
+        "point_local_metres": [
+          5.43625866046641,
+          -84.27886024400591
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_se_aisle6",
+        "point_local_metres": [
+          5.43625866046641,
+          -83.37886024400592
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_nw_aisle0",
+        "point_local_metres": [
+          -8.156466512707993,
+          -36.97971506100148
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_nw_aisle1",
+        "point_local_metres": [
+          -8.156466512707993,
+          -37.37971506100148
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_nw_aisle2",
         "point_local_metres": [
           -8.156466512707993,
           -39.14518317487091
@@ -1947,10 +3171,109 @@
         "reachable_from_entrance": true
       },
       {
-        "id": "p1_wc_ne",
+        "id": "p1_wc_nw_aisle3",
+        "point_local_metres": [
+          -6.571170130853231,
+          -40.31065128874034
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_nw_aisle4",
+        "point_local_metres": [
+          -8.156466512707993,
+          -40.31065128874034
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_nw_aisle5",
+        "point_local_metres": [
+          -9.741762894562756,
+          -40.31065128874034
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_nw_aisle6",
+        "point_local_metres": [
+          -6.878521939925849,
+          -37.36971506100148
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_nw_aisle7",
+        "point_local_metres": [
+          -6.878521939925849,
+          -38.26971506100148
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_ne_aisle0",
+        "point_local_metres": [
+          6.225750577345025,
+          -36.97971506100148
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_ne_aisle1",
+        "point_local_metres": [
+          6.225750577345025,
+          -37.37971506100148
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_ne_aisle2",
         "point_local_metres": [
           6.225750577345025,
           -39.14518317487091
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_ne_aisle3",
+        "point_local_metres": [
+          7.007678983797087,
+          -40.31065128874034
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_ne_aisle4",
+        "point_local_metres": [
+          5.443822170892963,
+          -40.31065128874034
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_ne_aisle5",
+        "point_local_metres": [
+          6.689607390249148,
+          -37.36971506100148
+        ],
+        "has_clearance": true,
+        "reachable_from_entrance": true
+      },
+      {
+        "id": "p1_wc_ne_aisle6",
+        "point_local_metres": [
+          6.689607390249148,
+          -38.26971506100148
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -2104,65 +3427,6 @@
         "point_local_metres": [
           11.825,
           -68.15
-        ],
-        "has_clearance": true,
-        "reachable_from_entrance": true
-      }
-    ],
-    "vertical_traversal": "Separate CS2 stair traversal test required"
-  },
-  {
-    "id": "p2_compact_ground",
-    "status": "passed",
-    "floor_elevation_local": 4.0,
-    "standing_width_metres": 0.82,
-    "standing_height_metres": 1.85,
-    "cell_metres": 0.1,
-    "grid_dimensions": [
-      130,
-      120
-    ],
-    "grid_bounds_local": [
-      11,
-      14,
-      24,
-      26
-    ],
-    "walkable_cells": 5992,
-    "reachable_cells": 2932,
-    "stations": [
-      {
-        "id": "stair_bottom",
-        "point_local_metres": [
-          19.2,
-          22
-        ],
-        "has_clearance": true,
-        "reachable_from_entrance": true
-      },
-      {
-        "id": "lower_door_inside",
-        "point_local_metres": [
-          19.85,
-          22
-        ],
-        "has_clearance": true,
-        "reachable_from_entrance": true
-      },
-      {
-        "id": "lower_door_hall",
-        "point_local_metres": [
-          21.2,
-          22
-        ],
-        "has_clearance": true,
-        "reachable_from_entrance": true
-      },
-      {
-        "id": "lower_landing",
-        "point_local_metres": [
-          22.25,
-          22
         ],
         "has_clearance": true,
         "reachable_from_entrance": true

@@ -1,0 +1,11 @@
+Layer0
+{
+    shader "csgo_complex.vfx"
+    F_RENDER_BACKFACES "1"
+    TextureColor "materials/trento/povo/campus/exterior/ginkgo_leaf_dark.png"
+    TextureNormal "materials/trento/povo/campus/exterior/neutral_normal.png"
+    TextureRoughness "materials/trento/povo/campus/exterior/ginkgo_leaf_dark_rough.png"
+    g_vColorTint "[1 1 1 0]"
+    g_flModelTintAmount "1"
+    SystemAttributes { PhysicsSurfaceProperties "grass" }
+}

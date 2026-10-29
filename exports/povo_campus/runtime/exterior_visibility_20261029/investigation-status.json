@@ -1,0 +1,9 @@
+{
+  "status": "building_confirmed_control_scene_fix",
+  "source_tests_passed": 265,
+  "source_geometry_and_collision_unchanged": true,
+  "main_courtyard_patch_fixed_in_full_map": null,
+  "user_game_policy": "Necessary testing and screenshots authorized; close game between test batches and during compilation",
+  "build_record": "build/exterior-smooth-resume.json",
+  "native_log": "build/exterior-smooth-final-native.log"
+}

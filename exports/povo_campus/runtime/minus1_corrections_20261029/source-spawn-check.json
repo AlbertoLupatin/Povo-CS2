@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "spawn_count": 64,
+  "spawns_in_closed_L": [],
+  "note": "Candidates come from the reachable standing-clearance grid; both closed doors are present before spawn selection."
+}

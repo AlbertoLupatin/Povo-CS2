@@ -2,6 +2,7 @@
 """Prepare, compile and package the separate two-floor Povo 1 campus map."""
 
 import argparse
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -16,11 +17,13 @@ try:
     from . import build_povo_radar as radar
     from .build_povo_campus import export, MATERIAL_PREFIX
     from .package_cs2 import package_map
+    from .povo_campus_finishes import write_png
 except ImportError:
     import cs2_project as project
     import build_povo_radar as radar
     from build_povo_campus import export, MATERIAL_PREFIX
     from package_cs2 import package_map
+    from povo_campus_finishes import write_png
 
 ROOT=Path(__file__).resolve().parents[1]
 MAP='trento_povo_campus'
@@ -304,6 +307,10 @@ def map_text(source,metadata,season='standard'):
             for i,p in enumerate(yard['top_path']):
                 source=project._insert_point_entity(source,f'p2-yard-street-nav-{i}','point_nav_walkable',
                     world((p[0],p[1],p[2]+.15)))
+            for route,points in yard.get('routes',{}).items():
+                for i,p in enumerate(points):
+                    source=project._insert_point_entity(source,f'p2-garden-{route}-nav-{i}',
+                        'point_nav_walkable',world((p[0],p[1],p[2]+.15)))
         for portal in p2['stairs']['portals']:
             x,y,z=portal['centre'];f=portal['floor']
             source=project._insert_point_entity(source,'p2-floor-sign-'+str(f),'point_worldtext',
@@ -360,6 +367,12 @@ def map_text(source,metadata,season='standard'):
     source=add_auto_doors(source,metadata.get('auto_doors',[]))
     source=tune_map(source,season)
     source=insert_soundscapes(source,metadata,season)
+    if metadata.get('exterior'):
+        try:
+            from .povo_pavement_lighting import insert_surface
+        except ImportError:
+            from povo_pavement_lighting import insert_surface
+        source=insert_surface(source)
     if season=='winter':source=insert_winter(source)
     return source
 
@@ -476,7 +489,7 @@ def make_radar(metadata,map_name=MAP):
             for room in wing['rooms']:
                 shapes.append((wing['id']+room['id'],bounds(room['bounds']),(160,175,181,255)))
         suffix={-1:'_lower',0:'_middle',1:''}[level.get('user_floor',-1)]
-        image=MAP+suffix+'_radar.png';(out/image).write_bytes(radar.png_bytes(shapes))
+        image=MAP+suffix+'_radar.png';write_png(out/image,radar.png_bytes(shapes))
         for spectate in ('','_spectate'):
             texture=MAP+suffix+'_radar'+spectate+'_tga.vtex'
             (out/texture).write_text(radar.texture_text().replace('trento_povo_radar.png',image),encoding='utf-8')
@@ -484,14 +497,23 @@ def make_radar(metadata,map_name=MAP):
     if p2:
         for level in p2['levels'][:2]:
             shapes=[]
-            areas=[p2['parking']['bounds']] if level['floor']==-2 else list(p2['basement'].values())
+            if level['floor']==-2:
+                areas=p2['parking'].get('areas',[p2['parking']['bounds']])
+            elif p2.get('basement_rebuild'):
+                areas=next(l['areas'] for l in p2['basement_rebuild']['levels'] if l['floor']==-1)
+            else:areas=list(p2['basement'].values())
+            if level['floor']==-2 and p2.get('gardens'):
+                areas=[*areas,p2['gardens']['garden'],p2['gardens']['down_stair']]
             if level['floor']==-2 and metadata.get('exterior'):areas=[*areas,metadata['exterior']['garage_bounds']]
             for i,r in enumerate(areas):shapes.append((str(i),bounds(r),(160,175,181,255)))
+            if level['floor']==-1:
+                for i,r in enumerate(p2.get('minus1_corrections',{}).get('closed_corridor_areas',[])):
+                    shapes.append(('closed_l_'+str(i),bounds(r),(104,88,88,255)))
             if metadata.get('exterior'):
                 shapes.append(('garage_ramp',bounds((-31.75,-8,-26.25,30)),(116,146,149,255)))
             shapes.append(('stairs',bounds(p2['stairs']['bounds']),(181,155,108,255)))
             section='basement2' if level['floor']==-2 else 'basement1'
-            image=MAP+'_'+section+'_radar.png';(out/image).write_bytes(radar.png_bytes(shapes))
+            image=MAP+'_'+section+'_radar.png';write_png(out/image,radar.png_bytes(shapes))
             for spectate in ('','_spectate'):
                 texture=MAP+'_'+section+'_radar'+spectate+'_tga.vtex'
                 (out/texture).write_text(radar.texture_text().replace('trento_povo_radar.png',image),encoding='utf-8')
@@ -533,10 +555,43 @@ def deploy_assets(cs2_root,radar_dir,map_name=MAP):
     shutil.copyfile(radar_dir/(MAP+'.txt'),game/'resource/overviews'/(MAP+'.txt'))
 
 
-def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=False):
+def map_lighting_options(*,fast_lighting=False,quality=1):
+    # Keep the normal bake/denoising path even with the smaller atlas.
+    # Preview quality 0 produced black frontage seams in native screenshots.
+    if quality not in (0,1):raise ValueError('Lighting quality must be 0 or 1')
+    options=['-lightmapVRadQuality',str(quality)]
+    if fast_lighting:options+=['-lightmapMaxResolution','2048']
+    return options
+
+
+def model_inputs(content,resource):
+    """The ModelDoc, its meshes, its materials and their textures."""
+    files={resource}
+    for reference in re.findall(r'(?:filename|to) = "([^"]+)"',resource.read_text(encoding='utf-8')):
+        path=content/reference;files.add(path)
+        if path.suffix=='.vmat' and path.is_file():
+            files.update(content/texture for texture in
+                         re.findall(r'"(materials/[^"]+\.(?:png|tga|jpg|psd))"',path.read_text(encoding='utf-8')))
+    return sorted(files)
+
+
+def model_fingerprint(compiler,content,resource):
+    digest=hashlib.sha256();tool=compiler.stat()
+    digest.update(f'{tool.st_size}:{tool.st_mtime_ns}\n'.encode())
+    for path in model_inputs(content,resource):
+        digest.update(path.relative_to(content).as_posix().encode()+b'\0')
+        digest.update(hashlib.sha256(path.read_bytes()).digest() if path.is_file() else b'missing')
+    return digest.hexdigest()
+
+
+def file_digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else None
+
+
+def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=False,fast_lighting=False,lighting_quality=1,force_models=False):
     metadata=export()
     seasons=('standard','winter') if season=='both' else (season,)
-    content=cs2_root/'content/csgo_addons/trento_povo'
+    content=cs2_root/'content/csgo_addons/trento_povo';game=cs2_root/'game/csgo_addons/trento_povo'
     compiler=cs2_root/'game/bin/win64/resourcecompiler.exe'
     prepared=[]
     for chosen in seasons:
@@ -545,10 +600,29 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
         deploy_assets(cs2_root,radar_dir,map_name);prepared.append((chosen,map_name,radar_dir))
     if not compile_map:return
     def compile_resource(resource):
+        options=map_lighting_options(fast_lighting=fast_lighting,quality=lighting_quality) if resource.suffix=='.vmap' else []
+        command=[str(compiler),'-nop4','-fshallow2',*options,'-game',str(cs2_root/'game/csgo'),'-i',str(resource)]
+        if resource.suffix!='.vmdl':
+            print('Compiling '+str(resource),flush=True)
+            subprocess.run(command,check=True);return
+        # Model compiles take many minutes. Reuse the compiled model while its
+        # sources, materials, textures and compiler are byte-identical to the
+        # last successful compile and nothing else has replaced its output.
+        output=game/resource.relative_to(content).with_suffix('.vmdl_c')
+        stamp=ROOT/'build/compile_stamps'/(resource.name+'.json')
+        inputs=model_fingerprint(compiler,content,resource)
+        try:previous=json.loads(stamp.read_text(encoding='utf-8'))
+        except (OSError,ValueError):previous={}
+        if (not force_models and previous.get('cs2_root')==str(cs2_root) and previous.get('inputs')==inputs
+                and previous.get('output') is not None and previous.get('output')==file_digest(output)):
+            print('Unchanged, reusing '+str(output),flush=True);return
         print('Compiling '+str(resource),flush=True)
-        options=['-lightmapVRadQuality','1'] if resource.suffix=='.vmap' else []
-        subprocess.run([str(compiler),'-nop4','-fshallow2',*options,'-game',str(cs2_root/'game/csgo'),'-i',str(resource)],check=True)
+        stamp.unlink(missing_ok=True)
+        subprocess.run(command,check=True)
+        stamp.parent.mkdir(parents=True,exist_ok=True)
+        stamp.write_text(json.dumps({'cs2_root':str(cs2_root),'inputs':inputs,'output':file_digest(output)},indent=2)+'\n',encoding='utf-8')
     if not skip_model:compile_resource(content/'models/povo'/(MODEL+'.vmdl'))
+    if metadata.get('exterior'):compile_resource(content/'models/povo/povo1_campus_paving.vmdl')
     # Brush-only materials may be absent from the static model, so its compile
     # cannot seed them in a clean addon. Generated entity meshes load compiled
     # materials directly; build those sources before compiling the VMAP.
@@ -572,6 +646,7 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
         shutil.copyfile(radar_dir/(map_name+'.txt'),game/'resource/overviews'/(map_name+'.txt'))
         if pack:
             extras=['soundevents/soundevents_addon.vsndevts_c','maps/scripts/povo_ffa.vjs_c']
+            if metadata.get('exterior'):extras+=['models/povo/povo1_campus_paving.vmdl_c']
             if chosen=='winter':extras+=['models/povo/povo_winter.vmdl_c','particles/povo/snow.vpcf_c']
             result=package_map(cs2_root,ROOT/'build/tools/vpkedit-4.4.2/vpkeditcli.exe',
                 ROOT/'build/package'/(map_name+'.vpk'),force=True,map_name=map_name,model_name=MODEL,
@@ -584,6 +659,10 @@ if __name__=='__main__':
     parser.add_argument('--cs2-root',type=Path);parser.add_argument('--prepare-only',action='store_true')
     parser.add_argument('--season',choices=('standard','winter','both'),default='standard')
     parser.add_argument('--skip-model',action='store_true',help='Reuse already compiled shared campus model after entity-only changes')
+    parser.add_argument('--force-model',action='store_true',help='Recompile models even when their sources are unchanged')
+    parser.add_argument('--fast-lighting',action='store_true',help='Use a 2048-pixel atlas with normal-quality lighting; geometry and collision are unchanged')
+    parser.add_argument('--lighting-quality',type=int,choices=(0,1),default=1,help='Explicit bake quality: 0 for a quick preview, 1 for the normal bake')
     parser.add_argument('--no-package',action='store_true');args=parser.parse_args()
     build(project.discover_cs2_root(args.cs2_root),compile_map=not args.prepare_only,pack=not args.no_package,
-          season=args.season,skip_model=args.skip_model)
+          season=args.season,skip_model=args.skip_model,fast_lighting=args.fast_lighting,lighting_quality=args.lighting_quality,force_models=args.force_model)
+

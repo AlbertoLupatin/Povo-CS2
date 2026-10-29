@@ -1,0 +1,3 @@
+# Campus generation and source tests otherwise use Python's standard library.
+# Required by the Source 2 VPK packager.
+blake3==1.0.11

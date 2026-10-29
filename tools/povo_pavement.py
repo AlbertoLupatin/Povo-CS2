@@ -10,6 +10,56 @@ except ImportError:
     from build_povo_interior import subtract_rectangles
 
 
+def apron_normal(x,y):
+    """Continuous upward shading normal for the existing bilinear plaza grade."""
+    dx=(y+20)/(12*45) if -23<x<22 else 0
+    dy=(3+min(1,max(0,(x+23)/45))+.12-4)/12
+    normal=(-dx,-dy,1);length=math.sqrt(sum(v*v for v in normal))
+    return tuple(round(v/length,10) for v in normal)
+
+
+def smooth_apron_lighting(obj):
+    """Join the apron top for lighting, preserving every position, UV and face.
+
+    Independent hard-normal OBJ strips produce narrow disconnected lightmap
+    charts and black bands in CS2. Only their upward faces share this smooth
+    surface; undersides, walls, and the rest of the campus stay hard edged.
+    Collision exports never pass through this function.
+    """
+    prefix='backdrop_exterior_paving_bridge_apron_'
+    if prefix not in obj:return obj
+    attributes=[];vertices=[];normal_count=0;groups={};added_normals={}
+    for line in obj.splitlines():
+        if line.startswith(('v ','vt ','vn ')):
+            attributes.append(line)
+            if line.startswith('v '):vertices.append(tuple(map(float,line.split()[1:])))
+            elif line.startswith('vn '):normal_count+=1
+    name='';material=''
+    for line in obj.splitlines():
+        if line.startswith('o '):name=line[2:]
+        elif line.startswith('usemtl '):material=line[7:]
+        elif line.startswith('f '):
+            top=False
+            if name.startswith(prefix):
+                refs=[r.split('/') for r in line.split()[1:]]
+                points=[vertices[int(r[0])-1] for r in refs]
+                a,b,c=points[:3]
+                top=(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])>1e-8
+                if top:
+                    for ref,(x,y,z) in zip(refs,points):
+                        normal=apron_normal(x,y)
+                        if normal not in added_normals:added_normals[normal]=normal_count+len(added_normals)+1
+                        ref[2]=str(added_normals[normal])
+                    line='f '+' '.join('/'.join(r) for r in refs)
+            group='backdrop_exterior_paving_bridge_apron_top' if top else name
+            groups.setdefault((group,material,top),[]).append(line)
+    lines=['# Povo campus; continuous plaza lighting surface',*attributes]
+    lines.extend('vn '+' '.join(map(str,n)) for n in added_normals)
+    for (name,material,top),faces in groups.items():
+        lines.extend(('o '+name,'usemtl '+material,'s '+('1' if top else 'off'),*faces))
+    return '\n'.join(lines)+'\n'
+
+
 def extend(boxes, levels, root=Path(__file__).resolve().parents[1]):
     result=list(boxes);ext=levels[0]['exterior'];spec=levels[1]['connection']['povo2']
     yard=spec['additions']['yard']['bounds']

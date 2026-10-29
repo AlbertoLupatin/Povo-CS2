@@ -1,0 +1,374 @@
+{
+  "status": "passed",
+  "started_at_utc": "2026-10-27T20:42:55.599974+00:00",
+  "routes": [
+    {
+      "name": "p2_upper_module1_down",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            19.2,
+            19.35,
+            11.2
+          ],
+          "position": [
+            19.2000187500768,
+            19.481514758077928,
+            11.200793067044804
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            15.35,
+            19.35,
+            9.399999999999999
+          ],
+          "position": [
+            15.358989627461437,
+            19.350482431877403,
+            9.580792725638325
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            19.35,
+            9.399999999999999
+          ],
+          "position": [
+            13.206548923452827,
+            19.347836082077393,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            22.65,
+            9.399999999999999
+          ],
+          "position": [
+            13.148800524852597,
+            22.707437211490834,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            15.35,
+            22.65,
+            9.219999999999999
+          ],
+          "position": [
+            15.360877888861443,
+            22.665624264890663,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            19.2,
+            22.65,
+            7.6
+          ],
+          "position": [
+            19.23784435387695,
+            22.648800498690598,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            19.2,
+            22.0,
+            7.6
+          ],
+          "position": [
+            19.273513497677097,
+            22.115848529288467,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            19.2,
+            20.0,
+            7.6
+          ],
+          "position": [
+            19.201328755076805,
+            20.036521191880148,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_upper_module1_down_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            19.2,
+            22.0,
+            7.6
+          ],
+          "position": [
+            19.200383062276803,
+            22.03717736328815,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            19.2,
+            22.65,
+            7.6
+          ],
+          "position": [
+            19.2003117644768,
+            22.50404498429002,
+            7.600792647030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            15.35,
+            22.65,
+            9.219999999999999
+          ],
+          "position": [
+            15.3494274418614,
+            22.6501849002906,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            22.65,
+            9.399999999999999
+          ],
+          "position": [
+            13.156638787052627,
+            22.65205144469061,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            13.15,
+            19.35,
+            9.399999999999999
+          ],
+          "position": [
+            13.146197558252585,
+            19.340772951677366,
+            9.400792857037604
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            15.35,
+            19.35,
+            9.399999999999999
+          ],
+          "position": [
+            15.31238939046125,
+            19.32984648127732,
+            9.580792725638325
+          ],
+          "passed": true,
+          "height_tolerance": 0.42
+        },
+        {
+          "target": [
+            19.2,
+            19.35,
+            11.2
+          ],
+          "position": [
+            19.220465572276883,
+            19.35091651787741,
+            11.200793067044804
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            19.2,
+            20.0,
+            11.2
+          ],
+          "position": [
+            19.275581591077103,
+            19.879129228279517,
+            11.200793067044804
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "planned_routes": 2,
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "e08a52bbf22d4b9e668d88cd5becbb8375f34831393fb1996dc59073332af3c4",
+  "package_bytes": 61507512,
+  "metadata_sha256": "ea85a8bddb0b548c3d36b8931496d6625f7972a829a904971ed7c03c60bf7dd4",
+  "map_name": "trento_povo_campus",
+  "package_identity_scope": "On-disk bytes verified; native status confirms loaded map name, not loaded VPK bytes",
+  "fresh_map_scope": "Operator must load a fresh map before running; status checks map name and one human/zero bots",
+  "movement": "One initial placement per route; ordinary walking/climbing with jump-assisted ladder dismounts; noclip0 enforced at placement/cleanup",
+  "route_plan": [
+    {
+      "name": "p2_upper_module1_down",
+      "kind": "walk",
+      "category": "p2_upper_stair",
+      "path": [
+        [
+          19.2,
+          20.0,
+          11.2
+        ],
+        [
+          19.2,
+          19.35,
+          11.2
+        ],
+        [
+          15.35,
+          19.35,
+          9.399999999999999
+        ],
+        [
+          13.15,
+          19.35,
+          9.399999999999999
+        ],
+        [
+          13.15,
+          22.65,
+          9.399999999999999
+        ],
+        [
+          15.35,
+          22.65,
+          9.219999999999999
+        ],
+        [
+          19.2,
+          22.65,
+          7.6
+        ],
+        [
+          19.2,
+          22.0,
+          7.6
+        ],
+        [
+          19.2,
+          20.0,
+          7.6
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "p2_upper_module1_down_return",
+      "kind": "walk",
+      "category": "p2_upper_stair",
+      "path": [
+        [
+          19.2,
+          20.0,
+          7.6
+        ],
+        [
+          19.2,
+          22.0,
+          7.6
+        ],
+        [
+          19.2,
+          22.65,
+          7.6
+        ],
+        [
+          15.35,
+          22.65,
+          9.219999999999999
+        ],
+        [
+          13.15,
+          22.65,
+          9.399999999999999
+        ],
+        [
+          13.15,
+          19.35,
+          9.399999999999999
+        ],
+        [
+          15.35,
+          19.35,
+          9.399999999999999
+        ],
+        [
+          19.2,
+          19.35,
+          11.2
+        ],
+        [
+          19.2,
+          20.0,
+          11.2
+        ]
+      ],
+      "xy_tolerance": 0.15
+    }
+  ],
+  "controller_timings": {
+    "position_read": 0.1,
+    "guard_read": 0.35,
+    "stop_read": 0.04,
+    "placement_settle": 0.5,
+    "broad_pulse_max": 0.45,
+    "narrow_pulse_max": 0.25,
+    "broad_pulse_min": 0.04,
+    "narrow_pulse_min": 0.035
+  },
+  "initial_status": "Server:  Running [172.26.128.1:27015]\r\nClient:  Connected [loopback:1] [last packet 0.018 sec ago]\r\n----- Status -----\r\n@ Current  :  game\r\nsource   : slot 0\r\nversion  : 1.41.9.2/14192 10955 insecure  public\r\nsteamid  : [I:1:0] (72057594037927936)\r\nplayers  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)\r\n---------spawngroups----\r\nloaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]\r\nloaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]\r\nloaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]\r\nloaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]\r\n---------players--------\r\n  id     time ping loss      state   rate name\r\n   0    15:11    0    0     active 786432 'albylupatin2000'\r\n#end\r\n",
+  "loaded_map_name": "trento_povo_campus",
+  "finished_at_utc": "2026-10-27T20:43:21.338641+00:00"
+}

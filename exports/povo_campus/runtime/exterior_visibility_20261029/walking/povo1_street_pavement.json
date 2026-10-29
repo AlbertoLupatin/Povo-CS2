@@ -1,0 +1,35 @@
+{
+  "name": "povo1_street_pavement",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        54,
+        -45,
+        7.6
+      ],
+      "position": [
+        54.00149761041601,
+        -44.868278335579475,
+        7.600795745830403
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        54,
+        -15,
+        7.6
+      ],
+      "position": [
+        54.00111313061601,
+        -15.001397505460009,
+        7.600794196430405
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

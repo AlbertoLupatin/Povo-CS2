@@ -121,6 +121,10 @@ def write_soundevents(root=ROOT):
                               vsnd_files_track_01='sounds/doors/metal_door_move_01.vsnd'),
         'Povo.Door.Stop':dict(type='csgo_mega',volume=.35,
                               vsnd_files_track_01='sounds/doors/metal_door_full_close_01.vsnd'),
+        'Povo.Door.Open':dict(type='csgo_mega',volume=.45,
+                              vsnd_files_track_01='sounds/doors/metal_door_open_01.vsnd'),
+        'Povo.Door.Close':dict(type='csgo_mega',volume=.45,
+                               vsnd_files_track_01='sounds/doors/metal_door_full_close_01.vsnd'),
     }
     for name,reverb,children in (
         ('Room','reverb_6_largeRoom',['Povo.Vent']),('Hall','reverb_14_brightHallway',['Povo.Vent']),
@@ -182,7 +186,7 @@ def write_winter_assets(root,boxes,metadata,render_obj):
     # Only ground-level films need surface footsteps; high roof/foliage caps
     # stay visual, preserving the original architecture's collision.
     physical=[b for b in layers if b[2][2]<6.2 and 'context_concrete' not in b[0]]
-    (out/'povo_winter_collision.obj').write_text(render_obj(physical,[]),encoding='utf-8')
+    (out/'povo_winter_collision.obj').write_text(render_obj(physical,[],resolve_surfaces=False),encoding='utf-8')
     physical_groups=write_groups(out,'povo_winter',physical)
     colors={'snow':(226,231,234),'snow_context':(205,212,219),'wet':(133,139,140)}
     directory=root/'cs2/content/trento_povo/materials/trento/povo/campus/seasonal';directory.mkdir(parents=True,exist_ok=True)

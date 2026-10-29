@@ -1,0 +1,37 @@
+[
+  {
+    "name": "baseline",
+    "commands": [],
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\shading-diagnosis\\baseline.png"
+  },
+  {
+    "name": "no_ssao",
+    "commands": [
+      "r_ssao false"
+    ],
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\shading-diagnosis\\no_ssao.png"
+  },
+  {
+    "name": "no_directional_lightmaps",
+    "commands": [
+      "r_csgo_directional_lightmaps false",
+      "r_directional_lightmaps false"
+    ],
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\shading-diagnosis\\no_directional_lightmaps.png"
+  },
+  {
+    "name": "no_csm",
+    "commands": [
+      "csm_max_shadow_dist_override 0"
+    ],
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\shading-diagnosis\\no_csm.png"
+  },
+  {
+    "name": "large_csm_bias",
+    "commands": [
+      "csm_viewdir_shadow_bias 10",
+      "lb_csm_receiver_plane_depth_bias 0.0005"
+    ],
+    "file": "exports\\povo_campus\\runtime\\exterior_visibility_20261029\\shading-diagnosis\\large_csm_bias.png"
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "name": "amenity_canteen_entry_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        37.2,
+        -99.5,
+        4.0
+      ],
+      "position": [
+        37.159961265548645,
+        -99.50286909179802,
+        4.000798043616003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        33.5,
+        -99.5,
+        4.0
+      ],
+      "position": [
+        33.43941005793376,
+        -99.50087232159802,
+        4.000798424616003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        32.0,
+        -97.0,
+        4.0
+      ],
+      "position": [
+        31.96403655452786,
+        -96.93951546818776,
+        4.000798043616003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "p1_lift_climb_and_dismount",
+  "kind": "ladder",
+  "status": "passed",
+  "checks": [
+    {
+      "kind": "ladder_climb",
+      "target_floor": 11.199999999999989,
+      "position": [
+        10.82720732704331,
+        -68.15000454327262,
+        11.928475000047715
+      ],
+      "passed": true
+    },
+    {
+      "target": [
+        11.825,
+        -68.15,
+        11.199999999999989
+      ],
+      "position": [
+        11.941985793447769,
+        -68.15000454327262,
+        11.421819091845688
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

@@ -1644,6 +1644,55 @@ checks of the railing and fence. Model exports were regenerated; nothing
 was compiled.
 
 
+## 28 October 2026 — resumed Povo 2 below-bridge exit and Garden -2
+
+Recovered the unfinished garden implementation and the user's successive-junction
+clarification from the earlier audit chat. Completed source validation and fixed
+a regression where garden excavation removed the sloping between-building
+sidewalk. The outer sloped sidewalk is retained; the new approach runs beside
+it. The -1 passage is level and 2.5 m wide, with an earlier upward stair junction
+and a later left descending branch to a distinct -2 garden. Source geometry,
+radar and deathmatch support follow the new exterior levels. Sketch colours are
+annotations only. Restored the existing room-furnishing generator's missing
+campus call, exposed by an independent pre-existing upper-room test failure.
+
+All 236 source tests pass. Garden support/headroom: 1,388 samples; general
+pavement: 8,408 samples; all nine existing exterior route checks pass. Generated
+review: `exports/povo_campus/povo2_gardens_review.png`. Windows image overwrite
+errors during export were resolved with atomic texture replacement, leaving
+identical generated PNGs untouched. The four relevant exterior integration
+tests pass after that writer change. Native standard compilation is underway;
+see `docs/POVO2_GARDENS_IMPLEMENTATION.md` for final build status and limitations.
+
+
+## 28 October 2026 — approved garden markup implemented
+
+Supersedes the earlier mistaken exit orientation. Preserved the annotated PNG
+as `data/reference/user_feedback/2026-10-28/povo2_gardens_user_markup.png`.
+Implemented the approved straight indoor corridor with its far left turn off
+the local view, south-facing exit, UP directly ahead, and eastward passage
+continuing directly into DOWN. The descending flight starts at the garden edge
+and ends halfway along its length. Extended the garden footprint underneath
+the fixed stairs; -2 floor elevation stays -3.2 m. Preserved the two labs and
+connected the separately reconstructed -2 office exit to the revised garden.
+The garden excavation now runs after internal stair/garage corrections so
+their infills cannot seal the approved connections.
+
+Eleven garden/basement tests plus an integrated follow-up pass; 2,121 route
+samples pass support/headroom checks. Full-suite results and six remaining
+broader stair/door/garage failures are documented without claiming a passing
+full run in `docs/POVO2_GARDENS_IMPLEMENTATION.md`. Regenerated source model,
+collision, provenance, radar and layout preview. Native compilation remains
+stopped at the user's request. No new VPK or engine validation.
+
+
+## 28 October 2026 — street garden extended to UP stairs
+
+Extended the street garden footprint west to the unchanged UP stair side, with
+the lawn carried to its edge. Both garden regression tests pass. Regenerated
+source model/collision, radar and preview; native compilation stays stopped.
+
+
 ## 28 October 2026 — Povo 1 floor-1 terrace doors from fire plan 22
 
 The user confirms that the double doors drawn on fire plan 22 between the
@@ -1682,6 +1731,38 @@ Bus and exterior geometry tests pass; the broader integration group retains
 its existing garage route failure, unrelated to the bus. Native compilation,
 packaging and engine validation remain paused per the earlier user request.
 
+
+## 28 October 2026 — half-open stair doors and distinct movement cues
+
+Stair portal interaction generation now leaves one fixed-open panel per Povo 1
+pair (all four mirrored cores, all three levels) and moves only its partner.
+The three present Povo 2 internal stair pairs use the same policy. Permanent
+frames, hinges and the first leaf remain in the campus mesh and collision;
+replaced panels and their panic bars are native rotating brush entities.
+
+Player/bot sensors span both approaches. OnStartTouchAll cancels the close
+relay and opens the moving leaf; OnEndTouchAll schedules Close after 2.5 s.
+The delay therefore begins once everyone clears the sensor. Re-entry cancels
+pending Close, including while the door is closing. A relay OnSpawn schedules
+an initial close for leaves spawned open to retain navigation baking clearance.
+Door damage and forced closing are disabled. Mirrored rotation uses the
+original parked side, with the one-way flag to keep movement consistent.
+
+Opening uses Povo.Door.Open (stock metal_door_open_01), while closing starts
+Povo.Door.Close (stock metal_door_full_close_01). Both installed compiled sound
+assets were verified in the game's pak01 inventory. Classroom and glazed
+entrance behavior is unchanged.
+
+Validation: 20 focused atmosphere/entity tests pass, covering retained halves,
+all 15 swing directions, structural opening clearance, I/O cancellation,
+last-player exit, the 2.5-second delay and distinct sound event properties.
+The broader campus suite also exposed existing geometry failures for
+stair_upper_inside reachability and the old 40-riser expectation versus the
+current 26-riser Povo 2 stairs; this change does not alter build_geometry().
+Build output: build/stair_doors_build.log. In-game timing/listening and
+multi-player traversal have not yet been verified for this change.
+
+
 ## 28 October 2026 — reference-inspired bus graphics and destination
 
 Updated the abandoned bus using the user-supplied white/green city-bus image
@@ -1711,6 +1792,34 @@ build will be started here. Both standard/winter generated VMAPs from the
 initial preparation were decoded and verified for all 15 moving leaves,
 15 close relays at 2.5 seconds, sensors and separate sound references.
 
+
+## 29 October 2026 — rebuild Povo 2 basements in final campus coordinates
+
+Replaced the accumulated lower-floor shells with a disjoint floor/ceiling union,
+merged corridor perimeter and explicit room/vestibule thresholds. Retained the
+accepted -1 corridor and rooms, -2 parking/office/garden topology and confirmed
+stair counts. Removed former shaft holes, overlapping walls, missing -1 door
+leaves, clipped parking-column bodies and floating trim. All six columns now
+meet the ceiling. Radar includes the -2 vestibule and corridor branches.
+
+All 256 source tests pass. Native PHYS verifies 14,471 floor samples and 72
+column-surface samples with zero missing surfaces; seven physical materials
+pass. The final map compiled 777 resources with zero failures and generated
+14,305 nav areas. Native CS2 in a fresh addon passed 26 normal-walking routes
+(96 waypoints) in both directions, including the former floor hole. Ten engine
+screenshots were saved and visually reviewed.
+
+The 4096-pixel lighting-atlas attempts stopped advancing; the successful local
+build uses `--fast-lighting` (quality 0 / 2048-pixel atlas). This option is now
+supported by both build entry points without bypassing tests or VPK checks.
+Package: 45,193,069 bytes / 1,075 entries, all CRCs verified;
+SHA-256 `d0caba55484840059666c257662b7d4b6df9b4adfbc34e57154c10913178dc52`. The prior independent exterior garage
+registration remains separate; no unsurveyed connecting tunnel was added.
+Winter and Workshop were not updated.
+
+See [implementation and native evidence](POVO2_BASEMENTS_REBUILD.md) and
+`exports/povo_campus/runtime/basements_rebuilt_20261028/build-summary.json`.
+
 ## 29 October 2026 — open abandoned bus interior
 
 Replaced the solid passenger-cabin mass with perimeter walls and a supported
@@ -1729,6 +1838,7 @@ and provenance. Visually reviewed the full-roof exterior, entrance and interior
 views in `exports/povo_campus/abandoned_bus_open_review.png`. No native CS2
 compilation, package deployment or in-engine traversal was performed.
 
+
 ## 29 October 2026 — record confirmed bus-livery Workshop upload
 
 The earlier standard bus-livery and stair-door build was successfully uploaded
@@ -1741,6 +1851,47 @@ The requested winter compilation was stopped before publication.
 Receipt: `build/workshop/bus-livery-upload-confirmed.json`. This records the
 previous upload, not the later basement/open-bus changes or the newer staged
 package. The newer Workshop snapshot and any other active build are retained.
+
+
+## 29 October 2026 — pavement visibility and Povo 2 regression
+
+Completed the black-pavement repair with a separate, normally probe-lit finish
+on exterior paving/asphalt tops and exposed curb faces. Structural vertices,
+UVs, triangle winding and all collision exports are unchanged; the render-only
+finish has a 3 mm normal offset and no collision. Added reproducible explicit
+lighting quality to the native CLI and checked build wrapper.
+
+All nine matched normal-lighting screenshot checks pass, including zero black
+sample pixels at the reported courtyard and street curb. 12 exterior and
+24 Povo 2 walking routes pass on the same fresh package. Compiled basement
+checks cover 14,471 floor and 72 column samples with zero missing. The source
+suite passes 265 tests; ten targeted build/pavement checks pass after the final
+changes. The game was closed after validation. Winter and Workshop unchanged.
+
+Package SHA-256: `c916c179db8a9ea84adef59c428af6b801f1beca6ea89c98291ef77c3b64aa7f`; 45,393,237 bytes,
+1,082 entries/all CRCs verified. Evidence and rejected-control
+history: [exterior visibility notes](POVO_EXTERIOR_VISIBILITY.md).
+
+
+## 29 October 2026 — rebuild -1 from the user's corrected markup
+
+Lengthened the gap between the two labs to a provisional 30 m from the user's
+35–40 long-step estimate. Narrowed only that section to its right/east half.
+Moved Room 2 and the upper return north, retained Room 1 and the stair core,
+and connected the lower corridor directly to the outdoor exit. Two new static
+black doors isolate the upper/right L and cannot open. They have no opening
+entities or sensors. Level -2 stays in place; the formerly black plan piece is
+the existing outdoor UP stair, now drawn and labelled clearly.
+
+The 269-test suite and the updated Povo 2 radar regression pass. Source checks
+find zero reachable cells among 19,916 closed-L
+samples and zero spawns in that area. Native checks pass both doors' compiled
+surfaces, all eight walk/Use attempts, 12 accessible -1 routes,
+basement floor/column coverage and the two pavement controls. CS2 was closed.
+
+Current standard package: 45,089,434 bytes, 1,082
+entries/all CRCs verified, SHA-256 `d6891711d74524fe0c5cfb62087d6e5fd8809e915f8ded32d83094d1e8c17f48`. Winter and Workshop unchanged.
+See [correction and native evidence](POVO2_MINUS1_CORRECTIONS_20261029.md).
 
 
 ## 29 October 2026 — Povo 2 −1 West Offices

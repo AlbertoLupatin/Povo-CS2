@@ -1,0 +1,87 @@
+{
+  "status": "First draft of the external -1 terrace from plan photo 46 and the user's 29 Oct 2026 description; review geometry, not installed",
+  "user_description": "Starts at the outside metal stair that rises from the -2 garden and runs around the building at -1. Many interruptions are apertures that look down onto the exit ramp from the parking. On the C8 side the terrace widens to fill the gap between the office row (O13-O20) and the deeper rooms (Room 1, Room 2, L28).",
+  "base_layout": "exports/povo2_west_offices_20261029/layout.json",
+  "source_photo": "exports/povo2_survey/full_46.jpg",
+  "frame": "Campus metres of the -1 layout review: bounds are [east_min, north_min, east_max, north_max]",
+  "z": 0.4,
+  "slab_thickness": 0.3,
+  "barrier_height": 1.1,
+  "photo_fit": {
+    "method": "Original-pixel fit on photo 46. Photo x to campus north from the eight detected west-facade exit stars, whose campus points the layout already carries (seven detected; the eighth is under the blue annotation). Photo y to campus east from two traced faces: the office-row outer wall (O13-O20, east -17.5) at y 4048 and the Room 1/Room 2 facade at y 4207.",
+    "north_from_photo_x": {"north_at": 91.54, "photo_x_at": 855, "metres_per_pixel": -0.03481},
+    "east_from_photo_y": {"east_at": -23.74, "photo_y_at": 4207, "metres_per_pixel": -0.03925},
+    "residual": "Exit stars fit within 0.7 m; perspective is not corrected."
+  },
+  "outer_edge": {
+    "east": -25.45,
+    "evidence": "Thin outer line on photo 46, 40-47 px outside the facade: y 4254 north of core 3, 4251 under Room 2, 4247 along the recesses. Fitted east -25.58, -25.47 and -25.31; the mean is used.",
+    "width": 1.71
+  },
+  "south_run": {
+    "north": [0.29, 2.0],
+    "east_end": 31.8,
+    "evidence": "The south facade of the West Offices block (north 2.0) carries a dotted line from the metal stair landing to the south-west corner. The strip is the stair's width (about 1.7 m), extended west, as the user describes it. Photo 46 places the south facade at about north 1.4 here; the 2.0 of the traced West Offices is kept."
+  },
+  "west_run": {
+    "north": [0.29, 103.2],
+    "evidence": "Plan outer line starts about 2 m short of the north-west corner (north 105.4). No terrace line is drawn along the north facade, so the terrace stops here."
+  },
+  "recesses": [
+    {
+      "id": "recess_room1_l28",
+      "between": ["annotated_lab_e", "outer_center"],
+      "fronting": ["office_outer04", "office_outer05", "office_outer06", "office_outer07", "office_outer08"],
+      "drawing_labels": "Room 1 to L28, in front of O16-O20",
+      "evidence": "Exits from Room 1 (north 38.31) and L28 (north 52.46) open sideways into this band; columns stand on the facade line."
+    },
+    {
+      "id": "recess_l28_room2",
+      "between": ["outer_center", "annotated_lab_w"],
+      "fronting": ["office_outer01", "office_outer02", "office_outer03"],
+      "drawing_labels": "L28 to Room 2, in front of O13-O15",
+      "evidence": "Exits from L28 (north 58.31) and Room 2 (north 72.46) open sideways into this band; columns stand on the facade line."
+    }
+  ],
+  "unresolved_recess_line": {
+    "recess": "recess_room1_l28",
+    "east": -20.56,
+    "status": "A thin line crosses this recess at photo y 4126. It may be a step, planter or soffit edge. Not built."
+  },
+  "columns": {
+    "size": [0.95, 0.7],
+    "east": [-23.47, -22.52],
+    "north_centres": [67.0, 61.1, 49.8, 44.2],
+    "evidence": "Small squares on the facade line inside the two recesses (photo x 1560, 1729, 2053, 2215). The building line above continues over the terrace."
+  },
+  "edge_segments": [
+    {"north": [93.4, 103.2], "kind": "parapet", "evidence": "outer line drawn"},
+    {"north": [82.5, 93.4], "kind": "aperture", "evidence": "no outer line in front of stair core 3 and its two exit doors"},
+    {"north": [73.3, 82.5], "kind": "parapet", "evidence": "outer line drawn under Room 2"},
+    {"north": [66.4, 73.3], "kind": "aperture", "evidence": "no outer line just south of Room 2"},
+    {"north": [39.2, 66.4], "kind": "parapet", "evidence": "outer line drawn along both recesses and L28"},
+    {"north": [31.5, 39.2], "kind": "unresolved", "evidence": "blue annotation around Room 1 covers the edge; no opening is guessed"},
+    {"north": [0.29, 31.5], "kind": "aperture", "evidence": "no outer line along core 4 and the West Offices end rooms; the parking (-2) lies under this corner"}
+  ],
+  "south_edge_kind": "railing",
+  "south_edge_evidence": "dotted line on the plan, from the stair landing to the south-west corner",
+  "edge_kinds": {
+    "parapet": "Solid upstand along a drawn plan line.",
+    "aperture": "Open metal railing where the plan draws no outer line. User: these openings look down onto the parking exit ramp. Interpreted as gaps in the parapet, not in the slab, so the terrace stays continuous from the stair. Unconfirmed.",
+    "unresolved": "Edge hidden on the plan; built as railing so nothing is invented and nobody falls.",
+    "railing": "Metal railing along the dotted south line."
+  },
+  "metal_stair": {
+    "flights": [[31.8, 0.29, 36.5, 2.0], [37.6, 0.29, 42.3, 2.0]],
+    "mid_landing": [36.5, 0.29, 37.6, 2.0],
+    "top": "west end, joining the terrace at the corner (east 31.8)",
+    "bottom_z": -3.2,
+    "risers_per_flight": 10,
+    "evidence": "Hatched stair outside the south block on photo 46 (photo x 1155-1175 disp, y 925-1010 disp), with a mid landing. Photos 44 and 45 of 27 Oct show its perforated dark steel treads from the garden.",
+    "conflict": "config/povo2_gardens.json puts Garden -2 at north 8.75-20 and its fixed UP stair at east 33.25-35.75, north 2.75-8.75. Plan 46 puts this metal stair at north 0.3-2.0, running east. The two registrations disagree by several metres. This terrace keeps the plan-46 position; the garden is not moved."
+  },
+  "known_gaps_in_base": [
+    "East of the West Offices (east 20.3-31.8) the -1 trace stops at north 6.92, because the rectified plan ends at source x = 100. Plan 46 shows the C5 end block reaching the same south facade at about north 1.5, so the south run is built along a facade the layout does not yet contain.",
+    "The north-west block (north 92.2-105.4, west of C8) has no traced rooms; the facade is assumed at east -23.74 there."
+  ]
+}
