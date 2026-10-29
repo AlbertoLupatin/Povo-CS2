@@ -2,10 +2,12 @@
 import copy
 import json
 from collections import deque
+from pathlib import Path
+from tempfile import TemporaryDirectory
 from unittest import TestCase
 
 from tools.build_povo_campus import ROOT
-from tools.build_povo2_minus1_terrace import build, overlaps, solids
+from tools.build_povo2_minus1_terrace import build, overlaps, solids, write_obj
 
 
 def near(p, r, pad):
@@ -25,6 +27,14 @@ class TerraceTests(TestCase):
         cls.south = next(s['bounds'] for s in cls.t['slabs'] if s['id'] == 'south_run')
         cls.north = next(s['bounds'] for s in cls.t['slabs'] if s['id'] == 'north_run')
         cls.holes = [h['bounds'] for h in cls.t['holes']]
+        cls.objects = {}
+        with TemporaryDirectory() as directory:
+            path = Path(directory)/'terrace.obj'; write_obj(cls.t, path)
+            for line in path.read_text().splitlines():
+                if line.startswith('o '):
+                    vertices = cls.objects.setdefault(line[2:], [])
+                elif line.startswith('v '):
+                    vertices.append(tuple(map(float, line.split()[1:])))
 
     def on_terrace(self, p, pad=0.):
         return any(near(p, r, pad) for r in self.slabs)
@@ -154,3 +164,29 @@ class TerraceTests(TestCase):
             self.assertTrue(any(r['bounds'][0] <= c[0] and c[2] <= r['bounds'][2] and r['bounds'][1] <= c[1] and c[3] <= r['bounds'][3]
                                 for r in self.t['recesses']), c)
             self.assertLess(c[0]-self.t['facade_east'], .5)
+
+    def test_exported_terrace_handrails_are_supported_along_every_edge(self):
+        z = self.t['z']; top = z+self.t['barrier_height']-.06
+        for i, edge in enumerate(self.t['edges']):
+            prefix = f"{edge['kind']}_{i}"
+            a,b,c,d = edge['bounds']; axis = 0 if c-a >= d-b else 1
+            posts = [v for name,v in self.objects.items() if name.startswith(prefix+'_post_')]
+            self.assertGreaterEqual(len(posts), 2, prefix)
+            centres = sorted(sum(p[axis] for p in v)/len(v) for v in posts)
+            self.assertLessEqual(centres[0]-(a,b)[axis], .061)
+            self.assertLessEqual((c,d)[axis]-centres[-1], .061)
+            self.assertTrue(all(q-p <= 1.201 for p,q in zip(centres,centres[1:])), prefix)
+            for post in posts:
+                self.assertAlmostEqual(min(p[2] for p in post), z+.12, places=4)
+                self.assertAlmostEqual(max(p[2] for p in post), top, places=4)
+            middle = self.objects[prefix+'_mid_rail']
+            self.assertAlmostEqual(max(p[2] for p in middle), z+.55, places=4)
+
+    def test_stair_middle_handrails_follow_each_flight_and_landing(self):
+        for stair in self.t['metal_stairs']:
+            for side in range(2):
+                for part, drop in (('upper',-1.8),('landing',0),('lower',-1.8)):
+                    v = self.objects[f"stair_{stair['id']}_mid_rail_{side}_{part}"]
+                    self.assertAlmostEqual(v[1][2]-v[0][2], drop, places=4)
+                    for i in range(4):
+                        self.assertAlmostEqual(v[i+4][2]-v[i][2], .04, places=4)

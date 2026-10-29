@@ -83,6 +83,13 @@
   "z": 0.4,
   "slab_thickness": 0.3,
   "barrier_height": 1.1,
+  "railing": {
+    "post_spacing": 1.2,
+    "post_width": 0.06,
+    "mid_rail_height": 0.55,
+    "mid_rail_size": 0.04,
+    "evidence": "Review detail added following the user's request for handrails; dimensions are provisional."
+  },
   "facade_east": -23.74285714285714,
   "outer_edge_east": -25.45,
   "width": 1.707142857142859,
@@ -649,10 +656,10 @@
     "residual": "Exit stars fit within 0.7 m; perspective is not corrected."
   },
   "source_hashes": {
-    "config/povo2_minus1_terrace.json": "a31297d7ec825857cecc3a8aab5b1de57c10dd35f4c029d1eb0890a99dd3efb7",
+    "config/povo2_minus1_terrace.json": "9e4ac433677bba6669d5c79c0c57e010ffb669ff1eacdb3df21e2ac4c4081949",
     "exports/povo2_west_offices_20261029/layout.json": "be0347949bd1d1c80df144b9ebbb645fd9e3e66b89038855cb396495b215812e",
     "exports/povo2_survey/full_46.jpg": "1e73c805db8f815a1fdd921afc51b726225bb09da3830f1ecbba31300cbb09e3",
     "data/reference/user_feedback/2026-10-29/Povo2_Minus1_Terrace_Corrected.drawio": "5d8f01c2a269d6da3209519290a511d686f7c947775b8c4a9f8e4ef16302542f",
-    "tools/build_povo2_minus1_terrace.py": "5f7632d80ff0010a446dc3b58ce509166dcf7f48ad837503c08728da5aa4e05e"
+    "tools/build_povo2_minus1_terrace.py": "7be768eb67ef2186590939f0bb98ca0c154feb0cbe8f6d6ee7239f9fa7eb61cd"
   }
 }

@@ -129,6 +129,21 @@ def require_game_closed():
         raise RuntimeError('CS2 is already running; refusing to replace another session')
 
 
+def guard_probes(terrace):
+    """Approach each terrace guard from supported slab, facing the drop."""
+    for i, edge in enumerate(terrace['edges']):
+        a,b,c,d = edge['bounds']; x,y = (a+c)/2,(b+d)/2
+        candidates = ([(x,y+.65,0),(x,y-.65,180)] if c-a >= d-b
+                      else [(x+.65,y,-90),(x-.65,y,90)])
+        for e,n,yaw in candidates:
+            if any(s['bounds'][0] <= e <= s['bounds'][2] and s['bounds'][1] <= n <= s['bounds'][3]
+                   for s in terrace['slabs']):
+                yield f"{edge['kind']}_{i}", (e,n,terrace['z']), yaw
+                break
+        else:
+            raise RuntimeError('No supported approach to guard '+str(edge))
+
+
 def launch_scene(cs2):
     require_game_closed()
     exe = cs2/'game/bin/win64/cs2.exe'
@@ -170,14 +185,15 @@ def test_scene(cs2, package):
             console.command(['noclip 0', 'setpos '+world(((a+c)/2,(b+d)/2,t['z']+.1))], 1.5)
             p = driver.position()
             check(f'hole_{i}_has_no_floor', abs(p[2]+3.2)<.15, position=p)
-        for i, strip in enumerate(s for s in t['slabs'] if s['id'].startswith('west_strip')):
-            a,b,c,d = strip['bounds']; driver.guard(); driver.place(((a+c)/2,(b+d)/2,t['z']))
-            console.pulse(['setang 0 -90 0', '+forward 42'], 1)
+        for name, start, yaw in guard_probes(t):
+            driver.guard(); driver.place(start)
+            console.pulse([f'setang 0 {yaw} 0', '+forward 42'], 1)
             p = driver.position()
-            check(f'west_guard_{i}_blocks_fall', p[0]>a and abs(p[2]-t['z'])<.15, position=p)
+            check(name+'_blocks_fall', abs(p[2]-t['z'])<.15, position=p)
         # Native engine screenshots retain the scene's actual renderer output.
         shots = [('south_stair', (44,1.1,-3.2), (0,-90,0)),
                  ('north_stair', (44,106.2,-3.2), (0,-90,0)),
+                 ('south_terrace_handrails', (25,1.15,.4), (0,-90,0)),
                  ('west_middle_hole', (-27,55,4), (40,90,0))]
         screenshot_dir = cs2/'game/csgo_addons/trento_povo/screenshots'
         for name, p, angles in shots:

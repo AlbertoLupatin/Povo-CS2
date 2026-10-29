@@ -64,6 +64,13 @@ Each stair has two ten-riser flights and a 1.1 m mid-landing, descending
 east from z 0.4 to −3.2. The OBJ uses thin sloping handrails with posts,
 level over each landing. Four columns remain inside the widened bays.
 
+Following the user's handrail feedback, every marked terrace and hole edge
+now has a continuous top handrail, a middle rail at 0.55 m, and 60 mm uprights
+at intervals no greater than 1.2 m. The 185 terrace uprights meet the kick
+plates and the underside of the top rails. Both stairs also have sloping
+middle rails, level over their landings. These are provisional review details;
+the terrace footprint and openings are unchanged.
+
 The holes interrupt the walk along the west side. Each stair reaches its
 own full north/south run; the other terrace sections are accessed through
 the building exits.
@@ -107,7 +114,7 @@ check), both stairs meeting their runs, flood-fill reachability, north-run
 alignment, office-bay fit, all eight west exits, continuous west-edge coverage
 and columns within the bays.
 
-Validation on 29 October 2026: all 15 terrace tests passed; the full
+Initial validation on 29 October 2026: all 15 terrace tests passed; the full
 `py -3 -m unittest discover -s tests -q` suite passed all 318 tests in 110.9 s.
 The generated PNGs were inspected, source hashes verified, and both OBJ
 stair handrails checked for the correct slope and 60 mm rail thickness.
@@ -119,17 +126,21 @@ completion of this review. It does not validate or install the terrace.
 
 ## Native CS2 test — 29 October 2026
 
-The committed terrace OBJ from `5c0ec41` was compiled as both render and
-collision geometry in the separate `povo2_terrace_native_test` map. This
+The updated terrace OBJ, including the supported handrails, was compiled as
+render and collision geometry in the separate `povo2_terrace_native_test` map. This
 uses the unchanged OBJ at campus scale, neutral review shading, daylight
 and a separate catch floor at z −3.2. No campus package was replaced.
 
 All **12 ordinary-walking routes** passed, including both stairs with their
 full north/south runs, both west strips and both office bays, each in both
 directions (**28 waypoint checks**). Each of the three hole-centre drops
-reached the catch floor at −3.2 rather than stopping at the terrace. Both
-west-strip railing pushes blocked the standing player at terrace level.
-These **five collision checks** also passed. CS2 was closed after testing.
+reached the catch floor at −3.2 rather than stopping at the terrace. Pushes
+against **all 15 terrace guards**, including every hole edge, blocked the
+standing player at terrace level. These **18 collision checks** also passed.
+All **20 focused source tests** passed (17 geometry and three session guards),
+including exported upright support/spacing and sloping stair middle rails.
+The exact OBJ hash in the native report matches the updated export. CS2 was
+closed after testing.
 
 This verifies the terrace mesh in CS2; it does not resolve its garden
 registration or test connections to the campus building's doors.
@@ -137,6 +148,7 @@ registration or test connections to the campus building's doors.
 - [Native result](../exports/povo2_minus1_terrace_20261029/runtime/native-test.json)
 - [South stair screenshot](../exports/povo2_minus1_terrace_20261029/runtime/south_stair.png)
 - [North stair screenshot](../exports/povo2_minus1_terrace_20261029/runtime/north_stair.png)
+- [Supported terrace handrails](../exports/povo2_minus1_terrace_20261029/runtime/south_terrace_handrails.png)
 - [Middle hole screenshot](../exports/povo2_minus1_terrace_20261029/runtime/west_middle_hole.png)
 
 Reproduce with Steam running and CS2 closed:

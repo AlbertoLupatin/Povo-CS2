@@ -6,6 +6,7 @@ metal stairs down to -2.
 """
 import hashlib
 import json
+import math
 from html import escape
 
 from PIL import Image, ImageDraw, ImageFont
@@ -101,6 +102,7 @@ def build(base, cfg):
     area = sum((r[2]-r[0])*(r[3]-r[1]) for r in union_rectangles([s['bounds'] for s in slabs])[0])
     return dict(status=cfg['status'], user_description=cfg['user_description'], user_markup=cfg['user_markup'],
                 frame=cfg['frame'], z=cfg['z'], slab_thickness=cfg['slab_thickness'], barrier_height=cfg['barrier_height'],
+                railing=cfg['railing'],
                 facade_east=facade, outer_edge_east=outer, width=facade-outer, slabs=slabs, recesses=recesses,
                 west_strip=segments, holes=[dict(bounds=h, view=cfg['holes_view']) for h in holes],
                 edges=edges, edge_kinds=cfg['edge_kinds'], columns=columns, metal_stairs=stairs,
@@ -279,6 +281,35 @@ def write_evidence(root, cfg, terrace, path):
     out.save(path)
 
 
+def terrace_railing_parts(terrace):
+    """Supported top/middle rails at every marked terrace and hole edge."""
+    z, height, spec = terrace['z'], terrace['barrier_height'], terrace['railing']
+    parts = []
+    def add(name, bounds, bottom, thickness):
+        parts.append(dict(name=name, bounds=bounds, bottom=bottom, height=thickness))
+    for i, edge in enumerate(terrace['edges']):
+        a,b,c,d = edge['bounds']; prefix = f"{edge['kind']}_{i}"
+        if edge['kind'] == 'parapet':
+            add(prefix, [a,b,c,d], z, height)
+            continue
+        add(prefix+'_top_rail', [a,b,c,d], z+height-.06, .06)
+        add(prefix+'_kick', [a,b,c,d], z, .12)
+        axis = 0 if c-a >= d-b else 1
+        mid = [(a+c)/2, (b+d)/2]
+        width = spec['mid_rail_size']
+        rail = [a, mid[1]-width/2, c, mid[1]+width/2] if axis == 0 else [mid[0]-width/2,b,mid[0]+width/2,d]
+        add(prefix+'_mid_rail', rail, z+spec['mid_rail_height']-width, width)
+        pw = spec['post_width']; start = (a,b)[axis]; end = (c,d)[axis]-pw
+        spans = max(1, math.ceil((end-start)/spec['post_spacing']))
+        for j in range(spans+1):
+            u = start+(end-start)*j/spans
+            post = [u,mid[1]-pw/2,u+pw,mid[1]+pw/2] if axis == 0 else [mid[0]-pw/2,u,mid[0]+pw/2,u+pw]
+            # Meet the kick plate and the underside of the handrail; avoid
+            # coplanar faces on top of the rail itself.
+            add(prefix+f'_post_{j}', post, z+.12, height-.06-.12)
+    return parts
+
+
 def write_obj(terrace, path):
     z, t, hb = terrace['z'], terrace['slab_thickness'], terrace['barrier_height']
     lines = ['# Povo 2 -1 external terrace; campus metres (x east, y north, z up); review geometry']
@@ -296,13 +327,8 @@ def write_obj(terrace, path):
         index += 8
     for s in terrace['slabs']:
         box('terrace_'+s['id'], s['bounds'], z-t, t)
-    for i, e in enumerate(terrace['edges']):
-        if e['kind'] == 'parapet':
-            box(f'parapet_{i}', e['bounds'], z, hb)
-        else:
-            # Railing: a top rail and a kick plate, see-through between them.
-            box(f'{e["kind"]}_{i}_top_rail', e['bounds'], z+hb-.06, .06)
-            box(f'{e["kind"]}_{i}_kick', e['bounds'], z, .12)
+    for part in terrace_railing_parts(terrace):
+        box(part['name'], part['bounds'], part['bottom'], part['height'])
     for i, c in enumerate(terrace['columns']):
         box(f'column_{i}', c, z, 3.6)
     for st in terrace['metal_stairs']:
@@ -325,6 +351,10 @@ def write_obj(terrace, path):
                 ('lower', lower, mid_z, st['bottom_z'])):
                 rail = [footprint[0], r[1], footprint[2], r[3]]
                 box(f"stair_{st['id']}_rail_{side}_{part}", rail, start+hb-.06, .06, end+hb-.06)
+                middle = terrace['railing']['mid_rail_height']; size = terrace['railing']['mid_rail_size']
+                cy = (r[1]+r[3])/2
+                middle_rail = [rail[0],cy-size/2,rail[2],cy+size/2]
+                box(f"stair_{st['id']}_mid_rail_{side}_{part}", middle_rail, start+middle-size, size, end+middle-size)
                 for j in range(3):
                     f = j/2
                     x = rail[0]+(rail[2]-rail[0]-BAR)*f

@@ -7,6 +7,13 @@
   "z": 0.4,
   "slab_thickness": 0.3,
   "barrier_height": 1.1,
+  "railing": {
+    "post_spacing": 1.2,
+    "post_width": 0.06,
+    "mid_rail_height": 0.55,
+    "mid_rail_size": 0.04,
+    "evidence": "Review detail added following the user's request for handrails; dimensions are provisional."
+  },
   "photo_fit": {
     "method": "Original-pixel fit on photo 46. Photo x to campus north from the eight detected west-facade exit stars, whose campus points the layout already carries (seven detected; the eighth is under the blue annotation). Photo y to campus east from two traced faces: the office-row outer wall (O13-O20, east -17.5) at y 4048 and the Room 1/Room 2 facade at y 4207.",
     "north_from_photo_x": {
