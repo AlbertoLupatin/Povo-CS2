@@ -1911,3 +1911,31 @@ pass, including flood fills of every room from C7 and of C7 to C5; nine −1
 layout review tests also pass. Review geometry only: the installed map was
 not changed.
 See [West Offices](POVO2_WEST_OFFICES_20261029.md).
+
+
+## 30 October 2026 — building and road registration against OSM and LiDAR
+
+Checked every campus building and road against OpenStreetMap footprints and
+centrelines, fetched through Overture Maps because the OSM API and Overpass
+are unreachable from the cloud session, and against the PAT LiDAR building
+mask. New tools: `tools/fetch_osm_extract.py` (cached extract) and
+`tools/audit_building_registration.py` (numpy + Pillow).
+
+- Povo 1, the Povo 2 main block and annex bars, and the Mensa agree within
+  about 1 m (IoU 0.91–0.98). BUP is minor (W +2 m).
+- All hand-traced FBK edge volumes are off: Nord about 30% too big, Ovest
+  about 60% too big with filled courtyards, Est about 4.5 m west, the
+  skybridge drawn as a 16 m wing, and the south complex with a 40 m phantom
+  wing. The residential backdrop west of Povo 1 sits about 3 m west.
+- Via Sommarive north of the bridge is 4–8 m west of OSM and up to 5.8 m
+  below the DTM. The earlier OSM/LiDAR Povo 2 correction is not in this
+  repository's history.
+- To verify with the user: the Povo 2 south −1 roof over the LiDAR-open
+  sunken area, the courtyard roof, the east podium strips, and the bridge
+  width.
+
+No geometry changed. Corrected footprints are in
+`exports/building_registration_20261030/proposed_footprints.json`. The 6 new
+tests pass. The full suite has one failure that also fails on the untouched
+commit (`test_playtest_povo_survey`). See the
+[registration audit](BUILDING_REGISTRATION_AUDIT_20261030.md).

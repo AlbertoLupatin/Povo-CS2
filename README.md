@@ -28,6 +28,10 @@ normal-quality lighting with a 2048-pixel atlas; reproduce with
 `build_campus.cmd --fast-lighting`. Winter and the Workshop upload remain at
 their previous versions. See the [rebuild details and in-game screenshots](docs/POVO2_BASEMENTS_REBUILD.md).
 
+The 30 October [OSM and LiDAR registration audit](docs/BUILDING_REGISTRATION_AUDIT_20261030.md)
+confirms the Povo 1 and Povo 2 footprints. It flags the hand-traced FBK edge buildings,
+the west residential backdrop and Via Sommarive north of the bridge for correction.
+
 The later 29 October [exterior visibility investigation](docs/POVO_EXTERIOR_VISIBILITY.md)
 updated the local package's lighting and fixed a frontage seam. Large black
 courtyard patches remain under investigation. CS2 is closed between test batches

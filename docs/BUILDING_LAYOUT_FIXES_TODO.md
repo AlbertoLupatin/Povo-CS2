@@ -98,3 +98,14 @@ Evidence: [Povo 2 audit](POVO2_LAYOUT_AUDIT_20261028.md) and [photo contact shee
 ### Restricted wings: proposed fidelity scope
 
 The user cannot access most Povo 2 laboratory/office wings. Prioritize the accessible two labs, public routes, stair cores, exits and garden. Use existing plans for the inaccessible wings' footprints and visible corridor-facing walls/doors; keep unverified interiors closed and unfurnished rather than inventing them. Full playable lab/office interiors above remain optional expansion work, not a requirement for completing the accessible-area reconstruction. This is a proposed scope, not a claim that inaccessible interiors have been verified.
+
+
+## Exterior registration (OSM + LiDAR, 30 October)
+
+Evidence: [registration audit](BUILDING_REGISTRATION_AUDIT_20261030.md). Proposed OSM rings, in local metres, are in `exports/building_registration_20261030/proposed_footprints.json`. Re-run `python tools/audit_building_registration.py` after each change.
+
+- [ ] **Re-trace FBK Edificio Nord, Ovest and Est and their skybridge** (`config/povo_edges.json`). Use the OSM rings including courtyards, and LiDAR heights above ground (Ovest about 15 m, Est about 7 m). Decide whether the flattened grade stays.
+- [ ] **Re-trace the FBK south complex.** Remove the 40 m phantom on `fbk_far_south_south`, add the missing north wing, and trim `fbk_far_south_north` (+12 m on the west side).
+- [ ] **Move the residential backdrop west of Povo 1 about 3 m east** and use its stepped OSM outline (`config/povo_exterior.json` `residential`).
+- [ ] **Shift Via Sommarive between the bridge and the roundabout 4–8 m east,** and review its grade (up to 5.8 m below the DTM) with the Povo 2 entrance levels.
+- [ ] **Confirm with the user:** the Povo 2 south −1 roof over the LiDAR-open sunken area, the roofed courtyard (see the central-void item), the east podium's low roofs north and south of the annex bars, and the bridge width (game about 8 m, OSM/LiDAR about 3.5 m).

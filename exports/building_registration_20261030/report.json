@@ -1,0 +1,2959 @@
+{
+ "generated_from": {
+  "objs": [
+   "exports/povo_campus/povo1_campus.obj",
+   "exports/povo_campus/povo1_campus_paving.obj"
+  ],
+  "osm": "data/reference/osm/povo_osm_overture.geojson",
+  "osm_source": "Overture Maps Foundation release 2026-10-21.0, OpenStreetMap-sourced features only",
+  "osm_licence": "Open Database License 1.0; (c) OpenStreetMap contributors, https://www.openstreetmap.org/copyright",
+  "osm_retrieved_utc": "2026-10-30T21:08:04+00:00",
+  "lidar": "PAT LiDAR DTM/DBM 2014-2018 tile 5h666051035, CC BY 4.0",
+  "grid_m": 0.5
+ },
+ "method": {
+  "game_building": "top surface > 2.5 m above the nearest open game ground (exterior ground or open-air floor seen from above); ground slabs, retaining walls, railings and glass canopies excluded; a storey with its roof within 1 m of the DTM and under 5 m above the sunken game ground counts as buried (game_buried_storey_m2)",
+  "lidar_building": "DBM - DTM > 2.5 m",
+  "verdicts": "ok: IoU>=0.85 and worst side mean offset<=1.5 m; minor: IoU>=0.7 and <=3 m; generic: IoU<0.25 (not traced individually); otherwise off",
+  "sides": "overhang: game outside OSM; shortfall: OSM not covered by game; depth is the 95th percentile distance from the OSM facade",
+  "shift": "best translation (east, north) of the game footprint within +/-10 m"
+ },
+ "buildings": [
+  {
+   "osm": "w1193371312",
+   "name": null,
+   "osm_class": "university",
+   "centroid_epsg25832": [
+    666251.7,
+    5103861.9
+   ],
+   "osm_area_m2": 5030,
+   "game_area_m2": 5295,
+   "lidar_area_m2": 4749,
+   "iou_game_osm": 0.93,
+   "iou_game_lidar": 0.84,
+   "iou_lidar_osm": 0.87,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 0.6,
+     "depth_p95_m": 6.7,
+     "area_m2": 60
+    },
+    "W": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 1.1,
+     "area_m2": 49
+    },
+    "S": {
+     "mean_offset_m": 4.0,
+     "depth_p95_m": 9.2,
+     "area_m2": 199
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 0.2,
+     "depth_p95_m": 0.9,
+     "area_m2": 22
+    },
+    "N": {
+     "mean_offset_m": 0.2,
+     "depth_p95_m": 0.2,
+     "area_m2": 9
+    },
+    "S": {
+     "mean_offset_m": 0.3,
+     "depth_p95_m": 14.9,
+     "area_m2": 12
+    }
+   },
+   "shift_game_to_osm_m": [
+    0.0,
+    0.5
+   ],
+   "iou_after_osm_shift": 0.94,
+   "shift_game_to_lidar_m": [
+    0.5,
+    0.5
+   ],
+   "iou_after_lidar_shift": 0.84,
+   "lidar_roof_p95_m": 390.6,
+   "lidar_height_m": 20.5,
+   "game_roof_p95_m": 381.0,
+   "game_height_m": 7.9,
+   "game_ground_minus_dtm_m": 3.1,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 4.0,
+   "verdict": "off"
+  },
+  {
+   "osm": "r3663359",
+   "name": null,
+   "osm_class": "university",
+   "centroid_epsg25832": [
+    666251.1,
+    5103739.4
+   ],
+   "osm_area_m2": 3398,
+   "game_area_m2": 3672,
+   "lidar_area_m2": 3606,
+   "iou_game_osm": 0.91,
+   "iou_game_lidar": 0.95,
+   "iou_lidar_osm": 0.94,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 0.2,
+     "depth_p95_m": 6.1,
+     "area_m2": 19
+    },
+    "N": {
+     "mean_offset_m": 0.9,
+     "depth_p95_m": 5.2,
+     "area_m2": 54
+    },
+    "W": {
+     "mean_offset_m": 1.0,
+     "depth_p95_m": 0.9,
+     "area_m2": 115
+    },
+    "S": {
+     "mean_offset_m": 1.7,
+     "depth_p95_m": 2.0,
+     "area_m2": 106
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 0.1,
+     "depth_p95_m": 0.2,
+     "area_m2": 14
+    },
+    "S": {
+     "mean_offset_m": 0.1,
+     "depth_p95_m": 0.4,
+     "area_m2": 6
+    }
+   },
+   "shift_game_to_osm_m": [
+    0.5,
+    -0.5
+   ],
+   "iou_after_osm_shift": 0.92,
+   "shift_game_to_lidar_m": [
+    0.5,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.98,
+   "lidar_roof_p95_m": 389.8,
+   "lidar_height_m": 16.5,
+   "game_roof_p95_m": 384.6,
+   "game_height_m": 10.6,
+   "game_ground_minus_dtm_m": 0.6,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 1.7,
+   "verdict": "minor"
+  },
+  {
+   "osm": "r1185626",
+   "name": null,
+   "osm_class": "university",
+   "centroid_epsg25832": [
+    666363.0,
+    5103596.0
+   ],
+   "osm_area_m2": 3375,
+   "game_area_m2": 2069,
+   "lidar_area_m2": 3674,
+   "iou_game_osm": 0.43,
+   "iou_game_lidar": 0.43,
+   "iou_lidar_osm": 0.85,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 1.6,
+     "depth_p95_m": 6.1,
+     "area_m2": 140
+    },
+    "N": {
+     "mean_offset_m": 0.8,
+     "depth_p95_m": 5.1,
+     "area_m2": 123
+    },
+    "S": {
+     "mean_offset_m": 1.1,
+     "depth_p95_m": 3.4,
+     "area_m2": 162
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 2.9,
+     "depth_p95_m": 6.6,
+     "area_m2": 244
+    },
+    "N": {
+     "mean_offset_m": 3.4,
+     "depth_p95_m": 5.4,
+     "area_m2": 511
+    },
+    "W": {
+     "mean_offset_m": 6.6,
+     "depth_p95_m": 7.3,
+     "area_m2": 558
+    },
+    "S": {
+     "mean_offset_m": 2.8,
+     "depth_p95_m": 5.4,
+     "area_m2": 418
+    }
+   },
+   "shift_game_to_osm_m": [
+    -7.5,
+    2.5
+   ],
+   "iou_after_osm_shift": 0.51,
+   "shift_game_to_lidar_m": [
+    -7.0,
+    3.0
+   ],
+   "iou_after_lidar_shift": 0.51,
+   "lidar_roof_p95_m": 397.8,
+   "lidar_height_m": 11.2,
+   "game_roof_p95_m": 387.2,
+   "game_height_m": 9.2,
+   "game_ground_minus_dtm_m": -9.0,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 6.6,
+   "verdict": "off"
+  },
+  {
+   "osm": "w28933741",
+   "name": "Edificio Nord",
+   "osm_class": "office",
+   "centroid_epsg25832": [
+    666377.0,
+    5103832.5
+   ],
+   "osm_area_m2": 3178,
+   "game_area_m2": 4195,
+   "lidar_area_m2": 3252,
+   "iou_game_osm": 0.75,
+   "iou_game_lidar": 0.76,
+   "iou_lidar_osm": 0.97,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 5.2,
+     "depth_p95_m": 5.1,
+     "area_m2": 339
+    },
+    "N": {
+     "mean_offset_m": 2.7,
+     "depth_p95_m": 3.1,
+     "area_m2": 118
+    },
+    "W": {
+     "mean_offset_m": 5.5,
+     "depth_p95_m": 9.1,
+     "area_m2": 444
+    },
+    "S": {
+     "mean_offset_m": 2.9,
+     "depth_p95_m": 5.2,
+     "area_m2": 145
+    }
+   },
+   "game_shortfall": {
+    "W": {
+     "mean_offset_m": 0.3,
+     "depth_p95_m": 2.5,
+     "area_m2": 26
+    }
+   },
+   "shift_game_to_osm_m": [
+    -3.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.76,
+   "shift_game_to_lidar_m": [
+    -3.5,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.77,
+   "lidar_roof_p95_m": 400.7,
+   "lidar_height_m": 16.4,
+   "game_roof_p95_m": 390.2,
+   "game_height_m": 15.2,
+   "game_ground_minus_dtm_m": -9.4,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 5.5,
+   "verdict": "off"
+  },
+  {
+   "osm": "r1185627",
+   "name": "Edificio Est",
+   "osm_class": "office",
+   "centroid_epsg25832": [
+    666446.7,
+    5103727.3
+   ],
+   "osm_area_m2": 2022,
+   "game_area_m2": 2511,
+   "lidar_area_m2": 2092,
+   "iou_game_osm": 0.64,
+   "iou_game_lidar": 0.66,
+   "iou_lidar_osm": 0.95,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 3.1,
+     "area_m2": 38
+    },
+    "N": {
+     "mean_offset_m": 3.5,
+     "depth_p95_m": 4.3,
+     "area_m2": 204
+    },
+    "W": {
+     "mean_offset_m": 4.8,
+     "depth_p95_m": 8.4,
+     "area_m2": 361
+    },
+    "S": {
+     "mean_offset_m": 2.3,
+     "depth_p95_m": 3.1,
+     "area_m2": 133
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 3.1,
+     "depth_p95_m": 4.2,
+     "area_m2": 231
+    },
+    "N": {
+     "mean_offset_m": 0.1,
+     "depth_p95_m": 2.4,
+     "area_m2": 6
+    },
+    "S": {
+     "mean_offset_m": 0.2,
+     "depth_p95_m": 3.9,
+     "area_m2": 11
+    }
+   },
+   "shift_game_to_osm_m": [
+    4.5,
+    -2.0
+   ],
+   "iou_after_osm_shift": 0.78,
+   "shift_game_to_lidar_m": [
+    4.5,
+    1.5
+   ],
+   "iou_after_lidar_shift": 0.79,
+   "lidar_roof_p95_m": 397.8,
+   "lidar_height_m": 6.9,
+   "game_roof_p95_m": 388.2,
+   "game_height_m": 10.2,
+   "game_ground_minus_dtm_m": -12.9,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 4.8,
+   "verdict": "off"
+  },
+  {
+   "osm": "r1185625",
+   "name": "Edificio Ovest",
+   "osm_class": "office",
+   "centroid_epsg25832": [
+    666382.8,
+    5103734.5
+   ],
+   "osm_area_m2": 1974,
+   "game_area_m2": 3170,
+   "lidar_area_m2": 2470,
+   "iou_game_osm": 0.61,
+   "iou_game_lidar": 0.74,
+   "iou_lidar_osm": 0.79,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 3.8,
+     "depth_p95_m": 8.1,
+     "area_m2": 306
+    },
+    "N": {
+     "mean_offset_m": 5.2,
+     "depth_p95_m": 8.9,
+     "area_m2": 382
+    },
+    "W": {
+     "mean_offset_m": 1.6,
+     "depth_p95_m": 3.8,
+     "area_m2": 132
+    },
+    "S": {
+     "mean_offset_m": 5.5,
+     "depth_p95_m": 8.2,
+     "area_m2": 399
+    }
+   },
+   "game_shortfall": {
+    "W": {
+     "mean_offset_m": 0.2,
+     "depth_p95_m": 1.2,
+     "area_m2": 17
+    }
+   },
+   "shift_game_to_osm_m": [
+    -1.0,
+    5.0
+   ],
+   "iou_after_osm_shift": 0.62,
+   "shift_game_to_lidar_m": [
+    -1.5,
+    1.0
+   ],
+   "iou_after_lidar_shift": 0.75,
+   "lidar_roof_p95_m": 396.5,
+   "lidar_height_m": 15.0,
+   "game_roof_p95_m": 389.2,
+   "game_height_m": 11.2,
+   "game_ground_minus_dtm_m": -3.6,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 5.5,
+   "verdict": "off"
+  },
+  {
+   "osm": "w42648436",
+   "name": null,
+   "osm_class": "office",
+   "centroid_epsg25832": [
+    666375.8,
+    5103651.8
+   ],
+   "osm_area_m2": 1606,
+   "game_area_m2": 2597,
+   "lidar_area_m2": 1547,
+   "iou_game_osm": 0.62,
+   "iou_game_lidar": 0.6,
+   "iou_lidar_osm": 0.91,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 4.2,
+     "depth_p95_m": 3.7,
+     "area_m2": 126
+    },
+    "N": {
+     "mean_offset_m": 3.5,
+     "depth_p95_m": 3.4,
+     "area_m2": 208
+    },
+    "W": {
+     "mean_offset_m": 12.2,
+     "depth_p95_m": 10.7,
+     "area_m2": 368
+    },
+    "S": {
+     "mean_offset_m": 4.9,
+     "depth_p95_m": 5.2,
+     "area_m2": 290
+    }
+   },
+   "game_shortfall": {},
+   "shift_game_to_osm_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.62,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.6,
+   "lidar_roof_p95_m": 394.8,
+   "lidar_height_m": 8.1,
+   "game_roof_p95_m": 388.2,
+   "game_height_m": 10.2,
+   "game_ground_minus_dtm_m": -8.8,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 12.2,
+   "verdict": "off"
+  },
+  {
+   "osm": "w1193371313",
+   "name": null,
+   "osm_class": "university",
+   "centroid_epsg25832": [
+    666291.3,
+    5103861.3
+   ],
+   "osm_area_m2": 1336,
+   "game_area_m2": 563,
+   "lidar_area_m2": 888,
+   "iou_game_osm": 0.34,
+   "iou_game_lidar": 0.43,
+   "iou_lidar_osm": 0.64,
+   "game_overhang": {
+    "N": {
+     "mean_offset_m": 0.6,
+     "depth_p95_m": 4.7,
+     "area_m2": 30
+    },
+    "S": {
+     "mean_offset_m": 1.0,
+     "depth_p95_m": 7.0,
+     "area_m2": 52
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 3.3,
+     "depth_p95_m": 6.0,
+     "area_m2": 272
+    },
+    "N": {
+     "mean_offset_m": 5.9,
+     "depth_p95_m": 8.8,
+     "area_m2": 314
+    },
+    "W": {
+     "mean_offset_m": 0.9,
+     "depth_p95_m": 7.2,
+     "area_m2": 71
+    },
+    "S": {
+     "mean_offset_m": 3.7,
+     "depth_p95_m": 7.1,
+     "area_m2": 198
+    }
+   },
+   "shift_game_to_osm_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.34,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.43,
+   "lidar_roof_p95_m": 378.1,
+   "lidar_height_m": 0.7,
+   "game_roof_p95_m": 381.9,
+   "game_height_m": 7.9,
+   "game_ground_minus_dtm_m": -3.5,
+   "game_buried_storey_m2": 54,
+   "worst_side_offset_m": 5.9,
+   "verdict": "off"
+  },
+  {
+   "osm": "w42648467",
+   "name": null,
+   "osm_class": "office",
+   "centroid_epsg25832": [
+    666433.2,
+    5103630.5
+   ],
+   "osm_area_m2": 1318,
+   "game_area_m2": 1630,
+   "lidar_area_m2": 1262,
+   "iou_game_osm": 0.69,
+   "iou_game_lidar": 0.68,
+   "iou_lidar_osm": 0.88,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 1.5,
+     "depth_p95_m": 5.2,
+     "area_m2": 92
+    },
+    "N": {
+     "mean_offset_m": 1.7,
+     "depth_p95_m": 6.1,
+     "area_m2": 76
+    },
+    "W": {
+     "mean_offset_m": 2.7,
+     "depth_p95_m": 3.3,
+     "area_m2": 162
+    },
+    "S": {
+     "mean_offset_m": 2.2,
+     "depth_p95_m": 5.3,
+     "area_m2": 100
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 0.6,
+     "depth_p95_m": 3.6,
+     "area_m2": 39
+    },
+    "N": {
+     "mean_offset_m": 1.1,
+     "depth_p95_m": 4.1,
+     "area_m2": 50
+    },
+    "S": {
+     "mean_offset_m": 0.6,
+     "depth_p95_m": 4.3,
+     "area_m2": 26
+    }
+   },
+   "shift_game_to_osm_m": [
+    2.0,
+    2.0
+   ],
+   "iou_after_osm_shift": 0.73,
+   "shift_game_to_lidar_m": [
+    2.0,
+    2.5
+   ],
+   "iou_after_lidar_shift": 0.71,
+   "lidar_roof_p95_m": 404.1,
+   "lidar_height_m": 13.1,
+   "game_roof_p95_m": 387.2,
+   "game_height_m": 9.2,
+   "game_ground_minus_dtm_m": -12.9,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 2.7,
+   "verdict": "off"
+  },
+  {
+   "osm": "w275318462",
+   "name": "BUP - Biblioteca Universitaria Povo",
+   "osm_class": "library",
+   "centroid_epsg25832": [
+    666294.5,
+    5103759.8
+   ],
+   "osm_area_m2": 763,
+   "game_area_m2": 932,
+   "lidar_area_m2": 880,
+   "iou_game_osm": 0.82,
+   "iou_game_lidar": 0.94,
+   "iou_lidar_osm": 0.87,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 1.0,
+     "depth_p95_m": 0.9,
+     "area_m2": 55
+    },
+    "N": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 0.1,
+     "area_m2": 7
+    },
+    "W": {
+     "mean_offset_m": 2.0,
+     "depth_p95_m": 1.8,
+     "area_m2": 107
+    }
+   },
+   "game_shortfall": {},
+   "shift_game_to_osm_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.82,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.94,
+   "lidar_roof_p95_m": 385.0,
+   "lidar_height_m": 7.8,
+   "game_roof_p95_m": 380.9,
+   "game_height_m": 4.7,
+   "game_ground_minus_dtm_m": -0.4,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 2.0,
+   "verdict": "minor"
+  },
+  {
+   "osm": "w275318458",
+   "name": null,
+   "osm_class": null,
+   "centroid_epsg25832": [
+    666183.0,
+    5103736.3
+   ],
+   "osm_area_m2": 678,
+   "game_area_m2": 877,
+   "lidar_area_m2": 692,
+   "iou_game_osm": 0.53,
+   "iou_game_lidar": 0.54,
+   "iou_lidar_osm": 0.88,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 0.1,
+     "depth_p95_m": 0.8,
+     "area_m2": 6
+    },
+    "N": {
+     "mean_offset_m": 0.7,
+     "depth_p95_m": 3.1,
+     "area_m2": 8
+    },
+    "W": {
+     "mean_offset_m": 4.3,
+     "depth_p95_m": 5.2,
+     "area_m2": 301
+    },
+    "S": {
+     "mean_offset_m": 1.3,
+     "depth_p95_m": 6.7,
+     "area_m2": 22
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 1.4,
+     "depth_p95_m": 2.5,
+     "area_m2": 93
+    },
+    "N": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 1.8,
+     "area_m2": 5
+    },
+    "W": {
+     "mean_offset_m": 0.4,
+     "depth_p95_m": 3.3,
+     "area_m2": 30
+    },
+    "S": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 1.8,
+     "area_m2": 8
+    }
+   },
+   "shift_game_to_osm_m": [
+    2.0,
+    0.5
+   ],
+   "iou_after_osm_shift": 0.65,
+   "shift_game_to_lidar_m": [
+    2.0,
+    2.0
+   ],
+   "iou_after_lidar_shift": 0.67,
+   "lidar_roof_p95_m": 379.3,
+   "lidar_height_m": 11.4,
+   "game_roof_p95_m": 383.4,
+   "game_height_m": 10.5,
+   "game_ground_minus_dtm_m": 4.9,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 4.3,
+   "verdict": "off"
+  },
+  {
+   "osm": "w275318465",
+   "name": "Mensa Povo 1",
+   "osm_class": "university",
+   "centroid_epsg25832": [
+    666294.4,
+    5103705.8
+   ],
+   "osm_area_m2": 469,
+   "game_area_m2": 510,
+   "lidar_area_m2": 526,
+   "iou_game_osm": 0.92,
+   "iou_game_lidar": 0.87,
+   "iou_lidar_osm": 0.87,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 1.0,
+     "depth_p95_m": 1.0,
+     "area_m2": 33
+    },
+    "W": {
+     "mean_offset_m": 0.2,
+     "depth_p95_m": 1.5,
+     "area_m2": 6
+    }
+   },
+   "game_shortfall": {},
+   "shift_game_to_osm_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.92,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.87,
+   "lidar_roof_p95_m": 385.6,
+   "lidar_height_m": 8.4,
+   "game_roof_p95_m": 380.9,
+   "game_height_m": 3.3,
+   "game_ground_minus_dtm_m": 0.4,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 1.0,
+   "verdict": "ok"
+  },
+  {
+   "osm": "w78363200",
+   "name": null,
+   "osm_class": "office",
+   "centroid_epsg25832": [
+    666404.8,
+    5103563.2
+   ],
+   "osm_area_m2": 464,
+   "game_area_m2": 236,
+   "lidar_area_m2": 399,
+   "iou_game_osm": 0.15,
+   "iou_game_lidar": 0.2,
+   "iou_lidar_osm": 0.77,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 4.5,
+     "depth_p95_m": 11.3,
+     "area_m2": 78
+    },
+    "N": {
+     "mean_offset_m": 2.2,
+     "depth_p95_m": 5.6,
+     "area_m2": 58
+    },
+    "W": {
+     "mean_offset_m": 0.4,
+     "depth_p95_m": 2.6,
+     "area_m2": 7
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 4.0,
+     "depth_p95_m": 6.7,
+     "area_m2": 70
+    },
+    "N": {
+     "mean_offset_m": 2.6,
+     "depth_p95_m": 8.4,
+     "area_m2": 70
+    },
+    "W": {
+     "mean_offset_m": 4.0,
+     "depth_p95_m": 6.9,
+     "area_m2": 70
+    },
+    "S": {
+     "mean_offset_m": 6.1,
+     "depth_p95_m": 8.0,
+     "area_m2": 162
+    }
+   },
+   "shift_game_to_osm_m": [
+    -10.0,
+    -6.0
+   ],
+   "iou_after_osm_shift": 0.36,
+   "shift_game_to_lidar_m": [
+    -10.0,
+    -10.0
+   ],
+   "iou_after_lidar_shift": 0.42,
+   "lidar_roof_p95_m": 394.7,
+   "lidar_height_m": 6.8,
+   "game_roof_p95_m": 387.2,
+   "game_height_m": 9.2,
+   "game_ground_minus_dtm_m": -9.9,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 6.1,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w1193371315",
+   "name": null,
+   "osm_class": "university",
+   "centroid_epsg25832": [
+    666289.8,
+    5103839.0
+   ],
+   "osm_area_m2": 366,
+   "game_area_m2": 342,
+   "lidar_area_m2": 351,
+   "iou_game_osm": 0.93,
+   "iou_game_lidar": 0.95,
+   "iou_lidar_osm": 0.96,
+   "game_overhang": {},
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 0.2,
+     "area_m2": 8
+    },
+    "N": {
+     "mean_offset_m": 0.7,
+     "depth_p95_m": 0.8,
+     "area_m2": 17
+    }
+   },
+   "shift_game_to_osm_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.93,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.95,
+   "lidar_roof_p95_m": 385.4,
+   "lidar_height_m": 7.3,
+   "game_roof_p95_m": 381.9,
+   "game_height_m": 7.9,
+   "game_ground_minus_dtm_m": -4.1,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 0.7,
+   "verdict": "ok"
+  },
+  {
+   "osm": "w1193371314",
+   "name": null,
+   "osm_class": "university",
+   "centroid_epsg25832": [
+    666289.7,
+    5103885.5
+   ],
+   "osm_area_m2": 363,
+   "game_area_m2": 357,
+   "lidar_area_m2": 355,
+   "iou_game_osm": 0.98,
+   "iou_game_lidar": 0.98,
+   "iou_lidar_osm": 0.98,
+   "game_overhang": {},
+   "game_shortfall": {},
+   "shift_game_to_osm_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.98,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.98,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 0,
+   "verdict": "ok"
+  },
+  {
+   "osm": "w78363283",
+   "name": null,
+   "osm_class": "apartments",
+   "centroid_epsg25832": [
+    666448.8,
+    5103928.5
+   ],
+   "osm_area_m2": 354,
+   "game_area_m2": 72,
+   "lidar_area_m2": 372,
+   "iou_game_osm": 0.03,
+   "iou_game_lidar": 0.02,
+   "iou_lidar_osm": 0.88,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 0.9,
+     "depth_p95_m": 3.8,
+     "area_m2": 21
+    },
+    "N": {
+     "mean_offset_m": 2.2,
+     "depth_p95_m": 6.8,
+     "area_m2": 39
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 4.7,
+     "depth_p95_m": 6.8,
+     "area_m2": 109
+    },
+    "N": {
+     "mean_offset_m": 3.2,
+     "depth_p95_m": 5.8,
+     "area_m2": 56
+    },
+    "W": {
+     "mean_offset_m": 5.0,
+     "depth_p95_m": 6.8,
+     "area_m2": 115
+    },
+    "S": {
+     "mean_offset_m": 3.6,
+     "depth_p95_m": 5.6,
+     "area_m2": 63
+    }
+   },
+   "shift_game_to_osm_m": [
+    -5.5,
+    -7.5
+   ],
+   "iou_after_osm_shift": 0.2,
+   "shift_game_to_lidar_m": [
+    -4.5,
+    -7.5
+   ],
+   "iou_after_lidar_shift": 0.19,
+   "lidar_roof_p95_m": 408.7,
+   "lidar_height_m": 11.7,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 5.0,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w78363172",
+   "name": null,
+   "osm_class": "apartments",
+   "centroid_epsg25832": [
+    666443.5,
+    5103963.8
+   ],
+   "osm_area_m2": 331,
+   "game_area_m2": 154,
+   "lidar_area_m2": 371,
+   "iou_game_osm": 0.0,
+   "iou_game_lidar": 0.0,
+   "iou_lidar_osm": 0.89,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 1.2,
+     "depth_p95_m": 9.3,
+     "area_m2": 27
+    },
+    "W": {
+     "mean_offset_m": 4.9,
+     "depth_p95_m": 11.6,
+     "area_m2": 108
+    },
+    "S": {
+     "mean_offset_m": 1.2,
+     "depth_p95_m": 6.7,
+     "area_m2": 19
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 5.0,
+     "depth_p95_m": 7.0,
+     "area_m2": 109
+    },
+    "N": {
+     "mean_offset_m": 3.5,
+     "depth_p95_m": 5.6,
+     "area_m2": 56
+    },
+    "W": {
+     "mean_offset_m": 4.8,
+     "depth_p95_m": 6.9,
+     "area_m2": 106
+    },
+    "S": {
+     "mean_offset_m": 3.7,
+     "depth_p95_m": 5.8,
+     "area_m2": 60
+    }
+   },
+   "shift_game_to_osm_m": [
+    10.0,
+    2.0
+   ],
+   "iou_after_osm_shift": 0.18,
+   "shift_game_to_lidar_m": [
+    10.0,
+    2.0
+   ],
+   "iou_after_lidar_shift": 0.2,
+   "lidar_roof_p95_m": 408.8,
+   "lidar_height_m": 11.7,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 5.0,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w78362919",
+   "name": null,
+   "osm_class": null,
+   "centroid_epsg25832": [
+    666158.7,
+    5103719.0
+   ],
+   "osm_area_m2": 286,
+   "game_area_m2": 39,
+   "lidar_area_m2": 305,
+   "iou_game_osm": 0.0,
+   "iou_game_lidar": 0.01,
+   "iou_lidar_osm": 0.8,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 1.6,
+     "depth_p95_m": 6.6,
+     "area_m2": 29
+    },
+    "S": {
+     "mean_offset_m": 0.6,
+     "depth_p95_m": 5.6,
+     "area_m2": 10
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 4.4,
+     "depth_p95_m": 6.3,
+     "area_m2": 83
+    },
+    "N": {
+     "mean_offset_m": 3.3,
+     "depth_p95_m": 5.5,
+     "area_m2": 56
+    },
+    "W": {
+     "mean_offset_m": 3.7,
+     "depth_p95_m": 5.8,
+     "area_m2": 70
+    },
+    "S": {
+     "mean_offset_m": 4.5,
+     "depth_p95_m": 6.1,
+     "area_m2": 77
+    }
+   },
+   "shift_game_to_osm_m": [
+    -10.0,
+    0.5
+   ],
+   "iou_after_osm_shift": 0.14,
+   "shift_game_to_lidar_m": [
+    -10.0,
+    2.0
+   ],
+   "iou_after_lidar_shift": 0.13,
+   "lidar_roof_p95_m": 375.3,
+   "lidar_height_m": 10.1,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 4.5,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w275318456",
+   "name": null,
+   "osm_class": "roof",
+   "centroid_epsg25832": [
+    666288.5,
+    5103727.5
+   ],
+   "osm_area_m2": 260,
+   "game_area_m2": 44,
+   "lidar_area_m2": 265,
+   "iou_game_osm": 0.15,
+   "iou_game_lidar": 0.16,
+   "iou_lidar_osm": 0.9,
+   "game_overhang": {},
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 2.3,
+     "depth_p95_m": 3.6,
+     "area_m2": 22
+    },
+    "N": {
+     "mean_offset_m": 2.9,
+     "depth_p95_m": 4.8,
+     "area_m2": 76
+    },
+    "W": {
+     "mean_offset_m": 2.3,
+     "depth_p95_m": 3.9,
+     "area_m2": 22
+    },
+    "S": {
+     "mean_offset_m": 3.8,
+     "depth_p95_m": 4.5,
+     "area_m2": 100
+    }
+   },
+   "shift_game_to_osm_m": [
+    -10.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.16,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.16,
+   "lidar_roof_p95_m": 383.9,
+   "lidar_height_m": 10.5,
+   "game_roof_p95_m": 380.9,
+   "game_height_m": 6.9,
+   "game_ground_minus_dtm_m": 0.7,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 3.8,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w275320546",
+   "name": null,
+   "osm_class": "apartments",
+   "centroid_epsg25832": [
+    666345.4,
+    5103974.0
+   ],
+   "osm_area_m2": 259,
+   "game_area_m2": 223,
+   "lidar_area_m2": 250,
+   "iou_game_osm": 0.13,
+   "iou_game_lidar": 0.14,
+   "iou_lidar_osm": 0.84,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 7.1,
+     "depth_p95_m": 8.8,
+     "area_m2": 98
+    },
+    "S": {
+     "mean_offset_m": 3.4,
+     "depth_p95_m": 7.1,
+     "area_m2": 72
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 1.7,
+     "depth_p95_m": 5.6,
+     "area_m2": 23
+    },
+    "N": {
+     "mean_offset_m": 3.1,
+     "depth_p95_m": 4.9,
+     "area_m2": 71
+    },
+    "W": {
+     "mean_offset_m": 3.6,
+     "depth_p95_m": 4.8,
+     "area_m2": 64
+    },
+    "S": {
+     "mean_offset_m": 2.2,
+     "depth_p95_m": 5.3,
+     "area_m2": 47
+    }
+   },
+   "shift_game_to_osm_m": [
+    -10.0,
+    2.5
+   ],
+   "iou_after_osm_shift": 0.68,
+   "shift_game_to_lidar_m": [
+    -10.0,
+    2.0
+   ],
+   "iou_after_lidar_shift": 0.67,
+   "lidar_roof_p95_m": 397.5,
+   "lidar_height_m": 8.0,
+   "game_roof_p95_m": 386.6,
+   "game_height_m": 12.6,
+   "game_ground_minus_dtm_m": -15.5,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 7.1,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w78362957",
+   "name": null,
+   "osm_class": null,
+   "centroid_epsg25832": [
+    666471.4,
+    5103935.2
+   ],
+   "osm_area_m2": 228,
+   "game_area_m2": 95,
+   "lidar_area_m2": 258,
+   "iou_game_osm": 0.05,
+   "iou_game_lidar": 0.11,
+   "iou_lidar_osm": 0.77,
+   "game_overhang": {
+    "N": {
+     "mean_offset_m": 3.7,
+     "depth_p95_m": 8.7,
+     "area_m2": 57
+    },
+    "W": {
+     "mean_offset_m": 1.6,
+     "depth_p95_m": 4.2,
+     "area_m2": 24
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 3.7,
+     "depth_p95_m": 5.7,
+     "area_m2": 54
+    },
+    "N": {
+     "mean_offset_m": 3.6,
+     "depth_p95_m": 6.0,
+     "area_m2": 56
+    },
+    "W": {
+     "mean_offset_m": 3.1,
+     "depth_p95_m": 5.8,
+     "area_m2": 45
+    },
+    "S": {
+     "mean_offset_m": 3.9,
+     "depth_p95_m": 5.9,
+     "area_m2": 60
+    }
+   },
+   "shift_game_to_osm_m": [
+    10.0,
+    -8.5
+   ],
+   "iou_after_osm_shift": 0.41,
+   "shift_game_to_lidar_m": [
+    4.5,
+    -7.5
+   ],
+   "iou_after_lidar_shift": 0.37,
+   "lidar_roof_p95_m": 415.3,
+   "lidar_height_m": 14.2,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 3.9,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w78363389",
+   "name": null,
+   "osm_class": "apartments",
+   "centroid_epsg25832": [
+    666440.2,
+    5103994.3
+   ],
+   "osm_area_m2": 180,
+   "game_area_m2": 114,
+   "lidar_area_m2": 203,
+   "iou_game_osm": 0.0,
+   "iou_game_lidar": 0.01,
+   "iou_lidar_osm": 0.85,
+   "game_overhang": {
+    "W": {
+     "mean_offset_m": 5.1,
+     "depth_p95_m": 9.0,
+     "area_m2": 110
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 2.5,
+     "depth_p95_m": 6.8,
+     "area_m2": 55
+    },
+    "W": {
+     "mean_offset_m": 2.8,
+     "depth_p95_m": 6.8,
+     "area_m2": 61
+    },
+    "S": {
+     "mean_offset_m": 3.5,
+     "depth_p95_m": 5.6,
+     "area_m2": 61
+    }
+   },
+   "shift_game_to_osm_m": [
+    10.0,
+    0.5
+   ],
+   "iou_after_osm_shift": 0.47,
+   "shift_game_to_lidar_m": [
+    10.0,
+    0.5
+   ],
+   "iou_after_lidar_shift": 0.49,
+   "lidar_roof_p95_m": 408.7,
+   "lidar_height_m": 11.6,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 5.1,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w42649026",
+   "name": null,
+   "osm_class": "roof",
+   "centroid_epsg25832": [
+    666424.3,
+    5103588.6
+   ],
+   "osm_area_m2": 146,
+   "game_area_m2": 522,
+   "lidar_area_m2": 132,
+   "iou_game_osm": 0.27,
+   "iou_game_lidar": 0.23,
+   "iou_lidar_osm": 0.75,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 3.2,
+     "depth_p95_m": 10.8,
+     "area_m2": 51
+    },
+    "N": {
+     "mean_offset_m": 1.9,
+     "depth_p95_m": 6.1,
+     "area_m2": 49
+    },
+    "W": {
+     "mean_offset_m": 2.3,
+     "depth_p95_m": 4.8,
+     "area_m2": 37
+    },
+    "S": {
+     "mean_offset_m": 9.3,
+     "depth_p95_m": 11.1,
+     "area_m2": 244
+    }
+   },
+   "game_shortfall": {},
+   "shift_game_to_osm_m": [
+    -0.5,
+    0.5
+   ],
+   "iou_after_osm_shift": 0.27,
+   "shift_game_to_lidar_m": [
+    -1.0,
+    2.0
+   ],
+   "iou_after_lidar_shift": 0.24,
+   "lidar_roof_p95_m": 393.8,
+   "lidar_height_m": 4.1,
+   "game_roof_p95_m": 387.2,
+   "game_height_m": 9.2,
+   "game_ground_minus_dtm_m": -11.7,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 9.3,
+   "verdict": "off"
+  },
+  {
+   "osm": "w601628797",
+   "name": null,
+   "osm_class": "warehouse",
+   "centroid_epsg25832": [
+    666382.1,
+    5103691.8
+   ],
+   "osm_area_m2": 143,
+   "game_area_m2": 164,
+   "lidar_area_m2": 48,
+   "iou_game_osm": 0.0,
+   "iou_game_lidar": 0.21,
+   "iou_lidar_osm": 0.0,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 3.7,
+     "depth_p95_m": 8.7,
+     "area_m2": 26
+    },
+    "N": {
+     "mean_offset_m": 5.9,
+     "depth_p95_m": 4.8,
+     "area_m2": 119
+    },
+    "W": {
+     "mean_offset_m": 2.6,
+     "depth_p95_m": 7.9,
+     "area_m2": 18
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 1.8,
+     "depth_p95_m": 2.5,
+     "area_m2": 13
+    },
+    "N": {
+     "mean_offset_m": 2.9,
+     "depth_p95_m": 3.3,
+     "area_m2": 58
+    },
+    "W": {
+     "mean_offset_m": 2.0,
+     "depth_p95_m": 2.6,
+     "area_m2": 14
+    },
+    "S": {
+     "mean_offset_m": 2.9,
+     "depth_p95_m": 3.3,
+     "area_m2": 59
+    }
+   },
+   "shift_game_to_osm_m": [
+    -4.0,
+    -7.0
+   ],
+   "iou_after_osm_shift": 0.5,
+   "shift_game_to_lidar_m": [
+    2.5,
+    -1.0
+   ],
+   "iou_after_lidar_shift": 0.22,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 5.9,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w275320556",
+   "name": null,
+   "osm_class": "house",
+   "centroid_epsg25832": [
+    666359.2,
+    5103996.5
+   ],
+   "osm_area_m2": 116,
+   "game_area_m2": 167,
+   "lidar_area_m2": 100,
+   "iou_game_osm": 0.53,
+   "iou_game_lidar": 0.41,
+   "iou_lidar_osm": 0.76,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 1.0,
+     "depth_p95_m": 2.5,
+     "area_m2": 18
+    },
+    "S": {
+     "mean_offset_m": 2.1,
+     "depth_p95_m": 4.2,
+     "area_m2": 52
+    }
+   },
+   "game_shortfall": {
+    "S": {
+     "mean_offset_m": 0.6,
+     "depth_p95_m": 2.0,
+     "area_m2": 14
+    }
+   },
+   "shift_game_to_osm_m": [
+    -1.5,
+    3.0
+   ],
+   "iou_after_osm_shift": 0.58,
+   "shift_game_to_lidar_m": [
+    -2.0,
+    4.5
+   ],
+   "iou_after_lidar_shift": 0.46,
+   "lidar_roof_p95_m": 401.3,
+   "lidar_height_m": 9.5,
+   "game_roof_p95_m": 387.0,
+   "game_height_m": 13.0,
+   "game_ground_minus_dtm_m": -17.8,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 2.1,
+   "verdict": "off"
+  },
+  {
+   "osm": "w1192921194",
+   "name": null,
+   "osm_class": null,
+   "centroid_epsg25832": [
+    666268.8,
+    5103796.1
+   ],
+   "osm_area_m2": 102,
+   "game_area_m2": 252,
+   "lidar_area_m2": 109,
+   "iou_game_osm": 0.41,
+   "iou_game_lidar": 0.43,
+   "iou_lidar_osm": 0.71,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 2.1,
+     "depth_p95_m": 8.8,
+     "area_m2": 66
+    },
+    "W": {
+     "mean_offset_m": 2.7,
+     "depth_p95_m": 7.9,
+     "area_m2": 83
+    }
+   },
+   "game_shortfall": {},
+   "shift_game_to_osm_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.41,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.43,
+   "lidar_roof_p95_m": 385.8,
+   "lidar_height_m": 12.2,
+   "game_roof_p95_m": 384.6,
+   "game_height_m": 10.6,
+   "game_ground_minus_dtm_m": -0.8,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 2.7,
+   "verdict": "off"
+  },
+  {
+   "osm": "w78362974",
+   "name": null,
+   "osm_class": "detached",
+   "centroid_epsg25832": [
+    666407.6,
+    5103996.1
+   ],
+   "osm_area_m2": 96,
+   "game_area_m2": 81,
+   "lidar_area_m2": 97,
+   "iou_game_osm": 0.0,
+   "iou_game_lidar": 0.0,
+   "iou_lidar_osm": 0.93,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 4.5,
+     "depth_p95_m": 9.3,
+     "area_m2": 74
+    },
+    "S": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 8.4,
+     "area_m2": 7
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 1.7,
+     "depth_p95_m": 5.5,
+     "area_m2": 28
+    },
+    "W": {
+     "mean_offset_m": 1.7,
+     "depth_p95_m": 5.5,
+     "area_m2": 28
+    },
+    "S": {
+     "mean_offset_m": 3.1,
+     "depth_p95_m": 4.9,
+     "area_m2": 39
+    }
+   },
+   "shift_game_to_osm_m": [
+    -10.0,
+    6.0
+   ],
+   "iou_after_osm_shift": 0.34,
+   "shift_game_to_lidar_m": [
+    -10.0,
+    5.5
+   ],
+   "iou_after_lidar_shift": 0.35,
+   "lidar_roof_p95_m": 406.0,
+   "lidar_height_m": 11.2,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 4.5,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w78363024",
+   "name": null,
+   "osm_class": "house",
+   "centroid_epsg25832": [
+    666384.8,
+    5103958.7
+   ],
+   "osm_area_m2": 82,
+   "game_area_m2": 111,
+   "lidar_area_m2": 108,
+   "iou_game_osm": 0.0,
+   "iou_game_lidar": 0.0,
+   "iou_lidar_osm": 0.76,
+   "game_overhang": {
+    "N": {
+     "mean_offset_m": 8.3,
+     "depth_p95_m": 11.6,
+     "area_m2": 111
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 1.5,
+     "depth_p95_m": 2.3,
+     "area_m2": 9
+    },
+    "N": {
+     "mean_offset_m": 2.4,
+     "depth_p95_m": 2.8,
+     "area_m2": 32
+    },
+    "W": {
+     "mean_offset_m": 1.5,
+     "depth_p95_m": 2.1,
+     "area_m2": 9
+    },
+    "S": {
+     "mean_offset_m": 2.4,
+     "depth_p95_m": 2.9,
+     "area_m2": 32
+    }
+   },
+   "shift_game_to_osm_m": [
+    -1.0,
+    -10.0
+   ],
+   "iou_after_osm_shift": 0.66,
+   "shift_game_to_lidar_m": [
+    -1.5,
+    -10.0
+   ],
+   "iou_after_lidar_shift": 0.81,
+   "lidar_roof_p95_m": 401.6,
+   "lidar_height_m": 9.4,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 8.3,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w28934015",
+   "name": null,
+   "osm_class": null,
+   "centroid_epsg25832": [
+    666372.3,
+    5103778.2
+   ],
+   "osm_area_m2": 67,
+   "game_area_m2": 186,
+   "lidar_area_m2": 88,
+   "iou_game_osm": 0.16,
+   "iou_game_lidar": 0.2,
+   "iou_lidar_osm": 0.76,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 2.4,
+     "depth_p95_m": 8.7,
+     "area_m2": 76
+    },
+    "W": {
+     "mean_offset_m": 2.5,
+     "depth_p95_m": 6.3,
+     "area_m2": 76
+    }
+   },
+   "game_shortfall": {
+    "E": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 1.0,
+     "area_m2": 16
+    },
+    "W": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 1.0,
+     "area_m2": 16
+    }
+   },
+   "shift_game_to_osm_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.16,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.2,
+   "lidar_roof_p95_m": 391.7,
+   "lidar_height_m": 10.2,
+   "game_roof_p95_m": 390.2,
+   "game_height_m": 12.2,
+   "game_ground_minus_dtm_m": -3.5,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 2.5,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w1194202499",
+   "name": null,
+   "osm_class": null,
+   "centroid_epsg25832": [
+    666417.7,
+    5103740.2
+   ],
+   "osm_area_m2": 56,
+   "game_area_m2": 146,
+   "lidar_area_m2": 72,
+   "iou_game_osm": 0.2,
+   "iou_game_lidar": 0.22,
+   "iou_lidar_osm": 0.79,
+   "game_overhang": {
+    "N": {
+     "mean_offset_m": 0.5,
+     "depth_p95_m": 3.0,
+     "area_m2": 10
+    },
+    "S": {
+     "mean_offset_m": 5.3,
+     "depth_p95_m": 8.8,
+     "area_m2": 102
+    }
+   },
+   "game_shortfall": {
+    "N": {
+     "mean_offset_m": 1.0,
+     "depth_p95_m": 1.4,
+     "area_m2": 20
+    }
+   },
+   "shift_game_to_osm_m": [
+    0.0,
+    1.5
+   ],
+   "iou_after_osm_shift": 0.35,
+   "shift_game_to_lidar_m": [
+    0.0,
+    2.5
+   ],
+   "iou_after_lidar_shift": 0.41,
+   "lidar_roof_p95_m": 396.0,
+   "lidar_height_m": 7.9,
+   "game_roof_p95_m": 388.2,
+   "game_height_m": 10.2,
+   "game_ground_minus_dtm_m": -10.1,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 5.3,
+   "verdict": "generic"
+  },
+  {
+   "osm": "w991435522",
+   "name": null,
+   "osm_class": "roof",
+   "centroid_epsg25832": [
+    666286.5,
+    5103710.0
+   ],
+   "osm_area_m2": 50,
+   "game_area_m2": 84,
+   "lidar_area_m2": 38,
+   "iou_game_osm": 0.59,
+   "iou_game_lidar": 0.45,
+   "iou_lidar_osm": 0.75,
+   "game_overhang": {
+    "W": {
+     "mean_offset_m": 1.4,
+     "depth_p95_m": 4.1,
+     "area_m2": 34
+    }
+   },
+   "game_shortfall": {},
+   "shift_game_to_osm_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_osm_shift": 0.59,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.45,
+   "lidar_roof_p95_m": 377.9,
+   "lidar_height_m": 4.8,
+   "game_roof_p95_m": 380.9,
+   "game_height_m": 6.9,
+   "game_ground_minus_dtm_m": 0.8,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 1.4,
+   "verdict": "off"
+  },
+  {
+   "osm": "w42649090",
+   "name": null,
+   "osm_class": null,
+   "centroid_epsg25832": [
+    666437.7,
+    5103592.3
+   ],
+   "osm_area_m2": 30,
+   "game_area_m2": 147,
+   "lidar_area_m2": 29,
+   "iou_game_osm": 0.18,
+   "iou_game_lidar": 0.2,
+   "iou_lidar_osm": 0.61,
+   "game_overhang": {
+    "E": {
+     "mean_offset_m": 7.8,
+     "depth_p95_m": 5.4,
+     "area_m2": 51
+    },
+    "N": {
+     "mean_offset_m": 3.7,
+     "depth_p95_m": 2.7,
+     "area_m2": 18
+    },
+    "W": {
+     "mean_offset_m": 0.9,
+     "depth_p95_m": 0.6,
+     "area_m2": 6
+    },
+    "S": {
+     "mean_offset_m": 8.8,
+     "depth_p95_m": 10.2,
+     "area_m2": 44
+    }
+   },
+   "game_shortfall": {},
+   "shift_game_to_osm_m": [
+    -5.0,
+    -0.5
+   ],
+   "iou_after_osm_shift": 0.2,
+   "shift_game_to_lidar_m": [
+    0.0,
+    0.0
+   ],
+   "iou_after_lidar_shift": 0.2,
+   "lidar_roof_p95_m": 397.6,
+   "lidar_height_m": 6.8,
+   "game_roof_p95_m": 387.2,
+   "game_height_m": 9.2,
+   "game_ground_minus_dtm_m": -12.8,
+   "game_buried_storey_m2": 0,
+   "worst_side_offset_m": 8.8,
+   "verdict": "generic"
+  }
+ ],
+ "game_only_mass": [
+  {
+   "area_m2": 408,
+   "centroid_epsg25832": [
+    666431.1,
+    5103576.4
+   ],
+   "bounds_epsg25832": [
+    666411.0,
+    5103568.5,
+    666444.5,
+    5103588.5
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 351,
+   "centroid_epsg25832": [
+    666341.7,
+    5103649.3
+   ],
+   "bounds_epsg25832": [
+    666334.5,
+    5103633.5,
+    666370.5,
+    5103668.5
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 298,
+   "centroid_epsg25832": [
+    666354.3,
+    5103813.2
+   ],
+   "bounds_epsg25832": [
+    666351.0,
+    5103791.5,
+    666359.0,
+    5103837.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 292,
+   "centroid_epsg25832": [
+    666417.5,
+    5103724.1
+   ],
+   "bounds_epsg25832": [
+    666404.5,
+    5103695.5,
+    666426.0,
+    5103736.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 266,
+   "centroid_epsg25832": [
+    666392.9,
+    5103767.8
+   ],
+   "bounds_epsg25832": [
+    666376.5,
+    5103745.0,
+    666407.5,
+    5103775.5
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 228,
+   "centroid_epsg25832": [
+    666381.3,
+    5103699.7
+   ],
+   "bounds_epsg25832": [
+    666359.5,
+    5103695.5,
+    666403.0,
+    5103704.5
+   ],
+   "lidar_building_fraction": 0.26
+  },
+  {
+   "area_m2": 223,
+   "centroid_epsg25832": [
+    666386.0,
+    5103974.0
+   ],
+   "bounds_epsg25832": [
+    666379.0,
+    5103966.0,
+    666393.0,
+    5103982.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 223,
+   "centroid_epsg25832": [
+    666423.0,
+    5103964.0
+   ],
+   "bounds_epsg25832": [
+    666416.0,
+    5103956.0,
+    666430.0,
+    5103972.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 173,
+   "centroid_epsg25832": [
+    666423.3,
+    5103992.7
+   ],
+   "bounds_epsg25832": [
+    666417.0,
+    5103986.0,
+    666431.0,
+    5104000.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 172,
+   "centroid_epsg25832": [
+    666172.9,
+    5103730.6
+   ],
+   "bounds_epsg25832": [
+    666171.0,
+    5103704.0,
+    666177.0,
+    5103762.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 140,
+   "centroid_epsg25832": [
+    666404.6,
+    5103820.3
+   ],
+   "bounds_epsg25832": [
+    666397.5,
+    5103791.5,
+    666407.5,
+    5103857.5
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 134,
+   "centroid_epsg25832": [
+    666459.1,
+    5103947.6
+   ],
+   "bounds_epsg25832": [
+    666452.0,
+    5103937.0,
+    666466.0,
+    5103953.0
+   ],
+   "lidar_building_fraction": 0.05
+  },
+  {
+   "area_m2": 102,
+   "centroid_epsg25832": [
+    666398.6,
+    5103640.3
+   ],
+   "bounds_epsg25832": [
+    666380.0,
+    5103633.5,
+    666409.5,
+    5103668.5
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 100,
+   "centroid_epsg25832": [
+    666257.8,
+    5103804.0
+   ],
+   "bounds_epsg25832": [
+    666251.5,
+    5103800.0,
+    666264.0,
+    5103808.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 98,
+   "centroid_epsg25832": [
+    666357.3,
+    5103968.2
+   ],
+   "bounds_epsg25832": [
+    666347.5,
+    5103962.0,
+    666361.0,
+    5103978.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 74,
+   "centroid_epsg25832": [
+    666277.7,
+    5103804.6
+   ],
+   "bounds_epsg25832": [
+    666273.5,
+    5103799.5,
+    666281.5,
+    5103812.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 66,
+   "centroid_epsg25832": [
+    666432.5,
+    5103757.0
+   ],
+   "bounds_epsg25832": [
+    666422.5,
+    5103745.0,
+    666461.0,
+    5103760.5
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 66,
+   "centroid_epsg25832": [
+    666422.0,
+    5103596.1
+   ],
+   "bounds_epsg25832": [
+    666418.5,
+    5103591.0,
+    666427.0,
+    5103611.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 60,
+   "centroid_epsg25832": [
+    666350.6,
+    5103601.5
+   ],
+   "bounds_epsg25832": [
+    666348.5,
+    5103593.0,
+    666352.5,
+    5103609.5
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 49,
+   "centroid_epsg25832": [
+    666444.1,
+    5103598.8
+   ],
+   "bounds_epsg25832": [
+    666441.5,
+    5103589.5,
+    666445.5,
+    5103608.0
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 48,
+   "centroid_epsg25832": [
+    666366.4,
+    5103771.2
+   ],
+   "bounds_epsg25832": [
+    666364.0,
+    5103765.5,
+    666368.5,
+    5103777.5
+   ],
+   "lidar_building_fraction": 0.0
+  },
+  {
+   "area_m2": 40,
+   "centroid_epsg25832": [
+    666381.5,
+    5103747.6
+   ],
+   "bounds_epsg25832": [
+    666377.5,
+    5103745.0,
+    666385.5,
+    5103750.5
+   ],
+   "lidar_building_fraction": 1.0
+  }
+ ],
+ "roads": [
+  {
+   "osm": "w28936367",
+   "name": null,
+   "osm_class": "service",
+   "samples": 202,
+   "modelled_fraction": 0.01,
+   "offset_median_m": 0.0,
+   "offset_p90_m": 0.0,
+   "mean_shift_en_m": [
+    0.0,
+    0.0
+   ],
+   "game_width_median_m": 30.5,
+   "game_minus_dtm_median_m": -13.6,
+   "game_minus_dtm_p90_abs_m": 13.6
+  },
+  {
+   "osm": "w1394224845",
+   "name": null,
+   "osm_class": "service",
+   "samples": 164,
+   "modelled_fraction": 0.54,
+   "offset_median_m": 3.6,
+   "offset_p90_m": 5.1,
+   "mean_shift_en_m": [
+    0.9,
+    0.1
+   ],
+   "game_width_median_m": 12.1,
+   "game_minus_dtm_median_m": -4.1,
+   "game_minus_dtm_p90_abs_m": 6.3
+  },
+  {
+   "osm": "w1499989163",
+   "name": "Via dei Valóni",
+   "osm_class": "residential",
+   "samples": 147,
+   "modelled_fraction": 0.39,
+   "offset_median_m": 2.4,
+   "offset_p90_m": 4.5,
+   "mean_shift_en_m": [
+    0.2,
+    -1.9
+   ],
+   "game_width_median_m": 7.2,
+   "game_minus_dtm_median_m": -0.6,
+   "game_minus_dtm_p90_abs_m": 2.2
+  },
+  {
+   "osm": "w419226782",
+   "name": "Via Don Tommaso Dallafior",
+   "osm_class": "secondary",
+   "samples": 136,
+   "modelled_fraction": 0.09,
+   "offset_median_m": 4.6,
+   "offset_p90_m": 7.7,
+   "mean_shift_en_m": [
+    0.3,
+    -2.0
+   ],
+   "game_width_median_m": 7.2,
+   "game_minus_dtm_median_m": 13.0,
+   "game_minus_dtm_p90_abs_m": 15.4
+  },
+  {
+   "osm": "w28934085",
+   "name": null,
+   "osm_class": "service",
+   "samples": 132,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w25302473",
+   "name": "Via dei Valóni",
+   "osm_class": "residential",
+   "samples": 110,
+   "modelled_fraction": 0.4,
+   "offset_median_m": 2.6,
+   "offset_p90_m": 6.6,
+   "mean_shift_en_m": [
+    -0.1,
+    0.8
+   ],
+   "game_width_median_m": 6.1,
+   "game_minus_dtm_median_m": 9.7,
+   "game_minus_dtm_p90_abs_m": 12.2
+  },
+  {
+   "osm": "w24392582",
+   "name": "Via alla Cascata",
+   "osm_class": "unclassified",
+   "samples": 108,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w25609999",
+   "name": "Via Sabbioni",
+   "osm_class": "service",
+   "samples": 108,
+   "modelled_fraction": 0.18,
+   "offset_median_m": 4.0,
+   "offset_p90_m": 8.8,
+   "mean_shift_en_m": [
+    -1.9,
+    -1.3
+   ],
+   "game_width_median_m": 8.2,
+   "game_minus_dtm_median_m": -15.4,
+   "game_minus_dtm_p90_abs_m": 16.1
+  },
+  {
+   "osm": "w275318468",
+   "name": null,
+   "osm_class": "service",
+   "samples": 102,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w37264442",
+   "name": "Via Panté",
+   "osm_class": "residential",
+   "samples": 94,
+   "modelled_fraction": 0.04,
+   "offset_median_m": 0.0,
+   "offset_p90_m": 5.2,
+   "mean_shift_en_m": [
+    -0.1,
+    -1.8
+   ],
+   "game_width_median_m": 30.5,
+   "game_minus_dtm_median_m": -9.2,
+   "game_minus_dtm_p90_abs_m": 9.5
+  },
+  {
+   "osm": "w840851738",
+   "name": "Via dei Valóni",
+   "osm_class": "residential",
+   "samples": 93,
+   "modelled_fraction": 0.86,
+   "offset_median_m": 0.9,
+   "offset_p90_m": 1.6,
+   "mean_shift_en_m": [
+    -0.0,
+    0.1
+   ],
+   "game_width_median_m": 5.8,
+   "game_minus_dtm_median_m": -7.9,
+   "game_minus_dtm_p90_abs_m": 16.3
+  },
+  {
+   "osm": "w1544669252",
+   "name": null,
+   "osm_class": "service",
+   "samples": 74,
+   "modelled_fraction": 0.46,
+   "offset_median_m": 2.8,
+   "offset_p90_m": 5.5,
+   "mean_shift_en_m": [
+    -1.5,
+    0.4
+   ],
+   "game_width_median_m": 7.2,
+   "game_minus_dtm_median_m": 1.2,
+   "game_minus_dtm_p90_abs_m": 2.5
+  },
+  {
+   "osm": "w1120615338",
+   "name": "Via Sommarive",
+   "osm_class": "tertiary",
+   "samples": 69,
+   "modelled_fraction": 1.0,
+   "offset_median_m": 4.5,
+   "offset_p90_m": 5.9,
+   "mean_shift_en_m": [
+    4.1,
+    0.1
+   ],
+   "game_width_median_m": 7.8,
+   "game_minus_dtm_median_m": -7.5,
+   "game_minus_dtm_p90_abs_m": 9.0
+  },
+  {
+   "osm": "w161759191",
+   "name": null,
+   "osm_class": "service",
+   "samples": 68,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w42648597",
+   "name": null,
+   "osm_class": "service",
+   "samples": 66,
+   "modelled_fraction": 0.05,
+   "offset_median_m": 3.2,
+   "offset_p90_m": 7.4,
+   "mean_shift_en_m": [
+    1.9,
+    1.3
+   ],
+   "game_width_median_m": 13.0,
+   "game_minus_dtm_median_m": -8.8,
+   "game_minus_dtm_p90_abs_m": 9.3
+  },
+  {
+   "osm": "w1299034030",
+   "name": null,
+   "osm_class": "service",
+   "samples": 60,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w97004470",
+   "name": "Via Sommarive",
+   "osm_class": "tertiary",
+   "samples": 60,
+   "modelled_fraction": 1.0,
+   "offset_median_m": 1.9,
+   "offset_p90_m": 2.1,
+   "mean_shift_en_m": [
+    -2.1,
+    -0.0
+   ],
+   "game_width_median_m": 8.2,
+   "game_minus_dtm_median_m": -0.7,
+   "game_minus_dtm_p90_abs_m": 0.9
+  },
+  {
+   "osm": "w1286790369",
+   "name": null,
+   "osm_class": "service",
+   "samples": 58,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w25609986",
+   "name": "Via Sabbioni",
+   "osm_class": "residential",
+   "samples": 57,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w275318481",
+   "name": null,
+   "osm_class": "service",
+   "samples": 55,
+   "modelled_fraction": 0.93,
+   "offset_median_m": 0.6,
+   "offset_p90_m": 6.6,
+   "mean_shift_en_m": [
+    1.2,
+    -0.0
+   ],
+   "game_width_median_m": 28.0,
+   "game_minus_dtm_median_m": 3.6,
+   "game_minus_dtm_p90_abs_m": 5.4
+  },
+  {
+   "osm": "w500698899",
+   "name": null,
+   "osm_class": "service",
+   "samples": 54,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w991433660",
+   "name": null,
+   "osm_class": "service",
+   "samples": 50,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w1120770362",
+   "name": "Via Sommarive",
+   "osm_class": "tertiary",
+   "samples": 47,
+   "modelled_fraction": 1.0,
+   "offset_median_m": 3.6,
+   "offset_p90_m": 6.0,
+   "mean_shift_en_m": [
+    -3.9,
+    0.2
+   ],
+   "game_width_median_m": 8.2,
+   "game_minus_dtm_median_m": -4.7,
+   "game_minus_dtm_p90_abs_m": 5.7
+  },
+  {
+   "osm": "w42648702",
+   "name": null,
+   "osm_class": "service",
+   "samples": 47,
+   "modelled_fraction": 0.94,
+   "offset_median_m": 7.1,
+   "offset_p90_m": 8.1,
+   "mean_shift_en_m": [
+    -7.0,
+    -0.1
+   ],
+   "game_width_median_m": 7.8,
+   "game_minus_dtm_median_m": -8.1,
+   "game_minus_dtm_p90_abs_m": 9.1
+  },
+  {
+   "osm": "w78363326",
+   "name": null,
+   "osm_class": "service",
+   "samples": 46,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w79389124",
+   "name": "Via Vittorio Marchesoni",
+   "osm_class": "unclassified",
+   "samples": 43,
+   "modelled_fraction": 0.21,
+   "offset_median_m": 6.8,
+   "offset_p90_m": 9.9,
+   "mean_shift_en_m": [
+    -3.0,
+    1.9
+   ],
+   "game_width_median_m": 10.8,
+   "game_minus_dtm_median_m": -11.1,
+   "game_minus_dtm_p90_abs_m": 12.3
+  },
+  {
+   "osm": "w421813742",
+   "name": null,
+   "osm_class": "service",
+   "samples": 42,
+   "modelled_fraction": 0.12,
+   "offset_median_m": 8.1,
+   "offset_p90_m": 9.6,
+   "mean_shift_en_m": [
+    1.7,
+    -3.2
+   ],
+   "game_width_median_m": 11.2,
+   "game_minus_dtm_median_m": -2.7,
+   "game_minus_dtm_p90_abs_m": 4.6
+  },
+  {
+   "osm": "w24479374",
+   "name": "Via alla Cascata",
+   "osm_class": "unclassified",
+   "samples": 40,
+   "modelled_fraction": 0.72,
+   "offset_median_m": 8.0,
+   "offset_p90_m": 9.4,
+   "mean_shift_en_m": [
+    4.5,
+    0.9
+   ],
+   "game_width_median_m": 7.5,
+   "game_minus_dtm_median_m": -7.6,
+   "game_minus_dtm_p90_abs_m": 9.7
+  },
+  {
+   "osm": "w42648790",
+   "name": null,
+   "osm_class": "service",
+   "samples": 40,
+   "modelled_fraction": 0.07,
+   "offset_median_m": 8.2,
+   "offset_p90_m": 8.4,
+   "mean_shift_en_m": [
+    0.1,
+    7.7
+   ],
+   "game_width_median_m": 6.5,
+   "game_minus_dtm_median_m": -13.9,
+   "game_minus_dtm_p90_abs_m": 14.0
+  },
+  {
+   "osm": "w419226781",
+   "name": "Via dei Valóni",
+   "osm_class": "residential",
+   "samples": 34,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w42648787",
+   "name": null,
+   "osm_class": "service",
+   "samples": 33,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w28934008",
+   "name": null,
+   "osm_class": "service",
+   "samples": 31,
+   "modelled_fraction": 0.06,
+   "offset_median_m": 3.1,
+   "offset_p90_m": 5.5,
+   "mean_shift_en_m": [
+    -0.1,
+    -3.1
+   ],
+   "game_width_median_m": 24.4,
+   "game_minus_dtm_median_m": -0.7,
+   "game_minus_dtm_p90_abs_m": 0.7
+  },
+  {
+   "osm": "w417380279",
+   "name": null,
+   "osm_class": "service",
+   "samples": 31,
+   "modelled_fraction": 0.16,
+   "offset_median_m": 5.6,
+   "offset_p90_m": 8.3,
+   "mean_shift_en_m": [
+    0.9,
+    0.3
+   ],
+   "game_width_median_m": 19.2,
+   "game_minus_dtm_median_m": 4.0,
+   "game_minus_dtm_p90_abs_m": 4.7
+  },
+  {
+   "osm": "w28934010",
+   "name": null,
+   "osm_class": "service",
+   "samples": 30,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w275323965",
+   "name": null,
+   "osm_class": "service",
+   "samples": 27,
+   "modelled_fraction": 0.19,
+   "offset_median_m": 7.5,
+   "offset_p90_m": 8.6,
+   "mean_shift_en_m": [
+    2.3,
+    -7.2
+   ],
+   "game_width_median_m": 6.0,
+   "game_minus_dtm_median_m": -2.4,
+   "game_minus_dtm_p90_abs_m": 3.0
+  },
+  {
+   "osm": "w1282493439",
+   "name": "Via Sommarive",
+   "osm_class": "tertiary",
+   "samples": 21,
+   "modelled_fraction": 0.43,
+   "offset_median_m": 4.4,
+   "offset_p90_m": 5.2,
+   "mean_shift_en_m": [
+    4.6,
+    -0.2
+   ],
+   "game_width_median_m": 7.8,
+   "game_minus_dtm_median_m": -9.4,
+   "game_minus_dtm_p90_abs_m": 9.7
+  },
+  {
+   "osm": "w25302471",
+   "name": "Via dei Valóni",
+   "osm_class": "residential",
+   "samples": 21,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w419226780",
+   "name": "Via dei Valóni",
+   "osm_class": "residential",
+   "samples": 20,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w24392580",
+   "name": "Via Panté",
+   "osm_class": "service",
+   "samples": 18,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w741997308",
+   "name": null,
+   "osm_class": "service",
+   "samples": 18,
+   "modelled_fraction": 1.0,
+   "offset_median_m": 3.8,
+   "offset_p90_m": 6.4,
+   "mean_shift_en_m": [
+    -3.3,
+    -0.2
+   ],
+   "game_width_median_m": 7.2,
+   "game_minus_dtm_median_m": 2.6,
+   "game_minus_dtm_p90_abs_m": 3.2
+  },
+  {
+   "osm": "w1299034032",
+   "name": null,
+   "osm_class": "service",
+   "samples": 17,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w40115769",
+   "name": "Via dei Valóni",
+   "osm_class": "unclassified",
+   "samples": 17,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w42648599",
+   "name": null,
+   "osm_class": "service",
+   "samples": 17,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w42650351",
+   "name": null,
+   "osm_class": "service",
+   "samples": 15,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w741997307",
+   "name": null,
+   "osm_class": "service",
+   "samples": 12,
+   "modelled_fraction": 1.0,
+   "offset_median_m": 2.1,
+   "offset_p90_m": 3.2,
+   "mean_shift_en_m": [
+    -1.4,
+    0.2
+   ],
+   "game_width_median_m": 7.0,
+   "game_minus_dtm_median_m": 2.7,
+   "game_minus_dtm_p90_abs_m": 3.4
+  },
+  {
+   "osm": "w1535662763",
+   "name": null,
+   "osm_class": "service",
+   "samples": 11,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w421813741",
+   "name": null,
+   "osm_class": "service",
+   "samples": 11,
+   "modelled_fraction": 0.73,
+   "offset_median_m": 3.3,
+   "offset_p90_m": 7.7,
+   "mean_shift_en_m": [
+    0.8,
+    -1.2
+   ],
+   "game_width_median_m": 9.0,
+   "game_minus_dtm_median_m": -3.6,
+   "game_minus_dtm_p90_abs_m": 4.4
+  },
+  {
+   "osm": "w1394224846",
+   "name": "Via Sommarive",
+   "osm_class": "tertiary",
+   "samples": 10,
+   "modelled_fraction": 1.0,
+   "offset_median_m": 7.5,
+   "offset_p90_m": 8.7,
+   "mean_shift_en_m": [
+    -7.7,
+    0.8
+   ],
+   "game_width_median_m": 8.2,
+   "game_minus_dtm_median_m": -5.8,
+   "game_minus_dtm_p90_abs_m": 6.4
+  },
+  {
+   "osm": "w24392581",
+   "name": null,
+   "osm_class": "tertiary",
+   "samples": 10,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w1394224847",
+   "name": "Via Sommarive",
+   "osm_class": "tertiary",
+   "samples": 9,
+   "modelled_fraction": 0.11,
+   "offset_median_m": 10.0,
+   "offset_p90_m": 10.0,
+   "mean_shift_en_m": [
+    -6.4,
+    7.7
+   ],
+   "game_width_median_m": 10.5,
+   "game_minus_dtm_median_m": -6.4,
+   "game_minus_dtm_p90_abs_m": 6.4
+  },
+  {
+   "osm": "w24392581",
+   "name": null,
+   "osm_class": "tertiary",
+   "samples": 9,
+   "modelled_fraction": 0.11,
+   "offset_median_m": 9.8,
+   "offset_p90_m": 9.8,
+   "mean_shift_en_m": [
+    -8.8,
+    -4.3
+   ],
+   "game_width_median_m": 9.0,
+   "game_minus_dtm_median_m": -5.5,
+   "game_minus_dtm_p90_abs_m": 5.5
+  },
+  {
+   "osm": "w24392581",
+   "name": null,
+   "osm_class": "tertiary",
+   "samples": 9,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w37264501",
+   "name": "Via Don Tommaso Dallafior",
+   "osm_class": "service",
+   "samples": 8,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w1394224844",
+   "name": null,
+   "osm_class": "service",
+   "samples": 7,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w24392581",
+   "name": null,
+   "osm_class": "tertiary",
+   "samples": 7,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w24392581",
+   "name": null,
+   "osm_class": "tertiary",
+   "samples": 7,
+   "modelled_fraction": 0.57,
+   "offset_median_m": 8.8,
+   "offset_p90_m": 9.0,
+   "mean_shift_en_m": [
+    -8.6,
+    0.4
+   ],
+   "game_width_median_m": 8.4,
+   "game_minus_dtm_median_m": -4.2,
+   "game_minus_dtm_p90_abs_m": 4.6
+  },
+  {
+   "osm": "w1299034036",
+   "name": null,
+   "osm_class": "service",
+   "samples": 6,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w741997306",
+   "name": null,
+   "osm_class": "service",
+   "samples": 6,
+   "modelled_fraction": 0.83,
+   "offset_median_m": 8.9,
+   "offset_p90_m": 10.2,
+   "mean_shift_en_m": [
+    -0.7,
+    7.9
+   ],
+   "game_width_median_m": 10.8,
+   "game_minus_dtm_median_m": 0.8,
+   "game_minus_dtm_p90_abs_m": 2.9
+  },
+  {
+   "osm": "w78363326",
+   "name": null,
+   "osm_class": "service",
+   "samples": 6,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w1331934844",
+   "name": null,
+   "osm_class": "service",
+   "samples": 5,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w31343408",
+   "name": "Via Don Tommaso Dallafior",
+   "osm_class": "secondary",
+   "samples": 5,
+   "modelled_fraction": 0.0
+  },
+  {
+   "osm": "w78363144",
+   "name": null,
+   "osm_class": "service",
+   "samples": 5,
+   "modelled_fraction": 0.0
+  }
+ ],
+ "images": {
+  "overview": "overview.jpg",
+  "roads": "roads.jpg",
+  "povo2": "povo2.jpg",
+  "povo1": "povo1.jpg",
+  "fbk_nord": "fbk_nord.jpg",
+  "fbk_ovest_est": "fbk_ovest_est.jpg",
+  "fbk_south": "fbk_south.jpg"
+ }
+}
