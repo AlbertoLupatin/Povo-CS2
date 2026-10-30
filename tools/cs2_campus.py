@@ -522,12 +522,12 @@ def make_radar(metadata,map_name=MAP):
                 areas=next(l['areas'] for l in p2['basement_rebuild']['levels'] if l['floor']==-1)
             else:areas=list(p2['basement'].values())
             if level['floor']==-2 and p2.get('gardens'):
-                areas=[*areas,p2['gardens']['garden'],p2['gardens']['down_stair']]
+                areas=[*areas,p2['gardens']['garden'],*([p2['gardens']['down_stair']] if 'down_stair' in p2['gardens'] else [])]
             if level['floor']==-2 and metadata.get('exterior'):areas=[*areas,metadata['exterior']['garage_bounds']]
             for i,r in enumerate(areas):shapes.append((str(i),bounds(r),(160,175,181,255)))
             if level['floor']==-1:
                 repair=p2.get('walkthrough_repairs',{})
-                terraces=[*repair.get('arrival_terrace',[])]
+                terraces=[*repair.get('arrival_terrace',[]),*([p2['south_front']['terrace']] if p2.get('south_front') else [])]
                 if repair.get('cibio_terrace'):terraces.append(repair['cibio_terrace'])
                 for i,r in enumerate(terraces):shapes.append(('repair_terrace_'+str(i),bounds(r),(145,169,164,255)))
                 for room in p2.get('west_offices',{}).get('rooms',[]):

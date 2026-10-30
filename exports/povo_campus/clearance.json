@@ -1683,16 +1683,16 @@
     "cell_metres": 0.1,
     "grid_dimensions": [
       480,
-      1290
+      1365
     ],
     "grid_bounds_local": [
       -23.0,
       -103.0,
       25,
-      26
+      33.4076
     ],
-    "walkable_cells": 207709,
-    "reachable_cells": 203022,
+    "walkable_cells": 218614,
+    "reachable_cells": 213927,
     "stations": [
       {
         "id": "entry",
@@ -3345,7 +3345,7 @@
         "id": "link_7",
         "point_local_metres": [
           18.25,
-          11
+          12.8987
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -3353,8 +3353,8 @@
       {
         "id": "link_8",
         "point_local_metres": [
-          22.25,
-          17.2
+          18.362636056619426,
+          24.64504
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -3362,8 +3362,8 @@
       {
         "id": "link_9",
         "point_local_metres": [
-          22.25,
-          23
+          18.362636056619426,
+          30.407600000000002
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -3371,8 +3371,8 @@
       {
         "id": "link_10",
         "point_local_metres": [
-          22.25,
-          25
+          18.362636056619426,
+          32.4076
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -3381,7 +3381,7 @@
         "id": "west_alcove",
         "point_local_metres": [
           10.5,
-          12.8
+          18.11636
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -3390,7 +3390,7 @@
         "id": "east_alcove",
         "point_local_metres": [
           23.5,
-          12.8
+          18.11636
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -3398,8 +3398,8 @@
       {
         "id": "stair_upper_inside",
         "point_local_metres": [
-          19.2,
-          20
+          15.7,
+          27.407600000000002
         ],
         "has_clearance": true,
         "reachable_from_entrance": true
@@ -3407,8 +3407,8 @@
       {
         "id": "stair_upper_hall",
         "point_local_metres": [
-          21.2,
-          20
+          17.54505442264777,
+          27.407600000000002
         ],
         "has_clearance": true,
         "reachable_from_entrance": true

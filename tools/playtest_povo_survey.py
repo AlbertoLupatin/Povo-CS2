@@ -141,12 +141,11 @@ def build_routes(metadata):
     west=metadata['povo2'].get('west_offices')
     if west:
         detour=west['connection_route']
-        link=metadata['povo2'].get('walkthrough_repairs',{}).get('c7_exit_link')
-        if link:
-            # Through C7's east door, which sits midway along the link.
-            door_y=next(d['pivot'][1] for d in metadata['povo2']['repair_doors'] if d['id']=='p2_c7_exit_0')
-            link_y=door_y+(next(d['pivot'][1] for d in metadata['povo2']['repair_doors'] if d['id']=='p2_c7_exit_1')-door_y)/2
-            approach=[[start_x,y,zbase],[start_x,link_y,zbase],[19.2,link_y,zbase]]
+        c5=metadata['povo2'].get('walkthrough_repairs',{}).get('c5')
+        if c5:
+            # From C5, the only exit corridor (user draw.io, 30 Oct), to the core door.
+            cx=next((r['points'][0][0] for r in metadata['povo2']['basement_rebuild']['routes'] if r['id']=='c5_to_c7'),(c5[0]+c5[2])/2)
+            approach=[[cx,c5[1]+1.5,zbase],[cx,detour[0][1],zbase]]
         else:approach=[[start_x,y,zbase],[lift[2]+.8,y,zbase],[lift[2]+.8,17.15,zbase]]
         add('p2_basement_rotated_corridor',[*approach,*detour,[x,branch[3]-1,zbase]],'p2_basement_route')
     else:

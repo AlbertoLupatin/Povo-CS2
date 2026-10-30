@@ -5,6 +5,10 @@ from unittest import TestCase
 from tools.build_povo_campus import build_geometry,collision_boxes
 from tools.audit_povo2_integrated import audit_stair_routes
 from tools.povo2_basements import union_rectangles
+from tools.povo2_registration import Registration
+from tools.build_povo_campus import ROOT
+
+R=Registration(ROOT)  # assembly-frame constants -> registered campus metres
 
 
 class BasementRebuildTests(TestCase):
@@ -34,14 +38,17 @@ class BasementRebuildTests(TestCase):
     def test_former_parking_shaft_is_closed_at_both_ends(self):
         # These points lay in holes left by the old, moved staircase's floor
         # and ceiling cuts. They are ordinary parking bays in the accepted plan.
-        for x,y in ((-8,17),(-4,17),(3,15),(8,18.8)):
+        for x,y in (R.point(p) for p in ((-8,17),(-4,17),(3,15),(8,18.8))):
             for material,h in (('floor_p2_asphalt',-3.2),('ceiling_panel',-.1)):
                 self.assertTrue(any(m==material and lo[0]<=x<=hi[0] and lo[1]<=y<=hi[1]
                                     and abs(hi[2]-h)<.01 for _,lo,hi,m in self.boxes),(x,y,material))
 
     def test_all_six_parking_columns_reach_the_ceiling_without_orphaned_trim(self):
+        # Three of the six stood south of the real facade, under the terrace and
+        # street; they went with that part of the parking lobe.
         columns=[b for b in self.boxes if re.fullmatch(r'p2_parking_rebuilt_column_\d+',b[0])]
-        self.assertEqual(len(columns),6)
+        self.assertEqual(len(columns),len(self.spec['parking']['columns']))
+        self.assertEqual(len(columns),3)
         for name,lo,hi,material in columns:
             self.assertEqual(material,'wall')
             self.assertAlmostEqual(lo[2],-3.2)
@@ -66,10 +73,11 @@ class BasementRebuildTests(TestCase):
     def test_markup_lab_gap_is_longer_and_only_its_right_half_is_walkable(self):
         level=next(l for l in self.spec['levels'] if l['floor']==-1)
         first,second=sorted(level['rooms'],key=lambda r:r['bounds'][1])
-        self.assertAlmostEqual(second['bounds'][1]-first['bounds'][3],30)
+        # 30 m in the assembly frame, measured again after registration.
+        self.assertAlmostEqual(second['bounds'][1]-first['bounds'][3],R.fy(70)-R.fy(40))
         sections=self.spec['minus1_corrections']['spine_sections'];a,b,c,d=sections[1]
-        self.assertAlmostEqual(c-a,1.5)
-        self.assertAlmostEqual(a,-3.8)
+        self.assertAlmostEqual(c-a,R.fx(-2.3)-R.fx(-3.8))
+        self.assertAlmostEqual(a,R.fx(-3.8))
         x=(a+c)/2;y=(b+d)/2
         self.assertTrue(any(n.startswith('p2_basement_rebuilt_floor') and lo[0]<=x<=hi[0]
             and lo[1]<=y<=hi[1] for n,lo,hi,m in self.physics))
@@ -81,7 +89,8 @@ class BasementRebuildTests(TestCase):
         extract_static_leaves(self.boxes,self.levels,self.stair,automatic_entrances=True)
         interactions=self.levels[0]['interactions']
         self.assertFalse(any('lab_junction' in d['id'] or 'locked_' in d['id'] for d in interactions['doors']))
-        for name in ('upper','lower'):
+        # The lower one went with the exit corridor (user draw.io, 30 Oct).
+        for name in ('upper',):
             leaves=[b for b in self.physics if b[0].startswith(f'p2_basement_locked_{name}_leaf_')]
             self.assertEqual(len(leaves),2)
             self.assertTrue(all(m=='door_black' and hi[2]-lo[2]>=2.2 for _,lo,hi,m in leaves))

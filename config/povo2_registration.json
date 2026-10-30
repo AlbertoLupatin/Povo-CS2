@@ -1,0 +1,91 @@
+{
+  "status": "Registration of the assembled Povo 2 interior to the real building, 30 Oct 2026. Applied as the last Povo 2 step of build_povo_campus.build_geometry.",
+  "frame": "Campus metres = EPSG:25832 minus [666250, 5103800]; no rotation (Povo 1 north facade matches LiDAR at N -20).",
+  "sources": {
+    "lidar_dbm": "data/raw/terrain/5h666051035_DBM.asc (PAT LiDAR, CC BY 4.0)",
+    "orthophoto": "data/reference/povo_ortho_2024.png (Comune di Trento 2024, CC0)"
+  },
+  "real_edges": {
+    "building_east": [
+      -23.0,
+      25.75
+    ],
+    "building_north": [
+      10.25,
+      112.25
+    ],
+    "courtyard_east": [
+      -5.0,
+      7.75
+    ],
+    "courtyard_north": [
+      33.5,
+      88.8
+    ],
+    "east_annex_east_edge": 51.75,
+    "bridge_east": [
+      16.5,
+      20.0
+    ],
+    "road_carriageway_north": [
+      -3.5,
+      3.5
+    ]
+  },
+  "x_knots": {
+    "note": "Assembled -1 east -> real east, piecewise linear with end-slope extrapolation. West facade, courtyard west edge, the stair core kept at true size (slope 1, so the shared stairs are not distorted) with C5 under the bridge, and the east annex edge. The E1/E2 east wall then lands on the real building edge (25.8 vs LiDAR 25.75); courtyard east edge 7.06 vs 7.75.",
+    "pairs": [
+      [
+        -23.742857,
+        -23.0
+      ],
+      [
+        -4.471429,
+        -5.0
+      ],
+      [
+        11.0,
+        7.5
+      ],
+      [
+        20.5,
+        17.0
+      ],
+      [
+        65.128571,
+        51.75
+      ]
+    ]
+  },
+  "bridge_lobby": {
+    "note": "The floor-1 arrival lobby already meets the real facade. South of north 10 nothing moves; between 10 and 14 the lobby stretches to the warped core; from 14 the y line applies. East only warps from north 13.9.",
+    "pinned_north": 10.0,
+    "core_south": 14.0,
+    "x_from_north": 13.9
+  },
+  "unmoved_prefixes": [
+    "p2_gardens_"
+  ],
+  "residual": "Floor 0's south rooms and the -2 parking are not inside the real footprint after this warp; they are corrected separately.",
+  "y_knots": {
+    "note": "Least-squares line on the south facade and courtyard edges (N = 8.25 + 0.9532 n), with the stair core (n 18-26) kept at true size. Core lands at N 25.4-33.4, under the raised roof band at N 26.5-32.5.",
+    "pairs": [
+      [
+        2.0,
+        10.1564
+      ],
+      [
+        18.0,
+        25.407600000000002
+      ],
+      [
+        26.0,
+        33.4076
+      ],
+      [
+        84.461538,
+        89.13313802160002
+      ]
+    ]
+  }
+}

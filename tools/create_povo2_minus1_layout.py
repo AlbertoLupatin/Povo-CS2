@@ -360,7 +360,7 @@ def write_plan(layout,out):
 
 
 def export(root=ROOT):
-    _,_,boxes,levels,_=build_geometry(root=root)
+    _,_,boxes,levels,_=build_geometry(root=root,registered=False)
     spec=next(l['connection']['povo2'] for l in levels if l.get('connection'))
     layout=restore_full_plan(create_layout(spec,boxes,root),root)
     out=root/'exports/povo2_minus1_layout_20261029';out.mkdir(parents=True,exist_ok=True)

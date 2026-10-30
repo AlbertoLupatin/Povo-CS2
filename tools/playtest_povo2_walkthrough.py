@@ -12,6 +12,7 @@ from .cs2_campus import world
 from .cs2_console import run
 from .cs2_explore import explore, campus_loaded
 from .playtest_povo_survey import Console, Driver
+from .povo2_registration import Registration
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'exports/povo2_walkthrough_20261029/runtime'
@@ -54,7 +55,7 @@ def main(reload=False):
             found=cmd('ent_find povo_glass_'+pane['name'],.08)
             check(pane['name']+'_breakable_entity',"'func_breakable'" in found)
         # Lock and push against a closed leaf pair, then open and walk through.
-        for token in ('c5_terrace','wi1_public','c7_exit','west_W07','cibio_terrace_0','garden_exit'):
+        for token in ('c5_terrace','wi1_public','west_W07','cibio_terrace_0'):
             driver.guard()
             pair=[d for d in doors if d['id'] in ('p2_'+token+'_0','p2_'+token+'_1')]
             a=pair[0]['bounds'][0];b=pair[-1]['bounds'][1]
@@ -75,7 +76,7 @@ def main(reload=False):
             check(token+'_open_passes',True)
         selected=[*metadata['povo2']['west_offices']['routes'],
                   *[r for r in metadata['povo2']['basement_rebuild']['routes'] if
-                    r['id'].startswith(('terrace_to_','garden_to_c5','cibio_terrace_exit_','c5_to_exit_corridor'))]]
+                    r['id'].startswith(('street_to_c5','c5_to_','terrace_to_garden','cibio_terrace_exit_'))]]
         for route in selected:
             driver.guard()
             r=dict(name=route['id'],kind='walk',category='p2_basement_route',path=route['points'],xy_tolerance=.2)
@@ -98,14 +99,17 @@ def main(reload=False):
             cmd('+attack',.8);cmd('-attack',.4)
             found=cmd('ent_find povo_glass_'+pane['name'])
             check(prefix+'_breaks_from_bullets','Found 0 matches.' in found,pane=pane['name'])
-        shots=[('arrival',(22,2.8,.4),(0,180,0)),
-               ('c7_stair_connection',(22,16.6,.4),(0,-90,0)),
-               ('c5_sealed_door',(22,14.5,.4),(0,180,0)),
-               ('c7_exit_door',(22,16.8,.4),(0,90,0)),
-               ('gardens',(34.5,6,2.2),(-5,0,0)),
-               ('ground_former_shaft',(24,19.4,4),(20,0,0)),
-               ('stair_guards',(19.2,19.1,4),(35,-90,0)),
-               ('cibio_terrace',(-3.05,24,.4),(0,90,0))]
+        # Registered campus metres (config/povo2_registration.json).
+        reg=Registration(ROOT);front=metadata['povo2']['south_front'];c5=metadata['povo2']['walkthrough_repairs']['c5']
+        cx=(c5[0]+c5[2])/2+.5
+        shots=[('street_stair',(cx,front['up_stair'][1]-.8,4.1),(25,180,0)),
+               ('arrival',(cx,c5[1]+.8,.4),(0,180,0)),
+               ('terrace_east',(cx,8.9,.4),(0,90,0)),
+               ('c7_stair_connection',(cx,reg.fy(16.6),.4),(0,-90,0)),
+               ('c5_sealed_door',(cx,c5[3]-3,.4),(0,180,0)),
+               ('gardens',(front['metal_stair']['start_x']+.5,8.9,.4),(10,60,0)),
+               ('stair_guards',(*reg.point([19.2,19.1]),4),(35,-90,0)),
+               ('cibio_terrace',(*reg.point([-3.05,24]),.4),(0,90,0))]
         for name,point,angles in shots:
             driver.guard();cmd(['noclip 1','setpos '+world(point),
                 'setang '+' '.join(map(str,angles)),'cl_drawhud 0','r_drawviewmodel 0'],.5)
@@ -122,7 +126,8 @@ def main(reload=False):
             driver.guard()
             cmd(['-attack','-forward 42','-sprint 42','cl_drawhud 1','r_drawviewmodel 1','noclip 0'])
             for door in metadata['povo2']['repair_doors']:cmd('ent_fire '+door['id']+' Unlock',.01)
-            driver.place([22,7.8,.4]);cmd('setang 0 180 0')
+            c5=metadata['povo2']['walkthrough_repairs']['c5']
+            driver.place([(c5[0]+c5[2])/2+.5,c5[1]+2,.4]);cmd('setang 0 180 0')
         finally:
             (OUT/'native-checks.json').write_text(json.dumps(report,indent=2)+'\n')
             (OUT/'console.log').write_text('\n'.join(console.transcript),encoding='utf-8')

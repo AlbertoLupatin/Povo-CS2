@@ -73,33 +73,36 @@ def extend(boxes, levels, root):
         for station in level['audit_stations']:
             if station['id'] in ('lift_floor','lift_ledge'):
                 station['id']='former_'+station['id']
-                if level['floor']==-1:station['point']=[23,15.95]
+                if level['floor']==-1:station['point']=[22.35,15.95]  # in C5
     link['audit_stations']=[s for s in link['audit_stations'] if s['id']!='p2_lift_ledge']
 
-    # Restore the actual exit pair after the basement shell rebuild.
-    door('garden_exit',(34.5,11.25,.4),width=2.3,axis=1,park_sign=1)
-
-    # Eastern entrance, retraced from photo 46 (config/povo2_east_entrance.json).
-    # C5 runs up the offices' east facade from a terrace door on the facade
-    # line. WI1 opens on its left, then C7 meets it full width under the core,
-    # where a sealed door ends C5. C7 continues east through a door to the
-    # exit corridor. Closed rooms E1 and E2 fill the block east of C5.
+    # Eastern entrance (config/povo2_east_entrance.json; user draw.io, 30 Oct).
+    # C5 is the only exit corridor. From its terrace door on the facade line it
+    # passes WI1 and C7 on the left and runs on beside the core to a sealed
+    # end. E1 and E2 fill the block east of C5 to the building edge. The old
+    # exit corridor, its garden door and the locked lower door are removed.
+    # The terrace and the stairs outside are built after registration
+    # (povo2_south_front), in real coordinates.
     east=json.loads((root/'config/povo2_east_entrance.json').read_text())
     area={a['id']:a['bounds'] for a in east['areas']}
     opening={o['id']:o for o in east['openings']}
-    c5=area['c5'];c7_east=area['c7_east'];e1=area['e1'];e2=area['e2']
-    run=area['terrace_south_run'];terrace=[[20.36,run[1],run[2],run[3]],*area['terrace_link']]
+    c5=area['c5'];e1=area['e1'];e2=area['e2'];shut=area['closed_north']
     def mid(o,k):return (o['line'][0][k]+o['line'][1][k])/2
     def span(o,k):return abs(o['line'][1][k]-o['line'][0][k])
-    zone=[((20.36,run[1]-.16,.17),(33.14,c5[3],3.77)),((c5[0],c5[3],.17),(33.14,c5[3]+.1,3.77))]
+    exit_corridor=((33.1,11.1,.17),(35.9,59.1,3.77))
+    zone=[((20.36,1.84,.17),(36.0,c5[3]+.1,3.77)),exit_corridor]
     for h in zone:
-        cut(h,lambda v:v[0].startswith(('p2_basement_','p2_gardens_','exterior_','library_0_access')))
-    east_hole=((run[2],run[1]-.16,.17),(33.25,terrace[2][3],3.77))
-    cut(east_hole,lambda v:v[0].startswith(('exterior_','library_0_access')))
+        cut(h,lambda v:v[0].startswith(('p2_basement_','exterior_','library_0_access')))
+    result=[v for v in result if not v[0].startswith(('p2_basement_locked_lower_',
+        'p2_basement_rebuilt_lower_junction_partition','p2_gardens_passage_west'))]
+    rails[:]=[v for v in rails if not v['name'].startswith('passage_west')]
+    corrections=spec['minus1_corrections']
+    corrections.pop('lower_junction_door',None)
+    corrections['closed_corridor_areas']=[r for r in corrections['closed_corridor_areas'] if r[0]<33]
+    # The restricted return now ends where the exit corridor used to start.
+    add('return_east_end',(32.94,56.4,.4),(33.1,59.1,3.5))
     plate('c5_floor',(20.36,c5[1],c5[2],c5[3]),.4)
-    plate('c7_east_floor',c7_east,.4)
-    for r in (c5,c7_east):plate(('c5' if r is c5 else 'c7_east')+'_ceiling',r,3.5,'ceiling_panel',True)
-    for i,r in enumerate(terrace):plate('entrance_terrace_'+str(i),r,.4,'floor_terrace')
+    plate('c5_ceiling',c5,3.5,'ceiling_panel',True)
     # C7's bypass under the core is public corridor, not office floor.
     bypass=(9.5,15.23,20.36,17.69)
     cut(((bypass[0],bypass[1],.17),(bypass[2],bypass[3],.41)),lambda v:v[3]=='floor_wood')
@@ -131,78 +134,48 @@ def extend(boxes, levels, root):
         box('jamb_1',c+h-.05,c+h,.4,2.65,.05,'metal_dark')
         box('head',c-h+.05,c+h-.05,2.6,2.65,.05,'window_frame')
 
-    terrace_door=opening['c5_terrace'];wi1=opening['wi1_public'];c7_exit=opening['c7_exit']
+    terrace_door=opening['c5_terrace'];wi1=opening['wi1_public']
     north=opening['c5_north_closed'];e2_door=opening['e2_closed']
     open_gap=lambda o,k:(mid(o,k),span(o,k)+.1,2.65)
     shut_gap=lambda o,k:(mid(o,k),span(o,k),2.65)
-    # C5's west side is the office facade; fill its 0.14 m strip and the WI1 door.
+    # C5's west side is the office facade, then the core; fill its 0.14 m strip.
     wall_line('c5_west',0,20.43,c5[1]+.08,15.31,[open_gap(wi1,1)],half=.07)
+    add('c5_west_core',(20.36,18.0,.4),(20.5,c5[3]-.08,3.5))
     add('c5_west_wi1_stub_0',(20.3,8.09,.4),(20.36,8.17,3.5))
     add('c5_west_wi1_stub_1',(20.3,10.35,.4),(20.36,10.43,3.5))
     add('c5_facade_corner',(20.28,c5[1]-.08,.4),(20.36,c5[1],3.77))
-    wall_line('facade',1,c5[1],20.36,e2[2]+.25,[open_gap(terrace_door,0)],top=3.77)
-    wall_line('c5_east',0,c5[2],c5[1]+.08,c7_east[1]-.08,[shut_gap(e2_door,1)])
+    wall_line('facade',1,c5[1],20.36,e2[2]+.125,[open_gap(terrace_door,0)],top=3.77)
+    wall_line('c5_east',0,c5[2],c5[1]+.08,c5[3]-.08,[shut_gap(e2_door,1)])
     sealed('e2_door',(c5[2],mid(e2_door,1)),span(e2_door,1),0,'door_closed')
-    wall_line('e1_e2',1,e1[1],c5[2]+.08,e1[2])
-    wall_line('closed_rooms_east',0,e2[2]+.125,e2[1]+.08,c7_east[1]-.08,top=3.77,half=.125)
-    wall_line('link_north',1,terrace[1][3],e2[2]+.25,33.15,top=3.77)
-    wall_line('c7_east_south',1,c7_east[1],c5[2]-.08,33.14)
-    add('c7_east_exit_jamb',(33.14,14.6,.4),(33.35,c7_east[1]+.08,3.5))
-    wall_line('c5_north',1,c5[3],c5[0],33.14,[shut_gap(north,0)])
+    wall_line('e1_e2',1,e1[1],c5[2]+.08,e1[2]-.125)
+    wall_line('e1_north',1,e1[3],c5[2]+.08,e1[2]-.125)
+    wall_line('closed_rooms_east',0,e2[2],e2[1]+.08,shut[3]+.08,top=3.77,half=.125)
+    wall_line('c5_north',1,c5[3],c5[0],shut[2]-.125,[shut_gap(north,0)])
     sealed('c5_north_door',(mid(north,0),c5[3]),span(north,0),1)
-    wall_line('c7_exit',0,mid(c7_exit,0),c7_east[1]+.08,c7_east[3]-.08,[open_gap(c7_exit,1)])
-    # The terrace is a sunken strip under the ground floor's overhang.
-    add('terrace_retaining_south',(20.2,run[1]-.16,.4),(run[2]+.16,run[1],3.77))
-    add('terrace_end_west',(20.2,run[1],.4),(20.36,c5[1]-.08,3.77))
-    slope=lambda y:.4+3.72*(5.213076923-y)/5.813076923
-    y=run[1]
-    while y<5.213076923-1e-6:
-        top=min(3.77,max(1.5,slope(y)+.1));y1=min(5.213076923,y+.5)
-        add('terrace_retaining_east_'+str(round(y,2)),(run[2],y,.4),(run[2]+.16,y1,top));y=y1
-    rail('entrance_stair_edge',(33.25,5.213076923,.4),(33.25,8.75,.4))
-    rail('entrance_slope_edge',(run[2]+.16,5.213076923,.4),(33.25,5.213076923,.4))
     door('c5_terrace',(mid(terrace_door,0),c5[1],.4),width=span(terrace_door,0),axis=1,glass=True,park_sign=1)
     door('wi1_public',(20.5,mid(wi1,1),.4),width=span(wi1,1),glass=True,park_sign=1)
-    door('c7_exit',(mid(c7_exit,0),mid(c7_exit,1),.4),width=span(c7_exit,1),park_sign=1)
-    spec['minus1_corrections']['c5_north_junction_door']=dict(
+    corrections['c5_north_junction_door']=dict(
         centre=[mid(north,0),c5[3],.4],width=span(north,0),height=2.2,axis=1)
-    # Hollow the new pieces in all context meshes as well.
-    result=[v for v in result if not v[0].startswith('p2_gardens_passage_west')]
-    rails[:]=[v for v in rails if not v['name'].startswith('passage_west')]
-    from .build_povo_campus import subtract_polygon_box
-    holes=[*zone,east_hole]
     cibio_south=next(r['bounds'][1] for r in next(l for l in spec['levels'] if l['floor']==-1)['rooms'] if r['id']=='cibio_office_0')
-    holes.append(((-2.3,cibio_south,.17),(-.59,55.9,3.52)))
-    for h in holes:cut(h,lambda v:v[0].startswith(('exterior_','library_0_access')))
-    for key in ('meshes','collision_meshes'):
-        clipped=[]
-        for mesh in ext[key]:
-            vv=mesh['vertices'];vertices=[];faces=[]
-            low=[min(v[i] for v in vv) for i in range(3)]
-            high=[max(v[i] for v in vv) for i in range(3)]
-            relevant=[h for h in holes if all(low[i]<h[1][i] and high[i]>h[0][i] for i in range(3))]
-            if not relevant:
-                clipped.append(mesh);continue
-            for face in mesh['faces']:
-                polys=[[(tuple(vv[i]),(0,0)) for i in face]]
-                for lo,hi in relevant:
-                    polys=[p for poly in polys for p in subtract_polygon_box(poly,lo,hi)]
-                for poly in polys:
-                    start=len(vertices);vertices.extend(v for v,_ in poly)
-                    faces.extend((start,start+j,start+j+1) for j in range(1,len(poly)-1))
-            if faces:clipped.append(dict(mesh,vertices=vertices,faces=faces))
-        ext[key]=clipped
+    cut(((-2.3,cibio_south,.17),(-.59,55.9,3.52)),lambda v:v[0].startswith(('exterior_','library_0_access')))
     basement_level=next(l for l in spec['levels'] if l['floor']==-1)
     for station in basement_level['audit_stations']:
         if station['id']=='corridor_south':station['point']=[22.,12.]
+    basement_level['closed_stations']=[s for s in basement_level['closed_stations'] if s['point'][0]<33]
+    basement_level['audit_stations']=[s for s in basement_level['audit_stations']
+                                      if s['id'] not in ('exit_stair_approach','lower_exit_junction')]
     floor=next(l for l in spec['basement_rebuild']['levels'] if l['floor']==-1)
     from .build_povo2_west_offices import subtract_rect
     for lo,hi in zone:
         floor['areas']=[p for r in floor['areas'] for p in subtract_rect(r,[lo[0],lo[1],hi[0],hi[1]])]
-    floor['areas']+=[c5,c7_east]
-    # Routes that crossed the old 5 m C5 now keep east of WI1's parked leaves.
-    route_x=22.
-    for route in [*spec['basement_rebuild']['routes'],dict(points=spec['gardens']['routes']['indoor'])]:
+    floor['areas']+=[c5]
+    # Routes to the old exit now leave by C5, keeping east of WI1's parked leaves.
+    route_x=22.35  # E 17.8 once registered: clear of WI1's parked leaves in the narrow C5
+    for route in spec['basement_rebuild']['routes']:
+        pts=route['points']
+        if any(abs(p[0]-34.5)<.01 for p in pts):
+            cut_at=next(i for i,p in enumerate(pts) if p[0]>route_x)
+            route['points']=[*pts[:cut_at],[route_x,pts[cut_at-1][1],.4],[route_x,2.8,.4]]
         for p in route['points']:
             if 20.6<p[0]<25.6 and p[1]<c5[3]+.1 and abs(p[2]-.4)<.05:p[0]=route_x
     # W office doors use the same estimated opening positions as the trace.
@@ -245,7 +218,7 @@ def extend(boxes, levels, root):
         spans=[p for part in spans for p in subtract_box(part,((-2.5,y-.53,.39),(-2.1,y+.53,2.65)))]
         door('cibio_terrace_'+str(i),(-2.3,y,.4),width=1.,glass=True,park_sign=1)
         spec['basement_rebuild']['routes'].append(dict(id='cibio_terrace_exit_'+str(i),
-            points=[[-3.05,y,.4],[-1.05,y,.4]]))
+            points=[[-3.05,y,.4],[-1.4,y,.4]]))  # terrace centre once registered
     result.extend(spans)
     rail('cibio_terrace_outer',(-.59,south,.4),(-.59,terrace_end,.4))
     for i,y in enumerate((south,terrace_end)):rail('cibio_terrace_end_'+str(i),(-2.3,y,.4),(-.59,y,.4))
@@ -280,18 +253,13 @@ def extend(boxes, levels, root):
             p[cross]+=offset;q[cross]+=offset
             wall_handrail(rails,r0['name']+'_wall',p,q)
     spec['repair_doors']=doors
-    spec['walkthrough_repairs']=dict(c5=c5,c7_exit_link=c7_east,closed_rooms=dict(E1=e1,E2=e2),
-        arrival_terrace=terrace,cibio_terrace=r,source='config/povo2_east_entrance.json',
-        approach_order=east['walk_order'],
-        metric_status='Photo-46 retrace on the fitted core and offices; E1/E2 and the terrace link are estimates')
-    y7=mid(opening['c7_exit'],1)
+    spec['walkthrough_repairs']=dict(c5=c5,closed_rooms=dict(E1=e1,E2=e2,closed_north=shut),
+        cibio_terrace=r,source='config/povo2_east_entrance.json',approach_order=east['walk_order'],
+        metric_status='Photo-46 retrace with the user correction of 30 Oct; outside pieces in povo2_south_front')
     spec['basement_rebuild']['routes'].extend([
-        dict(id='terrace_to_wi1',points=[[route_x,1.1,.4],[route_x,9.26,.4],[19.5,9.26,.4],[17,9.26,.4]]),
-        dict(id='terrace_to_c7',points=[[route_x,1.1,.4],[route_x,16.62,.4],[19.2,16.62,.4],[10.2,16.62,.4]]),
-        dict(id='c5_to_exit_corridor',points=[[route_x,9.26,.4],[route_x,y7,.4],[34.5,y7,.4],[34.5,12,.4],[34.5,10,.4]]),
-        dict(id='garden_to_c5_terrace',points=[[34.5,10,.4],[30.9,10,.4],[30.9,1.1,.4],[route_x,1.1,.4]])])
-    grade_gardens(result,ext,spec)
-    plate('street_garden_sidewalk',(55.5,2.75,58,8.75),4.,'exterior_paving')
+        dict(id='c5_to_wi1',points=[[route_x,2.8,.4],[route_x,9.26,.4],[19.5,9.26,.4],[17,9.26,.4]]),
+        dict(id='c5_to_c7',points=[[route_x,2.8,.4],[route_x,16.62,.4],[19.2,16.62,.4],[10.2,16.62,.4]]),
+        dict(id='c5_to_sealed_end',points=[[route_x,2.8,.4],[route_x,c5[3]-.6,.4]])])
     return result
 
 

@@ -4,33 +4,31 @@ from tools.audit_povo_yard import audit_gardens
 
 
 class GardensTests(TestCase):
+    """The user's 30 Oct front: C5 is the only exit. Its terrace has a straight
+    UP stair to the street and a metal stair down into Garden -2."""
     @classmethod
     def setUpClass(cls):
         _,_,cls.boxes,cls.levels,_=build_geometry()
         cls.spec=cls.levels[-1]['connection']['povo2']
 
-    def test_up_faces_exit_and_down_continues_straight_from_passage(self):
-        g=self.spec['gardens']
-        self.assertEqual(g['passage'][3]-g['passage'][1],2.5)
-        self.assertEqual((g['up_stair'][0]+g['up_stair'][2])/2,g['exit_door'][0])
-        self.assertEqual(g['up_stair'][3],g['passage'][1])
-        self.assertEqual(g['down_stair'][1::2],g['passage'][1::2])
-        self.assertEqual(g['down_stair'][0],g['passage'][2])
-        self.assertTrue(all(p[1]==10 for p in g['routes']['down']))
-        self.assertEqual(g['down_stair'][0],g['garden'][0])
-        self.assertEqual(g['down_stair'][2],(g['garden'][0]+g['garden'][2])/2)
-        self.assertLessEqual(g['garden'][1],g['down_stair'][1])
-        self.assertGreaterEqual(g['garden'][3],g['down_stair'][3])
-        self.assertEqual(g['indoor_corridor'][1],g['exit_door'][1])
-        self.assertGreater(g['indoor_turn'][1],g['garden'][3])
-        self.assertEqual(g['garden_z'],next(l['z'] for l in self.spec['levels'] if l['floor']==-2))
-        self.assertTrue(all(p[2]==g['passage_z'] for p in g['routes']['passage']))
-        self.assertLess(g['routes']['down'][-1][2],g['routes']['down'][0][2])
-        self.assertGreater(g['routes']['up'][-1][2],g['routes']['up'][0][2])
-        self.assertFalse(any(n.startswith('p2_basement_exit_step_') for n,*_ in self.boxes))
+    def test_terrace_stairs_and_garden_follow_the_user_front(self):
+        f=self.spec['south_front'];g=self.spec['gardens'];c5=self.spec['walkthrough_repairs']['c5']
+        t=f['terrace'];s=f['up_stair']
+        self.assertTrue(2<=t[3]-t[1]<=3)
+        self.assertAlmostEqual(s[3],t[1])
+        self.assertAlmostEqual(s[1],f['pavement']['south_edge'])
+        self.assertTrue(c5[0]-.05<=s[0] and s[2]<=c5[2]+.05)
+        self.assertLessEqual(f['metal_stair']['start_x'],f['garden_extension'][0])
+        self.assertEqual(g['garden'][0],f['garden_extension'][0])
+        for key in ('passage','up_stair','exit_door','indoor_corridor'):self.assertNotIn(key,g)
+        street,garden=g['routes']['street'],g['routes']['garden']
+        self.assertGreater(street[0][2],street[-1][2]+3)
+        self.assertLess(garden[-1][2],garden[0][2]-3)
+        self.assertFalse(any(n.startswith(('p2_gardens_up','p2_gardens_passage','p2_basement_gardens_passage'))
+                             for n,*_ in self.boxes))
 
-    def test_routes_clear_and_removed_threshold_is_detected(self):
+    def test_routes_clear_and_removed_terrace_is_detected(self):
         report=audit_gardens(self.boxes,self.levels)
         self.assertEqual(report['status'],'passed',report['failures'][:5])
-        broken=[b for b in self.boxes if b[0]!='p2_basement_gardens_passage']
+        broken=[b for b in self.boxes if b[0]!='p2_front_terrace_floor']
         self.assertEqual(audit_gardens(broken,self.levels)['status'],'failed')

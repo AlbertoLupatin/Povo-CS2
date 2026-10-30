@@ -1,5 +1,11 @@
 # Povo 2 walkthrough repairs — 29 October 2026
 
+> **Superseded on 30 Oct** by [the registration to the real building and the
+> user's draw.io correction](POVO2_REGISTRATION_20261030.md): C5 runs to a sealed
+> end beside the core, there is no C7 link or exit corridor, and the terrace,
+> UP stair and garden stair are rebuilt in real coordinates. The section below
+> describes the earlier 29 Oct state, in the assembly frame.
+
 ## East entrance, retraced from photo 46
 
 The user rejected the second eastern plan as well ("so off"). That plan had a

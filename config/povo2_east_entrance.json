@@ -1,5 +1,5 @@
 {
-  "status": "Povo 2 -1 eastern (terrace) entrance to the W offices, retraced from photo 46. Built by tools/povo2_playtest_repairs.py.",
+  "status": "Povo 2 -1 eastern (terrace) entrance. Interior in the assembled -1 frame (moved by config/povo2_registration.json); 'south_front_real' in real campus metres. Source: photo 46 and the user's draw.io correction of 30 Oct (data/reference/user_feedback/2026-10-30/east_entrance_edited.drawio).",
   "source_photo": "exports/povo2_survey/full_46.jpg",
   "photo_crop": {
     "box": [
@@ -31,28 +31,17 @@
         20.5,
         2.0,
         23.1,
-        18.0
+        21.08
       ],
-      "evidence": "Photo pixels x 1200-1265, y 597-1000: a narrow corridor along the offices' east facade, from the facade-line terrace exit to C7. About 2.6 m clear."
-    },
-    {
-      "id": "c7_east",
-      "kind": "corridor",
-      "bounds": [
-        23.1,
-        15.23,
-        33.25,
-        18.0
-      ],
-      "evidence": "C7 continues just past C5 (pixels x 1265-1300) to a door. Beyond it the corridor keeps C7's width east to the exit corridor, as the 29 Oct markup requires (connect the lower stair corridor to the exit corridor)."
+      "evidence": "Photo pixels x 1200-1265, y 597-1000: a narrow corridor along the offices' east facade, from the facade-line terrace exit to C7. About 2.6 m clear. Extended north beside the core to N 21.08 (user draw.io, 30 Oct)."
     },
     {
       "id": "restricted_north",
       "kind": "restricted",
       "bounds": [
         20.5,
-        18.0,
-        24.3,
+        21.08,
+        23.1,
         26.0
       ],
       "evidence": "Passage beside the core's east side (pixels x 1210-1295, y 420-597), continuing north toward the labs. Beyond the closed door; not playable."
@@ -63,7 +52,7 @@
       "bounds": [
         23.1,
         12.8,
-        29.7,
+        31.8,
         15.23
       ],
       "evidence": "Room east of C5, pixels x 1270-1430, y 597-770. Its north part gives way to the C7 exit link."
@@ -74,51 +63,21 @@
       "bounds": [
         23.1,
         2.0,
-        29.7,
+        31.8,
         12.8
       ],
       "evidence": "Room east of C5, pixels x 1270-1430, y 773-997. Its south wall is the same facade line as the W offices."
     },
     {
-      "id": "terrace_south_run",
-      "kind": "terrace",
+      "id": "closed_north",
+      "kind": "closed_room",
       "bounds": [
-        8.5,
-        0.29,
+        23.1,
+        15.23,
         31.8,
-        2.0
+        21.08
       ],
-      "evidence": "Approved terrace plan (docs/POVO2_MINUS1_TERRACE_20261029.md): south run -25.45...31.8 x 0.29...2.0, clipped to this view."
-    },
-    {
-      "id": "terrace_stair_to_garden",
-      "kind": "stair",
-      "bounds": [
-        31.8,
-        0.29,
-        42.3,
-        2.0
-      ],
-      "evidence": "Approved terrace plan: south metal stair, descending east to Garden -2. Photo hatching at pixels x 1420-1673, y 1020-1055."
-    },
-    {
-      "id": "terrace_link",
-      "kind": "provisional_terrace",
-      "bounds": [
-        [
-          29.95,
-          2.0,
-          31.8,
-          11.25
-        ],
-        [
-          31.8,
-          5.213076923,
-          33.25,
-          11.25
-        ]
-      ],
-      "evidence": "Not on photo 46. Keeps the route from the existing UP-stair landing to the terrace, outside E2 and west of the UP stair. Passes under the B106 overhang."
+      "evidence": "User draw.io 30 Oct: plain wall on C5's east side north of E1; no access."
     }
   ],
   "openings": [
@@ -153,49 +112,19 @@
       "evidence": "WI1's east end door into C5, pixels (1170-1200, 825-870)."
     },
     {
-      "id": "c7_open",
-      "kind": "open",
-      "line": [
-        [
-          20.5,
-          15.23
-        ],
-        [
-          20.5,
-          18.0
-        ]
-      ],
-      "evidence": "C7 meets C5 full width with no door; the core's south face is flush with C7's north wall."
-    },
-    {
-      "id": "c7_exit",
-      "kind": "door_pair",
-      "line": [
-        [
-          24.5,
-          15.85
-        ],
-        [
-          24.5,
-          17.75
-        ]
-      ],
-      "evidence": "Door swing at the east end of C7's bay, pixels (1290-1300, 633-660). Usable: it leads on to the exit corridor."
-    },
-    {
       "id": "c5_north_closed",
       "kind": "closed_door",
       "line": [
         [
           20.975,
-          18.0
+          21.08
         ],
         [
           22.625,
-          18.0
+          21.08
         ]
       ],
-      "evidence": "User walkthrough: closed door straight ahead after C7. Placed at the core's south-face line, the north end of the C7 junction. Permanently shut, like the two 29 Oct junction doors."
+      "evidence": "User draw.io 30 Oct: sealed door at C5's north end, N 21.08."
     },
     {
       "id": "e2_closed",
@@ -229,41 +158,13 @@
     }
   ],
   "walk_order": [
-    "terrace door at the south facade",
+    "street pavement",
+    "straight UP stair down to the terrace",
+    "terrace door into C5",
     "WI1 (wooden W spine) on the left",
     "C7 (main W corridor) on the left",
-    "closed door straight ahead"
+    "sealed door straight ahead"
   ],
-  "existing_context": {
-    "up_stair_to_street": [
-      33.25,
-      2.75,
-      35.75,
-      8.75
-    ],
-    "garden_landing": [
-      33.25,
-      8.75,
-      38.0,
-      11.25
-    ],
-    "garden_exit_door": [
-      [
-        33.25,
-        11.25
-      ],
-      [
-        35.75,
-        11.25
-      ]
-    ],
-    "exit_corridor": [
-      33.25,
-      11.25,
-      35.75,
-      25.38
-    ]
-  },
   "codex_current": {
     "c5": [
       20.5,
@@ -310,6 +211,64 @@
         24.15,
         26.0
       ]
+    ]
+  },
+  "user_correction_20261030": "C5 is the only exit corridor and runs past C7 beside the core to a sealed end at N 21.08. No C7 link east, no exit corridor, landing or garden exit. E1/E2 reach the building edge. From the 2-3 m terrace: metal stair to Garden -2 on the left (east), straight UP stair to the street pavement, terrace continues right (west). Steep straight UP stair accepted; plain wall on C5's east side north of E1.",
+  "south_front_real": {
+    "note": "Real campus metres, built after registration by tools/povo2_south_front.py. Facade from the registered -1 facade (N 10.16); terrace depth from the LiDAR sunken strip (N 8.0-10.3) and the user's 2-3 m. East of E 32 the strip is at the garden street level (z 4.12) below the rising bridge road, with an earth bank between. The floor-0 east entrance hall in the real annex joins the registered interior to the geo-registered door bank.",
+    "terrace": [
+      -23.0,
+      7.7,
+      25.8,
+      10.08
+    ],
+    "up_stair": [
+      17.0,
+      4.4,
+      19.02,
+      7.7
+    ],
+    "up_stair_risers": 20,
+    "pavement": {
+      "north_edge": 7.6,
+      "south_edge": 4.4,
+      "x": [
+        -23.0,
+        50.0
+      ]
+    },
+    "metal_stair": {
+      "start_x": 26.25,
+      "y": [
+        7.7,
+        10.08
+      ],
+      "risers_per_flight": 10,
+      "tread": 0.28,
+      "landing": 1.1
+    },
+    "garden_extension": [
+      26.25,
+      7.7,
+      37.82,
+      20.0
+    ],
+    "verge": {
+      "y": [
+        -9.4,
+        -4.4
+      ],
+      "x": [
+        -23.0,
+        50.0
+      ]
+    },
+    "road_centre_north": 0.0,
+    "east_entrance_hall": [
+      27.9,
+      30.0,
+      34.45,
+      43.4
     ]
   }
 }

@@ -5,6 +5,9 @@ from unittest import TestCase
 from tools.build_povo_campus import build_geometry,collision_boxes
 from tools.audit_povo_pavement import audit
 from tools.povo2_sketch import rotate_point,rotate_rect
+from tools.povo2_registration import Registration
+from tools.build_povo_campus import ROOT as _ROOT
+R=Registration(_ROOT)  # assembly-frame values -> registered campus metres
 
 
 class SketchPavementTests(TestCase):
@@ -18,11 +21,11 @@ class SketchPavementTests(TestCase):
         self.assertEqual(p['degrees_clockwise'],90)
         old=rotate_rect(cfg['cibio_corridor'],p);new=self.spec['basement']['cibio_corridor']
         shift=self.spec['minus1_corrections']['room2_north_shift_metres']
-        self.assertEqual(new,old[:3]+[old[3]+shift])
+        self.assertEqual(new,R.rect(old[:3]+[old[3]+shift]))
         for i,r in enumerate(cfg['cibio_offices']):
             expected=rotate_rect(r,p)
             if i==1:expected=[expected[0],expected[1]+shift,expected[2],expected[3]+shift]
-            self.assertEqual(self.spec['basement'][f'cibio_office_{i}'],expected)
+            self.assertEqual(self.spec['basement'][f'cibio_office_{i}'],R.rect(expected))
         # The later Gardens sketch supersedes only the old exterior yard.
         self.assertNotIn('yard',self.spec['basement'])
         self.assertEqual(self.spec['additions']['yard']['user_floor'],-2)
@@ -32,8 +35,8 @@ class SketchPavementTests(TestCase):
         self.assertEqual(south['side'],'u_min')
 
     def test_reception_stair_alignment_and_six_bar_tables(self):
-        self.assertEqual(self.spec['ground']['reception'],[12.5,26,20.5,35.5])
-        self.assertEqual(self.spec['stairs']['bounds'][2],20.5)
+        self.assertEqual(self.spec['ground']['reception'],R.rect([12.5,26,20.5,35.5]))
+        self.assertEqual(self.spec['stairs']['bounds'][2],R.fx(20.5))
         tables=[b for b in self.boxes if b[0].startswith('canteen_0_bar_sketch_table_') and b[0].endswith('_top')]
         self.assertEqual(len(tables),6)
         self.assertTrue(all(b[3]=='canteen_orange' for b in tables))

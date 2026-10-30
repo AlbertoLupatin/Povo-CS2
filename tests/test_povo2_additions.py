@@ -3,6 +3,8 @@ from unittest import TestCase
 
 from tools.build_povo_campus import build_geometry, collision_boxes, is_breakable_glass
 from tools.audit_povo_interior import audit_level
+from tools.povo2_registration import Registration
+from tools.build_povo_campus import ROOT
 
 
 class Povo2AdditionTests(TestCase):
@@ -62,7 +64,7 @@ class Povo2AdditionTests(TestCase):
         from tools.audit_povo_yard import audit
         result=audit()
         self.assertEqual(result['status'],'passed',result)
-        self.assertGreater(result['stair_and_landing_samples'],500)
+        self.assertGreater(result['stair_and_landing_samples'],100)  # riser-aware: one sample per tread
         self.assertFalse(result['failures'])
 
     def test_existing_bridge_and_povo2_floor_elevations_are_preserved(self):
@@ -81,7 +83,7 @@ class Povo2AdditionTests(TestCase):
         pc,b108,b109=cfg['ground_rooms']
         self.assertEqual(pc['bounds'][0],b108['bounds'][2])
         self.assertEqual(b108['bounds'][0],b109['bounds'][2])
-        self.assertEqual(cfg['stair_entry']['door'],[20.5,22])
+        self.assertEqual(cfg['stair_entry']['door'],Registration(ROOT).point([20.5,22]))
         self.assertFalse(any(n.startswith(('p2_ground_reception_stair_door_',
                                           'p2_ground_stair_vestibule')) for n,_,_,_ in self.boxes))
         # Exit the existing stair eastward: south then west is right/right.

@@ -5,6 +5,8 @@ from tools.build_povo_campus import build_geometry, collision_boxes
 from tools.audit_povo2_integrated import audit_stair_routes
 from tools.audit_povo_interior import audit_level
 from tools.cs2_campus import room_sign
+from tools.povo2_registration import Registration
+from tools.build_povo_campus import ROOT
 
 
 class IntegratedWestOfficesTests(TestCase):
@@ -16,7 +18,8 @@ class IntegratedWestOfficesTests(TestCase):
         cls.office=cls.spec['west_offices']
 
     def test_all_22_rooms_reachable_from_the_existing_stair_landing(self):
-        stations=[dict(id='main_stair',point=[19.2,22])]
+        # The stair landing's assembly-frame point, moved with the interior.
+        stations=[dict(id='main_stair',point=Registration(ROOT).point([19.2,22]))]
         for r in self.office['rooms']:
             a,b,c,d=r['bounds']
             stations.append(dict(id=r['id'],point=[(a+c)/2,(b+d)/2]))
@@ -45,7 +48,8 @@ class IntegratedWestOfficesTests(TestCase):
             self.assertTrue(any(m=='ceiling_panel' and lo[0]<=x<=hi[0] and lo[1]<=y<=hi[1] and abs(hi[2]-3.5)<.01 for _,lo,hi,m in self.boxes),r['id'])
 
     def test_research_door_pairs_remain_fixed_and_solid(self):
-        for name in ('upper','lower'):
+        # The lower junction door went with the exit corridor (user, 30 Oct).
+        for name in ('upper',):
             leaves=[b for b in self.physics if b[0].startswith('p2_basement_locked_'+name+'_leaf_')]
             self.assertEqual(len(leaves),2)
             self.assertTrue(all(m=='door_black' for _,_,_,m in leaves))

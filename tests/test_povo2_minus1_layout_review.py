@@ -10,7 +10,7 @@ from tools.povo2_survey import load
 class Minus1LayoutReviewTests(TestCase):
     @classmethod
     def setUpClass(cls):
-        _,_,cls.boxes,levels,_=build_geometry()
+        _,_,cls.boxes,levels,_=build_geometry(registered=False)
         cls.spec=next(l['connection']['povo2'] for l in levels if l.get('connection'))
         cls.before=copy.deepcopy(cls.spec)
         cls.layout=create_layout(cls.spec,cls.boxes)

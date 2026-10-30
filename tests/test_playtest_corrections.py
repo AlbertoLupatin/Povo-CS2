@@ -29,8 +29,9 @@ class PlaytestCorrectionTests(unittest.TestCase):
         link=next(l['connection'] for l in self.levels if 'connection' in l)
         routes=[[link['stair']['top'],*link['stair']['path'],link['stair']['bottom']],
                 *[r['points'] for r in link['povo2']['stairs']['path']]]
-        core=[b for b in self.physics if b[1][0]<21 and b[2][0]>10
-              and b[1][1]<27 and b[2][1]>13]
+        x0,y0,x1,y1=link['povo2']['stairs']['bounds']
+        core=[b for b in self.physics if b[1][0]<x1+.5 and b[2][0]>x0-1
+              and b[1][1]<y1+1 and b[2][1]>y0-1]
         for route in routes:
             for start,end in zip(route,route[1:]):
                 for i in range(max(1,math.ceil(math.dist(start,end)/.08))):

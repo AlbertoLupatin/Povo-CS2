@@ -522,7 +522,7 @@ def enclose_stair(boxes, levels, stair, settings, config, *, include_top=True):
 
 
 @memoize_geometry
-def build_geometry(root=ROOT,*,include_exterior=True):
+def build_geometry(root=ROOT,*,include_exterior=True,registered=True):
     settings, config = derived_config(root)
     alignment = json.loads((root / config['alignment']).read_text())
     campus = json.loads((root / config['campus_config']).read_text())
@@ -683,6 +683,14 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         boxes=add_west_offices(boxes,bridge_levels,root)
         from tools.povo2_playtest_repairs import extend as repair_povo2
         boxes=repair_povo2(boxes,bridge_levels,root)
+    if registered and settings.get('povo2_connection'):
+        # Move the finished interior into the real building outline.
+        # registered=False keeps the assembly frame for the -1 layout review.
+        from tools.povo2_registration import extend as register_povo2
+        boxes=register_povo2(boxes,bridge_levels,root)
+        if include_exterior and settings.get('povo2_planimetry'):
+            from tools.povo2_south_front import extend as build_south_front
+            boxes=build_south_front(boxes,bridge_levels,root)
     try:
         from .povo_room_furnishings import furnish
     except ImportError:

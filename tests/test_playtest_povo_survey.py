@@ -53,9 +53,10 @@ class SurveyRoutesTests(unittest.TestCase):
         bridge=next(r for r in self.routes if r['name']=='p1_p2_bridge')
         self.assertTrue(all(abs(p[2]-11.2)<1e-6 for p in bridge['path']))
         corridor=next(r for r in self.routes if r['name']=='p2_basement_rotated_corridor')['path']
-        self.assertEqual(corridor[0][1],corridor[1][1])
-        self.assertEqual(corridor[1][0],corridor[2][0])
-        self.assertGreater(corridor[2][1],corridor[1][1])
+        # Up C5 from its terrace door, then west along C7 to the stair door.
+        self.assertEqual(corridor[0][0],corridor[1][0])
+        self.assertEqual(corridor[1][1],corridor[2][1])
+        self.assertGreater(corridor[1][1],corridor[0][1])
         names={r['name'] for r in self.routes}
         self.assertIn('acquario_door_and_long_aisle',names)
         self.assertIn('a103_side_aisle0',names)

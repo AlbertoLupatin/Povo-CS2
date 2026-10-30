@@ -12,6 +12,9 @@ from tools.audit_povo_interior import audit_level
 
 
 ROOT=Path(__file__).resolve().parents[1]
+from tools.povo2_registration import Registration
+from tools.build_povo_campus import ROOT as _ROOT
+R=Registration(_ROOT)
 
 
 class CampusGeometryTests(unittest.TestCase):
@@ -142,7 +145,9 @@ class CampusGeometryTests(unittest.TestCase):
     def test_bridge_and_povo2_route_have_continuous_support_and_standing_clearance(self):
         physics=collision_boxes(self.boxes)
         for n in range(-35,26):
-            x,y,z=(23.45 if 14<=n<=17 else 22.25 if n>17 else 18.25),n,self.levels[-1]['floor_elevation_metres']-370
+            # Corridor centre line; the warp narrows the east corridor around it.
+            x,y=R.point([(22.25 if n>=14 else 18.25),n],lobby=True)
+            z=self.levels[-1]['floor_elevation_metres']-370
             self.assertTrue(any(b[3].startswith('floor_') and b[1][0]<=x<=b[2][0]
                                 and b[1][1]<=y<=b[2][1] and abs(b[2][2]-z)<.02
                                 for b in physics),n)
@@ -156,6 +161,7 @@ class CampusGeometryTests(unittest.TestCase):
     def test_compact_arrival_keeps_alcoves_seals_east_and_ends_before_old_second_bays(self):
         physics=collision_boxes(self.boxes)
         def solid(p,materials):
+            p=R.point(p,lobby=True)  # assembly-frame sample, moved with the arrival
             return [b for b in physics if b[3] in materials
                     and all(b[1][i]<=v<=b[2][i] for i,v in enumerate(p))]
         z=self.levels[-1]['floor_elevation_metres']-370

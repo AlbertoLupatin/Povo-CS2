@@ -5,6 +5,10 @@ from tools.build_povo_campus import build_geometry, collision_boxes, is_breakabl
 from tools.povo_physics_surfaces import surface
 from tools.audit_povo_exterior_integrated import audit, height_at
 from tools.povo_abandoned_bus import DESTINATION, destination_mask
+from tools.povo2_south_front import road_shift
+
+# The bridge road moved north with Povo 2's registration; the bus moved with it.
+S = road_shift(25.0)
 
 
 class AbandonedBusTests(unittest.TestCase):
@@ -18,13 +22,13 @@ class AbandonedBusTests(unittest.TestCase):
         body = next(b for b in self.bus if b[0].endswith('_chassis'))
         bridge = next(l['connection']['bridge'] for l in self.levels if l.get('connection'))
         self.assertGreater(body[1][0], bridge[2] + 2)
-        self.assertLessEqual(body[1][1], -5 - 3 - 1.4)
-        self.assertGreaterEqual(body[2][1], -5 + 3 + 1.4)
+        self.assertLessEqual(body[1][1], S - 5 - 3 - 1.4)
+        self.assertGreaterEqual(body[2][1], S - 5 + 3 + 1.4)
         self.assertAlmostEqual(body[2][0] - body[1][0], 2.5)
 
     def test_opposite_wall_still_blocks_each_lane(self):
         solids = collision_boxes(self.bus)
-        for yy in (-7.8, -6.5, -5, -3.5, -2.2):
+        for yy in (S - 7.8, S - 6.5, S - 5, S - 3.5, S - 2.2):
             for zz in (4.5, 5.4):
                 self.assertTrue(any(lo[0] < 23.85 < hi[0] and lo[1] < yy < hi[1]
                                     and lo[2] < zz < hi[2] for _, lo, hi, _ in solids))
@@ -35,10 +39,10 @@ class AbandonedBusTests(unittest.TestCase):
         # Sweep a CS2-sized standing hull from the street up every tread,
         # through the entrance and down the centre aisle in both directions.
         solids = collision_boxes(self.bus)
-        path = [(27.5, -3.475, 4), (27.0, -3.475, 4.1625),
-                (26.7, -3.475, 4.325), (26.4, -3.475, 4.4875),
-                (26.1, -3.475, 4.67), (25.5, -3.475, 4.67), (25, -3.475, 4.67)]
-        path += [(25, -1.825-i*.1, 4.67) for i in range(68)]
+        path = [(27.5, S-3.475, 4), (27.0, S-3.475, 4.1625),
+                (26.7, S-3.475, 4.325), (26.4, S-3.475, 4.4875),
+                (26.1, S-3.475, 4.67), (25.5, S-3.475, 4.67), (25, S-3.475, 4.67)]
+        path += [(25, S-1.825-i*.1, 4.67) for i in range(68)]
         for x, y, foot in [*path, *reversed(path)]:
             blockers = [name for name, lo, hi, _ in solids
                         if lo[0] < x+.4-1e-6 and hi[0] > x-.4+1e-6
@@ -61,7 +65,7 @@ class AbandonedBusTests(unittest.TestCase):
         # Broken side panes have an open view into the hollow passenger cabin.
         for side in (-1, 1):
             for row in (1, 4):
-                yy = -5-4.5+.38+row*1.18+.5
+                yy = S-5-4.5+.38+row*1.18+.5
                 xx = 25+side*1.25
                 self.assertFalse(any(lo[0] <= xx <= hi[0] and lo[1] <= yy <= hi[1]
                                      and lo[2] < 6.1 < hi[2] for _, lo, hi, _ in self.bus))
@@ -79,7 +83,7 @@ class AbandonedBusTests(unittest.TestCase):
         lettering = [m for m in meshes if 'abandoned_bus_destination_glyph_' in m['name']]
         self.assertGreater(len(lettering), 100)
         self.assertTrue(all(m['material']=='exterior_bus_led' for m in lettering))
-        self.assertTrue(all(abs(v[1] - (-.425)) < 1e-6 for m in lettering for v in m['vertices']))
+        self.assertTrue(all(abs(v[1] - (S - .425)) < 1e-6 for m in lettering for v in m['vertices']))
         mountains = [m for m in meshes if 'abandoned_bus_mountain_' in m['name']]
         self.assertEqual(len(mountains), 15)  # One graphic falls entirely within the open doorway.
 
