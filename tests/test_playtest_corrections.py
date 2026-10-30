@@ -70,8 +70,9 @@ class PlaytestCorrectionTests(unittest.TestCase):
                     self.assertFalse(blockers,((x,y,z),blockers))
 
     def test_both_ladders_extend_far_enough_above_the_upper_dismount(self):
-        ladders=[self.levels[0]['elevator']['ladder'],
-                 next(l['connection'] for l in self.levels if 'connection' in l)['povo2']['lift']['ladder']]
+        lifts=[self.levels[0]['elevator'],
+               next(l['connection'] for l in self.levels if 'connection' in l)['povo2']['lift']]
+        ladders=[s['ladder'] for s in lifts if s.get('enabled',True)]
         for lo,hi in ladders:
             self.assertGreaterEqual(hi[2],11.2+1.6)
             axis=min(range(2),key=lambda j:hi[j]-lo[j])

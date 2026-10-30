@@ -138,14 +138,27 @@ def build_routes(metadata):
     # The moved lift and stair enclosure occupy the middle of the straight
     # route. Turn south again before crossing the CIBIO corridor's north wall.
     core=metadata['povo2']['stairs']['bounds'];lift=metadata['povo2']['lift']['shaft']
-    add('p2_basement_rotated_corridor',[[start_x,y,zbase],[lift[2]+.8,y,zbase],
-        [lift[2]+.8,17.15,zbase],[core[0]+.7,17.15,zbase],
-        [core[0]+.7,16.85,zbase],[x,16.85,zbase],[x,branch[3]-1,zbase]],'p2_basement_route')
+    west=metadata['povo2'].get('west_offices')
+    if west:
+        detour=west['connection_route']
+        link=metadata['povo2'].get('walkthrough_repairs',{}).get('c7_exit_link')
+        if link:
+            # Through C7's east door, which sits midway along the link.
+            door_y=next(d['pivot'][1] for d in metadata['povo2']['repair_doors'] if d['id']=='p2_c7_exit_0')
+            link_y=door_y+(next(d['pivot'][1] for d in metadata['povo2']['repair_doors'] if d['id']=='p2_c7_exit_1')-door_y)/2
+            approach=[[start_x,y,zbase],[start_x,link_y,zbase],[19.2,link_y,zbase]]
+        else:approach=[[start_x,y,zbase],[lift[2]+.8,y,zbase],[lift[2]+.8,17.15,zbase]]
+        add('p2_basement_rotated_corridor',[*approach,*detour,[x,branch[3]-1,zbase]],'p2_basement_route')
+    else:
+        add('p2_basement_rotated_corridor',[[start_x,y,zbase],[lift[2]+.8,y,zbase],
+            [lift[2]+.8,17.15,zbase],[core[0]+.7,17.15,zbase],
+            [core[0]+.7,16.85,zbase],[x,16.85,zbase],[x,branch[3]-1,zbase]],'p2_basement_route')
     for route in metadata['povo2'].get('basement_rebuild',{}).get('routes',[]):
         add('p2_rebuilt_'+route['id'],route['points'],'p2_basement_route')
     for i,route in enumerate(metadata['povo2']['parking'].get('routes',[])):
         add('p2_rebuilt_vestibule_'+str(i),route['points'],'p2_basement_route')
     for name,spec in [('p1',metadata['elevator']),('p2',metadata['povo2']['lift'])]:
+        if not spec.get('enabled',True):continue
         lo,hi=spec['ladder'];axis=min(range(2),key=lambda i:hi[i]-lo[i]);start=[(a+b)/2 for a,b in zip(lo,hi)]
         start[axis]=hi[axis]+.4072;start[2]=lo[2]
         dismount=list(start);dismount[2]=z

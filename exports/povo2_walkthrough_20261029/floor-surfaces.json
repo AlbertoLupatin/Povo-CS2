@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "source": "exports\\povo_campus\\povo1_campus.obj",
+  "horizontal_floor_faces": 3660,
+  "overlapping_pairs": 0,
+  "overlap_square_metres": 0,
+  "failures": []
+}

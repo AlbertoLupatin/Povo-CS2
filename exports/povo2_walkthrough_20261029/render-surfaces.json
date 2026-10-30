@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "source": "exports\\povo_campus\\povo1_campus.obj",
+  "faces": 647507,
+  "overlapping_pairs": 0,
+  "by_orientation": {},
+  "by_material": {},
+  "overlap_square_metres": 0,
+  "failures": []
+}

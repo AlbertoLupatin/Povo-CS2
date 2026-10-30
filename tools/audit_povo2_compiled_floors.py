@@ -66,7 +66,7 @@ def main():
     print('Compiled columns:',column_samples,'surface samples,',len(column_missing),'missing')
     locked=[]
     correction=spec.get('minus1_corrections',{})
-    for key in ('upper_junction_door','lower_junction_door'):
+    for key in ('upper_junction_door','lower_junction_door','c5_north_junction_door'):
         portal=correction.get(key)
         if not portal:continue
         centre=portal['centre'];axis=portal['axis'];across=1-axis;missing=[];samples=0

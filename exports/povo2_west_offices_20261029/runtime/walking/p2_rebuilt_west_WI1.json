@@ -1,0 +1,21 @@
+{
+  "name": "p2_rebuilt_west_WI1",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        19.85,
+        9.260619977037885,
+        0.4
+      ],
+      "position": [
+        19.866106775279466,
+        9.260670404237043,
+        0.4007933056016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

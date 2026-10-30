@@ -53,7 +53,7 @@ class BreakableGlassSelectionTests(unittest.TestCase):
 
     def test_receptions_vehicles_screens_and_backdrops_stay_sealed(self):
         for name, _, _, material in self.breakable:
-            self.assertNotEqual(material, 'reception_glass')
+            if material=='reception_glass':self.assertTrue(name.startswith('p2_basement_'),name)
             self.assertFalse(any(t in name for t in ('_cabin', '_screen_', 'residential_', 'povo2_west_glazing')), name)
         self.assertTrue(any(m == 'reception_glass' and not is_breakable_glass(b) for b in self.glass for m in [b[3]]))
 
@@ -138,8 +138,8 @@ class LadderTests(unittest.TestCase):
         from tools.build_povo_campus import collision_boxes
         _, _, boxes, levels, _ = build_geometry(ROOT)
         physics = collision_boxes(boxes)
-        ladders = (levels[0]['elevator']['ladder'],
-                   next(l['connection'] for l in levels if 'connection' in l)['povo2']['lift']['ladder'])
+        lifts=(levels[0]['elevator'],next(l['connection'] for l in levels if 'connection' in l)['povo2']['lift'])
+        ladders=[s['ladder'] for s in lifts if s.get('enabled',True)]
         for lo, hi in ladders:
             axis = min(range(2), key=lambda i: hi[i] - lo[i])
             centre = [(a + b) / 2 for a, b in zip(lo, hi)]

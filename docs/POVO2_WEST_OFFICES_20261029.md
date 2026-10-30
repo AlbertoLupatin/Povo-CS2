@@ -66,5 +66,35 @@ passage and all 22 rooms from C7. Against Codex's original builder, the checks f
 the stair threshold was blocked. Without the bypass, the C7 → C5 check
 fails.
 
-This is review geometry only. The installed CS2 map has not been changed,
-compiled or deployed.
+## Playable campus integration
+
+`tools/povo2_west_offices.py` now consumes this same trace in the main campus
+generator, after the basement rebuild. It adds all 22 rooms, the four internal
+passages, the C7 bypass and the southern C5 connection. The remaining full-plan
+research wings are not imported. The retained stair/lift cores and both fixed
+research-door pairs keep their existing positions.
+
+The older first lab overlapped the approved C7 band. Its south boundary now
+follows C7's north wall (north 20.54 rather than 18.5); its northern boundary,
+east entrance and the 30 m gap to the second lab stay in place. Its low desk
+group moves 2.2 m north. The basement routes follow the C7 bypass rather than
+running through the newly added offices.
+
+The actual map receives wood floors, solid party walls, permanent glazed
+fronts with horizontal privacy bands and metal frames, suspended ceilings,
+diffusers, room signs, navigation seeds and radar room shapes. W01–W23 remain
+drawing references, and the unreadable internal door offsets remain estimates.
+No furniture is assigned to unidentified West Office rooms.
+
+`tests/test_povo2_west_offices_integrated.py` checks every room against the
+complete campus collision geometry: a standing 0.82 × 1.85 m player must reach
+all 22 from the existing stair landing, and every entry, internal passage and
+stair connection must pass in both directions. Existing basement tests also
+check the retained labs, parking routes and restricted doors.
+
+The final source run passes **333 tests**. The exported standard campus model
+also passes the floor and general surface audits: **3,632 floor faces** and
+**646,088 total faces**, with **zero overlapping pairs**. The reports
+`integrated_floor_audit.json` and `integrated_surface_audit.json` in this
+area's export folder include the audited OBJ's SHA-256. The deployed VMAP's
+22 West room signs are checked in `integrated_map_entities.json`.

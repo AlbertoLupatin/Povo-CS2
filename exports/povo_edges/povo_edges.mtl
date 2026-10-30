@@ -1,0 +1,152 @@
+newmtl exterior_bus_paint
+Kd 0.85490 0.87843 0.84314
+d 1
+
+newmtl exterior_bus_rust
+Kd 0.44314 0.25490 0.16863
+d 1
+
+newmtl exterior_bus_glass
+Kd 0.10588 0.17647 0.19216
+d 1
+
+newmtl exterior_bus_green
+Kd 0.36078 0.60000 0.20784
+d 1
+
+newmtl exterior_bus_lime
+Kd 0.57255 0.75686 0.25882
+d 1
+
+newmtl exterior_bus_metal
+Kd 0.57647 0.61569 0.61176
+d 1
+
+newmtl exterior_bus_led
+Kd 0.96471 0.80392 0.40000
+d 1
+
+newmtl exterior_bus_seat
+Kd 0.28627 0.34118 0.27059
+d 1
+
+newmtl exterior_bus_floor
+Kd 0.30588 0.29412 0.25490
+d 1
+
+newmtl exterior_asphalt
+Kd 0.35686 0.36863 0.37255
+d 1
+
+newmtl exterior_paving
+Kd 0.65490 0.63922 0.59216
+d 1
+
+newmtl exterior_marking
+Kd 0.89804 0.89804 0.84314
+d 1
+
+newmtl exterior_fbk_blue
+Kd 0.32157 0.54510 0.70980
+d 1
+
+newmtl exterior_fbk_window
+Kd 0.18824 0.30588 0.38824
+d 1
+
+newmtl exterior_grass
+Kd 0.39216 0.47451 0.30588
+d 1
+
+newmtl exterior_concrete
+Kd 0.62353 0.62745 0.59216
+d 1
+
+newmtl exterior_fence
+Kd 0.54510 0.59608 0.60784
+d 1
+
+newmtl exterior_stone
+Kd 0.71765 0.68627 0.58824
+d 1
+
+newmtl exterior_glass
+Kd 0.27843 0.40392 0.43529
+d 1
+
+newmtl exterior_entry_glass
+Kd 0.37647 0.49412 0.52157
+d 1
+
+newmtl exterior_dark
+Kd 0.19216 0.23137 0.25098
+d 1
+
+newmtl exterior_white
+Kd 0.85098 0.84314 0.79608
+d 1
+
+newmtl exterior_residential_grey
+Kd 0.51765 0.56078 0.58431
+d 1
+
+newmtl exterior_orange
+Kd 0.62353 0.27451 0.18039
+d 1
+
+newmtl exterior_car_blue
+Kd 0.21569 0.28235 0.34118
+d 1
+
+newmtl exterior_car_white
+Kd 0.81176 0.82353 0.81569
+d 1
+
+newmtl exterior_car_red
+Kd 0.58431 0.18824 0.16471
+d 1
+
+newmtl exterior_tree
+Kd 0.23137 0.34510 0.24314
+d 1
+
+newmtl exterior_trunk
+Kd 0.36863 0.32157 0.25882
+d 1
+
+newmtl exterior_ginkgo_leaf
+Kd 0.40392 0.56078 0.22745
+d 1
+
+newmtl exterior_ginkgo_leaf_light
+Kd 0.53725 0.65098 0.28235
+d 1
+
+newmtl exterior_ginkgo_leaf_dark
+Kd 0.27843 0.43922 0.17647
+d 1
+
+newmtl exterior_ridge
+Kd 0.41569 0.48627 0.52549
+d 1
+
+newmtl exterior_tile
+Kd 0.74902 0.73725 0.65098
+d 1
+
+newmtl exterior_grout
+Kd 0.53333 0.53725 0.49020
+d 1
+
+newmtl exterior_light
+Kd 0.96078 0.92941 0.74510
+d 1
+
+newmtl exterior_canopy_glass
+Kd 0.52941 0.67059 0.70588
+d 1
+
+newmtl exterior_context_concrete
+Kd 0.62353 0.62745 0.59216
+d 1
+

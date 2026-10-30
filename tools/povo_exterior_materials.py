@@ -5,6 +5,7 @@ COLORS = {
     'bus_metal': (147,157,156), 'bus_led': (246,205,102),
     'bus_seat': (73,87,69), 'bus_floor': (78,75,65),
     'asphalt': (91,94,95), 'paving': (167,163,151), 'marking': (229,229,215),
+    'fbk_blue': (82,139,181), 'fbk_window': (48,78,99),
     'grass': (100,121,78), 'concrete': (159,160,151), 'fence': (139,152,155),
     'stone': (183,175,150), 'glass': (71,103,111), 'entry_glass': (96,126,133),
     'dark': (49,59,64), 'white': (217,215,203), 'residential_grey': (132,143,149),
@@ -43,7 +44,7 @@ def write_materials(directory):
                   f'    Texture{layer}Roughness "{PREFIX}{name}_rough.png"\n')
         if transparent:textures+=f'    TextureLayer1Translucency "{PREFIX}opaque_mask.png"\n'
         surface=('glass' if transparent else 'asphalt' if name=='asphalt' else
-                 'tile' if name=='tile' else 'metal' if name in ('fence','dark') or name.startswith('bus_') else
+                 'tile' if name=='tile' else 'metal' if name in ('fence','dark','fbk_blue') or name.startswith('bus_') else
                  'grass' if name in ('grass','tree') or name.startswith('ginkgo_leaf') else 'wood' if name=='trunk' else 'concrete')
         text=(f'Layer0\n{{\n    shader "{shader}"\n'+flags+textures+
               '    g_vColorTint "[1 1 1 0]"\n    g_flModelTintAmount "1"\n'

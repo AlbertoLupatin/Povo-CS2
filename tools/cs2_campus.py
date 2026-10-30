@@ -87,7 +87,20 @@ def add_breakable_glass(source,panes):
     ids=node_ids(source)
     blocks=[box_entity(template,'glass-'+p['name'],'func_breakable',(p['lo'],p['hi']),ids,
                        (*GLASS_PROPERTIES,('targetname','povo_glass_'+p['name'])),p['material'])
-            for p in panes]
+            for p in panes if not p.get('decorations')]
+    if any(p.get('decorations') for p in panes):
+        from tools.povo_interactions import brush_entity
+        for p in panes:
+            if not p.get('decorations'):continue
+            source=brush_entity(source,'glass-'+p['name'],'func_breakable',
+                [(p['lo'],p['hi'],p['material']),*[(d['lo'],d['hi'],d['material']) for d in p['decorations']]],
+                (*GLASS_PROPERTIES,('targetname','povo_glass_'+p['name'])))
+        ids=node_ids(source)
+        # Decorated brushes consumed fresh node IDs; create the simple panes
+        # again so that all child/entity IDs remain unique.
+        blocks=[box_entity(template,'glass-'+p['name'],'func_breakable',(p['lo'],p['hi']),ids,
+                       (*GLASS_PROPERTIES,('targetname','povo_glass_'+p['name'])),p['material'])
+                for p in panes if not p.get('decorations')]
     for material in sorted({p['material'] for p in panes}):
         source=project._ensure_map_asset_reference(source,material)
     opening=project._world_children_opening(source)
@@ -290,7 +303,7 @@ def map_text(source,metadata,season='standard'):
                 sign_properties(text,white=False),angles=f'0 {yaw} 90')
     if metadata.get('povo2'):
         p2=metadata['povo2'];lights.extend(p2['lights'])
-        if p2.get('lift'):source=add_ladder(source,'p2-lift-ladder',p2['lift']['ladder'])
+        if p2.get('lift',{}).get('enabled',True):source=add_ladder(source,'p2-lift-ladder',p2['lift']['ladder'])
         for level in p2['levels']:
             for i,station in enumerate(level['audit_stations']):
                 source=project._insert_point_entity(source,f"p2-nav-{level['floor']}-{i}",
@@ -299,6 +312,12 @@ def map_text(source,metadata,season='standard'):
                 origin,angles=room_sign(room,level['z'])
                 source=project._insert_point_entity(source,'p2-sign-'+room['id'],
                     'point_worldtext',world(origin),sign_properties(room['label']),angles=angles)
+        for room in p2.get('west_offices',{}).get('rooms',[]):
+            origin,angles=room_sign(room,.4)
+            source=project._insert_point_entity(source,'p2-sign-'+room['id'],
+                'point_worldtext',world(origin),sign_properties(room['label']),angles=angles)
+            a,b,c,d=room['bounds']
+            source=project._insert_point_entity(source,'p2-nav-'+room['id'],'point_nav_walkable',world(((a+c)/2,(b+d)/2,.55)))
         yard=p2.get('additions',{}).get('yard')
         if yard:
             for i,station in enumerate(yard['audit_stations']):
@@ -507,6 +526,12 @@ def make_radar(metadata,map_name=MAP):
             if level['floor']==-2 and metadata.get('exterior'):areas=[*areas,metadata['exterior']['garage_bounds']]
             for i,r in enumerate(areas):shapes.append((str(i),bounds(r),(160,175,181,255)))
             if level['floor']==-1:
+                repair=p2.get('walkthrough_repairs',{})
+                terraces=[*repair.get('arrival_terrace',[])]
+                if repair.get('cibio_terrace'):terraces.append(repair['cibio_terrace'])
+                for i,r in enumerate(terraces):shapes.append(('repair_terrace_'+str(i),bounds(r),(145,169,164,255)))
+                for room in p2.get('west_offices',{}).get('rooms',[]):
+                    shapes.append((room['id'],bounds(room['bounds']),(177,157,122,255)))
                 for i,r in enumerate(p2.get('minus1_corrections',{}).get('closed_corridor_areas',[])):
                     shapes.append(('closed_l_'+str(i),bounds(r),(104,88,88,255)))
             if metadata.get('exterior'):
@@ -627,6 +652,7 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
     # cannot seed them in a clean addon. Generated entity meshes load compiled
     # materials directly; build those sources before compiling the VMAP.
     brush_materials={p['material'] for p in metadata.get('breakable_glass',[])}
+    brush_materials.update(d['material'] for p in metadata.get('breakable_glass',[]) for d in p.get('decorations',[]))
     brush_materials.update(p['material'] for d in metadata.get('auto_doors',[]) for p in d['parts'])
     brush_materials.update(d['material'] for d in metadata['interactions']['doors'])
     for material in sorted(brush_materials):

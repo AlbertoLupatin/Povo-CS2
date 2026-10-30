@@ -9,6 +9,7 @@ import json
 import math
 from pathlib import Path
 import re
+import sys
 
 try:
     from . import build_povo_interior as interior
@@ -36,6 +37,10 @@ except ImportError:
     from geometry_cache import memoize_geometry
 
 ROOT = Path(__file__).resolve().parents[1]
+# Review geometry is also shared with the package-based tools. Keep those
+# imports available when the campus builder is launched as a script.
+if not __package__ and str(ROOT) not in sys.path:
+    sys.path.insert(0,str(ROOT))
 PHOTO4_CLASSROOMS = frozenset(('a103','a104','a105','a106'))
 MATERIAL_PREFIX = 'materials/trento/povo/campus/'
 COLORS = {**interior.COLORS, 'stair_red': (155, 43, 38),
@@ -49,7 +54,8 @@ COLORS = {**interior.COLORS, 'stair_red': (155, 43, 38),
           'sanitary_water': (72, 96, 102), **POVO2_COLORS, **FIXTURE_COLORS,
           **{'exterior_'+n:c for n,c in EXTERIOR_COLORS.items()},
           'canteen_orange': (220,109,47), 'canteen_blue': (43,81,142), 'floor_yard_grass': (95,121,65),
-          'floor_grating': (122,128,130), 'floor_terrace': (148,144,138)}
+          'floor_grating': (122,128,130), 'floor_terrace': (148,144,138),
+          'office_frost': (196,213,213)}
 
 
 def derived_config(root=ROOT):
@@ -670,11 +676,24 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         except ImportError:
             from povo2_basements import extend as rebuild_basements
         boxes=rebuild_basements(boxes,bridge_levels,root)
+        try:
+            from .povo2_west_offices import extend as add_west_offices
+        except ImportError:
+            from tools.povo2_west_offices import extend as add_west_offices
+        boxes=add_west_offices(boxes,bridge_levels,root)
+        from tools.povo2_playtest_repairs import extend as repair_povo2
+        boxes=repair_povo2(boxes,bridge_levels,root)
     try:
         from .povo_room_furnishings import furnish
     except ImportError:
         from povo_room_furnishings import furnish
     boxes=furnish(boxes,levels,stair,origin)
+    if include_exterior:
+        try:
+            from .povo_edges import extend as add_edges
+        except ImportError:
+            from povo_edges import extend as add_edges
+        add_edges(root,levels)
     return settings,config,boxes,levels,stair
 
 
@@ -839,6 +858,9 @@ UNBREAKABLE_GLASS=('_cabin','_screen_','residential_','povo2_west_glazing','povo
 def is_breakable_glass(box):
     """Playable building glass; receptions stay sealed (unplayable offices)."""
     name,_,_,material=box
+    if '_interactive_leaf_' in name:return False
+    if name.startswith('p2_basement_') and material in ('window_glass','reception_glass'):
+        return True
     return (material in ('window_glass','exterior_glass','exterior_entry_glass')
             and not any(t in name for t in UNBREAKABLE_GLASS))
 
@@ -893,7 +915,8 @@ def export(root=ROOT):
     # of the static model and its collision. build_geometry() keeps them solid.
     doors,boxes=split_auto_doors(boxes)
     glass=[b for b in boxes if is_breakable_glass(b)]
-    boxes=[b for b in boxes if not is_breakable_glass(b)]
+    glass_decorations=[b for b in boxes if b[0].endswith('_finish_attached')]
+    boxes=[b for b in boxes if not is_breakable_glass(b) and not b[0].endswith('_finish_attached')]
     try:
         from .povo_interactions import extract_static_leaves
         from .povo_atmosphere import write_winter_assets, write_soundevents
@@ -949,6 +972,11 @@ def export(root=ROOT):
                   assumptions=settings['assumptions'],
                   inputs={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in
                           ('config/povo1_campus.json',settings['interior_source'],'config/povo1_plan_alignment.json')})
+    for pane in metadata['breakable_glass']:
+        if pane['name'].startswith('p2_basement_west_glazing_'):
+            number=pane['name'].removeprefix('p2_basement_west_glazing_')
+            pane['decorations']=[dict(lo=list(lo),hi=list(hi),material=material_path(m))
+                for n,lo,hi,m in glass_decorations if n.startswith('p2_basement_west_front_band_'+number+'_')]
     # Keep original source bytes reproducible alongside derived geometry.
     survey_inputs=['config/povo1_survey.json','config/povo2_survey.json',
                    'config/povo_amenities_survey.json','config/povo_wings.json',
@@ -978,13 +1006,17 @@ def export(root=ROOT):
         metadata['inputs'][settings['povo2_connection']]=hashlib.sha256((root/settings['povo2_connection']).read_bytes()).hexdigest()
         if 'povo2' in metadata['connection']:
             metadata['povo2']=metadata['connection']['povo2']
+            metadata['inputs'].update(metadata['povo2'].get('west_offices',{}).get('source_hashes',{}))
             path=settings['povo2_planimetry']
             metadata['inputs'][path]=hashlib.sha256((root/path).read_bytes()).hexdigest()
     write_winter_assets(root,boxes,metadata,render_obj)
     write_soundevents(root)
     metadata['artifacts']={p.name:hashlib.sha256(p.read_bytes()).hexdigest()
                            for p in output.glob('povo1_campus*.obj')}
-    for relative in ('tools/povo2_internal_stairs.py','tools/povo2_basements.py','tools/povo_pavement.py',
+    for relative in ('tools/povo2_playtest_repairs.py','tools/povo2_west_offices.py','tools/build_povo2_west_offices.py',
+                     'config/povo2_west_offices.json',
+                     'exports/povo2_west_offices_20261029/baseline/layout.json',
+                     'tools/povo2_internal_stairs.py','tools/povo2_basements.py','tools/povo_pavement.py',
                      'tools/povo_pavement_lighting.py','tools/povo_floor_surfaces.py','tools/povo_render_surfaces.py','config/povo2_internal_dimensions.json',
                      'tools/povo2_minus1_corrections.py','config/povo2_minus1_corrections.json',
                      'data/reference/user_feedback/2026-10-29/povo2_minus1_corrections.png',
@@ -1007,6 +1039,7 @@ def export(root=ROOT):
     room_count=sum(r.get('playable',True) for l in levels
                    for r in [*l['rooms'],*l.get('connection',{}).get('rooms',[])])
     room_count+=sum(len(l.get('rooms',[])) for l in metadata.get('povo2',{}).get('levels',[]))
+    room_count+=len(metadata.get('povo2',{}).get('west_offices',{}).get('rooms',[]))
     print(f"Exported {len(boxes)} visual boxes, {collision_count} collision boxes; {room_count} playable rooms")
     return metadata
 

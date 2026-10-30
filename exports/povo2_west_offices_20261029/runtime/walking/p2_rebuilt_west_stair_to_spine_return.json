@@ -1,0 +1,63 @@
+{
+  "name": "p2_rebuilt_west_stair_to_spine_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        24.2,
+        9.2,
+        0.4
+      ],
+      "position": [
+        24.222755567696893,
+        9.199993487236801,
+        0.4007933056016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        24.2,
+        17.15,
+        0.4
+      ],
+      "position": [
+        24.200598792096805,
+        17.1738664650687,
+        0.4007929754016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        19.2,
+        17.15,
+        0.4
+      ],
+      "position": [
+        19.189191492076755,
+        17.1494601892686,
+        0.4007929754016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        19.2,
+        22.0,
+        0.4
+      ],
+      "position": [
+        19.200011003076803,
+        22.005170010488023,
+        0.4007928230016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

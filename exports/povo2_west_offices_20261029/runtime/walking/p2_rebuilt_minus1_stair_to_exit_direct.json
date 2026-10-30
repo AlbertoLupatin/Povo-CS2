@@ -1,0 +1,22 @@
+{
+  "name": "p2_rebuilt_minus1_stair_to_exit_direct",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        19.2,
+        17.15,
+        0.4
+      ],
+      "position": [
+        19.2001102154768,
+        17.131630278268528,
+        0.4007929754016032
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ],
+  "error": "Ordinary movement stalled: [20.29280785228117, 16.935584874067743, 0.4007929754016032] target [34.5, 17.15, 0.4]"
+}

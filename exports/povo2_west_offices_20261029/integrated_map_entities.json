@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "prepared_map": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\maps\\trento_povo_campus.vmap",
+  "source_sha256": "9bc00bb4f2498a69a5c233de0ce03e07ae01609bb7d71a17570a5c94ce220272",
+  "west_signs": 22,
+  "west_room_labels": [
+    "W01",
+    "W02",
+    "W04",
+    "W05",
+    "W06",
+    "W07",
+    "W08",
+    "W09",
+    "W10",
+    "W11",
+    "W12",
+    "W13",
+    "W14",
+    "W15",
+    "W16",
+    "W17",
+    "W18",
+    "W19",
+    "W20",
+    "W21",
+    "W22",
+    "W23"
+  ]
+}

@@ -57,6 +57,7 @@ def main():
         if not passed:raise RuntimeError('Runtime correction failed: '+name)
     try:
         for name,spec in [('p1',metadata['levels'][0]['elevator']),('p2',metadata['povo2']['lift'])]:
+            if not spec.get('enabled',True):continue
             lo,hi=spec['ladder'];axis=min(range(2),key=lambda i:hi[i]-lo[i])
             start=[(a+b)/2 for a,b in zip(lo,hi)];start[axis]=hi[axis]+.4072;start[2]=lo[2]+.1
             yaw=-90 if axis==0 else 0

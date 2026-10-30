@@ -72,6 +72,8 @@
                             { from = "campus_exterior_asphalt" to = "materials/trento/povo/campus/exterior/asphalt.vmat" },
                             { from = "campus_exterior_paving" to = "materials/trento/povo/campus/exterior/paving.vmat" },
                             { from = "campus_exterior_marking" to = "materials/trento/povo/campus/exterior/marking.vmat" },
+                            { from = "campus_exterior_fbk_blue" to = "materials/trento/povo/campus/exterior/fbk_blue.vmat" },
+                            { from = "campus_exterior_fbk_window" to = "materials/trento/povo/campus/exterior/fbk_window.vmat" },
                             { from = "campus_exterior_grass" to = "materials/trento/povo/campus/exterior/grass.vmat" },
                             { from = "campus_exterior_concrete" to = "materials/trento/povo/campus/exterior/concrete.vmat" },
                             { from = "campus_exterior_fence" to = "materials/trento/povo/campus/exterior/fence.vmat" },
@@ -101,6 +103,7 @@
                             { from = "campus_floor_yard_grass" to = "materials/trento/povo/campus/floor_yard_grass.vmat" },
                             { from = "campus_floor_grating" to = "materials/trento/povo/campus/floor_grating.vmat" },
                             { from = "campus_floor_terrace" to = "materials/trento/povo/campus/floor_terrace.vmat" },
+                            { from = "campus_office_frost" to = "materials/trento/povo/campus/office_frost.vmat" },
 							{
 								from = "terrain_reference"
 								to = "materials/trento/povo/terrain_reference.vmat"

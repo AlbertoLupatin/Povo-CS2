@@ -75,6 +75,9 @@ def door_selection(levels, stair, *, automatic_entrances=False):
     if not automatic_entrances:pair('p1_main',(x,y,z),2.2,2.15,'entrance')
     for d in doors:
         if d['kind']=='entrance':d['material']=PREFIX+'exterior/entry_glass.vmat'
+    for level in levels:
+        if level.get('connection'):
+            doors.extend(copy.deepcopy(level['connection']['povo2'].get('repair_doors',[])))
     return doors
 
 
@@ -84,6 +87,7 @@ def extract_static_leaves(boxes, levels, stair, *, automatic_entrances=False):
     doors=door_selection(levels,stair,automatic_entrances=automatic_entrances)
     for box in boxes:
         name,lo,hi,mat=box
+        if '_interactive_leaf_' in name:continue
         if re.match(r'^stair_(?:(?:sw|ne|nw)_)?door_\d+_1_(?:leaf|pushbar)(?:_upper_segment)?$',name):
             continue
         # The newer Povo 2 stair portals have their own fixed-open pair names.
@@ -165,6 +169,7 @@ def insert_entities(source, spec):
         props=[('targetname',door['id']),('speed','120' if sliding else '100'),
                ('spawnpos','1'),('spawnflags','1280'),('wait','4' if sliding else '-1'),
                ('dmg','0'),('forceclosed','0'),('noise1','Povo.Door.Move'),('noise2','Povo.Door.Stop')]
+        if door['kind']=='glass':props.extend((('health','1'),('material','0')))
         parts=[(lo,hi,mat)]
         if sliding:
             props.extend((('movedir',door['direction']),('lip','-2'),('CreateNavObstacle','1')))

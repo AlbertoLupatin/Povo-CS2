@@ -12,8 +12,9 @@ the `trento_povo` addon, built from open geographic data and original photograph
 outdoor arena, built from the same source).
 
 - **Povo 1:** three floors: -1 entrance/A1xx at provisional 4 m, 0 A2xx at 7.6 m, +1 offices and bridge at 11.2 m. Four red stair cores connect the floors; one Acquario study room replaces four synthetic cells, with reception, courtyard, sanitary spaces and source-plan room labels retained.
-- **Bridge** joins Povo 1 +1 and Povo 2 +1 at 11.2 m. The active compact Povo 2 plan retains entrance/table halls, B110–B114 rooms, two successive upper stair rises and basement parking. Its full photographed floor plans remain a separate survey, not a complete active reconstruction.
+- **Bridge** joins Povo 1 +1 and Povo 2 +1 at 11.2 m. The active Povo 2 plan retains entrance/table halls, B110–B114 rooms, two successive upper stair rises and basement parking. The −1 West Offices now add 22 plan-traced rooms and four internal passages with photo-guided finishes; see the [integration details](docs/POVO2_WEST_OFFICES_20261029.md). The remaining full photographed floor plans are a separate survey.
 - **Exterior:** roads, surface lot, residential backdrop, straight ramp into the covered garage, terrain from real 0.5 m elevation data.
+- **Map edges (source pass):** aerial-traced FBK buildings, photo-guided frontage, north roundabout, outer roads and greenery; [29 October review](docs/POVO_EDGES_20261029.md). Native compilation remains pending for this addition.
 - **Gameplay:** team starts, buy zones, bomb target, generated navigation and a radar with separate floors.
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
 - **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.

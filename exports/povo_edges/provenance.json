@@ -1,0 +1,765 @@
+{
+  "config": {
+    "enabled": true,
+    "origin": [
+      666250,
+      5103800,
+      370
+    ],
+    "crs": "EPSG:25832",
+    "status": "First scenery pass, 29 October 2026; aerial-traced XY, estimated heights and adapted grades",
+    "aerial": "data/reference/povo_ortho_2024.png",
+    "aerial_manifest": "data/reference/povo_ortho_2024.json",
+    "photo_directory": "data/reference/povo_photos/walk_2026_10_29/Images",
+    "photos": [
+      {
+        "file": "WhatsApp Image 2026-10-29 at 2.16.20 PM (2).jpeg",
+        "evidence": "Campus road and bridge looking west; existing campus frontage"
+      },
+      {
+        "file": "WhatsApp Image 2026-10-29 at 2.16.20 PM (3).jpeg",
+        "evidence": "View south from junction: low white FBK frontage, narrow blue vertical fence, stone plinth, crossing and lamps"
+      },
+      {
+        "file": "WhatsApp Image 2026-10-29 at 2.16.20 PM (4).jpeg",
+        "evidence": "View north from junction: silver FBK building, projecting rounded roof edge, blue glazing, high hedge over stone wall"
+      }
+    ],
+    "roads": [
+      {
+        "id": "north_roundabout_approach",
+        "width": 7,
+        "points": [
+          [
+            62,
+            120,
+            4
+          ],
+          [
+            64,
+            133,
+            4
+          ],
+          [
+            72,
+            139,
+            4
+          ]
+        ]
+      },
+      {
+        "id": "north_village",
+        "width": 6,
+        "points": [
+          [
+            76,
+            161,
+            4
+          ],
+          [
+            70,
+            178,
+            6
+          ],
+          [
+            64,
+            200,
+            8
+          ]
+        ]
+      },
+      {
+        "id": "northeast_branch",
+        "width": 6,
+        "points": [
+          [
+            94,
+            145,
+            4
+          ],
+          [
+            110,
+            128,
+            5
+          ],
+          [
+            151,
+            94,
+            7
+          ],
+          [
+            192,
+            52,
+            8
+          ],
+          [
+            238,
+            7,
+            9
+          ]
+        ]
+      },
+      {
+        "id": "south_sommarive",
+        "width": 7,
+        "points": [
+          [
+            62,
+            -116,
+            7.6
+          ],
+          [
+            65,
+            -133,
+            7.6
+          ],
+          [
+            61,
+            -175,
+            7
+          ],
+          [
+            65,
+            -225,
+            6
+          ],
+          [
+            68,
+            -275,
+            5
+          ]
+        ]
+      },
+      {
+        "id": "fbk_service_lane",
+        "width": 5,
+        "points": [
+          [
+            69,
+            -120,
+            7.6
+          ],
+          [
+            117,
+            -121,
+            8
+          ],
+          [
+            171,
+            -122,
+            8
+          ],
+          [
+            226,
+            -114,
+            8
+          ]
+        ]
+      },
+      {
+        "id": "west_lane",
+        "width": 5,
+        "points": [
+          [
+            -48,
+            -101,
+            3
+          ],
+          [
+            -55,
+            -119,
+            3
+          ],
+          [
+            -105,
+            -126,
+            2
+          ],
+          [
+            -156,
+            -150,
+            0
+          ],
+          [
+            -205,
+            -178,
+            -2
+          ]
+        ]
+      },
+      {
+        "id": "bridge_road_west",
+        "width": 6,
+        "footway_width": 1.4,
+        "points": [
+          [
+            -23,
+            -5,
+            3
+          ],
+          [
+            -240,
+            -5,
+            3
+          ]
+        ],
+        "evidence": "User correction: road beneath the bridge continues straight west to the outer scenery edge; existing parking-access bend remains a branch.",
+        "clear_vegetation": true
+      }
+    ],
+    "roundabout": {
+      "centre": [
+        81,
+        149,
+        4
+      ],
+      "outer_radius": 13,
+      "inner_radius": 6.3
+    },
+    "buildings": [
+      {
+        "id": "fbk_north",
+        "footprint": [
+          [
+            101,
+            -8
+          ],
+          [
+            157,
+            -8
+          ],
+          [
+            154,
+            53
+          ],
+          [
+            121,
+            75
+          ],
+          [
+            108,
+            79
+          ],
+          [
+            101,
+            65
+          ]
+        ],
+        "base_z": 5,
+        "height": 15,
+        "style": "silver",
+        "evidence": "2024 aerial north polygon; today's north-facing photo for silver cladding, glazing and roof eave"
+      },
+      {
+        "id": "fbk_south_west",
+        "footprint": [
+          [
+            110,
+            -104
+          ],
+          [
+            152,
+            -104
+          ],
+          [
+            157,
+            -29
+          ],
+          [
+            115,
+            -23
+          ]
+        ],
+        "base_z": 8,
+        "height": 11,
+        "style": "white",
+        "evidence": "Aerial roof outline; today's south-facing photo for pale panel facade and horizontal windows"
+      },
+      {
+        "id": "fbk_south_east",
+        "footprint": [
+          [
+            173,
+            -104
+          ],
+          [
+            211,
+            -104
+          ],
+          [
+            211,
+            -41
+          ],
+          [
+            173,
+            -40
+          ]
+        ],
+        "base_z": 8,
+        "height": 10,
+        "style": "white",
+        "evidence": "Aerial roof outline; facade rhythm estimated"
+      },
+      {
+        "id": "fbk_south_link",
+        "footprint": [
+          [
+            152,
+            -76
+          ],
+          [
+            173,
+            -76
+          ],
+          [
+            173,
+            -60
+          ],
+          [
+            155,
+            -60
+          ]
+        ],
+        "base_z": 8,
+        "height": 7,
+        "style": "white",
+        "evidence": "Aerial connecting wing; height estimated"
+      },
+      {
+        "id": "fbk_far_south_north",
+        "footprint": [
+          [
+            85,
+            -166
+          ],
+          [
+            159,
+            -166
+          ],
+          [
+            159,
+            -132
+          ],
+          [
+            85,
+            -132
+          ]
+        ],
+        "base_z": 8,
+        "height": 10,
+        "style": "white",
+        "evidence": "Aerial southern complex north wing"
+      },
+      {
+        "id": "fbk_far_south_west",
+        "footprint": [
+          [
+            85,
+            -224
+          ],
+          [
+            102,
+            -224
+          ],
+          [
+            102,
+            -171
+          ],
+          [
+            85,
+            -171
+          ]
+        ],
+        "base_z": 8,
+        "height": 9,
+        "style": "white",
+        "evidence": "Aerial southern complex west wing"
+      },
+      {
+        "id": "fbk_far_south_south",
+        "footprint": [
+          [
+            102,
+            -231
+          ],
+          [
+            194,
+            -231
+          ],
+          [
+            194,
+            -212
+          ],
+          [
+            102,
+            -212
+          ]
+        ],
+        "base_z": 8,
+        "height": 9,
+        "style": "white",
+        "evidence": "Aerial southern complex south wing"
+      },
+      {
+        "id": "fbk_far_south_east",
+        "footprint": [
+          [
+            169,
+            -210
+          ],
+          [
+            195,
+            -210
+          ],
+          [
+            195,
+            -141
+          ],
+          [
+            169,
+            -141
+          ]
+        ],
+        "base_z": 8,
+        "height": 9,
+        "style": "white",
+        "evidence": "Aerial southern complex east wing"
+      }
+    ],
+    "landscape": [
+      {
+        "id": "east_fbk_south_grounds",
+        "footprint": [
+          [
+            79,
+            -275
+          ],
+          [
+            245,
+            -275
+          ],
+          [
+            245,
+            -11
+          ],
+          [
+            79,
+            -11
+          ]
+        ],
+        "z": 8
+      },
+      {
+        "id": "east_fbk_north_grounds",
+        "footprint": [
+          [
+            79,
+            -10
+          ],
+          [
+            245,
+            -10
+          ],
+          [
+            245,
+            90
+          ],
+          [
+            145,
+            110
+          ],
+          [
+            79,
+            125
+          ]
+        ],
+        "z": 5
+      },
+      {
+        "id": "north_gardens",
+        "footprint": [
+          [
+            -85,
+            124
+          ],
+          [
+            60,
+            124
+          ],
+          [
+            60,
+            200
+          ],
+          [
+            -85,
+            200
+          ]
+        ],
+        "z": 2.9
+      },
+      {
+        "id": "west_meadow",
+        "footprint": [
+          [
+            -240,
+            -165
+          ],
+          [
+            -91,
+            -165
+          ],
+          [
+            -91,
+            124
+          ],
+          [
+            -85,
+            124
+          ],
+          [
+            -85,
+            200
+          ],
+          [
+            -240,
+            200
+          ]
+        ],
+        "z": 2.9
+      },
+      {
+        "id": "south_garden",
+        "footprint": [
+          [
+            -90,
+            -275
+          ],
+          [
+            57,
+            -275
+          ],
+          [
+            57,
+            -117
+          ],
+          [
+            -90,
+            -117
+          ]
+        ],
+        "z": 2.9
+      },
+      {
+        "id": "village_grounds",
+        "footprint": [
+          [
+            79,
+            125
+          ],
+          [
+            245,
+            125
+          ],
+          [
+            245,
+            200
+          ],
+          [
+            79,
+            200
+          ]
+        ],
+        "z": 4
+      }
+    ],
+    "hedge": {
+      "points": [
+        [
+          77,
+          18,
+          4
+        ],
+        [
+          79,
+          65,
+          4
+        ],
+        [
+          87,
+          99,
+          4
+        ],
+        [
+          99,
+          119,
+          4
+        ]
+      ],
+      "height": 4.2,
+      "width": 2.5
+    },
+    "blue_fence": {
+      "points": [
+        [
+          76,
+          -113,
+          7.6
+        ],
+        [
+          76,
+          -28,
+          7.6
+        ],
+        [
+          78,
+          -12,
+          5.8
+        ]
+      ],
+      "height": 1.8
+    },
+    "village_houses": [
+      [
+        104,
+        170,
+        11
+      ],
+      [
+        136,
+        174,
+        10
+      ],
+      [
+        173,
+        164,
+        12
+      ],
+      [
+        111,
+        196,
+        10
+      ],
+      [
+        174,
+        194,
+        11
+      ],
+      [
+        209,
+        145,
+        12
+      ]
+    ],
+    "tree_rows": [
+      {
+        "start": [
+          -105,
+          -105
+        ],
+        "end": [
+          -103,
+          110
+        ],
+        "count": 18,
+        "z": 3,
+        "height": 9
+      },
+      {
+        "start": [
+          -140,
+          100
+        ],
+        "end": [
+          -70,
+          182
+        ],
+        "count": 12,
+        "z": 3,
+        "height": 11
+      },
+      {
+        "start": [
+          89,
+          -111
+        ],
+        "end": [
+          89,
+          -25
+        ],
+        "count": 8,
+        "z": 8,
+        "height": 8
+      },
+      {
+        "start": [
+          -72,
+          -140
+        ],
+        "end": [
+          40,
+          -142
+        ],
+        "count": 10,
+        "z": 3,
+        "height": 10
+      },
+      {
+        "start": [
+          213,
+          -225
+        ],
+        "end": [
+          226,
+          31
+        ],
+        "count": 18,
+        "z": 4,
+        "height": 9
+      }
+    ],
+    "assumptions": [
+      "Footprints manually traced in local metres from the existing 0.5 m/pixel municipal 2024 aerial; roof displacement and registration error remain.",
+      "Heights, facade bays, roofs, retaining-wall heights, trees and all outer ground levels are estimates. No GPS or DEM heights are inferred from these photos.",
+      "Road ends match the accepted adapted campus coordinates. The road network beyond them is scenery and has no collision or navigation.",
+      "Existing campus boundary fence and playable routes remain in place; no FBK interiors are introduced.",
+      "Photo filenames are delivery timestamps, not verified camera capture times. User identifies these as today's walk."
+    ]
+  },
+  "photos": [
+    {
+      "file": "WhatsApp Image 2026-10-29 at 2.16.20 PM (2).jpeg",
+      "evidence": "Campus road and bridge looking west; existing campus frontage",
+      "path": "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (2).jpeg",
+      "sha256": "106fa7055c3ffa21e9d4fbf37a1f7804b438ff99011b16bc4c649ba7b645e72b"
+    },
+    {
+      "file": "WhatsApp Image 2026-10-29 at 2.16.20 PM (3).jpeg",
+      "evidence": "View south from junction: low white FBK frontage, narrow blue vertical fence, stone plinth, crossing and lamps",
+      "path": "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (3).jpeg",
+      "sha256": "70abe7de9ab4f9b0d1825d8ace26ba1ff795fac387f473b070dc82e83c24a27d"
+    },
+    {
+      "file": "WhatsApp Image 2026-10-29 at 2.16.20 PM (4).jpeg",
+      "evidence": "View north from junction: silver FBK building, projecting rounded roof edge, blue glazing, high hedge over stone wall",
+      "path": "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (4).jpeg",
+      "sha256": "7786a47b6d922dfe11c254b976076123335adc92ace0a3c1e014776d40a8f3bc"
+    }
+  ],
+  "input_hashes": {
+    "config/povo_edges.json": "9744b5b46bd0c554d62b603039b789c7098cce035a80563d0d8efb4fa96249d0",
+    "tools/povo_edges.py": "d5220e458f97c5c2bc573859334773e3962737f648581d1f1fa970d092b02834",
+    "tools/povo_exterior_materials.py": "911bf8adadec4a76354ad37a07c1bfd7a7e30e832223e91f265c3792f864e3a7",
+    "data/reference/povo_ortho_2024.png": "aa3217e94d2039a6657d530431986d1bbe6f22b1c985bc453a85d0d978f7d82b",
+    "data/reference/povo_ortho_2024.json": "1e60557848c2791d33ed46fcb6b94aec2299cdc9121cec6419e0b6fafcb6e757",
+    "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (2).jpeg": "106fa7055c3ffa21e9d4fbf37a1f7804b438ff99011b16bc4c649ba7b645e72b",
+    "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (3).jpeg": "70abe7de9ab4f9b0d1825d8ace26ba1ff795fac387f473b070dc82e83c24a27d",
+    "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (4).jpeg": "7786a47b6d922dfe11c254b976076123335adc92ace0a3c1e014776d40a8f3bc"
+  },
+  "visual_meshes": 1156,
+  "collision_meshes": 0,
+  "status": "First scenery pass, 29 October 2026; aerial-traced XY, estimated heights and adapted grades",
+  "artifacts": {
+    "povo_edges.mtl": "0090f7372f3aab45beaf2b86388ca8bb372996d478641bdedf8c46e821e63576",
+    "povo_edges.obj": "43d0bf90ad713ae1b39636d9c533f1c9549d8499405e9d6a61b307746ad0c4c0"
+  }
+}

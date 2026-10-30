@@ -1,0 +1,827 @@
+{
+  "interior": {
+    "status": "passed",
+    "levels": [
+      {
+        "id": "p2_parking",
+        "status": "passed",
+        "floor_elevation_local": -3.2,
+        "standing_width_metres": 0.82,
+        "standing_height_metres": 1.85,
+        "cell_metres": 0.1,
+        "grid_dimensions": [
+          805,
+          384
+        ],
+        "grid_bounds_local": [
+          -25.0,
+          -12.5,
+          55.5,
+          25.89
+        ],
+        "walkable_cells": 106857,
+        "reachable_cells": 106445,
+        "stations": [
+          {
+            "id": "aisle_west",
+            "point_local_metres": [
+              9.0,
+              2.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aisle_east",
+            "point_local_metres": [
+              -23.0,
+              2.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aisle_centre",
+            "point_local_metres": [
+              -8.0,
+              2.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "north_east_bays",
+            "point_local_metres": [
+              -19.0,
+              16.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "north_west_bays",
+            "point_local_metres": [
+              6.0,
+              16.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "core_landing",
+            "point_local_metres": [
+              19.2,
+              22
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "core_door",
+            "point_local_metres": [
+              18.2,
+              17
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "vestibule",
+            "point_local_metres": [
+              18.2,
+              16.05
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "parking_branch",
+            "point_local_metres": [
+              12,
+              16.05
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "office_branch",
+            "point_local_metres": [
+              22.5,
+              22.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "garden_door",
+            "point_local_metres": [
+              34,
+              13.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "junction",
+            "point_local_metres": [
+              22.5,
+              16.05
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          }
+        ],
+        "vertical_traversal": "not checked; stair flights are absent"
+      },
+      {
+        "id": "p2_basement",
+        "status": "passed",
+        "floor_elevation_local": 0.4,
+        "standing_width_metres": 0.82,
+        "standing_height_metres": 1.85,
+        "cell_metres": 0.1,
+        "grid_dimensions": [
+          618,
+          625
+        ],
+        "grid_bounds_local": [
+          -23.74285714285714,
+          2.0,
+          38,
+          64.5
+        ],
+        "walkable_cells": 82304,
+        "reachable_cells": 70928,
+        "stations": [
+          {
+            "id": "stair_approach",
+            "point_local_metres": [
+              19.2,
+              17.2
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "corridor_mid",
+            "point_local_metres": [
+              14.2,
+              16.25
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "corridor_south",
+            "point_local_metres": [
+              25.2,
+              16.25
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "right_turn_from_stairs",
+            "point_local_metres": [
+              -3.8,
+              19.076923076923077
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "cross_corridor",
+            "point_local_metres": [
+              -3.05,
+              26.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "cross_corridor_end",
+            "point_local_metres": [
+              -3.8,
+              62.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "core_door",
+            "point_local_metres": [
+              19.2,
+              17.2
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "core_landing",
+            "point_local_metres": [
+              19.2,
+              22
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "former_lift_floor",
+            "point_local_metres": [
+              23,
+              15.95
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "cibio_office_0_door",
+            "point_local_metres": [
+              -5.3,
+              25.0
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "cibio_office_0_inside",
+            "point_local_metres": [
+              -6.5,
+              22.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "cibio_office_1_door",
+            "point_local_metres": [
+              -5.3,
+              63.0
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "cibio_office_1_inside",
+            "point_local_metres": [
+              -6.5,
+              60.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "cibio_entry",
+            "point_local_metres": [
+              -3.8,
+              19.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "cibio_end",
+            "point_local_metres": [
+              -3.8,
+              62.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "exit_stair_approach",
+            "point_local_metres": [
+              34.5,
+              12.25
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "narrow_gap_south",
+            "point_local_metres": [
+              -3.05,
+              27.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "narrow_gap_mid",
+            "point_local_metres": [
+              -3.05,
+              41.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "narrow_gap_north",
+            "point_local_metres": [
+              -3.05,
+              55.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "lower_exit_junction",
+            "point_local_metres": [
+              34.5,
+              17.15
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          }
+        ],
+        "vertical_traversal": "not checked; stair flights are absent"
+      },
+      {
+        "id": "p2_ground",
+        "status": "passed",
+        "floor_elevation_local": 4.0,
+        "standing_width_metres": 0.82,
+        "standing_height_metres": 1.85,
+        "cell_metres": 0.1,
+        "grid_dimensions": [
+          545,
+          930
+        ],
+        "grid_bounds_local": [
+          2,
+          0.5,
+          56.5,
+          93.5
+        ],
+        "walkable_cells": 117592,
+        "reachable_cells": 114002,
+        "stations": [
+          {
+            "id": "entrance",
+            "point_local_metres": [
+              33.5,
+              31.35
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "reception_front",
+            "point_local_metres": [
+              22.0,
+              32.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "left_corridor",
+            "point_local_metres": [
+              24,
+              25.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "stair_approach",
+            "point_local_metres": [
+              21.8,
+              22
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "tables_front",
+            "point_local_metres": [
+              24.5,
+              36.7
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "tables_back",
+            "point_local_metres": [
+              24.5,
+              70.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b111_door",
+            "point_local_metres": [
+              20.5,
+              39.0
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b112_door",
+            "point_local_metres": [
+              20.5,
+              48.0
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b113_door",
+            "point_local_metres": [
+              20.5,
+              57.0
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b114_door",
+            "point_local_metres": [
+              20.5,
+              66.0
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b111_teaching",
+            "point_local_metres": [
+              16.5,
+              37.05
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b111_aisle_0",
+            "point_local_metres": [
+              19.85,
+              43.75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b111_aisle_1",
+            "point_local_metres": [
+              13.149999999999999,
+              43.75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b112_teaching",
+            "point_local_metres": [
+              16.5,
+              46.05
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b112_aisle_0",
+            "point_local_metres": [
+              19.85,
+              52.75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b112_aisle_1",
+            "point_local_metres": [
+              13.149999999999999,
+              52.75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b113_teaching",
+            "point_local_metres": [
+              16.5,
+              55.05
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b113_aisle_0",
+            "point_local_metres": [
+              19.85,
+              61.75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b113_aisle_1",
+            "point_local_metres": [
+              13.149999999999999,
+              61.75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b114_teaching",
+            "point_local_metres": [
+              16.5,
+              64.05
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b114_aisle_0",
+            "point_local_metres": [
+              19.85,
+              70.75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b114_aisle_1",
+            "point_local_metres": [
+              13.149999999999999,
+              70.75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "core_door",
+            "point_local_metres": [
+              21.8,
+              22
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "core_landing",
+            "point_local_metres": [
+              19.2,
+              22
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "former_lift_ledge",
+            "point_local_metres": [
+              21.85,
+              15.95
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "entrance_second_bank",
+            "point_local_metres": [
+              33.5,
+              35.65
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "left_extension_entry",
+            "point_local_metres": [
+              24,
+              28.8
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "left_extension_junction",
+            "point_local_metres": [
+              24,
+              9.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "left_extension_pc_branch",
+            "point_local_metres": [
+              29.5,
+              9.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "left_extension_end",
+            "point_local_metres": [
+              3,
+              9.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "reception_stair_door",
+            "point_local_metres": [
+              21.8,
+              22
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b106_door",
+            "point_local_metres": [
+              29.5,
+              8
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b106_aisle_0",
+            "point_local_metres": [
+              20.65,
+              1.25
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b106_aisle_1",
+            "point_local_metres": [
+              30.35,
+              1.25
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b108_door",
+            "point_local_metres": [
+              18.5,
+              8
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b108_aisle_0",
+            "point_local_metres": [
+              10.65,
+              1.25
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b108_aisle_1",
+            "point_local_metres": [
+              19.35,
+              1.25
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b109_door",
+            "point_local_metres": [
+              9,
+              8
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b109_aisle_0",
+            "point_local_metres": [
+              2.65,
+              1.25
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "b109_aisle_1",
+            "point_local_metres": [
+              9.350000000000001,
+              1.25
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_lobby",
+            "point_local_metres": [
+              25,
+              75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_entry",
+            "point_local_metres": [
+              35.5,
+              74.75
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_rear",
+            "point_local_metres": [
+              55.0,
+              82.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_centre_aisle_0",
+            "point_local_metres": [
+              39.3,
+              82.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_centre_aisle_1",
+            "point_local_metres": [
+              41.4,
+              82.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_centre_aisle_2",
+            "point_local_metres": [
+              43.5,
+              82.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_centre_aisle_3",
+            "point_local_metres": [
+              45.599999999999994,
+              82.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_centre_aisle_4",
+            "point_local_metres": [
+              47.699999999999996,
+              82.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_centre_aisle_5",
+            "point_local_metres": [
+              49.8,
+              82.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          },
+          {
+            "id": "aula_centre_aisle_6",
+            "point_local_metres": [
+              51.9,
+              82.5
+            ],
+            "has_clearance": true,
+            "reachable_from_entrance": true
+          }
+        ],
+        "vertical_traversal": "not checked; stair flights are absent"
+      }
+    ],
+    "stair_samples": 3258,
+    "stair_failures": [],
+    "limitations": "Source geometry only; engine walking is checked separately."
+  },
+  "gardens": {
+    "status": "passed",
+    "yard": {
+      "status": "passed",
+      "stations": []
+    },
+    "stair_and_landing_samples": 1961,
+    "failures": [],
+    "limitations": "Source support/headroom checks; provisional metric dimensions; native engine traversal separate."
+  }
+}

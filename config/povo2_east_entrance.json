@@ -1,0 +1,315 @@
+{
+  "status": "Povo 2 -1 eastern (terrace) entrance to the W offices, retraced from photo 46. Built by tools/povo2_playtest_repairs.py.",
+  "source_photo": "exports/povo2_survey/full_46.jpg",
+  "photo_crop": {
+    "box": [
+      2285,
+      2652,
+      3427,
+      4325
+    ],
+    "rotation": "ROTATE_270 (north up)",
+    "panel": [
+      850,
+      380,
+      1673,
+      1080
+    ],
+    "note": "Pixel evidence below is in the rotated crop."
+  },
+  "registration": {
+    "fixed": "Stair core [11, 18, 20.5, 26] (shared with floors 0 and -2), W office rooms and WI1 from exports/povo2_west_offices_20261029/layout.json, C7 core bypass [9.5, 15.23, 20.5, 18].",
+    "x_metres_per_pixel": 0.0402,
+    "x_anchor": "office east facade: pixel 1200 = east 20.5",
+    "y_anchor": "office south facade: pixel 990 = north 2.0; WI1 pixels 825-870 = north 10.43-8.09"
+  },
+  "areas": [
+    {
+      "id": "c5",
+      "kind": "corridor",
+      "bounds": [
+        20.5,
+        2.0,
+        23.1,
+        18.0
+      ],
+      "evidence": "Photo pixels x 1200-1265, y 597-1000: a narrow corridor along the offices' east facade, from the facade-line terrace exit to C7. About 2.6 m clear."
+    },
+    {
+      "id": "c7_east",
+      "kind": "corridor",
+      "bounds": [
+        23.1,
+        15.23,
+        33.25,
+        18.0
+      ],
+      "evidence": "C7 continues just past C5 (pixels x 1265-1300) to a door. Beyond it the corridor keeps C7's width east to the exit corridor, as the 29 Oct markup requires (connect the lower stair corridor to the exit corridor)."
+    },
+    {
+      "id": "restricted_north",
+      "kind": "restricted",
+      "bounds": [
+        20.5,
+        18.0,
+        24.3,
+        26.0
+      ],
+      "evidence": "Passage beside the core's east side (pixels x 1210-1295, y 420-597), continuing north toward the labs. Beyond the closed door; not playable."
+    },
+    {
+      "id": "e1",
+      "kind": "closed_room",
+      "bounds": [
+        23.1,
+        12.8,
+        29.7,
+        15.23
+      ],
+      "evidence": "Room east of C5, pixels x 1270-1430, y 597-770. Its north part gives way to the C7 exit link."
+    },
+    {
+      "id": "e2",
+      "kind": "closed_room",
+      "bounds": [
+        23.1,
+        2.0,
+        29.7,
+        12.8
+      ],
+      "evidence": "Room east of C5, pixels x 1270-1430, y 773-997. Its south wall is the same facade line as the W offices."
+    },
+    {
+      "id": "terrace_south_run",
+      "kind": "terrace",
+      "bounds": [
+        8.5,
+        0.29,
+        31.8,
+        2.0
+      ],
+      "evidence": "Approved terrace plan (docs/POVO2_MINUS1_TERRACE_20261029.md): south run -25.45...31.8 x 0.29...2.0, clipped to this view."
+    },
+    {
+      "id": "terrace_stair_to_garden",
+      "kind": "stair",
+      "bounds": [
+        31.8,
+        0.29,
+        42.3,
+        2.0
+      ],
+      "evidence": "Approved terrace plan: south metal stair, descending east to Garden -2. Photo hatching at pixels x 1420-1673, y 1020-1055."
+    },
+    {
+      "id": "terrace_link",
+      "kind": "provisional_terrace",
+      "bounds": [
+        [
+          29.95,
+          2.0,
+          31.8,
+          11.25
+        ],
+        [
+          31.8,
+          5.213076923,
+          33.25,
+          11.25
+        ]
+      ],
+      "evidence": "Not on photo 46. Keeps the route from the existing UP-stair landing to the terrace, outside E2 and west of the UP stair. Passes under the B106 overhang."
+    }
+  ],
+  "openings": [
+    {
+      "id": "c5_terrace",
+      "kind": "glass_door_pair",
+      "line": [
+        [
+          20.95,
+          2.0
+        ],
+        [
+          22.75,
+          2.0
+        ]
+      ],
+      "evidence": "Emergency-exit star at pixels (1220, 1000), on the facade line at C5's south end."
+    },
+    {
+      "id": "wi1_public",
+      "kind": "glass_door_pair",
+      "line": [
+        [
+          20.5,
+          8.310619977
+        ],
+        [
+          20.5,
+          10.210619977
+        ]
+      ],
+      "evidence": "WI1's east end door into C5, pixels (1170-1200, 825-870)."
+    },
+    {
+      "id": "c7_open",
+      "kind": "open",
+      "line": [
+        [
+          20.5,
+          15.23
+        ],
+        [
+          20.5,
+          18.0
+        ]
+      ],
+      "evidence": "C7 meets C5 full width with no door; the core's south face is flush with C7's north wall."
+    },
+    {
+      "id": "c7_exit",
+      "kind": "door_pair",
+      "line": [
+        [
+          24.5,
+          15.85
+        ],
+        [
+          24.5,
+          17.75
+        ]
+      ],
+      "evidence": "Door swing at the east end of C7's bay, pixels (1290-1300, 633-660). Usable: it leads on to the exit corridor."
+    },
+    {
+      "id": "c5_north_closed",
+      "kind": "closed_door",
+      "line": [
+        [
+          20.975,
+          18.0
+        ],
+        [
+          22.625,
+          18.0
+        ]
+      ],
+      "evidence": "User walkthrough: closed door straight ahead after C7. Placed at the core's south-face line, the north end of the C7 junction. Permanently shut, like the two 29 Oct junction doors."
+    },
+    {
+      "id": "e2_closed",
+      "kind": "closed_door",
+      "line": [
+        [
+          23.1,
+          8.6
+        ],
+        [
+          23.1,
+          9.6
+        ]
+      ],
+      "evidence": "Door swing on C5's east wall opposite WI1, pixels (1243-1265, 827-857)."
+    },
+    {
+      "id": "core_stair_door",
+      "kind": "existing_door",
+      "line": [
+        [
+          18.6,
+          18.0
+        ],
+        [
+          19.8,
+          18.0
+        ]
+      ],
+      "evidence": "Installed stair door at (19.2, 18.0), retained."
+    }
+  ],
+  "walk_order": [
+    "terrace door at the south facade",
+    "WI1 (wooden W spine) on the left",
+    "C7 (main W corridor) on the left",
+    "closed door straight ahead"
+  ],
+  "existing_context": {
+    "up_stair_to_street": [
+      33.25,
+      2.75,
+      35.75,
+      8.75
+    ],
+    "garden_landing": [
+      33.25,
+      8.75,
+      38.0,
+      11.25
+    ],
+    "garden_exit_door": [
+      [
+        33.25,
+        11.25
+      ],
+      [
+        35.75,
+        11.25
+      ]
+    ],
+    "exit_corridor": [
+      33.25,
+      11.25,
+      35.75,
+      25.38
+    ]
+  },
+  "codex_current": {
+    "c5": [
+      20.5,
+      6.92,
+      25.5,
+      26.0
+    ],
+    "exit_arm": [
+      25.5,
+      21.69,
+      35.75,
+      25.38
+    ],
+    "arrival_terrace": [
+      [
+        20.5,
+        5.21,
+        33.25,
+        6.92
+      ],
+      [
+        31.54,
+        6.92,
+        33.25,
+        11.25
+      ]
+    ],
+    "c7_public_door": [
+      [
+        20.5,
+        15.57
+      ],
+      [
+        20.5,
+        17.67
+      ]
+    ],
+    "closed_door": [
+      [
+        21.85,
+        26.0
+      ],
+      [
+        24.15,
+        26.0
+      ]
+    ]
+  }
+}
