@@ -1,0 +1,7 @@
+{
+  "package": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "fresh_launch_copy": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\maps\\trento_povo_campus.vpk",
+  "sha256": "6597f4214197eaa05f864a1f6af99708ebde5096b0b604817c3a4edc288c260a",
+  "launch_log": "build/registration-game-launch.log",
+  "launch": "Fresh process from tools/play_povo_campus.ps1 after verified build; one human/zero bots checked by playtest"
+}

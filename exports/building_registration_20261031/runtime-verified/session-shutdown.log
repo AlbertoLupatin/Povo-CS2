@@ -1,0 +1,87 @@
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.025 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.4/14194 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    07:27    0    0     active 786432 'albylupatin2000'
+#end
+
+CHostStateMgr::QueueNewRequest( Quitting, 3 )
+HostStateRequest::Start(HSR_QUIT)
+Disconnecting from server: NETWORK_DISCONNECT_EXITING
+Closing Steam Net Connection on socket 'client' to loopback:1, handle #4227124004 (1059 NETWORK_DISCONNECT_EXITING)
+CloseSteamNetConnection handle #4227124004 (userdata 1)
+Disassociating NetChan server @  (unknown) from Steam Net Connection handle #4227124004 (userdata 1)
+[#4227124004 pipe 'server'] closed by app, linger requested but not needed (1059) NETWORK_DISCONNECT_EXITING
+[#1332521038 pipe 'albylupatin2000'] closed by peer (1059): NETWORK_DISCONNECT_EXITING
+Removing Steam Net Connection for loopback:1, handle #4227124004
+Closing 'client' poll group
+SV:  Server shutting down: NETWORK_DISCONNECT_EXITING (59)
+CNetworkGameServerBase::SetServerState (ss_active -> ss_dead)
+Disconnect client 'albylupatin2000' from server: NETWORK_DISCONNECT_SHUTDOWN (Server shutdown)
+Client 0 'albylupatin2000' signon state SIGNONSTATE_FULL -> SIGNONSTATE_NONE
+Closing Steam Net Connection on socket 'server' to loopback:0, handle #1332521038 (1001 NETWORK_DISCONNECT_SHUTDOWN)
+CloseSteamNetConnection handle #1332521038 (userdata 0)
+Disassociating NetChan albylupatin2 @  (unknown) from Steam Net Connection handle #1332521038 (userdata 0)
+Removing Steam Net Connection for loopback:0, handle #1332521038
+CPlayerVoiceListener::PostSpawnGroupUnload()
+CPlayerVoiceListener::PostSpawnGroupUnload()
+CPlayerVoiceListener::PostSpawnGroupUnload()
+CPlayerVoiceListener::PostSpawnGroupUnload()
+CSteam3ServerS1::ShutdownGameServer
+CNetworkSystem::ShutdownGameServer
+Closing 'server' UDP listen socket
+Closing 'server' P2P listen socket
+Closing 'server' poll group
+CSource2Server::GameServerSteamAPIDeactivated()
+CL:  IGameSystem::LoopDeactivateAllSystems {
+Annotation: Cleared 0 annotations
+CL:  } IGameSystem::LoopDeactivateAllSystems done
+CL: CNetworkStringTableContainer::RemoveAllTables:  removing 12 tables
+SV:  IGameSystem::LoopDeactivateAllSystems {
+HO:  IGameSystem::LoopDeactivateAllSystems {
+HO:  } IGameSystem::LoopDeactivateAllSystems done
+SV:  } IGameSystem::LoopDeactivateAllSystems done
+SV: CNetworkStringTableContainer::RemoveAllTables:  removing 12 tables
+CSparseShadowTreeGameSystem::GameShutdown
+CL:  CGameRulesGameSystem::GameShutdown uninstalled game rules
+CL:  CGameRules::CGameRules destructed
+WriteSteamRemoteStorageFileAsync( "voice_ban.dt" ) -> at 475.841
+ClientModeCSNormal::OnEvent  OnEngineDisconnectReason {
+    reason Server Shutting Down
+  }
+CPlayerVoiceListener::GameShutdown()
+SV:  CGameRulesGameSystem::GameShutdown uninstalled game rules
+SV:  CGameRules::CGameRules destructed
+Host activate: Quitting
+Dispatching EventAppShutdown_t {
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_convars.vcfg' to SteamRemoteStorage, 3298 bytes OK
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_convars_0_slot0.vcfg_lastclouded': type 3
+Saved 'cs2_user_keys.vcfg' to SteamRemoteStorage, 13 bytes OK
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot0.vcfg_lastclouded': type 3
+Saved user config file 'cfg/cs2_user_keys_0_slot1.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot2.vcfg': type 1
+Saved user config file 'cfg/cs2_user_keys_0_slot3.vcfg': type 1
+} Dispatched EventAppShutdown_t
+KeyValues::SaveToFile: couldn't open file "cfg/boot.vcfg" in path "NULL".
+MainLoop returning
+CSharedEdictChangeInfo high water mark 1890
+Shutting down Qt windows...
+..........
+Source2Shutdown
+ShutdownSource2Logging

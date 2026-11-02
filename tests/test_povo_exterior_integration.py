@@ -6,12 +6,30 @@ import unittest
 
 from tools.build_povo_campus import build_geometry
 from tools.povo_exterior_materials import write_materials,OPACITY
-from tools.audit_povo_exterior_integrated import audit
+from tools.audit_povo_exterior_integrated import audit, height_at, route_points
 from tools import cs2_project as project
 from tools.cs2_campus import UNITS,skip_nav_analysis
 
 
 class ExteriorIntegrationTests(unittest.TestCase):
+    def test_registered_street_and_footways_clear_continuous_boundary_collision(self):
+        _,_,_,levels,_=build_geometry()
+        exterior=levels[0]['exterior']
+        barriers=[m for m in exterior['collision_meshes']
+                  if m['name'].startswith('exterior_street_end_gate_barrier_')]
+        self.assertTrue(barriers)
+        import json
+        config=json.loads((Path(__file__).resolve().parents[1]/'config/povo_exterior.json').read_text())
+        road=config['front_road']
+        # Include a standing hull on the outer edge of each footway, along
+        # the complete corrected street, not just its previously blocked centre.
+        extent=road['width']/2+road['footway_width']+.4
+        for x,y,z in route_points(road['points'][2:],step=.25):
+            for dx in (-extent,0,extent):
+                for barrier in barriers:
+                    self.assertFalse(height_at(barrier,x+dx,y),
+                                     (barrier['name'],x+dx,y))
+
     def test_approved_routes_have_support_and_standing_clearance(self):
         report=audit()
         self.assertEqual(report['status'],'passed',report)

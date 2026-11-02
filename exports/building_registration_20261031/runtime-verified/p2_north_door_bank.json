@@ -1,0 +1,49 @@
+{
+  "name": "p2_north_door_bank",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        49,
+        35.65,
+        4
+      ],
+      "position": [
+        48.86468558279546,
+        35.6496813549426,
+        4.000792227016004
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        34,
+        35.65,
+        4
+      ],
+      "position": [
+        33.98175215333593,
+        35.647873713142594,
+        4.000792227016004
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        31.5,
+        35.65,
+        4
+      ],
+      "position": [
+        31.614429989326457,
+        35.6485062239426,
+        4.000792227016004
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

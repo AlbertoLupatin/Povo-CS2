@@ -1,0 +1,64 @@
+{
+  "name": "front_walk_to_povo2_return",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        57.5,
+        31.35,
+        4.12
+      ],
+      "position": [
+        57.59324115083038,
+        31.3493608979254,
+        4.120792266416483
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        57.5,
+        20,
+        4.12
+      ],
+      "position": [
+        57.502133535230016,
+        20.047672426880194,
+        4.120793053816484
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        57.5,
+        15,
+        4.12
+      ],
+      "position": [
+        57.49895853523,
+        14.957589338059833,
+        4.2285302780169145
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        57.5,
+        7.5,
+        5.92
+      ],
+      "position": [
+        57.50045302043001,
+        7.364269879029458,
+        6.250258035425001
+      ],
+      "passed": false,
+      "height_tolerance": 0.25
+    }
+  ],
+  "error": "Unexpected floor height: [57.50045302043001, 7.364269879029458, 6.250258035425001] target [57.5, 7.5, 5.92]"
+}

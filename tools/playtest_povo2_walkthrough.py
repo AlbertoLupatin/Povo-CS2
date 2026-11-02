@@ -54,7 +54,7 @@ def main(reload=False):
             found=cmd('ent_find povo_glass_'+pane['name'],.08)
             check(pane['name']+'_breakable_entity',"'func_breakable'" in found)
         # Lock and push against a closed leaf pair, then open and walk through.
-        for token in ('c5_terrace','wi1_public','c7_exit','west_W07','cibio_terrace_0','garden_exit'):
+        for token in ('c5_terrace','wi1_public','west_W07','cibio_terrace_0'):
             driver.guard()
             pair=[d for d in doors if d['id'] in ('p2_'+token+'_0','p2_'+token+'_1')]
             a=pair[0]['bounds'][0];b=pair[-1]['bounds'][1]
@@ -98,11 +98,13 @@ def main(reload=False):
             cmd('+attack',.8);cmd('-attack',.4)
             found=cmd('ent_find povo_glass_'+pane['name'])
             check(prefix+'_breaks_from_bullets','Found 0 matches.' in found,pane=pane['name'])
+        c5=metadata['povo2']['walkthrough_repairs']['c5']
+        up=metadata['povo2']['gardens']['up_stair']
         shots=[('arrival',(22,2.8,.4),(0,180,0)),
                ('c7_stair_connection',(22,16.6,.4),(0,-90,0)),
-               ('c5_sealed_door',(22,14.5,.4),(0,180,0)),
-               ('c7_exit_door',(22,16.8,.4),(0,90,0)),
-               ('gardens',(34.5,6,2.2),(-5,0,0)),
+               ('c5_sealed_door',(22,c5[3]-3,.4),(0,180,0)),
+               ('east_rooms',(22,12,.4),(0,90,0)),
+               ('gardens',((up[0]+up[2])/2,up[1]-1,5.),(30,180,0)),
                ('ground_former_shaft',(24,19.4,4),(20,0,0)),
                ('stair_guards',(19.2,19.1,4),(35,-90,0)),
                ('cibio_terrace',(-3.05,24,.4),(0,90,0))]

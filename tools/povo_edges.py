@@ -6,8 +6,12 @@ from pathlib import Path
 
 try:
     from .build_povo_exterior import strip
+    from .polygon_mesh import prism, ring_points
+    from .povo_floor_surfaces import subtract, bounds, overlaps
 except ImportError:
     from build_povo_exterior import strip
+    from polygon_mesh import prism, ring_points
+    from povo_floor_surfaces import subtract, bounds, overlaps
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -37,7 +41,10 @@ def build(root=ROOT):
     meshes = []
     def polygon(name, points, z, material, height=0):
         points = [tuple(p) for p in points]
-        faces = triangulate(points)
+        faces = [f for f in triangulate(points)
+                 if abs((points[f[1]][0]-points[f[0]][0])*(points[f[2]][1]-points[f[0]][1])-
+                        (points[f[1]][1]-points[f[0]][1])*(points[f[2]][0]-points[f[0]][0]))>1e-7]
+        if not faces:return
         vertices = [(x,y,z) for x,y in points]
         if height:
             n=len(points);vertices += [(x,y,z+height) for x,y in points]
@@ -53,8 +60,25 @@ def build(root=ROOT):
         polygon(name,[(lo[0],lo[1]),(hi[0],lo[1]),(hi[0],hi[1]),(lo[0],hi[1])],lo[2],mat,hi[2]-lo[2])
     def line(name,a,b,width,mat,thickness=.15):
         m=strip('exterior_edges_'+name,a,b,width,'exterior_'+mat,thickness);meshes.append(m)
+    # Road corridors cut raised scenery ground as well as coplanar surfaces.
+    # Otherwise the relocated roundabout would disappear beneath the z=5 lawn.
+    r=cfg['roundabout'];x,y,_=r['centre']
+    cutters=[[(x+(r['outer_radius']+.25)*math.cos(i*math.tau/48),
+               y+(r['outer_radius']+.25)*math.sin(i*math.tau/48)) for i in range(48)]]
+    for road in cfg['roads']:
+        for a,b in zip(road['points'],road['points'][1:]):
+            length=math.dist(a[:2],b[:2]);dx,dy=(b[0]-a[0])/length,(b[1]-a[1])/length
+            aa=(a[0]-.3*dx,a[1]-.3*dy,a[2]);bb=(b[0]+.3*dx,b[1]+.3*dy,b[2])
+            m=strip('',aa,bb,road['width']+2*road.get('footway_width',1.6)+.5,'')
+            cutters.append([v[:2] for v in m['vertices'][4:]])
     for land in cfg['landscape']:
-        polygon(land['id'],land['footprint'],land['z'],'grass')
+        p=land['footprint']
+        parts=[[p[i] for i in face] for face in triangulate(p)]
+        for cutter in cutters:
+            parts=[piece for part in parts for piece in
+                   (subtract(part,cutter) if overlaps(bounds(part),bounds(cutter)) else [part])]
+        for i,part in enumerate(parts):
+            polygon(land['id']+f'_{i}',part,land['z'],'grass')
     for road in cfg['roads']:
         footway_width=road.get('footway_width',1.6)
         for i,(a,b) in enumerate(zip(road['points'],road['points'][1:])):
@@ -74,12 +98,15 @@ def build(root=ROOT):
                 for radius,t in ((r['inner_radius'],a),(r['outer_radius'],a),(r['outer_radius'],b),(r['inner_radius'],b))],z,'asphalt')
     polygon('roundabout_island',[(x+r['inner_radius']*math.cos(i*math.tau/48),y+r['inner_radius']*math.sin(i*math.tau/48)) for i in range(48)],z+.18,'grass')
     for item in cfg['buildings']:
-        name=item['id'];p=item['footprint'];z=item['base_z'];h=item['height']
-        polygon(name+'_mass',p,z,'residential_grey' if item['style']=='silver' else 'white',h)
+        name=item['id'];z=item['base_z'];h=item['height']
+        rings=[ring_points(r,i>0) for i,r in enumerate([item['footprint'],*item.get('courtyards',[])])]
+        meshes.append(prism('exterior_edges_'+name+'_mass',rings,z,h,
+                            'exterior_residential_grey' if item['style']=='silver' else 'exterior_white'))
         # Roof is the same polygon, 15 cm above the body, with a visible fascia.
-        polygon(name+'_roof',p,z+h+.015,'dark',.18)
+        meshes.append(prism('exterior_edges_'+name+'_roof',rings,z+h+.015,.18,'exterior_dark'))
         # Opaque blue window bands follow every actual polygon edge.
-        for k,(a,b) in enumerate(zip(p,p[1:]+p[:1])):
+        edges=[(a,b) for p in rings for a,b in zip(p,p[1:]+p[:1])]
+        for k,(a,b) in enumerate(edges):
             dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy)
             nx,ny=dy/length,-dx/length
             for floor in range(max(1,int(h//3.6))):
@@ -91,14 +118,19 @@ def build(root=ROOT):
             for j in range(1,math.ceil(length/3)):
                 t=j/math.ceil(length/3);xx=a[0]+dx*t+nx*.08;yy=a[1]+dy*t+ny*.08
                 box(name+f'_panel_{k}_{j}',(xx-.035,yy-.035,z+.1),(xx+.035,yy+.035,z+h-.1),'fence')
-    # Rolled metal roof lip on the photographed west face of the northern FBK.
-    for i in range(10):
-        a,b=i*math.pi/20,(i+1)*math.pi/20
-        polygon_points=[(101-2*math.sin(a),-8),(101-2*math.sin(b),-8),
-                        (101-2*math.sin(b),65),(101-2*math.sin(a),65)]
-        vertices=[(xx,yy,20.195+1.5*(math.cos(a if k in (0,3) else b)-1)) for k,(xx,yy) in enumerate(polygon_points)]
-        meshes.append(dict(name=f'exterior_edges_fbk_rolled_eave_{i}',vertices=vertices,
-                           faces=[(0,1,2),(0,2,3)],material='exterior_fence'))
+        # Keep the photographed rolled lip attached to the corrected west wall.
+        if item['style']=='silver':
+            for k,(a,b) in enumerate(edges):
+                dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy)
+                nx,ny=dy/length,-dx/length
+                if nx>-.7 or length<10:continue
+                for i in range(10):
+                    angles=(i*math.pi/20,(i+1)*math.pi/20)
+                    vertices=[(p[0]+nx*.4*math.sin(t),p[1]+ny*.4*math.sin(t),
+                               z+h+.195+1.5*(math.cos(t)-1))
+                              for p,t in ((a,angles[0]),(a,angles[1]),(b,angles[1]),(b,angles[0]))]
+                    meshes.append(dict(name=f'exterior_edges_fbk_rolled_eave_{k}_{i}',vertices=vertices,
+                                       faces=[(0,1,2),(0,2,3)],material='exterior_fence'))
     for label in ('hedge','blue_fence'):
         item=cfg[label]
         for k,(a,b) in enumerate(zip(item['points'],item['points'][1:])):
@@ -139,6 +171,7 @@ def build(root=ROOT):
                 p=[(x+rr*math.cos(k*math.tau/8),y+rr*math.sin(k*math.tau/8)) for k in range(8)]
                 polygon(f'tree_{row}_{i}_crown_{tier}',p,zz,'tree',h*.23)
     paths=['config/povo_edges.json','tools/povo_edges.py','tools/povo_exterior_materials.py',cfg['aerial'],cfg['aerial_manifest']]
+    paths+=['tools/polygon_mesh.py','tools/povo_floor_surfaces.py',*cfg.get('registration_sources',[])]
     photos=[]
     for photo in cfg['photos']:
         path=(Path(cfg['photo_directory'])/photo['file']).as_posix();paths.append(path)

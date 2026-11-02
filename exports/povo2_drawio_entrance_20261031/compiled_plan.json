@@ -1,0 +1,14 @@
+{
+  "package_sha256": "6a52dc98ddf5050f430894597337ec86361557d95adf9f1798771a8e1f74c9ee",
+  "model_sha256": "efec420634ce87e2bd42a29538b2890b2c1ce551cb27ca7c2917b02fb7f75d96",
+  "physics_dump_sha256": "ddf64a16b2f4467fb191ca852d524449c4cb3c56cdfd0f9141cffaa3e29ef6a3",
+  "bounds": [
+    8,
+    -7,
+    46,
+    29
+  ],
+  "section_height": 1.5,
+  "wall_segments": 1044,
+  "limitations": "Static collision; movable doors and render-only details excluded"
+}

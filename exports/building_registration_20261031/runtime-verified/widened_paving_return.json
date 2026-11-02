@@ -1,0 +1,49 @@
+{
+  "name": "widened_paving_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        62,
+        50,
+        4.12
+      ],
+      "position": [
+        62.08545688064835,
+        49.999326392,
+        4.120791504416483
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        59.5,
+        50,
+        4.12
+      ],
+      "position": [
+        59.521526575438095,
+        49.9996643644,
+        4.120791504416483
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        57.5,
+        50,
+        4.12
+      ],
+      "position": [
+        57.52545614543011,
+        50.000098425000004,
+        4.120791504416483
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

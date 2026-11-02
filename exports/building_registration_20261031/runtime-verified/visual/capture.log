@@ -1,0 +1,47 @@
+Server:  Running [172.26.128.1:27015]
+Client:  Connected [loopback:1] [last packet 0.016 sec ago]
+----- Status -----
+@ Current  :  game
+source   : slot 0
+version  : 1.41.9.4/14194 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    06:09    0    0     active 786432 'albylupatin2000'
+#end
+
+
+
+Screenshot written to: screenshots\registration_final_registered_street_0000.tga
+
+
+Screenshot written to: screenshots\registration_final_paving_and_boundary_0000.tga
+
+
+Screenshot written to: screenshots\registration_final_roundabout_0000.tga
+
+
+Screenshot written to: screenshots\registration_final_fbk_nord_0000.tga
+
+
+Screenshot written to: screenshots\registration_final_fbk_ovest_est_courtyards_0000.tga
+
+
+Screenshot written to: screenshots\registration_final_fbk_skybridge_0000.tga
+
+
+Screenshot written to: screenshots\registration_final_fbk_south_0000.tga
+
+
+Screenshot written to: screenshots\registration_final_residential_0000.tga
+
+
+Screenshot written to: screenshots\registration_final_campus_overview_0000.tga
+
+noclip OFF

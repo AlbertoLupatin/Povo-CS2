@@ -14,8 +14,8 @@
   "internal_spine": [155,0,205,859],
   "return_vestibule": [0,825,205,929],
   "end_return": [205,859,255,929],
-  "c7_core_bypass": {"turn_metres": 1.5,
-    "status": "C7 continues to C5 south of the main stair core, as on photo 46. The registered core (shared with floors 0/-2 and the installed stair door) overlaps C7 by 2.46 m, so the C7 band jogs south under the core at C7's width; W01 loses its north 2.46 m and W02 a corner notch. The jog starts turn_metres west of the core."},
+  "c7_straight": {
+    "status": "User correction 31 Oct 2026: C7 is straight, with no narrowing or L at the main stair. The registered core (shared with floors 0/-2 and the installed stair door) overlaps the full-plan C7 band by 2.46 m, so the whole band moves south to the core's south wall at its own width, from its west end to C5. Offices on C7 end at its south wall, as W01 does in the user's Draw.io; WI2 opens into C7's west end. The former 29 Oct jog (c7_core_bypass) is retired."},
   "c7_connector": [0,420,155,470],
   "c7_connector_status": "User correction 29 Oct 2026: the former W03 strip is a corridor joining the internal spine (WI1) to C7; open at both ends. W03 is retired as a room ID.",
   "main_corridor_entrance_pixels": [[0,835],[0,867]],

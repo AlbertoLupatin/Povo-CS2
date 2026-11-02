@@ -4,6 +4,64 @@ This is the durable record of material project actions. Git history remains the
 authoritative record of file-level changes; this log records decisions, local
 tool results, limitations, and work that affects the installed CS2 addon.
 
+## 2 November 2026 — Definitive Povo 2 −1 layout approved for publication
+
+The user inspected the current game, confirmed **“map layout is perfect”**, and
+explicitly requested a push declaring it the **definitive Povo 2 −1 map layout**.
+Recorded the accepted complete floor/entrance/terrace/stair arrangement in
+[the definitive layout record](POVO2_MINUS1_DEFINITIVE_LAYOUT.md), linked it
+prominently from the README and relevant layout reports/checklists, and marked
+conflicting historical proposals as superseded. Future finishing and work on
+other areas must preserve this baseline unless the user requests a revision.
+Approved package SHA-256:
+`6a52dc98ddf5050f430894597337ec86361557d95adf9f1798771a8e1f74c9ee`.
+
+## 2 November 2026 — Repair native lighting corruption
+
+Reproduced the user's black/turquoise streaks in the 31 October package. The
+saved irradiance/chart atlas was corrupt following script-only VRAD retiling;
+fullbright was used only to isolate the defect. Disabled that recovery before
+any process changes and added guard regressions. Fixed the stale straight-C7
+survey expectation to account for existing collinear waypoint simplification.
+All 363 source tests pass.
+
+Rebaked through unmodified Valve-generated inputs at quality 1 / atlas 1024
+after the original 2048 retry stopped advancing. Native compile: 914 resources,
+zero failures. Inspected nine normal-lit engine views in a separate review
+addon, confirming the streaks are absent; no ordinary-movement replay was run.
+Promoted the exact tested bytes: 61,958,853 bytes / 1,237 verified CRC entries,
+SHA-256 `6a52dc98ddf5050f430894597337ec86361557d95adf9f1798771a8e1f74c9ee`.
+Both campus model hashes are unchanged. The promoted package also passes the
+80 entrance and full basement compiled-surface checks. See
+[the repair report](RENDER_LIGHTING_CORRUPTION_20261102.md). Winter/Workshop and
+unfinished exterior modelling remain separate.
+
+## 31 October 2026 — Straight C7 and continuous Povo 2 -1 terrace
+
+- User correction: C7 runs straight past the main stair core; the jog and
+  narrowing at the stair do not exist. C7 now occupies N 15.23-18.0 from its
+  west end (E -14.79) to C5, its north wall in line with the core's south wall.
+  The offices on C7 end at N 15.23, WI2 opens into its west end, and the first
+  CIBIO lab, research corridor and CIBIO terrace reach its north wall. The
+  retired `c7_core_bypass` is replaced by `c7_straight` in
+  `config/povo2_west_offices.json`. Details are in
+  `docs/POVO2_WEST_OFFICES_20261029.md`.
+- The terrace partition at E 20.2-20.36 is removed, so the terrace is one strip
+  from E 8.5 to 31.8, as in the user's Draw.io. The west half was excavated and
+  closed with retaining walls on its south edge and west end.
+- The user approved the review drawing before implementation. New regression
+  tests cover straight C7, the lab reaching it, and the continuous closed
+  terrace. Build `build/handoff/20261031T180852703141Z/`: 362 source tests
+  passed. GPU lighting stalled on its first 2048 block (no progress for 3.5 h)
+  and was recovered with `tools/recover_povo_lighting.py --block-size 256`;
+  evidence is in `build/lighting-recovery/20261031T223219Z/`. The retry
+  lightmapped in 217 s, and the package check passed.
+  `build/package/trento_povo_campus.vpk` SHA-256:
+  `e221ccbecc828c0e6a46900a57e2f6abdcf15a0a8b3a087d01a9ffbff555db5f`.
+- A collision probe of the exported model finds nothing between z 0.5 and
+  2.3 m in either band. `exports/povo2_c7_straight_proposal_20261031/as_built_vs_proposal.png`
+  compares the export with the approved layout. Not yet walked in game.
+
 ## 27 October 2026 — Photo-survey floor restoration and amenities integration
 
 - Preserved the 44 supplied walk photographs with original filenames, hashes
@@ -1939,3 +1997,62 @@ No geometry changed. Corrected footprints are in
 tests pass. The full suite has one failure that also fails on the untouched
 commit (`test_playtest_povo_survey`). See the
 [registration audit](BUILDING_REGISTRATION_AUDIT_20261030.md).
+
+## 31 October 2026 — Building registration implementation
+
+- Applied the committed OSM footprint proposals to seven FBK scenery buildings,
+  preserving five open courtyard rings, replacing the oversized southern pair
+  with a complete ring, and narrowing/elevating the connecting skybridge.
+  LiDAR heights include the roof fascia; existing flattened grades remain.
+- Registered the stepped west residential facade and moved the adjacent parking
+  edge/fence clear of it. Rebuilt facade bands on actual outline segments.
+- Registered northern Via Sommarive, corrected the roundabout's approximately
+  35 m northward placement error, and reconnected its north/east branches.
+  Widened paving preserves the accepted pedestrian path. Raised landscape is
+  cut out around roads and footways; the hedge stops before the roundabout.
+- The user explicitly retained Povo 2's south/courtyard roofs, east podium and
+  campus bridge width pending separate reference review. Main-building floor
+  stacks and absolute road grades remain unresolved.
+- Added a standard-library concave/courtyard prism mesher and geometry guards;
+  updated the pre-existing failing C7 survey-route assertion to the accepted
+  entrance topology. The full source suite and the later lighting-recovery
+  guards pass; final counts are recorded in the implementation report. The audit utility's final six
+  tests also pass after its output folder/combined-ring target update.
+- Repeated OSM/LiDAR audit: FBK main building IoUs 0.95–0.98, FBK skybridge 0.84,
+  residential 0.93; worst corrected mean facade offset at most 0.4 m. Northern
+  road median offsets improve from 3.6/7.5 m to 0.1/0.2 m. Campus, paving and
+  standalone scenery surface audits all report zero coplanar overlaps.
+- All 13 deployed map/model source files match the checkout. Native build and
+  runtime results are recorded in the [implementation report](BUILDING_REGISTRATION_IMPLEMENTATION_20261031.md).
+
+### Completed native follow-up
+
+Resumed the interrupted registration work, moved the old east boundary fence
+off the newly aligned street and added a collision regression along the full
+street and both footways. Corrected the ramp test's expected midpoint height
+from the source surfaces under the standing hull, keeping its 25 cm tolerance.
+All 351 source tests pass. Regenerated campus/paving surface audits report zero
+coplanar overlaps (652,662 / 7,854 faces); all 13 deployed sources match.
+
+The final standard build passed with normal-quality 2048-atlas lighting, using
+the original four 1024-pixel blocks without recovery. Package: 66,952,122 bytes,
+1,241 entries/all CRCs verified, SHA-256
+`2abb571c5e33934999832d5836e7a7f4eb9fa5e2e2e375616b3bca071474570b`.
+A fresh solo CS2 process passed all 12 registration walking routes / 48 waypoints;
+nine engine views confirm the corrected scenery and open courtyard roofs.
+Evidence: `exports/building_registration_20261031/runtime-verified/` and
+`build/handoff/20261031T121148467800Z/`. CS2 was closed. Winter and Workshop
+were not updated; the user-deferred Povo 2 geometry remains pending review.
+
+## 2 November 2026 — Confirm latest entrance package
+
+Confirmed that the later straight-C7/continuous-terrace build
+`build/handoff/20261031T180852703141Z/` passed all 362 source tests and completed
+on 31 October at 23:45 Europe/Rome. Its current standard VPK is 64,450,766 bytes,
+1,237 entries, SHA-256
+`e221ccbecc828c0e6a46900a57e2f6abdcf15a0a8b3a087d01a9ffbff555db5f`.
+Repeated all-entry CRC verification and extracted the actual packaged model:
+80 entrance checks, 22,997 basement floor samples, 72 column samples and 36
+fixed-door samples pass. Saved a compiled collision plan and reports in
+`exports/povo2_drawio_entrance_20261031/`. No game was launched or moved; native
+player traversal remains separate. Updated the README's stale package identity.

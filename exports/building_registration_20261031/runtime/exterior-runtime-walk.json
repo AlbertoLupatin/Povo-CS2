@@ -1,0 +1,42 @@
+{
+  "status": "failed",
+  "checks": [
+    {
+      "route": "front_walk_to_povo2",
+      "waypoint": 0,
+      "target": [
+        54.5,
+        -13,
+        7.6
+      ],
+      "position": [
+        54.500239259618006,
+        -13.385638760853544,
+        7.600794196430405
+      ],
+      "passed": true
+    },
+    {
+      "route": "front_walk_to_povo2",
+      "waypoint": 1,
+      "target": [
+        54.5,
+        -5,
+        7.6
+      ],
+      "position": [
+        54.500388078218,
+        -5.404111213621618,
+        7.600793409030404
+      ],
+      "passed": true
+    }
+  ],
+  "placement": "One initial placement per independent route; normal walking between all waypoints",
+  "started_at_utc": "2026-10-31T11:50:16.613195+00:00",
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "6597f4214197eaa05f864a1f6af99708ebde5096b0b604817c3a4edc288c260a",
+  "package_identity_scope": "On-disk package supplied by the operator; status confirms the map name, not the loaded package bytes",
+  "error": "Normal walking stalled near (54.499929201818, 0.8428043596033713, 5.637609375022551) towards [54.5, 0, 7.72]",
+  "finished_at_utc": "2026-10-31T11:50:45.272425+00:00"
+}

@@ -2,6 +2,7 @@
 """Export outer scenery and aerial/eye-level reviews; never deploy or launch CS2."""
 import hashlib
 import json
+import math
 from pathlib import Path
 
 try:
@@ -45,14 +46,24 @@ def render(root=ROOT):
     def pt(p):return ((p[0]+250)*2.8,(200-p[1])*2.8)
     for item in cfg['buildings']:
         d.polygon([pt(p) for p in item['footprint']],fill=(65,179,231,85),outline=(82,224,255,255),width=3)
+        for ring in item.get('courtyards',[]):
+            d.line([pt(p) for p in ring+[ring[0]]],fill=(255,240,170,255),width=3)
         d.text(pt(item['footprint'][0]),item['id'].replace('fbk_',''),font=font(16),fill='white',stroke_width=2,stroke_fill='black')
     for road in cfg['roads']:
         d.line([pt(p) for p in road['points']],fill=(255,210,78,255),width=5)
+    exterior_cfg=json.loads((root/'config/povo_exterior.json').read_text())
+    d.line([pt(p) for p in exterior_cfg['front_road']['points']],fill=(255,210,78,255),width=5)
+    residential=exterior_cfg['residential']['footprint']
+    d.line([pt(p) for p in residential+[residential[0]]],fill=(82,224,255,255),width=3)
+    r=cfg['roundabout'];x,y,_=r['centre']
+    for radius in (r['inner_radius'],r['outer_radius']):
+        d.line([pt((x+radius*math.cos(i*math.tau/64),y+radius*math.sin(i*math.tau/64))) for i in range(65)],
+               fill=(255,210,78,255),width=3)
     for land in cfg['landscape']:
         d.line([pt(p) for p in land['footprint']+[land['footprint'][0]]],fill=(142,232,105,220),width=3)
     d.rectangle((0,0,1400,85),fill=(15,30,40,230))
-    d.text((25,12),'POVO / OUTER SCENERY - FIRST PASS',font=font(27),fill='white')
-    d.text((25,49),'2024 municipal aerial | blue: FBK roof traces | gold: road continuations | green: landscape',font=font(19),fill='white')
+    d.text((25,12),'POVO / OSM-REGISTERED OUTER SCENERY',font=font(27),fill='white')
+    d.text((25,49),'2024 municipal aerial | blue: FBK outlines | pale: courtyards | gold: roads | green: landscape',font=font(19),fill='white')
     im.save(out/'aerial_traces.png')
     boxes,base_meshes,_,_=exterior_build(root)
     # Existing exterior context masses provide campus orientation in this review.
@@ -67,7 +78,7 @@ def render(root=ROOT):
         shot=perspective(boxes,scene,camera,width=1200,height=750)
         d=ImageDraw.Draw(shot);d.rectangle((0,0,1200,64),fill='#182d38')
         d.text((22,9),camera['id'].replace('_',' ').upper()+' / SOURCE PREVIEW',font=font(22),fill='white')
-        d.text((22,37),'29 Oct 2026 - estimated heights and grades; native lighting not compiled',font=font(17),fill='#c8d8dc')
+        d.text((22,37),'31 Oct 2026 - OSM footprints / LiDAR heights; retained flat grades; source preview',font=font(17),fill='#c8d8dc')
         shot.save(out/(camera['id']+'.png'))
     (out/'cameras.json').write_text(json.dumps(cameras,indent=2)+'\n')
     print(f'Exported {len(meshes)} scenery meshes, aerial trace and {len(cameras)} source views to {out}')

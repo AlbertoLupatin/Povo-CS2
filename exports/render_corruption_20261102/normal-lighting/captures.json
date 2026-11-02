@@ -1,0 +1,141 @@
+{
+  "package_sha256": "6a52dc98ddf5050f430894597337ec86361557d95adf9f1798771a8e1f74c9ee",
+  "scope": "Native normal-lighting visual cameras; noclip placement, not movement verification",
+  "captures": [
+    {
+      "name": "entrance",
+      "camera": [
+        26.3,
+        32,
+        5.6
+      ],
+      "target": [
+        15,
+        32,
+        5.6
+      ],
+      "image": "entrance.png",
+      "sha256": "f906a45d52e43b780699e0c929eee74f0c820b8f5ce75f7fc53df78e664dfdd6"
+    },
+    {
+      "name": "c7",
+      "camera": [
+        18,
+        16.6,
+        2.0
+      ],
+      "target": [
+        -8,
+        16.6,
+        2.0
+      ],
+      "image": "c7.png",
+      "sha256": "5a8c6f385d6da4585106a1b0f30fdacbf5d271ee353fcb2180da837811db408e"
+    },
+    {
+      "name": "c5",
+      "camera": [
+        21.9,
+        3.6,
+        2.0
+      ],
+      "target": [
+        21.9,
+        19.5,
+        2.0
+      ],
+      "image": "c5.png",
+      "sha256": "af8a250ecfceaa90661a3d98a8b24a8d84896611d672a836418831930aa7fe68"
+    },
+    {
+      "name": "wi1",
+      "camera": [
+        16.5,
+        9.26,
+        2.0
+      ],
+      "target": [
+        22,
+        9.26,
+        2.0
+      ],
+      "image": "wi1.png",
+      "sha256": "5503518995054dd86b5bc7038b60d4288d36abb655a9bc643ba4801322fdb356"
+    },
+    {
+      "name": "terrace",
+      "camera": [
+        24,
+        -5,
+        8.0
+      ],
+      "target": [
+        27,
+        1.2,
+        0.4
+      ],
+      "image": "terrace.png",
+      "sha256": "bfb951739fc9671c14eb1faaf95026199bcd4dba5f39e31aef04987ae6f1aa2e"
+    },
+    {
+      "name": "up_stair",
+      "camera": [
+        21.75,
+        1.14,
+        2.0
+      ],
+      "target": [
+        21.75,
+        -5,
+        4.9
+      ],
+      "image": "up_stair.png",
+      "sha256": "d2274ce2f9a13cf97cd53510e9c558e4cca73d8cddc7cdad1cef9dd3dfee4b46"
+    },
+    {
+      "name": "down_stair",
+      "camera": [
+        30.7,
+        1.14,
+        2.0
+      ],
+      "target": [
+        41,
+        1.14,
+        -2.1
+      ],
+      "image": "down_stair.png",
+      "sha256": "2283bb717049738d5b42c593948e8e893b81766c7892956a347a0a6826a7d135"
+    },
+    {
+      "name": "lower_approach",
+      "camera": [
+        43.8,
+        7,
+        -1.6
+      ],
+      "target": [
+        43.8,
+        1,
+        -1.6
+      ],
+      "image": "lower_approach.png",
+      "sha256": "81ed1550fd3859df89efa3fb4170e29c35207e57edcced98e2ac4f75c92c6452"
+    },
+    {
+      "name": "campus",
+      "camera": [
+        72,
+        -75,
+        65
+      ],
+      "target": [
+        4,
+        -5,
+        6
+      ],
+      "image": "campus.png",
+      "sha256": "aaebf4c10c684b2bfd4d2b7018ec81b7db77d4def69a2d1e0bc1e68357c60f99"
+    }
+  ]
+}

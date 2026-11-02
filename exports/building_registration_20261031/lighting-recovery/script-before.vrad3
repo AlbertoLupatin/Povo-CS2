@@ -1,0 +1,95 @@
+// maps/trento_povo_campus.vmap
+
+// vrad3.exe -map maps/trento_povo_campus.vmap -script script-gpu.vrad3 -trackmemorycounts -aftermath -aftermath_full -vulkan -gpuraytracing -allthreads -unbufferedio
+
+//
+// GPU Init
+//
+gpu_init
+lightmap_type ahd
+sceneinfo_gpu scene_info.kv3
+
+//
+// Lightmap
+//
+lightmap_image_gpu 2048 2048 2048
+lightmap_load_packing_geometry_gpu lightmap_packing_geometry.dat
+
+run compute_all_lightmap_blocks
+//lightmap_image_save lightmap_image_post_compute // Can comment out the line above and restore with lightmap_image_load
+run process_all_lightmap_blocks
+
+process_all_lightmap_blocks:
+    lightmap_image_consolidate_small_charts 1
+    lightmap_image_remove_fireflies 4.0 fireflies.exr
+    lightmap_image_filter_oidn 1
+    lightmap_image_filter_sh_oidn 1
+    lightmap_image_dilate_over_invalid_jfa
+    lightmap_image_encode_ahd
+    lightmap_image_fill_gutters 1
+    uber_weld lightmap_seams.dat
+    lightmap_ameliorate_block_compression_artefacts -mips 1
+    lightmap_image_write_ahd irradiance.exr directional_irradiance.exr
+    lightmap_image_write_direct_light_shadows direct_light_shadows.exr -indexlights 4 
+    lightmap_image_write_chart_color   lightmap_chart_color.exr 128 512
+    done
+
+compute_all_lightmap_blocks:
+    timer_start
+    lightmap_load_block_gpu lightmap_info.dat 0
+    lightmap_compute_block_gpu 128 512 0.050
+    timer_stop
+    timer_poll
+    println Lightmapping took $timer seconds
+    done
+
+lightmap_free_memory
+
+//
+// Light Probe Volumes
+//
+lpv_type ambient_cube
+run compute_lpv_811106141
+
+compute_lpv_811106141:
+    lpv_cells 127 90 11
+    lpv_box -5200.000000 -3800.000000 -400.000000 4900.000000 3400.000000 450.000000
+    lpv_local_to_world 1.000000 0.000000 0.000000 590.551025 0.000000 1.000000 0.000000 157.479996 -0.000000 0.000000 1.000000 157.479996
+    timer_reset
+    timer_start
+    print Compute 127x127x11 LPV_811106141 [
+    lpv_init
+    lpv_image_gpu 96 96 96
+    print ..voxelize
+    print 
+    lpv_voxelize_gpu
+    lpv_flood_fill
+    //lpv_write_debug_voxelization lpv_811106141_voxels.glview
+    lpv_compute_block_gpu 0 0 0 96 90 11 512 1024 0.050
+    print ....0
+    print ....1
+    print ....2
+    print ....3
+    print ....4
+    print ....5
+    lpv_compute_block_gpu 96 0 0 127 90 11 512 1024 0.050
+    print ....6
+    print ....7
+    print ....8
+    print ....9
+    print ....10
+    timer_stop
+    timer_poll
+    println ....] Done in $timer seconds
+    lpv_image_ambient_occlusion
+    lpv_image_write_ambientcube lpv_811106141_ambientcube_noisy.exr
+    lpv_image_remove_fireflies 3 lpv_811106141_fireflies.exr
+    lpv_image_resolve 
+    lpv_image_median_filter 3
+    lpv_image_write_ambientcube lpv_811106141_ambientcube.exr
+    lpv_image_write_direct_light_shadows  lpv_811106141_dlshd.exr
+    done
+    lpv_free_memory
+
+// HACK! Avoid cleanup
+exit 0

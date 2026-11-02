@@ -14,9 +14,9 @@ class WalkthroughRepairsTests(unittest.TestCase):
     def test_street_arrival_reaches_both_left_turns_with_no_ladder(self):
         self.assertFalse(self.p2['lift']['enabled'])
         self.assertFalse(any(n.startswith('p2_lift_') for n,*_ in self.boxes))
-        ids=('terrace_to_wi1','terrace_to_c7','c5_to_exit_corridor','garden_to_c5_terrace')
+        ids=('terrace_to_wi1','terrace_to_c7','terrace_to_c5_north')
         paths=[r for r in self.p2['basement_rebuild']['routes'] if r['id'] in ids]
-        self.assertEqual(len(paths),4)
+        self.assertEqual(len(paths),3)
         _,failures=audit_stair_routes(collision_boxes(self.boxes),
             paths+[dict(points=list(reversed(r['points']))) for r in paths])
         self.assertFalse(failures,failures[:5])
@@ -37,9 +37,9 @@ class WalkthroughRepairsTests(unittest.TestCase):
         blocked=lambda x,y,z:any(lo[0]<x<hi[0] and lo[1]<y<hi[1] and lo[2]<z<hi[2] for _,lo,hi,_ in physics)
         for y in (15.6,16.6,17.6):
             for z in (.6,1.5,2.4):self.assertFalse(blocked(20.43,y,z),(y,z))
-        # The sealed door ends C5 at the core's south face.
+        # The user's Draw.io moves the sealed end north of the C7 junction.
         sealed=self.p2['minus1_corrections']['c5_north_junction_door']
-        self.assertAlmostEqual(sealed['centre'][1],c5[3]);self.assertAlmostEqual(c5[3],18.)
+        self.assertAlmostEqual(sealed['centre'][1],c5[3]);self.assertAlmostEqual(c5[3],21.0766666667)
         for x in (sealed['centre'][0]-.5,sealed['centre'][0]+.5):
             for z in (.6,1.5,2.4):self.assertTrue(blocked(x,c5[3],z),(x,z))
         self.assertFalse(any(d['id'].startswith('p2_c5_north') for d in self.p2['repair_doors']))
@@ -47,8 +47,8 @@ class WalkthroughRepairsTests(unittest.TestCase):
         self.assertNotIn('exit_arm',repair)
         self.assertEqual(self.p2['minus1_corrections']['lower_junction_door']['centre'][:2],[34.5,18.0])
         self.assertEqual(self.p2['minus1_corrections']['closed_corridor_areas'][1][1],18.0)
-        # C7 continues through its east door to the exit corridor.
-        self.assertTrue(c5[2]<doors['p2_c7_exit_0']['pivot'][0]<33.25)
+        self.assertIsNone(repair['c7_exit_link'])
+        self.assertNotIn('p2_c7_exit_0',doors)
 
     def test_glass_fronts_are_entities_and_no_privacy_strip_blocks_the_broken_opening(self):
         fronts=[b for b in self.boxes if b[0].startswith('p2_basement_west_glazing_')]
@@ -62,18 +62,13 @@ class WalkthroughRepairsTests(unittest.TestCase):
         extracted=extract_static_leaves(self.boxes,self.levels,self.stair,automatic_entrances=True)
         self.assertFalse(any('_interactive_leaf_' in n for n,*_ in extracted))
 
-    def test_exit_and_cibio_terrace_have_door_pairs_and_solid_earth_hides_the_underside(self):
+    def test_cibio_and_relocated_entrance_keep_doors_and_stair_retaining_walls(self):
         ids={d['id'] for d in self.p2['repair_doors']}
-        self.assertTrue({'p2_garden_exit_0','p2_garden_exit_1',
+        self.assertTrue({'p2_c5_terrace_0','p2_c5_terrace_1',
                          'p2_cibio_terrace_0_0','p2_cibio_terrace_1_0'}<=ids)
         meshes=[m for m in self.levels[0]['exterior']['meshes']
                 if m['name'].startswith('exterior_p2_garden_slope_')]
-        self.assertEqual(len(meshes),36)
-        for mesh in meshes:
-            z=[v[2] for v in mesh['vertices']]
-            self.assertAlmostEqual(min(z),-3.42)
-            self.assertGreater(max(z),min(z)+3)
-            self.assertEqual(len(mesh['faces']),12)
-        for side in ('west','east_street'):
-            tops=[v[2] for m in meshes if '_'+side+'_' in m['name'] for v in m['vertices'][4:]]
-            self.assertGreater(max(tops)-min(tops),1)
+        self.assertEqual(meshes,[])
+        retaining=[b for b in self.boxes if b[0].startswith('p2_basement_drawio_up_retaining_')]
+        self.assertEqual(len(retaining),2)
+        self.assertTrue(all(hi[2]-lo[2]>3.8 for _,lo,hi,_ in retaining))

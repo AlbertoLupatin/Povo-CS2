@@ -44,6 +44,31 @@ class IntegratedWestOfficesTests(TestCase):
             self.assertTrue(any(m=='floor_wood' and lo[0]<=x<=hi[0] and lo[1]<=y<=hi[1] and abs(hi[2]-.4)<.01 for _,lo,hi,m in self.physics),r['id'])
             self.assertTrue(any(m=='ceiling_panel' and lo[0]<=x<=hi[0] and lo[1]<=y<=hi[1] and abs(hi[2]-3.5)<.01 for _,lo,hi,m in self.boxes),r['id'])
 
+    def test_c7_runs_straight_from_its_west_end_to_c5(self):
+        # User correction 31 Oct: no jog or narrowing at the main stair.
+        c7=self.office['c7'];y=(c7[1]+c7[3])/2
+        self.assertAlmostEqual(c7[3],18.);self.assertAlmostEqual(c7[3]-c7[1],2.7692307692)
+        clear=[(n,lo,hi) for n,lo,hi,_ in self.physics if lo[0]<c7[2]-.3 and hi[0]>c7[0]+.2
+               and lo[1]<c7[3]-.12 and hi[1]>c7[1]+.12 and lo[2]<2.3 and hi[2]>.45]
+        self.assertFalse(clear,clear[:5])
+        route=dict(points=[[c7[0]+.6,y,.4],[c7[2]+.5,y,.4]])
+        count,failures=audit_stair_routes(self.physics,[route,dict(points=list(reversed(route['points'])))])
+        self.assertGreater(count,50)
+        self.assertFalse(failures,failures[:8])
+        for r in self.office['rooms']:
+            a,b,c,d=r['bounds']
+            self.assertFalse(a<c7[2] and c7[0]<c and b<c7[3] and c7[1]<d,r['id'])
+
+    def test_first_lab_reaches_straight_c7(self):
+        lab=next(r for r in next(l for l in self.spec['levels'] if l['floor']==-1)['rooms'] if r['id']=='cibio_office_0')
+        self.assertAlmostEqual(lab['bounds'][1],self.office['c7'][3]+.08)
+        x=(lab['bounds'][0]+lab['bounds'][2])/2
+        inside=[(n,lo,hi) for n,lo,hi,_ in self.physics if lo[0]<x+.5 and hi[0]>x-.5
+                and lo[1]<lab['bounds'][1]+1.5 and hi[1]>lab['bounds'][1]+.02 and lo[2]<2.3 and hi[2]>.45]
+        self.assertFalse(inside,inside[:5])
+        self.assertTrue(any(lo[0]<x<hi[0] and lo[1]<lab['bounds'][1]+.5<hi[1] and abs(hi[2]-.4)<.01
+                            for _,lo,hi,_ in self.physics))
+
     def test_research_door_pairs_remain_fixed_and_solid(self):
         for name in ('upper','lower'):
             leaves=[b for b in self.physics if b[0].startswith('p2_basement_locked_'+name+'_leaf_')]

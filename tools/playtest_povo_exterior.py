@@ -70,9 +70,10 @@ def playtest(*, routes=None, output=None, package=None, port=27400,map_name='tre
         # Stay inside the pavement, clear of the first tree's overhanging crown
         # where the street descends from the raised Povo 1 frontage.
         ('front_walk_to_povo2',(54.5,-71,upper+.1),[(54.5,-13,upper),(54.5,-5,upper),
-             (54.5,0,upper+.12),(54.5,7.5,(upper+4)/2+.12),(57.5,7.5,(upper+4)/2+.12),
+             (54.5,-1,upper),(57.5,-1,upper+.12),(57.5,0,upper+.12),(57.5,7.5,(upper+4)/2+.12),
              (57.5,15,4.12),(57.5,20,4.12),(57.5,31.35,4.12),(54,31.35,4)]),
-        ('bridge_road_to_ramp',(50,-5,upper+.1),[(32,-5,4),(22,-5,4),(-23,-5,3),(-29,-8,3),(-29,-2.5,3)]),
+        ('bridge_road_to_ramp',(50,-5,upper+.1),[(32,-5,4),(24,-7.3,4),(19,-7.3,3+42/45),
+             (19,-5,3+42/45),(-23,-5,3),(-29,-8,3),(-29,-2.5,3)]),
         ('north_road',(-29,-8,3.1),[(-38,-8,3),(-38,6,3),(-38,112,3),(-25,118,3)]),
         ('surface_parking',(-48,-44,3.1),[(-48,-90,3)])
     ]

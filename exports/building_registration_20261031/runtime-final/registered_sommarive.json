@@ -1,0 +1,36 @@
+{
+  "name": "registered_sommarive",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [
+    {
+      "target": [
+        65.31,
+        40.18,
+        4
+      ],
+      "position": [
+        65.31308623946126,
+        40.282279201761135,
+        4.002791715016012
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        66.76,
+        63.61,
+        4
+      ],
+      "position": [
+        66.76923300966709,
+        63.75577972745503,
+        4.002790953016011
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ],
+  "error": "Ordinary movement stalled: [67.44200433366977, 82.12782421272851, 4.002790165616011] target [67.91, 82.04, 4]"
+}

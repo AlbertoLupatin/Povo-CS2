@@ -1,0 +1,97 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus.obj",
+      "sha256": "321d2c499ad5424dea34289eeba35397926211ef473098815aea88d33d58af8e",
+      "installed_sha256": "321d2c499ad5424dea34289eeba35397926211ef473098815aea88d33d58af8e",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus_collision.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_collision.obj",
+      "sha256": "0a0d5609d78523c9f27e04967f00822b333cfd2bee6e99baf1a288f15b1ad5f7",
+      "installed_sha256": "0a0d5609d78523c9f27e04967f00822b333cfd2bee6e99baf1a288f15b1ad5f7",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus_collision_asphalt.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_collision_asphalt.obj",
+      "sha256": "1434d10d00f9b98993cb17d46ff1145cd3584bb2a2e2d57f98ebe841dbe34103",
+      "installed_sha256": "1434d10d00f9b98993cb17d46ff1145cd3584bb2a2e2d57f98ebe841dbe34103",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus_collision_concrete.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_collision_concrete.obj",
+      "sha256": "a67e780360fa1a812bbe00a06af717b622c5c2a99e7d315ae635c71dfbf410d9",
+      "installed_sha256": "a67e780360fa1a812bbe00a06af717b622c5c2a99e7d315ae635c71dfbf410d9",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus_collision_glass.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_collision_glass.obj",
+      "sha256": "52a94202e56330464a898ab087d266e0ff646f6f9b6870f09a03ec83b980291f",
+      "installed_sha256": "52a94202e56330464a898ab087d266e0ff646f6f9b6870f09a03ec83b980291f",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus_collision_grass.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_collision_grass.obj",
+      "sha256": "33b3732c3385f8a9d7174a717876a9439ec283dd1bfc1737666f7a49d442184a",
+      "installed_sha256": "33b3732c3385f8a9d7174a717876a9439ec283dd1bfc1737666f7a49d442184a",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus_collision_metal.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_collision_metal.obj",
+      "sha256": "efbf428d088b5d6b36589c7aaed6ec160339a986e48ff44d112fdbd589002147",
+      "installed_sha256": "efbf428d088b5d6b36589c7aaed6ec160339a986e48ff44d112fdbd589002147",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus_collision_tile.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_collision_tile.obj",
+      "sha256": "22765e965e36fbfece5f9a0ef89c92a1efb2f2ec5a65ef03576d07b29fd5a26f",
+      "installed_sha256": "22765e965e36fbfece5f9a0ef89c92a1efb2f2ec5a65ef03576d07b29fd5a26f",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus_collision_wood.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_collision_wood.obj",
+      "sha256": "0ca2bd05f280cdd991bd0108e55c1def6b65ba5cd6fa87ceed9077510d1c8423",
+      "installed_sha256": "0ca2bd05f280cdd991bd0108e55c1def6b65ba5cd6fa87ceed9077510d1c8423",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\exports\\povo_campus\\povo1_campus_paving.obj",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_paving.obj",
+      "sha256": "f97e81fdcb824785bf9217a48decf58f09ba7b4162c00ec95fd778febb10d12e",
+      "installed_sha256": "f97e81fdcb824785bf9217a48decf58f09ba7b4162c00ec95fd778febb10d12e",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\cs2\\content\\trento_povo\\models\\povo\\povo1_campus.vmdl",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus.vmdl",
+      "sha256": "791a38d223ce71a287d305985310b175fd1c10a557ab2599920a6e04819c5d48",
+      "installed_sha256": "791a38d223ce71a287d305985310b175fd1c10a557ab2599920a6e04819c5d48",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\cs2\\content\\trento_povo\\models\\povo\\povo1_campus_paving.vmdl",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\models\\povo\\povo1_campus_paving.vmdl",
+      "sha256": "2c66f21bfd26bba5b245ebe038f45efb2bac626c82426de2fdd4dde9efdf4a22",
+      "installed_sha256": "2c66f21bfd26bba5b245ebe038f45efb2bac626c82426de2fdd4dde9efdf4a22",
+      "matched": true
+    },
+    {
+      "source": "C:\\Users\\Alberto\\Desktop\\trento_fps\\cs2\\content\\trento_povo\\maps\\trento_povo_campus.vmap",
+      "installed": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\content\\csgo_addons\\trento_povo\\maps\\trento_povo_campus.vmap",
+      "sha256": "1ade49a60d7c0476d98d7819527d3c3157ebf798ddd1a0e5c8835ec5b485ac2b",
+      "installed_sha256": "1ade49a60d7c0476d98d7819527d3c3157ebf798ddd1a0e5c8835ec5b485ac2b",
+      "matched": true
+    }
+  ],
+  "checked_at_utc": "2026-10-31T12:23:06.157449+00:00"
+}

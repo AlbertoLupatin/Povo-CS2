@@ -1,0 +1,11 @@
+[
+  {"id":"registered_street","position":[65,24,5.7],"target":[68,90,5.7]},
+  {"id":"paving_and_boundary","position":[58,50,5.82],"target":[70,82,5.7]},
+  {"id":"roundabout","position":[48,84,46],"target":[82.46,113.47,4]},
+  {"id":"fbk_nord","position":[75,45,42],"target":[125,34,14]},
+  {"id":"fbk_ovest_est_courtyards","position":[150,-130,65],"target":[162,-66,10]},
+  {"id":"fbk_skybridge","position":[168,-92,10],"target":[168,-59.8,14]},
+  {"id":"fbk_south","position":[50,-260,80],"target":[137,-184,10]},
+  {"id":"residential","position":[-46,-122,32],"target":[-68,-65,8]},
+  {"id":"campus_overview","position":[-190,-260,230],"target":[45,-30,0]}
+]

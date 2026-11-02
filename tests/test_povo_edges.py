@@ -1,5 +1,6 @@
 """Outer scenery must preserve gameplay and retain traceable reference evidence."""
 import hashlib
+import json
 import math
 import unittest
 from unittest.mock import patch
@@ -49,7 +50,11 @@ class PovoEdgeTests(unittest.TestCase):
 
     def test_road_continuations_meet_existing_campus_endpoints(self):
         _,meta=build();roads={r['id']:r for r in meta['config']['roads']}
-        self.assertEqual(roads['north_roundabout_approach']['points'][0],[62,120,4])
+        front=json.loads((ROOT/'config/povo_exterior.json').read_text())['front_road']
+        self.assertEqual(roads['north_roundabout_approach']['points'][0],front['points'][-1])
+        r=meta['config']['roundabout'];end=roads['north_roundabout_approach']['points'][-1]
+        self.assertAlmostEqual(math.dist(end[:2],r['centre'][:2]),
+                               (r['outer_radius']+r['inner_radius'])/2,delta=.1)
         self.assertEqual(roads['south_sommarive']['points'][0],[62,-116,7.6])
         self.assertEqual(roads['west_lane']['points'][0],[-48,-101,3])
 

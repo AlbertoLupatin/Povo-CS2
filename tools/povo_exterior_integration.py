@@ -94,7 +94,7 @@ def extend(root,settings,config,boxes,levels,stair):
             mesh['vertices']=[tuple(v*.65 for v in point) for point in mesh['vertices']]
         mesh['name']='exterior_'+mesh['name'];mesh['material']='exterior_'+mesh['material']
     # Small details stay visual; closed road/ramp/fence-base strips supply physics.
-    physics=[m for m in meshes if len(m['vertices'])==8 and not any(s in m['name'] for s in ('_edge_','crosswalk','_top','street_end_gate_'))]
+    physics=[m for m in meshes if len(m['vertices'])==8 and not any(s in m['name'] for s in ('_edge_','crosswalk','_top','street_end_gate_','residential_'))]
     # A continuous barrier supplies the fence collision, avoiding hundreds of
     # separate bar hulls while preserving the closed boundary at player scale.
     for mesh in meshes:

@@ -1,0 +1,59 @@
+Server:  Running [100.119.112.35:27015]
+Client:  Connected [loopback:1] [last packet 0.020 sec ago]
+----- Status -----
+@ Current  :  game
+SV:  ServerSteamID=[A:1:3413990401:52243] (90296377937845249).
+[STARTUP] {30.411} logged on to Steam
+Gameserver logged on to Steam, assigned identity steamid:90296377937845249
+AuthStatus (steamid:90296377937845249):  Attempting  (Requesting cert)
+source   : slot 0
+version  : 1.41.9.4/14194 10955 insecure  public
+steamid  : [I:1:0] (72057594037927936)
+players  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)
+---------spawngroups----
+loaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]
+loaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]
+loaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]
+---------players--------
+  id     time ping loss      state   rate name
+   0    00:05    0    0     active 786432 'albylupatin2000'
+#end
+
+noclip ON
+SV:  VAC secure mode disabled.
+AuthStatus (steamid:90296377937845249):  OK  (OK)
+Certificate expires in 48h00m at 1793794563 (current time 1793621762), will renew in 46h00m
+Received server welcome from GC.
+GC Connection established for server version 2000939, instance idx 1
+
+non-moveable func_door_rotating 'stair_nw_2' is pushed
+
+Screenshot written to: screenshots\lighting_fix_entrance_0000.tga
+
+
+Screenshot written to: screenshots\lighting_fix_c7_0000.tga
+
+
+Screenshot written to: screenshots\lighting_fix_c5_0000.tga
+
+
+Screenshot written to: screenshots\lighting_fix_wi1_0000.tga
+
+
+Screenshot written to: screenshots\lighting_fix_terrace_0000.tga
+
+
+Screenshot written to: screenshots\lighting_fix_up_stair_0000.tga
+
+
+Screenshot written to: screenshots\lighting_fix_down_stair_0000.tga
+SV:  "albylupatin2000<0><[U:1:319081618]><>" STEAM USERID validated
+
+
+Screenshot written to: screenshots\lighting_fix_lower_approach_0000.tga
+
+
+Screenshot written to: screenshots\lighting_fix_campus_0000.tga
+
+mat_fullbright = 0

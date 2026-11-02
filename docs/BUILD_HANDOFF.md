@@ -40,7 +40,7 @@ Keep the full directory structure, including `data/`, `config/`, `cs2/`, and
 generation. Do not transfer just the tools or the VMAP. The existing blockout
 export is an input to campus generation and is included in the handoff.
 
-## 2. Install the two build dependencies
+## 2. Install the build dependencies
 
 From the repository root:
 
@@ -82,6 +82,15 @@ Larger black courtyard patches remain under investigation; see
 [exterior visibility notes](POVO_EXTERIOR_VISIBILITY.md).
 Geometry and collision are unchanged.
 The full source tests and package checks still run.
+
+Script-only VRAD retiling is disabled. The 31 October recovery returned success
+but its saved lightmap atlas contains black/turquoise streaks, reproduced in
+normal-lit CS2 on 2 November. A package CRC check cannot detect this defect.
+Keep the compiler-generated block size and packing inputs together; rebuild
+lighting through resourcecompiler and inspect normal-lit engine captures before
+calling the package ready. The old `recover_povo_lighting.py` command now fails
+before touching a compiler or worker. Valve's hidden `vrad3LargeBlockSize` flag
+is a boolean switch, not a numeric tile size.
 
 The default builds **standard** campus only. To include winter:
 

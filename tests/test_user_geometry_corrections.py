@@ -62,7 +62,8 @@ class UserGeometryCorrections(unittest.TestCase):
         self.assertGreaterEqual(gate['height'],4)
         self.assertTrue(all(box[1][0]>67.3 for box in bars))
         self.assertLessEqual(min(box[1][1] for box in bars),-116)
-        self.assertGreaterEqual(max(box[2][1] for box in bars),120)
+        self.assertGreaterEqual(max(box[2][1] for box in bars),
+                                self.meta['config']['front_road']['points'][-1][1])
         self.assertTrue(all(right[1][1]-left[2][1]<.3 for left,right in zip(bars,bars[1:])))
 
     def test_concrete_fills_outskirts_and_under_map_without_expanding_navigation(self):

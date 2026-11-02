@@ -1,0 +1,49 @@
+{
+  "name": "p2_south_door_bank",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        49,
+        31.35,
+        4
+      ],
+      "position": [
+        49.05412828239622,
+        31.3491965599254,
+        4.0007926080160034
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        34,
+        31.35,
+        4
+      ],
+      "position": [
+        33.91384621853566,
+        31.351394879125408,
+        4.0007926080160034
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        31.5,
+        31.35,
+        4
+      ],
+      "position": [
+        31.53941751552616,
+        31.351047610325406,
+        4.0007926080160034
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

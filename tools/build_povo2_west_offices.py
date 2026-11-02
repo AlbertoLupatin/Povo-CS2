@@ -111,17 +111,30 @@ def build(base,root=ROOT):
                     walls.extend(subtract_rect(w,inside[:4]))
                 else:walls.append(w)
             else:walls.append(w)
-    # C7 runs past the main stair core to C5. The registered core overlaps C7,
-    # so C7 jogs south under it at its own width; the offices give way. This
-    # band also covers the retained stair-door threshold.
-    core=base['core'];c7=next(c for c in base['corridors'] if c['id']=='corridor_7')['bounds']
+    # C7 runs straight past the main stair core to C5 (user correction 31 Oct).
+    # The registered core overlaps the full-plan C7 band, so the whole band
+    # moves south to the core's south wall at its own width. The offices on
+    # C7 end at its south wall, like W01 in the user's Draw.io; WI2's top
+    # merges into C7's west end. The band covers the stair-door threshold.
+    core=base['core'];c7_entry=next(c for c in result['corridors'] if c['id']=='corridor_7')
+    c7_plan=list(c7_entry['bounds'])
     c5=next(c for c in base['corridors'] if c['id']=='corridor_5')['bounds']
-    bypass=[core[0]-cfg['c7_core_bypass']['turn_metres'],core[1]-(c7[3]-c7[1]),c5[0],core[1]]
+    c7=[c7_plan[0],core[1]-(c7_plan[3]-c7_plan[1]),c5[0],core[1]]
+    c7_entry.update(bounds=c7,full_plan_bounds=c7_plan,evidence=cfg['c7_straight']['status'])
     for room in rooms:
-        r=room['bounds'];cut=[max(r[0],bypass[0]),max(r[1],bypass[1]),min(r[2],bypass[2]),min(r[3],bypass[3])]
-        if cut[0]>=cut[2] or cut[1]>=cut[3]:continue
-        if cut[0]<=r[0] and cut[2]>=r[2]:room['bounds'][3]=bypass[1]
-        else:room['excluded_for_c7_bypass']=cut
+        r=room['bounds']
+        if r[0]<c7[2] and c7[0]<r[2] and r[1]<c7[3] and c7[1]<r[3]:r[3]=c7[1]
+    for passage in corridors:
+        r=passage['bounds']
+        if c7[0]<=r[0] and r[2]<=c7[2] and r[1]<c7[1]<r[3]:r[3]=c7[1]
+    wi2=next(c for c in corridors if c['id']=='WI2')['bounds']
+    c7_end=[wi2[0],c7[1],c7[0],wi2[3]]
+    # Public openings onto C7 keep their traced positions along it.
+    for o in [entrance,*connector_ends[:1],*[o for r in rooms for o in r['secondary_doors']]]:
+        for p in o['points']:
+            if abs(p[1]-c7_plan[1])<1e-4:p[1]=c7[1]
+    entrance['points']=[[wi2[0]+.14,c7[1]],[wi2[2]-.14,c7[1]]]
+    entrance['status']='WI2 opens full width into the west end of straight C7 (user correction 31 Oct)'
     # Identical party-wall segments only need one body.
     walls=list(dict.fromkeys(tuple(round(v,7) for v in w) for w in walls))
     floor=next(f for f in result['floors'] if f['f']==-1)
@@ -130,27 +143,32 @@ def build(base,root=ROOT):
     c8=next(c for c in result['corridors'] if c['id']=='corridor_8')
     stub=[c8['bounds'][0]-.1,footprint[1]-.1,c8['bounds'][2]+.1,footprint[3]]
     floor['walls']=[part for w in floor['walls'] for part in subtract_rect(w,stub)]
-    c8['trimmed_south_from']=c8['bounds'][1];c8['bounds'][1]=footprint[3]
-    c8['trim_evidence']='Source band reached the photo edge (v 0-100); photo 46 shows West Offices south of C7'
+    c8['trimmed_south_from']=c8['bounds'][1];c8['bounds'][1]=c7[3]
+    c8['trim_evidence']='Source band reached the photo edge (v 0-100); photo 46 shows West Offices south of C7, which runs straight along the core'
     public_holes=[entrance,connector_ends[0],connector_ends[2]]+[o for r in rooms for o in r['secondary_doors']]
     floor['walls']=cut_openings(floor['walls'],public_holes)
     floor['walls'].extend(walls);floor['glazing'].extend(glass)
-    # Clear the band's interior, through C7's south wall and C5's west wall;
-    # the core's south wall and its stair door are left as they are.
-    t=.08;carve=[bypass[0]+t,bypass[1]+t,bypass[2]+.1,bypass[3]-t]
+    # Clear C7's interior, through the offices' former north wall and C5's
+    # west wall; the core's south wall and its stair door stay as they are.
+    t=.08;carve=[c7[0]+t,c7[1]+t,c7[2]+.1,c7[3]-t]
     floor['walls']=[part for w in floor['walls'] for part in subtract_rect(w,carve)]
     floor['glazing']=[part for w in floor['glazing'] for part in subtract_rect(w,carve)]
-    bypass_walls=[[bypass[0]-t,bypass[1]-t,bypass[2],bypass[1]+t,.65],[bypass[0]-t,bypass[1]-t,bypass[0]+t,c7[1],.65]]
-    floor['walls'].extend(bypass_walls)
-    walls=[part for w in walls for part in subtract_rect(list(w),carve)]+bypass_walls
+    # The offices stay closed along C7 except at their public openings.
+    c7_walls=cut_openings([[wi2[2],c7[1]-t,c7[2],c7[1]+t,.65],[c7[0]-t,wi2[3],c7[0]+t,c7[3]+t,.65]],public_holes)
+    floor['walls'].extend(c7_walls)
+    # Review plan only: C7's north side. The vacated full-plan band behind it
+    # stays closed; C8 keeps its side walls across that band.
+    c8_end=dict(points=[[c8['bounds'][0]+.14,c7[3]],[c8['bounds'][2]-.14,c7[3]]])
+    floor['walls'].extend(cut_openings([[c7[0]-t,c7[3]-t,core[0],c7[3]+t,.65]],[c8_end]))
+    floor['walls'].extend([x-t,c7[3],x+t,c7_plan[3],.65] for x in (c8['bounds'][0],c8['bounds'][2]))
+    walls=[part for w in walls for part in subtract_rect(list(w),carve)]+c7_walls
     glass=[part for w in glass for part in subtract_rect(list(w),carve)]
     # Floor and a clear way across the gap between the office shell and C5.
     spine=corridors[0]['bounds'];link=[footprint[2],spine[1],c5[0],spine[3]]
     floor['walls']=[part for w in floor['walls'] for part in subtract_rect(w,[link[0]-.1,link[1]+t,link[2]+.1,link[3]-t])]
-    floor['slabs']=union_rectangles([*floor['slabs'],footprint,bypass,link])[0]
+    floor['slabs']=union_rectangles([*floor['slabs'],footprint,c7,link])[0]
     spine[2]=link[2]
-    floor['areas'].append(dict(label='C7 core bypass',r=bypass,kind='circulation',priority=3))
-    result['corridors'].append(dict(id='c7_core_bypass',bounds=bypass,evidence=cfg['c7_core_bypass']['status']))
+    floor['areas'].append(dict(label='C7',r=c7,kind='circulation',priority=3))
     floor['openings'].extend(o['points'] for o in openings)
     floor.setdefault('estimated_openings',[]).extend(r['door']['points'] for r in rooms)
     floor['areas'].extend(dict(id=r['id'],label=r['label'],r=r['bounds'],kind='study' if r['kind']=='office' else 'room',priority=1) for r in rooms)
@@ -158,7 +176,7 @@ def build(base,root=ROOT):
     result['rooms'].extend(rooms)
     result['west_offices']=dict(rooms=rooms,corridors=corridors,footprint=footprint,entrance=entrance,
         openings=openings,walls=walls,glazing=glass,trace=cfg['local_trace'],finishes=cfg['finishes'],
-        public_portals=public_holes,door_policy=cfg['estimated_door_policy'],scope=cfg['scope'])
+        public_portals=public_holes,c7=c7,c7_end=c7_end,door_policy=cfg['estimated_door_policy'],scope=cfg['scope'])
     result['west_offices_context']=dict(bounds=footprint,label='WEST OFFICES',internal_corridor_status='Built internally from the uncropped plan; inferred doorway offsets remain approximate')
     result['layout_mode']='full_plan_with_west_offices'
     result['status']=cfg['status']

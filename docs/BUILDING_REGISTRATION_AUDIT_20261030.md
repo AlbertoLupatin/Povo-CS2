@@ -1,5 +1,11 @@
 # Building and road registration against OSM and LiDAR (30 October 2026)
 
+**31 October implementation:** the confirmed scenery corrections are applied.
+See [the revised scope and validation](BUILDING_REGISTRATION_IMPLEMENTATION_20261031.md).
+The measurements and proposal files below remain the pre-correction baseline.
+The user explicitly retained the Povo 2 south roof, courtyard roof, podium and
+campus bridge geometry pending a separate reference review.
+
 This audit checks every building and road in the generated campus against two
 independent sources:
 
@@ -138,7 +144,7 @@ real.
 
 ```sh
 python tools/fetch_osm_extract.py             # refresh the cached OSM extract (needs pyarrow)
-python tools/audit_building_registration.py   # numpy + Pillow; writes exports/building_registration_20261030/
+python tools/audit_building_registration.py --out exports/building_registration_20261031
 python -m unittest tests.test_building_registration
 ```
 
@@ -147,6 +153,9 @@ regenerate the campus first after any geometry change. It takes about a
 minute. `report.json` holds every metric, including best-fit translations
 against OSM and LiDAR, game-only mass with no OSM building, and per-road
 statistics.
+
+The default output now uses the 31 October folder so rerunning the audit does
+not overwrite the original proposal evidence used by the scenery generators.
 
 Sources: OpenStreetMap © OpenStreetMap contributors, ODbL 1.0, via Overture
 Maps Foundation. PAT LiDAR DTM/DBM 2014–2018, CC BY 4.0. Comune di Trento

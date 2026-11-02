@@ -1,5 +1,10 @@
 # Building layout fixes
 
+**Povo 2 −1 layout is FINAL and explicitly user-approved (2 November 2026).**
+The [definitive layout record](POVO2_MINUS1_DEFINITIVE_LAYOUT.md) supersedes
+conflicting historical Povo 2 −1 layout findings below. Preserve the accepted
+floor layout; remaining finishing and other floors/buildings are separate work.
+
 **Implemented:** the active source geometry now has 2 x 13 upper steps, 3 x 10 steps per basement storey, the retained -1 exit, and the shifted -2 vestibule with parking/office/garden branches. See [implementation and validation](POVO2_INTERNAL_STAIRS_IMPLEMENTATION.md). Earlier stair findings below are the pre-correction audit baseline; metric calibration remains open.
 
 
@@ -104,8 +109,12 @@ The user cannot access most Povo 2 laboratory/office wings. Prioritize the acces
 
 Evidence: [registration audit](BUILDING_REGISTRATION_AUDIT_20261030.md). Proposed OSM rings, in local metres, are in `exports/building_registration_20261030/proposed_footprints.json`. Re-run `python tools/audit_building_registration.py` after each change.
 
-- [ ] **Re-trace FBK Edificio Nord, Ovest and Est and their skybridge** (`config/povo_edges.json`). Use the OSM rings including courtyards, and LiDAR heights above ground (Ovest about 15 m, Est about 7 m). Decide whether the flattened grade stays.
-- [ ] **Re-trace the FBK south complex.** Remove the 40 m phantom on `fbk_far_south_south`, add the missing north wing, and trim `fbk_far_south_north` (+12 m on the west side).
-- [ ] **Move the residential backdrop west of Povo 1 about 3 m east** and use its stepped OSM outline (`config/povo_exterior.json` `residential`).
-- [ ] **Shift Via Sommarive between the bridge and the roundabout 4–8 m east,** and review its grade (up to 5.8 m below the DTM) with the Povo 2 entrance levels.
-- [ ] **Confirm with the user:** the Povo 2 south −1 roof over the LiDAR-open sunken area, the roofed courtyard (see the central-void item), the east podium's low roofs north and south of the annex bars, and the bridge width (game about 8 m, OSM/LiDAR about 3.5 m).
+- [x] **Re-trace FBK Edificio Nord, Ovest and Est and their skybridge.** OSM outlines and all courtyard rings applied, LiDAR roof heights used, flattened scenery grades retained. The narrow FBK skybridge now has an open underside.
+- [x] **Re-trace the FBK south complex.** Replaced the two old south/west masses with the complete courtyard ring, removed the phantom extension, and registered the adjacent north/east buildings.
+- [x] **Register the residential backdrop west of Povo 1** to its stepped OSM outline. Parking edge/fence cleared from the corrected facade.
+- [x] **Register Via Sommarive between Povo 2 and the roundabout.** Corrected its centreline, the roundabout location and connecting north/east branches; widened campus-side paving to retain pedestrian continuity.
+- [ ] **Review road grades with the Povo 2 entrance levels.** This pass deliberately retains existing elevations; absolute DTM differences remain.
+- [ ] **Review the Povo 2 south −1 roof, courtyard roof, east podium and campus bridge width.** On 31 October the user explicitly chose to retain this accepted geometry pending a separate photo/plan review.
+
+Implementation, measured improvements and build/runtime evidence:
+[31 October registration corrections](BUILDING_REGISTRATION_IMPLEMENTATION_20261031.md).

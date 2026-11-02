@@ -7,7 +7,7 @@
       370
     ],
     "crs": "EPSG:25832",
-    "status": "First scenery pass, 29 October 2026; aerial-traced XY, estimated heights and adapted grades",
+    "status": "OSM-registered scenery footprints and LiDAR heights; flattened grades retained",
     "aerial": "data/reference/povo_ortho_2024.png",
     "aerial_manifest": "data/reference/povo_ortho_2024.json",
     "photo_directory": "data/reference/povo_photos/walk_2026_10_29/Images",
@@ -31,38 +31,49 @@
         "width": 7,
         "points": [
           [
-            62,
-            120,
+            69.08,
+            91.07,
             4
           ],
           [
-            64,
-            133,
+            69.11,
+            99.42,
             4
           ],
           [
-            72,
-            139,
+            70.77,
+            110.03,
             4
           ]
-        ]
+        ],
+        "evidence": "OSM w1394224846 centreline; joins corrected front road and roundabout; existing grade retained."
       },
       {
         "id": "north_village",
         "width": 6,
         "points": [
           [
-            76,
-            161,
+            73.23,
+            121.47,
             4
           ],
           [
-            70,
-            178,
-            6
+            72.34,
+            124.62,
+            4
           ],
           [
-            64,
+            64.11,
+            158.96,
+            5.8
+          ],
+          [
+            56.97,
+            197.26,
+            8
+          ],
+          [
+            56.43,
             200,
             8
           ]
@@ -73,28 +84,58 @@
         "width": 6,
         "points": [
           [
-            94,
-            145,
+            94.49,
+            111.05,
             4
           ],
           [
-            110,
-            128,
+            98.48,
+            111,
+            4
+          ],
+          [
+            103.9,
+            110.71,
+            4
+          ],
+          [
+            110.82,
+            108.02,
+            4.5
+          ],
+          [
+            119.73,
+            101.44,
             5
           ],
           [
-            151,
-            94,
-            7
+            128.52,
+            92.54,
+            5.5
           ],
           [
-            192,
-            52,
+            148.81,
+            67.72,
+            6
+          ],
+          [
+            157.78,
+            58.03,
+            6.5
+          ],
+          [
+            194.49,
+            25.7,
             8
           ],
           [
+            220.32,
+            -0.74,
+            8.5
+          ],
+          [
             238,
-            7,
+            -20.53,
             9
           ]
         ]
@@ -209,221 +250,517 @@
     ],
     "roundabout": {
       "centre": [
-        81,
-        149,
+        82.46,
+        113.47,
         4
       ],
-      "outer_radius": 13,
-      "inner_radius": 6.3
+      "outer_radius": 15.67,
+      "inner_radius": 8.67,
+      "evidence": "OSM w24392581 centreline circle: centre (82.46,113.47), radius 12.17 m; 7 m carriageway, original flat grade retained."
     },
     "buildings": [
       {
         "id": "fbk_north",
         "footprint": [
           [
-            101,
-            -8
+            111.1,
+            -3.5
           ],
           [
-            157,
-            -8
+            111.2,
+            -6.2
           ],
           [
-            154,
-            53
+            151.2,
+            -5.5
           ],
           [
-            121,
-            75
+            150.7,
+            44.9
           ],
           [
-            108,
-            79
+            149.7,
+            44.7
           ],
           [
-            101,
-            65
+            149.4,
+            50.3
+          ],
+          [
+            141.0,
+            58.0
+          ],
+          [
+            141.8,
+            59.7
+          ],
+          [
+            120.3,
+            72.0
+          ],
+          [
+            106.5,
+            75.6
+          ],
+          [
+            97.7,
+            43.8
+          ],
+          [
+            99.3,
+            40.9
+          ],
+          [
+            109.9,
+            38.3
           ]
         ],
         "base_z": 5,
-        "height": 15,
+        "height": 16.205,
         "style": "silver",
-        "evidence": "2024 aerial north polygon; today's north-facing photo for silver cladding, glazing and roof eave"
+        "evidence": "30 October OSM/LiDAR registration; simplified outer ring and courtyard rings. Facade details remain photo-guided estimates.",
+        "courtyards": [],
+        "registration": {
+          "osm": "w28933741",
+          "source": "OSM via Overture 2026-10-21.0; PAT DTM/DBM 2014-2018",
+          "lidar_height_above_ground_m": 16.4,
+          "grade_policy": "Retain flattened scenery grade"
+        }
       },
       {
         "id": "fbk_south_west",
         "footprint": [
           [
-            110,
-            -104
+            151.1,
+            -44.5
           ],
           [
-            152,
-            -104
+            150.8,
+            -36.3
           ],
           [
-            157,
-            -29
+            112.0,
+            -37.4
           ],
           [
-            115,
-            -23
+            113.6,
+            -95.1
+          ],
+          [
+            152.1,
+            -94.0
+          ],
+          [
+            151.3,
+            -66.0
+          ],
+          [
+            156.9,
+            -65.8
+          ],
+          [
+            158.3,
+            -64.2
+          ],
+          [
+            158.1,
+            -57.8
+          ],
+          [
+            151.5,
+            -59.0
           ]
         ],
         "base_z": 8,
-        "height": 11,
+        "height": 14.805,
         "style": "white",
-        "evidence": "Aerial roof outline; today's south-facing photo for pale panel facade and horizontal windows"
+        "evidence": "30 October OSM/LiDAR registration; simplified outer ring and courtyard rings. Facade details remain photo-guided estimates.",
+        "courtyards": [
+          [
+            [
+              125.2,
+              -84.5
+            ],
+            [
+              124.9,
+              -73.7
+            ],
+            [
+              138.8,
+              -73.3
+            ],
+            [
+              139.1,
+              -84.1
+            ]
+          ],
+          [
+            [
+              138.7,
+              -57.6
+            ],
+            [
+              124.6,
+              -58.1
+            ],
+            [
+              124.2,
+              -47.1
+            ],
+            [
+              138.3,
+              -46.6
+            ]
+          ]
+        ],
+        "registration": {
+          "osm": "r1185625",
+          "source": "OSM via Overture 2026-10-21.0; PAT DTM/DBM 2014-2018",
+          "lidar_height_above_ground_m": 15.0,
+          "grade_policy": "Retain flattened scenery grade"
+        }
       },
       {
         "id": "fbk_south_east",
         "footprint": [
           [
-            173,
-            -104
+            178.5,
+            -102.6
           ],
           [
-            211,
-            -104
+            216.6,
+            -101.6
           ],
           [
-            211,
-            -41
+            215.0,
+            -43.7
           ],
           [
-            173,
-            -40
+            176.9,
+            -44.8
           ]
         ],
         "base_z": 8,
-        "height": 10,
+        "height": 6.705,
         "style": "white",
-        "evidence": "Aerial roof outline; facade rhythm estimated"
+        "evidence": "30 October OSM/LiDAR registration; simplified outer ring and courtyard rings. Facade details remain photo-guided estimates.",
+        "courtyards": [
+          [
+            [
+              193.3,
+              -92.3
+            ],
+            [
+              193.1,
+              -83.4
+            ],
+            [
+              203.9,
+              -83.1
+            ],
+            [
+              204.2,
+              -92.1
+            ]
+          ],
+          [
+            [
+              200.8,
+              -72.4
+            ],
+            [
+              190.7,
+              -72.7
+            ],
+            [
+              190.5,
+              -64.2
+            ],
+            [
+              200.6,
+              -64.0
+            ]
+          ]
+        ],
+        "registration": {
+          "osm": "r1185627",
+          "source": "OSM via Overture 2026-10-21.0; PAT DTM/DBM 2014-2018",
+          "lidar_height_above_ground_m": 6.9,
+          "grade_policy": "Retain flattened scenery grade"
+        }
       },
       {
         "id": "fbk_south_link",
         "footprint": [
           [
-            152,
-            -76
+            177.3,
+            -58.1
           ],
           [
-            173,
-            -76
+            158.1,
+            -58.7
           ],
           [
-            173,
-            -60
+            158.2,
+            -61.5
           ],
           [
-            155,
-            -60
+            177.4,
+            -61.0
           ]
         ],
-        "base_z": 8,
-        "height": 7,
+        "base_z": 12.5,
+        "height": 3.205,
         "style": "white",
-        "evidence": "Aerial connecting wing; height estimated"
+        "evidence": "30 October OSM/LiDAR registration; simplified outer ring and courtyard rings. Facade details remain photo-guided estimates.",
+        "courtyards": [],
+        "registration": {
+          "osm": "w1194202499",
+          "source": "OSM via Overture 2026-10-21.0; PAT DTM/DBM 2014-2018",
+          "lidar_height_above_ground_m": 7.9,
+          "grade_policy": "Retain flattened scenery grade",
+          "clearance_m": 4.5,
+          "clearance_note": "Elevated skybridge; underside clearance is estimated, roof height is LiDAR-derived."
+        }
       },
       {
         "id": "fbk_far_south_north",
         "footprint": [
           [
-            85,
-            -166
+            148.8,
+            -134.2
           ],
           [
-            159,
-            -166
+            95.5,
+            -135.6
           ],
           [
-            159,
-            -132
+            96.2,
+            -162.2
           ],
           [
-            85,
-            -132
+            123.1,
+            -161.4
+          ],
+          [
+            123.2,
+            -165.1
+          ],
+          [
+            127.2,
+            -164.8
+          ],
+          [
+            127.2,
+            -161.0
+          ],
+          [
+            156.0,
+            -161.0
+          ],
+          [
+            155.5,
+            -134.7
           ]
         ],
         "base_z": 8,
-        "height": 10,
+        "height": 7.905,
         "style": "white",
-        "evidence": "Aerial southern complex north wing"
+        "evidence": "30 October OSM/LiDAR registration; simplified outer ring and courtyard rings. Facade details remain photo-guided estimates.",
+        "courtyards": [],
+        "registration": {
+          "osm": "w42648436",
+          "source": "OSM via Overture 2026-10-21.0; PAT DTM/DBM 2014-2018",
+          "lidar_height_above_ground_m": 8.1,
+          "grade_policy": "Retain flattened scenery grade"
+        }
       },
       {
-        "id": "fbk_far_south_west",
+        "id": "fbk_far_south_ring",
         "footprint": [
           [
-            85,
-            -224
+            75.7,
+            -176.2
           ],
           [
-            102,
-            -224
+            77.3,
+            -215.3
           ],
           [
-            102,
-            -171
+            74.2,
+            -215.3
           ],
           [
-            85,
-            -171
+            74.6,
+            -236.9
+          ],
+          [
+            91.3,
+            -236.6
+          ],
+          [
+            91.1,
+            -228.5
+          ],
+          [
+            158.1,
+            -227.8
+          ],
+          [
+            157.7,
+            -207.8
+          ],
+          [
+            125.6,
+            -208.4
+          ],
+          [
+            125.2,
+            -186.1
+          ],
+          [
+            172.1,
+            -185.2
+          ],
+          [
+            172.1,
+            -182.3
+          ],
+          [
+            162.6,
+            -182.5
+          ],
+          [
+            162.4,
+            -174.5
           ]
         ],
         "base_z": 8,
-        "height": 9,
+        "height": 11.005,
         "style": "white",
-        "evidence": "Aerial southern complex west wing"
-      },
-      {
-        "id": "fbk_far_south_south",
-        "footprint": [
+        "evidence": "30 October OSM/LiDAR registration; simplified outer ring and courtyard rings. Facade details remain photo-guided estimates.",
+        "courtyards": [
           [
-            102,
-            -231
-          ],
-          [
-            194,
-            -231
-          ],
-          [
-            194,
-            -212
-          ],
-          [
-            102,
-            -212
+            [
+              96.2,
+              -209.6
+            ],
+            [
+              95.2,
+              -188.1
+            ],
+            [
+              113.9,
+              -187.2
+            ],
+            [
+              115.0,
+              -210.9
+            ],
+            [
+              100.6,
+              -211.6
+            ],
+            [
+              100.5,
+              -209.4
+            ]
           ]
         ],
-        "base_z": 8,
-        "height": 9,
-        "style": "white",
-        "evidence": "Aerial southern complex south wing"
+        "registration": {
+          "osm": "r1185626",
+          "source": "OSM via Overture 2026-10-21.0; PAT DTM/DBM 2014-2018",
+          "lidar_height_above_ground_m": 11.2,
+          "grade_policy": "Retain flattened scenery grade"
+        }
       },
       {
         "id": "fbk_far_south_east",
         "footprint": [
           [
-            169,
-            -210
+            184.9,
+            -138.2
           ],
           [
-            195,
-            -210
+            170.6,
+            -138.7
           ],
           [
-            195,
-            -141
+            172.7,
+            -199.5
           ],
           [
-            169,
-            -141
+            190.1,
+            -198.9
+          ],
+          [
+            189.9,
+            -193.8
+          ],
+          [
+            185.3,
+            -193.9
+          ],
+          [
+            185.1,
+            -189.4
+          ],
+          [
+            203.0,
+            -188.8
+          ],
+          [
+            202.7,
+            -178.9
+          ],
+          [
+            195.9,
+            -179.2
+          ],
+          [
+            195.8,
+            -176.6
+          ],
+          [
+            188.1,
+            -176.9
+          ],
+          [
+            187.9,
+            -172.0
+          ],
+          [
+            195.0,
+            -171.8
+          ],
+          [
+            194.6,
+            -160.4
+          ],
+          [
+            196.5,
+            -160.3
+          ],
+          [
+            196.1,
+            -147.7
+          ],
+          [
+            185.3,
+            -148.1
           ]
         ],
         "base_z": 8,
-        "height": 9,
+        "height": 12.905,
         "style": "white",
-        "evidence": "Aerial southern complex east wing"
+        "evidence": "30 October OSM/LiDAR registration; simplified outer ring and courtyard rings. Facade details remain photo-guided estimates.",
+        "courtyards": [],
+        "registration": {
+          "osm": "w42648467",
+          "source": "OSM via Overture 2026-10-21.0; PAT DTM/DBM 2014-2018",
+          "lidar_height_above_ground_m": 13.1,
+          "grade_policy": "Retain flattened scenery grade"
+        }
       }
     ],
     "landscape": [
@@ -585,18 +922,14 @@
           4
         ],
         [
-          87,
-          99,
-          4
-        ],
-        [
-          99,
-          119,
+          85.5,
+          93,
           4
         ]
       ],
       "height": 4.2,
-      "width": 2.5
+      "width": 2.5,
+      "registration_note": "North end stops before the OSM-registered roundabout; former extension crossed its carriageway."
     },
     "blue_fence": {
       "points": [
@@ -718,11 +1051,15 @@
       }
     ],
     "assumptions": [
-      "Footprints manually traced in local metres from the existing 0.5 m/pixel municipal 2024 aerial; roof displacement and registration error remain.",
-      "Heights, facade bays, roofs, retaining-wall heights, trees and all outer ground levels are estimates. No GPS or DEM heights are inferred from these photos.",
+      "FBK footprints registered to cached OSM rings, simplified at 0.75 m; courtyards remain open. OSM attribution and ODbL retained in source extract.",
+      "FBK roof heights above the retained flattened scenery grade use PAT LiDAR. Facade details, skybridge underside clearance, trees and other outer ground levels remain estimates.",
       "Road ends match the accepted adapted campus coordinates. The road network beyond them is scenery and has no collision or navigation.",
       "Existing campus boundary fence and playable routes remain in place; no FBK interiors are introduced.",
       "Photo filenames are delivery timestamps, not verified camera capture times. User identifies these as today's walk."
+    ],
+    "registration_sources": [
+      "data/reference/osm/povo_osm_overture.geojson",
+      "exports/building_registration_20261030/proposed_footprints.json"
     ]
   },
   "photos": [
@@ -746,20 +1083,24 @@
     }
   ],
   "input_hashes": {
-    "config/povo_edges.json": "9744b5b46bd0c554d62b603039b789c7098cce035a80563d0d8efb4fa96249d0",
-    "tools/povo_edges.py": "d5220e458f97c5c2bc573859334773e3962737f648581d1f1fa970d092b02834",
+    "config/povo_edges.json": "c3fceef7cf78d20372f72bb7fcc18aa34dbe9841da83a37e6edfa9c91d6a3688",
+    "tools/povo_edges.py": "e12c3d6fa869dd1e5ad97f9a35f2548317ce1074ad8d1e13730ed9c8065e5037",
     "tools/povo_exterior_materials.py": "911bf8adadec4a76354ad37a07c1bfd7a7e30e832223e91f265c3792f864e3a7",
     "data/reference/povo_ortho_2024.png": "aa3217e94d2039a6657d530431986d1bbe6f22b1c985bc453a85d0d978f7d82b",
     "data/reference/povo_ortho_2024.json": "1e60557848c2791d33ed46fcb6b94aec2299cdc9121cec6419e0b6fafcb6e757",
+    "tools/polygon_mesh.py": "5979df97b5c80d71f8bda9d0cccfa8edb7900a7f6d3e2193353f0584b273d336",
+    "tools/povo_floor_surfaces.py": "d0719ad06ce98586bed6512e540aca2ab083692c77947112d17b82408a490439",
+    "data/reference/osm/povo_osm_overture.geojson": "87e885361194932b5365862a68d474cdf5e2ee84d2064b2dc83ccfb505c84785",
+    "exports/building_registration_20261030/proposed_footprints.json": "4c5100b0e99580b8d63e57eeda2ba91cc21e22134cc80bf3362e74affc67e29c",
     "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (2).jpeg": "106fa7055c3ffa21e9d4fbf37a1f7804b438ff99011b16bc4c649ba7b645e72b",
     "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (3).jpeg": "70abe7de9ab4f9b0d1825d8ace26ba1ff795fac387f473b070dc82e83c24a27d",
     "data/reference/povo_photos/walk_2026_10_29/Images/WhatsApp Image 2026-10-29 at 2.16.20 PM (4).jpeg": "7786a47b6d922dfe11c254b976076123335adc92ace0a3c1e014776d40a8f3bc"
   },
-  "visual_meshes": 1156,
+  "visual_meshes": 1569,
   "collision_meshes": 0,
-  "status": "First scenery pass, 29 October 2026; aerial-traced XY, estimated heights and adapted grades",
+  "status": "OSM-registered scenery footprints and LiDAR heights; flattened grades retained",
   "artifacts": {
     "povo_edges.mtl": "0090f7372f3aab45beaf2b86388ca8bb372996d478641bdedf8c46e821e63576",
-    "povo_edges.obj": "43d0bf90ad713ae1b39636d9c533f1c9549d8499405e9d6a61b307746ad0c4c0"
+    "povo_edges.obj": "f15235b5c0c8c51acc1fd22c62504c600635963ae01989b15eff4c03facea564"
   }
 }

@@ -1,0 +1,63 @@
+{
+  "name": "registered_sommarive",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        65.31,
+        40.18,
+        4
+      ],
+      "position": [
+        65.31490937526127,
+        40.317318933561275,
+        4.002791715016012
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        66.76,
+        63.61,
+        4
+      ],
+      "position": [
+        66.76564873946707,
+        63.700843566054814,
+        4.002790953016011
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        67.91,
+        82.04,
+        4
+      ],
+      "position": [
+        67.91865120867168,
+        82.17652823012871,
+        4.002790165616011
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        68.94,
+        90,
+        4
+      ],
+      "position": [
+        68.94488936447578,
+        90.03911186996017,
+        4.000789915616004
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

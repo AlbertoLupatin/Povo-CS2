@@ -30,7 +30,8 @@ OSM = ROOT / 'data/reference/osm/povo_osm_overture.geojson'
 DTM = ROOT / 'data/raw/terrain/5h666051035_DTM.asc'
 DBM = ROOT / 'data/raw/terrain/5h666051035_DBM.asc'
 ORTHO = ROOT / 'data/reference/povo_ortho_2024.png'
-OUT = ROOT / 'exports/building_registration_20261030'
+# Keep the original proposals immutable: scenery provenance uses that baseline.
+OUT = ROOT / 'exports/building_registration_20261031'
 ORIGIN = tuple(json.loads((ROOT / 'config/povo_blockout.json').read_text())['origin'])
 WEST, NORTH, CELL, SIZE = 666000.0, 5104000.0, 0.5, 1000     # PAT tile grid edges
 BUILDING_HEIGHT = 2.5
@@ -54,7 +55,7 @@ PROPOSAL_TARGETS = (
     ('config/povo_edges.json buildings[fbk_south_link]', 'w1194202499'),
     ('config/povo_edges.json buildings[fbk_far_south_north]', 'w42648436'),
     ('config/povo_edges.json buildings[fbk_far_south_east]', 'w42648467'),
-    ('config/povo_edges.json buildings[fbk_far_south_west, fbk_far_south_south]', 'r1185626'),
+    ('config/povo_edges.json buildings[fbk_far_south_ring]', 'r1185626'),
     ('config/povo_exterior.json residential', 'w275318458'),
 )
 

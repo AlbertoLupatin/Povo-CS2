@@ -1,0 +1,94 @@
+{
+  "baseline": "exports/building_registration_20261030/report.json",
+  "corrected": "exports/building_registration_20261031/report.json",
+  "buildings": [
+    {
+      "osm": "w28933741",
+      "name": "Edificio Nord",
+      "iou_before": 0.75,
+      "iou_after": 0.98,
+      "worst_side_after_m": 0.3,
+      "lidar_height_m": 16.4,
+      "game_height_m": 16.4
+    },
+    {
+      "osm": "r1185625",
+      "name": "Edificio Ovest",
+      "iou_before": 0.61,
+      "iou_after": 0.95,
+      "worst_side_after_m": 0.3,
+      "lidar_height_m": 15.0,
+      "game_height_m": 15.0
+    },
+    {
+      "osm": "r1185627",
+      "name": "Edificio Est",
+      "iou_before": 0.64,
+      "iou_after": 0.97,
+      "worst_side_after_m": 0.3,
+      "lidar_height_m": 6.9,
+      "game_height_m": 6.9
+    },
+    {
+      "osm": "w1194202499",
+      "name": null,
+      "iou_before": 0.2,
+      "iou_after": 0.84,
+      "worst_side_after_m": 0.3,
+      "lidar_height_m": 7.9,
+      "game_height_m": 7.9
+    },
+    {
+      "osm": "w42648436",
+      "name": null,
+      "iou_before": 0.62,
+      "iou_after": 0.96,
+      "worst_side_after_m": 0.4,
+      "lidar_height_m": 8.1,
+      "game_height_m": 8.1
+    },
+    {
+      "osm": "w42648467",
+      "name": null,
+      "iou_before": 0.69,
+      "iou_after": 0.96,
+      "worst_side_after_m": 0.3,
+      "lidar_height_m": 13.1,
+      "game_height_m": 13.1
+    },
+    {
+      "osm": "r1185626",
+      "name": null,
+      "iou_before": 0.43,
+      "iou_after": 0.96,
+      "worst_side_after_m": 0.4,
+      "lidar_height_m": 11.2,
+      "game_height_m": 11.2
+    },
+    {
+      "osm": "w275318458",
+      "name": null,
+      "iou_before": 0.53,
+      "iou_after": 0.93,
+      "worst_side_after_m": 0.4,
+      "lidar_height_m": 11.4,
+      "game_height_m": 11.6
+    }
+  ],
+  "roads": [
+    {
+      "osm": "w1120770362",
+      "median_offset_before_m": 3.6,
+      "median_offset_after_m": 0.1,
+      "p90_offset_after_m": 1.0,
+      "grade_note": "Original game grades retained; large offsets near roundabout junctions can reflect intersecting asphalt runs."
+    },
+    {
+      "osm": "w1394224846",
+      "median_offset_before_m": 7.5,
+      "median_offset_after_m": 0.2,
+      "p90_offset_after_m": 5.8,
+      "grade_note": "Original game grades retained; large offsets near roundabout junctions can reflect intersecting asphalt runs."
+    }
+  ]
+}

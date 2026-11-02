@@ -22,15 +22,21 @@ def extend(boxes, levels, root=None):
     level = next(l for l in spec['levels'] if l['floor'] == -1)
     old_areas = copy.deepcopy(next(l['areas'] for l in spec['basement_rebuild']['levels'] if l['floor'] == -1))
     corridors = {c['id']: c['bounds'] for c in layout['corridors']}
-    fp = office['footprint']; c7 = corridors['corridor_7']; bypass = corridors['c7_core_bypass']
+    fp = office['footprint']; c7 = office['c7']
     # C5 is extended only as far as the new office spine. The remainder of the
     # full-plan research wings is outside this integration.
     c5 = [20.5, corridors['corridor_5'][1], 25.5, 18.0]
     link = [fp[2], office['corridors'][0]['bounds'][1], 20.5, office['corridors'][0]['bounds'][3]]
-    public = [c7, bypass, c5, link]
+    public = [c7, office['c7_end'], c5, link]
     # Keep the stair core intact, including its existing open south doorway.
     regions = [fp, *public]
     regions = [p for r in regions for p in subtract_rect(r, layout['core'])]
+    # The first CIBIO lab now reaches down to straight C7's north wall; its
+    # old south wall and the strip in front of it are cleared.
+    first = next(r for r in level['rooms'] if r['id'] == 'cibio_office_0')
+    lab_south = first['bounds'][1]
+    if lab_south > c7[3]:
+        regions.append([first['bounds'][0]+.1, c7[3], first['bounds'][2]-.1, lab_south+.1])
     prefix='p2_basement_cibio_office_0_'
     moving_desks={m[1] for n,lo,hi,material in boxes
                   if (m:=re.fullmatch(prefix+r'desk_(\d+)',n)) and lo[1]<c7[3]+.2}
@@ -45,9 +51,8 @@ def extend(boxes, levels, root=None):
         result = [p for box in result for p in
                   (subtract_box(box,hole) if box[0] != 'p2_basement_lift_floor' and box[0].startswith(('p2_basement_', 'exterior_', 'library_0_access'))
                    else [box])]
-    # The old two-room blockout's first lab overlaps C7 by 1.96 m. Retain its
-    # north part and entrance; its south wall now follows C7's north edge.
-    first = next(r for r in level['rooms'] if r['id'] == 'cibio_office_0')
+    # The old two-room blockout's first lab keeps its entrance; its south wall
+    # now follows C7's north edge.
     door_y=first['bounds'][1]+(first['bounds'][3]-first['bounds'][1])*first['door_fraction']
     first['bounds'][1] = c7[3]+.08
     first['footprint_local_metres'] = list(first['bounds'])
@@ -62,6 +67,8 @@ def extend(boxes, levels, root=None):
     for i,r in enumerate(union_rectangles(regions)[0]):
         add('floor_'+str(i),r,.18,.4,'floor_wood' if r[1]<fp[3] else 'floor_p2_tile')
         add('ceiling_'+str(i),r,3.43,3.5,'ceiling_panel')
+    if lab_south > c7[3]:
+        a=first['bounds'][0];add('cibio_lab_west_extension',[a-.1,c7[3]+.08,a+.1,lab_south],.4,3.5,'wall')
     # Public perimeter walls are omitted where they meet retained circulation.
     for i,(axis,fixed,lo,hi) in enumerate(union_rectangles(public)[1]):
         r=[fixed-.08,lo,fixed+.08,hi] if axis==0 else [lo,fixed-.08,hi,fixed+.08]
@@ -142,9 +149,9 @@ def extend(boxes, levels, root=None):
     office['rooms']=integrated_rooms
     floor = next(l for l in spec['basement_rebuild']['levels'] if l['floor']==-1)
     floor['areas'].extend([list(r) for r in regions])
-    # Routes follow C7 and the fitted bypass rather than passing through W02.
-    y7=(c7[1]+c7[3])/2;yb=(bypass[1]+bypass[3])/2
-    detour=[[19.2,17.15,.4],[19.2,yb,.4],[10.2,yb,.4],[10.2,y7,.4],[-3.05,y7,.4]]
+    # Routes follow straight C7 from the stair door.
+    y7=(c7[1]+c7[3])/2
+    detour=[[19.2,17.15,.4],[19.2,y7,.4],[10.2,y7,.4],[-3.05,y7,.4]]
     for route in spec['basement_rebuild']['routes']:
         if route['id']=='minus1_stair_to_labs':route['points']=[[19.2,22,.4],*detour,[-3.05,63,.4]]
         elif route['id']=='minus1_labs_to_exit':route['points']=[[-3.05,63,.4],*reversed(detour),[34.5,17.15,.4],[34.5,10,.4]]

@@ -1,0 +1,49 @@
+{
+  "name": "p2_north_door_bank_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        34,
+        35.65,
+        4
+      ],
+      "position": [
+        33.878651470535516,
+        35.649563524342604,
+        4.000792227016004
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        49,
+        35.65,
+        4
+      ],
+      "position": [
+        49.00863957479604,
+        35.65177113994261,
+        4.000792227016004
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        54,
+        35.65,
+        3.9999999999999996
+      ],
+      "position": [
+        53.98439477441595,
+        35.65085026294261,
+        4.000792227016004
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

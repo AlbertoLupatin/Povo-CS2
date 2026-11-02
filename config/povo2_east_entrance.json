@@ -1,5 +1,5 @@
 {
-  "status": "Povo 2 -1 eastern (terrace) entrance to the W offices, retraced from photo 46. Built by tools/povo2_playtest_repairs.py.",
+  "status": "Legacy photo-46 reconstruction input. The local entrance is replaced after this pass by tools/povo2_drawio_entrance.py using the user's corrected east_entrance_edited.drawio; these old connector and stair coordinates are not the final map layout.",
   "source_photo": "exports/povo2_survey/full_46.jpg",
   "photo_crop": {
     "box": [

@@ -1,0 +1,7 @@
+{
+  "name": "registered_sommarive_return",
+  "kind": "walk",
+  "status": "failed",
+  "checks": [],
+  "error": "Ordinary movement stalled: [68.55799824087424, 81.8958197745276, 4.002790165616011] target [67.91, 82.04, 4]"
+}

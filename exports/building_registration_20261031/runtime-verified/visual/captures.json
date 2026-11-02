@@ -1,0 +1,141 @@
+{
+  "package_sha256": "2abb571c5e33934999832d5836e7a7f4eb9fa5e2e2e375616b3bca071474570b",
+  "scope": "Noclip camera review; walking is verified separately",
+  "captures": [
+    {
+      "id": "registered_street",
+      "position": [
+        65,
+        24,
+        5.7
+      ],
+      "target": [
+        68,
+        90,
+        5.7
+      ],
+      "image": "registered_street.png",
+      "sha256": "8aa06d63ddc76e20b657836cd48721cc6965f2077e57291d9d165180011dbacd"
+    },
+    {
+      "id": "paving_and_boundary",
+      "position": [
+        58,
+        50,
+        5.82
+      ],
+      "target": [
+        70,
+        82,
+        5.7
+      ],
+      "image": "paving_and_boundary.png",
+      "sha256": "a82147fd2a65b28e3ada657bd4d13fed09607102498de6859f3873eb9faba698"
+    },
+    {
+      "id": "roundabout",
+      "position": [
+        48,
+        84,
+        46
+      ],
+      "target": [
+        82.46,
+        113.47,
+        4
+      ],
+      "image": "roundabout.png",
+      "sha256": "1061e6e44a19f7b6aca88d77766efd93ce3d3b86a135fc2b67d0c63b1858b1dd"
+    },
+    {
+      "id": "fbk_nord",
+      "position": [
+        75,
+        45,
+        42
+      ],
+      "target": [
+        125,
+        34,
+        14
+      ],
+      "image": "fbk_nord.png",
+      "sha256": "64b77f5d5eb71d401efaa6614b0bfe71b74100e8501ba190f3c73bdd937d3fcf"
+    },
+    {
+      "id": "fbk_ovest_est_courtyards",
+      "position": [
+        150,
+        -130,
+        65
+      ],
+      "target": [
+        162,
+        -66,
+        10
+      ],
+      "image": "fbk_ovest_est_courtyards.png",
+      "sha256": "9365865dd886e71c34e4f291c04721985f95b2983def654400b9b50a37405458"
+    },
+    {
+      "id": "fbk_skybridge",
+      "position": [
+        168,
+        -92,
+        10
+      ],
+      "target": [
+        168,
+        -59.8,
+        14
+      ],
+      "image": "fbk_skybridge.png",
+      "sha256": "1415d8b311212682bd60efa7437d7f3f95b7790c5b7bebc9ff7059c612bc73a7"
+    },
+    {
+      "id": "fbk_south",
+      "position": [
+        50,
+        -260,
+        80
+      ],
+      "target": [
+        137,
+        -184,
+        10
+      ],
+      "image": "fbk_south.png",
+      "sha256": "7b18482c3093e6445bd2458490806686717947dca6a34ea3bd2cd843571efcfb"
+    },
+    {
+      "id": "residential",
+      "position": [
+        -46,
+        -122,
+        32
+      ],
+      "target": [
+        -68,
+        -65,
+        8
+      ],
+      "image": "residential.png",
+      "sha256": "9e1a15f9cd81ab84a8f2e8713f20dbfdb849bd5d004e2910b0a7165408ef60c5"
+    },
+    {
+      "id": "campus_overview",
+      "position": [
+        -190,
+        -260,
+        230
+      ],
+      "target": [
+        45,
+        -30,
+        0
+      ],
+      "image": "campus_overview.png",
+      "sha256": "e69b66fff77930a5c66e16d7c2a665a3c7ae7d57e143e55dcfca9c4af6af1a50"
+    }
+  ]
+}

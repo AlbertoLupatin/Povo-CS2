@@ -1,5 +1,14 @@
 # Povo 2 −1 West Offices
 
+**FINAL / USER-APPROVED:** the current West Offices, straight C7 and entrance
+arrangement form the [definitive Povo 2 −1 map layout](POVO2_MINUS1_DEFINITIVE_LAYOUT.md),
+explicitly approved in-game on 2 November 2026. Historical drawings below are
+reference history and do not override that approved implementation.
+
+The local eastern entrance and exterior stair arrangement now follow the
+[31 October user Draw.io correction](POVO2_DRAWIO_ENTRANCE_20261031.md).
+The historical plan images below are not a current as-built entrance drawing.
+
 The West Offices are built inside the approved full-plan −1 layout, south of
 C7 (the west main corridor), from the uncropped photo-46 office strip. The
 photo corridor is the offices' **internal** spine, not a main corridor.
@@ -34,19 +43,21 @@ absolute dimensions are estimates.
   (v 0–100), not a traced end, and photo 46 shows the office strip there. The
   10.8 m stub put two walls across WI1 and sealed W06. The other eight
   corridors are unchanged.
-- **C7 reaches C5 south of the main stair core.** Photo 46 shows C7 running
-  straight past the core to C5, about 2.7 m wide. The registered core (east
-  11–20.5, north 18–26) is shared with floors 0 and −2 and with the installed
-  stair door at (19.2, 18.0), and it overlaps C7 (north 17.69–20.46) by
-  2.46 m. That left C7 only 0.31 m deep under the core, a dead end. The core
-  can't move, so C7 now jogs south under it at its own width: a
-  `c7_core_bypass` band at east 9.5–20.5, north 15.23–18. It starts 1.5 m west
-  of the core (`turn_metres` in the config), which leaves about 1.4 m
-  diagonal clearance at the turn. It also covers the retained stair-door
-  threshold. W01 loses its north 2.46 m (now north 10.43–15.23) and W02 a
-  2.2 × 2.46 m corner (`excluded_for_c7_bypass`). A solid wall closes the
-  offices along the band. The real offices' north wall is straight; this jog
-  stands in for the core registration error.
+- **C7 runs straight past the main stair core to C5** (user correction,
+  31 October). Photo 46 shows C7 running straight past the core to C5, about
+  2.7 m wide. The registered core (east 11–20.5, north 18–26) is shared with
+  floors 0 and −2 and with the installed stair door at (19.2, 18.0), and it
+  overlaps the full-plan C7 band (north 17.69–20.46) by 2.46 m. The core
+  can't move, so the whole C7 band moves south at its own width: north
+  15.23–18.0, from its west end (east −14.79) to C5. Its north wall lines up
+  with the core's south wall. The 29 October version kept the full-plan band
+  and jogged south under the core (`c7_core_bypass`), which left an L and a
+  1.4 m diagonal; the user confirmed that does not exist, and it is retired.
+  The offices on C7 (W01, W02, W04–W06 and WI4) now end at its south wall,
+  north 15.23, as W01 does in the user's Draw.io. WI2's top merges into C7's
+  west end. The traced public doors keep their east positions on the new
+  wall. W19–W23 and the south row are unchanged. The review proposal is in
+  `exports/povo2_c7_straight_proposal_20261031/`.
 
 ## Outputs and checks
 
@@ -59,26 +70,30 @@ Run `py -3 -m tools.build_povo2_west_offices` to write
 `py -3 -m unittest tests.test_povo2_west_offices` runs nine checks: the
 room/passage set, WI4's straight connection from the spine to C7, WI1's open
 east end onto C5, the C8
-trim, passages free of crossing walls, the stair door reaching C5, the C7
-bypass (clear, C7 reaches C5 and the stair door, offices closed along it), and
-floors −2/0 unchanged. A 0.1 m flood fill, with walls inflated by 0.3 m, reaches every
-passage and all 22 rooms from C7. Against Codex's original builder, the checks fail: W06 was unreachable and
-the stair threshold was blocked. Without the bypass, the C7 → C5 check
-fails.
+trim, passages free of crossing walls, the stair door reaching C5, straight
+C7 (one clear band, reaches C5 and the stair door, offices closed along it
+except at their openings), and floors −2/0 unchanged. A 0.1 m flood fill, with
+walls inflated by 0.3 m, reaches every passage and all 22 rooms from C7.
+Against Codex's original builder, the checks fail: W06 was unreachable and the
+stair threshold was blocked.
 
 ## Playable campus integration
 
 `tools/povo2_west_offices.py` now consumes this same trace in the main campus
 generator, after the basement rebuild. It adds all 22 rooms, the four internal
-passages, the C7 bypass and the southern C5 connection. The remaining full-plan
+passages, straight C7 and the southern C5 connection. The remaining full-plan
 research wings are not imported. The retained stair/lift cores and both fixed
 research-door pairs keep their existing positions.
 
-The older first lab overlapped the approved C7 band. Its south boundary now
-follows C7's north wall (north 20.54 rather than 18.5); its northern boundary,
-east entrance and the 30 m gap to the second lab stay in place. Its low desk
-group moves 2.2 m north. The basement routes follow the C7 bypass rather than
-running through the newly added offices.
+The older first lab now extends south to straight C7's north wall (north
+18.08 rather than 18.5); its northern boundary, east entrance and the 30 m gap
+to the second lab stay in place, and its desks keep their positions. The
+restricted research corridor and the CIBIO terrace beside it also reach C7.
+The strip east of them (east −0.59 to 11, north 18–20.46) belonged to the
+full-plan band and stays closed; its full-plan rooms are not built. The
+basement routes follow straight C7 rather than running through the offices.
+Tests: `tests.test_povo2_west_offices_integrated` checks C7 against the final
+collision, end to end in both directions, and the lab reaching it.
 
 The actual map receives wood floors, solid party walls, permanent glazed
 fronts with horizontal privacy bands and metal frames, suspended ceilings,

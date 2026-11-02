@@ -53,9 +53,29 @@ class SurveyRoutesTests(unittest.TestCase):
         bridge=next(r for r in self.routes if r['name']=='p1_p2_bridge')
         self.assertTrue(all(abs(p[2]-11.2)<1e-6 for p in bridge['path']))
         corridor=next(r for r in self.routes if r['name']=='p2_basement_rotated_corridor')['path']
-        self.assertEqual(corridor[0][1],corridor[1][1])
-        self.assertEqual(corridor[1][0],corridor[2][0])
-        self.assertGreater(corridor[2][1],corridor[1][1])
+        p2=self.metadata['povo2']
+        if p2.get('drawio_entrance'):
+            c5=p2['drawio_entrance']['areas']['c5']
+            self.assertAlmostEqual(corridor[0][0],(c5[0]+c5[2])/2)
+            self.assertEqual(corridor[0][1],19.5)
+            self.assertEqual(corridor[1][1],16.62)
+            # Straight C7 has a collinear intermediate station; the native
+            # replay removes it while retaining the registered corner/end.
+            self.assertEqual(corridor[3:-1],survey.simplify_path(p2['west_offices']['connection_route']))
+        elif p2.get('walkthrough_repairs',{}).get('c7_exit_link'):
+            # The 29 October entrance rebuild turns north to C7's actual
+            # east door before heading west through the office connection.
+            doors=[d for d in p2['repair_doors'] if d['id'] in ('p2_c7_exit_0','p2_c7_exit_1')]
+            door_y=sum(d['pivot'][1] for d in doors)/len(doors)
+            self.assertEqual(corridor[0][0],corridor[1][0])
+            self.assertEqual(corridor[1][1],door_y)
+            self.assertEqual(corridor[2][1],door_y)
+            self.assertLess(corridor[2][0],corridor[1][0])
+            self.assertEqual(corridor[3:-1],p2['west_offices']['connection_route'])
+        else:
+            self.assertEqual(corridor[0][1],corridor[1][1])
+            self.assertEqual(corridor[1][0],corridor[2][0])
+            self.assertGreater(corridor[2][1],corridor[1][1])
         names={r['name'] for r in self.routes}
         self.assertIn('acquario_door_and_long_aisle',names)
         self.assertIn('a103_side_aisle0',names)

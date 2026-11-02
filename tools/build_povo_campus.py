@@ -683,6 +683,8 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         boxes=add_west_offices(boxes,bridge_levels,root)
         from tools.povo2_playtest_repairs import extend as repair_povo2
         boxes=repair_povo2(boxes,bridge_levels,root)
+        from tools.povo2_drawio_entrance import extend as apply_drawio_entrance
+        boxes=apply_drawio_entrance(boxes,bridge_levels,root)
     try:
         from .povo_room_furnishings import furnish
     except ImportError:
@@ -1013,7 +1015,8 @@ def export(root=ROOT):
     write_soundevents(root)
     metadata['artifacts']={p.name:hashlib.sha256(p.read_bytes()).hexdigest()
                            for p in output.glob('povo1_campus*.obj')}
-    for relative in ('tools/povo2_playtest_repairs.py','tools/povo2_west_offices.py','tools/build_povo2_west_offices.py',
+    for relative in ('tools/solid_mesh.py','tools/povo2_drawio_entrance.py','data/reference/user_feedback/2026-10-31/east_entrance_edited.drawio',
+                     'tools/povo2_playtest_repairs.py','tools/povo2_west_offices.py','tools/build_povo2_west_offices.py',
                      'config/povo2_west_offices.json',
                      'exports/povo2_west_offices_20261029/baseline/layout.json',
                      'tools/povo2_internal_stairs.py','tools/povo2_basements.py','tools/povo_pavement.py',

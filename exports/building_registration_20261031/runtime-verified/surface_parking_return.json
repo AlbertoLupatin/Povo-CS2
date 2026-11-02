@@ -1,0 +1,21 @@
+{
+  "name": "surface_parking_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        -48,
+        -44,
+        3.0
+      ],
+      "position": [
+        -47.997972584192,
+        -44.12236727977649,
+        3.1207955618124834
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

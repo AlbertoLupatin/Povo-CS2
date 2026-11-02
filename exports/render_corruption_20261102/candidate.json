@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "package_sha256": "6a52dc98ddf5050f430894597337ec86361557d95adf9f1798771a8e1f74c9ee",
+  "package_bytes": 61958853,
+  "package_entries": 1237,
+  "crc_verified_entries": 1237,
+  "models": [
+    {
+      "name": "models/povo/povo1_campus.vmdl_c",
+      "before_sha256": "efec420634ce87e2bd42a29538b2890b2c1ce551cb27ca7c2917b02fb7f75d96",
+      "after_sha256": "efec420634ce87e2bd42a29538b2890b2c1ce551cb27ca7c2917b02fb7f75d96",
+      "unchanged": true
+    },
+    {
+      "name": "models/povo/povo1_campus_paving.vmdl_c",
+      "before_sha256": "1efd393fc09a59cda9f9226dbe6043c74f3ab2c77f4efdee99faa9b781911a9d",
+      "after_sha256": "1efd393fc09a59cda9f9226dbe6043c74f3ab2c77f4efdee99faa9b781911a9d",
+      "unchanged": true
+    }
+  ],
+  "native_lighting": {
+    "atlas": 1024,
+    "quality": 1,
+    "script_modified": false
+  },
+  "native_visual_status": "pending"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "script_retiled",
+  "parent_pid": 26800,
+  "stopped_worker_pid": 23864,
+  "atlas": [
+    2048,
+    2048
+  ],
+  "block_size": 256,
+  "blocks": 64,
+  "sampling": "128 512 0.050",
+  "script_sha256": "4c4e13cad60ab6ef7d30bcbbce804fc71091c3a91bf0e79cb06b86b27cf804b1",
+  "method": "Pause owned compiler, stop stalled worker, retile generated script, resume compiler for its normal retry"
+}

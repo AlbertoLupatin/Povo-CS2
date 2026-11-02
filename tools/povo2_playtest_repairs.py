@@ -100,10 +100,10 @@ def extend(boxes, levels, root):
     plate('c7_east_floor',c7_east,.4)
     for r in (c5,c7_east):plate(('c5' if r is c5 else 'c7_east')+'_ceiling',r,3.5,'ceiling_panel',True)
     for i,r in enumerate(terrace):plate('entrance_terrace_'+str(i),r,.4,'floor_terrace')
-    # C7's bypass under the core is public corridor, not office floor.
-    bypass=(9.5,15.23,20.36,17.69)
-    cut(((bypass[0],bypass[1],.17),(bypass[2],bypass[3],.41)),lambda v:v[3]=='floor_wood')
-    plate('c7_bypass_floor',bypass,.4)
+    # Straight C7 is public corridor, not office floor.
+    c7=spec['west_offices']['c7'];c7_floor=(c7[0],c7[1],20.36,c7[3])
+    cut(((c7_floor[0],c7_floor[1],.17),(c7_floor[2],c7_floor[3],.41)),lambda v:v[3]=='floor_wood')
+    plate('c7_floor',c7_floor,.4)
 
     def wall_line(name,axis,fixed,lo,hi,gaps=(),top=3.5,half=.08):
         """Wall along x (axis 1) or y (axis 0) with door gaps and headers."""

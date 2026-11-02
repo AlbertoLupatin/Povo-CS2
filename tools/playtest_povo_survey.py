@@ -142,7 +142,10 @@ def build_routes(metadata):
     if west:
         detour=west['connection_route']
         link=metadata['povo2'].get('walkthrough_repairs',{}).get('c7_exit_link')
-        if link:
+        if metadata['povo2'].get('drawio_entrance'):
+            c5=metadata['povo2']['drawio_entrance']['areas']['c5'];cx=(c5[0]+c5[2])/2
+            approach=[[cx,19.5,zbase],[cx,16.62,zbase],[19.2,16.62,zbase]]
+        elif link:
             # Through C7's east door, which sits midway along the link.
             door_y=next(d['pivot'][1] for d in metadata['povo2']['repair_doors'] if d['id']=='p2_c7_exit_0')
             link_y=door_y+(next(d['pivot'][1] for d in metadata['povo2']['repair_doors'] if d['id']=='p2_c7_exit_1')-door_y)/2

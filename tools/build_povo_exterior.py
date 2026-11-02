@@ -16,6 +16,7 @@ try:
     from .povo_exterior_materials import COLORS, OPACITY
     from .povo_room_fitout import subtract_box
     from .povo_ginkgo import tree as ginkgo, height_for
+    from .polygon_mesh import prism, ring_points
 except ImportError:
     from build_povo_blockout import write_box
     from build_povo_campus import build_geometry
@@ -23,6 +24,7 @@ except ImportError:
     from povo_exterior_materials import COLORS, OPACITY
     from povo_room_fitout import subtract_box
     from povo_ginkgo import tree as ginkgo, height_for
+    from polygon_mesh import prism, ring_points
 
 ROOT = Path(__file__).resolve().parents[1]
 FACES = ((0,2,1),(0,3,2),(4,5,6),(4,6,7),(0,1,5),(0,5,4),
@@ -126,6 +128,15 @@ def build(root=ROOT, campus_geometry=None):
         meshes.append(dict(name=f'road_joint_{i}',vertices=v,faces=[(0,k+1,(k+1)%n+1) for k in range(n)],material='asphalt'))
     road_run('road_north',cfg['north_road'])
     road_run('road_front',cfg['front_road'])
+    # Registration moves the kerb east. Keep the accepted campus-side walking
+    # line and entrance grade connected by widening the paving to that kerb.
+    front=cfg['front_road'];half=front['width']/2
+    for i,(a,b) in enumerate(zip(front['points'][1:],front['points'][2:])):
+        top=[(56.7,a[1],a[2]+.12),(a[0]-half+.1,a[1],a[2]+.12),
+             (b[0]-half+.1,b[1],b[2]+.12),(56.7,b[1],b[2]+.12)]
+        meshes.append(dict(name=f'road_front_campus_paving_{i}',
+                           vertices=[(x,y,z-.18) for x,y,z in top]+top,
+                           faces=FACES,material='paving'))
     if cfg.get('abandoned_bus', {}).get('enabled'):
         try:
             from .povo_abandoned_bus import extend as add_bus
@@ -154,25 +165,31 @@ def build(root=ROOT, campus_geometry=None):
             box(f'car_{row}_{i}_cabin',(x-1.15,y-.79,z+1.10),(x+1.1,y+.79,z+1.65),'glass')
             for xx in (x-1.4,x+1.4):
                 for yy in (y-.9,y+.9):box(f'car_{row}_{i}_wheel_{xx}_{yy}',(xx-.30,yy-.12,z+.08),(xx+.30,yy+.12,z+.63),'dark')
-    fence('parking_west',(-62,-98),(-62,-43),z)
+    fence('parking_west',(p['bounds'][0],-98),(p['bounds'][0],-43),z)
     fence('parking_east',(-34,-98),(-34,-43),z)
-    fence('parking_north_west',(-62,-40),(-53,-40),z)
+    fence('parking_north_west',(p['bounds'][0],-40),(-53,-40),z)
     fence('parking_north_east',(-44,-40),(-34,-40),z)
     # Fixed gate leaves stand at the sides of a clear 9 m entrance.
     for x in (-53,-44):box('parking_gate_'+str(x),(x-.12,-43,z),(x+.12,-40,z+2),'fence')
-    r=cfg['residential'];a,b,c,d=r['bounds'];z=r['z'];h=r['height']
-    box('residential_mass',(a,b,z),(c,d,z+h),'white')
-    slab('residential_roof',(a-.7,b-.6,c+.8,d+.6),z+h+.18,'dark')
-    for i in range(9):
-        y=b+1+i*6
-        for floor in range(3):
-            zz=z+.3+floor*3.15
-            box(f'residential_panel_{i}_{floor}',(c,y,zz),(c+.08,y+4.8,zz+2.9),'residential_grey' if i%3 else 'white')
-            box(f'residential_window_{i}_{floor}',(c+.09,y+1,zz+.75),(c+.14,y+3.4,zz+2.2),'glass')
-            if i%3==1:
-                box(f'residential_recess_{i}_{floor}',(c+.15,y+.15,zz+.2),(c+.18,y+.9,zz+2.8),'orange')
-                slab(f'residential_balcony_{i}_{floor}',(c,y,c+1.2,y+4.8),zz+.3,'concrete',.15)
-                fence(f'residential_guard_{i}_{floor}',(c+1.1,y),(c+1.1,y+4.8),zz+.3,.95)
+    r=cfg['residential'];z=r['z'];h=r['height'];p=ring_points(r['footprint'])
+    meshes.append(prism('residential_mass',[p],z,h,'white'))
+    meshes.append(prism('residential_roof',[p],z+h,.18,'dark'))
+    # Panels follow each stepped east facade, including its real recesses.
+    for k,(a,b) in enumerate(zip(p,p[1:]+p[:1])):
+        dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy);nx,ny=dy/length,-dx/length
+        if nx<.7 or length<3:continue
+        count=max(1,math.ceil(length/6))
+        for i in range(count):
+            for floor in range(3):
+                zz=z+.3+floor*3.5
+                def segment(label,lo,hi,offset,top,thickness,mat):
+                    aa=(a[0]+dx*lo+nx*offset,a[1]+dy*lo+ny*offset,top)
+                    bb=(a[0]+dx*hi+nx*offset,a[1]+dy*hi+ny*offset,top)
+                    meshes.append(strip(f'residential_{label}_{k}_{i}_{floor}',aa,bb,.04,mat,thickness))
+                segment('panel',(i+.08)/count,(i+.92)/count,.03,zz+2.9,2.9,'residential_grey' if i%3 else 'white')
+                segment('window',(i+.25)/count,(i+.7)/count,.065,zz+2.2,1.45,'glass')
+                if i%3==1:
+                    segment('recess',(i+.08)/count,(i+.2)/count,.065,zz+2.8,2.6,'orange')
     # Use the accepted bridge location/height; core masses are context only.
     link=next(level['connection'] for level in levels if level.get('connection'));a,b,c,d=link['bridge'];z=link['floor_local_metres']
     slab('bridge_deck',(a,b,c,d),z,'concrete',.25)
@@ -345,7 +362,7 @@ def build(root=ROOT, campus_geometry=None):
                                           portal=dict(centre=bb,width=garage['portal_width'],headroom=roof-gz),
                                           current_parking_bounds=actual,horizontal_gap_metres=gap,
                                           status='Straight ramp meets covered Povo 2 exterior basement; separate interior source still requires alignment'),
-                  input_hashes={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in ['config/povo_exterior.json','config/povo1_campus.json','config/povo1_interior_study.json','config/povo2_planimetry.json','config/povo2_connection.json','config/povo1_plan_alignment.json','tools/povo_ginkgo.py']})
+                  input_hashes={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in ['config/povo_exterior.json','config/povo1_campus.json','config/povo1_interior_study.json','config/povo2_planimetry.json','config/povo2_connection.json','config/povo1_plan_alignment.json','tools/povo_ginkgo.py','tools/polygon_mesh.py',*cfg.get('registration_sources',[])]})
     return boxes,meshes,metadata,live_boxes
 
 

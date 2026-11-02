@@ -1,0 +1,1201 @@
+{
+  "status": "passed",
+  "started_at_utc": "2026-10-31T13:20:04.628008+00:00",
+  "planned_routes": 12,
+  "routes": [
+    {
+      "name": "front_walk_to_povo2",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            54.5,
+            -13,
+            7.6
+          ],
+          "position": [
+            54.498875000218,
+            -12.951616413251807,
+            7.600794196430405
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54.5,
+            -5,
+            7.6
+          ],
+          "position": [
+            54.50085317761801,
+            -4.934185254819737,
+            7.600793409030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54.5,
+            -1,
+            7.6
+          ],
+          "position": [
+            54.499724554018,
+            -1.0260414328041043,
+            7.608908429630437
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            -1,
+            7.72
+          ],
+          "position": [
+            57.61799624483047,
+            -1.0139341418040557,
+            7.720793854830883
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            0,
+            7.72
+          ],
+          "position": [
+            57.51242749483005,
+            -0.11413106460045654,
+            7.720793854830883
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            7.5,
+            6.211399473867662
+          ],
+          "position": [
+            57.499913524430006,
+            7.631289233230525,
+            6.1861735560247455
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            15,
+            4.12
+          ],
+          "position": [
+            57.50032899223001,
+            15.137181460460551,
+            4.185428256016742
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            20,
+            4.12
+          ],
+          "position": [
+            57.49947324083,
+            20.00959569328004,
+            4.120793053816484
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            31.35,
+            4.12
+          ],
+          "position": [
+            57.498778703229995,
+            31.36217560432545,
+            4.120792266416483
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54,
+            31.35,
+            4
+          ],
+          "position": [
+            54.013850341616056,
+            31.355081460525422,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "front_walk_to_povo2_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            57.5,
+            31.35,
+            4.12
+          ],
+          "position": [
+            57.51843022603008,
+            31.348889600925396,
+            4.120792266416483
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            20,
+            4.12
+          ],
+          "position": [
+            57.50101113463001,
+            20.026348161680108,
+            4.120793053816484
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            15,
+            4.12
+          ],
+          "position": [
+            57.49889033623,
+            14.971095483259887,
+            4.225288603016901
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            7.5,
+            6.211399473867662
+          ],
+          "position": [
+            57.501321192430005,
+            7.644200840630577,
+            6.183074527424733
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            0,
+            7.72
+          ],
+          "position": [
+            57.50023597743001,
+            0.10531739160042126,
+            7.720793854830883
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            -1,
+            7.72
+          ],
+          "position": [
+            57.49991972203,
+            -0.9190513750036762,
+            7.720793854830883
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54.5,
+            -1,
+            7.6
+          ],
+          "position": [
+            54.432919328217736,
+            -0.9988019140039953,
+            7.720793854830883
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54.5,
+            -5,
+            7.6
+          ],
+          "position": [
+            54.49635112921799,
+            -4.958761278819836,
+            7.600793409030404
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54.5,
+            -13,
+            7.6
+          ],
+          "position": [
+            54.50105160241801,
+            -13.086598109252348,
+            7.600794196430405
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54.5,
+            -71,
+            7.6
+          ],
+          "position": [
+            54.500989601018006,
+            -70.88007045728352,
+            7.600796533230405
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "registered_sommarive",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            65.31,
+            40.18,
+            4
+          ],
+          "position": [
+            65.31490937526127,
+            40.317318933561275,
+            4.002791715016012
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            66.76,
+            63.61,
+            4
+          ],
+          "position": [
+            66.76564873946707,
+            63.700843566054814,
+            4.002790953016011
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            67.91,
+            82.04,
+            4
+          ],
+          "position": [
+            67.91865120867168,
+            82.17652823012871,
+            4.002790165616011
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            68.94,
+            90,
+            4
+          ],
+          "position": [
+            68.94488936447578,
+            90.03911186996017,
+            4.000789915616004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "registered_sommarive_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            67.91,
+            82.04,
+            4
+          ],
+          "position": [
+            67.91023623947164,
+            82.03734291032816,
+            4.002790165616011
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            66.76,
+            63.61,
+            4
+          ],
+          "position": [
+            66.76977870326708,
+            63.756840126655035,
+            4.002790953016011
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            65.31,
+            40.18,
+            4
+          ],
+          "position": [
+            65.30944614006124,
+            40.16819314596068,
+            4.002791715016012
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            64.75,
+            25,
+            4
+          ],
+          "position": [
+            64.74556738465898,
+            24.878965126499516,
+            4.002792502416011
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "widened_paving",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            59.5,
+            50,
+            4.12
+          ],
+          "position": [
+            59.43456131883774,
+            49.9996302522,
+            4.120791504416483
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            62,
+            50,
+            4.12
+          ],
+          "position": [
+            61.945763078247786,
+            49.99994650760001,
+            4.120791504416483
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            65.92,
+            50,
+            4
+          ],
+          "position": [
+            65.81695625026327,
+            49.9993852946,
+            4.0027913340160115
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "widened_paving_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            62,
+            50,
+            4.12
+          ],
+          "position": [
+            62.08545688064835,
+            49.999326392,
+            4.120791504416483
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            59.5,
+            50,
+            4.12
+          ],
+          "position": [
+            59.521526575438095,
+            49.9996643644,
+            4.120791504416483
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            57.5,
+            50,
+            4.12
+          ],
+          "position": [
+            57.52545614543011,
+            50.000098425000004,
+            4.120791504416483
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_south_door_bank",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            49,
+            31.35,
+            4
+          ],
+          "position": [
+            49.05412828239622,
+            31.3491965599254,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            34,
+            31.35,
+            4
+          ],
+          "position": [
+            33.91384621853566,
+            31.351394879125408,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            31.5,
+            31.35,
+            4
+          ],
+          "position": [
+            31.53941751552616,
+            31.351047610325406,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_south_door_bank_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            34,
+            31.35,
+            4
+          ],
+          "position": [
+            34.06569430193627,
+            31.3494849007254,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            49,
+            31.35,
+            4
+          ],
+          "position": [
+            48.9237610297957,
+            31.351723529725408,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54,
+            31.35,
+            3.9999999999999996
+          ],
+          "position": [
+            53.98195152301593,
+            31.35137316212541,
+            4.0007926080160034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_north_door_bank",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            49,
+            35.65,
+            4
+          ],
+          "position": [
+            48.86468558279546,
+            35.6496813549426,
+            4.000792227016004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            34,
+            35.65,
+            4
+          ],
+          "position": [
+            33.98175215333593,
+            35.647873713142594,
+            4.000792227016004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            31.5,
+            35.65,
+            4
+          ],
+          "position": [
+            31.614429989326457,
+            35.6485062239426,
+            4.000792227016004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "p2_north_door_bank_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            34,
+            35.65,
+            4
+          ],
+          "position": [
+            33.878651470535516,
+            35.649563524342604,
+            4.000792227016004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            49,
+            35.65,
+            4
+          ],
+          "position": [
+            49.00863957479604,
+            35.65177113994261,
+            4.000792227016004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            54,
+            35.65,
+            3.9999999999999996
+          ],
+          "position": [
+            53.98439477441595,
+            35.65085026294261,
+            4.000792227016004
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "surface_parking",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -48,
+            -90,
+            3
+          ],
+          "position": [
+            -48.000006565392006,
+            -89.97535761595991,
+            3.0007978338120034
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "surface_parking_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -48,
+            -44,
+            3.0
+          ],
+          "position": [
+            -47.997972584192,
+            -44.12236727977649,
+            3.1207955618124834
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "route_plan": [
+    {
+      "name": "front_walk_to_povo2",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          54.5,
+          -71,
+          7.6
+        ],
+        [
+          54.5,
+          -13,
+          7.6
+        ],
+        [
+          54.5,
+          -5,
+          7.6
+        ],
+        [
+          54.5,
+          -1,
+          7.6
+        ],
+        [
+          57.5,
+          -1,
+          7.72
+        ],
+        [
+          57.5,
+          0,
+          7.72
+        ],
+        [
+          57.5,
+          7.5,
+          6.211399473867662
+        ],
+        [
+          57.5,
+          15,
+          4.12
+        ],
+        [
+          57.5,
+          20,
+          4.12
+        ],
+        [
+          57.5,
+          31.35,
+          4.12
+        ],
+        [
+          54,
+          31.35,
+          4
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "front_walk_to_povo2_return",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          54,
+          31.35,
+          3.9999999999999996
+        ],
+        [
+          57.5,
+          31.35,
+          4.12
+        ],
+        [
+          57.5,
+          20,
+          4.12
+        ],
+        [
+          57.5,
+          15,
+          4.12
+        ],
+        [
+          57.5,
+          7.5,
+          6.211399473867662
+        ],
+        [
+          57.5,
+          0,
+          7.72
+        ],
+        [
+          57.5,
+          -1,
+          7.72
+        ],
+        [
+          54.5,
+          -1,
+          7.6
+        ],
+        [
+          54.5,
+          -5,
+          7.6
+        ],
+        [
+          54.5,
+          -13,
+          7.6
+        ],
+        [
+          54.5,
+          -71,
+          7.6
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "registered_sommarive",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          64.75,
+          25,
+          3.9999999999999996
+        ],
+        [
+          65.31,
+          40.18,
+          4
+        ],
+        [
+          66.76,
+          63.61,
+          4
+        ],
+        [
+          67.91,
+          82.04,
+          4
+        ],
+        [
+          68.94,
+          90,
+          4
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "registered_sommarive_return",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          68.94,
+          90,
+          3.9999999999999996
+        ],
+        [
+          67.91,
+          82.04,
+          4
+        ],
+        [
+          66.76,
+          63.61,
+          4
+        ],
+        [
+          65.31,
+          40.18,
+          4
+        ],
+        [
+          64.75,
+          25,
+          4
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "widened_paving",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          57.5,
+          50,
+          4.12
+        ],
+        [
+          59.5,
+          50,
+          4.12
+        ],
+        [
+          62,
+          50,
+          4.12
+        ],
+        [
+          65.92,
+          50,
+          4
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "widened_paving_return",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          65.92,
+          50,
+          3.9999999999999996
+        ],
+        [
+          62,
+          50,
+          4.12
+        ],
+        [
+          59.5,
+          50,
+          4.12
+        ],
+        [
+          57.5,
+          50,
+          4.12
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "p2_south_door_bank",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          54,
+          31.35,
+          3.9999999999999996
+        ],
+        [
+          49,
+          31.35,
+          4
+        ],
+        [
+          34,
+          31.35,
+          4
+        ],
+        [
+          31.5,
+          31.35,
+          4
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "p2_south_door_bank_return",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          31.5,
+          31.35,
+          4
+        ],
+        [
+          34,
+          31.35,
+          4
+        ],
+        [
+          49,
+          31.35,
+          4
+        ],
+        [
+          54,
+          31.35,
+          3.9999999999999996
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "p2_north_door_bank",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          54,
+          35.65,
+          3.9999999999999996
+        ],
+        [
+          49,
+          35.65,
+          4
+        ],
+        [
+          34,
+          35.65,
+          4
+        ],
+        [
+          31.5,
+          35.65,
+          4
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "p2_north_door_bank_return",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          31.5,
+          35.65,
+          4
+        ],
+        [
+          34,
+          35.65,
+          4
+        ],
+        [
+          49,
+          35.65,
+          4
+        ],
+        [
+          54,
+          35.65,
+          3.9999999999999996
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "surface_parking",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          -48,
+          -44,
+          3.0
+        ],
+        [
+          -48,
+          -90,
+          3
+        ]
+      ],
+      "xy_tolerance": 0.15
+    },
+    {
+      "name": "surface_parking_return",
+      "kind": "walk",
+      "category": "registration",
+      "path": [
+        [
+          -48,
+          -90,
+          3
+        ],
+        [
+          -48,
+          -44,
+          3.0
+        ]
+      ],
+      "xy_tolerance": 0.15
+    }
+  ],
+  "package_on_disk": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "package_sha256": "2abb571c5e33934999832d5836e7a7f4eb9fa5e2e2e375616b3bca071474570b",
+  "package_bytes": 66952122,
+  "fresh_launch_copy": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\maps\\trento_povo_campus.vpk",
+  "fresh_launch_copy_sha256": "2abb571c5e33934999832d5836e7a7f4eb9fa5e2e2e375616b3bca071474570b",
+  "metadata_sha256": "7601016a0a0b6251ec34f218f6bdfc700c661ddd4c8a6586750a3bd26c9f8c19",
+  "slope_support": [
+    {
+      "route": "front_walk_to_povo2",
+      "nominal_point": [
+        57.5,
+        7.5,
+        5.92
+      ],
+      "expected_point": [
+        57.5,
+        7.5,
+        6.211399473867662
+      ],
+      "hull_half_width_m": 0.4064
+    },
+    {
+      "route": "front_walk_to_povo2_return",
+      "nominal_point": [
+        57.5,
+        7.5,
+        5.92
+      ],
+      "expected_point": [
+        57.5,
+        7.5,
+        6.211399473867662
+      ],
+      "hull_half_width_m": 0.4064
+    }
+  ],
+  "movement": "One initial placement per route; ordinary walking; noclip disabled; no waypoint teleports",
+  "package_identity_scope": "Disk and launch-copy hashes match; operator must launch a fresh process before running",
+  "initial_status": "Server:  Running [172.26.128.1:27015]\r\nClient:  Connected [loopback:1] [last packet 0.045 sec ago]\r\n----- Status -----\r\n@ Current  :  game\r\nsource   : slot 0\r\nversion  : 1.41.9.4/14194 10955 insecure  public\r\nsteamid  : [I:1:0] (72057594037927936)\r\nplayers  : 1 humans, 0 bots (0 max) (not hibernating) (unreserved)\r\n---------spawngroups----\r\nloaded spawngroup(  1)  : SV:  [1: trento_povo_campus | main lump | mapload]\r\nloaded spawngroup(  2)  : SV:  [2: prefabs/misc/counterterrorist_wingman_intro | main lump | mapload | point_prefab]\r\nloaded spawngroup(  3)  : SV:  [3: prefabs/misc/terrorist_wingman_intro | main lump | mapload | point_prefab]\r\nloaded spawngroup(  4)  : SV:  [4: prefabs/misc/end_of_match | main lump | mapload | point_prefab]\r\n---------players--------\r\n  id     time ping loss      state   rate name\r\n   0    00:14    0    0     active 786432 'albylupatin2000'\r\n#end\r\n",
+  "finished_at_utc": "2026-10-31T13:24:20.845404+00:00"
+}

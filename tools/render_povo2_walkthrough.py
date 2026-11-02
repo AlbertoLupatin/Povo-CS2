@@ -13,6 +13,9 @@ def font(size,bold=False):
 def main():
     _,_,boxes,levels,_=build_geometry()
     spec=next(l['connection']['povo2'] for l in levels if l.get('connection'))
+    if spec.get('drawio_entrance'):
+        render_drawio(boxes,spec)
+        return
     out=Path(__file__).resolve().parents[1]/'exports/povo2_walkthrough_20261029'
     out.mkdir(exist_ok=True)
     im=Image.new('RGB',(1500,1170),'#f4f6f7');draw=ImageDraw.Draw(im)
@@ -55,6 +58,48 @@ def main():
     buffer=BytesIO();im.save(buffer,format='PNG');write_png(out/'eastern_approach.png',buffer.getvalue())
     render_full(boxes,spec,out)
     print(out/'eastern_approach.png')
+
+
+def render_drawio(boxes,spec):
+    """Draw actual generated components; never reuse the old entrance sketch."""
+    out=Path(__file__).resolve().parents[1]/'exports/povo2_drawio_entrance_20261031'
+    out.mkdir(exist_ok=True)
+    im=Image.new('RGB',(1500,1330),'white');d=ImageDraw.Draw(im)
+    left,top,k=75,140,30
+    def xy(x,y):return left+(x-8)*k,top+(29-y)*k
+    selected=[]
+    for name,lo,hi,mat in boxes:
+        if hi[0]<8 or lo[0]>44 or hi[1]<-7 or lo[1]>29:continue
+        floor=(abs(hi[2]-.4)<.02 and mat.startswith('floor_'))
+        tread=name.startswith(('p2_basement_drawio_up_step_','p2_basement_drawio_down_step_',
+                                'p2_basement_drawio_down_midlanding','p2_basement_drawio_up_top'))
+        wall=lo[2]<1.5<hi[2] and mat in ('wall','window_glass','reception_glass','door_black','door_closed','exterior_concrete')
+        if floor or tread or wall:selected.append((not(floor or tread),name,lo,hi,mat))
+    for wall,name,lo,hi,mat in sorted(selected):
+        a,b,c,e=max(8,lo[0]),max(-7,lo[1]),min(44,hi[0]),min(29,hi[1])
+        color=('#d7e9e2' if mat!='floor_wood' else '#e7c89f') if not wall else ('#5cb7cb' if 'glass' in mat else '#334c59')
+        if 'drawio_up_step_' in name or 'drawio_down_step_' in name or 'drawio_down_midlanding' in name:color='#b4c1c8'
+        d.rectangle((*xy(a,e),*xy(c,b)),fill=color)
+    for x in range(10,45,5):d.text((xy(x,-7)[0],xy(x,-7)[1]+10),str(x),font=font(15),fill='#5b7480',anchor='mt')
+    for y in range(-5,30,5):d.text((xy(8,y)[0]-10,xy(8,y)[1]),str(y),font=font(15),fill='#5b7480',anchor='rm')
+    def label(text,x,y,size=19):
+        d.multiline_text(xy(x,y),text,font=font(size,True),fill='#193943',anchor='mm',align='center')
+    for text,x,y in [('MAIN STAIR',15.7,23),('C7',15.,16.62),('WI1',14.,9.26),('W01',15.7,12.8),
+                     ('E1',27.5,14),('E2',27.5,7),('C5',21.9,12),('TERRACE',17.,1.1),('UP',21.75,-3.)]:label(text,x,y)
+    for door in spec['repair_doors']:
+        if door['id'].startswith(('p2_c5_terrace_','p2_wi1_public_')):
+            lo,hi=door['bounds'];d.line([xy(lo[0],lo[1]),xy(hi[0],hi[1])],fill='#d28b21',width=5)
+    a=spec['drawio_entrance']['areas'];label('Sealed door',27.,a['c5'][3])
+    d.line([xy(23.2,a['c5'][3]),xy(24.5,a['c5'][3])],fill='#a43c3c',width=2)
+    label('Down to Garden -2',37.,3.2,18)
+    d.text((1210,180),'IMPLEMENTED SOURCE',font=font(19,True),fill='#193943')
+    for i,text in enumerate(['C5 reaches N21.08','E1/E2 reach E31.8','UP faces C5 entrance','East arm removed','Two-flight DOWN stair']):
+        d.text((1210,230+i*48),text,font=font(17),fill='#496474')
+    d.text((35,22),'POVO 2 -1 / GENERATED DRAW.IO ENTRANCE',font=font(30,True),fill='#193943')
+    d.text((35,76),'Drawn from the assembled source components; north up. Blue: glazing. Amber: usable doors.',font=font(19),fill='#496474')
+    d.text((35,1240),'The -1 floor/wall section and relocated tread footprints are shown. Native package checks are recorded separately.',font=font(18),fill='#496474')
+    im.save(out/'source_plan.png')
+    print(out/'source_plan.png')
 
 
 def render_full(boxes,spec,out):

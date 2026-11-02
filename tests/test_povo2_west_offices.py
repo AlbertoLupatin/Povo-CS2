@@ -62,14 +62,15 @@ class WestOfficesTests(TestCase):
 
     def test_c8_stub_no_longer_crosses_the_offices(self):
         c8=self.corridors['corridor_8'];fp=self.office['footprint']
-        self.assertAlmostEqual(c8[1],fp[3])
-        self.assertAlmostEqual(c8[1],self.corridors['corridor_7'][1])
+        self.assertAlmostEqual(c8[1],self.corridors['corridor_7'][3])
+        self.assertGreater(c8[1],fp[3])
         base_c8=next(c for c in self.base['corridors'] if c['id']=='corridor_8')['bounds']
         self.assertEqual(c8[3],base_c8[3])
         base_ids={c['id'] for c in self.base['corridors']}
-        others=[c for c in self.layout['corridors'] if c['id']!='corridor_8' and c['id'] in base_ids]
-        self.assertEqual(others,[c for c in self.base['corridors'] if c['id']!='corridor_8'])
-        self.assertEqual([c['id'] for c in self.layout['corridors'] if c['id'] not in base_ids],['c7_core_bypass'])
+        moved=('corridor_7','corridor_8')
+        others=[c for c in self.layout['corridors'] if c['id'] not in moved and c['id'] in base_ids]
+        self.assertEqual(others,[c for c in self.base['corridors'] if c['id'] not in moved])
+        self.assertEqual([c['id'] for c in self.layout['corridors'] if c['id'] not in base_ids],[])
 
     def test_internal_spine_has_no_crossing_walls(self):
         for passage in self.office['corridors']:
@@ -105,29 +106,36 @@ class WestOfficesTests(TestCase):
         reach=self.walkable_from((19.2,17.4))
         self.assertTrue(reach((23.0,12.0)),'stair door cannot reach C5')
 
-    def test_c7_passes_south_of_the_main_core_to_c5(self):
-        bypass=self.corridors['c7_core_bypass'];core=self.layout['core'];c7=self.corridors['corridor_7']
-        self.assertAlmostEqual(bypass[3],core[1])
-        self.assertAlmostEqual(bypass[3]-bypass[1],c7[3]-c7[1])
-        self.assertLess(bypass[0],core[0]);self.assertEqual(bypass[2],self.corridors['corridor_5'][0])
-        clear=[bypass[0]+.2,bypass[1]+.2,bypass[2]+.3,bypass[3]-.2]
+    def test_c7_runs_straight_south_of_the_main_core_to_c5(self):
+        core=self.layout['core'];c7=self.corridors['corridor_7']
+        plan=next(c for c in self.base['corridors'] if c['id']=='corridor_7')['bounds']
+        # User correction 31 Oct: one straight band, no jog or narrowing.
+        self.assertAlmostEqual(c7[3],core[1])
+        self.assertAlmostEqual(c7[3]-c7[1],plan[3]-plan[1])
+        self.assertEqual(c7[0],plan[0]);self.assertEqual(c7[2],self.corridors['corridor_5'][0])
+        clear=[c7[0]+.2,c7[1]+.2,c7[2]+.3,c7[3]-.2]
         for w in self.solid:
-            self.assertFalse(overlaps(w,clear),f'C7 bypass blocked by {w}')
-        reach=self.walkable_from((-5.0,19.0))
+            self.assertFalse(overlaps(w,clear),f'C7 blocked by {w}')
+        reach=self.walkable_from((-5.0,16.6))
         self.assertTrue(reach((23.0,12.0)),'C7 cannot reach C5')
         self.assertTrue(reach((19.2,17.4)),'C7 cannot reach the stair door')
-        # The offices stay closed along the bypass: solid wall at every sample.
-        for i in range(int((bypass[2]-bypass[0])/.1)):
-            p=(bypass[0]+.05+i*.1,bypass[1])
-            self.assertTrue(any(inside(p,w) for w in self.solid),f'gap in bypass south wall at {p}')
-        w01=next(r for r in self.office['rooms'] if r['label']=='W01')
-        self.assertAlmostEqual(w01['bounds'][3],bypass[1])
-        self.assertIn('excluded_for_c7_bypass',next(r for r in self.office['rooms'] if r['label']=='W02'))
+        # Offices on C7 end at its south wall, which is solid between openings.
+        public=[o['points'] for o in self.office['public_portals']]
+        wi2=next(c for c in self.office['corridors'] if c['id']=='WI2')['bounds']
+        for i in range(int((c7[2]-wi2[2])/.1)):
+            p=(wi2[2]+.05+i*.1,c7[1])
+            if any(min(a[0],b[0])-.15<=p[0]<=max(a[0],b[0])+.15 and abs(a[1]-c7[1])<1e-6 for a,b in public):continue
+            self.assertTrue(any(inside(p,w) for w in self.solid),f'gap in C7 south wall at {p}')
+        for room in self.office['rooms']:
+            r=room['bounds']
+            if r[0]<c7[2] and c7[0]<r[2] and r[3]>c7[1]-1:
+                self.assertAlmostEqual(r[3],c7[1],msg=room['label'])
+        self.assertFalse(any('excluded_for_c7_bypass' in r for r in self.office['rooms']))
 
     def test_every_room_is_reachable_from_c7(self):
         e=self.office['entrance']['points']
         self.assertTrue(all(abs(p[1]-self.corridors['corridor_7'][1])<1e-6 for p in e))
-        reach=self.walkable_from((-5.0,19.0))
+        reach=self.walkable_from((-5.0,16.6))
         for passage in self.office['corridors']:
             r=passage['bounds'];self.assertTrue(reach(((r[0]+r[2])/2,(r[1]+r[3])/2)),passage['id'])
         for room in self.office['rooms']:

@@ -1,0 +1,13 @@
+{
+  "started_utc": "20261031T121148467800Z",
+  "python": "3.15.1 (tags/v3.15.1:c37e74c, Oct 21 2026, 06:24:08) [MSC v.1951 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26340-SP0",
+  "cs2_root": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive",
+  "season": "standard",
+  "fast_lighting": true,
+  "lighting_quality": 1,
+  "status": "passed",
+  "git_revision": "cb850b6a40b0aecdc0b29e92b358c3fd329a4d69",
+  "git_status": " M README.md\n M config/povo_edges.json\n M config/povo_exterior.json\n M cs2/content/trento_povo/maps/trento_povo_campus.vmap\n M docs/BUILDING_LAYOUT_FIXES_TODO.md\n M docs/BUILDING_REGISTRATION_AUDIT_20261030.md\n M docs/BUILD_HANDOFF.md\n M docs/WORKLOG.md\n M exports/povo_campus/povo1_campus.obj\n M exports/povo_campus/povo1_campus_collision.obj\n M exports/povo_campus/povo1_campus_collision_asphalt.obj\n M exports/povo_campus/povo1_campus_collision_concrete.obj\n M exports/povo_campus/povo1_campus_collision_glass.obj\n M exports/povo_campus/povo1_campus_collision_metal.obj\n M exports/povo_campus/povo1_campus_paving.obj\n M exports/povo_campus/provenance.json\n M exports/povo_campus/radar/trento_povo_campus_lower_radar.png\n M exports/povo_campus/radar/trento_povo_campus_middle_radar.png\n M exports/povo_campus/radar/trento_povo_campus_radar.png\n M exports/povo_campus/winter/layers.json\n M exports/povo_campus/winter/povo_winter.obj\n M exports/povo_campus/winter/povo_winter_collision.obj\n M exports/povo_campus/winter/povo_winter_collision_concrete.obj\n M exports/povo_campus/winter/povo_winter_collision_snow.obj\n M exports/povo_edges/aerial_traces.png\n M exports/povo_edges/fbk_frontage.png\n M exports/povo_edges/junction_north.png\n M exports/povo_edges/junction_south.png\n M exports/povo_edges/overview.png\n M exports/povo_edges/povo_edges.obj\n M exports/povo_edges/provenance.json\n M requirements-build.txt\n M tests/test_playtest_povo_survey.py\n M tests/test_povo_edges.py\n M tests/test_povo_exterior_integration.py\n M tests/test_user_geometry_corrections.py\n M tools/audit_building_registration.py\n M tools/audit_povo_exterior_integrated.py\n M tools/build_povo_edges.py\n M tools/build_povo_exterior.py\n M tools/playtest_povo_exterior.py\n M tools/povo_edges.py\n M tools/povo_exterior_integration.py\n?? claude/registration-audit.bundle\n?? docs/BUILDING_REGISTRATION_IMPLEMENTATION_20261031.md\n?? exports/building_registration_20261031/\n?? tests/test_registration_geometry.py\n?? tests/test_retile_vrad.py\n?? tools/polygon_mesh.py\n?? tools/recover_povo_lighting.py\n?? tools/retile_vrad.py\n",
+  "finished_utc": "2026-10-31T13:18:52.418869+00:00"
+}

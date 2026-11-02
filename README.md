@@ -8,29 +8,43 @@ the `trento_povo` addon, built from open geographic data and original photograph
 
 ## What's in the map
 
+**Povo 2 −1 is FINAL: the current in-game layout was explicitly approved by the
+user on 2 November 2026 as the definitive map layout.**
+The [definitive layout record](docs/POVO2_MINUS1_DEFINITIVE_LAYOUT.md) is the
+source of truth and supersedes conflicting older sketches, proposals and audit
+items. Preserve this layout during further finishing and work on other areas.
+
 `trento_povo_campus` is the full campus map (`trento_povo` is the earlier compact
 outdoor arena, built from the same source).
 
 - **Povo 1:** three floors: -1 entrance/A1xx at provisional 4 m, 0 A2xx at 7.6 m, +1 offices and bridge at 11.2 m. Four red stair cores connect the floors; one Acquario study room replaces four synthetic cells, with reception, courtyard, sanitary spaces and source-plan room labels retained.
 - **Bridge** joins Povo 1 +1 and Povo 2 +1 at 11.2 m. The active Povo 2 plan retains entrance/table halls, B110–B114 rooms, two successive upper stair rises and basement parking. The −1 West Offices now add 22 plan-traced rooms and four internal passages with photo-guided finishes; see the [integration details](docs/POVO2_WEST_OFFICES_20261029.md). The remaining full photographed floor plans are a separate survey.
 - **Exterior:** roads, surface lot, residential backdrop, straight ramp into the covered garage, terrain from real 0.5 m elevation data.
-- **Map edges (source pass):** aerial-traced FBK buildings, photo-guided frontage, north roundabout, outer roads and greenery; [29 October review](docs/POVO_EDGES_20261029.md). Native compilation remains pending for this addition.
+- **Map edges:** OSM-registered FBK buildings with open courtyards and LiDAR heights, photo-guided frontage, corrected northern Via Sommarive and roundabout, outer roads and greenery; [31 October corrections](docs/BUILDING_REGISTRATION_IMPLEMENTATION_20261031.md).
 - **Gameplay:** team starts, buy zones, bomb target, generated navigation and a radar with separate floors.
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
 - **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.
 
-Latest local standard-season build: **29 October 2026**, with Povo 2 floors
-**-1 and -2 rebuilt from the approved layout**. Continuous floors/ceilings,
-clean corridor walls, restored stair doors and full-height parking columns are
-verified in CS2. All 256 source tests pass; 26 native walking routes pass in both
-directions, and all 1,075 VPK entry CRCs are verified. The local package uses
-normal-quality lighting with a 2048-pixel atlas; reproduce with
-`build_campus.cmd --fast-lighting`. Winter and the Workshop upload remain at
-their previous versions. See the [rebuild details and in-game screenshots](docs/POVO2_BASEMENTS_REBUILD.md).
+Latest local standard-season package: **2 November 2026**, repairing the
+black/turquoise lighting corruption in the preceding build. All **363 source
+tests pass**. The 61,958,853-byte package has **1,237 verified entry CRCs**;
+nine actual game views were inspected with normal lighting enabled. It uses
+normal-quality lighting with a 1024-pixel atlas and retains the Draw.io entrance,
+straight C7, continuous terrace and OSM/LiDAR corrections. See the
+[repair and native screenshots](docs/RENDER_LIGHTING_CORRUPTION_20261102.md) and
+[entrance layout](docs/POVO2_DRAWIO_ENTRANCE_20261031.md).
+The earlier 12 native walking routes / 48 waypoints apply to the preceding
+[registration build](docs/BUILDING_REGISTRATION_IMPLEMENTATION_20261031.md);
+no new player traversal certifies this latest layout. Full source builds use
+`build_campus.cmd`; the repair report records the smaller native bake settings.
+Script-only VRAD retiling is disabled. Close CS2 and rerun `play_campus.cmd` to
+load the new package. Winter and the Workshop upload remain at their previous versions.
 
 The 30 October [OSM and LiDAR registration audit](docs/BUILDING_REGISTRATION_AUDIT_20261030.md)
-confirms the Povo 1 and Povo 2 footprints. It flags the hand-traced FBK edge buildings,
-the west residential backdrop and Via Sommarive north of the bridge for correction.
+confirms the Povo 1 and Povo 2 footprints. Its FBK, residential and northern road
+corrections are now [implemented and measured](docs/BUILDING_REGISTRATION_IMPLEMENTATION_20261031.md).
+Povo 2's unresolved roofs, podium and campus bridge width remain pending review,
+as confirmed by the user.
 
 The later 29 October [exterior visibility investigation](docs/POVO_EXTERIOR_VISIBILITY.md)
 updated the local package's lighting and fixed a frontage seam. Large black
