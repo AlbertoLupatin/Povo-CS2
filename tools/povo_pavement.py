@@ -5,9 +5,11 @@ from pathlib import Path
 try:
     from .povo_room_fitout import subtract_box
     from .build_povo_interior import subtract_rectangles
+    from .povo_street_footways import corners, trim_carriageways
 except ImportError:
     from povo_room_fitout import subtract_box
     from build_povo_interior import subtract_rectangles
+    from povo_street_footways import corners, trim_carriageways
 
 
 def apron_normal(x,y):
@@ -106,22 +108,15 @@ def extend(boxes, levels, root=Path(__file__).resolve().parents[1]):
             j=(i+1)%n;faces.extend([(i,j,n+j),(i,n+j,n+i)])
         mesh.update(vertices=vertices,faces=faces)
         ext['collision_meshes'].append(mesh)
-    # Fill outer footway wedges at flat road bends. Sloping breaks are kept as
-    # their original strips: a flat ring there would itself create a drop.
+    # Join the outside strip ends at the shared joint elevation, including
+    # sloped approaches. Keep every intersecting carriageway clear of paving.
     cfg=json.loads((root/'config/povo_exterior.json').read_text())
     for roadname in ('road','north_road','front_road'):
-        road=cfg[roadname]
-        for k,(a,p,b) in enumerate(zip(road['points'],road['points'][1:],road['points'][2:])):
-            if max(abs(a[2]-p[2])/math.dist(a[:2],p[:2]),abs(b[2]-p[2])/math.dist(b[:2],p[:2]))>.03:continue
-            u=[p[i]-a[i] for i in range(2)];v=[b[i]-p[i] for i in range(2)]
-            if abs(u[0]*v[1]-u[1]*v[0])<1e-7:continue
-            inner=road['width']/2;outer=inner+road['footway_width']
-            for i in range(24):
-                t=i*math.tau/24;s=(i+1)*math.tau/24
-                top=[(p[0]+r*math.cos(q),p[1]+r*math.sin(q),p[2]+.12)
-                     for r,q in ((inner,t),(outer,t),(outer,s),(inner,s))]
-                prism(f'exterior_paving_{roadname}_corner_{k}_{i}',top)
+        for mesh in corners(roadname,cfg[roadname]):
+            ext['meshes'].append(mesh);ext['collision_meshes'].append(mesh)
+    trimmed=trim_carriageways(ext)
     ext['pavement_repairs']=dict(zones=[dict(id=n,bounds=r,z=z) for n,r,z in zones],
                                 bridge_apron=[-23,-20,24,-8],yard_exclusion=yard,
-                                junctions='Closed collision matches rendered road disks; flat footway bends filled')
+                                trimmed_street_footways=trimmed,
+                                junctions='Closed road disks; outside-only footway joins; carriageways cut from footways')
     return result

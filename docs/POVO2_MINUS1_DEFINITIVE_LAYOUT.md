@@ -31,6 +31,11 @@ remaining work on other floors/buildings and exterior finishing stays separate.
 
 ## Implementation and exact approved build
 
+The [2 November finishing pass](POVO2_MINUS1_FINISHES_20261102.md) adds the
+user-requested glazing, office furniture and missing wall/closed-door finishes.
+It retains all room bounds, labels, corridor extents, stairs and terrace coordinates.
+The package identity below records the original approved layout checkpoint.
+
 The definitive layout is the **assembled final geometry**, including the
 West Offices and straight-C7 pass followed by the user's Draw.io entrance pass.
 `config/povo2_east_entrance.json` is a legacy intermediate input, not a standalone

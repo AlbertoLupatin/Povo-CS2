@@ -200,8 +200,10 @@ def extend_layout(boxes, levels, root, wall_height):
     result.extend(p for box in parts for p in subtract_box(box,((a,b,z-.3),(c,d,z+.01))))
     # Hollow the existing hall's internal boundaries without clipping the core
     # or the relocated lift. Retain a sealed outside perimeter.
-    for lo,hi in [((16.65,14.05,z-.01),(25.4,29.6,z+2.3)),
-                  ((22.35,10.75,z-.01),(25.65,11.25,z+2.3))]:
+    # Open these obsolete partitions all the way to the ceiling. A door-height
+    # cut leaves their upper metre hanging over the hall as a rectangular box.
+    for lo,hi in [((16.65,14.05,z-.01),(25.4,29.6,z+wall_height+.02)),
+                  ((22.35,10.75,z-.01),(25.65,11.25,z+wall_height+.02))]:
         result=[p for box in result for p in
                 (subtract_box(box,(lo,hi)) if box[3] in ('wall','window_frame')
                  and not box[0].startswith(('p2_ground_reception_','p2_lift_','academic_first_link_p2_stair_',
@@ -211,7 +213,7 @@ def extend_layout(boxes, levels, root, wall_height):
     dx=levels[1]['connection'].get('stair_offset_east',0)
     cut((16.25+dx,21.175,z-.01),(16.75+dx,22.825,z+2.2))
     # The approach's east partition opens into the reception hall.
-    cut((25.3,19.6,z-.01),(25.7,29.6,z+2.3))
+    cut((25.3,19.6,z-.01),(25.7,29.6,z+wall_height+.02))
     for old_station in ground['audit_stations']:
         if old_station['id']=='left_corridor':old_station['point']=[24,25.5]
     station(ground,'left_extension_entry',24,28.8)

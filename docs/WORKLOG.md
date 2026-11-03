@@ -2056,3 +2056,111 @@ Repeated all-entry CRC verification and extracted the actual packaged model:
 fixed-door samples pass. Saved a compiled collision plan and reports in
 `exports/povo2_drawio_entrance_20261031/`. No game was launched or moved; native
 player traversal remains separate. Updated the README's stale package identity.
+
+## 2 November 2026 — Povo 2 −1 finishing verification completed
+
+Resumed the interrupted office finishing review without changing geometry.
+Individually inspected 12 native normal-lit views. The requested glazing,
+computer workstations, restored white wall/empty left doorway and opaque
+terrace wall are present; the earlier lighting streaks are absent in these views.
+All 369 source tests and 239 compiled finishing checks had passed in the build.
+
+Completed 16 ordinary standing routes / 48 waypoints through five selected W
+offices, both CIBIO offices and WI2 in both directions. Corrected the review
+harness to use the existing 2.5 cm doorway tolerance and a 200 ms stopping pause;
+retained the initial failed attempts in the evidence. All 21 added glass panes
+exist, all 12 replaced moving terrace leaves are absent, six fixed door pairs
+block from both sides, and two sampled exterior panes break when shot.
+
+Promoted the exact reviewed candidate to the standard launcher package and
+verified all 1,232 CRCs: 62,778,837 bytes, SHA-256
+`96cfccfdd484f325ea239deae5dc9cd797ca7dbc7c3896ab40fced7b2a8e3f93`.
+The approved pre-finishing package/manifest remain backed up. Winter, Workshop,
+multiplayer and a complete campus walkthrough were not updated or tested.
+See [the finishing report](POVO2_MINUS1_FINISHES_20261102.md) and
+`exports/povo2_minus1_finishes_20261102/validation-summary.json`.
+
+## 2 November 2026 — Outside street concrete repaired
+
+Replaced 11 complete paving rings with outside corner sectors and closed the
+missing east-footway wedge at the bottom of the frontage slope. Trimmed street
+footways against intersecting asphalt footprints, removing crossing concrete
+strips at the western junction. Render and collision use the same capped pieces.
+All 27,885 campus boxes, approved Povo 2 metadata and non-street meshes are
+unchanged. All six non-concrete collision OBJ files remain byte-identical.
+
+All 373 source tests pass, as do 33,656 plaza support samples, 195 corner samples
+and both campus/paving coplanar audits. Native model compilation took 44m08s;
+map compilation passed 911 resources with zero failures in 9m37s. The unmodified
+normal-quality 1024-atlas GPU bake completed its only block. Initial packaging
+rejected one staged-byte mismatch; a shorter staging path passed every asset
+hash and all 1,234 entry CRCs, without another native compile.
+
+The packaged PHYS data passes 37 street checks, 22,997 basement floor samples,
+72 column samples and 36 fixed-door samples. Twenty normal-lit captures were
+individually inspected; all nine matched ground checks pass. Native probes
+confirm removal of the former 12 cm rise at two ring locations. Eight completed
+repair-focused ordinary routes / 42 waypoints cover both directions through the
+repaired bends and footway. The broader initial uphill frontage route FAILED
+at the unchanged flat asphalt disk near (62,0,7.602); that failure is preserved
+and the full uphill slope remains uncertified. A further return through all
+repaired frontage bends below that ledge passed.
+
+Promoted the exact reviewed candidate: 62,689,944 bytes, SHA-256
+`273c80f9611c531ff8d5b7d0409b6b16d3cab696d692785fbb68310dc8f0365b`.
+All 1,234 promoted package CRCs pass. CS2 is closed. Winter and Workshop remain
+at their earlier native versions. See the [repair, screenshots and remaining
+asphalt issue](../exports/street_concrete_fix_20261102/README.md).
+
+## 2 November 2026 — Entrance and exterior fill continuation completed
+
+Resumed the interrupted native build of the Povo 2 entrance and A–D exterior
+fills. Removed obsolete hanging wall tops, completed flat ceiling finish,
+combined the stair/floor sign, closed the unused side bay, and filled the
+specified exterior edges/supports. No further geometry changes were needed
+during resumed verification. Source comparison confirms the approved basement
+metadata and pre-existing exterior meshes/asphalt collision are unchanged.
+
+All 378 source tests pass. Campus/paving audits find zero coplanar overlaps
+across 660,907 / 7,087 faces. Native model compilation passed in 49m20s; map
+compilation passed 911 resources with zero failures in 13m22s, with normal-quality
+1024-atlas lighting. The actual package passes 77 entrance/fill checks, 22,997
+basement floor samples, 72 column samples and 36 fixed-door samples.
+
+Individually inspected ten native normal-lit captures. Completed all twelve
+ordinary standing routes / 110 waypoints, covering the entrance corridor, stair
+doorway, lower approach, garden and both exterior stairs in both directions.
+The screenshot harness now uses lowercase names; its rejected initial capture
+and first-session console evidence remain available. The fresh final review
+session completed all captures and movement checks.
+
+Promoted the exact reviewed candidate: 62,707,301 bytes, 1,234 entries/all CRCs
+verified, SHA-256
+`18d154a01b9cdbe554db740657cd700899dab4ebc4ac8a5541ed4eaacafcd753`.
+The previous standard package remains backed up. The reviewed solo game was
+left open at the corrected entrance. Winter and Workshop were not updated;
+multiplayer and the full uphill street were not tested. The previously recorded
+asphalt ledge remains unresolved. See the
+[completed report and native evidence](../exports/exterior_entrance_review_20261102/README.md).
+
+## 2 November 2026 — Whole-map visual consistency inspection
+
+Read-only source/package scans covered 27,885 visual boxes and 12,560 collision
+boxes before export/entity extraction, 150 packaged signs, 2,963 room-ceiling samples, 12,652 room-boundary
+samples, 534 exterior ground meshes, 16,011 street/footway samples, 663 visible
+ceiling diffusers and 23 street-lamp posts. Captured 45 normal-lit native views;
+close/occluded cameras are explicitly limited in the report. Player pose was
+restored after each camera pass.
+
+Confirmed three new groups of residual geometry: 16 floating ceiling fittings
+above Povo 1's open upper terraces; two clipped ceiling-light panels on the
+outside of Povo 2's upper stair wall; and four frontage lamp posts damaged by
+later excavations (two floating bases, a roof stub and a 3 cm lower sliver).
+Added these to TODO. Packaged signs have no detected coplanar overlaps; apparent
+room-ceiling/wall gaps were triaged as the lift shaft, intended portals or room
+rectangle/core registration differences. No unexplained physical ground mesh
+defect was found. The source street scan reproduces the existing asphalt ledge.
+
+No geometry, map source, package or native build was changed. The package still
+has SHA-256 `18d154a01b9cdbe554db740657cd700899dab4ebc4ac8a5541ed4eaacafcd753`.
+See the [inspection, exact locations and screenshots](../exports/map_consistency_audit_20261102/README.md).

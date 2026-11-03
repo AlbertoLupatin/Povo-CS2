@@ -64,8 +64,8 @@ class WalkthroughRepairsTests(unittest.TestCase):
 
     def test_cibio_and_relocated_entrance_keep_doors_and_stair_retaining_walls(self):
         ids={d['id'] for d in self.p2['repair_doors']}
-        self.assertTrue({'p2_c5_terrace_0','p2_c5_terrace_1',
-                         'p2_cibio_terrace_0_0','p2_cibio_terrace_1_0'}<=ids)
+        self.assertTrue({'p2_c5_terrace_0','p2_c5_terrace_1'}<=ids)
+        self.assertFalse(any(n.startswith('p2_cibio_terrace_') for n in ids))
         meshes=[m for m in self.levels[0]['exterior']['meshes']
                 if m['name'].startswith('exterior_p2_garden_slope_')]
         self.assertEqual(meshes,[])

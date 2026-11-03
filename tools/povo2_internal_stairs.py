@@ -4,6 +4,7 @@ Counts and connectivity are confirmed. Metric registration and elevations are
 still estimates; retain the bridge and the accepted -1 corridor interface.
 """
 import json
+import re
 from pathlib import Path
 
 try:
@@ -31,6 +32,15 @@ def extend(boxes, levels, root=None):
                 'p2_ground_core_slab', 'p2_basement_core_slab', 'p2_parking_core_',
                 'p2_basement_core_old_door_infill')
     result = [box for box in boxes if not box[0].startswith(obsolete)]
+    # Old route fittings straddle the rebuilt west wall. Remove their whole
+    # assemblies and lights before the well cut can leave exterior fragments.
+    blocked_prefixes = tuple({match[1] for name,lo,hi,material in result
+        if (match:=re.match(r'(academic_first_link_route_finish_fixture_\d+_)',name))
+        and abs((lo[0]+hi[0])/2-a)<.3 and 18<(lo[1]+hi[1])/2<d
+        and link['floor_local_metres']+3<lo[2]<link['floor_local_metres']+3.3})
+    result = [box for box in result if not box[0].startswith(blocked_prefixes)]
+    link['lights'] = [p for p in link['lights'] if not (abs(p[0]-a)<.3 and 18<p[1]<d
+                      and abs(p[2]-(link['floor_local_metres']+2.9))<.01)]
     # Reverse the parking wing about the vestibule centreline: the approach
     # must continue forward (up in the exit-facing review), not behind the core.
     parking_level=next(l for l in spec['levels'] if l['floor']==-2)

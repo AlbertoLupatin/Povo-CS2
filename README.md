@@ -25,20 +25,33 @@ outdoor arena, built from the same source).
 - **Breakable glass:** playable windows, doors, bridge, stair and courtyard glazing, plus the library and canteen wings in front of Povo 1. Receptions stay sealed.
 - **Automatic doors:** the Povo 1 and Povo 2 entrances slide open as players approach.
 
-Latest local standard-season package: **2 November 2026**, repairing the
-black/turquoise lighting corruption in the preceding build. All **363 source
-tests pass**. The 61,958,853-byte package has **1,237 verified entry CRCs**;
-nine actual game views were inspected with normal lighting enabled. It uses
-normal-quality lighting with a 1024-pixel atlas and retains the Draw.io entrance,
-straight C7, continuous terrace and OSM/LiDAR corrections. See the
-[repair and native screenshots](docs/RENDER_LIGHTING_CORRUPTION_20261102.md) and
-[entrance layout](docs/POVO2_DRAWIO_ENTRANCE_20261031.md).
-The earlier 12 native walking routes / 48 waypoints apply to the preceding
-[registration build](docs/BUILDING_REGISTRATION_IMPLEMENTATION_20261031.md);
-no new player traversal certifies this latest layout. Full source builds use
-`build_campus.cmd`; the repair report records the smaller native bake settings.
-Script-only VRAD retiling is disabled. Close CS2 and rerun `play_campus.cmd` to
-load the new package. Winter and the Workshop upload remain at their previous versions.
+Latest local standard-season package: **2 November 2026**, completing the Povo 2
+entrance ceiling, overlapping stair sign, side-wall closure and A–D exterior
+concrete fills. All **378 source tests pass**; the **62,707,301-byte** package has
+**1,234 verified entry CRCs**. **77 compiled entrance/fill checks**, **12 ordinary
+walking routes / 110 waypoints** and **10 normal-lit views** verify this revision.
+The approved basement layout and earlier street-concrete repairs are preserved.
+See the [entrance and exterior report](exports/exterior_entrance_review_20261102/README.md).
+The existing uphill asphalt ledge remains unresolved; the full uphill street
+was not retested. After closing CS2, `play_campus.cmd` loads this standard package.
+
+The earlier **2 November 2026** finishing package added the requested
+Povo 2 −1 office furniture, exterior glazing and wall finishes while preserving
+the approved room bounds, names, corridors, stairs and terrace. All **369 source
+tests pass**. The 62,778,837-byte package has **1,232 verified entry CRCs**;
+12 native views were individually inspected with normal lighting enabled.
+**16 ordinary standing walks / 48 waypoints** verify the selected furnished
+office entrances and empty WI2 doorway in both directions. All six fixed terrace
+door pairs block from both sides, and sampled new exterior panes break when shot.
+See the [finishing report and screenshots](docs/POVO2_MINUS1_FINISHES_20261102.md).
+It uses normal-quality lighting with a 1024-pixel atlas, retaining the
+[lighting repair](docs/RENDER_LIGHTING_CORRUPTION_20261102.md),
+[entrance layout](docs/POVO2_DRAWIO_ENTRANCE_20261031.md), straight C7, continuous
+terrace and OSM/LiDAR corrections. These targeted walks do not certify a complete
+campus walkthrough or multiplayer. Full source builds use `build_campus.cmd`;
+the repair report records the smaller native bake settings. Script-only VRAD
+retiling is disabled. Close CS2 and rerun `play_campus.cmd` to load the new
+package. Winter and the Workshop upload remain at their previous versions.
 
 The 30 October [OSM and LiDAR registration audit](docs/BUILDING_REGISTRATION_AUDIT_20261030.md)
 confirms the Povo 1 and Povo 2 footprints. Its FBK, residential and northern road

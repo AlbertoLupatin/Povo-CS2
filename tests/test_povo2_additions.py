@@ -25,7 +25,7 @@ class Povo2AdditionTests(TestCase):
             self.assertTrue(any(n=='p2_ground_'+name+'_window_glass' and is_breakable_glass(box)
                                 for box in self.boxes for n,_,_,_ in [box]))
 
-    def test_both_cibio_offices_and_the_six_replacement_terrace_exits_are_reachable(self):
+    def test_both_cibio_offices_are_reachable_and_six_terrace_doors_are_fixed(self):
         basement=next(l for l in self.spec['levels'] if l['floor']==-1)
         report,_,_=audit_level(self.physics,dict(id=basement['id'],floor_elevation_local=basement['z']),
                               basement['audit_stations'],width=.82,height=1.85)
@@ -33,11 +33,12 @@ class Povo2AdditionTests(TestCase):
         self.assertEqual(len(basement['rooms']),2)
         doors=[b for b in self.boxes if b[0].startswith('p2_basement_cibio_closed_office_')]
         self.assertFalse(doors)
-        replacements=[d for d in self.spec['repair_doors'] if d['id'].startswith('p2_cibio_terrace_')]
+        self.assertFalse(any(d['id'].startswith('p2_cibio_terrace_') for d in self.spec['repair_doors']))
+        replacements=[b for b in self.physics if b[0].startswith('p2_basement_fitout_terrace_closed_')]
         self.assertEqual(len(replacements),12)
-        self.assertTrue(all(d['kind']=='glass' for d in replacements))
-        for d in replacements:
-            x,y,z=d['pivot']
+        self.assertTrue(all(m=='door_black' for _,_,_,m in replacements))
+        for _,lo,hi,_ in replacements:
+            x,y,z=(lo[0]+hi[0])/2,(lo[1]+hi[1])/2,lo[2]
             self.assertTrue(any(m=='floor_terrace' and a[0]<=x+.8<=b[0] and a[1]<=y<=b[1]
                                 and abs(b[2]-z)<.02 for _,a,b,m in self.physics))
 

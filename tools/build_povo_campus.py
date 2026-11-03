@@ -685,6 +685,14 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         boxes=repair_povo2(boxes,bridge_levels,root)
         from tools.povo2_drawio_entrance import extend as apply_drawio_entrance
         boxes=apply_drawio_entrance(boxes,bridge_levels,root)
+        from tools.povo2_minus1_finishes import extend as finish_minus1
+        boxes=finish_minus1(boxes,bridge_levels)
+        from tools.povo2_entrance_finishes import extend as finish_povo2_entrance
+        boxes=finish_povo2_entrance(boxes,bridge_levels)
+        from tools.povo_exterior_fills import extend as fill_exterior_gaps
+        boxes=fill_exterior_gaps(boxes,bridge_levels)
+        from tools.povo_lighting_repairs import repair_frontage_lamps
+        boxes=repair_frontage_lamps(boxes,bridge_levels)
     try:
         from .povo_room_furnishings import furnish
     except ImportError:
@@ -747,6 +755,8 @@ def finish_details(boxes, levels, config):
             result.append((room['id']+'_finish_door_head', tuple(lo), tuple(hi), 'window_frame'))
         ceiling = 7.31 if level['id'] == 'academic_ground' else z+config['wall_height_metres']-.06
         for corridor in level['circulation']:
+            if not corridor.get('ceiling_lighting', True):
+                continue
             a,b,c,d = corridor['bounds']
             x0,x1 = -23+b*47,-23+d*47
             y0,y1 = -103+a*83,-103+c*83
@@ -979,6 +989,9 @@ def export(root=ROOT):
             number=pane['name'].removeprefix('p2_basement_west_glazing_')
             pane['decorations']=[dict(lo=list(lo),hi=list(hi),material=material_path(m))
                 for n,lo,hi,m in glass_decorations if n.startswith('p2_basement_west_front_band_'+number+'_')]
+        elif pane['name'].startswith('p2_basement_fitout_') and pane['name'].endswith('_glass'):
+            pane['decorations']=[dict(lo=list(lo),hi=list(hi),material=material_path(m))
+                for n,lo,hi,m in glass_decorations if n.startswith(pane['name'].removesuffix('_glass')+'_band_')]
     # Keep original source bytes reproducible alongside derived geometry.
     survey_inputs=['config/povo1_survey.json','config/povo2_survey.json',
                    'config/povo_amenities_survey.json','config/povo_wings.json',
@@ -1016,11 +1029,11 @@ def export(root=ROOT):
     metadata['artifacts']={p.name:hashlib.sha256(p.read_bytes()).hexdigest()
                            for p in output.glob('povo1_campus*.obj')}
     for relative in ('tools/solid_mesh.py','tools/povo2_drawio_entrance.py','data/reference/user_feedback/2026-10-31/east_entrance_edited.drawio',
-                     'tools/povo2_playtest_repairs.py','tools/povo2_west_offices.py','tools/build_povo2_west_offices.py',
+                     'tools/povo2_playtest_repairs.py','tools/povo2_minus1_finishes.py','tools/povo2_west_offices.py','tools/build_povo2_west_offices.py',
                      'config/povo2_west_offices.json',
                      'exports/povo2_west_offices_20261029/baseline/layout.json',
                      'tools/povo2_internal_stairs.py','tools/povo2_basements.py','tools/povo_pavement.py',
-                     'tools/povo_pavement_lighting.py','tools/povo_floor_surfaces.py','tools/povo_render_surfaces.py','config/povo2_internal_dimensions.json',
+                     'tools/povo_pavement_lighting.py','tools/povo_street_footways.py','tools/povo2_entrance_finishes.py','tools/povo_exterior_fills.py','tools/povo_lighting_repairs.py','tools/povo_floor_surfaces.py','tools/povo_render_surfaces.py','config/povo2_internal_dimensions.json',
                      'tools/povo2_minus1_corrections.py','config/povo2_minus1_corrections.json',
                      'data/reference/user_feedback/2026-10-29/povo2_minus1_corrections.png',
                      'data/reference/user_feedback/2026-10-28/povo2_basement_stair_vestibule.jpg'):

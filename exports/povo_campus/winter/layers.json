@@ -4215,6 +4215,34 @@
         4.009
       ],
       "wet"
+    ],
+    [
+      "winter_exterior_user_fill_b",
+      [
+        35.75,
+        2.0,
+        4.002
+      ],
+      [
+        42.02,
+        2.75,
+        4.009
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_user_fill_c",
+      [
+        45.58,
+        2.0,
+        4.002
+      ],
+      [
+        55.5,
+        2.75,
+        4.009
+      ],
+      "wet"
     ]
   ],
   "collision": [
@@ -7297,12 +7325,40 @@
         4.009
       ],
       "wet"
+    ],
+    [
+      "winter_exterior_user_fill_b",
+      [
+        35.75,
+        2.0,
+        4.002
+      ],
+      [
+        42.02,
+        2.75,
+        4.009
+      ],
+      "wet"
+    ],
+    [
+      "winter_exterior_user_fill_c",
+      [
+        45.58,
+        2.0,
+        4.002
+      ],
+      [
+        55.5,
+        2.75,
+        4.009
+      ],
+      "wet"
     ]
   ],
   "physics_surface_groups": {
     "concrete": {
       "file": "povo_winter_collision_concrete.obj",
-      "boxes": 167,
+      "boxes": 169,
       "meshes": 0
     },
     "snow": {

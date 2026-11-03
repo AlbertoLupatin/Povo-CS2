@@ -75,11 +75,11 @@ class IntegratedWestOfficesTests(TestCase):
             self.assertEqual(len(leaves),2)
             self.assertTrue(all(m=='door_black' for _,_,_,m in leaves))
 
-    def test_relocated_lab_desk_keeps_both_legs_under_its_top(self):
-        prefix='p2_basement_cibio_office_0_'
-        top=next(b for b in self.boxes if b[0]==prefix+'desk_1')
-        legs=[b for b in self.boxes if b[0].startswith(prefix+'desk_leg_1_')]
-        self.assertEqual(len(legs),2)
+    def test_replacement_lab_desk_keeps_all_legs_under_its_top(self):
+        prefix='p2_basement_fitout_cibio_office_0_row_'
+        top=next(b for b in self.boxes if b[0].startswith(prefix) and b[0].endswith('_desk'))
+        legs=[b for b in self.boxes if b[0].startswith(top[0].removesuffix('_desk')+'_leg_')]
+        self.assertEqual(len(legs),4)
         for _,lo,hi,_ in legs:
             for axis in (0,1):
                 self.assertGreaterEqual(lo[axis],top[1][axis])

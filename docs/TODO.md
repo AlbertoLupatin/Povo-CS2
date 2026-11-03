@@ -3,6 +3,32 @@
 Open actions, most urgent first. Tick them off here and record evidence in
 [WORKLOG.md](WORKLOG.md).
 
+## Whole-map visual consistency findings — 2 November
+
+- [ ] Remove 16 orphaned ceiling-light fittings above Povo 1's open +1 courtyard
+      terraces; reconcile their light entities while keeping the terraces open.
+- [ ] Remove two clipped ceiling-light fragments protruding from Povo 2's +1
+      stair west wall, near E10.9 / N19 and N24.
+- [ ] Re-place/remove the four clipped Povo 2 frontage lamp posts (indices
+      0, 1, 5, 6): two float above paving, one is a roof stub and one retains only
+      a 3 cm lower strip. Preserve the approved building/yard layout.
+      Source scans and 45 native captures are in the
+      [whole-map inspection report](../exports/map_consistency_audit_20261102/README.md).
+
+## Confirmed street grade issue — 2 November
+
+- [x] Complete the interrupted Povo 2 entrance ceiling/sign/side-wall revision
+      and A–D exterior fills. Standard package promoted after 378 source tests,
+      77 compiled checks, 10 normal-lit views and 12 ordinary walking routes /
+      110 waypoints. Approved basement preserved; see the
+      [completed review](../exports/exterior_entrance_review_20261102/README.md).
+
+- [ ] Regrade the unchanged flat `exterior_road_front_joint_0` asphalt disk at
+      local (62,0,7.602). It projects over the sloping street and blocks ordinary
+      uphill movement near (62.6245,3.8638,6.7833). The concrete rings and missing
+      footway wedge are repaired; the asphalt collision remains byte-identical.
+      See the [native failure and concrete repair evidence](../exports/street_concrete_fix_20261102/README.md).
+
 ## 27 October photo-survey source revision
 
 - [x] Restore Povo 1 -1 A1xx / 0 A2xx / +1 offices-and-bridge convention at provisional 4/7.6/11.2 m, with connecting stair segments.

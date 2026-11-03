@@ -155,8 +155,12 @@ def terraces(boxes, levels, origin, rails):
     """Floor-1 courtyard bands become open, paved terraces behind glass."""
     upper = levels[-1]; z = upper['floor_elevation_metres']-origin[2]
     x0, y0, x1, y1 = upper['voids_local_metres'][0]
-    result = [b for b in boxes if not (b[0].startswith(('academic_upper_west_terrace_finish_fixture',
-                                                         'academic_upper_east_terrace_finish_fixture')))]
+    result = list(boxes)
+    # The finish and entity passes run later. Mark these open-air circulation
+    # bands now so neither creates a ceiling fitting or its indoor light.
+    for corridor in upper['circulation']:
+        if corridor['id'] in ('west_terrace', 'east_terrace'):
+            corridor['ceiling_lighting'] = False
     for (a, b) in (WEST_TERRACE, EAST_TERRACE):
         # Open sky: no ceiling over either terrace.
         result = _clear(result, ((a, y0, z+3.2), (b, y1, z+3.4)), ('ceiling_panel',))

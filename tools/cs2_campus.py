@@ -204,6 +204,23 @@ def gameplay_points(metadata):
             (OBJECTIVE[0],OBJECTIVE[1],upper+.6))
 
 
+def stair_signs(metadata):
+    """One sign at a shared stair/floor portal, avoiding superposed text."""
+    compact=metadata.get('connection',{}).get('stair',{}).get('portals',[])
+    floors=metadata.get('povo2',{}).get('stairs',{}).get('portals',[])
+    def same(a,b):return a['floor']==b['floor'] and math.dist(a['centre'],b['centre'])<.1
+    records=[]
+    for i,p in enumerate(compact):
+        if any(same(p,f) for f in floors):continue
+        x,y,z=p['centre']
+        records.append(dict(token='p2-compact-stair-sign-'+str(i),point=(x+.15,y,z+2.44),text='SCALE',white=True))
+    for p in floors:
+        x,y,z=p['centre'];floor=p['floor']
+        label=('SCALE / PIANO ' if any(same(p,c) for c in compact) else 'PIANO ')+str(floor)
+        records.append(dict(token='p2-floor-sign-'+str(floor),point=(x+.13,y,z+2.5),text=label,white=False))
+    return records
+
+
 def map_text(source,metadata,season='standard'):
     source=source.replace('models/povo/povo_blockout.vmdl',f'models/povo/{MODEL}.vmdl')
     t_starts,ct_starts,objective=gameplay_points(metadata)
@@ -276,6 +293,7 @@ def map_text(source,metadata,season='standard'):
                 for fx in (.3,.7):
                     for fy in (.3,.7):lights.append((x0+(x1-x0)*fx,y0+(y1-y0)*fy,z+2.9))
         for corridor in level['circulation']:
+            if not corridor.get('ceiling_lighting',True):continue
             # Normalized plan axes: u is north, v is east.
             a,b,c,d=corridor['bounds'];x0,x1=-23+b*47,-23+d*47;y0,y1=-103+a*83,-103+c*83
             if y1-y0>x1-x0:
@@ -294,10 +312,6 @@ def map_text(source,metadata,season='standard'):
         lights.extend(metadata['connection']['lights'])
         for i,p in enumerate(metadata['connection']['nav_seeds']):
             source=project._insert_point_entity(source,'campus-link-nav-'+str(i),'point_nav_walkable',world(p))
-        for i,portal in enumerate(metadata['connection']['stair']['portals']):
-            x,y,z=portal['centre']
-            source=project._insert_point_entity(source,'p2-compact-stair-sign-'+str(i),'point_worldtext',
-                world((x+.15,y,z+2.44)),sign_properties('SCALE'),angles='0 180 90')
         for name,text,n,yaw in (('p1-to-p2','POVO 2',-20.13,90),('p2-arrival','POVO 2 - PIANO 1',9.87,90),('p2-to-p1','POVO 1',-19.87,270)):
             source=project._insert_point_entity(source,name,'point_worldtext',world((18.25,n,metadata['connection']['floor_local_metres']+3.04)),
                 sign_properties(text,white=False),angles=f'0 {yaw} 90')
@@ -330,10 +344,6 @@ def map_text(source,metadata,season='standard'):
                 for i,p in enumerate(points):
                     source=project._insert_point_entity(source,f'p2-garden-{route}-nav-{i}',
                         'point_nav_walkable',world((p[0],p[1],p[2]+.15)))
-        for portal in p2['stairs']['portals']:
-            x,y,z=portal['centre'];f=portal['floor']
-            source=project._insert_point_entity(source,'p2-floor-sign-'+str(f),'point_worldtext',
-                world((x+.13,y,z+2.5)),sign_properties('PIANO '+str(f),white=False),angles='0 180 90')
         for path in p2['stairs']['path']:
             mid=path['points'][12]
             source=project._insert_point_entity(source,'p2-stair-mid-nav-'+str(path['lower_floor']),
@@ -368,6 +378,9 @@ def map_text(source,metadata,season='standard'):
     for i,sign in enumerate(wings.get('signs',[])):
         source=project._insert_point_entity(source,f'wing-sign-{i}','point_worldtext',
             world(sign['point']),sign_properties(sign['text']),angles=sign['angles'])
+    for sign in stair_signs(metadata):
+        source=project._insert_point_entity(source,sign['token'],'point_worldtext',
+            world(sign['point']),sign_properties(sign['text'],white=sign['white']),angles='0 180 90')
     for i,p in enumerate(lights):
         source=project._insert_point_entity(source,f'campus-light-{i}','light_omni2',world(p),
             (('enabled','1'),('directlight','1'),('brightness_units','1'),('brightness_lumens','1800'),
