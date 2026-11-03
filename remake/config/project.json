@@ -1,0 +1,12 @@
+{
+  "name": "Povo-CS2 remake",
+  "cs2_root": "D:\\SteamLibrary\\steamapps\\common\\Counter-Strike Global Offensive",
+  "addon": "povo_remake",
+  "crs": "EPSG:25832",
+  "local_origin_metres": [666265, 5103785, 370.0],
+  "gameplay_scale": 1.25,
+  "gameplay_scale_note": "Uniform; chosen 2026-10-29 after the user walked povo_scale_test (1.00 / 1.25 / 1.50) in game. 1 m = 49.21 Hammer units.",
+  "hammer_units_per_metre_real": 39.37007874,
+  "site_extent_metres": [666090, 5103610, 666440, 5103960],
+  "axes": "Hammer +X = east, +Y = north, +Z = up"
+}

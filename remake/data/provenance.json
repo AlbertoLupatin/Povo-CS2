@@ -1,0 +1,297 @@
+{
+  "lidar/5h665551030_DBM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:41.989751+00:00",
+    "sha256": "20a29f5e0ba0b4c15aa1875618e488d2aff6b2aa97c719d12626902d591a1dfe",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h665551030_DBM.asc"
+  },
+  "lidar/5h665551030_DSMF.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:46:08.988152+00:00",
+    "sha256": "0cbdae98f4e00284fdf9fc3c00a14dc884ae790e41ac9d3ae028fd8ece20d934",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dsmfirst_asc/5h665551030_DSMFirst.asc"
+  },
+  "lidar/5h665551030_DTM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:33.117047+00:00",
+    "sha256": "2db0a938fdcf1de60f605b2e072cae007d9f4910d54710002dbe3974afb14ebe",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h665551030_DTM.asc"
+  },
+  "lidar/5h665551035_DBM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:42.799875+00:00",
+    "sha256": "e6df912f83546ac56f7a27796e0c626efb5d2d502f2607127a7e321d4c92c747",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h665551035_DBM.asc"
+  },
+  "lidar/5h665551035_DSMF.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:46:09.806896+00:00",
+    "sha256": "7e41befc65ffa270a761d0c654b527ed2f93a94680e4f8e0637be502dbe52f11",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dsmfirst_asc/5h665551035_DSMFirst.asc"
+  },
+  "lidar/5h665551035_DTM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:33.998509+00:00",
+    "sha256": "ce61980181e5e7b0e8b2476b91d9638a8b85b694c9b082150ecd61e7101a30fc",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h665551035_DTM.asc"
+  },
+  "lidar/5h665551040_DBM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:43.650520+00:00",
+    "sha256": "f9d64539d44a696fa438ccb31648c45db669e94b06c39222e6c69f105675e2a2",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h665551040_DBM.asc"
+  },
+  "lidar/5h665551040_DSMF.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:46:10.589411+00:00",
+    "sha256": "7d50456cf926c59181b93f6f927aa772897f01012347316c7326c61a7fadc26e",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dsmfirst_asc/5h665551040_DSMFirst.asc"
+  },
+  "lidar/5h665551040_DTM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:35.441560+00:00",
+    "sha256": "17c0ad9b06ee86c9dc43a74432e64c58ec294a1efc6c8d7007180671f2c71cdf",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h665551040_DTM.asc"
+  },
+  "lidar/5h666051030_DBM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:44.545089+00:00",
+    "sha256": "f38a8676f3a794a3dd3e436856a90912e86c3f599327d5bdd63c581ff762b9bf",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h666051030_DBM.asc"
+  },
+  "lidar/5h666051030_DSMF.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:46:11.415235+00:00",
+    "sha256": "365ba960e52cb36a159355c90f92c18669578e02f591c29373987e7c8db42785",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dsmfirst_asc/5h666051030_DSMFirst.asc"
+  },
+  "lidar/5h666051030_DTM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:36.215192+00:00",
+    "sha256": "032cd8fc54b64dfd148b3c9fd5e905879533e6635901c6ce1377dd0ff1e04880",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h666051030_DTM.asc"
+  },
+  "lidar/5h666051035_DBM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:45.513465+00:00",
+    "sha256": "950f0ca857e2118b771b968ca3575bb8194615a1784b4811486947f4da6d270c",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h666051035_DBM.asc"
+  },
+  "lidar/5h666051035_DSMF.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:46:12.199834+00:00",
+    "sha256": "5d27620d0cbaa1dc4f4f63306e713d080b483a33b264b38dadd34080e28828b5",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dsmfirst_asc/5h666051035_DSMFirst.asc"
+  },
+  "lidar/5h666051035_DTM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:37.079648+00:00",
+    "sha256": "63deffb68da8cf2c48db13e2aed30e1694cd453b3a51fc2edc4d1e7d869f4a63",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h666051035_DTM.asc"
+  },
+  "lidar/5h666051040_DBM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:46.367087+00:00",
+    "sha256": "3b203d77f7deebd4e835c317115f05e7d0194134cc4cb6ec876754eaf4155d85",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h666051040_DBM.asc"
+  },
+  "lidar/5h666051040_DSMF.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:46:13.528508+00:00",
+    "sha256": "db19c479b5d9933d2f5fc8cefd91c29f503219df7ad38a4a21ea941a12333a5e",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dsmfirst_asc/5h666051040_DSMFirst.asc"
+  },
+  "lidar/5h666051040_DTM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:37.925151+00:00",
+    "sha256": "78065f23b18f70c9bcb7819d3be85e6d1c6671e20b11fc3244e8827d79a75c83",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h666051040_DTM.asc"
+  },
+  "lidar/5h666551030_DBM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:47.207737+00:00",
+    "sha256": "0099888a492073eca830686dc1e57f7feebeff35a142ca72980e9752d4c2c2fb",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h666551030_DBM.asc"
+  },
+  "lidar/5h666551030_DSMF.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:46:14.395004+00:00",
+    "sha256": "29188e3e290661e24a75cd74d006e82b025052d60f1c73abee4994c00bd1f5ef",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dsmfirst_asc/5h666551030_DSMFirst.asc"
+  },
+  "lidar/5h666551030_DTM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:38.916537+00:00",
+    "sha256": "c18d3e92534a68bf56594d13184076a05b0d8f9abc08e88de78608f58d859080",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h666551030_DTM.asc"
+  },
+  "lidar/5h666551035_DBM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:48.047549+00:00",
+    "sha256": "4228e5ec4f03831c5d8c18ebf97c5c02c17ea12ab7ee830d36e74e365faf35eb",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h666551035_DBM.asc"
+  },
+  "lidar/5h666551035_DSMF.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:46:16.007027+00:00",
+    "sha256": "18a8d140f37cb9384cf709a7d18ffc5e3dab63ea7fb5b26f88215d5df4369a24",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dsmfirst_asc/5h666551035_DSMFirst.asc"
+  },
+  "lidar/5h666551035_DTM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:39.780669+00:00",
+    "sha256": "b6c9747ddf169e626edb1dd3530c86f47a7a17a67153bbb5aad24a37d016717c",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h666551035_DTM.asc"
+  },
+  "lidar/5h666551040_DBM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:48.870820+00:00",
+    "sha256": "379dda01ab94b7d0ee754bcdf7d69f0bcdee219ba4c027a7e0f8e5649765e3fd",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dbm_asc/5h666551040_DBM.asc"
+  },
+  "lidar/5h666551040_DSMF.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:46:16.853972+00:00",
+    "sha256": "25cb900c5eabf17e9add4e6e383270e68fdf96d11578d1f52220300696e5d515",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dsmfirst_asc/5h666551040_DSMFirst.asc"
+  },
+  "lidar/5h666551040_DTM.asc": {
+    "bytes": 7002105,
+    "crs": "EPSG:25832 (ETRF2000), heights ITALGEO 2005",
+    "licence": "CC BY 4.0",
+    "provider": "Provincia Autonoma di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:40.692878+00:00",
+    "sha256": "d15a39a3b032a480253b5f96c74fd4b9e2fbf005d947652caf02b361863bdafa",
+    "source_url": "https://siatservices.provincia.tn.it/stemdata/2014_lidar_dtm_asc/5h666551040_DTM.asc"
+  },
+  "ortho/campus_15cm.jpg": {
+    "bbox": [
+      666100,
+      5103600,
+      666500,
+      5104000
+    ],
+    "bytes": 1144399,
+    "crs": "EPSG:25832",
+    "layer": "ortofoto_2024",
+    "licence": "CC0 1.0",
+    "pixel_metres": 0.15,
+    "provider": "Comune di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:21.855117+00:00",
+    "sha256": "16cb208e1c7ece8b3b9001db6b8853e9df3de482fe456b4651a936777cfdedb8",
+    "source_url": "https://gis.comune.trento.it/ogc?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ortofoto_2024&STYLES=&CRS=EPSG%3A25832&BBOX=666100%2C5103600%2C666500%2C5104000&WIDTH=2667&HEIGHT=2667&FORMAT=image%2Fjpeg",
+    "survey_dates": [
+      "2024-08-28",
+      "2024-08-29"
+    ]
+  },
+  "ortho/site_50cm.jpg": {
+    "bbox": [
+      665500,
+      5103000,
+      667000,
+      5104500
+    ],
+    "bytes": 1873355,
+    "crs": "EPSG:25832",
+    "layer": "ortofoto_2024",
+    "licence": "CC0 1.0",
+    "pixel_metres": 0.5,
+    "provider": "Comune di Trento",
+    "retrieved_at_utc": "2026-10-28T22:44:23.364652+00:00",
+    "sha256": "c85d39f965f7fe287a0e0db55e9acfa5fad94e0aa0ef63e1d7c2751736339773",
+    "source_url": "https://gis.comune.trento.it/ogc?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ortofoto_2024&STYLES=&CRS=EPSG%3A25832&BBOX=665500%2C5103000%2C667000%2C5104500&WIDTH=3000&HEIGHT=3000&FORMAT=image%2Fjpeg",
+    "survey_dates": [
+      "2024-08-28",
+      "2024-08-29"
+    ]
+  },
+  "osm/povo.json": {
+    "attribution": "\u00a9 OpenStreetMap contributors",
+    "bytes": 11828987,
+    "licence": "ODbL 1.0",
+    "provider": "OpenStreetMap contributors",
+    "query": "[out:json][timeout:120];(nwr(46.058792434898336,11.137049850195185,46.07541890347791,11.16226344137952););out body geom;",
+    "retrieved_at_utc": "2026-10-28T22:44:19.752162+00:00",
+    "sha256": "4a989635daaae638d83b6e78600b4db7fe899f3c5626bf07380e2f179604f5af",
+    "source_url": "https://overpass-api.de/api/interpreter"
+  }
+}
