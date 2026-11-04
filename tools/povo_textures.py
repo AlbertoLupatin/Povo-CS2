@@ -274,6 +274,11 @@ TEXTURES = {  # name: (generator, seed, roughness 0-255, metalness, physics surf
 }
 
 
+# Glass that stays see-through: the campus's tested translucent glass setup
+# (povo_exterior_materials), at the opacity of its frosted entrance glass.
+TRANSLUCENT = {'frosted_glass': .84}
+
+
 def image(name, size):
     generator, seed = TEXTURES[name][:2]
     return np.clip(np.rint(generator(np.random.default_rng(seed), size)), 0, 255).astype(np.uint8)
@@ -292,6 +297,16 @@ def encode_png(pixels):
 
 def vmat(name):
     _gen, _seed, _rough, metal, surface = TEXTURES[name]
+    if name in TRANSLUCENT:
+        return ('Layer0\n{\n    shader "csgo_lightmappedgeneric.vfx"\n'
+                '    F_TRANSLUCENT "1"\n    F_RENDER_BACKFACES "1"\n'
+                f'    g_flOpacityScale "{TRANSLUCENT[name]}"\n'
+                f'    TextureLayer1Color "{PREFIX}{name}.png"\n'
+                f'    TextureLayer1Normal "{PREFIX}flat_normal.png"\n'
+                f'    TextureLayer1Roughness "{PREFIX}{name}_rough.png"\n'
+                f'    TextureLayer1Translucency "{PREFIX}opaque_mask.png"\n'
+                '    g_vColorTint "[1 1 1 0]"\n'
+                f'    SystemAttributes {{ PhysicsSurfaceProperties "{surface}" }}\n}}\n')
     return ('Layer0\n{\n    shader "csgo_complex.vfx"\n'
             f'    TextureColor "{PREFIX}{name}.png"\n'
             f'    TextureNormal "{PREFIX}flat_normal.png"\n'
@@ -309,6 +324,8 @@ def write_textures(directory, root=ROOT):
     directory.mkdir(parents=True, exist_ok=True)
     flat = lambda rgb: encode_png(np.full((256, 256, 3), rgb, np.uint8))
     write_png(directory / 'flat_normal.png', flat((128, 128, 255)))
+    if TRANSLUCENT.keys() & set(used):
+        write_png(directory / 'opaque_mask.png', flat((255, 255, 255)))
     for name in used:
         write_png(directory / (name + '.png'), encode_png(image(name, cfg['texture_size_pixels'])))
         # A tiny greyscale roughness map is ignored and the surface turns

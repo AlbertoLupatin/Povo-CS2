@@ -43,7 +43,7 @@ class TextureSettingsTests(unittest.TestCase):
         self.assertAlmostEqual(textures.repeat_metres('campus_exterior_stone'), 256 / (39.37007874 * 1.25))
         self.assertAlmostEqual(textures.repeat_metres('exterior_asphalt'), 5.2019, places=4)
         self.assertAlmostEqual(textures.repeat_metres('campus_ceiling_panel'), 2.6010, places=4)
-        self.assertEqual(textures.repeat_metres('campus_window_frame'), .6)
+        self.assertEqual(textures.repeat_metres('campus_metal_dark'), .6)
         self.assertEqual(textures.repeat_metres('campus_snow'), .6)
 
     def test_mapping_names_known_materials_and_generators(self):
@@ -82,6 +82,14 @@ class TextureImageTests(unittest.TestCase):
             self.assertTrue(np.array_equal(committed, expected), name)
             self.assertEqual((INSTALLED / (name + '.vmat')).read_text(encoding='utf-8'), textures.vmat(name))
 
+    def test_frosted_glass_stays_translucent_like_the_campus_glass(self):
+        text = textures.vmat('frosted_glass')
+        for line in ('shader "csgo_lightmappedgeneric.vfx"', 'F_TRANSLUCENT "1"', 'F_RENDER_BACKFACES "1"',
+                     'g_flOpacityScale "0.84"', f'TextureLayer1Translucency "{textures.PREFIX}opaque_mask.png"',
+                     'PhysicsSurfaceProperties "glass"'):
+            self.assertIn(line, text)
+        self.assertIn('shader "csgo_complex.vfx"', textures.vmat('aluminium'))
+
     def test_written_materials_reference_their_images(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / 'textures'
@@ -92,15 +100,17 @@ class TextureImageTests(unittest.TestCase):
                     self.assertIn(f'"{textures.PREFIX}{name}{reference}"', text)
                     self.assertTrue((out / (name + reference)).is_file())
                 self.assertIn(f'"{textures.PREFIX}flat_normal.png"', text)
+                if name in textures.TRANSLUCENT:
+                    self.assertTrue((out / 'opaque_mask.png').is_file())
 
 
 class TextureGeometryTests(unittest.TestCase):
     def test_textured_surfaces_repeat_at_real_size(self):
         obj = render_obj([('stone', (0, 0, 0), (3, 2, 4), 'exterior_stone'),
-                          ('frame', (5, 0, 0), (6, 2, 4), 'window_frame')], [], resolve_surfaces=False)
+                          ('frame', (5, 0, 0), (6, 2, 4), 'metal_dark')], [], resolve_surfaces=False)
         ratios = uv_metres(obj)
         self.assertEqual(ratios['campus_exterior_stone'], {5.2019})
-        self.assertEqual(ratios['campus_window_frame'], {.6})
+        self.assertEqual(ratios['campus_metal_dark'], {.6})
 
     def test_pavement_finish_uses_the_same_materials(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -154,6 +164,14 @@ class FacadeAndRenameTests(unittest.TestCase):
                          'campus_exterior_paving')
         self.assertEqual(textures.renamed('exterior_entry_stair_3', 'exterior_orange'), 'exterior_red_paving')
         self.assertEqual(textures.renamed('exterior_p2_entry_locker', 'exterior_orange'), 'exterior_orange')
+        self.assertEqual(textures.renamed('exterior_povo2_front_annex_1_mass_windowcut_2', 'campus_exterior_glass'),
+                         'campus_exterior_frosted_glass')
+        self.assertEqual(textures.renamed('exterior_povo2_front_annex_1_roof', 'campus_exterior_dark'),
+                         'campus_exterior_dark')
+        self.assertEqual(textures.renamed('exterior_povo1_library_0_pane_x_1', 'campus_exterior_glass'),
+                         'campus_exterior_glass')
+        self.assertEqual(material_path('exterior_frosted_glass'), textures.PREFIX + 'frosted_glass.vmat')
+        self.assertEqual(material_path('window_frame'), textures.PREFIX + 'aluminium.vmat')
         self.assertEqual(material_path('exterior_dark_sidewalk'), textures.PREFIX + 'dark_paving.vmat')
         self.assertEqual(material_path('stone_facade'), textures.PREFIX + 'beige_stone.vmat')
 

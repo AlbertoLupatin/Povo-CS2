@@ -15,7 +15,7 @@ COLORS = {
     'ridge': (106,124,134), 'tile': (191,188,166), 'grout': (136,137,125),
     'light': (245,237,190), 'canopy_glass': (135,171,180), 'context_concrete': (159,160,151),
     # Render-only renames of paving and orange (config/povo_textures.json).
-    'dark_sidewalk': (92,94,96), 'red_paving': (160,70,58)
+    'dark_sidewalk': (92,94,96), 'red_paving': (160,70,58), 'frosted_glass': (176,204,198)
 }
 # 20% transmission, 80% opacity, per pane. Frames and safety bands stay opaque.
 OPACITY = {'glass': .32, 'entry_glass': .84, 'canopy_glass': .40}

@@ -12,7 +12,9 @@
     "door_black": "anthracite",
     "stone_facade": "beige_stone",
     "exterior_dark_sidewalk": "dark_paving",
-    "exterior_red_paving": "red_paving"
+    "exterior_red_paving": "red_paving",
+    "window_frame": "aluminium",
+    "exterior_frosted_glass": "frosted_glass"
   },
   "stock": {
     "exterior_asphalt": "materials/asphalt/hr_c/hr_asphalt_001.vmat",
@@ -48,6 +50,12 @@
       "material": "exterior_orange",
       "to": "exterior_red_paving",
       "note": "Red entrance stair (remake red_paving, P055-P060); lockers and facade recesses keep orange."
+    },
+    {
+      "names": "^exterior_povo2_front_annex_\\d+_mass",
+      "material": "exterior_glass",
+      "to": "exterior_frosted_glass",
+      "note": "Povo 2 street-front frosted-glass cubes (remake frosted_glass, P010, P065, P067; docs/POVO2_LAYOUT_AUDIT_20261028.md). Kept translucent."
     }
   ],
   "edge_trees": {
