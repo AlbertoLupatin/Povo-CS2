@@ -5,15 +5,19 @@ Open actions, most urgent first. Tick them off here and record evidence in
 
 ## Whole-map visual consistency findings — 2 November
 
-- [ ] Remove 16 orphaned ceiling-light fittings above Povo 1's open +1 courtyard
+- [x] Remove 16 orphaned ceiling-light fittings above Povo 1's open +1 courtyard
       terraces; reconcile their light entities while keeping the terraces open.
-- [ ] Remove two clipped ceiling-light fragments protruding from Povo 2's +1
+- [x] Remove two clipped ceiling-light fragments protruding from Povo 2's +1
       stair west wall, near E10.9 / N19 and N24.
-- [ ] Re-place/remove the four clipped Povo 2 frontage lamp posts (indices
+- [x] Re-place/remove the four clipped Povo 2 frontage lamp posts (indices
       0, 1, 5, 6): two float above paving, one is a roof stub and one retains only
       a 3 cm lower strip. Preserve the approved building/yard layout.
       Source scans and 45 native captures are in the
       [whole-map inspection report](../exports/map_consistency_audit_20261102/README.md).
+      Done in the 3 November lighting repair (371c2c2,
+      [report](../exports/lighting_fixes_20261102/README.md)); re-checked on
+      4 November: no terrace or stair-wall fittings remain, posts 0/1 stand on
+      paving, 5/6 are removed, and `tests/test_povo_lighting_mounts.py` guards it.
 
 ## Confirmed street grade issue — 2 November
 
@@ -23,11 +27,18 @@ Open actions, most urgent first. Tick them off here and record evidence in
       110 waypoints. Approved basement preserved; see the
       [completed review](../exports/exterior_entrance_review_20261102/README.md).
 
-- [ ] Regrade the unchanged flat `exterior_road_front_joint_0` asphalt disk at
+- [x] Regrade the unchanged flat `exterior_road_front_joint_0` asphalt disk at
       local (62,0,7.602). It projects over the sloping street and blocks ordinary
       uphill movement near (62.6245,3.8638,6.7833). The concrete rings and missing
       footway wedge are repaired; the asphalt collision remains byte-identical.
       See the [native failure and concrete repair evidence](../exports/street_concrete_fix_20261102/README.md).
+      Source fix 4 November: a joint is cut at the end line of a neighbour that
+      descends from it by more than 10 cm over its radius
+      (`build_povo_exterior.joint`), so the crest disk keeps only its uphill
+      half and no longer stands up to 0.82 m above the street. All other joints,
+      boxes and box collision are unchanged; paving coverage is identical.
+      `tests/test_povo_road_joints.py`. **Still to verify in game:** walk the
+      uphill frontage route through (62.6245,3.8638,6.7833).
 
 ## 27 October photo-survey source revision
 
