@@ -1,0 +1,11 @@
+Layer0
+{
+    shader "csgo_complex.vfx"
+    TextureColor "materials/trento/povo/campus/textures/red_floor.png"
+    TextureNormal "materials/trento/povo/campus/textures/flat_normal.png"
+    TextureRoughness "materials/trento/povo/campus/textures/red_floor_rough.png"
+    F_METALNESS_TEXTURE 0
+    g_flMetalness "0"
+    g_vColorTint "[1 1 1 0]"
+    SystemAttributes { PhysicsSurfaceProperties "rubber" }
+}

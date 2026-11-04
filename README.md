@@ -137,7 +137,8 @@ Start with the [map design brief](docs/MAP_DESIGN.md), the
 Area write-ups: [architecture](docs/POVO_ARCHITECTURE.md),
 [interior study](docs/POVO_INTERIOR_STUDY.md), [circulation](docs/POVO_CIRCULATION.md),
 [Povo 2](docs/POVO2_CONNECTION.md), [exterior](docs/POVO_EXTERIOR.md),
-[radar](docs/POVO_RADAR.md), [terrain tool](docs/TERRAIN_TOOL.md).
+[radar](docs/POVO_RADAR.md), [terrain tool](docs/TERRAIN_TOOL.md),
+[surface textures from the remake](docs/POVO_TEXTURES_FROM_REMAKE.md).
 Open work is tracked in [TODO.md](docs/TODO.md).
 [Publishing and hosting](docs/PUBLISH_AND_HOST.md) explains Workshop upload and playing with friends.
 For two players through Steam, `host_campus.cmd` installs the match profile and

@@ -1,0 +1,28 @@
+{
+  "description": "Surface textures adopted from RoanS77's remake (branch shaders-mod, remake/tools/materials.py and build_site.py/building.py material choices). Keys are campus OBJ material names without the 'campus_' prefix. Materials not listed keep their flat-colour finish and 0.6 m texture repeat.",
+  "source": "origin/shaders-mod 97769b5, remake/",
+  "texture_size_pixels": 1024,
+  "texels_per_hammer_unit": 4,
+  "remake_gameplay_scale": 1.25,
+  "custom": {
+    "stair_red": "red_floor",
+    "floor_circulation": "terrazzo",
+    "floor_p2_tile": "cream_tile",
+    "exterior_stone": "beige_stone",
+    "door_black": "anthracite"
+  },
+  "stock": {
+    "exterior_asphalt": "materials/asphalt/hr_c/hr_asphalt_001.vmat",
+    "floor_p2_asphalt": "materials/asphalt/hr_c/hr_asphalt_001.vmat",
+    "exterior_grass": "materials/de_overpass/nature/wild_grass_1.vmat",
+    "floor_yard_grass": "materials/de_overpass/nature/wild_grass_1.vmat",
+    "exterior_concrete": "materials/concrete/hr_c/hr_concrete_floor_001.vmat",
+    "exterior_paving": "materials/cs_italy/ground/sidewalk_concrete_slabs_1.vmat",
+    "wall": "materials/ar_baggage/baggage_plaster_wall_smooth_01.vmat",
+    "ceiling_panel": "materials/ceiling/hr_c/hr_ceiling_tile_001_color.vmat",
+    "floor_wood": "materials/de_train/hr_train_s2/wood/hrts2_wood_floor_boards_01.vmat"
+  },
+  "stock_texels": {
+    "materials/ceiling/hr_c/hr_ceiling_tile_001_color.vmat": 512
+  }
+}

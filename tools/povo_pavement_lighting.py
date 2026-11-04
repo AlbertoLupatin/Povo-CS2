@@ -52,7 +52,13 @@ def write_assets(obj,root):
     output=root/'exports/povo_campus';modeldir=root/'cs2/content/trento_povo/models/povo'
     (output/(MODEL+'.obj')).write_text(surface_obj(obj),encoding='utf-8')
     header=(modeldir/'povo_blockout.vmdl').read_text().splitlines()[0]
-    remaps='\n'.join('{ from = "campus_exterior_'+m+'" to = "materials/trento/povo/campus/exterior/'+m+'.vmat" },'
+    try:
+        from .povo_textures import resolve
+    except ImportError:
+        from povo_textures import resolve
+    # Same sources as the structural campus model, so the finish matches it.
+    remaps='\n'.join('{ from = "campus_exterior_'+m+'" to = "'+
+                     resolve('exterior_'+m,'materials/trento/povo/campus/exterior/'+m+'.vmat')+'" },'
                      for m in ('paving','asphalt','concrete'))
     model=header+'\n{ rootNode = { _class = "RootNode" children = [\n'+\
         '{ _class = "MaterialGroupList" children = [{ _class = "DefaultMaterialGroup" remaps = [\n'+remaps+\

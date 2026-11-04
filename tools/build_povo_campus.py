@@ -23,6 +23,7 @@ try:
     from .povo_stairs import railing, wall_handrail, mirrored, rail_faces
     from .povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
     from .geometry_cache import memoize_geometry
+    from . import povo_textures
 except ImportError:
     import build_povo_interior as interior
     from build_povo_blockout import write_box
@@ -35,6 +36,7 @@ except ImportError:
     from povo_stairs import railing, wall_handrail, mirrored, rail_faces
     from povo_exterior_materials import COLORS as EXTERIOR_COLORS, PREFIX as EXTERIOR_PREFIX, write_materials as write_exterior_materials
     from geometry_cache import memoize_geometry
+    import povo_textures
 
 ROOT = Path(__file__).resolve().parents[1]
 # Review geometry is also shared with the package-based tools. Keep those
@@ -858,8 +860,9 @@ def backdrop_mesh(root):
 def material_path(material):
     """Compiled-material source for one campus OBJ material name."""
     if material in ('window_glass','reception_glass'):return MATERIAL_PREFIX+material+'.vmat'
-    if material.startswith('exterior_'):return EXTERIOR_PREFIX+material.removeprefix('exterior_')+'.vmat'
-    return MATERIAL_PREFIX+material+'.vmat'
+    if material.startswith('exterior_'):default=EXTERIOR_PREFIX+material.removeprefix('exterior_')+'.vmat'
+    else:default=MATERIAL_PREFIX+material+'.vmat'
+    return povo_textures.resolve(material,default)
 
 
 # Backdrop masses, vehicles and screens: their "glass" has nothing playable behind it.
@@ -1033,7 +1036,7 @@ def export(root=ROOT):
                      'config/povo2_west_offices.json',
                      'exports/povo2_west_offices_20261029/baseline/layout.json',
                      'tools/povo2_internal_stairs.py','tools/povo2_basements.py','tools/povo_pavement.py',
-                     'tools/povo_pavement_lighting.py','tools/povo_street_footways.py','tools/povo2_entrance_finishes.py','tools/povo_exterior_fills.py','tools/povo_lighting_repairs.py','tools/povo_floor_surfaces.py','tools/povo_render_surfaces.py','config/povo2_internal_dimensions.json',
+                     'tools/povo_pavement_lighting.py','tools/povo_street_footways.py','tools/povo2_entrance_finishes.py','tools/povo_exterior_fills.py','tools/povo_lighting_repairs.py','tools/povo_floor_surfaces.py','tools/povo_render_surfaces.py','tools/povo_textures.py','config/povo_textures.json','config/povo2_internal_dimensions.json',
                      'tools/povo2_minus1_corrections.py','config/povo2_minus1_corrections.json',
                      'data/reference/user_feedback/2026-10-29/povo2_minus1_corrections.png',
                      'data/reference/user_feedback/2026-10-28/povo2_basement_stair_vestibule.jpg'):
@@ -1044,6 +1047,7 @@ def export(root=ROOT):
     materials=root/'cs2/content/trento_povo/materials/trento/povo/campus';materials.mkdir(parents=True,exist_ok=True)
     write_materials(materials, MATERIAL_PREFIX, {n:c for n,c in COLORS.items() if not n.startswith('exterior_')})
     write_exterior_materials(materials/'exterior')
+    povo_textures.write_textures(root/'cs2/content/trento_povo'/povo_textures.PREFIX,root)
     original=(root/'cs2/content/trento_povo/models/povo/povo_blockout.vmdl').read_text()
     original=original.replace('povo_blockout_collision','povo1_campus_collision').replace('povo_blockout','povo1_campus')
     marker='\t\t\t\t\t\tremaps =\n\t\t\t\t\t\t['
@@ -1066,12 +1070,14 @@ def render_obj(boxes,backdrop,*,resolve_surfaces=True):
     Repeating vertices between individual terrain faces makes the native OBJ
     importer allocate excessively. Keep shared terrain vertices and bounded
     material sections, and give walls non-degenerate metre-based UVs.
+    Textured materials (config/povo_textures.json) repeat at their real size.
     """
     try:
         from .povo_render_surfaces import exclusive_faces
     except ImportError:
         from povo_render_surfaces import exclusive_faces
     vertices={};uvs={};normals={};groups={};surfaces=[]
+    texture_settings=povo_textures.settings();repeats={}
     def index(table,value):
         if value not in table:table[value]=len(table)+1
         return table[value]
@@ -1084,7 +1090,9 @@ def render_obj(boxes,backdrop,*,resolve_surfaces=True):
         ni=index(normals,tuple(round(x/length,12) for x in normal))
         if texcoords is None:
             axis=max(range(3),key=lambda i:abs(normal[i]));axes=[i for i in range(3) if i!=axis]
-            texcoords=[tuple(p[i]/.6 for i in axes) for p in points]
+            if material not in repeats:repeats[material]=povo_textures.repeat_metres(material,texture_settings)
+            repeat=repeats[material]
+            texcoords=[tuple(p[i]/repeat for i in axes) for p in points]
         if resolve and resolve_surfaces:
             surfaces.append((group,material,points,texcoords))
             return
