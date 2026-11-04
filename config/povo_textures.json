@@ -9,7 +9,10 @@
     "floor_circulation": "terrazzo",
     "floor_p2_tile": "cream_tile",
     "exterior_stone": "beige_stone",
-    "door_black": "anthracite"
+    "door_black": "anthracite",
+    "stone_facade": "beige_stone",
+    "exterior_dark_sidewalk": "dark_paving",
+    "exterior_red_paving": "red_paving"
   },
   "stock": {
     "exterior_asphalt": "materials/asphalt/hr_c/hr_asphalt_001.vmat",
@@ -24,5 +27,54 @@
   },
   "stock_texels": {
     "materials/ceiling/hr_c/hr_ceiling_tile_001_color.vmat": 512
+  },
+  "facades": [
+    {
+      "boxes": "^academic_(ground|first|upper)_outer_",
+      "material": "wall",
+      "outside": "stone_facade",
+      "note": "Povo 1 perimeter walls: cream stone slabs outside (P013, P024, P057; remake beige_stone), plaster inside."
+    }
+  ],
+  "renames": [
+    {
+      "names": "^exterior_(road_front_footway|edges_south_sommarive_walk)",
+      "material": "exterior_paving",
+      "to": "exterior_dark_sidewalk",
+      "note": "Via Sommarive sidewalk: dark grey concrete with fine grit (remake dark_paving; user, 23-10 25-28)."
+    },
+    {
+      "names": "^exterior_entry_stair_",
+      "material": "exterior_orange",
+      "to": "exterior_red_paving",
+      "note": "Red entrance stair (remake red_paving, P055-P060); lockers and facade recesses keep orange."
+    }
+  ],
+  "edge_trees": {
+    "enabled": true,
+    "note": "Outer scenery tree belts (config/povo_edges.json tree_rows) as stock CS2 tree props instead of octagonal placeholder crowns; render only, like the placeholders. Height bands and models from the remake (build_site.py TREES). Roadside ginkgos and courtyard planters keep their own art.",
+    "bands": [
+      {
+        "max_height_metres": 6,
+        "models": [
+          "models/foliage/trees/urban/urban_tree_small_1.vmdl"
+        ]
+      },
+      {
+        "max_height_metres": 12,
+        "models": [
+          "models/foliage/trees/maple/maple_01/maple_tree_01.vmdl",
+          "models/foliage/trees/maple/maple_01/maple_tree_02.vmdl"
+        ]
+      },
+      {
+        "max_height_metres": 99,
+        "models": [
+          "models/foliage/trees/poplar/tree_poplar_mature_01.vmdl",
+          "models/foliage/trees/poplar/tree_poplar_mature_02.vmdl",
+          "models/cs_italy/foliage/tree/generic_tree_large_1.vmdl"
+        ]
+      }
+    ]
   }
 }

@@ -13,7 +13,9 @@ COLORS = {
     'car_red': (149,48,42), 'tree': (59,88,62), 'trunk': (94,82,66),
     'ginkgo_leaf': (103,143,58), 'ginkgo_leaf_light': (137,166,72), 'ginkgo_leaf_dark': (71,112,45),
     'ridge': (106,124,134), 'tile': (191,188,166), 'grout': (136,137,125),
-    'light': (245,237,190), 'canopy_glass': (135,171,180), 'context_concrete': (159,160,151)
+    'light': (245,237,190), 'canopy_glass': (135,171,180), 'context_concrete': (159,160,151),
+    # Render-only renames of paving and orange (config/povo_textures.json).
+    'dark_sidewalk': (92,94,96), 'red_paving': (160,70,58)
 }
 # 20% transmission, 80% opacity, per pane. Frames and safety bands stay opaque.
 OPACITY = {'glass': .32, 'entry_glass': .84, 'canopy_glass': .40}

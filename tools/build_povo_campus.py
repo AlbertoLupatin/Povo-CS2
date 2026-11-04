@@ -57,7 +57,9 @@ COLORS = {**interior.COLORS, 'stair_red': (155, 43, 38),
           **{'exterior_'+n:c for n,c in EXTERIOR_COLORS.items()},
           'canteen_orange': (220,109,47), 'canteen_blue': (43,81,142), 'floor_yard_grass': (95,121,65),
           'floor_grating': (122,128,130), 'floor_terrace': (148,144,138),
-          'office_frost': (196,213,213)}
+          'office_frost': (196,213,213),
+          # Outside faces of the Povo 1 perimeter walls (config/povo_textures.json).
+          'stone_facade': (214,199,168)}
 
 
 def derived_config(root=ROOT):
@@ -1099,7 +1101,8 @@ def render_obj(boxes,backdrop,*,resolve_surfaces=True):
         refs=[f'{index(vertices,tuple(p))}/{index(uvs,tuple(uv))}/{ni}' for p,uv in zip(points,texcoords)]
         groups.setdefault((group,material),[]).append('f '+' '.join(refs)+'\n')
     for name,material,points,texcoords in backdrop:
-        face('backdrop_'+name,material,points,texcoords)
+        face('backdrop_'+name,povo_textures.renamed(name,material,texture_settings),points,texcoords)
+    facades=povo_textures.facade_frames(boxes,texture_settings)
     # Railing collision panels are physics only; see povo_stairs.railing().
     for number,(name,lo,hi,material) in enumerate(sorted((b for b in boxes if '_clip_' not in b[0]),key=lambda b:b[3])):
         part=io.StringIO();write_box(part,name,lo,hi,0,material);points=[]
@@ -1112,7 +1115,9 @@ def render_obj(boxes,backdrop,*,resolve_surfaces=True):
                     point=(point[0],point[1],point[2]+height*(distance if name.endswith('_rise') else 1-distance))
                 points.append(point)
             elif line.startswith('f '):
-                face(f'campus_section_{number//64}','campus_'+material,[points[int(i)-1] for i in line.split()[1:]])
+                corners=[points[int(i)-1] for i in line.split()[1:]]
+                finish=povo_textures.face_material(name,material,lo,hi,corners,facades,texture_settings)
+                face(f'campus_section_{number//64}','campus_'+finish,corners)
     for group,material,points,texcoords in exclusive_faces(surfaces):
         face(group,material,points,texcoords,resolve=False)
     stream=io.StringIO();stream.write('# Povo 1 playable campus, local metres\n')

@@ -8,10 +8,12 @@ try:
     from .build_povo_exterior import strip
     from .polygon_mesh import prism, ring_points
     from .povo_floor_surfaces import subtract, bounds, overlaps
+    from . import povo_textures
 except ImportError:
     from build_povo_exterior import strip
     from polygon_mesh import prism, ring_points
     from povo_floor_surfaces import subtract, bounds, overlaps
+    import povo_textures
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -150,6 +152,7 @@ def build(root=ROOT):
         vv=[(x-6.6,y-7.6,4+h),(x+6.6,y-7.6,4+h),(x+6.6,y+7.6,4+h),(x-6.6,y+7.6,4+h),(x,y-7.6,7+h),(x,y+7.6,7+h)]
         meshes.append(dict(name=f'exterior_edges_village_roof_{i}',vertices=vv,
                            faces=[(0,1,4),(3,5,2),(0,4,5),(0,5,3),(4,1,2),(4,2,5)],material='exterior_orange'))
+    trees_cfg=povo_textures.settings(root);stock=povo_textures.edge_trees_enabled(trees_cfg);stock_trees=[]
     for row,entry in enumerate(cfg['tree_rows']):
         for i in range(entry['count']):
             t=i/(entry['count']-1);x,y=[entry['start'][k]+(entry['end'][k]-entry['start'][k])*t for k in range(2)]
@@ -165,19 +168,24 @@ def build(root=ROOT):
                     distance=math.hypot(x-a[0]-f*dx,y-a[1]-f*dy)
                     if distance<road['width']/2+road.get('footway_width',1.6)+radius:blocked=True
             if blocked:continue
+            if stock:
+                # Stock CS2 tree models (config/povo_textures.json) replace
+                # the placeholder trunk and crowns; placed as map props.
+                stock_trees.append(povo_textures.edge_tree(f'exterior_edges_tree_{row}_{i}',(x,y,z),h,trees_cfg))
+                continue
             box(f'tree_{row}_{i}_trunk',(x-.15,y-.15,z),(x+.15,y+.15,z+h*.55),'trunk')
             for tier in range(3):
                 rr=radius*(1-tier*.24);zz=z+h*(.38+tier*.18)
                 p=[(x+rr*math.cos(k*math.tau/8),y+rr*math.sin(k*math.tau/8)) for k in range(8)]
                 polygon(f'tree_{row}_{i}_crown_{tier}',p,zz,'tree',h*.23)
-    paths=['config/povo_edges.json','tools/povo_edges.py','tools/povo_exterior_materials.py',cfg['aerial'],cfg['aerial_manifest']]
+    paths=['config/povo_edges.json','tools/povo_edges.py','tools/povo_exterior_materials.py','config/povo_textures.json',cfg['aerial'],cfg['aerial_manifest']]
     paths+=['tools/polygon_mesh.py','tools/povo_floor_surfaces.py',*cfg.get('registration_sources',[])]
     photos=[]
     for photo in cfg['photos']:
         path=(Path(cfg['photo_directory'])/photo['file']).as_posix();paths.append(path)
         photos.append(dict(photo,path=path,sha256=hashlib.sha256((root/path).read_bytes()).hexdigest()))
     hashes={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths}
-    return meshes,dict(config=cfg,photos=photos,input_hashes=hashes,visual_meshes=len(meshes),
+    return meshes,dict(config=cfg,photos=photos,input_hashes=hashes,visual_meshes=len(meshes),stock_trees=stock_trees,
                        collision_meshes=0,status=cfg['status'])
 
 

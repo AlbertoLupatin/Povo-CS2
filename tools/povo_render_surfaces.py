@@ -55,7 +55,7 @@ class SurfaceIndex:
 def priority(face):
     material=face[1]
     rank=2 if material.startswith('campus_exterior_') else 1 if material in (
-        'campus_wall','campus_ceiling_panel','campus_floor_circulation') else 0
+        'campus_wall','campus_stone_facade','campus_ceiling_panel','campus_floor_circulation') else 0
     # Inset windows, paint, trim and other small coplanar details own their
     # patch of a larger backing face, instead of disappearing into that face.
     points=face[2];size=0

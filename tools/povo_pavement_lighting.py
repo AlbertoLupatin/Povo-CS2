@@ -19,7 +19,7 @@ def surface_obj(obj):
         elif line.startswith('usemtl '):material=line[7:]
         elif line.startswith('o '):name=line[2:]
         elif line.startswith('f '):
-            eligible=material in ('campus_exterior_paving','campus_exterior_asphalt')
+            eligible=material in ('campus_exterior_paving','campus_exterior_asphalt','campus_exterior_dark_sidewalk')
             eligible|=material=='campus_exterior_concrete' and 'footway' in name
             if not eligible:continue
             refs=[tuple(int(v)-1 for v in r.split('/')) for r in line.split()[1:]]
@@ -59,7 +59,7 @@ def write_assets(obj,root):
     # Same sources as the structural campus model, so the finish matches it.
     remaps='\n'.join('{ from = "campus_exterior_'+m+'" to = "'+
                      resolve('exterior_'+m,'materials/trento/povo/campus/exterior/'+m+'.vmat')+'" },'
-                     for m in ('paving','asphalt','concrete'))
+                     for m in ('paving','asphalt','concrete','dark_sidewalk'))
     model=header+'\n{ rootNode = { _class = "RootNode" children = [\n'+\
         '{ _class = "MaterialGroupList" children = [{ _class = "DefaultMaterialGroup" remaps = [\n'+remaps+\
         '\n] }] },\n{ _class = "RenderMeshList" children = [{ _class = "RenderMeshFile" name = "pavement" '+\

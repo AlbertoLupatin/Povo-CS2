@@ -62,7 +62,8 @@ def subtract(polygon, cutter):
 def is_floor(material):
     return material.startswith('campus_floor_') or material in (
         'campus_exterior_paving', 'campus_exterior_asphalt',
-        'campus_exterior_concrete', 'campus_courtyard_ground')
+        'campus_exterior_concrete', 'campus_courtyard_ground',
+        'campus_exterior_dark_sidewalk', 'campus_exterior_red_paving')
 
 
 def exclusive_tops(faces):

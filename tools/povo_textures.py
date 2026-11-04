@@ -17,6 +17,7 @@ Unlisted materials are unchanged.
 """
 
 import json
+import re
 import struct
 import zlib
 from functools import lru_cache
@@ -73,6 +74,84 @@ def resolve(name, default, cfg=None):
     if name in cfg['custom']:
         return PREFIX + cfg['custom'][name] + '.vmat'
     return default
+
+
+def renamed(name, material, cfg=None):
+    """Render material for a named box or mesh after the configured renames.
+
+    Renames give one part of a shared material its own finish (e.g. the Via
+    Sommarive sidewalk out of all paving). Names and materials may carry the
+    OBJ 'campus_' prefix; it is kept on the result.
+    """
+    cfg = cfg or settings()
+    prefix = 'campus_' if material.startswith('campus_') else ''
+    bare = material.removeprefix(prefix)
+    for rule in cfg.get('renames', []):
+        if bare == rule['material'] and re.search(rule['names'], name.removeprefix('backdrop_')):
+            return prefix + rule['to']
+    return material
+
+
+def edge_trees_enabled(cfg=None):
+    cfg = cfg or settings()
+    return bool(cfg.get('edge_trees', {}).get('enabled'))
+
+
+def edge_tree(ident, point, height, cfg=None):
+    """One stock tree prop for a scenery tree: model by height band, fixed yaw.
+
+    The model and yaw follow the remake's deterministic choice from position.
+    """
+    cfg = cfg or settings()
+    bands = cfg['edge_trees']['bands']
+    models = next((b['models'] for b in bands if height <= b['max_height_metres']), bands[-1]['models'])
+    x, y = point[0], point[1]
+    return dict(id=ident, point=[round(v, 4) for v in point], height_metres=round(height, 4),
+                model=models[int(abs(x) * 7 + abs(y) * 13) % len(models)],
+                yaw=int(abs(x) * 37 + abs(y) * 11) % 360)
+
+
+def facade_frames(boxes, cfg=None):
+    """Outline of each configured facade: [(pattern, wall, outside, bounds)].
+
+    A rule names the boxes of a building's perimeter walls (a regex) and their
+    material; their faces towards the outside take the facade material instead.
+    """
+    cfg = cfg or settings()
+    frames = []
+    for rule in cfg.get('facades', []):
+        pattern = re.compile(rule['boxes'])
+        hits = [(lo, hi) for name, lo, hi, material in boxes
+                if material == rule['material'] and pattern.search(name)]
+        if hits:
+            bounds = (min(lo[0] for lo, _ in hits), min(lo[1] for lo, _ in hits),
+                      max(hi[0] for _, hi in hits), max(hi[1] for _, hi in hits))
+            frames.append((pattern, rule['material'], rule['outside'], bounds))
+    return frames
+
+
+def face_material(name, material, lo, hi, points, frames, cfg=None):
+    """Facade material for a wall box's outside face, else the box material.
+
+    The outside face is the one across the wall's thickness that looks towards
+    the nearest edge of the building outline. Ends, reveals, tops and the inside
+    keep the wall material.
+    """
+    material = renamed(name, material, cfg)
+    for pattern, wall, outside, bounds in frames:
+        if material != wall or not pattern.search(name):
+            continue
+        centre = [(lo[i] + hi[i]) / 2 for i in range(2)]
+        gaps = {(0, -1): centre[0] - bounds[0], (0, 1): bounds[2] - centre[0],
+                (1, -1): centre[1] - bounds[1], (1, 1): bounds[3] - centre[1]}
+        axis, side = min(gaps, key=gaps.get)
+        a, b, c = points[:3]
+        u = [b[i] - a[i] for i in range(3)]
+        v = [c[i] - a[i] for i in range(3)]
+        normal = (u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0])
+        length = sum(n * n for n in normal) ** .5
+        return outside if length and normal[axis] * side > .99 * length else material
+    return material
 
 
 # --- Procedural textures (ported from remake/tools/materials.py) -------------

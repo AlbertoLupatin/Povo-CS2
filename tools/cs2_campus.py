@@ -221,6 +221,18 @@ def stair_signs(metadata):
     return records
 
 
+def add_edge_trees(source,trees):
+    """Scenery tree belts as stock CS2 tree models (config/povo_textures.json).
+
+    Not solid: the placeholder crowns they replace had no collision either.
+    """
+    for tree in trees:
+        source=project._insert_point_entity(source,'edge-'+tree['id'].replace('_','-'),'prop_static',world(tree['point']),
+            (('model',tree['model']),('solid','0'),('disableshadows','0'),('rendercolor','255 255 255')),
+            angles=f"0 {tree['yaw']} 0")
+    return source
+
+
 def map_text(source,metadata,season='standard'):
     source=source.replace('models/povo/povo_blockout.vmdl',f'models/povo/{MODEL}.vmdl')
     t_starts,ct_starts,objective=gameplay_points(metadata)
@@ -381,6 +393,7 @@ def map_text(source,metadata,season='standard'):
     for sign in stair_signs(metadata):
         source=project._insert_point_entity(source,sign['token'],'point_worldtext',
             world(sign['point']),sign_properties(sign['text'],white=sign['white']),angles='0 180 90')
+    source=add_edge_trees(source,metadata.get('exterior',{}).get('edges',{}).get('stock_trees',[]))
     for i,p in enumerate(lights):
         source=project._insert_point_entity(source,f'campus-light-{i}','light_omni2',world(p),
             (('enabled','1'),('directlight','1'),('brightness_units','1'),('brightness_lumens','1800'),

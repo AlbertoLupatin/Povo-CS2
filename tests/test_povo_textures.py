@@ -9,6 +9,9 @@ from PIL import Image
 from tools import povo_textures as textures
 from tools.build_povo_campus import material_path, render_obj
 from tools.povo_pavement_lighting import write_assets
+from tools.povo_edges import build as build_edges
+from tools.cs2_campus import add_edge_trees, world
+from tests.test_map_entities import minimal_map
 
 ROOT = Path(__file__).resolve().parents[1]
 INSTALLED = ROOT / 'cs2/content/trento_povo' / textures.PREFIX
@@ -111,6 +114,92 @@ class TextureGeometryTests(unittest.TestCase):
             text = (models / 'povo1_campus_paving.vmdl').read_text(encoding='utf-8')
         for name in ('paving', 'asphalt', 'concrete'):
             self.assertIn(f'from = "campus_exterior_{name}" to = "{material_path("exterior_" + name)}"', text)
+
+
+
+def box_faces(lo, hi):
+    """The six outward-wound quads of an axis-aligned box."""
+    x0, y0, z0 = lo
+    x1, y1, z1 = hi
+    return {'-x': [(x0, y0, z0), (x0, y0, z1), (x0, y1, z1), (x0, y1, z0)],
+            '+x': [(x1, y0, z0), (x1, y1, z0), (x1, y1, z1), (x1, y0, z1)],
+            '-y': [(x0, y0, z0), (x1, y0, z0), (x1, y0, z1), (x0, y0, z1)],
+            '+y': [(x0, y1, z0), (x0, y1, z1), (x1, y1, z1), (x1, y1, z0)],
+            '-z': [(x0, y0, z0), (x0, y1, z0), (x1, y1, z0), (x1, y0, z0)],
+            '+z': [(x0, y0, z1), (x1, y0, z1), (x1, y1, z1), (x0, y1, z1)]}
+
+
+class FacadeAndRenameTests(unittest.TestCase):
+    WALLS = [('academic_ground_outer_0', (0, 0, 0), (.3, 40, 4), 'wall'),      # west wall
+             ('academic_ground_outer_1', (19.7, 0, 0), (20, 40, 4), 'wall'),   # east wall
+             ('academic_ground_outer_2', (0, 39.7, 0), (20, 40, 4), 'wall'),   # north wall
+             ('academic_ground_room_1', (5, 5, 0), (5.3, 20, 4), 'wall')]      # interior
+
+    def test_only_outside_faces_of_perimeter_walls_take_stone(self):
+        frames = textures.facade_frames(self.WALLS)
+        self.assertEqual(frames[0][3], (0, 0, 20, 40))
+        expected = {'academic_ground_outer_0': '-x', 'academic_ground_outer_1': '+x',
+                    'academic_ground_outer_2': '+y', 'academic_ground_room_1': None}
+        for name, lo, hi, material in self.WALLS:
+            for side, quad in box_faces(lo, hi).items():
+                finish = textures.face_material(name, material, lo, hi, quad, frames)
+                self.assertEqual(finish, 'stone_facade' if side == expected[name] else 'wall', (name, side))
+
+    def test_renames_pick_named_parts_of_a_shared_material(self):
+        self.assertEqual(textures.renamed('exterior_road_front_footway_2_1_roadcut', 'campus_exterior_paving'),
+                         'campus_exterior_dark_sidewalk')
+        self.assertEqual(textures.renamed('backdrop_exterior_edges_south_sommarive_walk_0', 'campus_exterior_paving'),
+                         'campus_exterior_dark_sidewalk')
+        self.assertEqual(textures.renamed('exterior_road_front_campus_paving_2', 'campus_exterior_paving'),
+                         'campus_exterior_paving')
+        self.assertEqual(textures.renamed('exterior_entry_stair_3', 'exterior_orange'), 'exterior_red_paving')
+        self.assertEqual(textures.renamed('exterior_p2_entry_locker', 'exterior_orange'), 'exterior_orange')
+        self.assertEqual(material_path('exterior_dark_sidewalk'), textures.PREFIX + 'dark_paving.vmat')
+        self.assertEqual(material_path('stone_facade'), textures.PREFIX + 'beige_stone.vmat')
+
+    def test_renamed_and_facade_faces_reach_the_render_obj(self):
+        obj = render_obj([*self.WALLS, ('exterior_entry_stair_0', (30, 0, 0), (31, 2, .2), 'exterior_orange')],
+                         [('exterior_road_front_footway_0_1', 'campus_exterior_paving',
+                           [(40, 0, 0), (42, 0, 0), (42, 2, 0)], None)], resolve_surfaces=False)
+        used = {line.split()[1] for line in obj.splitlines() if line.startswith('usemtl ')}
+        self.assertLessEqual({'campus_stone_facade', 'campus_wall', 'campus_exterior_red_paving',
+                              'campus_exterior_dark_sidewalk'}, used)
+        self.assertNotIn('campus_exterior_orange', used)
+        self.assertAlmostEqual(min(uv_metres(obj)['campus_exterior_dark_sidewalk']), 5.2019, places=4)
+
+
+class EdgeTreeTests(unittest.TestCase):
+    def test_tree_belts_become_stock_props_without_placeholder_crowns(self):
+        meshes, meta = build_edges()
+        trees = meta['stock_trees']
+        self.assertGreater(len(trees), 40)
+        self.assertFalse([m['name'] for m in meshes if m['name'].startswith('exterior_edges_tree_')])
+        self.assertEqual(len(trees), len({t['id'] for t in trees}))
+        models = {m for band in textures.settings()['edge_trees']['bands'] for m in band['models']}
+        for tree in trees:
+            self.assertIn(tree['model'], models)
+            self.assertTrue(0 <= tree['yaw'] < 360)
+        # 8-11 m belts fall in the remake's maple band.
+        self.assertTrue(all('maple' in t['model'] for t in trees))
+        self.assertEqual(trees, build_edges()[1]['stock_trees'])
+
+    def test_disabled_setting_keeps_the_placeholders(self):
+        cfg = dict(textures.settings(), edge_trees=dict(textures.settings()['edge_trees'], enabled=False))
+        from unittest.mock import patch
+        with patch('tools.povo_textures.settings', return_value=cfg):
+            meshes, meta = build_edges()
+        self.assertEqual(meta['stock_trees'], [])
+        self.assertTrue(any(m['name'].startswith('exterior_edges_tree_') for m in meshes))
+
+    def test_props_are_upright_non_solid_and_stable(self):
+        tree = textures.edge_tree('exterior_edges_tree_0_1', (-105, -92.4, 3), 9)
+        source = add_edge_trees(minimal_map(), [tree])
+        self.assertEqual(source, add_edge_trees(source, [tree]))
+        self.assertIn('"classname" "string" "prop_static"', source)
+        self.assertIn(f'"model" "string" "{tree["model"]}"', source)
+        self.assertIn('"solid" "string" "0"', source)
+        self.assertIn(f'"origin" "vector3" "{world(tree["point"])}"', source)
+        self.assertIn(f'"angles" "qangle" "0 {tree["yaw"]} 0"', source)
 
 
 if __name__ == '__main__':
