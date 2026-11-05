@@ -2195,3 +2195,31 @@ about 317 m² to 44 m² (remaining west of E11, out of scope).
 389 source tests pass and the render-surface audit finds 0 coplanar overlaps.
 No native build or in-game test was run; winter was not rebuilt by request.
 See [the roadside closure note](POVO2_ROADSIDE_CLOSURE_20261105.md).
+
+
+## 5 November 2026 — Integrate branches and roadside bundle into main
+
+At the user's request, integrated all committed local and remote branch tips
+except RoanS77's `origin/shaders-mod` (`97769b5`). The texture branch and
+previous updates bundle are included through `3225d40`; the new
+`claude/povo2-roadside-closure.bundle` contributes `4c76742`. Both worklog
+entries were retained when resolving their merge conflict. Other branch tips
+were already ancestors of main, apart from `povo2-registration` (`b771f51`).
+
+The old registration proposal relocates the Povo 2 interior and replaces its
+south front. Its history was merged with the `ours` strategy, retaining the
+current tree because the later definitive layout record explicitly supersedes
+earlier proposals. None of that proposal's geometry was applied. The separate
+`shaders-mod` commit is not an ancestor of the integration, although the texture
+branch already contains its explicitly selected surface assets.
+
+Integration was performed in an isolated worktree. The original checkout,
+including its uncommitted changes, README conflict and stash, was left intact.
+This is a source integration only: no new CS2 package, lighting bake or native
+walkthrough is certified by this merge. The tracked campus exports predate the
+roadside closure and need regeneration through the campus build pipeline.
+
+Validation of the assembled source: all 408 tests passed in 378.263 seconds
+using the existing project virtual environment. `git diff --check` passes
+with CRLF recognised (`core.whitespace=cr-at-eol`). Every non-excluded branch
+tip is an ancestor of the integration; `origin/shaders-mod` is not.
