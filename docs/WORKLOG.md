@@ -2180,3 +2180,62 @@ crest joint `exterior_road_front_joint_0` is now cut at the descending
 street's end line instead of standing up to 0.82 m above it; only that joint
 and the paving pieces cut against it changed (same coverage). Source tests
 pass; nothing was compiled or walked in game on this machine.
+
+## 5 November 2026 — Povo 2 roadside closure (source only)
+
+From the user's screenshot on the front-road sidewalk: restored the street-level
+garden lost when the Draw.io entrance pass deleted its embankments, raised and
+closed Garden −2's south/west walls, capped the open −1 roofs and the −2 garden
+approach, and added a footway-flush retaining wall with a grey grating fence on
+a kerb along the bridge road and front-road sidewalk. Removed the floating
+street-ramp remnants. Garden −2 stays visible through the fence; the approved
+−1 layout and routes are unchanged. Unintended holes in the area fell from
+about 317 m² to 44 m² (remaining west of E11, out of scope).
+
+389 source tests pass and the render-surface audit finds 0 coplanar overlaps.
+No native build or in-game test was run; winter was not rebuilt by request.
+See [the roadside closure note](POVO2_ROADSIDE_CLOSURE_20261105.md).
+
+
+## 5 November 2026 — Integrate branches and roadside bundle into main
+
+At the user's request, integrated all committed local and remote branch tips
+except RoanS77's `origin/shaders-mod` (`97769b5`). The texture branch and
+previous updates bundle are included through `3225d40`; the new
+`claude/povo2-roadside-closure.bundle` contributes `4c76742`. Both worklog
+entries were retained when resolving their merge conflict. Other branch tips
+were already ancestors of main, apart from `povo2-registration` (`b771f51`).
+
+The old registration proposal relocates the Povo 2 interior and replaces its
+south front. Its history was merged with the `ours` strategy, retaining the
+current tree because the later definitive layout record explicitly supersedes
+earlier proposals. None of that proposal's geometry was applied. The separate
+`shaders-mod` commit is not an ancestor of the integration, although the texture
+branch already contains its explicitly selected surface assets.
+
+Integration was performed in an isolated worktree. The original checkout,
+including its uncommitted changes, README conflict and stash, was left intact.
+This is a source integration only: no new CS2 package, lighting bake or native
+walkthrough is certified by this merge. The tracked campus exports predate the
+roadside closure and need regeneration through the campus build pipeline.
+
+Validation of the assembled source: all 408 tests passed in 378.263 seconds
+using the existing project virtual environment. `git diff --check` passes
+with CRLF recognised (`core.whitespace=cr-at-eol`). Every non-excluded branch
+tip is an ancestor of the integration; `origin/shaders-mod` is not.
+
+## 5 November 2026 - Resume development with integrated source
+
+Merged main (`9af2843`) into the original development branch, retaining the
+local sidewalk, build-tool and texture fixes checkpointed at `b3b147e`. Resolved
+the pre-existing README conflict using the visitor-focused version; preserved
+operational context in AGENTS.md. Original working files and index evidence
+are backed up under `build/development-integration-20261105/`. Incoming
+roadside closure and all main branch source updates are now in this checkout.
+No geometry exports, installed addon files or compiled packages were rebuilt.
+
+Validation: 66 targeted source tests pass (29.462 seconds), covering roadside
+closure, sidewalk grades, road joints, textures, build optimizations and
+packaging. Main is an ancestor of this checkout; the RoanS branch is excluded.
+No unresolved index entries remain. Test evidence: local backup directory
+`source-tests.log`. Build orchestration tests use temporary mocked compilers.

@@ -19,6 +19,16 @@ Open actions, most urgent first. Tick them off here and record evidence in
       4 November: no terrace or stair-wall fittings remain, posts 0/1 stand on
       paving, 5/6 are removed, and `tests/test_povo_lighting_mounts.py` guards it.
 
+## Povo 2 roadside closure — 5 November
+
+- [x] Restore the street garden, close Garden −2's walls, cap the open −1/−2
+      roofs and add the road-edge wall and grating fence (source; 389 tests).
+      See [the closure note](POVO2_ROADSIDE_CLOSURE_20261105.md).
+- [ ] Build the standard package on Windows and check the fence, lawn and
+      Garden −2 in game: walk the bridge-road footway and the front-road
+      sidewalk, and confirm the fence blocks without snagging. Winter is not updated.
+- [ ] Review the remaining uncovered −1 roofs west of E11 (N12–20).
+
 ## Confirmed street grade issue — 2 November
 
 - [x] Complete the interrupted Povo 2 entrance ceiling/sign/side-wall revision
