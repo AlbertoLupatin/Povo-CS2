@@ -16,8 +16,8 @@
       24,
       -20
     ],
-    "walkable_cells": 156485,
-    "reachable_cells": 152757,
+    "walkable_cells": 158248,
+    "reachable_cells": 154520,
     "stations": [
       {
         "id": "entry",
@@ -669,8 +669,8 @@
       24.0,
       -20.0
     ],
-    "walkable_cells": 101777,
-    "reachable_cells": 101697,
+    "walkable_cells": 103877,
+    "reachable_cells": 103797,
     "stations": [
       {
         "id": "entry",
@@ -1691,8 +1691,8 @@
       25,
       26
     ],
-    "walkable_cells": 207709,
-    "reachable_cells": 203022,
+    "walkable_cells": 208128,
+    "reachable_cells": 203271,
     "stations": [
       {
         "id": "entry",

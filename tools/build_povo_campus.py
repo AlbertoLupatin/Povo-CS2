@@ -704,6 +704,8 @@ def build_geometry(root=ROOT,*,include_exterior=True):
     except ImportError:
         from povo_room_furnishings import furnish
     boxes=furnish(boxes,levels,stair,origin)
+    from tools.povo_facades import extend as apply_facades
+    boxes=apply_facades(boxes,levels,root)
     if include_exterior:
         try:
             from .povo_edges import extend as add_edges
@@ -871,7 +873,7 @@ def material_path(material):
 
 # Backdrop masses, vehicles and screens: their "glass" has nothing playable behind it.
 UNBREAKABLE_GLASS=('_cabin','_screen_','residential_','povo2_west_glazing','povo2_front_window',
-                   'povo2_end_window','povo2_front_annex_')
+                   'povo2_end_window','povo2_front_annex_','_sealed_glass')
 
 
 def is_breakable_glass(box):
@@ -1014,6 +1016,8 @@ def export(root=ROOT):
                 if photo.is_file():survey_inputs.append(photo.relative_to(root).as_posix())
     metadata['inputs'].update({p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in survey_inputs})
     metadata['interactions']=levels[0]['interactions']
+    metadata['facades']=levels[0]['facades']
+    metadata['inputs'].update(metadata['facades']['input_hashes'])
     metadata['deathmatch_spawns']=spawns
     metadata['physics_surface_groups']=physical_groups
     metadata['inputs']['config/povo_atmosphere.json']=hashlib.sha256((root/'config/povo_atmosphere.json').read_bytes()).hexdigest()

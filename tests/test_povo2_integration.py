@@ -18,6 +18,11 @@ class Povo2IntegrationTests(TestCase):
         actual={b[0]:b for b in self.boxes}
         for box in baseline:
             name,lo,hi,mat=box
+            # Explicitly approved replacement of the screen and south shell;
+            # walking slabs, ceilings, furniture and the rest of arrival stay.
+            if name.startswith('academic_first_link_bridge_finish_louver_'):continue
+            if (name.startswith('academic_first_link_p2_') and lo[1]<11.2 and hi[1]>9.64
+                    and mat in ('wall','window_glass','window_frame','metal_dark')):continue
             if hi[2]<self.link['floor_local_metres']-.01:continue
             # The surveyed correction replaces the core; bridge/arrival outside it stay fixed.
             if name.startswith('academic_first_link_p2_stair_'):continue

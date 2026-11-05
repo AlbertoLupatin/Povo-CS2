@@ -236,7 +236,36 @@ def add_edge_trees(source,trees):
     return source
 
 
+def campus_sky_shell(source):
+    """Retire the sample arena floor; keep only a distant sky enclosure.
+
+    Bake bounds into vertices rather than relying on editor mesh transforms.
+    The inherited grey floor and lower walls must never sit in the courtyard.
+    """
+    matches=[]
+    for m in re.finditer(r'(?m)^[ \t]*"CMapMesh"[ \t]*$',source):
+        end=project._matching_brace(source,source.index('{',m.end()))+1
+        block=source[m.start():end]
+        if 'materials/tools/toolsskybox.vmat' not in block:continue
+        pattern=r'("name"\s+"string"\s+"position:0".*?"data"\s+"vector3_array"\s*\[)(.*?)(\])'
+        stream=re.search(pattern,block,re.S)
+        points=[tuple(map(float,p.split())) for p in re.findall(r'"([^"]+)"',stream[2])]
+        low=[min(p[i] for p in points) for i in range(3)]
+        high=[max(p[i] for p in points) for i in range(3)]
+        half=(7680,7168,2448)
+        positions=',\n'.join('"'+' '.join(f'{(2*(p[i]-low[i])/(high[i]-low[i])-1)*half[i]:g}' for i in range(3))+'"' for p in points)
+        block=block[:stream.start(2)]+positions+block[stream.end(2):]
+        # Explicit, centred envelope encloses the entire campus and basements.
+        block=project._replace_entity_transform(block,'0 0 0',scales='1 1 1')
+        block=block.replace('materials/dev/reflectivity_30.vmat','materials/tools/toolsskybox.vmat')
+        matches.append((m.start(),end,block))
+    if len(matches)!=1:raise ValueError('Expected one inherited sky enclosure')
+    a,b,block=matches[0]
+    return source[:a]+block+source[b:]
+
+
 def map_text(source,metadata,season='standard'):
+    source=campus_sky_shell(source)
     source=source.replace('models/povo/povo_blockout.vmdl',f'models/povo/{MODEL}.vmdl')
     t_starts,ct_starts,objective=gameplay_points(metadata)
     ground=min(l['floor_elevation_metres']-370 for l in metadata['levels'])

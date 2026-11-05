@@ -89,6 +89,7 @@ class TextureImageTests(unittest.TestCase):
                      'PhysicsSurfaceProperties "glass"'):
             self.assertIn(line, text)
         self.assertIn('shader "csgo_complex.vfx"', textures.vmat('aluminium'))
+        self.assertIn('g_flMetalness "0.25"', textures.vmat('aluminium'))
 
     def test_written_materials_reference_their_images(self):
         with tempfile.TemporaryDirectory() as tmp:

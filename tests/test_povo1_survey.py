@@ -84,7 +84,9 @@ class Photo4ClassroomTests(unittest.TestCase):
             self.assertTrue(any(b[3]=='seat_green' for b in props))
             self.assertFalse(any(b[0] in (prefix+'screen',prefix+'screen_case') for b in props))
             board=next(b for b in props if b[0]==prefix+'board')
-            glazing=next(b for b in props if b[0]==prefix+'window_glass')
+            a,b,c,d=room['footprint_local_metres']
+            glazing=next(bx for bx in self.boxes if bx[0].startswith('facade_p1_south_l0_')
+                         and bx[3]=='window_glass' and bx[2][0]>a and bx[1][0]<c)
             self.assertLess(abs(board[1][1]-glazing[1][1]),.3)
             platform=next(b for b in props if b[0]==prefix+'front_platform')
             step=next(b for b in props if b[0]==prefix+'front_platform_step')
@@ -93,7 +95,11 @@ class Photo4ClassroomTests(unittest.TestCase):
             for row in fit['rows']:
                 lo,hi=row['bounds_local_metres']
                 self.assertGreater(hi[0]-lo[0],hi[1]-lo[1])
-        side=[b for b in self.boxes if '_side_window_glass' in b[0] and b[0].startswith('academic_ground_room_a10')]
-        self.assertEqual([b[0] for b in side],['academic_ground_room_a103_side_window_glass'])
+        # The approved whole-building facade replaces the old A103-only corner
+        # pane; the room still has glazing along its external east side.
+        room=next(r for r in self.levels[0]['rooms'] if r['id']=='a103')
+        a,b,c,d=room['footprint_local_metres']
+        self.assertTrue(any(bx[0].startswith('facade_p1_east_l0_') and bx[3]=='window_glass'
+                            and bx[2][1]>b and bx[1][1]<d for bx in self.boxes))
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,20 @@
+{
+  "status": "User-approved facade previews, 5 November 2026; dimensions fitted to the existing campus",
+  "references": ["P013", "P024", "P057", "walk_2026-10-23/originals/IMG_2365.JPEG", "walk_2026-10-23/originals/IMG_2367.JPEG"],
+  "approval": "Six broad bays across Povo 1 north/south and Povo 2's facing south facade; east/west Povo 1 elevations identical. Shallow recessed window bays with horizontal metal guards. Preserve bridge in the eastern outer bay (viewer-left looking south at Povo 1 north).",
+  "povo1_bounds": [-23.0, -103.0, 24.0, -20.0],
+  "povo2_south_bounds": [-23.0, 10.0, 25.0, 11.2],
+  "floors": [4.0, 7.6, 11.2],
+  "roof": 14.55,
+  "short_bays": 6,
+  "long_central_span": [-77.35, -45.65],
+  "long_central_bays": 5,
+  "narrow_module": 1.5,
+  "broad_pier_width": 0.65,
+  "narrow_pier_width": 0.40,
+  "glass_inset": 0.0,
+  "upper_sill": 0.25,
+  "window_head": 3.05,
+  "guard_height": 1.10,
+  "note": "Original photos and the approved facade pattern drive source geometry. Earth screenshots and generated previews are visual context, not textures, traced meshes or metric surveys. Existing building dimensions, room plans and floor elevations are retained."
+}

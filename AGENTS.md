@@ -188,6 +188,13 @@ people who know the buildings are especially useful.
 
 ## Experimental HPC build handoff — 4 November 2026
 
+The user-approved 5 November Povo facade implementation is documented in
+[the facade correction record](docs/POVO_FACADES_20261105.md). Use its final
+six-bay short-end pattern and bridge-corner explanation; earlier generated
+bridge previews and the initial remake-pattern schematic were rejected.
+Consult that record for current build/runtime verification and installation
+status rather than assuming source implementation is a tested package.
+
 The user requested an hpc3 build attempt under PBS job name `tmp_cs_build`.
 See [the HPC execution record](docs/HPC3_BUILD_20261104.md) for SSH access,
 isolated source/runtime staging, job IDs, resources, logs and limitations.

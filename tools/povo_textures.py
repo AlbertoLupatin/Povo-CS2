@@ -270,7 +270,10 @@ TEXTURES = {  # name: (generator, seed, roughness 0-255, metalness, physics surf
     'cream_tile': (cream_tile, 6, 70, 0, 'tile'),
     'frosted_glass': (frosted_glass, 7, 40, 0, 'glass'),
     'anthracite': (anthracite, 8, 110, 1, 'metal'),
-    'aluminium': (aluminium, 9, 80, 1, 'metal'),
+    # Retain the remake's brushed colour/roughness. Fully metallic ModelDoc
+    # frames render black without Hammer's reflection setup in this addon;
+    # a diffuse contribution keeps the photographed silver finish readable.
+    'aluminium': (aluminium, 9, 80, .25, 'metal'),
 }
 
 

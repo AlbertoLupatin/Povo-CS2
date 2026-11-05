@@ -59,8 +59,8 @@ class BreakableGlassSelectionTests(unittest.TestCase):
 
     def test_playable_windows_doors_bridge_and_front_wings_break(self):
         names = [b[0] for b in self.breakable]
-        for prefix in ('academic_first_room_a224_window', 'academic_first_link_bridge_east_glass',
-                       'exterior_p2_entry_outer_bank_', 'stair_ne_window_',
+        for prefix in ('facade_p1_west_l1_', 'academic_first_link_bridge_east_glass',
+                       'exterior_p2_entry_outer_bank_', 'facade_p1_east_l0_',
                        'canteen_0_west_glass_', 'library_0_west_glass_'):
             self.assertTrue(any(n.startswith(prefix) for n in names), prefix)
         # The library/canteen wings are separate panes over an opaque core, not one glass mass.
@@ -177,6 +177,29 @@ class LadderTests(unittest.TestCase):
         elevator = build_geometry(ROOT)[3][0]['elevator']
         lo, hi = elevator['ladder']
         self.assertGreater(hi[2] - lo[2], 3.6)
+
+
+class CampusEnclosureTests(unittest.TestCase):
+    def test_sample_arena_cannot_obstruct_the_north_courtyard(self):
+        from tools.cs2_campus import campus_sky_shell
+        # Original sample shell has intermediate vertices on its lower walls.
+        points=[(x,y,z) for z in (-128,0,128) for x,y in
+                ((-768,-896),(768,-896),(768,640),(-768,640))]
+        source='''"CMapMesh"
+{ "materials" "string_array" [ "materials/dev/reflectivity_30.vmat", "materials/tools/toolsskybox.vmat" ]
+"name" "string" "position:0" "data" "vector3_array" [ POINTS ]
+"origin" "vector3" "0 0 400" "scales" "vector3" "10 8 16" }'''.replace(
+            'POINTS',','.join('"'+' '.join(map(str,p))+'"' for p in points))
+        result=campus_sky_shell(source)
+        self.assertNotIn('reflectivity_30',result)
+        stream=re.search(r'"data" "vector3_array" \[(.*?)\]',result,re.S)[1]
+        vertices=[tuple(map(float,p.split())) for p in re.findall(r'"([^"]+)"',stream)]
+        # Every surface remains far outside the courtyard/buildings; no new
+        # horizontal face appears at the intermediate wall subdivision.
+        self.assertEqual(len(vertices),12)
+        self.assertTrue(all(abs(x)>5000 and abs(y)>5000 for x,y,z in vertices))
+        self.assertLess(min(p[2] for p in vertices),-1000)
+        self.assertGreater(max(p[2] for p in vertices),2000)
 
 
 if __name__ == '__main__':

@@ -40,8 +40,15 @@ class SeasonalCampusTests(unittest.TestCase):
                 # Hinges sit at a vertical edge, rather than the panel centre.
                 self.assertLess(min(abs(p[0]-lo[0]),abs(p[1]-lo[1]),abs(p[1]-hi[1])),.05)
 
-    def test_only_two_framed_stair_panes_are_breakable(self):
-        self.assertEqual(len(self.interactions['glass']),2)
+    def test_rebuilt_stair_glazing_uses_general_facade_breakables(self):
+        from tools.build_povo_campus import is_breakable_glass
+        # The facade pass supersedes the legacy two special stair fragments;
+        # its glazing enters the same export path as all playable windows.
+        self.assertEqual(len(self.interactions['glass']),0)
+        panes=[b for b in self.original if b[0].startswith('facade_p1_east_l0_')
+               and b[3]=='window_glass' and is_breakable_glass(b)]
+        for y in (-82, -41):
+            self.assertTrue(any(b[1][1]<y<b[2][1] for b in panes))
         self.assertTrue(any(b[3]=='window_glass' and 'bridge' in b[0] for b in self.boxes))
         for pane in self.interactions['glass']:
             a,b=pane['bounds']
