@@ -2180,3 +2180,18 @@ crest joint `exterior_road_front_joint_0` is now cut at the descending
 street's end line instead of standing up to 0.82 m above it; only that joint
 and the paving pieces cut against it changed (same coverage). Source tests
 pass; nothing was compiled or walked in game on this machine.
+
+## 5 November 2026 — Povo 2 roadside closure (source only)
+
+From the user's screenshot on the front-road sidewalk: restored the street-level
+garden lost when the Draw.io entrance pass deleted its embankments, raised and
+closed Garden −2's south/west walls, capped the open −1 roofs and the −2 garden
+approach, and added a footway-flush retaining wall with a grey grating fence on
+a kerb along the bridge road and front-road sidewalk. Removed the floating
+street-ramp remnants. Garden −2 stays visible through the fence; the approved
+−1 layout and routes are unchanged. Unintended holes in the area fell from
+about 317 m² to 44 m² (remaining west of E11, out of scope).
+
+389 source tests pass and the render-surface audit finds 0 coplanar overlaps.
+No native build or in-game test was run; winter was not rebuilt by request.
+See [the roadside closure note](POVO2_ROADSIDE_CLOSURE_20261105.md).
