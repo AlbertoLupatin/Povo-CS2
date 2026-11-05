@@ -43,6 +43,34 @@ class StreetFootwayTests(unittest.TestCase):
             self.assertTrue(covering,(x,y))
             for mesh in covering:self.assertEqual(mesh,physical[mesh['name']])
 
+    def test_campus_sidewalk_matches_curb_grade_across_its_width(self):
+        a,b=self.config['front_road']['points'][1:3]
+        dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy)
+        physical={m['name']:m for m in self.exterior['collision_meshes']}
+        for step in range(1,10):
+            t=step/10
+            for offset in (3.65,4.4,5.15):
+                x=a[0]+dx*t-dy/length*offset
+                y=a[1]+dy*t+dx/length*offset
+                expected=a[2]+(b[2]-a[2])*t+.12
+                hits=[(m,h) for m in self.footways for h in height_at(m,x,y)]
+                self.assertTrue(hits,(x,y))
+                for mesh,h in hits:
+                    self.assertAlmostEqual(h,expected,places=6,msg=(mesh['name'],x,y))
+                    self.assertEqual(mesh,physical[mesh['name']])
+
+    def test_campus_walking_line_has_no_gaps_or_step_at_slope_ends(self):
+        previous=None
+        for step in range(401):
+            y=-.5+step*.05
+            heights=[h for m in self.footways for h in height_at(m,57.5,y)]
+            self.assertTrue(heights,('gap',57.5,y))
+            self.assertLess(max(heights)-min(heights),.002,('overlap',y,heights))
+            current=max(heights)
+            if previous is not None:
+                self.assertLess(abs(current-previous),.02,('step',y,previous,current))
+            previous=current
+
     def test_new_corner_and_trimmed_collision_pieces_are_closed(self):
         physical={m['name']:m for m in self.exterior['collision_meshes']}
         checked=0

@@ -28,11 +28,13 @@ is the render-only placeholder trees in the outer scenery.
 | Via Sommarive sidewalks | custom `dark_paving` (new `exterior_dark_sidewalk`) | `remake/tools/build_site.py` |
 | Povo 1 east entrance stair | custom `red_paving` (new `exterior_red_paving`) | same |
 | Outer scenery tree belts | stock maple tree props | `remake/tools/build_site.py` `TREES` |
+| `window_frame` (mullions, transoms, frame trim) | custom `aluminium` (P002, P005) | `remake/tools/materials.py` |
+| Povo 2 street-front frosted-glass cubes | custom `frosted_glass`, 1.3 × 2.6 m panels, kept translucent (new `exterior_frosted_glass`) | same |
 
 Every other material keeps its flat-colour finish. The mapping lives in
 [`config/povo_textures.json`](../config/povo_textures.json): delete a line to
-revert one surface, or add one to adopt another. The remake's `frosted_glass`
-and `aluminium` generators are ported but unused.
+revert one surface, or add one to adopt another. All nine of the remake's
+generators are now in use.
 
 ### Render-only splits of shared materials
 
@@ -50,6 +52,11 @@ surfaces and every box-level tool still see the original materials.
   The campus-side `road_front_campus_paving` stays light, as in the remake.
   `exterior_entry_stair_*` (orange) becomes `exterior_red_paving`; the lockers
   and facade recesses keep orange.
+  The glass masses of the two `povo2_front_annex_*` blocks become
+  `exterior_frosted_glass`. These are the frosted-glass cubes in
+  `POVO2_LAYOUT_AUDIT_20261028.md`; all other glass is unchanged. The remake
+  draws them opaque. Here they use the campus's tested translucent glass setup
+  at the 84% opacity of `entry_glass`, so they stay slightly see-through.
 
 The new names keep the wall's or the `campus_exterior_` prefix's priority in
 the coplanar-overlap resolver. The dark sidewalk also stays in the probe-lit
@@ -84,8 +91,8 @@ their UVs are unchanged.
   noise is now exactly periodic and each texture has its own seed), the
   material mapping and the per-material repeat. `python tools/povo_textures.py`
   rewrites the textures on their own.
-- `cs2/content/trento_povo/materials/trento/povo/campus/textures/`: the seven
-  textures in use, written by every campus build (under 1 MB in total).
+- `cs2/content/trento_povo/materials/trento/povo/campus/textures/`: the nine
+  textures in use, written by every campus build (about 1 MB in total).
 - `tools/povo_pavement_lighting.py`: the probe-lit pavement finish model uses
   the same material sources as the structural model.
 - `tools/povo_edges.py`, `tools/cs2_campus.py`: edge trees as props.
@@ -103,13 +110,17 @@ These checks need the CS2 Workshop Tools and have not been run:
    Roan's builds load them from native Hammer meshes, while here a ModelDoc model
    references them.
 3. Compare against the photos: facade stone, terrazzo corridors, Povo 2 tiles,
-   the red stairs, grass, asphalt, ceilings, the Via Sommarive sidewalk.
+   the red stairs, grass, asphalt, ceilings, the Via Sommarive sidewalk, the
+   Povo 2 frosted cubes.
+   Window frames now use the remake's `aluminium` with full metalness. Metals
+   rely on the map's reflections, so if frames turn dark or black, delete the
+   `window_frame` line from the config to restore the flat grey.
 4. Check that the edge tree props appear upright at ground level and at a
    plausible size. The remake uses them unscaled at its 1.25 scale, so here they
    may read about 25% larger relative to the buildings. Also check they cast
    acceptable baked shadows. In winter they stay green, like the ginkgos.
 5. Check the package size and that `verify_cs2_package.py` passes. Stock
-   materials and tree models ship with CS2, so only the seven custom textures
+   materials and tree models ship with CS2, so only the nine custom textures
    are added.
 
 Footstep sounds are unchanged: they come from the collision meshes' physics

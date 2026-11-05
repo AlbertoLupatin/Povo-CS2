@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 import uuid
 
@@ -225,10 +226,12 @@ def add_edge_trees(source,trees):
     """Scenery tree belts as stock CS2 tree models (config/povo_textures.json).
 
     Not solid: the placeholder crowns they replace had no collision either.
+    Sample baked light probes; retain shadows without charting foliage per tree.
     """
     for tree in trees:
         source=project._insert_point_entity(source,'edge-'+tree['id'].replace('_','-'),'prop_static',world(tree['point']),
-            (('model',tree['model']),('solid','0'),('disableshadows','0'),('rendercolor','255 255 255')),
+            (('model',tree['model']),('solid','0'),('disableshadows','0'),
+             ('bakelighting','0'),('precomputelightprobes','1'),('rendercolor','255 255 255')),
             angles=f"0 {tree['yaw']} 0")
     return source
 
@@ -606,12 +609,15 @@ def deploy_assets(cs2_root,radar_dir,map_name=MAP):
     shutil.copyfile(radar_dir/(MAP+'.txt'),game/'resource/overviews'/(MAP+'.txt'))
 
 
-def map_lighting_options(*,fast_lighting=False,quality=1):
+def map_lighting_options(*,fast_lighting=False,quality=1,max_resolution=None):
     # Keep the normal bake/denoising path even with the smaller atlas.
     # Preview quality 0 produced black frontage seams in native screenshots.
     if quality not in (0,1):raise ValueError('Lighting quality must be 0 or 1')
     options=['-lightmapVRadQuality',str(quality)]
-    if fast_lighting:options+=['-lightmapMaxResolution','2048']
+    if max_resolution is not None and max_resolution not in (1024,2048,4096,8192,16384):
+        raise ValueError('Lightmap resolution must be a supported power of two')
+    resolution=max_resolution if max_resolution is not None else 2048 if fast_lighting else None
+    if resolution is not None:options+=['-lightmapMaxResolution',str(resolution)]
     return options
 
 
@@ -639,7 +645,16 @@ def file_digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else None
 
 
-def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=False,fast_lighting=False,lighting_quality=1,force_models=False):
+def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=False,fast_lighting=False,lighting_quality=1,force_models=False,optimize_import=False,lightmap_max_resolution=None):
+    if optimize_import:
+        try:
+            from .campus_build_optimizations import optimized_inputs
+        except ImportError:
+            from campus_build_optimizations import optimized_inputs
+        with optimized_inputs(sys.modules[__name__]):
+            return build(cs2_root,compile_map=compile_map,pack=pack,season=season,
+                         skip_model=skip_model,fast_lighting=fast_lighting,
+                         lighting_quality=lighting_quality,force_models=force_models,lightmap_max_resolution=lightmap_max_resolution)
     metadata=export()
     seasons=('standard','winter') if season=='both' else (season,)
     content=cs2_root/'content/csgo_addons/trento_povo';game=cs2_root/'game/csgo_addons/trento_povo'
@@ -651,7 +666,7 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
         deploy_assets(cs2_root,radar_dir,map_name);prepared.append((chosen,map_name,radar_dir))
     if not compile_map:return
     def compile_resource(resource):
-        options=map_lighting_options(fast_lighting=fast_lighting,quality=lighting_quality) if resource.suffix=='.vmap' else []
+        options=map_lighting_options(fast_lighting=fast_lighting,quality=lighting_quality,max_resolution=lightmap_max_resolution) if resource.suffix=='.vmap' else []
         command=[str(compiler),'-nop4','-fshallow2',*options,'-game',str(cs2_root/'game/csgo'),'-i',str(resource)]
         if resource.suffix!='.vmdl':
             print('Compiling '+str(resource),flush=True)
@@ -681,6 +696,9 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
     brush_materials.update(d['material'] for p in metadata.get('breakable_glass',[]) for d in p.get('decorations',[]))
     brush_materials.update(p['material'] for d in metadata.get('auto_doors',[]) for p in d['parts'])
     brush_materials.update(d['material'] for d in metadata['interactions']['doors'])
+    # The packager also includes the addon's base materials. A clean campus
+    # build must compile them even when the campus model does not use them.
+    if pack:brush_materials.update(p.as_posix() for p in project.SYNC_CONTENT if p.suffix=='.vmat')
     for material in sorted(brush_materials):
         path=content/material
         if path.is_file():compile_resource(path)
@@ -712,9 +730,11 @@ if __name__=='__main__':
     parser.add_argument('--season',choices=('standard','winter','both'),default='standard')
     parser.add_argument('--skip-model',action='store_true',help='Reuse already compiled shared campus model after entity-only changes')
     parser.add_argument('--force-model',action='store_true',help='Recompile models even when their sources are unchanged')
+    parser.add_argument('--optimize-import',action='store_true',help='Use verified exact-geometry import partitions and faster map preparation')
     parser.add_argument('--fast-lighting',action='store_true',help='Use a 2048-pixel atlas with normal-quality lighting; geometry and collision are unchanged')
+    parser.add_argument('--lightmap-max-resolution',type=int,choices=(1024,2048,4096,8192,16384),help='Explicit native atlas size; overrides --fast-lighting')
     parser.add_argument('--lighting-quality',type=int,choices=(0,1),default=1,help='Explicit bake quality: 0 for a quick preview, 1 for the normal bake')
     parser.add_argument('--no-package',action='store_true');args=parser.parse_args()
     build(project.discover_cs2_root(args.cs2_root),compile_map=not args.prepare_only,pack=not args.no_package,
-          season=args.season,skip_model=args.skip_model,fast_lighting=args.fast_lighting,lighting_quality=args.lighting_quality,force_models=args.force_model)
+          season=args.season,skip_model=args.skip_model,fast_lighting=args.fast_lighting,lighting_quality=args.lighting_quality,force_models=args.force_model,optimize_import=args.optimize_import,lightmap_max_resolution=args.lightmap_max_resolution)
 

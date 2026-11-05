@@ -55,6 +55,11 @@ def playtest(*, routes=None, output=None, package=None, port=27400,map_name='tre
         raise RuntimeError('Normal walking stalled near '+str(position())+' towards '+str(target))
     if routes is None:
         upper=json.loads((ROOT/'config/povo_exterior.json').read_text())['east_approach']['upper_z']
+        try:
+            from .audit_povo_exterior_integrated import exterior_routes
+        except ImportError:
+            from audit_povo_exterior_integrated import exterior_routes
+        source_routes=exterior_routes()
         routes=[
         ('p2_south_door_bank',(54,31.35,4.1),[(49,31.35,4),(34,31.35,4),(31.5,31.35,4)]),
         ('p2_north_door_bank',(54,35.65,4.1),[(49,35.65,4),(34,35.65,4),(31.5,35.65,4)]),
@@ -63,15 +68,13 @@ def playtest(*, routes=None, output=None, package=None, port=27400,map_name='tre
         ('garage_into_original_parking',(-29,36,-3.1),[(-5,36,-3.2),(18,36,-3.2),(18,27,-3.2),(17.8,22,-3.2)]),
         ('povo1_external_stairs',(22,-73.73,4.1),[(26.5,-73.73,4),(36.5,-73.73,upper),(54,-73.73,upper)]),
         ('povo1_external_stairs_return',(54,-73.73,upper+.1),[(36.5,-73.73,upper),(26.5,-73.73,4),(22,-73.73,4)]),
-        ('povo2_yard_outer_pavement',(57.5,31.35,4.22),[(57.5,25.5,4.12),(57.5,15,4.12)]),
+        ('povo2_yard_outer_pavement',(57.5,31.35,4.22),source_routes['p2_yard_outer_pavement'][1:]),
         # Settle before turning through the narrow CIBIO opening; the long
         # southbound pulse can otherwise overshoot its centre beside the frame.
         ('basement_right_turn',(18.25,22,.5),[(18.25,-4.6,.4),(18.25,-5,.4),(7,-5,.4)]),
         # Stay inside the pavement, clear of the first tree's overhanging crown
         # where the street descends from the raised Povo 1 frontage.
-        ('front_walk_to_povo2',(54.5,-71,upper+.1),[(54.5,-13,upper),(54.5,-5,upper),
-             (54.5,-1,upper),(57.5,-1,upper+.12),(57.5,0,upper+.12),(57.5,7.5,(upper+4)/2+.12),
-             (57.5,15,4.12),(57.5,20,4.12),(57.5,31.35,4.12),(54,31.35,4)]),
+        ('front_walk_to_povo2',(54.5,-71,upper+.1),source_routes['front_walk_to_povo2'][1:]),
         ('bridge_road_to_ramp',(50,-5,upper+.1),[(32,-5,4),(24,-7.3,4),(19,-7.3,3+42/45),
              (19,-5,3+42/45),(-23,-5,3),(-29,-8,3),(-29,-2.5,3)]),
         ('north_road',(-29,-8,3.1),[(-38,-8,3),(-38,6,3),(-38,112,3),(-25,118,3)]),

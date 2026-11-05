@@ -1,5 +1,18 @@
 # Exterior planimetry — 24 October 2026
 
+## Background tree lighting — 4 November 2026
+
+The 65 stock tree props use baked light probes (`bakelighting=0`,
+`precomputelightprobes=1`) while retaining shadows (`disableshadows=0`), original
+models, positions, orientations and non-solid behavior. Per-instance foliage
+lightmaps had added 130 meshes and 221,856 charts, exceeding the normal 1024 atlas.
+The isolated native test with probe-lit trees packs 86 meshes / 228,834 charts
+successfully at 1024. This does not change the approved Povo 2 −1 layout.
+
+The full cold build and normal-lit visual review are separate checks; packing
+success alone does not establish a finished package. See the
+[build measurements and verification record](HPC3_BUILD_20261104.md).
+
 ## Latest user corrections
 
 [POVO_USER_CORRECTIONS.md](POVO_USER_CORRECTIONS.md) supersedes the original

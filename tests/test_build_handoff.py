@@ -23,6 +23,9 @@ class BuildHandoffTests(unittest.TestCase):
         self.assertEqual(map_lighting_options(fast_lighting=True,quality=0),
                          ['-lightmapVRadQuality','0','-lightmapMaxResolution','2048'])
         with self.assertRaises(ValueError):map_lighting_options(quality=2)
+        self.assertEqual(map_lighting_options(fast_lighting=True,max_resolution=1024),
+                         ['-lightmapVRadQuality','1','-lightmapMaxResolution','1024'])
+        with self.assertRaises(ValueError):map_lighting_options(max_resolution=1000)
 
     def test_fast_lighting_reaches_compiler_and_build_record(self):
         with tempfile.TemporaryDirectory() as folder, \
@@ -30,14 +33,21 @@ class BuildHandoffTests(unittest.TestCase):
              patch.object(handoff, 'preflight', return_value=Path('C:/CS2')), \
              patch.object(handoff.subprocess, 'check_output', return_value=''), \
              patch.object(handoff, 'run_logged') as run:
-            self.assertEqual(handoff.main(['--fast-lighting','--lighting-quality','0']), 0)
+            self.assertEqual(handoff.main(['--fast-lighting','--lighting-quality','0','--optimize-import',
+                                           '--force-model','--lightmap-max-resolution','1024']), 0)
             self.assertIn('--fast-lighting',run.call_args_list[1].args[0])
+            self.assertIn('--optimize-import',run.call_args_list[1].args[0])
+            self.assertIn('--force-model',run.call_args_list[1].args[0])
             arguments=run.call_args_list[1].args[0]
             self.assertEqual(arguments[arguments.index('--lighting-quality')+1],'0')
+            self.assertEqual(arguments[arguments.index('--lightmap-max-resolution')+1],'1024')
             self.assertIn('--full-crc',run.call_args_list[2].args[0])
             report,=Path(folder).glob('build/handoff/*/build.json')
             self.assertTrue(json.loads(report.read_text())['fast_lighting'])
             self.assertEqual(json.loads(report.read_text())['lighting_quality'],0)
+            self.assertTrue(json.loads(report.read_text())['optimize_import'])
+            self.assertTrue(json.loads(report.read_text())['force_models'])
+            self.assertEqual(json.loads(report.read_text())['lightmap_max_resolution'],1024)
 
     def test_check_never_starts_build(self):
         with patch.object(handoff, 'preflight', return_value=Path('C:/CS2')), \

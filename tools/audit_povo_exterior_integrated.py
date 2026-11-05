@@ -32,13 +32,18 @@ def exterior_routes():
     cfg=json.loads((Path(__file__).resolve().parents[1]/'config/povo_exterior.json').read_text())
     upper=cfg['east_approach']['upper_z'];a,b,c,d=cfg['east_approach']['stairs']
     count=math.ceil((upper-4)/.18-1e-9)
+    # A diagonal road's slope ends cross the wider walking line at different
+    # northings from its centreline. Follow those actual end planes.
+    start,end=cfg['front_road']['points'][1:3]
+    ratio=(end[0]-start[0])/(end[1]-start[1])
+    slope=[(57.5,p[1]-(57.5-p[0])*ratio,p[2]+.12) for p in (start,end)]
     routes={
         'povo1_entrance_to_front':[(22,-73.73,4),(26.5,-73.73,4),(27,-73.73,4),
                                   *[(a+(i+.5)*(c-a)/count,-73.73,4+(i+1)*(upper-4)/count) for i in range(count)],
                                   (36.5,-73.73,upper),(54,-73.73,upper),(57.5,-73.73,upper+.12)],
         'front_walk_to_povo2':[(54.5,-71,upper),(54.5,-13,upper),(54.5,-5,upper),
                               (54.5,-1,upper),(57.5,-1,upper+.12),(57.5,0,upper+.12),
-                              (57.5,7.5,(upper+4)/2+.12),(57.5,15,4.12),(57.5,31.35,4.12),(54,31.35,4)],
+                              *slope,(57.5,31.35,4.12),(54,31.35,4)],
         'bridge_road_to_straight_ramp':[(50,-5,upper),(32,-5,4),(24,-7.3,4),(19,-7.3,3+42/45),
                                        (19,-5,3+42/45),(-23,-5,3),(-29,-8,3),(-29,-2.5,3),(-29,30,-3.2)],
         'ramp_into_existing_parking':[(-29,30,-3.2),(-29,36,-3.2),(-5,36,-3.2),(19.8,36,-3.2)],
@@ -46,7 +51,7 @@ def exterior_routes():
         'surface_parking':[(-48,-44,3),(-48,-90,3)],
         # The photo-guided sunken yard replaces the old direct terrace route.
         # Preserve the outer pavement; audit_povo_yard checks its stair connection.
-        'p2_yard_outer_pavement':[(57.5,31.35,4.12),(57.5,25.5,4.12),(57.5,15,4.12)]
+        'p2_yard_outer_pavement':[(57.5,31.35,4.12),(57.5,25.5,4.12),slope[-1]]
     }
     for index,y in enumerate((cy-2.15,cy+2.15)):
         routes[f'p2_door_bank_{index}']=[(54,y,4),(49.4,y,4),(40,y,4),(34.5,y,4),(31.5,y,4),(22,y,4)]

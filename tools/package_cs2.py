@@ -137,8 +137,11 @@ def package_map(cs2_root, vpkedit, output, *, repo_root=REPO_ROOT, force=False,
         raise VPKError('Installed overview differs from the generated radar; rebuild radar')
 
     output.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix='povo-package-', dir=output.parent) as tmp:
-        staging = Path(tmp) / 'assets'
+    # Native VPKEdit can silently misread long source paths. Keep staged asset
+    # paths short, while retaining the candidate beside the output for rename.
+    with tempfile.TemporaryDirectory(prefix='povo-package-', dir=output.parent) as tmp, \
+         tempfile.TemporaryDirectory(prefix='povo-assets-') as asset_tmp:
+        staging = Path(asset_tmp) / 'assets'
         staging.mkdir()
         expected = {}
         for entry in package.entries.values():

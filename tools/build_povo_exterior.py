@@ -31,6 +31,44 @@ FACES = ((0,2,1),(0,3,2),(4,5,6),(4,6,7),(0,1,5),(0,5,4),
          (1,2,6),(1,6,5),(2,3,7),(2,7,6),(3,0,4),(3,4,7))
 
 
+LEDGE_METRES=.1
+
+
+def joint(name, a, p, b, radius, n=16):
+    """Round asphalt fill where two road segments a-p and p-b meet.
+
+    A flat disk at the joint's elevation fills the gap on the outside of the
+    bend. Where a neighbouring segment descends away from the joint, the disk
+    would stand above that segment's own surface as a ledge (up to 0.82 m at
+    the Via Sommarive crest), so it is cut at the segment's end line: the
+    segment already paves that side. Lips a player steps over without
+    noticing (under LEDGE_METRES) keep the full disk, so the approved joints
+    beside Povo 2's entrance are unchanged.
+    """
+    rim=[(p[0]+radius*math.cos(k*2*math.pi/n),p[1]+radius*math.sin(k*2*math.pi/n),p[2]+.002) for k in range(n)]
+    ring=rim
+    for s in (a,b):
+        dx,dy=s[0]-p[0],s[1]-p[1]
+        if radius*(p[2]-s[2])/math.hypot(dx,dy)<=LEDGE_METRES:continue
+        side=lambda q:(q[0]-p[0])*dx+(q[1]-p[1])*dy
+        kept=[]
+        for q,r in zip(ring,ring[1:]+ring[:1]):
+            if side(q)<=1e-9:kept.append(q)
+            if (side(q)<=1e-9)!=(side(r)<=1e-9):
+                t=side(q)/(side(q)-side(r))
+                kept.append((q[0]+t*(r[0]-q[0]),q[1]+t*(r[1]-q[1]),p[2]+.002))
+        ring=[q for i,q in enumerate(kept) if math.dist(q[:2],kept[i-1][:2])>1e-6]
+    centre=(p[0],p[1],p[2]+.002)
+    if ring is rim:
+        return dict(name=name,vertices=[centre]+rim,faces=[(0,k+1,(k+1)%n+1) for k in range(n)],material='asphalt')
+    # The centre lies on the cut edge: fan from it without the degenerate wrap.
+    start=next(i for i,q in enumerate(ring) if math.dist(q[:2],ring[i-1][:2])>1e-6 and
+               abs((q[0]-p[0])*(ring[i-1][1]-p[1])-(q[1]-p[1])*(ring[i-1][0]-p[0]))<1e-7 and
+               (q[0]-p[0])*(ring[i-1][0]-p[0])+(q[1]-p[1])*(ring[i-1][1]-p[1])<0)
+    ring=ring[start:]+ring[:start]
+    return dict(name=name,vertices=[centre]+ring,faces=[(0,k+1,k+2) for k in range(len(ring)-1)],material='asphalt')
+
+
 def strip(name, a, b, width, material, thickness=.16):
     """Closed, genuinely sloping strip, with shared exact end elevations."""
     dx,dy=b[0]-a[0],b[1]-a[1]; length=math.hypot(dx,dy)
@@ -72,9 +110,9 @@ def build(root=ROOT, campus_geometry=None):
                 shift=side*(settings['width']/2-.12)
                 meshes.append(strip(f'{prefix}_edge_{i}_{side}',(a[0]+nx*shift,a[1]+ny*shift,a[2]+.012),
                                     (b[0]+nx*shift,b[1]+ny*shift,b[2]+.012),.10,'marking',.008))
-        for i,p in enumerate(settings['points'][1:-1]):
-            n=16;v=[(p[0],p[1],p[2]+.002)]+[(p[0]+settings['width']/2*math.cos(k*2*math.pi/n),p[1]+settings['width']/2*math.sin(k*2*math.pi/n),p[2]+.002) for k in range(n)]
-            meshes.append(dict(name=f'{prefix}_joint_{i}',vertices=v,faces=[(0,k+1,(k+1)%n+1) for k in range(n)],material='asphalt'))
+        pts=settings['points']
+        for i,(a,p,b) in enumerate(zip(pts,pts[1:],pts[2:])):
+            meshes.append(joint(f'{prefix}_joint_{i}',a,p,b,settings['width']/2))
     def glass_block(name,r,z,roof,panes=False):
         """Opaque study glazing on all faces, with visible frames and roof.
 
@@ -123,20 +161,20 @@ def build(root=ROOT, campus_geometry=None):
             meshes.append(strip(f'road_edge_{i}_{side}',(a[0]+nx*shift,a[1]+ny*shift,a[2]+.012),
                                 (b[0]+nx*shift,b[1]+ny*shift,b[2]+.012),.10,'marking',.008))
     # Shared segment ends get round junction fills; avoids gaps at the bend.
-    for i,p in enumerate(points[1:-1]):
-        n=16;v=[(p[0],p[1],p[2]+.002)]+[(p[0]+3*math.cos(k*2*math.pi/n),p[1]+3*math.sin(k*2*math.pi/n),p[2]+.002) for k in range(n)]
-        meshes.append(dict(name=f'road_joint_{i}',vertices=v,faces=[(0,k+1,(k+1)%n+1) for k in range(n)],material='asphalt'))
+    for i,(a,p,b) in enumerate(zip(points,points[1:],points[2:])):
+        meshes.append(joint(f'road_joint_{i}',a,p,b,3))
     road_run('road_north',cfg['north_road'])
     road_run('road_front',cfg['front_road'])
     # Registration moves the kerb east. Keep the accepted campus-side walking
     # line and entrance grade connected by widening the paving to that kerb.
-    front=cfg['front_road'];half=front['width']/2
-    for i,(a,b) in enumerate(zip(front['points'][1:],front['points'][2:])):
-        top=[(56.7,a[1],a[2]+.12),(a[0]-half+.1,a[1],a[2]+.12),
-             (b[0]-half+.1,b[1],b[2]+.12),(56.7,b[1],b[2]+.12)]
-        meshes.append(dict(name=f'road_front_campus_paving_{i}',
-                           vertices=[(x,y,z-.18) for x,y,z in top]+top,
-                           faces=FACES,material='paving'))
+    try:
+        from .povo_street_footways import campus_frontage
+    except ImportError:
+        from povo_street_footways import campus_frontage
+    # The widening replaces these narrow strips, rather than overlapping them.
+    meshes=[m for m in meshes if not (m['name'].startswith('road_front_footway_')
+            and m['name'].endswith('_1') and int(m['name'].split('_')[-2])>=1)]
+    meshes.extend(campus_frontage(cfg['front_road']))
     if cfg.get('abandoned_bus', {}).get('enabled'):
         try:
             from .povo_abandoned_bus import extend as add_bus

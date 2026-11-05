@@ -100,6 +100,20 @@ class PackageMapTests(unittest.TestCase):
         with self.assertRaisesRegex(VPKError, 'outside the installed addon'):
             pack.package_map(self.cs2, self.packer, self.source, force=True)
 
+    def test_deep_output_keeps_native_asset_staging_short_and_candidate_adjacent(self):
+        output = self.root / ('deep-output-' * 8) / 'map.vpk'
+        def inspect_command(command, **kwargs):
+            staging = Path(command[1])
+            candidate = Path(command[command.index('--output') + 1])
+            self.assertNotIn(output.parent, staging.parents)
+            self.assertIn(output.parent, candidate.parents)
+            self.assertLess(len(str(staging)), len(str(candidate.parent)))
+            raise subprocess.CalledProcessError(1, command)
+        with mock.patch.object(pack.subprocess, 'run', side_effect=inspect_command):
+            with self.assertRaises(subprocess.CalledProcessError):
+                pack.package_map(self.cs2, self.packer, output)
+        self.assertFalse(output.exists())
+
     def test_source2_chunk_table_preserves_payload_and_rebuilds_checksums(self):
         try:
             # Official BLAKE3 empty-input test vector, truncated to 128 bits.

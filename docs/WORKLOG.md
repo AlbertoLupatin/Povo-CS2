@@ -2164,3 +2164,19 @@ defect was found. The source street scan reproduces the existing asphalt ledge.
 No geometry, map source, package or native build was changed. The package still
 has SHA-256 `18d154a01b9cdbe554db740657cd700899dab4ebc4ac8a5541ed4eaacafcd753`.
 See the [inspection, exact locations and screenshots](../exports/map_consistency_audit_20261102/README.md).
+
+## 4 November 2026 — Remake surfaces adopted; crest road joint regraded
+
+Adopted RoanS77's surface work from branch `shaders-mod` (`remake/`) without
+changing room layout or collision: nine photo-matched procedural textures and
+the remake's stock CS2 materials, real-size texture repeats, render-only
+splits for the Povo 1 stone facade, Via Sommarive sidewalks, red entrance
+stair and Povo 2 frosted cubes, and stock tree props for the outer scenery
+belts. Details and in-game checks: [surface textures](POVO_TEXTURES_FROM_REMAKE.md).
+
+The three 2 November fixture/lamp items were already fixed in the 3 November
+lighting repair; re-checked on the current source and ticked in TODO. The
+crest joint `exterior_road_front_joint_0` is now cut at the descending
+street's end line instead of standing up to 0.82 m above it; only that joint
+and the paving pieces cut against it changed (same coverage). Source tests
+pass; nothing was compiled or walked in game on this machine.

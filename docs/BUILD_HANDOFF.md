@@ -70,6 +70,27 @@ activation or PowerShell execution-policy change is needed.
 .\build_campus.cmd
 ```
 
+The opt-in importer optimization is available with
+`.\build_campus.cmd --optimize-import`. It speeds up map-text preparation and
+rebatches the deployed render OBJ and partitions collision input files, verifying the same face
+corners, normals, material assignments and physical surface properties. It keeps
+connected collision objects intact, keeps one render input with all shared indices and
+does not change lighting quality. Partition verification is written to
+`build/compile_partitions/povo1_campus.json`. See the
+[HPC measurements and validation limits](HPC3_BUILD_20261104.md).
+
+To request the same normal-quality 1024 atlas used by the measured local build,
+including forced model compilation, run:
+
+```powershell
+.\build_campus.cmd --optimize-import --force-model --lightmap-max-resolution 1024
+```
+
+`--lightmap-max-resolution` is an explicit native compiler option and overrides
+the legacy `--fast-lighting` atlas size. Default lighting behavior is unchanged.
+Background stock trees use baked light probes while retaining shadows; this
+avoids allocating individual lightmap charts for their foliage.
+
 For the smaller lightmap atlas, run `.\build_campus.cmd --fast-lighting`.
 To reproduce the 29 October pavement preview bake, use
 `.\build_campus.cmd --fast-lighting --lighting-quality 0`. The default quality

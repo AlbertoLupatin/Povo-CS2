@@ -68,6 +68,54 @@ def corners(name, road):
             if mesh:yield mesh
 
 
+def campus_frontage(road, inner_x=56.7):
+    """One campus-side footway, sharing the road's true perpendicular end planes.
+
+    The previous Y-aligned widening overlapped the normal-offset footway at a
+    different elevation. Loft to the same curb endpoints instead, keep the
+    descending strip whole, and cut its footprint from the following landing.
+    """
+    half=road['width']/2
+    sections=[]
+    for i,(a,b) in enumerate(zip(road['points'][1:],road['points'][2:])):
+        dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy)
+        if dy<=0:raise ValueError('Frontage requires northward street segments')
+        def cross(p):
+            return [(inner_x,p[1]-(inner_x-p[0])*dx/dy,p[2]+.12),
+                    (p[0]-half*dy/length,p[1]+half*dx/length,p[2]+.12)]
+        start,end=cross(a),cross(b)
+        sections.append([start[0],start[1],end[1],end[0]])
+    footprints=[]
+    for i,top in enumerate(sections):
+        parts=[top]
+        for previous in footprints:
+            parts=[piece for part in parts for piece in
+                   (subtract(part,previous) if overlaps(bounds(part),bounds(previous)) else [part])]
+        for j,part in enumerate(parts):
+            mesh=prism(f'road_front_campus_paving_{i}_{j}',part,material='paving',thickness=.18)
+            if mesh:yield mesh
+        footprints.append(top)
+    for i,(a,b) in enumerate(zip(sections,sections[1:])):
+        # Convex hull of the adjoining end faces; only retain the uncovered gap.
+        points=sorted(set(a[2:]+b[:2]))
+        def cross(o,a,b):return (a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0])
+        def chain(points):
+            out=[]
+            for p in points:
+                while len(out)>=2 and cross(out[-2],out[-1],p)<=1e-9:out.pop()
+                out.append(p)
+            return out
+        hull=chain(points)[:-1]+chain(list(reversed(points)))[:-1]
+        if len(hull)<3:continue
+        parts=[hull]
+        for section in sections:
+            parts=[piece for part in parts for piece in
+                   (subtract(part,section) if overlaps(bounds(part),bounds(section)) else [part])]
+        for j,part in enumerate(parts):
+            mesh=prism(f'road_front_campus_paving_join_{i}_{j}',part,material='paving',thickness=.18)
+            if mesh:yield mesh
+
+
 def tops(mesh):
     if len(mesh['vertices'])==8:
         return [mesh['vertices'][4:]]

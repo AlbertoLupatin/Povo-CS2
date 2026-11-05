@@ -99,7 +99,9 @@ def extend(boxes, levels, root=Path(__file__).resolve().parents[1]):
     # Road junction disks used to be render-only, with no supporting collision
     # between the straight strips. Give each disk closed, matching physics.
     for mesh in list(ext['meshes']):
-        if '_joint_' not in mesh['name'] or len(mesh['vertices'])!=17:continue
+        # Still an open fan from its centre (full disk, or cut at a descending
+        # neighbour); once closed it has more faces than vertices.
+        if '_joint_' not in mesh['name'] or len(mesh['faces'])>=len(mesh['vertices']):continue
         top=mesh['vertices'][1:];n=len(top)
         vertices=[(x,y,z-.16) for x,y,z in top]+top
         faces=[]

@@ -61,6 +61,9 @@ def main(argv=None):
     parser.add_argument('--cs2-root', type=Path, help='Steam game installation, not the addon directory')
     parser.add_argument('--season', choices=('standard', 'winter', 'both'), default='standard')
     parser.add_argument('--fast-lighting', action='store_true', help='Use a 2048-pixel atlas with normal-quality lighting')
+    parser.add_argument('--optimize-import', action='store_true', help='Use exact-geometry import partitions and faster map preparation')
+    parser.add_argument('--force-model', action='store_true', help='Recompile models even when their inputs are unchanged')
+    parser.add_argument('--lightmap-max-resolution', type=int, choices=(1024,2048,4096,8192,16384), help='Explicit native atlas size; overrides --fast-lighting')
     parser.add_argument('--lighting-quality', type=int, choices=(0,1), default=1, help='Explicit bake quality, 0 preview or 1 normal')
     parser.add_argument('--check', action='store_true', help='Check prerequisites without generating or deploying files')
     args = parser.parse_args(argv)
@@ -79,7 +82,8 @@ def main(argv=None):
         logs.mkdir(parents=True)
         record = {'started_utc': stamp, 'python': sys.version, 'platform': platform.platform(),
                   'cs2_root': str(installed), 'season': args.season, 'fast_lighting': args.fast_lighting,
-                  'lighting_quality': args.lighting_quality, 'status': 'running'}
+                  'lighting_quality': args.lighting_quality, 'optimize_import': args.optimize_import,
+                  'force_models': args.force_model, 'lightmap_max_resolution': args.lightmap_max_resolution, 'status': 'running'}
         try:
             record['git_revision'] = subprocess.check_output(
                 ['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True, stderr=subprocess.DEVNULL).strip()
@@ -93,6 +97,9 @@ def main(argv=None):
             run_logged([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-q'], logs / 'tests.log')
             run_logged([sys.executable, '-u', 'tools/cs2_campus.py', '--cs2-root', str(installed),
                         '--season', args.season, *(['--fast-lighting'] if args.fast_lighting else []),
+                        *(['--optimize-import'] if args.optimize_import else []),
+                        *(['--force-model'] if args.force_model else []),
+                        *(['--lightmap-max-resolution',str(args.lightmap_max_resolution)] if args.lightmap_max_resolution is not None else []),
                         '--lighting-quality',str(args.lighting_quality)], logs / 'compile.log')
             for season in (('standard', 'winter') if args.season == 'both' else (args.season,)):
                 name = 'trento_povo_campus' + ('_winter' if season == 'winter' else '')
