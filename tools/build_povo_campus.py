@@ -691,6 +691,8 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         boxes=finish_povo2_entrance(boxes,bridge_levels)
         from tools.povo_exterior_fills import extend as fill_exterior_gaps
         boxes=fill_exterior_gaps(boxes,bridge_levels)
+        from tools.povo2_roadside_closure import extend as close_roadside
+        boxes=close_roadside(boxes,bridge_levels)
         from tools.povo_lighting_repairs import repair_frontage_lamps
         boxes=repair_frontage_lamps(boxes,bridge_levels)
     try:
