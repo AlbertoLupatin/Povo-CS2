@@ -68,6 +68,8 @@ def extend(boxes, levels, root):
         plate('former_shaft_floor_'+str(floor),shaft,z)
         plate('former_shaft_ceiling_'+str(floor),shaft,z+3.1,'ceiling_panel',True)
     spec['lift']['enabled']=False
+    link['lift']['enabled']=False
+    link['lift']['status']='Removed; use internal stairs'
     spec['lift']['status']='Removed after user walkthrough; all levels use the stairs'
     for level in spec['levels']:
         for station in level['audit_stations']:

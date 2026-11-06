@@ -1,0 +1,28 @@
+{
+  "preserved": {
+    "bounds": true,
+    "well_bounds": true,
+    "path": true,
+    "flights": true,
+    "portals": true,
+    "basement_levels": true,
+    "west_office_rooms": true,
+    "garden_routes": true,
+    "reception": true,
+    "lower_floor_and_stair_geometry": true
+  },
+  "ground_registration": {
+    "facade_north": 10.8,
+    "corridor_width": 2.6,
+    "stairwell_south": 18,
+    "status": "User confirms room row and corridor fill facade-to-stairwell space; depths fitted, not surveyed",
+    "preserve": "Room order, reception, stairwell, internal stair directions and basement interiors"
+  },
+  "pending": "Grass strip, grate and bush: clarify whether -1 office frontage aligns with the yellow facade; model has N2 vs N10.8.",
+  "validation": {
+    "tests": 46,
+    "status": "passed",
+    "native_cs2": "not run",
+    "command": "python -m unittest tests.test_povo2_ground_registration tests.test_povo2_additions tests.test_povo2_entrance_finishes tests.test_povo2_integration tests.test_povo2_drawio_entrance tests.test_povo2_gardens tests.test_deathmatch_spawns -q"
+  }
+}

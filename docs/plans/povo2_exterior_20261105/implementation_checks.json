@@ -1,0 +1,59 @@
+{
+  "preserved_from_baseline": {
+    "bounds": true,
+    "well_bounds": true,
+    "flights": true,
+    "path": true,
+    "portals": true,
+    "floor_rooms": true,
+    "minus1_offices": true,
+    "up_stair": true,
+    "up_route": true,
+    "basement_footprints": true
+  },
+  "garden_alignment": {
+    "garden": [
+      31.8,
+      0.2900000000000027,
+      49.3,
+      11.540000000000003
+    ],
+    "previous_garden": [
+      38,
+      8.75,
+      55.5,
+      20
+    ],
+    "stair": [
+      31.8,
+      0.2900000000000027,
+      40.55,
+      2.0
+    ],
+    "source": "Accepted corridor/garden connection, 5 November 2026",
+    "status": "Corridor-anchored implementation; original garden dimensions retained, absolute registration provisional",
+    "preserve": "All interior rooms, corridors and internal stair directions; existing UP stair to street"
+  },
+  "lift": false,
+  "pending": [
+    "B106/B108/B109 facade registration",
+    "five-metre roadside grass strip, grate and bush placement"
+  ],
+  "native_validation": "not run",
+  "validation": {
+    "focused_tests": {
+      "tests": 40,
+      "status": "passed"
+    },
+    "regression_recheck": {
+      "tests": 32,
+      "status": "passed"
+    },
+    "basement_route_samples": 5232,
+    "basement_route_failures": 0,
+    "garden_route_samples": 1098,
+    "garden_route_failures": 0,
+    "full_suite_first_run": "406 tests, 4 failures, 1 error, 1 skipped; stale route/spawn metadata corrected and failing cases included in passing rechecks",
+    "native_cs2": "not run"
+  }
+}

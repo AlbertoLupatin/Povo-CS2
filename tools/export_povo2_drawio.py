@@ -43,7 +43,8 @@ def export():
     a,b,c,d=cfg['aula_magna'];rect((a+.2,b+8,a+.5,d-3),'Desk / board','#82b366')
     for r in ground['table_bounds']:rect(r,fill='#d5b88b')
     rect(p2['ground']['reception'],'RECEPTION','#d5e8d4')
-    rect(p2['stairs']['bounds'],'STAIRS','#d0d0d0');rect(p2['lift']['shaft'],'Ladder','#b1ddf0')
+    rect(p2['stairs']['bounds'],'STAIRS','#d0d0d0')
+    if p2.get('lift',{}).get('enabled',False):rect(p2['lift']['shaft'],'Ladder','#b1ddf0')
     rect((20.4,21.175,20.6,22.825),fill='#00a86b',stroke='#00a86b')
 
     rect,note=page('Povo 2 — basement rotated clockwise',(-16,-28,34,42))
@@ -53,7 +54,8 @@ def export():
         seen.add(tuple(r))
         label=name.replace('_',' ').upper()
         rect(r,label,'#e2efd9' if name=='yard' else '#fff2cc' if 'office' in name else '#dae8fc')
-    rect(p2['stairs']['bounds'],'STAIR STACK','#d0d0d0');rect(p2['lift']['shaft'],'Ladder','#b1ddf0')
+    rect(p2['stairs']['bounds'],'STAIR STACK','#d0d0d0')
+    if p2.get('lift',{}).get('enabled',False):rect(p2['lift']['shaft'],'Ladder','#b1ddf0')
     x,y,_=p2['basement_placement']['portal']
     rect((x-.825,y-.1,x+.825,y+.1),'SOUTH door','#00a86b','#00a86b')
     # The yard and its exit stair rotate with the rest of this floor.

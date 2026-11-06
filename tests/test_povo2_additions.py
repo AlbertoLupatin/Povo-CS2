@@ -20,8 +20,9 @@ class Povo2AdditionTests(TestCase):
             room=rooms[name]
             self.assertGreater(room['fitout']['seats'],0)
             self.assertEqual(room['fitout']['riser_metres'],.12)
-            self.assertTrue(any(n.startswith('p2_ground_'+name+'_tier_') and hi[2]>lo[2]
-                                for n,lo,hi,_ in self.boxes))
+            if len(room['fitout']['rows'])>1:
+                self.assertTrue(any(n.startswith('p2_ground_'+name+'_tier_') and hi[2]>lo[2]
+                                    for n,lo,hi,_ in self.boxes))
             self.assertTrue(any(n=='p2_ground_'+name+'_window_glass' and is_breakable_glass(box)
                                 for box in self.boxes for n,_,_,_ in [box]))
 
@@ -78,7 +79,7 @@ class Povo2AdditionTests(TestCase):
         self.assertEqual(pc['kind'],'computer')
         self.assertTrue(all(r['bounds'][3]==corridor[1] for r in cfg['ground_rooms']))
         self.assertGreater(corridor[2]-corridor[0],corridor[3]-corridor[1])
-        self.assertLessEqual(corridor[3],self.spec['stairs']['bounds'][1])
+        self.assertLessEqual(corridor[3],self.spec['stairs']['well_bounds'][1])
         pc,b108,b109=cfg['ground_rooms']
         self.assertEqual(pc['bounds'][0],b108['bounds'][2])
         self.assertEqual(b108['bounds'][0],b109['bounds'][2])

@@ -32,20 +32,24 @@ class EntranceFinishesTests(unittest.TestCase):
         for point in ((24.,22.,7.31),(21.,16.,7.31),(24.,29.,7.31)):
             self.assertTrue(self.containing(point,ceilings),point)
 
-    def test_unused_side_bay_is_closed_and_stair_door_stays_open(self):
-        for y in (11.5,14.,16.,17.7):
-            for z in (4.2,5.5,6.8):
-                self.assertTrue(self.containing((20.5,y,z)),(y,z))
+    def test_registered_classroom_corridor_and_stair_door_stay_open(self):
+        # The former side bay is now occupied by the registered room row.
+        # Its obsolete closure must not bisect the perpendicular corridor.
+        self.assertIsNone(self.link['povo2']['entrance_finishes']['closed_side_bay'])
+        for x in (3.,9.,18.5,20.5,24.,29.5):
+            self.assertFalse(self.containing((x,16.7,5.1)),x)
         self.assertFalse(self.containing((20.5,22.,5.1)))
-        self.assertFalse(self.containing((24.,9.5,5.1)))
 
     def test_upper_gap_fills_leave_lower_approach_and_garden_clear(self):
         fill=[b for b in self.physics if b[0].startswith('exterior_user_fill_')]
-        self.assertEqual(len(fill),6)
+        self.assertTrue(fill)
+        garden=self.link['povo2']['gardens']['garden']
         for name in ('B','C'):
             a,b,c,d=REGIONS[name]
-            self.assertTrue(self.containing(((a+c)/2,(b+d)/2,3.9),fill))
-        for p in ((43.8,5.,-1.6),(48.,15.,-1.6),(21.75,1.,1.6)):
+            x,y=(a+c)/2,(b+d)/2
+            inside=garden[0]<=x<=garden[2] and garden[1]<=y<=garden[3]
+            self.assertEqual(bool(self.containing((x,y,3.9),fill)),not inside)
+        for p in ((43.8,5.,-1.6),(48.,9.,-1.6),(21.75,1.,1.6)):
             self.assertFalse(self.containing(p,fill),p)
 
     def test_new_street_supports_are_closed_and_below_existing_paving(self):

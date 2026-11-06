@@ -45,7 +45,8 @@ class DeathmatchSpawnTests(unittest.TestCase):
             self.assertFalse(obstacles,spawn)
 
     def test_no_spawn_inside_a_ladder_shaft(self):
-        ladders=[self.levels[0]['elevator']['ladder'],next(l['connection'] for l in self.levels if l.get('connection'))['povo2']['lift']['ladder']]
+        specs=[self.levels[0]['elevator'],next(l['connection'] for l in self.levels if l.get('connection'))['povo2']['lift']]
+        ladders=[s['ladder'] for s in specs if s.get('enabled',True)]
         for spawn in self.spawns:
             x,y,z=spawn['point']
             for lo,hi in ladders:

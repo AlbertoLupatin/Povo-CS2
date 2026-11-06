@@ -53,7 +53,7 @@ def storeys(physics,levels):
             result.append((level['id'],z,level['audit_stations'][0]['point'],support))
         yard=spec.get('additions',{}).get('yard')
         if yard:
-            support=_aliased(physics,'p2_yard',yard['z'],lambda n,m:n.startswith('p2_gardens_') and m.startswith('floor_'))
+            support=_aliased(physics,'p2_yard',yard['z'],lambda n,m:n.startswith(('p2_gardens_', 'p2_aligned_garden_')) and m.startswith('floor_'))
             result.append(('p2_yard',yard['z'],yard['audit_stations'][0]['point'],support))
     for level in levels[0].get('wings',{}).get('levels',[]):
         z=level['z'];building=level['building']
@@ -148,8 +148,9 @@ def facing(point,physics,reach=25.0,directions=16,centre=CENTRE):
 
 
 def deathmatch_spawns(physics,levels):
-    ladders=[l for l in (levels[0].get('elevator',{}).get('ladder'),
-                         next((q['connection'] for q in levels if 'connection' in q),{}).get('povo2',{}).get('lift',{}).get('ladder')) if l]
+    lift_specs=(levels[0].get('elevator',{}),
+                next((q['connection'] for q in levels if 'connection' in q),{}).get('povo2',{}).get('lift',{}))
+    ladders=[s['ladder'] for s in lift_specs if s.get('enabled',True) and s.get('ladder')]
     meshes=levels[0].get('exterior',{}).get('collision_meshes',[])
     candidates=[(area,p) for area,p in interior_candidates(physics,levels)+exterior_candidates(physics,meshes)
                 if not any(lo[0]-1.5<=p[0]<=hi[0]+1.5 and lo[1]-1.5<=p[1]<=hi[1]+1.5

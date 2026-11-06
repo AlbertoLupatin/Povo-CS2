@@ -185,6 +185,15 @@ def extend_layout(boxes, levels, root, wall_height):
         level['audit_stations'].append(dict(id=name,point=[x,y]))
 
     z=ground['z']; corridor=cfg['ground_corridor']
+    approach_south=cfg['ground_approach'][1]
+    corridor_centre=(corridor[1]+corridor[3])/2
+    # Clear the legacy hall inside the newly occupied classroom band.
+    # The actual stairwell starts at N18 and is reconstructed unchanged later.
+    if cfg.get('ground_registration'):
+        hole=((corridor[0]-.12,cfg['ground_registration']['facade_north']-.12,z-.01),
+              (corridor[2]+.12,corridor[3]-.11,z+wall_height+.02))
+        result=[part for box in result for part in
+                (subtract_box(box,hole) if box[0].startswith(('p2_ground_','p2_lift_')) else [box])]
     # The approach passes the stairs and separate ladder entrance BEFORE the
     # east/west classroom corridor. Remove the old enclosed empty vestibule.
     result=[box for box in result if not box[0].startswith((
@@ -192,8 +201,8 @@ def extend_layout(boxes, levels, root, wall_height):
         'p2_ground_locker_','p2_ground_locker_handle_'))]
     shell('p2_ground_left_approach',cfg['ground_approach'],z)
     shell('p2_ground_left_extension',corridor,z)
-    clear((16.6,11,25.5,29.5),z)
-    landing=('p2_ground_stair_hall_floor',(16.5,11,z-.22),(25.5,29.5,z),'floor_p2_tile')
+    clear((16.6,approach_south,25.5,29.5),z)
+    landing=('p2_ground_stair_hall_floor',(16.5,approach_south,z-.22),(25.5,29.5,z),'floor_p2_tile')
     shaft=levels[1]['connection']['lift']['shaft']
     parts=subtract_box(landing,((shaft[0],shaft[1],z-.3),(shaft[2],shaft[3],z+.01)))
     a,b,c,d=spec['stairs']['bounds']
@@ -202,8 +211,8 @@ def extend_layout(boxes, levels, root, wall_height):
     # or the relocated lift. Retain a sealed outside perimeter.
     # Open these obsolete partitions all the way to the ceiling. A door-height
     # cut leaves their upper metre hanging over the hall as a rectangular box.
-    for lo,hi in [((16.65,14.05,z-.01),(25.4,29.6,z+wall_height+.02)),
-                  ((22.35,10.75,z-.01),(25.65,11.25,z+wall_height+.02))]:
+    for lo,hi in [((16.65,max(14.05,approach_south+.05),z-.01),(25.4,29.6,z+wall_height+.02)),
+                  ((22.35,approach_south-.25,z-.01),(25.65,approach_south+.25,z+wall_height+.02))]:
         result=[p for box in result for p in
                 (subtract_box(box,(lo,hi)) if box[3] in ('wall','window_frame')
                  and not box[0].startswith(('p2_ground_reception_','p2_lift_','academic_first_link_p2_stair_',
@@ -217,9 +226,9 @@ def extend_layout(boxes, levels, root, wall_height):
     for old_station in ground['audit_stations']:
         if old_station['id']=='left_corridor':old_station['point']=[24,25.5]
     station(ground,'left_extension_entry',24,28.8)
-    station(ground,'left_extension_junction',24,9.5)
-    station(ground,'left_extension_pc_branch',29.5,9.5)
-    station(ground,'left_extension_end',3,9.5)
+    station(ground,'left_extension_junction',24,corridor_centre)
+    station(ground,'left_extension_pc_branch',29.5,corridor_centre)
+    station(ground,'left_extension_end',3,corridor_centre)
     station(ground,'reception_stair_door',17.8+dx,22)
     spec['additions_stair_entry']=cfg['stair_entry']
     for record in cfg['ground_rooms']:

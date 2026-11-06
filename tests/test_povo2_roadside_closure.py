@@ -46,17 +46,22 @@ class RoadsideClosureTests(unittest.TestCase):
     def test_street_garden_is_solid_lawn_at_street_level(self):
         for name, (a, b, c, d) in LAWNS.items():
             x, y = (a + c) / 2, (b + d) / 2
+            garden=self.p2['gardens']['garden']
+            if garden[0]<=x<=garden[2] and garden[1]<=y<=garden[3]:
+                # This former roadside lawn is now the aligned sunken garden.
+                self.assertLess(self.support(x,y),STREET_Z)
+                continue
             self.assertAlmostEqual(self.support(x, y), STREET_Z, places=6, msg=name)
             self.assertTrue(self.solid((x, y, 0.)), name)
             self.assertTrue(any(n.startswith('p2_roadside_lawn_' + name) and m == 'exterior_grass'
                                 for n, lo, hi, m in self.boxes), name)
 
     def test_open_minus1_roofs_are_capped_at_ground_level(self):
-        for x, y in ((28., 17.), (33., 10.), (36.5, 15.), (31.4, 5.)):
+        for x, y in ((28., 17.), (36.5, 15.), (31.4, 5.)):
             self.assertGreaterEqual(self.support(x, y), STREET_Z - 1e-6, (x, y))
 
     def test_garden_and_approved_sunken_routes_stay_open(self):
-        for p in ((48., 15., -1.), (40., 12., 0.), (43.8, 5., -1.6), (37., 1.1, -1.), (25., 1.1, 1.5),
+        for p in ((48., 9., -1.), (40., 9., 0.), (43.8, 5., -1.6), (25., 1.1, 1.5),
                   (36., 13.5, -2.)):
             self.assertFalse(self.solid(p), p)
 

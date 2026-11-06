@@ -697,6 +697,8 @@ def build_geometry(root=ROOT,*,include_exterior=True):
         boxes=fill_exterior_gaps(boxes,bridge_levels)
         from tools.povo2_roadside_closure import extend as close_roadside
         boxes=close_roadside(boxes,bridge_levels)
+        from tools.povo2_garden_alignment import extend as align_garden
+        boxes=align_garden(boxes,bridge_levels)
         from tools.povo_lighting_repairs import repair_frontage_lamps
         boxes=repair_frontage_lamps(boxes,bridge_levels)
     try:
@@ -922,8 +924,16 @@ def all_rails(stair,levels):
     return rails
 
 
-def export(root=ROOT):
+def build_registered_geometry(root=ROOT):
+    """Final export geometry; legacy assembly remains in its construction frame."""
     settings, config, boxes, levels, stair = build_geometry(root)
+    from tools.povo2_frontage_registration import apply
+    boxes = apply(boxes, levels)
+    return settings, config, boxes, levels, stair
+
+
+def export(root=ROOT):
+    settings, config, boxes, levels, stair = build_registered_geometry(root)
     try:
         from .povo_spawns import deathmatch_spawns
     except ImportError:
@@ -1039,7 +1049,7 @@ def export(root=ROOT):
                      'tools/povo2_playtest_repairs.py','tools/povo2_minus1_finishes.py','tools/povo2_west_offices.py','tools/build_povo2_west_offices.py',
                      'config/povo2_west_offices.json',
                      'exports/povo2_west_offices_20261029/baseline/layout.json',
-                     'tools/povo2_internal_stairs.py','tools/povo2_basements.py','tools/povo_pavement.py',
+                     'tools/povo2_frontage_registration.py','tools/povo2_garden_alignment.py','tools/povo2_internal_stairs.py','tools/povo2_basements.py','tools/povo_pavement.py',
                      'tools/povo_pavement_lighting.py','tools/povo_street_footways.py','tools/povo2_entrance_finishes.py','tools/povo_exterior_fills.py','tools/povo_lighting_repairs.py','tools/povo_floor_surfaces.py','tools/povo_render_surfaces.py','tools/povo_textures.py','config/povo_textures.json','config/povo2_internal_dimensions.json',
                      'tools/povo2_minus1_corrections.py','config/povo2_minus1_corrections.json',
                      'data/reference/user_feedback/2026-10-29/povo2_minus1_corrections.png',
