@@ -13,6 +13,8 @@ class WalkthroughRepairsTests(unittest.TestCase):
 
     def test_street_arrival_reaches_both_left_turns_with_no_ladder(self):
         self.assertFalse(self.p2['lift']['enabled'])
+        link=next(l['connection'] for l in self.levels if l.get('connection'))
+        self.assertFalse(link['lift']['enabled'])
         self.assertFalse(any(n.startswith('p2_lift_') for n,*_ in self.boxes))
         ids=('terrace_to_wi1','terrace_to_c7','terrace_to_c5_north')
         paths=[r for r in self.p2['basement_rebuild']['routes'] if r['id'] in ids]

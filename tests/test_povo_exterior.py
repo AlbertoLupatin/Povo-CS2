@@ -102,6 +102,15 @@ class ExteriorStudyTests(unittest.TestCase):
                               for name,a,b,mat in self.boxes)
                 self.assertTrue(supported,f'No threshold/floor support at {(x,y)}')
 
+    def test_entrance_envelope_has_no_side_projection(self):
+        lobby=self.meta['config']['povo2_double_entrance']['lobby_bounds']
+        pieces=[b for b in self.boxes if b[0].startswith('povo2_front_annex_0_')]
+        self.assertTrue(pieces)
+        for name,lo,hi,_ in pieces:
+            # Facade frames and roof have at most a 15 cm overhang.
+            self.assertGreaterEqual(lo[1],lobby[1]-.151,name)
+            self.assertLessEqual(hi[1],lobby[3]+.151,name)
+
     def test_inner_column_and_entrance_xy_match_reference_topology(self):
         e=self.meta['povo2_double_entrance'];s=self.meta['config']['povo2_double_entrance']
         self.assertGreater(e['outer_x'],e['inner_x'])

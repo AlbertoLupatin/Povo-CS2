@@ -1,0 +1,8 @@
+{
+  "status": "superseded; do not implement earlier coordinates",
+  "replacement": "corridor_garden_connection.png",
+  "upper_landing": "-1 corridor end, at start of garden footprint",
+  "lower_landing": "-2, approximately halfway along garden",
+  "connection": "straight, no turns; stair parallel to retaining wall below road",
+  "metric_registration": "not yet established"
+}

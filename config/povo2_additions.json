@@ -2,9 +2,9 @@
   "status": "Photo-guided gameplay reconstruction; dimensions and room labels provisional",
   "ground_corridor": [
     2,
-    8,
+    15.4,
     31,
-    11
+    18
   ],
   "ground_rooms": [
     {
@@ -13,9 +13,9 @@
       "kind": "computer",
       "bounds": [
         20,
-        0.5,
+        10.8,
         31,
-        8
+        15.4
       ],
       "door_x": 29.5
     },
@@ -25,9 +25,9 @@
       "kind": "classroom",
       "bounds": [
         10,
-        0.5,
+        10.8,
         20,
-        8
+        15.4
       ],
       "door_x": 18.5
     },
@@ -37,9 +37,9 @@
       "kind": "classroom",
       "bounds": [
         2,
-        0.5,
+        10.8,
         10,
-        8
+        15.4
       ],
       "door_x": 9
     }
@@ -84,7 +84,8 @@
     "Basement exit uses estimated five-riser indoor and fifteen-riser outdoor stairs. Yard location is supported by photos 19-20; existing Povo 2 ground/bridge elevations are preserved as requested.",
     "User correction: stair entrance beside reception; straight classroom corridor with PC room first. Exiting stairs east: right/south then right/west reaches CIBIO; left/north then right/east reaches the exit.",
     "26 October playtest correction approved: transverse classroom corridor after stairs; enlarged B106 adjoining B108; separate ladder doorway in gap beside stairs; aula west of intermediate lobby, seats face east toward entry.",
-    "27 October user draw.io replaces earlier aula placement and stair/lift alignment. Basement door faces south after rigid clockwise rotation, explicitly confirmed in chat."
+    "27 October user draw.io replaces earlier aula placement and stair/lift alignment. Basement door faces south after rigid clockwise rotation, explicitly confirmed in chat.",
+    "5 November: B106/B108/B109 identities confirmed. Room row and 2.6 m corridor fit between yellow facade N10.8 and fixed stairwell N18; former projecting coordinates superseded."
   ],
   "basement_exit": {
     "locker_corridor": [
@@ -129,7 +130,7 @@
   },
   "ground_approach": [
     22.5,
-    11,
+    18,
     25.5,
     29.5
   ],
@@ -151,5 +152,12 @@
     26,
     20.5,
     35.5
-  ]
+  ],
+  "ground_registration": {
+    "facade_north": 10.8,
+    "corridor_width": 2.6,
+    "stairwell_south": 18,
+    "status": "User confirms room row and corridor fill facade-to-stairwell space; depths fitted, not surveyed",
+    "preserve": "Room order, reception, stairwell, internal stair directions and basement interiors"
+  }
 }

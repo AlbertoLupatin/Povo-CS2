@@ -38,7 +38,7 @@ class DrawioEntranceTests(unittest.TestCase):
         self.assertEqual(down[1::2],terrace[1::2])
         self.assertAlmostEqual(down[0],terrace[2])
         self.assertEqual(sum(n.startswith('p2_basement_drawio_up_step_') for n,*_ in self.boxes),20)
-        self.assertEqual(sum(n.startswith('p2_basement_drawio_down_step_') for n,*_ in self.boxes),20)
+        self.assertEqual(sum(n.startswith('p2_aligned_garden_down_step_') for n,*_ in self.boxes),20)
 
     def test_local_routes_and_every_tread_clear_in_both_directions(self):
         paths=[dict(points=p) for p in self.p2['gardens']['routes'].values()]
@@ -55,14 +55,16 @@ class DrawioEntranceTests(unittest.TestCase):
             for z in (.6,1.5,2.4):self.assertTrue(blocked(x,y,z))
         self.assertFalse(any(d['id'].startswith(('p2_drawio_c5_north','p2_drawio_e2')) for d in self.p2['repair_doors']))
 
-    def test_lower_approach_has_no_unfilled_strip_beside_its_walking_route(self):
-        for x in (42.3,42.6,43.8,44.9,45.3):
-            for y in (3.,5.,8.):
+    def test_lower_approach_meets_retained_interior_exit(self):
+        garden=self.p2['gardens']['garden']
+        for x in (35.,36.,37.):
+            for y in (garden[3]-.2,garden[3]+.2,13.5):
                 self.assertTrue(any(lo[0]<=x<=hi[0] and lo[1]<=y<=hi[1] and abs(hi[2]+3.2)<.01
                     for _,lo,hi,m in self.physics if m.startswith('floor_')),(x,y))
-        walls=[b for b in self.physics if b[0].startswith('p2_basement_drawio_garden_approach_retaining_')]
-        self.assertEqual(len(walls),2)
-        self.assertTrue(all(lo[2]<-3.2 and hi[2]>=4. for _,lo,hi,_ in walls))
+        route=self.p2['gardens']['routes']['office_exit']
+        _,failures=audit_stair_routes(self.physics,[dict(points=route),dict(points=route[::-1])])
+        self.assertFalse(failures,failures[:5])
+        self.assertEqual(route[0],[34.8,13.5,-3.2])
 
     def test_terrace_is_one_strip_from_its_west_end(self):
         # User correction 31 Oct: no partition across the drawn terrace.

@@ -1,0 +1,9 @@
+{
+  "reference": "cached OSM / Overture 2026-10-21; EPSG:25832",
+  "at_local_east": 18.25,
+  "povo1_north_facade": -19.93518292689791,
+  "povo2_south_facade": 10.809999999590218,
+  "reference_gap": 30.745182926488127,
+  "source_bridge_span": 30,
+  "not_surveyed": true
+}
