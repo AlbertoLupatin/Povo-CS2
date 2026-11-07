@@ -7,18 +7,19 @@ COLORS = {
     'asphalt': (91,94,95), 'paving': (167,163,151), 'marking': (229,229,215),
     'fbk_blue': (82,139,181), 'fbk_window': (48,78,99),
     'grass': (100,121,78), 'concrete': (159,160,151), 'fence': (139,152,155),
-    'stone': (183,175,150), 'glass': (71,103,111), 'entry_glass': (96,126,133),
+    'stone': (183,175,150), 'glass': (71,103,111), 'entry_glass': (151,196,210),
     'dark': (49,59,64), 'white': (217,215,203), 'residential_grey': (132,143,149),
     'orange': (159,70,46), 'car_blue': (55,72,87), 'car_white': (207,210,208),
     'car_red': (149,48,42), 'tree': (59,88,62), 'trunk': (94,82,66),
     'ginkgo_leaf': (103,143,58), 'ginkgo_leaf_light': (137,166,72), 'ginkgo_leaf_dark': (71,112,45),
+    'shrub_leaf': (76,112,47), 'shrub_leaf_light': (111,139,60), 'shrub_leaf_dark': (50,80,36),
     'ridge': (106,124,134), 'tile': (191,188,166), 'grout': (136,137,125),
     'light': (245,237,190), 'canopy_glass': (135,171,180), 'context_concrete': (159,160,151),
     # Render-only renames of paving and orange (config/povo_textures.json).
     'dark_sidewalk': (92,94,96), 'red_paving': (160,70,58), 'frosted_glass': (176,204,198)
 }
-# 20% transmission, 80% opacity, per pane. Frames and safety bands stay opaque.
-OPACITY = {'glass': .32, 'entry_glass': .84, 'canopy_glass': .40}
+# Entrance panes match the campus room-wall glazing. Frames and bands stay opaque.
+OPACITY = {'glass': .32, 'entry_glass': .32, 'canopy_glass': .40}
 PREFIX = 'materials/trento/povo/campus/exterior/'
 
 
@@ -31,7 +32,7 @@ def write_materials(directory):
     write_png(directory/'neutral_normal.png', png((128,128,255),'flat',4))
     write_png(directory/'opaque_mask.png', png((255,255,255),'flat',4))
     for name,color in COLORS.items():
-        pattern='asphalt' if name=='asphalt' else 'plain'
+        pattern='asphalt' if name=='asphalt' else 'leaf' if name.startswith('shrub_leaf') else 'plain'
         write_png(directory/(name+'.png'), png(color,pattern,64))
         write_png(directory/(name+'_rough.png'), png((185,)*3,'flat',4))
         transparent=name in OPACITY
@@ -39,7 +40,7 @@ def write_materials(directory):
                 'csgo_unlitgeneric.vfx' if name in ('context_concrete','bus_led') else 'csgo_complex.vfx')
         flags=('    F_TRANSLUCENT "1"\n    F_RENDER_BACKFACES "1"\n'
                f'    g_flOpacityScale "{OPACITY[name]}"\n') if transparent else ''
-        if name.startswith('ginkgo_leaf'):flags+='    F_RENDER_BACKFACES "1"\n'
+        if name.startswith(('ginkgo_leaf', 'shrub_leaf')):flags+='    F_RENDER_BACKFACES "1"\n'
         layer='Layer1' if transparent else ''
         textures=(f'    Texture{layer}Color "{PREFIX}{name}.png"\n'
                   f'    Texture{layer}Normal "{PREFIX}neutral_normal.png"\n'
@@ -47,7 +48,7 @@ def write_materials(directory):
         if transparent:textures+=f'    TextureLayer1Translucency "{PREFIX}opaque_mask.png"\n'
         surface=('glass' if transparent else 'asphalt' if name=='asphalt' else
                  'tile' if name=='tile' else 'metal' if name in ('fence','dark','fbk_blue') or name.startswith('bus_') else
-                 'grass' if name in ('grass','tree') or name.startswith('ginkgo_leaf') else 'wood' if name=='trunk' else 'concrete')
+                 'grass' if name in ('grass','tree') or name.startswith(('ginkgo_leaf', 'shrub_leaf')) else 'wood' if name=='trunk' else 'concrete')
         text=(f'Layer0\n{{\n    shader "{shader}"\n'+flags+textures+
               '    g_vColorTint "[1 1 1 0]"\n    g_flModelTintAmount "1"\n'
               '    SystemAttributes { PhysicsSurfaceProperties "'+surface+'" }\n}\n')

@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="1040" viewBox="0 0 1460 1040">
+<rect width="1460" height="1040" fill="#f8fafc"/>
+<text x="70" y="62" font-family="Segoe UI,Arial,sans-serif" font-size="30" fill="#172a3a">Povo 2 roadside area: what to fill, and what to keep open</text>
+<text x="70" y="100" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">Reference interpretation from photos + municipal orthophoto + RoanS77 shaders-mod</text>
+<text x="70" y="129" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#526575">Plan uses the current approved source coordinates. Coloured treatments are proposals.</text>
+<polygon points="80,790 980,790 980,160 80,160" fill="#eef1f4" stroke="#c9d2da" stroke-width="2"/>
+<polyline points="110,790 110,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="100" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">10</text>
+<polyline points="185,790 185,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="175" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">15</text>
+<polyline points="260,790 260,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="250" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">20</text>
+<polyline points="335,790 335,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="325" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">25</text>
+<polyline points="410,790 410,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="400" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">30</text>
+<polyline points="485,790 485,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="475" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">35</text>
+<polyline points="560,790 560,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="550" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">40</text>
+<polyline points="635,790 635,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="625" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">45</text>
+<polyline points="710,790 710,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="700" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">50</text>
+<polyline points="785,790 785,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="775" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">55</text>
+<polyline points="860,790 860,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="850" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">60</text>
+<polyline points="935,790 935,160" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="925" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">65</text>
+<polyline points="80,790 980,790" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="39" y="795" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">-10</text>
+<polyline points="80,715 980,715" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="39" y="720" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">-5</text>
+<polyline points="80,640 980,640" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="39" y="645" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">0</text>
+<polyline points="80,565 980,565" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="39" y="570" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">5</text>
+<polyline points="80,490 980,490" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="39" y="495" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">10</text>
+<polyline points="80,415 980,415" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="39" y="420" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">15</text>
+<polyline points="80,340 980,340" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="39" y="345" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">20</text>
+<polyline points="80,265 980,265" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="39" y="270" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">25</text>
+<polyline points="80,190 980,190" fill="none" stroke="#dce3e9" stroke-width="1"/>
+<text x="39" y="195" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#596977">30</text>
+<polyline points="890,790 890,640 925.6999999999999,415 929.6,310.45000000000005 935.1500000000001,160" fill="none" stroke="#9ba4ae" stroke-width="105"/>
+<polyline points="140,715 290,715 440,715 710,715 890,715" fill="none" stroke="#9ba4ae" stroke-width="90"/>
+<polyline points="890,790 890,640 925.6999999999999,415 935.1500000000001,160" fill="none" stroke="#f8fafc" stroke-width="2"/>
+<polygon points="810.5,640 837.5,640 873.8000000000001,406.75 882.5,160 810.5,160" fill="#d3d6db" stroke="#596977" stroke-width="2"/>
+<polygon points="477.5,340.0 830.0,340.0 830.0,215.5 477.5,215.5" fill="#dbe4ed" stroke="#596977" stroke-width="2"/>
+<polygon points="530,508.75 792.5,508.75 792.5,340 530,340" fill="#b8dcae" stroke="#38683a" stroke-width="3"/>
+<polygon points="87.5,635.65 437.0,635.65 437.0,610.0 87.5,610.0" fill="#dbe4ed" stroke="#415268" stroke-width="3"/>
+<polygon points="267.5,725.65 305.0,725.65 305.0,635.65 267.5,635.65" fill="#ffdda0" stroke="#8b642c" stroke-width="3"/>
+<polyline points="267.5,716.65 305.0,716.65" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="267.5,707.65 305.0,707.65" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="267.5,698.65 305.0,698.65" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="267.5,689.6500000000001 305.0,689.6500000000001" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="267.5,680.65 305.0,680.65" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="267.5,671.65 305.0,671.65" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="267.5,662.65 305.0,662.65" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="267.5,653.65 305.0,653.65" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="267.5,644.6499999999999 305.0,644.6499999999999" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polygon points="437.0,635.65 594.5,635.65 594.5,610.0 437.0,610.0" fill="#ffdda0" stroke="#8b642c" stroke-width="3"/>
+<polyline points="452.75,635.65 452.75,610.0" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="468.5,635.65 468.5,610.0" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="484.25000000000006,635.65 484.25000000000006,610.0" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="500.0,635.65 500.0,610.0" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="515.75,635.65 515.75,610.0" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="531.5,635.65 531.5,610.0" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="547.25,635.65 547.25,610.0" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="563.0,635.65 563.0,610.0" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polyline points="578.75,635.65 578.75,610.0" fill="none" stroke="#a57a39" stroke-width="1"/>
+<polygon points="594.5,635.65 639.5,635.65 639.5,610.0 594.5,610.0" fill="#ffdda0" stroke="#8b642c" stroke-width="3"/>
+<polygon points="496.25,598.75 810.5,598.75 810.5,508.75 496.25,508.75" fill="#f7d4a2" stroke="#b77b28" stroke-width="3"/>
+<polyline points="810.5,640 810.5,340" fill="none" stroke="#b77b28" stroke-width="9"/>
+<polyline points="477.5,340 830,340" fill="none" stroke="#6689aa" stroke-width="6"/>
+<polygon points="740.0,621.25 810.5,621.25 810.5,545.0 740.0,545.0" fill="#f6b8b8" stroke="#b63838" stroke-width="3"/>
+<polyline points="740.0,621.25 810.5,545.0" fill="none" stroke="#b63838" stroke-width="3"/>
+<polyline points="740.0,545.0 810.5,621.25" fill="none" stroke="#b63838" stroke-width="3"/>
+<polyline points="428.0,622.8249999999999 440.52500000000003,622.8249999999999 447.57500000000005,622.8249999999999 454.625,622.8249999999999 461.675,622.8249999999999 468.72499999999997,622.8249999999999 475.775,622.8249999999999 482.82499999999993,622.8249999999999 489.87500000000006,622.8249999999999 496.925,622.8249999999999 503.975,622.8249999999999 515.75,622.8249999999999 527.5250000000001,622.8249999999999 534.575,622.8249999999999 541.625,622.8249999999999 548.675,622.8249999999999 555.7249999999999,622.8249999999999 562.7750000000001,622.8249999999999 569.825,622.8249999999999 576.875,622.8249999999999 583.925,622.8249999999999 590.9749999999999,622.8249999999999 617.0,622.8249999999999" fill="none" stroke="#ffffff" stroke-width="10"/>
+<polyline points="428.0,622.8249999999999 440.52500000000003,622.8249999999999 447.57500000000005,622.8249999999999 454.625,622.8249999999999 461.675,622.8249999999999 468.72499999999997,622.8249999999999 475.775,622.8249999999999 482.82499999999993,622.8249999999999 489.87500000000006,622.8249999999999 496.925,622.8249999999999 503.975,622.8249999999999 515.75,622.8249999999999 527.5250000000001,622.8249999999999 534.575,622.8249999999999 541.625,622.8249999999999 548.675,622.8249999999999 555.7249999999999,622.8249999999999 562.7750000000001,622.8249999999999 569.825,622.8249999999999 576.875,622.8249999999999 583.925,622.8249999999999 590.9749999999999,622.8249999999999 617.0,622.8249999999999" fill="none" stroke="#266699" stroke-width="5"/>
+<polyline points="617.0,622.8249999999999 617.0,490.0 777.5,490.0 777.5,362.5 552.5,362.5 552.5,452.5" fill="none" stroke="#ffffff" stroke-width="10"/>
+<polyline points="617.0,622.8249999999999 617.0,490.0 777.5,490.0 777.5,362.5 552.5,362.5 552.5,452.5" fill="none" stroke="#266699" stroke-width="5"/>
+<polyline points="481.99999999999994,437.5 552.5,437.5" fill="none" stroke="#ffffff" stroke-width="10"/>
+<polyline points="481.99999999999994,437.5 552.5,437.5" fill="none" stroke="#266699" stroke-width="5"/>
+<text x="545" y="420" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">KEEP OPEN</text>
+<text x="545" y="450" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">Garden / lightwell</text>
+<text x="545" y="480" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">existing -2 level</text>
+<text x="545" y="559.5" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">B</text>
+<text x="491.0" y="285" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">C: terrace edge</text>
+<text x="335" y="720" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">BUS</text>
+<text x="237.5" y="795" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">UP</text>
+<text x="437.0" y="666.0" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">DOWN</text>
+<text x="97.99999999999999" y="603.0" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">Approved -1 terrace</text>
+<polyline points="810.5,460 935,460" fill="none" stroke="#b77b28" stroke-width="2"/>
+<text x="935" y="454.5" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">A</text>
+<polyline points="795.5,580 950,625" fill="none" stroke="#b63838" stroke-width="2"/>
+<text x="945.5" y="649.5" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#b63838">D</text>
+<polyline points="125,235 125,175" fill="none" stroke="#172a3a" stroke-width="3"/>
+<text x="117.5" y="183.0" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#172a3a">N</text>
+<text x="1030" y="191" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#b77b28">A  Road-edge backing</text>
+<text x="1030" y="224" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Close exposed vertical faces.</text>
+<text x="1030" y="252" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Top follows the repaired slope.</text>
+<text x="1030" y="280" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Retain lower-route clearance.</text>
+<text x="1030" y="331" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#b77b28">B  Ground / planting</text>
+<text x="1030" y="364" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Re-form the upper bank with</text>
+<text x="1030" y="392" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">paving, grass and low shrubs.</text>
+<text x="1030" y="420" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Keep the blue lower route open.</text>
+<text x="1030" y="471" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#6689aa">C  Terrace / podium edge</text>
+<text x="1030" y="504" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Flat terrace stays flat.</text>
+<text x="1030" y="532" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Close its outer facade below;</text>
+<text x="1030" y="560" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">use glazing only where evidenced.</text>
+<text x="1030" y="611" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#b63838">D  Remove old remnant</text>
+<text x="1030" y="644" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Legacy sloped paving remains</text>
+<text x="1030" y="672" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">at z 6.2-7.42 m above this area.</text>
+<text x="1030" y="700" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Remove/trim it before adding fill.</text>
+<text x="1030" y="751" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#38683a">Green  Open lower garden</text>
+<text x="1030" y="784" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">Retain the approved footprint,</text>
+<text x="1030" y="812" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">stairs, terrace and exits.</text>
+<text x="1030" y="840" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#172a3a">No raised slab across this void.</text>
+<text x="80" y="879" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#172a3a">Blue: protected lower walking route. Orange: proposed edge/bank treatment, not a solid-fill mask.</text>
+<text x="80" y="917" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#172a3a">Evidence: P010-P012, user photos 44-45, municipal 2024 orthophoto; branch 97769b5 (shaders-mod).</text>
+<text x="80" y="954" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#172a3a">Photo/branch levels differ from this approved layout: transfer the construction method, not their 1.25 scale.</text>
+<text x="80" y="992" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#526575">This review changes no map geometry or installed package. See README.md for the source comparison and next steps.</text>
+</svg>

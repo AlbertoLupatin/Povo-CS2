@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "package_sha256": "18d154a01b9cdbe554db740657cd700899dab4ebc4ac8a5541ed4eaacafcd753",
+  "reviewed_views": 10,
+  "mat_fullbright": 0,
+  "scope": "Individual native inspection of these ten views; does not certify all exterior gaps or a complete campus walkthrough.",
+  "views": [
+    {
+      "name": "entrance_ceiling",
+      "image": "entrance_ceiling.png",
+      "sha256": "12616da45a9a6a07c9aa84e1bfdbc997777170c2d397ec2775f86541369ae7d7",
+      "notes": "Obsolete hanging wall rectangle is absent; ceiling remains flat and tiled.",
+      "passed": true
+    },
+    {
+      "name": "entrance_side_wall",
+      "image": "entrance_side_wall.png",
+      "sha256": "f9785ec9fd35d59572e66fca4d302761b7aea898f6bd5b4cbd40ead7599e36bd",
+      "notes": "Unused side bay is closed by a continuous white wall.",
+      "passed": true
+    },
+    {
+      "name": "entrance_sign",
+      "image": "entrance_sign.png",
+      "sha256": "f414acc879cb6a36114fbfa77c853b65887556af1f1d8c6ba3c89b3bff5a88f0",
+      "notes": "One readable SCALE / PIANO 0 label above retained stair doorway.",
+      "passed": true
+    },
+    {
+      "name": "entrance_flat_ceiling",
+      "image": "entrance_flat_ceiling.png",
+      "sha256": "febef2cd625ded70fd1804fe8c9918723785d018048d174ca0a1b5be6e919649",
+      "notes": "Widened hall has continuous ceiling finish; stair opening is retained.",
+      "passed": true
+    },
+    {
+      "name": "fill_A_facing",
+      "image": "fill_A_facing.png",
+      "sha256": "512cd3f2030f37f65f34305ce39b04e0f6d79abfab02ffe65c82e50ac03ca23d",
+      "notes": "Concrete facing visible beside the retained descending stair.",
+      "passed": true
+    },
+    {
+      "name": "fills_B_C",
+      "image": "fills_B_C.png",
+      "sha256": "9389932595bad8023df7c06db5417d1cf4fb3b417d9c78aef9218f28644a8f1f",
+      "notes": "Upper concrete edges visible on both sides of the lower approach; close camera partially occludes bottom of frame.",
+      "passed": true
+    },
+    {
+      "name": "fill_D_support",
+      "image": "fill_D_support.png",
+      "sha256": "da59a6e41b7230cc0d055186c9315d0c85e0156010c36f1f536e49523a536a79",
+      "notes": "Concrete side support visible beneath existing walking grades.",
+      "passed": true
+    },
+    {
+      "name": "exterior_overview",
+      "image": "exterior_overview.png",
+      "sha256": "817c49acdb620b66b40f8af2a9becd9cd129c702ce830dd2706e0c2b29b887e1",
+      "notes": "Registered street and campus geometry retained; no concrete ring crossings reintroduced.",
+      "passed": true
+    },
+    {
+      "name": "lower_garden",
+      "image": "lower_garden.png",
+      "sha256": "2a761b739f82498a096b0ac9c1b22b4df7ac980b78b2b5c19dcd073ee6b07ee4",
+      "notes": "Garden remains open, with concrete-facing/support walls at its edge.",
+      "passed": true
+    },
+    {
+      "name": "lower_approach",
+      "image": "lower_approach.png",
+      "sha256": "8b5efcfc160b5ffa2e59680b9bcfce08c359511454574a7dcdbb1085ab4690cd",
+      "notes": "Retained lower stair approach remains between the concrete edges; movement checked separately.",
+      "passed": true
+    }
+  ]
+}

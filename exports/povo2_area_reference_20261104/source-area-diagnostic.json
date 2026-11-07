@@ -1,0 +1,226 @@
+[
+  {
+    "point": [
+      54,
+      1
+    ],
+    "mesh_surfaces": [],
+    "box_surfaces": []
+  },
+  {
+    "point": [
+      54,
+      3
+    ],
+    "mesh_surfaces": [],
+    "box_surfaces": []
+  },
+  {
+    "point": [
+      54,
+      5
+    ],
+    "mesh_surfaces": [],
+    "box_surfaces": []
+  },
+  {
+    "point": [
+      54,
+      7
+    ],
+    "mesh_surfaces": [],
+    "box_surfaces": []
+  },
+  {
+    "point": [
+      54,
+      9
+    ],
+    "mesh_surfaces": [],
+    "box_surfaces": [
+      {
+        "name": "p2_gardens_garden_floor_windowcut_1",
+        "top": -3.2,
+        "material": "floor_p2_tile"
+      }
+    ]
+  },
+  {
+    "point": [
+      50,
+      5
+    ],
+    "mesh_surfaces": [],
+    "box_surfaces": []
+  },
+  {
+    "point": [
+      40,
+      5
+    ],
+    "mesh_surfaces": [],
+    "box_surfaces": []
+  },
+  {
+    "point": [
+      54,
+      12
+    ],
+    "mesh_surfaces": [],
+    "box_surfaces": [
+      {
+        "name": "p2_gardens_garden_floor_windowcut_1",
+        "top": -3.2,
+        "material": "floor_p2_tile"
+      }
+    ]
+  },
+  {
+    "point": [
+      57.5,
+      10
+    ],
+    "mesh_surfaces": [
+      {
+        "name": "exterior_road_front_campus_paving_0_0_roadcut_0",
+        "heights": [
+          5.5461
+        ]
+      },
+      {
+        "name": "exterior_user_fill_d_0",
+        "heights": [
+          3.97
+        ]
+      },
+      {
+        "name": "exterior_user_fill_d_1",
+        "heights": [
+          4.09
+        ]
+      },
+      {
+        "name": "exterior_user_fill_d_10",
+        "heights": [
+          5.5161
+        ]
+      }
+    ],
+    "box_surfaces": [
+      {
+        "name": "exterior_povo2_front_walk_windowcut_0_windowcut_0",
+        "top": 4.0,
+        "material": "exterior_paving"
+      },
+      {
+        "name": "exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_0_windowcut_0_windowcut_2",
+        "top": 2.75,
+        "material": "exterior_concrete"
+      },
+      {
+        "name": "p2_gardens_street_side_walk",
+        "top": 4.12,
+        "material": "exterior_paving"
+      }
+    ]
+  },
+  {
+    "point": [
+      56,
+      3
+    ],
+    "mesh_surfaces": [
+      {
+        "name": "exterior_povo1_street_grade",
+        "heights": [
+          7.0
+        ]
+      }
+    ],
+    "box_surfaces": [
+      {
+        "name": "exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1",
+        "top": 2.75,
+        "material": "exterior_concrete"
+      },
+      {
+        "name": "p2_basement_repair_street_garden_sidewalk",
+        "top": 4.0,
+        "material": "exterior_paving"
+      }
+    ]
+  },
+  {
+    "point": [
+      56,
+      5
+    ],
+    "mesh_surfaces": [
+      {
+        "name": "exterior_povo1_street_grade",
+        "heights": [
+          6.52
+        ]
+      }
+    ],
+    "box_surfaces": [
+      {
+        "name": "exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1",
+        "top": 2.75,
+        "material": "exterior_concrete"
+      },
+      {
+        "name": "p2_basement_repair_street_garden_sidewalk",
+        "top": 4.0,
+        "material": "exterior_paving"
+      }
+    ]
+  },
+  {
+    "point": [
+      53,
+      2
+    ],
+    "mesh_surfaces": [
+      {
+        "name": "exterior_povo1_street_grade",
+        "heights": [
+          7.24
+        ]
+      }
+    ],
+    "box_surfaces": [
+      {
+        "name": "exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_1_windowcut_1_windowcut_1",
+        "top": 2.75,
+        "material": "exterior_concrete"
+      },
+      {
+        "name": "exterior_user_fill_c",
+        "top": 4.0,
+        "material": "exterior_concrete"
+      }
+    ]
+  },
+  {
+    "point": [
+      56,
+      2
+    ],
+    "mesh_surfaces": [
+      {
+        "name": "exterior_povo1_street_grade",
+        "heights": [
+          7.24
+        ]
+      }
+    ],
+    "box_surfaces": [
+      {
+        "name": "exterior_ground_windowcut_1_windowcut_1_windowcut_1_windowcut_0_windowcut_0_windowcut_1_windowcut_0_windowcut_1",
+        "top": 2.75,
+        "material": "exterior_concrete"
+      }
+    ]
+  }
+]

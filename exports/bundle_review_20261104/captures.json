@@ -1,0 +1,78 @@
+{
+  "package_sha256": "98a21c01cb4fa5f6cb51f388a48a53985dba4b4bd9046002cf0e0de98fe267ea",
+  "addon": "trento_povo_bundle_review",
+  "mat_fullbright": 0,
+  "capture": "Native CS2 window via computer-use skill; unedited",
+  "screenshots": [
+    {
+      "file": "povo2_current_view.png",
+      "sha256": "ccff9f25340e6800679c3aaf696ecef586da80f22af37814e3ed45c87c836441",
+      "position": [
+        -448.501526,
+        2358.193848,
+        206.385849
+      ],
+      "angles": [
+        2.093521,
+        -45.499222,
+        0
+      ]
+    },
+    {
+      "file": "povo1_facade.png",
+      "sha256": "aa1bd85c016297f0b20e5acb3e556960d7eff2ab3c104a3012a8896d54c376c6",
+      "position": [
+        2755.905512,
+        3149.606299,
+        590.551181
+      ],
+      "angles": [
+        7.2,
+        -95.2,
+        0
+      ]
+    },
+    {
+      "file": "via_sommarive_crest.png",
+      "sha256": "badf17a08161735801dc811a74ebe7a2a5b9b922bd85d9979276eba7dcce9c66",
+      "position": [
+        393.7007874,
+        2244.094488,
+        366.141732
+      ],
+      "angles": [
+        7.16,
+        155.22,
+        0
+      ]
+    },
+    {
+      "file": "povo2_glazing.png",
+      "sha256": "0d849b51ffeface727eb39c755ad67cd9c9bbc54e51ca8da16164252998ebd8c",
+      "position": [
+        -2519.685039,
+        2165.354331,
+        354.330709
+      ],
+      "angles": [
+        15.524,
+        -90,
+        0
+      ]
+    },
+    {
+      "file": "facade_detail.png",
+      "sha256": "d813d0f37202be0940f6d94d52b5122b367126992aec6b3bd3299d70681368fc",
+      "position": [
+        2165.354331,
+        1102.362205,
+        354.330709
+      ],
+      "angles": [
+        0,
+        -90,
+        0
+      ]
+    }
+  ]
+}

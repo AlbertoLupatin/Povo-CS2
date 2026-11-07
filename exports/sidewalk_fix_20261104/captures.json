@@ -1,0 +1,68 @@
+{
+  "package_sha256": "09396dc0e1bb6709c528335a44d3c66911f63dee549f33472acbc06634a87bac",
+  "addon": "trento_povo_bundle_review",
+  "mat_fullbright": 0,
+  "capture": "Native CS2 window via computer-use skill; unedited",
+  "screenshots": [
+    {
+      "file": "frontage_same_view.png",
+      "position": [
+        -448.501526,
+        2358.193848,
+        206.385849
+      ],
+      "angles": [
+        2.093521,
+        -45.499222,
+        0
+      ],
+      "noclip": true,
+      "sha256": "ef311ed14ec05847c216df1e4b2a9f7abfd550059d716f0ef85c23ca4add1814"
+    },
+    {
+      "file": "frontage_downhill.png",
+      "position": [
+        39.370079,
+        2263.779541,
+        303.968262
+      ],
+      "angles": [
+        12,
+        -180,
+        0
+      ],
+      "noclip": false,
+      "sha256": "93e91d98595b0cbab1ac9c4a00b31a58a1821a83aefc43983cde10899176bc05"
+    },
+    {
+      "file": "bus_approach.png",
+      "position": [
+        342.519684,
+        1850.393677,
+        283.546844
+      ],
+      "angles": [
+        8,
+        -90,
+        0
+      ],
+      "noclip": false,
+      "sha256": "deb8c4bcdbb493b8fbeaf8625e9d0dfc1116ddd1469874d43ea610495d885d2f"
+    },
+    {
+      "file": "frontage_uphill.png",
+      "position": [
+        -649.606323,
+        2303.149658,
+        162.235947
+      ],
+      "angles": [
+        8,
+        0,
+        0
+      ],
+      "noclip": false,
+      "sha256": "c1256ee16f8bda9f05c10514fe04498f011698ecdba06a2cefe1f9b739e27a99"
+    }
+  ]
+}

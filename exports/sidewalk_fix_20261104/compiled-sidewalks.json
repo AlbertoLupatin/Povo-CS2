@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "samples": 250,
+  "missing": [],
+  "physics_dump_sha256": "bf1aaf0a2d1f7114be45a501843199aa81e3dc62f2c8584d1accaba5e08621c3",
+  "scope": "Native collision support at curb grade; normal walking and visual review are separate"
+}

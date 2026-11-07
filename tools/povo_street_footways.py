@@ -163,8 +163,10 @@ def at_grade(cutter, pavement, road):
 def is_street_footway(mesh):
     name=mesh['name']
     return mesh['material']=='exterior_paving' and (
-        name.startswith(('exterior_footway_','exterior_road_north_footway_',
-                         'exterior_road_front_footway_','exterior_road_front_campus_paving_'))
+        name.startswith(('exterior_footway_', 'exterior_registered_footway_', 'exterior_registered_corner_apron_',
+                         'exterior_road_north_footway_',
+                         'exterior_road_front_footway_','exterior_road_front_campus_paving_',
+                         'exterior_registered_via_footway_'))
         or (name.startswith('exterior_paving_') and '_corner_' in name))
 
 

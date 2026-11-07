@@ -20,10 +20,10 @@ except ImportError:
     from povo_stairs import railing
     from povo_ginkgo import tree as ginkgo, height_for
 
-# Plan bands between the library's north facade (N-13) and the sidewalk (N-9.5).
+# Five metres from the N-13 library facade to the roadside rail at N-8.
 STAIR_Y = (-12.95, -11.45)
-GRASS_Y = (-11.45, -9.55)
-WALL_Y = (-9.6, -9.4)
+GRASS_Y = (-11.45, -8.05)
+WALL_Y = (-8.1, -7.9)
 FLAT_X, BOTTOM_X, TOP_X = 24.0, 36.0, 52.0
 LOW, HIGH = 4.0, 7.6
 STEPS = 30
@@ -97,7 +97,7 @@ def extend(boxes, levels):
     railing(add, rails, 'library_street_fence', (CROSSWALK_EAST, WALL_Y[1]-.1, sidewalk_z(CROSSWALK_EAST)+.1),
             (TOP_X, WALL_Y[1]-.1, sidewalk_z(TOP_X)+.1), height=1.1)
     # Join the sidewalk's end to the street corner above the library.
-    add('sidewalk_corner', (50.0, WALL_Y[1], HIGH-.18), (TOP_X, -8.0, HIGH), 'exterior_paving')
+    add('sidewalk_corner', (50.0, WALL_Y[1], HIGH-.18), (TOP_X, -7.8, HIGH), 'exterior_paving')
     # Small trees in the grass (photo 2); canopies are visual only.
     for i, x in enumerate(TREES):
         z = grass_z(x); y = (GRASS_Y[0]+GRASS_Y[1])/2+.2

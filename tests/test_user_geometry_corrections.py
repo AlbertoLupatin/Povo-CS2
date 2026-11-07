@@ -29,8 +29,13 @@ class UserGeometryCorrections(unittest.TestCase):
         stairs=[box for box in self.exterior if box[0].startswith('entry_stair_')]
         self.assertEqual(len(stairs),20)
         self.assertGreaterEqual(stairs[0][1][0]-24,2.5)
+        wings=self.meta['config']['frontages']['povo1_library_wings']
+        self.assertEqual(stairs[0][1][0],wings[0][0])
+        self.assertEqual(stairs[-1][2][0],wings[0][2])
         for step in stairs:
-            self.assertAlmostEqual((step[1][1]+step[2][1])/2,spec['entrance_y'])
+            self.assertEqual((step[1][1],step[2][1]),(wings[0][3],wings[1][1]))
+            self.assertLess(step[1][1],spec['entrance_y'])
+            self.assertGreater(step[2][1],spec['entrance_y'])
         for lower,upper in zip(stairs,stairs[1:]):
             self.assertAlmostEqual(lower[2][0],upper[1][0])
             self.assertAlmostEqual(upper[2][2]-lower[2][2],.18)
@@ -40,7 +45,7 @@ class UserGeometryCorrections(unittest.TestCase):
 
     def test_translucent_cover_runs_from_threshold_to_before_street_pavement(self):
         roof=[m for m in self.meshes if m['name'].startswith('entry_canopy_roof_')]
-        self.assertEqual(len(roof),3)
+        self.assertEqual(len(roof),2)
         self.assertEqual(min(v[0] for m in roof for v in m['vertices']),24)
         self.assertEqual(max(v[0] for m in roof for v in m['vertices']),52)
         self.assertTrue(all(m['material']=='canopy_glass' for m in roof))

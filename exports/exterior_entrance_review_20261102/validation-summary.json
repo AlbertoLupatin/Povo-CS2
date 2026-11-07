@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "completed_at_utc": "2026-11-02T19:43:53.029834+00:00",
+  "package_sha256": "18d154a01b9cdbe554db740657cd700899dab4ebc4ac8a5541ed4eaacafcd753",
+  "package_bytes": 62707301,
+  "package_entries": 1234,
+  "crc_verified_entries": 1234,
+  "source_tests": 378,
+  "compiled_entrance_fill_checks": 77,
+  "ordinary_routes": 12,
+  "ordinary_waypoints": 110,
+  "reviewed_views": 10,
+  "preservation": {
+    "approved_povo2_metadata_preserved": true,
+    "only_nine_obsolete_ground_wall_tops_removed": true,
+    "only_entrance_finish_and_reviewed_fill_boxes_added": true,
+    "exterior_meshes_preserved": true,
+    "street_asphalt_collision_preserved": true
+  },
+  "local_package": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "scope": "Standard local package; Winter and Workshop not updated",
+  "remaining_issue": "Existing flat asphalt disk at (62,0,7.602) is unchanged; full uphill street traversal remains uncertified."
+}

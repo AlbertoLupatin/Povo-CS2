@@ -1,0 +1,2074 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        15.730769230769234,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        15.730769230769234,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        15.730769230769234,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        16.230769230769234,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        16.230769230769234,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        16.230769230769234,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        16.930769230769233,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        16.930769230769233,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        16.930769230769233,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        17.430769230769233,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        17.430769230769233,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.865714285714285,
+        17.430769230769233,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        15.730769230769234,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        15.730769230769234,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        15.730769230769234,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        16.230769230769234,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        16.230769230769234,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        16.230769230769234,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        16.930769230769233,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        16.930769230769233,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        16.930769230769233,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        17.430769230769233,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        17.430769230769233,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_white_end_wall",
+      "passed": true,
+      "point": [
+        -14.705714285714285,
+        17.430769230769233,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -14.21253604193971,
+        15.150769230769233,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -14.21253604193971,
+        15.150769230769233,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -14.21253604193971,
+        15.150769230769233,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.91253604193971,
+        15.150769230769233,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.91253604193971,
+        15.150769230769233,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.91253604193971,
+        15.150769230769233,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.612536041939709,
+        15.150769230769233,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.612536041939709,
+        15.150769230769233,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.612536041939709,
+        15.150769230769233,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -14.21253604193971,
+        15.310769230769234,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -14.21253604193971,
+        15.310769230769234,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -14.21253604193971,
+        15.310769230769234,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.91253604193971,
+        15.310769230769234,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.91253604193971,
+        15.310769230769234,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.91253604193971,
+        15.310769230769234,
+        2.4
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.612536041939709,
+        15.310769230769234,
+        0.7
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.612536041939709,
+        15.310769230769234,
+        1.5
+      ]
+    },
+    {
+      "name": "photo1_empty_left_doorway",
+      "passed": true,
+      "point": [
+        -13.612536041939709,
+        15.310769230769234,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        21.825,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        21.825,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        21.825,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        22.224999999999998,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        22.224999999999998,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        22.224999999999998,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        21.825,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        21.825,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        21.825,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        22.224999999999998,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        22.224999999999998,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        22.224999999999998,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        24.825,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        24.825,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        24.825,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        25.224999999999998,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        25.224999999999998,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        25.224999999999998,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        24.825,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        24.825,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        24.825,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        25.224999999999998,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        25.224999999999998,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        25.224999999999998,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        27.825,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        27.825,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        27.825,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        28.224999999999998,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        28.224999999999998,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        28.224999999999998,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        27.825,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        27.825,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        27.825,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        28.224999999999998,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        28.224999999999998,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        28.224999999999998,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        30.825,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        30.825,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        30.825,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        31.224999999999998,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        31.224999999999998,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        31.224999999999998,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        30.825,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        30.825,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        30.825,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        31.224999999999998,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        31.224999999999998,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        31.224999999999998,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        33.824999999999996,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        33.824999999999996,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        33.824999999999996,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        34.225,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        34.225,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        34.225,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        33.824999999999996,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        33.824999999999996,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        33.824999999999996,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        34.225,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        34.225,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        34.225,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        36.824999999999996,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        36.824999999999996,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        36.824999999999996,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        37.225,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        37.225,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.34,
+        37.225,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        36.824999999999996,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        36.824999999999996,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        36.824999999999996,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        37.225,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        37.225,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_fixed_black_door",
+      "passed": true,
+      "point": [
+        -2.26,
+        37.225,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        19.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        19.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        19.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        19.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        19.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        19.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        23.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        23.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        23.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        23.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        23.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        23.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        26.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        26.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        26.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        26.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        26.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        26.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        29.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        29.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        29.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        29.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        29.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        29.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        32.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        32.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        32.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        32.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        32.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        32.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        35.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        35.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        35.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        35.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        35.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        35.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        40.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        40.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        40.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        40.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        40.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        40.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        50.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        50.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        50.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        50.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        50.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        50.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        55.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        55.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.4,
+        55.0,
+        2.4
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        55.0,
+        0.7
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        55.0,
+        1.5
+      ]
+    },
+    {
+      "name": "photo2_opaque_wall",
+      "passed": true,
+      "point": [
+        -2.1999999999999997,
+        55.0,
+        2.4
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        12.670057667103539,
+        12.2316877152698,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        14.37005766710354,
+        12.2316877152698,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        19.332857142857144,
+        12.2316877152698,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        12.670057667103539,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        14.37005766710354,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        17.63285714285714,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        19.332857142857144,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        4.268820445609433,
+        12.2316877152698,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        5.968820445609433,
+        12.2316877152698,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        10.77005766710354,
+        12.2316877152698,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        4.268820445609433,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        5.968820445609433,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        9.070057667103539,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        10.77005766710354,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -4.2131979030144215,
+        12.2316877152698,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        0.3492922673656689,
+        12.2316877152698,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -4.2131979030144215,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -2.513197903014421,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        0.3492922673656689,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -9.262018348623855,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -12.089357798165135,
+        14.580769230769233,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        19.332857142857144,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        16.424736566186105,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        13.516615989515074,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        10.77005766710354,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        7.740765399737878,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        4.91342595019659,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        2.0053053735255615,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -0.9028152031454801,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -3.7301546526867613,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -6.517103538663175,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -9.384833551769322,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -12.212173001310614,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -23.09285714285714,
+        15.644374282433985,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -23.09285714285714,
+        12.64644087256028,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -23.09285714285714,
+        9.64850746268656,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -23.09285714285714,
+        6.69741676234214,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -15.3626369593709,
+        2.6500000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -7.1,
+        19.03,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -7.1,
+        20.729999999999997,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -13.149999999999999,
+        19.03,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -13.149999999999999,
+        20.729999999999997,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -13.149999999999999,
+        23.85,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -13.149999999999999,
+        25.549999999999997,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -7.1,
+        57.45,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -7.1,
+        59.15,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -13.149999999999999,
+        57.45,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -13.149999999999999,
+        59.15,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -13.149999999999999,
+        61.85,
+        1.19
+      ]
+    },
+    {
+      "name": "furnished_desk_support",
+      "passed": true,
+      "point": [
+        -13.149999999999999,
+        63.550000000000004,
+        1.19
+      ]
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W07_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W08_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W09_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W10_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W11_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W12_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W13_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W14_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W15_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W16_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W17_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W18_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W19_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W19_exterior_1_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W20_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W21_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W22_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W23_exterior_0_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_west_W23_exterior_1_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_cibio_office_0_exterior_glass"
+    },
+    {
+      "name": "four_attached_privacy_bands",
+      "passed": true,
+      "point": "p2_basement_fitout_cibio_office_1_exterior_glass"
+    }
+  ],
+  "package_sha256": "96cfccfdd484f325ea239deae5dc9cd797ca7dbc7c3896ab40fced7b2a8e3f93",
+  "model_sha256": "38218680740a32c587f0bfad2b54eed8caa9449158cff49773a173026c156ce2"
+}

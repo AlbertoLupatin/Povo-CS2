@@ -1,0 +1,159 @@
+{
+  "package_sha256": "c9c3ddc0b0adcec6ef82905cb4d58ce6a3252175fd270d0dcd0bbfb5ad485ebc",
+  "captures": [
+    {
+      "name": "via_upper_sidewalk",
+      "point": [
+        61.7,
+        -10.5,
+        7.6
+      ],
+      "target": [
+        54.0,
+        -13.5,
+        7.6
+      ],
+      "file": "via_upper_sidewalk.png"
+    },
+    {
+      "name": "via_lower_sidewalk",
+      "point": [
+        58.8,
+        20.0,
+        4.12
+      ],
+      "target": [
+        60.5,
+        37.0,
+        4.08
+      ],
+      "file": "via_lower_sidewalk.png"
+    },
+    {
+      "name": "bridge_library_sidewalk",
+      "point": [
+        46.0,
+        -4.95,
+        7.1
+      ],
+      "target": [
+        29.0,
+        -6.4,
+        4.5
+      ],
+      "file": "bridge_library_sidewalk.png"
+    },
+    {
+      "name": "povo2_apron_and_sidewalk",
+      "point": [
+        53.8,
+        8.0,
+        6.3
+      ],
+      "target": [
+        57.8,
+        22.0,
+        4.0
+      ],
+      "file": "povo2_apron_and_sidewalk.png"
+    },
+    {
+      "name": "library_lower_plaza",
+      "point": [
+        31.0,
+        -19.0,
+        4.0
+      ],
+      "target": [
+        25.0,
+        -15.0,
+        4.0
+      ],
+      "file": "library_lower_plaza.png"
+    },
+    {
+      "name": "povo1_entry_forecourt",
+      "point": [
+        31.0,
+        -73.73,
+        4.0
+      ],
+      "target": [
+        23.0,
+        -73.73,
+        4.0
+      ],
+      "file": "povo1_entry_forecourt.png"
+    },
+    {
+      "name": "povo1_ground_hall",
+      "point": [
+        20.2,
+        -73.7,
+        4.0
+      ],
+      "target": [
+        11.0,
+        -73.7,
+        4.0
+      ],
+      "file": "povo1_ground_hall.png"
+    },
+    {
+      "name": "bridge_povo2_threshold",
+      "point": [
+        18.25,
+        16.5,
+        11.2
+      ],
+      "target": [
+        18.25,
+        23.0,
+        11.2
+      ],
+      "file": "bridge_povo2_threshold.png"
+    },
+    {
+      "name": "povo2_entrance_vestibule",
+      "point": [
+        43.5,
+        42.3,
+        4.0
+      ],
+      "target": [
+        35.8,
+        42.3,
+        4.0
+      ],
+      "file": "povo2_entrance_vestibule.png"
+    },
+    {
+      "name": "povo2_ground_table_hall",
+      "point": [
+        24.5,
+        45.5,
+        4.0
+      ],
+      "target": [
+        24.5,
+        64.0,
+        4.0
+      ],
+      "file": "povo2_ground_table_hall.png"
+    },
+    {
+      "name": "povo1_upper_bridge_link",
+      "point": [
+        18.25,
+        -26.0,
+        11.2
+      ],
+      "target": [
+        18.25,
+        -12.0,
+        11.2
+      ],
+      "file": "povo1_upper_bridge_link.png"
+    }
+  ]
+}

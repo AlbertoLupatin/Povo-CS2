@@ -41,6 +41,14 @@ def png(color, pattern='plain', size=256):
                 offset -= 42
         elif pattern == 'asphalt':
             offset = (noise-.5)*13
+        elif pattern == 'leaf':
+            distance = abs(x-(size-1)/2)
+            vein = (y + .6*distance) % 9
+            offset = (noise-.5)*10 + 5*math.sin(y*.15)
+            if distance < 1:
+                offset += 24
+            elif vein < 1.1:
+                offset += 8
         elif pattern == 'wood':
             board = x // 64
             offset += 3 * math.sin(x * .7 + math.sin(y * .035))

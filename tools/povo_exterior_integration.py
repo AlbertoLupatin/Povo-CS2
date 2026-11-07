@@ -94,7 +94,9 @@ def extend(root,settings,config,boxes,levels,stair):
             mesh['vertices']=[tuple(v*.65 for v in point) for point in mesh['vertices']]
         mesh['name']='exterior_'+mesh['name'];mesh['material']='exterior_'+mesh['material']
     # Small details stay visual; closed road/ramp/fence-base strips supply physics.
-    physics=[m for m in meshes if len(m['vertices'])==8 and not any(s in m['name'] for s in ('_edge_','crosswalk','_top','street_end_gate_','residential_'))]
+    physics=[m for m in meshes if m['name'].startswith('exterior_abandoned_bus_wheel_')
+             or (len(m['vertices'])==8 and not any(s in m['name'] for s in
+                 ('_edge_','crosswalk','_top','street_end_gate_','residential_')))]
     # A continuous barrier supplies the fence collision, avoiding hundreds of
     # separate bar hulls while preserving the closed boundary at player scale.
     for mesh in meshes:
@@ -106,7 +108,7 @@ def extend(root,settings,config,boxes,levels,stair):
     meta=dict(bounds=[-90,-116,74,124],meshes=meshes,collision_meshes=physics,
               door_opacity=meta['material_opacity']['entry_glass'],entrance=meta['povo2_double_entrance'],
               garage_bounds=garage,original_garage_bounds=parking,
-              povo1_approach=meta['config']['east_approach'],
+              povo1_approach=meta['config']['east_approach'], front_road=meta['config']['front_road'],
               left_terrace=meta['config']['frontages']['povo2_left_terrace'],
               street_end_gate=meta['config']['street_end_gate'],
               context_concrete=meta['config']['context_concrete'],
@@ -122,7 +124,8 @@ def extend(root,settings,config,boxes,levels,stair):
 
 
 def mesh_faces(metadata):
-    return [(m['name'],'campus_'+m['material'],[m['vertices'][i] for i in f],None)
+    return [(m['name'], 'campus_'+m['material'], [m['vertices'][i] for i in f],
+             [m['uvs'][i] for i in f] if 'uvs' in m else None)
             for m in metadata.get('meshes',[]) for f in m['faces']]
 
 

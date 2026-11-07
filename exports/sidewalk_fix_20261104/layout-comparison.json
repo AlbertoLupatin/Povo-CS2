@@ -1,0 +1,11 @@
+{
+  "reference": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\local-benchmark\\20261104T165933Z\\source\\exports\\povo_campus\\provenance.json",
+  "sections_unchanged": {
+    "basement_rebuild": true,
+    "minus1_corrections": true,
+    "west_offices": true,
+    "stairs": true,
+    "lift": true
+  },
+  "status": "passed"
+}

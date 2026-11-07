@@ -405,7 +405,13 @@ def map_text(source,metadata,season='standard'):
             world(elevator['sign']),sign_properties('ASCENSORE'),angles='0 180 90')
         source=add_ladder(source,'campus-elevator-ladder',elevator['ladder'])
     if metadata.get('exterior'):
-        lights.extend((x,y,6.8) for x in (37,42,47) for y in (30.5,36.5))
+        entrance = metadata['exterior']['entrance']
+        _,south,_,north = entrance['lobby_bounds']
+        inside,outside = entrance['inner_x'],entrance['outer_x']
+        # Use the registered vestibule bounds. The original light rows were
+        # left south of the lobby when the double entrance moved north.
+        lights.extend((inside+(outside-inside)*fraction,y,entrance['floor_z']+2.8)
+                      for fraction in (.11,.37,.63,.89) for y in (south+1.5,north-1.5))
         lights.extend(((26,-73.73,7),(32,-73.73,8),(40,-73.73,8.8),(49,-73.73,8.8)))
         lights.extend((x,y,-.25) for x in (-23,2,18) for y in (40,60,80,100))
         upper=metadata['exterior']['povo1_approach']['upper_z']
@@ -696,7 +702,7 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
     if not compile_map:return
     def compile_resource(resource):
         options=map_lighting_options(fast_lighting=fast_lighting,quality=lighting_quality,max_resolution=lightmap_max_resolution) if resource.suffix=='.vmap' else []
-        command=[str(compiler),'-nop4','-fshallow2',*options,'-game',str(cs2_root/'game/csgo'),'-i',str(resource)]
+        command=[str(compiler),'-nop4','-fshallow2','-unbufferedio','-allthreads',*options,'-game',str(cs2_root/'game/csgo'),'-i',str(resource)]
         if resource.suffix!='.vmdl':
             print('Compiling '+str(resource),flush=True)
             subprocess.run(command,check=True);return

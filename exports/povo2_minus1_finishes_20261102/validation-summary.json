@@ -1,0 +1,793 @@
+{
+  "status": "passed",
+  "completed_at_utc": "2026-11-02T15:50:22.526073+00:00",
+  "package_sha256": "96cfccfdd484f325ea239deae5dc9cd797ca7dbc7c3896ab40fced7b2a8e3f93",
+  "package_bytes": 62778837,
+  "package_entries": 1232,
+  "crc_verified_entries": 1232,
+  "source_tests": 369,
+  "compiled_finishing_checks": 239,
+  "normal_lit_views_reviewed": 12,
+  "visual_review": "Individually inspected all 12 saved native captures; requested finishes visible and no black/turquoise streaks in these views",
+  "ordinary_standing_routes": 16,
+  "ordinary_waypoints": 48,
+  "routes": [
+    {
+      "id": "cibio_office_0_entrance",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -8,
+            25.0,
+            0.4
+          ],
+          "position": [
+            -8.011573004032048,
+            24.9999469013,
+            0.40079267060160323
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "cibio_office_0_entrance_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -3.8,
+            25.0,
+            0.4
+          ],
+          "position": [
+            -3.788228847215153,
+            25.000813523900007,
+            0.4007926960016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "cibio_office_1_entrance",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -8,
+            63.0,
+            0.4
+          ],
+          "position": [
+            -8.01972754703208,
+            62.999937500252,
+            0.4007909942016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "cibio_office_1_entrance_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -3.8,
+            63.0,
+            0.4
+          ],
+          "position": [
+            -3.779639837215119,
+            62.99993130265201,
+            0.4007909180016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W01_entry",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            17.200249331585844,
+            10.431687715269799,
+            0.4
+          ],
+          "position": [
+            17.200240047068803,
+            10.430935399241724,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            17.200249331585844,
+            11.131687715269798,
+            0.4
+          ],
+          "position": [
+            17.200264837468804,
+            11.124003177444497,
+            0.40079325480160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            17.200249331585844,
+            11.7316877152698,
+            0.4
+          ],
+          "position": [
+            17.2002679362688,
+            11.740893434646964,
+            0.4007932294016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            16.001457404980343,
+            12.831228473019516,
+            0.4
+          ],
+          "position": [
+            16.016523135864066,
+            12.81733237905127,
+            0.4007932294016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W01_entry_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            17.200249331585844,
+            11.7316877152698,
+            0.4
+          ],
+          "position": [
+            17.186704437868748,
+            11.74432654944698,
+            0.4007931786016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            17.200249331585844,
+            11.131687715269798,
+            0.4
+          ],
+          "position": [
+            17.203887868068815,
+            11.151908455644609,
+            0.40079325480160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            17.200249331585844,
+            10.431687715269799,
+            0.4
+          ],
+          "position": [
+            17.2001625262688,
+            10.45496804104182,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            17.200249331585844,
+            9.7316877152698,
+            0.4
+          ],
+          "position": [
+            17.200243145868804,
+            9.740850393838963,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W02_entry",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            8.69561226736566,
+            10.431687715269799,
+            0.4
+          ],
+          "position": [
+            8.695626601634784,
+            10.430777258841724,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            8.69561226736566,
+            11.131687715269798,
+            0.4
+          ],
+          "position": [
+            8.695645194434784,
+            11.11734621844447,
+            0.40079325480160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            8.69561226736566,
+            11.7316877152698,
+            0.4
+          ],
+          "position": [
+            8.695607983434783,
+            11.741122872846965,
+            0.4007931786016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            7.519439056356486,
+            12.831228473019516,
+            0.4
+          ],
+          "position": [
+            7.518908508030076,
+            12.831712106451327,
+            0.4007931786016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W02_entry_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            8.69561226736566,
+            11.7316877152698,
+            0.4
+          ],
+          "position": [
+            8.705294984634822,
+            11.722641045446892,
+            0.4007931786016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            8.69561226736566,
+            11.131687715269798,
+            0.4
+          ],
+          "position": [
+            8.695707983234783,
+            11.13695974284455,
+            0.40079325480160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            8.69561226736566,
+            10.431687715269799,
+            0.4
+          ],
+          "position": [
+            8.695600236434784,
+            10.451264390841807,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            8.69561226736566,
+            9.7316877152698,
+            0.4
+          ],
+          "position": [
+            8.695633561234784,
+            9.726659007438906,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W04_entry",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -1.0272041939711656,
+            10.431687715269799,
+            0.4
+          ],
+          "position": [
+            -1.027231880004109,
+            10.408657694241635,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -1.0272041939711656,
+            11.131687715269798,
+            0.4
+          ],
+          "position": [
+            -1.027216563804109,
+            11.125430987644503,
+            0.40079325480160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -1.0272041939711656,
+            11.7316877152698,
+            0.4
+          ],
+          "position": [
+            -1.0272042702041089,
+            11.7248478990469,
+            0.4007931786016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -1.9319528178243761,
+            12.831228473019516,
+            0.4
+          ],
+          "position": [
+            -1.938657819407755,
+            12.83947366065136,
+            0.4007931786016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W04_entry_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -1.0272041939711656,
+            11.7316877152698,
+            0.4
+          ],
+          "position": [
+            -1.0328201848041312,
+            11.738481933246954,
+            0.4007931786016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -1.0272041939711656,
+            11.131687715269798,
+            0.4
+          ],
+          "position": [
+            -1.0275523010041103,
+            11.151615441244608,
+            0.40079325480160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -1.0272041939711656,
+            10.431687715269799,
+            0.4
+          ],
+          "position": [
+            -1.0272024160041089,
+            10.447145272841789,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -1.0272041939711656,
+            9.7316877152698,
+            0.4
+          ],
+          "position": [
+            -1.0271714026041088,
+            9.73989540463896,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W10_entry",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            10.629512450851898,
+            8.089552238805972,
+            0.4
+          ],
+          "position": [
+            10.629527153442519,
+            8.0995335088324,
+            0.4007933564016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            10.629512450851898,
+            7.389552238805972,
+            0.4
+          ],
+          "position": [
+            10.629492279242518,
+            7.381024658829524,
+            0.4007934580016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            10.629512450851898,
+            6.789552238805972,
+            0.4
+          ],
+          "position": [
+            10.62952095584252,
+            6.800077941627201,
+            0.4007934580016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            10.205411533420708,
+            5.044776119402986,
+            0.4
+          ],
+          "position": [
+            10.202438497840811,
+            5.03254088742013,
+            0.4007935596016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W10_entry_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            10.629512450851898,
+            6.789552238805972,
+            0.4
+          ],
+          "position": [
+            10.633938523842536,
+            6.808251102827233,
+            0.4007934580016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            10.629512450851898,
+            7.389552238805972,
+            0.4
+          ],
+          "position": [
+            10.63005735304252,
+            7.3749909142295005,
+            0.4007934580016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            10.629512450851898,
+            8.089552238805972,
+            0.4
+          ],
+          "position": [
+            10.62946825084252,
+            8.081943907232327,
+            0.4007933564016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            10.629512450851898,
+            8.789552238805971,
+            0.4
+          ],
+          "position": [
+            10.629525604042518,
+            8.769467043235078,
+            0.4007933564016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W19_entry",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -17.23997640891219,
+            16.613051664753165,
+            0.4
+          ],
+          "position": [
+            -17.21963886526888,
+            16.613688235666455,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -17.93997640891219,
+            16.613051664753165,
+            0.4
+          ],
+          "position": [
+            -17.938906591071756,
+            16.613068120066455,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -18.539976408912192,
+            16.613051664753165,
+            0.4
+          ],
+          "position": [
+            -18.517134847874072,
+            16.613060373066453,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -20.491416775884666,
+            16.19334098737084,
+            0.4
+          ],
+          "position": [
+            -20.496829516881988,
+            16.192169800064768,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W19_entry_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -18.539976408912192,
+            16.613051664753165,
+            0.4
+          ],
+          "position": [
+            -18.555107720874222,
+            16.60963731666644,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -17.93997640891219,
+            16.613051664753165,
+            0.4
+          ],
+          "position": [
+            -17.943093933471772,
+            16.613058823666453,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -17.23997640891219,
+            16.613051664753165,
+            0.4
+          ],
+          "position": [
+            -17.245631066268984,
+            16.613069669466455,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -16.539976408912192,
+            16.613051664753165,
+            0.4
+          ],
+          "position": [
+            -16.545983849866186,
+            16.613034033266455,
+            0.4007929754016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "c7_to_empty_wi2_door",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -13.91253604193971,
+            14.480769230769234,
+            0.4
+          ],
+          "position": [
+            -13.912518225255651,
+            14.481816832657929,
+            0.4007930516016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -16.052845347313237,
+            14.480769230769234,
+            0.4
+          ],
+          "position": [
+            -16.035013497664142,
+            14.480818434857923,
+            0.4007930516016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "c7_to_empty_wi2_door_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -13.91253604193971,
+            14.480769230769234,
+            0.4
+          ],
+          "position": [
+            -13.896119248655586,
+            14.480793619057925,
+            0.4007930516016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -13.91253604193971,
+            16.230769230769234,
+            0.4
+          ],
+          "position": [
+            -13.912364758455652,
+            16.212873949664854,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "native_entity_checks": 33,
+  "native_interaction_checks": 16,
+  "initial_walking_failure": "W01 return: 15 cm lateral tolerance; retained in native-walking-initial.json",
+  "precise_run_failure": "WI2 return: residual sideways motion at turn; retained in native-walking.json",
+  "wi2_repeat": "2.5 cm tolerance and 200 ms stopping pause; both directions pass",
+  "geometry_changes_during_testing": false,
+  "promoted_package": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+  "baseline_backup": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\minus1-finishes-20261102\\backup\\approved-baseline.vpk",
+  "scope": "Finishing update in a solo native review addon. Winter, Workshop, multiplayer and a complete campus walkthrough were not tested or updated."
+}

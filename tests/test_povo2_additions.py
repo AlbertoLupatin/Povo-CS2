@@ -23,8 +23,15 @@ class Povo2AdditionTests(TestCase):
             if len(room['fitout']['rows'])>1:
                 self.assertTrue(any(n.startswith('p2_ground_'+name+'_tier_') and hi[2]>lo[2]
                                     for n,lo,hi,_ in self.boxes))
-            self.assertTrue(any(n=='p2_ground_'+name+'_window_glass' and is_breakable_glass(box)
-                                for box in self.boxes for n,_,_,_ in [box]))
+            # The approved facade replaces the old room-specific windows
+            # with sealed curtain-wall panes across the classroom frontage.
+            west, _, east, _ = room['bounds']
+            panes = [box for box in self.boxes
+                     if box[0].startswith('facade_p2_south_l0_')
+                     and box[3] == 'window_glass'
+                     and max(west, box[1][0]) < min(east, box[2][0])]
+            self.assertTrue(panes, name)
+            self.assertTrue(all(not is_breakable_glass(box) for box in panes))
 
     def test_both_cibio_offices_are_reachable_and_six_terrace_doors_are_fixed(self):
         basement=next(l for l in self.spec['levels'] if l['floor']==-1)

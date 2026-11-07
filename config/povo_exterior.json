@@ -451,19 +451,19 @@
   "east_approach": {
     "lower_plaza": [
       24,
-      -76.83,
-      27,
-      -70.63000000000001
+      -77,
+      36,
+      -69
     ],
     "lower_z": 4.0,
     "upper_z": 7.6,
     "stairs": [
-      27,
-      -76.43,
       36,
-      -71.03
+      -77,
+      52,
+      -69
     ],
-    "reference": "User correction: straight outward from the Povo 1 entrance after a 3 m landing; red steps end on the upper paving. Semi-transparent glass cover starts at the exterior threshold and stops before street pavement.",
+    "reference": "User correction: red stair descends between the canteen and library from their street ends to their Povo 1 ends. Semi-transparent glass cover starts at the exterior threshold and stops before street pavement.",
     "entrance_y": -73.73,
     "canopy_end_x": 52,
     "canopy_clearance": 3.4

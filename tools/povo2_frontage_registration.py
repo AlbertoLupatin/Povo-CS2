@@ -7,11 +7,14 @@ fitted to the confirmed topology, not an independent measured survey.
 """
 import copy
 import math
+import random
 import re
 from .povo_room_fitout import subtract_box
+from .povo_floor_surfaces import bounds, overlaps, subtract
 from .povo_stairs import railing
-from .povo2_roadside_closure import _hexa, _fence, _barrier, footway_z
-from .build_povo_exterior import strip, joint
+from .povo_library_stair import WALL_Y, grass_z
+from .povo2_roadside_closure import _hexa, _fence, _barrier
+from .povo_street_footways import corners, prism, tops, trim_carriageways
 
 FACADE = 10.8
 OFFSET = FACADE-2.
@@ -19,7 +22,13 @@ GRASS_WIDTH = 5.
 TERRACE_WIDTH = 1.71
 GRATE = FACADE-TERRACE_WIDTH
 PAVEMENT_EDGE = GRATE-GRASS_WIDTH
-ROAD_OFFSET = PAVEMENT_EDGE-(-.6)
+ROAD_WIDTH = 7.
+WALK_WIDTH = 1.4
+ROAD_NORTH = PAVEMENT_EDGE-WALK_WIDTH
+ROAD_CENTRE = ROAD_NORTH-ROAD_WIDTH/2
+ROAD_OFFSET = ROAD_CENTRE-(-5.)
+BUS_PREFIX = 'exterior_abandoned_bus_'
+BUS_NORTH_SHIFT = 1.8
 ROOMS = ('b106','b108','b109')
 _SKIP = {'flight_counts','scale_metres_per_crop_pixel','core_registered_span_metres',
          'size_pixels','span','crop_original_pixels','trace_crop_pixels_approx',
@@ -112,10 +121,19 @@ def apply(boxes, levels):
             if pt[0]<=11 and pt[2]<0:pt[1]=max(pt[1],FACADE+.6)
     remove=('p2_roadside_', 'p2_basement_drawio_up_', 'p2_basement_drawio_drawio_up_',
             'p2_basement_drawio_old_up_infill','p2_gardens_street_',
-            'exterior_user_fill_','exterior_p2_roadside_')
+            'exterior_user_fill_','exterior_p2_roadside_',
+            'p2_aligned_garden_guard_east_', 'exterior_povo1_street_corner',
+            'exterior_library_library_street_fence_', 'exterior_library_library_street_extension_',
+            'exterior_library_hedge_', 'exterior_p2_entry_floor_joint_',
+            'exterior_library_sidewalk_corner',
+            'exterior_p2_entry_ceiling_joint_')
     result=[]
     for name,lo,hi,material in boxes:
         if name.startswith(remove):continue
+        if name.startswith('exterior_p2_entry_floor'):
+            material='floor_p2_tile'
+        elif name.startswith('exterior_p2_entry_ceiling'):
+            material='ceiling_panel'
         own=name.startswith(('p2_','academic_first_link_p2_', 'exterior_p2_entry_',
                              'exterior_povo2_front_annex_0_'))
         if own:
@@ -132,7 +150,12 @@ def apply(boxes, levels):
             if hi[2]<0 and name.startswith(('p2_parking_','p2_basement_')):
                 if hi[1]<=FACADE:continue
                 lo=(lo[0],max(lo[1],FACADE),lo[2])
-            if name=='p2_aligned_garden_wall_road':hi=(hi[0],hi[1],.4)
+            if name in ('p2_aligned_garden_wall_road',
+                        'p2_basement_drawio_terrace_retaining_west_south',
+                        'p2_basement_drawio_terrace_retaining_west_end'):
+                hi=(hi[0],hi[1],.4)
+        if name.startswith(BUS_PREFIX):
+            lo=_move_bus(lo);hi=_move_bus(hi)
         result.append((name,lo,hi,material))
     def add(name,lo,hi,material='wall'):
         if any(a>=b for a,b in zip(lo,hi)):raise ValueError(name)
@@ -140,7 +163,7 @@ def apply(boxes, levels):
     add('parking_front',(-25,FACADE-.16,-3.42),(11,FACADE,-.1))
     # Extend the existing overhead bridge INSIDE the retained facade. Its
     # external span and the Povo 1 arrival never move.
-    add('bridge_floor',(16.5,10,10.98),(20,10+OFFSET,11.2),'floor_p2_tile')
+    add('bridge_floor',(16.5,10,10.98),(20,10+OFFSET,11.2),'floor_circulation')
     add('bridge_ceiling',(16.5,10,14.43),(20,10+OFFSET,14.5),'ceiling_panel')
     for x in (16.34,20.):add('bridge_side_'+str(x),(x,10,11.2),(x+.16,10+OFFSET,14.5))
     link['povo2_floor_parts'].append([16.5,10,20,10+OFFSET])
@@ -156,12 +179,21 @@ def apply(boxes, levels):
         ext[key]=[m for m in ext[key] if not m['name'].startswith(('exterior_p2_roadside_',
             'exterior_user_fill_','exterior_p2_garden_'))]
     result=_carve_context(result,ext,holes)
+    _clear_garden_overhang(result,p['gardens']['garden'])
     _extend_garden_exit(result,ext,p,add)
     link['nav_seeds'].append([30.8,15.,-3.2])
-    _road_and_landscape(result,ext,p,add)
+    link['nav_seeds'].extend(([53.5,13.,4.89],[43.,-5.,6.32]))
+    _road_and_landscape(result,ext,p,add,levels[0]['library_stair']['rails'])
+    _finish_povo1_lobby(result)
+    library=levels[0]['library_stair']
+    west,east=library['x']
+    edge=library['grass_y'][0]
+    ext['meshes'].extend(_shrub_leaves(
+        'exterior_library_hedge', (west,edge+.05,east,edge+.6),
+        lambda x,y:grass_z(x), (23,2), seed=20261108, radius=.32, inset=.04))
     p['frontage_registration']=dict(facade_north=FACADE,interior_offset_north=OFFSET,
         grass_width=GRASS_WIDTH,grate_north=GRATE,pavement_edge_north=PAVEMENT_EDGE,
-        road_offset_north=ROAD_OFFSET,road_width=6.,pavement_width=1.4,
+        road_offset_north=ROAD_OFFSET,road_width=ROAD_WIDTH,pavement_width=WALK_WIDTH,
         room_depth=cfg['ground_rooms'][0]['bounds'][3]-FACADE,
         source='User confirms all floors align; no protruding frontage',
         metric_status='Fitted to confirmed topology and approximate grass/bush dimensions; not surveyed',
@@ -173,7 +205,7 @@ def _carve_context(boxes,ext,holes):
     from .build_povo_campus import subtract_polygon_box
     result=[]
     for box in boxes:
-        if not box[0].startswith('exterior_') or box[0].startswith('exterior_p2_entry_'):
+        if not box[0].startswith('exterior_') or box[0].startswith(('exterior_p2_entry_', 'exterior_abandoned_bus_')):
             result.append(box);continue
         relevant=[h for h in holes if all(box[1][i]<h[1][i] and box[2][i]>h[0][i] for i in range(3))]
         parts=[box]
@@ -182,6 +214,9 @@ def _carve_context(boxes,ext,holes):
     for key in ('meshes','collision_meshes'):
         clipped=[]
         for mesh in ext[key]:
+            if mesh['name'].startswith('exterior_abandoned_bus_'):
+                clipped.append(mesh)
+                continue
             vv=mesh['vertices'];lo=[min(v[i] for v in vv) for i in range(3)];hi=[max(v[i] for v in vv) for i in range(3)]
             relevant=[h for h in holes if all(lo[i]<h[1][i] and hi[i]>h[0][i] for i in range(3))]
             if not relevant:clipped.append(mesh);continue
@@ -197,57 +232,306 @@ def _carve_context(boxes,ext,holes):
     return result
 
 
-def _road_and_landscape(result,ext,p,add):
+def _finish_povo1_lobby(boxes):
+    # Run the terrazzo finish to the stair-enclosure wall. The original
+    # finish stopped short of it, exposing the pale structural slab.
+    _,lo,hi,material=next(box for box in boxes if box[0]=='academic_ground_entrance_lobby_000')
+    wall_face=max(top[1] for name,_,top,_ in boxes
+                  if name.startswith('stair_enclosure_north_'))
+    boxes.append(('academic_ground_lobby_finish_south', (lo[0],wall_face,lo[2]),
+                  (hi[0],lo[1],hi[2]),material))
+
+
+def _move_bus(point):
+    x,y,z=point
+    return x,y+BUS_NORTH_SHIFT,z
+
+
+def _clear_garden_overhang(boxes, garden):
+    # The prototype ground slab predates the shifted garden. Trim its
+    # cantilever from the open yard while retaining the ground outside it.
+    west,south,east,north=garden
+    air=((west,south,-3.19),(east,north,4.))
+    boxes[:]=[part for box in boxes for part in
+              (subtract_box(box,air) if box[0].startswith('exterior_ground_') else [box])]
+
+
+def _road_sections(points):
+    """Return a cross-section with shared miters at every centreline joint."""
+    # Shared cross-sections keep both sidewalks and the road joined on bends.
+    normals = []
+    for a, b in zip(points, points[1:]):
+        dx, dy = b[0]-a[0], b[1]-a[1]
+        length = math.hypot(dx, dy)
+        normals.append((dy/length, -dx/length))
+    offsets = [normals[0]]
+    for a, b in zip(normals, normals[1:]):
+        scale = 1 + a[0]*b[0] + a[1]*b[1]
+        offsets.append(((a[0]+b[0])/scale, (a[1]+b[1])/scale))
+    offsets.append(normals[-1])
+
+    def section(index, distance, lift):
+        x, y, z = points[index]
+        nx, ny = offsets[index]
+        return x+nx*distance, y+ny*distance, z+lift
+    return section
+
+
+def _edge_at_x(edge,x):
+    for a,b in zip(edge,edge[1:]):
+        if a[0] <= x <= b[0]:
+            f = (x-a[0])/(b[0]-a[0])
+            return x,a[1]+f*(b[1]-a[1]),a[2]+f*(b[2]-a[2])
+    raise ValueError(f'No road edge at east coordinate {x}')
+
+
+def _road_bands(name,points,section,width,walk,*,concrete_mouth=False,markings=False):
+    def offset(index,side):
+        return math.copysign(width[index]+(abs(side)-1)*walk,side)
+
+    for i in range(len(points)-1):
+        for band,lo,hi,lift,material in (
+            ('road',-1,1,0.,'exterior_asphalt'),
+            ('footway_south',-2,-1,.12,
+             'exterior_concrete' if concrete_mouth and i==0 else 'exterior_paving'),
+            ('footway_north',1,2,.12,'exterior_paving'),
+        ):
+            top = [section(j,offset(j,k),lift) for j,k in
+                   ((i,lo),(i,hi),(i+1,hi),(i+1,lo))]
+            yield prism(f'exterior_{name}_{band}_{i}',top,material)
+        if markings:
+            for side in (-1,1):
+                ends = [section(j,side*(width[j]-inset),.012) for j,inset in
+                        ((i,.17),(i,.07),(i+1,.07),(i+1,.17))]
+                if i==0 and side==-1:
+                    # The west edge stripe stops at either side of the T-junction.
+                    a,b,c,d = ends
+                    for suffix,poly in enumerate(((a,b,(b[0],-9.,b[2]),(a[0],-9.,a[2])),
+                                                   ((d[0],-2.,d[2]),(c[0],-2.,c[2]),c,d))):
+                        yield prism(f'exterior_{name}_edge_{i}_{side}_{suffix}',poly,'exterior_marking',.008)
+                else:
+                    yield prism(f'exterior_{name}_edge_{i}_{side}',ends,'exterior_marking',.008)
+
+
+def _measured_outer(x,y,side):
+    # Both spans are measured at E44. Fade to the existing apron at E49.3;
+    # the library-side widening ends only after the E52 planting tip.
+    end = 49.3 if side>0 else 54.
+    plateau = 46. if side>0 else 52.
+    weight = max(0.,min(1.,(x-22.)/10.,(end-x)/(end-plateau)))
+    return y+weight*((7. if side>0 else -7.9)-y)
+
+
+def _measured_footways(meshes,section,width):
+    """Build the changed walks from shared global curb/outer cross-sections.
+
+    The original miter is diagonal in plan. Stretching individual clipped
+    polygons gives its two sides different cross-sections and leaves holes.
+    One east-coordinate station grid instead joins both edges exactly.
+    """
+    result=[]
+    def clip(poly,x,keep_right):
+        out=[]
+        for a,b in zip(poly,poly[1:]+poly[:1]):
+            ina = a[0]>=x if keep_right else a[0]<=x
+            inb = b[0]>=x if keep_right else b[0]<=x
+            if ina:out.append(a)
+            if ina!=inb:
+                t=(x-a[0])/(b[0]-a[0])
+                out.append(tuple(a[i]+t*(b[i]-a[i]) for i in range(3)))
+        return out
+    for mesh in meshes:
+        if not mesh['name'].startswith('exterior_registered_footway_'):
+            result.append(mesh);continue
+        original=mesh['vertices'][len(mesh['vertices'])//2:]
+        for j,poly in enumerate((clip(original,22.,False),clip(original,54.,True))):
+            if len(poly)>=3:
+                slab=prism(mesh['name']+f'_terminal_{j}',poly,mesh['material'])
+                if slab:result.append(slab)
+    for side,label in ((-1,'south'),(1,'north')):
+        indices=range(len(width)-1,-1,-1)
+        curb=[section(i,side*width[i],.12) for i in indices]
+        outside=[section(i,side*(width[i]+WALK_WIDTH),.12) for i in range(len(width)-1,-1,-1)]
+        stations=sorted({22.,32.,46.,49.3,52.,54.} |
+                        {v[0] for v in curb+outside if 22.<v[0]<54.})
+        for j,(left,right) in enumerate(zip(stations,stations[1:])):
+            a,b=(_edge_at_x(curb,x) for x in (left,right))
+            c,d=(_edge_at_x(outside,x) for x in (right,left))
+            c=(c[0],_measured_outer(c[0],c[1],side),c[2])
+            d=(d[0],_measured_outer(d[0],d[1],side),d[2])
+            if side*(c[1]-b[1])<=0 or side*(d[1]-a[1])<=0:
+                raise ValueError('Measured sidewalk crossed its fixed curb')
+            slab=prism(f'exterior_registered_footway_{label}_span_{j}',[a,b,c,d])
+            if slab:result.append(slab)
+    return result
+
+
+def _road_and_landscape(result,ext,p,add,library_rails):
     # Rebuild the straight descending road and its western transition, removing
     # the obsolete stair excavation from the actual carriageway.
     road=re.compile(r'exterior_(?:road_[0-3](?:_|$)|footway_[0-3]_|road_joint_[0-2](?:_|$)|road_edge_[0-3](?:_|$))')
     for key in ('meshes','collision_meshes'):ext[key]=[m for m in ext[key] if not road.match(m['name']) and not m['name'].startswith('exterior_road_front_link')]
-    points=[(58,-5,7.6),(50,-5+ROAD_OFFSET,7.6),(32,-5+ROAD_OFFSET,4.),(22,-5+ROAD_OFFSET,4.),
-            (-23,-5+ROAD_OFFSET,3.),(-36,-12,3.)]
-    new=[]
-    for i,(a,b) in enumerate(zip(points,points[1:])):
-        new.append(strip(f'exterior_registered_road_{i}',a,b,6.,'exterior_asphalt'))
-        dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy);nx,ny=-dy/length,dx/length
-        for side in (-1,1):
-            shift=side*3.7
-            aa=(a[0]+nx*shift,a[1]+ny*shift,a[2]+.12)
-            bb=(b[0]+nx*shift,b[1]+ny*shift,b[2]+.12)
-            new.append(strip(f'exterior_registered_footway_{i}_{side}',aa,bb,1.4,'exterior_paving',.22))
-    for i,(a,pivot,b) in enumerate(zip(points,points[1:],points[2:])):
-        mesh=joint(f'exterior_registered_road_join_{i}',a,pivot,b,3.)
-        mesh['material']='exterior_asphalt';new.append(mesh)
-    # Restore the vacated road strip as planted ground, not extra carriageway.
-    for i,(a,b) in enumerate(zip(points[1:-1],points[2:])):
-        if a[1]!=b[1]:continue
-        x0,x1=sorted((a[0],b[0]));z0,z1=footway_z(x0),footway_z(x1)
-        new.append(_hexa(f'exterior_registered_old_road_ground_{i}',
-            [(x0,-9.4),(x1,-9.4),(x1,-5+ROAD_OFFSET-4.4),(x0,-5+ROAD_OFFSET-4.4)],
-            [-3.42]*4,[z0,z1,z1,z0],'exterior_grass'))
+    for key in ('meshes','collision_meshes'):
+        ext[key]=[dict(mesh,vertices=[_move_bus(v) for v in mesh['vertices']])
+                  if mesh['name'].startswith(BUS_PREFIX) else mesh for mesh in ext[key]]
+    front_road = ext['front_road']
+    front_points = front_road['points']
+    half = ROAD_WIDTH/2
+    mouth = front_points[0][0]-half
+    points=[(mouth,-5.5,7.6),(56.5,-5.5,7.6),(50,ROAD_CENTRE,7.6),
+            (32,ROAD_CENTRE,4.),(22,ROAD_CENTRE,4.),(-23,ROAD_CENTRE,3.),(-36,-12,3.)]
+    section = _road_sections(points)
+    width = [half]*(len(points)-1)+[3.]
+    new = list(_road_bands('registered', points, section, width, WALK_WIDTH,
+                           concrete_mouth=True))
+    new = _measured_footways(new,section,width)
+    old_front = re.compile(r'exterior_road_front_(?:\d+|joint_|footway_|edge_|campus_paving_)')
+    for key in ('meshes', 'collision_meshes'):
+        ext[key] = [m for m in ext[key] if not old_front.match(m['name'])
+                    and not m['name'].startswith('exterior_paving_front_road_corner_')
+                    and (not m['name'].startswith('exterior_paving_road_corner_')
+                         or m['name'].startswith(('exterior_paving_road_corner_4_', 'exterior_paving_road_corner_5_')))]
+    new.extend(corners('registered_west', dict(points=[points[-2], points[-1], (-47,-27,3.)],
+                                              width=6., footway_width=WALK_WIDTH)))
+
+    front_section = _road_sections(front_points)
+    front_width = front_road['footway_width']
+    via = _road_bands('registered_via', front_points, front_section,
+                      [half]*len(front_points), front_width, markings=True)
+    mouth_bands = [poly for mesh in new[:6] for poly in tops(mesh)]
+    for mesh in via:
+        if mesh['name'] != 'exterior_registered_via_footway_south_0':
+            new.append(mesh)
+            continue
+        # The mouth has its own two sidewalks. Cut their shared footprint
+        # out of the Via sidewalk to keep the three finishes at one grade.
+        pieces = tops(mesh)
+        for cutter in mouth_bands:
+            pieces = [part for poly in pieces for part in
+                      (subtract(poly,cutter) if overlaps(bounds(poly),bounds(cutter)) else [poly])]
+        for i,top in enumerate(pieces):
+            piece = prism(f"{mesh['name']}_junction_{i}",top)
+            if piece:
+                new.append(piece)
+    frontage_x = front_points[0][0]-half-front_width
+    front_inner = []
+    for i in range(1,len(front_points)):
+        x,y,z = front_section(i,0.,.12)
+        nx,ny,_ = front_section(i,1.,.12)
+        front_inner.append((frontage_x,y+(frontage_x-x)*(ny-y)/(nx-x),z))
+    for i,(a,b) in enumerate(zip(front_inner,front_inner[1:]),1):
+        # Concrete connects the fixed forecourt edge to the measured sidewalk.
+        near = front_section(i,-half-front_width,.12)
+        far = front_section(i+1,-half-front_width,.12)
+        top = [a,near,far,b]
+        for j,indices in enumerate(((0,1,2),(0,2,3))):
+            slab = prism(f'exterior_registered_via_verge_{i}_{j}',
+                         [top[k] for k in indices], material='exterior_concrete')
+            if slab:
+                new.append(slab)
+    front_start, front_end = (point[1] for point in front_inner[:2])
+    court_z = front_points[2][2]
+
+    def front_grade(y):
+        fraction = min(1.,max(0.,(y-front_start)/(front_end-front_start)))
+        return 7.72+(court_z+.12-7.72)*fraction
+
+    original_north = [section(i,width[i]+WALK_WIDTH,.12) for i in (5,4,3,2,1,0)]
+    north_edge = sorted({v[0]:v for v in original_north}.values(),key=lambda v:v[0])
+    for x in (32.,46.,49.3):
+        v = _edge_at_x(original_north,x)
+        north_edge.append((x,_measured_outer(x,v[1],1),v[2]))
+    north_edge = sorted(north_edge,key=lambda v:v[0])
+    north_edge = [(x,_measured_outer(x,y,1),z) for x,y,z in north_edge]
+    original_south = [section(i,-width[i]-WALK_WIDTH,.12) for i in (5,4,3,2,1,0)]
+    south_edge = list(original_south)
+    for x in (32.,52.,54.):
+        south_edge.append(_edge_at_x(original_south,x))
+    south_edge = sorted([(x,_measured_outer(x,y,-1),z) for x,y,z in south_edge])
+
+    def verge_grade(x):
+        return _edge_at_x(north_edge,x)[2]
+
+    garden_end = p['gardens']['garden'][2]
+    edge = [_edge_at_x(north_edge,garden_end),
+            *(v for v in north_edge if garden_end<v[0]<frontage_x),
+            _edge_at_x(north_edge,frontage_x)]
+    back = [(x, GRATE, front_grade(GRATE)) for x, _, _ in edge]
+    for i in range(len(edge)-1):
+        top = [edge[i], edge[i+1], back[i+1], back[i]]
+        for j, indices in enumerate(((0,1,2),(0,2,3))):
+            new.append(prism(f'exterior_registered_corner_apron_{i}_{j}',
+                             [top[k] for k in indices], thickness=8.))
+    # Extend the apron down the street grade to the existing forecourt.
+    # The east wall of the open garden is the west edge of this connection.
+    court_start, court_end = 17.55, p['gardens']['garden'][3]+.08
+    court_edge = 55.5
+    new.append(prism('exterior_registered_forecourt_slope',
+        [(garden_end,GRATE,back[0][2]),(frontage_x,GRATE,back[-1][2]),
+         (frontage_x,front_end,court_z+.12),(garden_end,front_end,court_z+.12)], thickness=8.))
+    new.append(prism('exterior_registered_forecourt_landing',
+        [(garden_end,front_end,court_z+.12),(court_edge,front_end,court_z+.12),
+         (court_edge,court_start,court_z),(garden_end,court_start,court_z)], thickness=7.5))
+    new.append(prism('exterior_registered_forecourt_landing_corner',
+        [(court_edge,front_end,court_z+.12),(frontage_x,front_end,court_z+.12),
+         (frontage_x,court_start,court_z+.12)], thickness=7.5))
+    new.append(prism('exterior_registered_forecourt_landing_join',
+        [(court_edge,front_end,court_z+.12),(frontage_x,court_start,court_z+.12),
+         (court_edge,court_start,court_z)], thickness=7.5))
+    new.append(prism('exterior_registered_forecourt_edge',
+        [(court_edge,court_start,court_z),(frontage_x,court_start,court_z+.12),
+         (frontage_x,29.62,court_z+.12),(court_edge,29.62,court_z)], thickness=7.5))
+
+    _south_footway(new,result,south_edge,frontage_x,library_rails)
+    # The old Povo 2 yard cut a rectangle out of the Povo 1 lower plaza.
+    result.append(('exterior_registered_povo1_plaza_rejoin',
+                   (24.,-22.02,3.78),(30.82,-15.88,4.),'exterior_paving'))
     # Clear old context ground above/beside the rebuilt road surface.
-    hole=((-23,-5+ROAD_OFFSET-4.4,2.7),(50,PAVEMENT_EDGE,10.))
+    hole=((-23,ROAD_CENTRE-half-WALK_WIDTH,2.7),(50,PAVEMENT_EDGE,10.))
     kept=[]
     for box in result:
-        kept.extend(subtract_box(box,hole) if box[0].startswith('exterior_') and not box[0].startswith('exterior_p2_entry_') else [box])
+        kept.extend(subtract_box(box,hole) if box[0].startswith('exterior_') and not box[0].startswith(('exterior_p2_entry_', 'exterior_abandoned_bus_')) else [box])
     result[:]=kept
-    ext['meshes'].extend(new);ext['collision_meshes'].extend(copy.deepcopy(new))
+    ext['meshes'].extend(new)
+    ext['collision_meshes'].extend(copy.deepcopy(
+        [mesh for mesh in new if mesh['material']!='exterior_marking']))
+    trim_carriageways(ext)
     # Grass slopes from the footway to the outside of the terrace grate, with
     # a real break for the exit stair. Closed earth prisms carry collision.
     runs=[(8.5,20.5),(23.,49.3)]
+    terrace_end=p['gardens']['garden'][0]
+
+    def bank_toe(x):
+        # Retain the lowest part of the drop at the grate. Across the -1
+        # corridor frontage this leaves a 3 m rise over the 5 m planted bank.
+        blend=min(1.,max(0.,(34.-x)/(34.-terrace_end)))
+        return .4+blend*max(0.,verge_grade(x)-3.4)
+
+    def bank_grade(x,y):
+        road_z=verge_grade(x)
+        boundary = _edge_at_x(north_edge,x)[1]
+        return road_z+(bank_toe(x)-road_z)*(y-boundary)/(GRATE-boundary)
+
     for run,(a,b) in enumerate(runs):
         count=math.ceil(b-a)
-        for i in range(count):
-            x0=a+(b-a)*i/count;x1=a+(b-a)*(i+1)/count
-            footprint=[(x0,PAVEMENT_EDGE),(x1,PAVEMENT_EDGE),(x1,GRATE),(x0,GRATE)]
-            top=[footway_z(x0),footway_z(x1),.4,.4]
+        stations=sorted({a+(b-a)*i/count for i in range(count+1)} |
+                        {x for x in (22.,terrace_end,32.,34.,46.,49.3) if a<x<b})
+        for i,(x0,x1) in enumerate(zip(stations,stations[1:])):
+            footprint=[(x0,_edge_at_x(north_edge,x0)[1]),(x1,_edge_at_x(north_edge,x1)[1]),(x1,GRATE),(x0,GRATE)]
+            top=[verge_grade(x0),verge_grade(x1),bank_toe(x1),bank_toe(x0)]
             earth=_hexa(f'exterior_registered_grass_{run}_{i}',footprint,[-3.42]*4,top,'exterior_grass')
             ext['meshes'].append(earth);ext['collision_meshes'].append(copy.deepcopy(earth))
+            if x0<34.:
+                curb=prism(f'exterior_registered_bank_toe_{run}_{i}',
+                    [(x0,GRATE-.14,top[3]),(x1,GRATE-.14,top[2]),
+                     (x1,GRATE,top[2]),(x0,GRATE,top[3])],
+                    material='exterior_concrete',thickness=1.)
+                ext['meshes'].append(curb);ext['collision_meshes'].append(copy.deepcopy(curb))
     # One bush, approximately five metres from the right edge of the UP stair,
     # five metres long and the full width of the grass strip, follows its grade.
     a,b=28.,33.
-    bush=_hexa('exterior_registered_bush',[(a,PAVEMENT_EDGE),(b,PAVEMENT_EDGE),(b,GRATE),(a,GRATE)],
-        [footway_z(a),footway_z(b),.4,.4],[footway_z(a)+1.,footway_z(b)+1.,1.4,1.4],
-        'exterior_ginkgo_leaf_dark')
-    ext['meshes'].append(bush)
+    ext['meshes'].extend(_shrub_leaves(
+        'exterior_registered_bush', (a,7.,b,GRATE), bank_grade, (7,7)))
     fences=[];barriers=[]
     for i,(a,b) in enumerate(runs):
         _fence(fences,f'exterior_registered_grate_{i}',a,b,GRATE-.06,lambda x:.4,0)
@@ -265,6 +549,21 @@ def _road_and_landscape(result,ext,p,add):
     path.append([cx,PAVEMENT_EDGE-.55,4.12])
     rails=p['stairs']['rails'];rails[:]=[r for r in rails if not r['name'].startswith(('drawio_up_', 'p2_roadside_'))]
     for x in (20.5,23.):railing(add,rails,'registered_up_'+str(x),(x,GRATE,z),(x,PAVEMENT_EDGE,high))
+    # Guard the drop along the sidewalk and return around the garden corner.
+    for i, (left, right) in enumerate(((8.5,20.5),(23.,32.),(32.,46.),(46.,garden_end))):
+        railing(add, rails, f'registered_street_guard_{i}',
+                (left, _edge_at_x(north_edge,left)[1]+.045, verge_grade(left)),
+                (right, _edge_at_x(north_edge,right)[1]+.045, verge_grade(right)))
+    garden_rail = garden_end+.035
+    corner = (garden_rail, GRATE, back[0][2])
+    railing(add, rails, 'registered_corner_guard_west',
+            (garden_rail, edge[0][1]+.045, edge[0][2]), corner)
+    landing = (garden_rail, front_end, court_z+.12)
+    railing(add, rails, 'registered_corner_guard_slope', corner, landing)
+    railing(add, rails, 'registered_corner_guard_landing', landing,
+            (garden_rail, court_start, court_z))
+    railing(add, rails, 'registered_corner_guard_forecourt',
+            (garden_rail, court_start, court_z), (garden_rail, court_end, court_z))
     g.update(up_stair=[20.5,PAVEMENT_EDGE,23.,GRATE],up_top=[20.5,PAVEMENT_EDGE-1.1,23.,PAVEMENT_EDGE],
              street_garden=[8.5,PAVEMENT_EDGE,49.3,GRATE])
     g['routes']['up']=path
@@ -272,7 +571,86 @@ def _road_and_landscape(result,ext,p,add):
     yard['routes']['up']=path
     p['drawio_entrance']['areas']['up']=g['up_stair']
     p['landscape_registration']=dict(grass_runs=runs,grass_north=[PAVEMENT_EDGE,GRATE],
-        bush=[28.,PAVEMENT_EDGE,33.,GRATE],grate_north=GRATE-.06,up_stair=g['up_stair'])
+        bush=[28.,7.,33.,GRATE],pavement_boundary=north_edge,
+        grate_north=GRATE-.06,up_stair=g['up_stair'])
+
+
+def _south_footway(meshes,boxes,edge,frontage_x,rails):
+    """Join continuous paving to the planting retaining wall and rail."""
+    inner_north = WALL_Y[1]
+    split = 52.
+    verge_edge = [*(v for v in edge if v[0]<split),_edge_at_x(edge,split)]
+
+    def inside_grade(x):
+        if x>=24.:
+            return grass_z(x)
+        # Join the existing lower Povo 1 apron at the same crossfall.
+        road = 3.12+min(1.,max(0.,(x+23.)/45.))
+        return 4.+(road-4.)*(inner_north+20.)/12.
+
+    for i,(a,b) in enumerate(zip(verge_edge,verge_edge[1:])):
+        # Join the lower apron to the planting retaining edge.
+        # The measured central run is already filled by the widened walk.
+        top = [(a[0],inner_north,inside_grade(a[0])),(b[0],inner_north,inside_grade(b[0])),
+               (b[0],b[1],b[2]-.12),(a[0],a[1],a[2]-.12)]
+        for j,indices in enumerate(((0,1,2),(0,2,3))):
+            slab = prism(f'exterior_registered_library_verge_{i}_{j}',
+                         [top[k] for k in indices],'exterior_paving')
+            if slab:
+                meshes.append(slab)
+    # Fill between the library upper landing and the two joined sidewalks.
+    corner = [_edge_at_x(edge,split),*(v for v in edge if split<v[0]<frontage_x),
+              _edge_at_x(edge,frontage_x)]
+    for i,(a,b) in enumerate(zip(corner,corner[1:])):
+        meshes.append(prism(f'exterior_registered_south_landing_{i}',
+            [(a[0],-13.,7.6),(b[0],-13.,7.6),b,a], 'exterior_concrete'))
+
+    def add(name,lo,hi,material):
+        boxes.append(('exterior_library_'+name,tuple(lo),tuple(hi),material))
+
+    rails[:] = [rail for rail in rails if not rail['name'].startswith('library_street_fence_')]
+    # Leave the forecourt access and the bus body clear of the street rail.
+    for run,(first,last) in enumerate(((8.5,21.),(28.,split))):
+        line = [_edge_at_x(edge,first),*(v for v in edge if first<v[0]<last),_edge_at_x(edge,last)]
+        # Seat the posts on the verge so the diagonal clip panels do not
+        # project into the measured walking width.
+        line = [(x,WALL_Y[1]-.1 if x>=24. else y-.15,z-.12) for x,y,z in line]
+        for i,(a,b) in enumerate(zip(line,line[1:])):
+            railing(add,rails,f'library_street_extension_{run}_{i}',a,b,height=1.1)
+
+
+def _shrub_leaves(name, bounds, grade, cells, *, seed=20261107, radius=.44, inset=.11):
+    """Layer textured leaves in irregular clusters within a planting bed."""
+    west,south,east,north=bounds
+    columns,rows=cells
+    rng = random.Random(seed)
+    foliage = [dict(name=f'{name}_{shade}', vertices=[], faces=[],
+                    uvs=[], material='exterior_shrub_leaf'+suffix)
+               for shade, suffix in enumerate(('_dark', '', '_light'))]
+    for ix in range(columns):
+        for iy in range(rows):
+            cx = west + (ix+.5)*(east-west)/columns + rng.uniform(-.12,.12)
+            cy = south + (iy+.5)*(north-south)/rows + rng.uniform(-.12,.12)
+            for _ in range(42):
+                angle = rng.uniform(0, math.tau)
+                radial = math.sqrt(rng.random())*radius
+                x = cx + radial*math.cos(angle)
+                y = cy + radial*math.sin(angle)
+                if not (west+inset < x < east-inset and south+inset+.04 < y < north-inset):
+                    continue
+                z = grade(x,y) + rng.uniform(.24,.90)*math.sqrt(1-(radial/.55)**2)
+                length = rng.uniform(.05,.105)
+                dx, dy = length*math.cos(angle), length*math.sin(angle)
+                bend = rng.uniform(-.035,.035)
+                mesh = rng.choices(foliage, (5, 5, 2))[0]
+                first = len(mesh['vertices'])
+                side_tilt = rng.uniform(-.028,.028)
+                mesh['vertices'].extend(((x-dx,y-dy,z-bend),
+                    (x-dy*.48,y+dx*.48,z+side_tilt), (x+dx,y+dy,z+bend),
+                    (x+dy*.48,y-dx*.48,z-side_tilt), (x,y,z+.018)))
+                mesh['uvs'].extend(((.5,.04),(.04,.48),(.5,.96),(.96,.48),(.5,.48)))
+                mesh['faces'].extend((first+i,first+(i+1)%4,first+4) for i in range(4))
+    return foliage
 
 
 def _extend_garden_exit(result,ext,p,add):

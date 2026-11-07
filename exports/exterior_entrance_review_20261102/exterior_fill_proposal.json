@@ -1,0 +1,46 @@
+{
+  "status": "proposal_only",
+  "source": "Current assembled provenance and Draw.io bounds; screenshot 2 visual correspondence is provisional",
+  "A": {
+    "bounds": [
+      31.96,
+      2.75,
+      35.75,
+      8.75
+    ],
+    "action": "Concrete facing on exposed vertical sides; retain top"
+  },
+  "B": {
+    "bounds": [
+      35.75,
+      2,
+      42.02,
+      2.75
+    ],
+    "action": "Proposed upper edge continuity; verify against screenshot"
+  },
+  "C": {
+    "bounds": [
+      45.58,
+      2,
+      55.5,
+      2.75
+    ],
+    "action": "Proposed upper edge continuity; keep approach open"
+  },
+  "D": {
+    "bounds": [
+      56.7,
+      -1,
+      58,
+      15
+    ],
+    "action": "Close underside/side voids following existing street-walk grade"
+  },
+  "preserve": [
+    "Approved terrace and stair coordinates",
+    "Lower garden at -3.2",
+    "Existing street elevations"
+  ],
+  "geometry_changed": false
+}

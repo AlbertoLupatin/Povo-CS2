@@ -1,0 +1,206 @@
+{
+  "status": "passed",
+  "routes": [
+    {
+      "name": "library_side_pavement",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            40.0,
+            -6.6,
+            5.844491810826066
+          ],
+          "position": [
+            39.970729227959886,
+            -6.600787027026405,
+            5.93734146542375
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            44.0,
+            -6.6,
+            6.721643047536508
+          ],
+          "position": [
+            44.06174151837625,
+            -6.600172321626402,
+            6.834437105827337
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            46.0,
+            -6.6,
+            7.16021866589173
+          ],
+          "position": [
+            46.019432878584084,
+            -6.5997653628264,
+            7.2612195644290445
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "library_side_pavement_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            44.0,
+            -6.6,
+            6.721643047536508
+          ],
+          "position": [
+            44.00874942217604,
+            -6.600370771826403,
+            6.822820746027292
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            40.0,
+            -6.6,
+            5.844491810826066
+          ],
+          "position": [
+            39.9248932515597,
+            -6.5997971636264,
+            5.92726767302371
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            35.0,
+            -6.6,
+            4.760222722250075
+          ],
+          "position": [
+            34.9004433563396,
+            -6.599352993826398,
+            4.826517398019307
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo2_side_pavement",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            40.0,
+            5.6,
+            5.590646904755256
+          ],
+          "position": [
+            40.046988130560194,
+            5.599212499822397,
+            5.676208180222705
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            44.0,
+            5.6,
+            6.337043773671786
+          ],
+          "position": [
+            44.00269705937602,
+            5.599807418622399,
+            6.420574763625683
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            46.0,
+            5.6,
+            6.713398837799155
+          ],
+          "position": [
+            45.998572137984,
+            5.600222505422401,
+            6.7961479520271855
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "povo2_side_pavement_return",
+      "kind": "walk",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            44.0,
+            5.6,
+            6.337043773671786
+          ],
+          "position": [
+            43.92663660697571,
+            5.599639219822399,
+            6.406264784625625
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            40.0,
+            5.6,
+            5.590646904755256
+          ],
+          "position": [
+            40.039329674960165,
+            5.600180265222401,
+            5.674753623822699
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            35.0,
+            5.6,
+            4.671492589283221
+          ],
+          "position": [
+            34.8737132091395,
+            5.599488064422398,
+            4.723793067018895
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    "library_bridge_approach.png",
+    "measured_section.png"
+  ],
+  "package_sha256": "d6a2812e1afab85dc27f67ef37bd558bb252847c05433db7c8f9873e8e44bdb8"
+}

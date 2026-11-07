@@ -38,9 +38,9 @@ def exterior_routes():
     ratio=(end[0]-start[0])/(end[1]-start[1])
     slope=[(57.5,p[1]-(57.5-p[0])*ratio,p[2]+.12) for p in (start,end)]
     routes={
-        'povo1_entrance_to_front':[(22,-73.73,4),(26.5,-73.73,4),(27,-73.73,4),
+        'povo1_entrance_to_front':[(22,-73.73,4),(a-.5,-73.73,4),(a,-73.73,4),
                                   *[(a+(i+.5)*(c-a)/count,-73.73,4+(i+1)*(upper-4)/count) for i in range(count)],
-                                  (36.5,-73.73,upper),(54,-73.73,upper),(57.5,-73.73,upper+.12)],
+                                  (c+.5,-73.73,upper),(54,-73.73,upper),(57.5,-73.73,upper+.12)],
         'front_walk_to_povo2':[(54.5,-71,upper),(54.5,-13,upper),(54.5,-5,upper),
                               (54.5,-1,upper),(57.5,-1,upper+.12),(57.5,0,upper+.12),
                               *slope,(57.5,31.35,4.12),(54,31.35,4)],

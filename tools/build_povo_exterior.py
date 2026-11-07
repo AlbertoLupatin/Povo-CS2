@@ -299,14 +299,16 @@ def build(root=ROOT, campus_geometry=None):
     # follows the straight rise and stops before the street pavement.
     cy=e['entrance_y'];clearance=e['canopy_clearance'];end=e['canopy_end_x']
     canopy_points=[(24,cy,e['lower_z']+clearance),(a,cy,e['lower_z']+clearance),
-          (c,cy,fz+clearance),(end,cy,fz+clearance)]
+          (c,cy,fz+clearance)]
+    if end > c:
+        canopy_points.append((end,cy,fz+clearance))
     for i,(start,finish) in enumerate(zip(canopy_points,canopy_points[1:])):
         meshes.append(strip(f'entry_canopy_roof_{i}',start,finish,6.2,'canopy_glass',.04))
         for side in (-1,1):
             meshes.append(strip(f'entry_canopy_side_beam_{i}_{side}',
                                 (start[0],cy+side*3.1,start[2]),(finish[0],cy+side*3.1,finish[2]),.08,'fence',.10))
-    for x in (24.3,a,c,44,end-.2):
-        floor=e['lower_z'] if x<=a else fz
+    for x in sorted({24.3, a, (a+c)/2, end-.2}):
+        floor=e['lower_z'] + (fz-e['lower_z'])*max(0, min(1, (x-a)/(c-a)))
         for side in (-1,1):
             y=cy+side*3.1
             box(f'canopy_post_{x}_{side}',(x-.05,y-.05,floor),(x+.05,y+.05,floor+clearance),'fence')

@@ -1,0 +1,186 @@
+{
+  "package_sha256": "96cfccfdd484f325ea239deae5dc9cd797ca7dbc7c3896ab40fced7b2a8e3f93",
+  "scope": "Native normal-lit camera inspection, noclip placement; movement separate",
+  "captures": [
+    {
+      "name": "photo1_wall",
+      "camera": [
+        -12,
+        16.6,
+        2.02
+      ],
+      "target": [
+        -20,
+        12,
+        2.02
+      ],
+      "image": "photo1_wall.png",
+      "sha256": "c16af2e648eb857e0e7de31cdc9a7a162131f1652af6f431ef81f76c109dac4f"
+    },
+    {
+      "name": "photo1_empty_door",
+      "camera": [
+        -12,
+        16.6,
+        2.02
+      ],
+      "target": [
+        -13.91,
+        14.5,
+        2.02
+      ],
+      "image": "photo1_empty_door.png",
+      "sha256": "f83c24254681664af03fe220185ac86315556ed91ac52f1b9f2f9ad71bbfaa8f"
+    },
+    {
+      "name": "photo2_closed_wall",
+      "camera": [
+        -3.05,
+        19.5,
+        2.02
+      ],
+      "target": [
+        -2.3,
+        40,
+        2.02
+      ],
+      "image": "photo2_closed_wall.png",
+      "sha256": "8f96a6a9b29ec19c276a5cf609e79e384e5c8cf7651827fca89dc5e3e1cfbf0d"
+    },
+    {
+      "name": "W01",
+      "camera": [
+        19.3,
+        11.2,
+        2.02
+      ],
+      "target": [
+        13.0,
+        14.2,
+        1.4
+      ],
+      "image": "W01.png",
+      "sha256": "356ff671643bb59a1a49175119c14fbb6000afa59dda8ed12f044337f8e02d85"
+    },
+    {
+      "name": "W02",
+      "camera": [
+        10.8,
+        11.2,
+        2.02
+      ],
+      "target": [
+        4.0,
+        14.2,
+        1.4
+      ],
+      "image": "W02.png",
+      "sha256": "ac65bd44f925fa3fdfac1294ce00456904dc5adbd6da2e9d55badb493b5e9886"
+    },
+    {
+      "name": "W04",
+      "camera": [
+        0.5,
+        11.2,
+        2.02
+      ],
+      "target": [
+        -4.4,
+        14.2,
+        1.4
+      ],
+      "image": "W04.png",
+      "sha256": "4d1c5332d012c298db8684d5802b4c8df326ff84758d51778bde94c41ecf6a3f"
+    },
+    {
+      "name": "professor_W10",
+      "camera": [
+        11.2,
+        7.1,
+        2.02
+      ],
+      "target": [
+        9.3,
+        3.1,
+        1.4
+      ],
+      "image": "professor_W10.png",
+      "sha256": "f2a0800759063c1186a2a9f078814f93cc188ae60b7c8dfc2c990d5df5c52e95"
+    },
+    {
+      "name": "corner_W19",
+      "camera": [
+        -18.1,
+        15.5,
+        2.02
+      ],
+      "target": [
+        -22.5,
+        17.0,
+        1.4
+      ],
+      "image": "corner_W19.png",
+      "sha256": "44d71ba587a67b4745de5e0334a14e5fa918b7b0655ed08426485ea26c8d4d4e"
+    },
+    {
+      "name": "CIBIO_OFFICE_1",
+      "camera": [
+        -6.2,
+        24.5,
+        2.02
+      ],
+      "target": [
+        -12.3,
+        20.0,
+        1.4
+      ],
+      "image": "CIBIO_OFFICE_1.png",
+      "sha256": "3b221e8e71723ffa4776f4a22d971bd3948fbd4a51c68ed9bc483800a33caf9d"
+    },
+    {
+      "name": "CIBIO_OFFICE_2",
+      "camera": [
+        -6.2,
+        62.3,
+        2.02
+      ],
+      "target": [
+        -12.3,
+        58.0,
+        1.4
+      ],
+      "image": "CIBIO_OFFICE_2.png",
+      "sha256": "b3b1aa3a8c4cc941e1487835440f4115188d093c582b77b620f5c19b830528c4"
+    },
+    {
+      "name": "external_glass",
+      "camera": [
+        10.0,
+        0.4,
+        2.02
+      ],
+      "target": [
+        10.0,
+        5.0,
+        1.4
+      ],
+      "image": "external_glass.png",
+      "sha256": "718f504852f0b68b2043a3a7fd455f375a1a0861b4be1ae778f2e05d4af2e347"
+    },
+    {
+      "name": "C7_unchanged",
+      "camera": [
+        18.0,
+        16.6,
+        2.02
+      ],
+      "target": [
+        -8.0,
+        16.6,
+        2.02
+      ],
+      "image": "C7_unchanged.png",
+      "sha256": "06e77da8edabe5a5f77274135bf104a963a75bcf8912d966ba7eab523e2918dd"
+    }
+  ]
+}

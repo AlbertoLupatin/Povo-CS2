@@ -240,3 +240,47 @@ E52–56.7/N1.25–6.333/Z6.2–7.42. This is research and a repair plan, **not 
 implemented fill or a newly tested package**. Use final assembled stair/terrace
 bounds; the early garden JSON has superseded stair positions. Do not port the
 remake's 1.25 scale or different floor heights into the approved layout.
+
+
+## Latest campus build verification - 6 November 2026
+
+The latest frontage/garden source has now compiled and passed targeted native
+verification. See [the build repair record](docs/LATEST_BUILD_20261106.md) for
+package identity, live compiler output/threading changes, test evidence and
+limits. The earlier navigation-stall diagnosis was incorrect; the native
+clipping warning is nonfatal and clearance checks remain enabled.
+
+
+## Exterior repairs verified on 7 November 2026
+
+The current standard build closes the Povo 2 corner road void, restores the bus,
+replaces the shrub proxy, extends the roadside guard and relocates the red
+Povo 1 stair. See [the exterior repair record](docs/EXTERIOR_REPAIR_20261107.md)
+for package identity and native verification.
+
+## Povo 1 and Povo 2 frontage follow-up
+
+The latest standard build matches entrance glazing to the room windows, joins
+the Povo 2 sidewalk to the forecourt, and extends the Povo 1 library-side guard.
+See [the frontage follow-up record](docs/POVO_FRONTAGE_FOLLOWUP_20261107.md) for
+the bus shift, exterior grade and verification results.
+
+## Campus descents and Povo 2 vestibule
+
+See [the curb and entrance record](docs/POVO_CURBS_AND_ENTRANCE_20261107.md) for
+the latest standard build, measured road and sidewalk widths, corrected light
+positions and native verification.
+
+## Campus texture repairs verified on 7 November 2026
+
+See [the texture repair record](docs/POVO_TEXTURE_REPAIRS_20261107.md) for the
+latest standard package, corrected sidewalk and entrance paving, continuous
+terrazzo finishes, Povo 2 vestibule materials and textured library hedge. The
+final revision passed 462 source tests, all 1,536 entry CRCs, the render overlap
+and compiled basement audits, 11 normal-lit views and 12 walks over 46 waypoints.
+
+## Library stair and bridge road measurements
+
+The [library stair and road record](docs/POVO_LIBRARY_ROAD_SPANS_20261107.md)
+supersedes the uniform sidewalk widths along the measured part of the bridge
+approach. It records the two separate spans, local pavement tapers and checks.

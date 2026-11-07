@@ -40,10 +40,28 @@
   ],
   "renames": [
     {
-      "names": "^exterior_(road_front_footway|edges_south_sommarive_walk)",
+      "names": "^exterior_(road_front_footway|edges_south_sommarive_walk|registered_via_footway_(north_|south_0(_|$)))",
       "material": "exterior_paving",
       "to": "exterior_dark_sidewalk",
       "note": "Via Sommarive sidewalk: dark grey concrete with fine grit (remake dark_paving; user, 23-10 25-28)."
+    },
+    {
+      "names": "^exterior_registered_(footway_south_0$|south_landing_|via_verge_)",
+      "material": "exterior_concrete",
+      "to": "exterior_paving",
+      "note": "Give the junction repair and campus-side Via walking surfaces the adjacent scored concrete finish. The retaining verge behind the library rail stays smooth concrete."
+    },
+    {
+      "names": "^campus_entry_landing(_|$)",
+      "material": "floor_circulation",
+      "to": "exterior_paving",
+      "note": "Continue the outdoor plaza paving up to the Povo 1 threshold."
+    },
+    {
+      "names": "^(library|canteen)_0_access(_|$)",
+      "material": "floor_p2_tile",
+      "to": "exterior_paving",
+      "note": "Library and canteen access joins are outdoors and share the lower plaza paving."
     },
     {
       "names": "^exterior_entry_stair_",

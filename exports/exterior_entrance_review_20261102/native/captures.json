@@ -1,0 +1,155 @@
+{
+  "package_sha256": "18d154a01b9cdbe554db740657cd700899dab4ebc4ac8a5541ed4eaacafcd753",
+  "captures": [
+    {
+      "name": "entrance_ceiling",
+      "eye": [
+        28,
+        24,
+        5.6256
+      ],
+      "target": [
+        20.5,
+        22,
+        6.1
+      ],
+      "image": "entrance_ceiling.png",
+      "sha256": "12616da45a9a6a07c9aa84e1bfdbc997777170c2d397ec2775f86541369ae7d7"
+    },
+    {
+      "name": "entrance_side_wall",
+      "eye": [
+        25,
+        17,
+        5.6256
+      ],
+      "target": [
+        20.5,
+        16,
+        5.5
+      ],
+      "image": "entrance_side_wall.png",
+      "sha256": "f9785ec9fd35d59572e66fca4d302761b7aea898f6bd5b4cbd40ead7599e36bd"
+    },
+    {
+      "name": "entrance_sign",
+      "eye": [
+        24,
+        22,
+        5.6256
+      ],
+      "target": [
+        20.5,
+        22,
+        6.5
+      ],
+      "image": "entrance_sign.png",
+      "sha256": "f414acc879cb6a36114fbfa77c853b65887556af1f1d8c6ba3c89b3bff5a88f0"
+    },
+    {
+      "name": "entrance_flat_ceiling",
+      "eye": [
+        24,
+        26,
+        5.6256
+      ],
+      "target": [
+        24,
+        17,
+        7.1
+      ],
+      "image": "entrance_flat_ceiling.png",
+      "sha256": "febef2cd625ded70fd1804fe8c9918723785d018048d174ca0a1b5be6e919649"
+    },
+    {
+      "name": "fill_A_facing",
+      "eye": [
+        36,
+        -0.8,
+        2.3
+      ],
+      "target": [
+        33,
+        5,
+        1.8
+      ],
+      "image": "fill_A_facing.png",
+      "sha256": "512cd3f2030f37f65f34305ce39b04e0f6d79abfab02ffe65c82e50ac03ca23d"
+    },
+    {
+      "name": "fills_B_C",
+      "eye": [
+        43.8,
+        -4,
+        4.2
+      ],
+      "target": [
+        43.8,
+        4,
+        2
+      ],
+      "image": "fills_B_C.png",
+      "sha256": "9389932595bad8023df7c06db5417d1cf4fb3b417d9c78aef9218f28644a8f1f"
+    },
+    {
+      "name": "fill_D_support",
+      "eye": [
+        54,
+        5,
+        -1.3
+      ],
+      "target": [
+        57,
+        8,
+        1.0
+      ],
+      "image": "fill_D_support.png",
+      "sha256": "da59a6e41b7230cc0d055186c9315d0c85e0156010c36f1f536e49523a536a79"
+    },
+    {
+      "name": "exterior_overview",
+      "eye": [
+        74,
+        -28,
+        22
+      ],
+      "target": [
+        44,
+        8,
+        1.5
+      ],
+      "image": "exterior_overview.png",
+      "sha256": "817c49acdb620b66b40f8af2a9becd9cd129c702ce830dd2706e0c2b29b887e1"
+    },
+    {
+      "name": "lower_garden",
+      "eye": [
+        49,
+        17,
+        -1.58
+      ],
+      "target": [
+        57,
+        8,
+        1
+      ],
+      "image": "lower_garden.png",
+      "sha256": "2a761b739f82498a096b0ac9c1b22b4df7ac980b78b2b5c19dcd073ee6b07ee4"
+    },
+    {
+      "name": "lower_approach",
+      "eye": [
+        43.8,
+        7,
+        -1.58
+      ],
+      "target": [
+        43.8,
+        1,
+        1
+      ],
+      "image": "lower_approach.png",
+      "sha256": "8b5efcfc160b5ffa2e59680b9bcfce08c359511454574a7dcdbb1085ab4690cd"
+    }
+  ]
+}

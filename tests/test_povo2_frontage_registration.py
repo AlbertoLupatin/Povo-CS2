@@ -1,5 +1,6 @@
 """Regressions for the fresh, final export assembly (not cached review geometry)."""
 import inspect
+import json
 import unittest
 
 from tools import build_povo_campus as campus
@@ -179,19 +180,31 @@ class RegisteredFrontageTests(unittest.TestCase):
 
     def test_landscape_width_order_and_grade(self):
         reg = self.p2['frontage_registration']
-        self.assertEqual((reg['road_width'], reg['pavement_width']), (6., 1.4))
+        self.assertEqual((reg['road_width'], reg['pavement_width']), (7., 1.4))
         landscape = self.p2['landscape_registration']
         self.assertEqual(landscape['grass_north'], [4.09, 9.09])
-        self.assertEqual(landscape['bush'], [28., 4.09, 33., 9.09])
+        self.assertEqual(landscape['bush'], [28., 7., 33., 9.09])
         self.assertAlmostEqual(landscape['grate_north'], 9.03)
-        bush = next(m for m in self.ext['meshes'] if m['name']=='exterior_registered_bush')
-        self.assertAlmostEqual(max(v[0] for v in bush['vertices'])-min(v[0] for v in bush['vertices']), 5.)
-        self.assertAlmostEqual(max(v[1] for v in bush['vertices'])-min(v[1] for v in bush['vertices']), 5.)
+        leaves = [v for m in self.ext['meshes'] if m['name'].startswith('exterior_registered_bush_')
+                  for v in m['vertices']]
+        self.assertGreater(len(leaves), 1000)
+        for axis, low, high in ((0,28.,33.), (1,7.,9.09)):
+            self.assertGreaterEqual(min(v[axis] for v in leaves), low)
+            self.assertLessEqual(max(v[axis] for v in leaves), high)
+            self.assertGreater(max(v[axis] for v in leaves)-min(v[axis] for v in leaves), 4. if axis==0 else 1.5)
+        self.assertFalse(any(m['name'].startswith('exterior_registered_bush_') for m in self.ext['collision_meshes']))
         grass = [m for m in self.ext['collision_meshes'] if m['name'].startswith('exterior_registered_grass_')]
         self.assertGreater(len(grass), 30)
         for mesh in grass:
-            at_grate = [v[2] for v in mesh['vertices'] if abs(v[1]-9.09)<1e-8]
-            self.assertAlmostEqual(max(at_grate), .4)
+            road_left, road_right, toe_right, toe_left = mesh['vertices'][4:]
+            for road, toe in ((road_left, toe_left), (road_right, toe_right)):
+                if toe[0] <= 31.8:
+                    self.assertAlmostEqual(road[2]-toe[2], 3.)
+                    self.assertLessEqual(toe[2]-.4, .73)
+                elif toe[0] >= 34.:
+                    self.assertAlmostEqual(toe[2], .4)
+        self.assertAlmostEqual(self.byname['p2_basement_drawio_terrace'][1][2], .4)
+        self.assertAlmostEqual(self.byname['p2_basement_drawio_terrace_retaining_west_south'][1][2], .4)
         steps = [b for b in self.boxes if b[0].startswith('p2_registered_up_step_')]
         self.assertEqual(len(steps), 20)
         up = self.p2['gardens']['routes']['up']
@@ -200,6 +213,192 @@ class RegisteredFrontageTests(unittest.TestCase):
         self.assertEqual(down[0], 31.8)
         self.assertEqual(down[2], 40.55)
         self.assertAlmostEqual(down[1], 9.09)
+
+    def test_corner_apron_connects_both_sidewalks_at_street_grade(self):
+        from tools.audit_povo_exterior_integrated import height_at
+
+        meshes = self.ext['collision_meshes']
+        for y in (2., 3., 4., 5., 6., 7., 8.):
+            heights = []
+            for i in range(21):
+                x = 56.2 + i*.05
+                support = [z for mesh in meshes
+                           if mesh['material'] in ('exterior_paving','exterior_concrete')
+                           for z in height_at(mesh, x, y)]
+                self.assertTrue(support, (x, y))
+                heights.append(max(support))
+            self.assertLess(max(abs(a-b) for a,b in zip(heights, heights[1:])), .12)
+        for x in (49.4, 50., 50.8):
+            heights = [max(z for mesh in meshes if mesh['material']=='exterior_paving'
+                           for z in height_at(mesh,x,y)) for y in (4.07,4.11)]
+            self.assertLess(abs(heights[0]-heights[1]), .02)
+        for y in (4.5, 6., 8.):
+            for x in (49.4, 51.5, 53.5, 55.5, 56.6):
+                self.assertTrue(any(height_at(mesh,x,y) for mesh in meshes
+                                    if any(part in mesh['name'] for part in ('registered_corner_apron_',
+                                                                               'registered_footway_north_'))), (x,y))
+
+    def test_sidewalks_close_the_recesses_and_keep_the_garden_open(self):
+        from tools.audit_povo_exterior_integrated import height_at
+
+        for y in (8.5,9.1,10.,12.,14.,16.,17.,18.,19.,21.,25.,29.):
+            for x in (55.9,56.3,56.55,56.8):
+                heights = [z for mesh in self.ext['collision_meshes']
+                           if mesh['material'] in ('exterior_paving','exterior_concrete')
+                           for z in height_at(mesh, x, y)]
+                self.assertTrue(heights, (x,y))
+                self.assertGreaterEqual(max(heights), 3.99, (x,y))
+        for x,y,z in ((53.,-7.,7.65),(47.,-4.97,7.45),(26.,-18.,4.),
+                      (19.,9.65,.4),(36.8,15.,-3.175)):
+            foot, obstacles = standing(x,y,z,self.physics,self.ext['collision_meshes'])
+            self.assertIsNotNone(foot, (x,y,z))
+            self.assertAlmostEqual(foot,z,delta=.18)
+            self.assertEqual(obstacles, [], (x,y,z))
+        self.assertFalse(any(mesh['name'].startswith('exterior_registered_old_road_ground')
+                             for mesh in self.ext['meshes']))
+        self.assertTrue(any(r['name'].startswith('library_street_extension_1_') and r['name'].endswith('_handrail')
+                            for r in self.levels[0]['library_stair']['rails']))
+        self.assertTrue(any(r['name']=='registered_street_guard_2_handrail'
+                            for r in self.p2['stairs']['rails']))
+        self.assertFalse(any(name.startswith('exterior_ground_') and lo[0]<36.8<hi[0]
+                             and lo[1]<15.<hi[1] and -3.2<hi[2]<4.
+                             for name,lo,hi,_ in self.boxes))
+
+    def test_carriageways_and_bridge_footways_keep_their_width(self):
+        from tools.audit_povo_exterior_integrated import height_at
+
+        meshes = self.ext['collision_meshes']
+
+        def has(prefix,x,y):
+            return any(height_at(mesh,x,y) for mesh in meshes if mesh['name'].startswith(prefix))
+
+        for x in (34.,40.,44.):
+            for y in (-4.30,-.81,2.68):
+                self.assertTrue(has('exterior_registered_road_',x,y), (x,y))
+            for y in (-7.89,-4.32):
+                self.assertTrue(has('exterior_registered_footway_south_',x,y), (x,y))
+            for y in (2.70,6.99):
+                self.assertTrue(has('exterior_registered_footway_north_',x,y), (x,y))
+            for y in (-8.2,7.2):
+                self.assertFalse(has('exterior_registered_footway_',x,y), (x,y))
+        for y in (-8.95,-7.5,-5.5,-2.05):
+            for x in (57.6,58.2,58.49):
+                self.assertTrue(has('exterior_registered_road_',x,y), (x,y))
+            self.assertTrue(has('exterior_registered_via_road_',58.51,y), y)
+            self.assertFalse(has('exterior_registered_via_footway_',57.8,y), y)
+        for x in (57.1,57.8,58.4):
+            foot, obstacles = standing(x,-9.7,7.72,self.physics,meshes)
+            self.assertAlmostEqual(foot,7.72,delta=.05)
+            self.assertFalse(obstacles)
+        self.assertTrue(any(mesh['name'].startswith('exterior_registered_footway_south_0') and
+                            mesh['material']=='exterior_concrete' for mesh in meshes))
+        import math
+        nx,ny = (-15./math.hypot(15.,2.38),2.38/math.hypot(15.,2.38))
+        for sign in (-1,1):
+            for offset,prefix in ((3.49,'road_'),(3.51,'footway_'),(5.29,'footway_')):
+                x,y = 63.19+sign*offset*nx,7.5+sign*offset*ny
+                self.assertTrue(has('exterior_registered_via_'+prefix,x,y), (x,y))
+            x,y = 63.19+sign*3.49*nx,7.5+sign*3.49*ny
+            self.assertFalse(has('exterior_registered_via_verge_',x,y), (x,y))
+
+    def test_south_walk_has_exactly_one_surface_through_every_miter_section(self):
+        from tools.audit_povo_exterior_integrated import height_at
+        walks=[m for m in self.ext['collision_meshes']
+               if m['name'].startswith('exterior_registered_footway_south_')]
+        for i in range(350):
+            x=22.053+i*.1
+            intersections=[]
+            active=[]
+            for mesh in walks:
+                poly=mesh['vertices'][len(mesh['vertices'])//2:]
+                if not min(v[0] for v in poly)<x<max(v[0] for v in poly):continue
+                active.append(mesh)
+                for a,b in zip(poly,poly[1:]+poly[:1]):
+                    if min(a[0],b[0])<=x<=max(a[0],b[0]) and abs(a[0]-b[0])>1e-8:
+                        intersections.append(a[1]+(x-a[0])*(b[1]-a[1])/(b[0]-a[0]))
+            self.assertTrue(intersections,x)
+            low,high=min(intersections),max(intersections)
+            for j in range(31):
+                y=low+(high-low)*(j+.5)/31
+                count=sum(bool(height_at(mesh,x,y)) for mesh in active)
+                self.assertEqual(count,1,(x,y,count))
+
+    def test_widened_walks_do_not_cross_the_fixed_carriageway(self):
+        from tools.povo_floor_surfaces import area, subtract
+        from tools.povo_street_footways import tops
+        roads = [poly for m in self.ext['collision_meshes']
+                 if m['name'].startswith('exterior_registered_road_') for poly in tops(m)]
+        for mesh in self.ext['collision_meshes']:
+            if not mesh['name'].startswith('exterior_registered_footway_'):continue
+            for poly in tops(mesh):
+                parts=[poly]
+                for road in roads:
+                    parts=[piece for part in parts for piece in subtract(part,road)]
+                self.assertAlmostEqual(sum(area(p) for p in parts),area(poly),places=5,
+                                       msg=mesh['name'])
+
+    def test_library_measured_spans_and_planting_touch_the_rail(self):
+        from tools.audit_povo_exterior_integrated import height_at
+        wall = -13.
+        rails = self.levels[0]['library_stair']['rails']
+        rail = next(r['a'][1] for r in rails if r['name'].startswith('library_street_extension_1_')
+                    and r['a'][0] <=44.<=r['b'][0])
+        from tools.povo2_frontage_registration import _edge_at_x
+        opposite = _edge_at_x(self.p2['landscape_registration']['pavement_boundary'],44.)[1]
+        self.assertEqual(rail-wall,5.)
+        self.assertEqual(opposite-rail,15.)
+        for x in (36.,40.,44.,46.):
+            for y in (-7.8,-6.,3.,6.9):
+                self.assertTrue(any(height_at(m,x,y) for m in self.ext['collision_meshes']
+                                    if m['name'].startswith('exterior_registered_footway_')),(x,y))
+            self.assertTrue(any(height_at(m,x,-8.1) for m in self.ext['collision_meshes']
+                                if m['name']=='exterior_library_grass_slope'))
+        self.assertEqual(self.levels[0]['library_stair']['wall_y'],[-8.1,-7.9])
+        self.assertFalse(any(m['name'].startswith('exterior_registered_library_verge_2_')
+                             for m in self.ext['collision_meshes']))
+
+    def test_bus_moves_right_as_one_assembly_with_solid_wheels(self):
+        from tools.povo_abandoned_bus import extend
+
+        expected = {}
+        def collect(name, lo, hi, material):
+            expected['exterior_'+name] = (lo, hi, 'exterior_'+material)
+
+        config = json.loads((campus.ROOT/'config/povo_exterior.json').read_text())
+        extend(collect, [], config['abandoned_bus'])
+        actual = {name: box for name,box in self.byname.items()
+                  if name.startswith('exterior_abandoned_bus_')}
+        self.assertEqual(set(actual), set(expected))
+        for name,(lo,hi,material) in expected.items():
+            moved_lo,moved_hi,actual_material = actual[name]
+            self.assertEqual(actual_material, material)
+            for original,moved in ((lo,moved_lo),(hi,moved_hi)):
+                self.assertEqual((moved[0],moved[2]), (original[0],original[2]))
+                self.assertAlmostEqual(moved[1]-original[1], 1.8)
+        wheels = [m for m in self.ext['collision_meshes'] if 'abandoned_bus_wheel_' in m['name']]
+        self.assertEqual(len(wheels), 4)
+        for x,y,z in ((25.,-6.2,4.67),(25.,-1.675,4.67),(27.7,-1.675,4.)):
+            foot, obstacles = standing(x,y,z,self.physics,self.ext['collision_meshes'])
+            self.assertAlmostEqual(foot,z)
+            self.assertEqual(obstacles, [], (x,y,z))
+
+    def test_registered_walkways_and_vestibule_keep_continuous_finishes(self):
+        for surface,material in (('floor','floor_p2_tile'),('ceiling','ceiling_panel')):
+            prefix='exterior_p2_entry_'+surface
+            parts=[m for name,_,_,m in self.boxes if name.startswith(prefix)]
+            self.assertTrue(parts)
+            self.assertEqual(set(parts),{material})
+            self.assertFalse(any(name.startswith(prefix+'_joint_') for name in self.byname))
+        self.assertEqual(self.byname['p2_registered_bridge_floor'][2],'floor_circulation')
+        for name in ('academic_ground_lobby_finish_south','academic_first_link_p1_corridor_finish_west'):
+            self.assertEqual(self.byname[name][2],'floor_circulation')
+            self.assertFalse(any(b[0]==name for b in self.physics))
+        hedge=[m for m in self.ext['meshes'] if m['name'].startswith('exterior_library_hedge_')]
+        self.assertEqual(len(hedge),3)
+        self.assertTrue(all(m['material'].startswith('exterior_shrub_leaf') for m in hedge))
+        self.assertTrue(all(len(m['vertices'])==len(m['uvs'])>500 for m in hedge))
+        self.assertFalse(any(name.startswith('exterior_library_hedge_') for name in self.byname))
+        self.assertFalse(any(m['name'].startswith('exterior_library_hedge_') for m in self.ext['collision_meshes']))
 
     def test_bridge_and_entrance_connections_have_clearance(self):
         bridge = [[18.25,9.,11.2],[18.25,20.,11.2],[22.25,20.,11.2],

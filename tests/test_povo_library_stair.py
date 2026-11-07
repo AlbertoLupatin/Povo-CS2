@@ -4,7 +4,7 @@ import unittest
 
 from tools.audit_povo_exterior_integrated import height_at
 from tools.build_povo_campus import build_geometry, collision_boxes
-from tools.povo_library_stair import CROSSWALK_EAST, GRASS_Y, TOP_X, grass_z, sidewalk_z
+from tools.povo_library_stair import CROSSWALK_EAST, GRASS_Y, TOP_X, WALL_Y, grass_z, sidewalk_z
 
 
 class LibraryStairTests(unittest.TestCase):
@@ -51,7 +51,7 @@ class LibraryStairTests(unittest.TestCase):
             x = 36+16*i/30
             self.assertTrue(self.solid(x, GRASS_Y[0], grass_z(x)+.6), x)
 
-    def wall_top(self, x, y=-9.5):
+    def wall_top(self, x, y=sum(WALL_Y)/2):
         tops = [h for m in self.meshes if m['name'].startswith('exterior_library_street_wall_')
                 for h in height_at(m, x, y)]
         return max(tops) if tops else None
@@ -59,12 +59,12 @@ class LibraryStairTests(unittest.TestCase):
     def test_fence_east_of_the_crosswalk_low_edge_west_of_it(self):
         for x in (46.0, 48.0, 50.0, 51.5):
             self.assertAlmostEqual(self.wall_top(x), sidewalk_z(x)+.1, places=6)
-            self.assertTrue(self.solid(x, -9.5, sidewalk_z(x)+.6), x)
+            self.assertTrue(self.solid(x, sum(WALL_Y)/2, sidewalk_z(x)+.6), x)
         for x in (25.0, 33.0, 38.0, 42.0):
             self.assertAlmostEqual(self.wall_top(x), sidewalk_z(x)+.05, places=6)
             # The later bus occupies part of this crossing. Check the low
             # wall/fence itself; bus collision is covered by its own tests.
-            self.assertFalse([n for n in self.solid(x, -9.5, sidewalk_z(x)+.6)
+            self.assertFalse([n for n in self.solid(x, sum(WALL_Y)/2, sidewalk_z(x)+.6)
                               if not n.startswith('exterior_abandoned_bus_')], x)
         self.assertLess(CROSSWALK_EAST, TOP_X)
 

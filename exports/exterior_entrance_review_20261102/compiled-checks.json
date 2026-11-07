@@ -1,0 +1,777 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        22.4,
+        22,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        22.6,
+        22,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        25.4,
+        25,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        25.6,
+        25,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        24,
+        19.4,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        24,
+        19.6,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        24,
+        29.4,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        24,
+        29.6,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        24,
+        10.9,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "obsolete_hanging_wall_removed",
+      "point": [
+        24,
+        11.1,
+        6.5
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        21.0,
+        12.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        21.0,
+        16.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        21.0,
+        22.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        21.0,
+        28.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        23.0,
+        12.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        23.0,
+        16.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        23.0,
+        22.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        23.0,
+        28.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        24.5,
+        12.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        24.5,
+        16.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        24.5,
+        22.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "flat_finished_ceiling",
+      "point": [
+        24.5,
+        28.0,
+        7.28
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        11.5,
+        4.2
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        11.5,
+        5.5
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        11.5,
+        6.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        14.0,
+        4.2
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        14.0,
+        5.5
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        14.0,
+        6.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        16.0,
+        4.2
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        16.0,
+        5.5
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        16.0,
+        6.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        17.7,
+        4.2
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        17.7,
+        5.5
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.4,
+        17.7,
+        6.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "retained_stair_portal",
+      "point": [
+        20.4,
+        22,
+        4.2
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "retained_stair_portal",
+      "point": [
+        20.4,
+        22,
+        5.1
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "retained_stair_portal",
+      "point": [
+        20.4,
+        22,
+        6.0
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        11.5,
+        4.2
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        11.5,
+        5.5
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        11.5,
+        6.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        14.0,
+        4.2
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        14.0,
+        5.5
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        14.0,
+        6.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        16.0,
+        4.2
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        16.0,
+        5.5
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        16.0,
+        6.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        17.7,
+        4.2
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        17.7,
+        5.5
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "closed_side_bay",
+      "point": [
+        20.6,
+        17.7,
+        6.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "retained_stair_portal",
+      "point": [
+        20.6,
+        22,
+        4.2
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "retained_stair_portal",
+      "point": [
+        20.6,
+        22,
+        5.1
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "retained_stair_portal",
+      "point": [
+        20.6,
+        22,
+        6.0
+      ],
+      "expected_surface": false,
+      "passed": true
+    },
+    {
+      "name": "fill_A_concrete_facing",
+      "point": [
+        31.88,
+        5,
+        -2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_A_concrete_facing",
+      "point": [
+        31.88,
+        5,
+        0.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_A_concrete_facing",
+      "point": [
+        31.88,
+        5,
+        2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_A_concrete_facing",
+      "point": [
+        31.88,
+        5,
+        3.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_A_concrete_facing",
+      "point": [
+        35.83,
+        5,
+        -2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_A_concrete_facing",
+      "point": [
+        35.83,
+        5,
+        0.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_A_concrete_facing",
+      "point": [
+        35.83,
+        5,
+        2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_A_concrete_facing",
+      "point": [
+        35.83,
+        5,
+        3.8
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fills_B_C_upper_edge",
+      "point": [
+        37.0,
+        2.35,
+        4.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fills_B_C_upper_edge",
+      "point": [
+        40.0,
+        2.35,
+        4.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fills_B_C_upper_edge",
+      "point": [
+        47.0,
+        2.35,
+        4.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fills_B_C_upper_edge",
+      "point": [
+        50.0,
+        2.35,
+        4.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fills_B_C_upper_edge",
+      "point": [
+        54.0,
+        2.35,
+        4.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        3.0,
+        -2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        3.0,
+        0.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        3.0,
+        2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        5.0,
+        -2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        5.0,
+        0.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        5.0,
+        2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        9.0,
+        -2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        9.0,
+        0.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        9.0,
+        2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        13.0,
+        -2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        13.0,
+        0.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    },
+    {
+      "name": "fill_D_closed_support",
+      "point": [
+        56.7,
+        13.0,
+        2.0
+      ],
+      "expected_surface": true,
+      "passed": true
+    }
+  ],
+  "package_sha256": "18d154a01b9cdbe554db740657cd700899dab4ebc4ac8a5541ed4eaacafcd753",
+  "model_sha256": "fcd3dc458ec73b3b66e8b74402754d217ad7f77b43034def2de946b2ea8e5911"
+}

@@ -1,0 +1,295 @@
+{
+  "status": "failed",
+  "routes": [
+    {
+      "id": "cibio_office_0_entrance",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -8,
+            25.0,
+            0.4
+          ],
+          "position": [
+            -7.880910425631524,
+            25.002738970900012,
+            0.40079267060160323
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "cibio_office_0_entrance_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -3.8,
+            25.0,
+            0.4
+          ],
+          "position": [
+            -3.6544420434146185,
+            25.000063182500003,
+            0.4007926960016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "cibio_office_1_entrance",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -8,
+            63.0,
+            0.4
+          ],
+          "position": [
+            -8.13963185383256,
+            62.99945380805201,
+            0.4007909688016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "cibio_office_1_entrance_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -3.8,
+            63.0,
+            0.4
+          ],
+          "position": [
+            -3.864011423615456,
+            62.99931118705201,
+            0.4007909180016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "west_W01_entry",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            17.200249331585844,
+            10.431687715269799,
+            0.4
+          ],
+          "position": [
+            17.200275683268803,
+            10.284153650641137,
+            0.4007932802016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            17.200249331585844,
+            11.131687715269798,
+            0.4
+          ],
+          "position": [
+            17.200500498668806,
+            11.042324448244171,
+            0.40079325480160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            17.200249331585844,
+            11.7316877152698,
+            0.4
+          ],
+          "position": [
+            17.200250892868805,
+            11.604876155246421,
+            0.4007931786016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            16.001457404980343,
+            12.831228473019516,
+            0.4
+          ],
+          "position": [
+            15.998921113663997,
+            12.839034926451356,
+            0.4007932294016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W07_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W08_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W09_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W10_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W11_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W12_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W13_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W14_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W15_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W16_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W17_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W18_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W19_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W19_exterior_1_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W20_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W21_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W22_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W23_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W23_exterior_1_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_cibio_office_0_exterior_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_cibio_office_1_exterior_glass",
+      "passed": true
+    },
+    {
+      "name": "p2_cibio_terrace_0_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_0_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_1_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_1_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_2_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_2_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_3_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_3_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_4_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_4_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_5_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_5_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    }
+  ],
+  "error": "Ordinary movement stalled: [17.262905987269054, 11.009413261844038, 0.4007932802016032] target [17.200249331585844, 10.431687715269799, 0.4]",
+  "package_sha256": "96cfccfdd484f325ea239deae5dc9cd797ca7dbc7c3896ab40fced7b2a8e3f93"
+}

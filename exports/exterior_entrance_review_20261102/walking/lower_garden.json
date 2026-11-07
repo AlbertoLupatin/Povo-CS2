@@ -1,0 +1,49 @@
+{
+  "name": "lower_garden",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        51,
+        17,
+        -3.2
+      ],
+      "position": [
+        51.00782607680404,
+        17.000019695668,
+        -3.174206250012697
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        54.5,
+        17,
+        -3.2
+      ],
+      "position": [
+        54.50462347741802,
+        16.999980935268,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        54.5,
+        12,
+        -3.2
+      ],
+      "position": [
+        54.50005942761801,
+        12.018584217848076,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

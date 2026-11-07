@@ -1,0 +1,132 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "fixed_terrace_pair_0_side_-1",
+      "passed": true,
+      "position": [
+        -2.747193565810989,
+        22.0248680406881,
+        0.4007927722016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_0_side_1",
+      "passed": true,
+      "position": [
+        -1.8528062766074112,
+        22.0248602682881,
+        0.4007927722016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_1_side_-1",
+      "passed": true,
+      "position": [
+        -2.747193565810989,
+        25.024855462100103,
+        0.4007926960016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_1_side_1",
+      "passed": true,
+      "position": [
+        -1.8528062766074112,
+        25.0248632091001,
+        0.4007926960016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_2_side_-1",
+      "passed": true,
+      "position": [
+        -2.747193565810989,
+        28.024859926912104,
+        0.4007924674016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_2_side_1",
+      "passed": true,
+      "position": [
+        -1.8528062766074112,
+        28.024850630512102,
+        0.40079249280160323
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_3_side_-1",
+      "passed": true,
+      "position": [
+        -2.747193565810989,
+        31.024884559324104,
+        0.4007923658016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_3_side_1",
+      "passed": true,
+      "position": [
+        -1.8528062766074112,
+        31.024865966524104,
+        0.4007923912016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_4_side_-1",
+      "passed": true,
+      "position": [
+        -2.747193565810989,
+        34.02487510493611,
+        0.4007922642016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_4_side_1",
+      "passed": true,
+      "position": [
+        -1.8528062766074112,
+        34.024865808536106,
+        0.4007922896016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_5_side_-1",
+      "passed": true,
+      "position": [
+        -2.747193565810989,
+        37.0248718227481,
+        0.4007920610016032
+      ]
+    },
+    {
+      "name": "fixed_terrace_pair_5_side_1",
+      "passed": true,
+      "position": [
+        -1.8528062766074112,
+        37.0248594275481,
+        0.4007921118016032
+      ]
+    },
+    {
+      "name": "p2_basement_fitout_west_W10_exterior_exists",
+      "passed": true
+    },
+    {
+      "name": "p2_basement_fitout_west_W10_exterior_breaks_from_bullets",
+      "passed": true,
+      "pane": "p2_basement_fitout_west_W10_exterior_0_glass"
+    },
+    {
+      "name": "p2_basement_fitout_cibio_office_0_exterior_exists",
+      "passed": true
+    },
+    {
+      "name": "p2_basement_fitout_cibio_office_0_exterior_breaks_from_bullets",
+      "passed": true,
+      "pane": "p2_basement_fitout_cibio_office_0_exterior_glass"
+    }
+  ],
+  "package_sha256": "96cfccfdd484f325ea239deae5dc9cd797ca7dbc7c3896ab40fced7b2a8e3f93"
+}

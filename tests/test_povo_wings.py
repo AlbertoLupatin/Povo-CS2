@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from unittest import TestCase
 
@@ -55,10 +56,13 @@ class WingTests(TestCase):
         self.assertFalse(canopy['enclosed'])
         strips=[b for b in self.boxes if b[0].startswith('amenities_walkable_canopy_')]
         self.assertTrue(strips)
+        approach = json.loads((ROOT/'config/povo_exterior.json').read_text())['east_approach']
+        start, _, end, _ = approach['stairs']
+        low, high = approach['lower_z'], approach['upper_z']
         for _,lo,hi,_ in strips:
             self.assertAlmostEqual(hi[2]-lo[2],.08)
             x=(lo[0]+hi[0])/2
-            floor=4 if x<27 else 7.6 if x>36 else 4+(x-27)*3.6/9
+            floor=low+(high-low)*max(0,min(1,(x-start)/(end-start)))
             self.assertGreater(lo[2]-floor,3.2)
         self.assertEqual(self.spec['terrace']['z'],7.6)
 

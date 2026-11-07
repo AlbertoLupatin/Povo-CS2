@@ -308,7 +308,9 @@ def extend(boxes,levels,root):
     entry=exterior_cfg['east_approach'];cy=entry['entrance_y']
     sx,_,ex,_=entry['stairs'];clearance=entry['canopy_clearance']
     profile=[(24,entry['lower_z']+clearance),(sx,entry['lower_z']+clearance),
-             (ex,entry['upper_z']+clearance),(entry['canopy_end_x'],entry['upper_z']+clearance)]
+             (ex,entry['upper_z']+clearance)]
+    if entry['canopy_end_x'] > ex:
+        profile.append((entry['canopy_end_x'],entry['upper_z']+clearance))
     for j,((x0,h0),(x1,h1)) in enumerate(zip(profile,profile[1:])):
         count=max(1,math.ceil(abs(h1-h0)/.16))
         for i in range(count):

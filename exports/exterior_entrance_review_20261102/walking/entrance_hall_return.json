@@ -1,0 +1,63 @@
+{
+  "name": "entrance_hall_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        24,
+        16,
+        4
+      ],
+      "position": [
+        24.000017227296002,
+        15.994211318663979,
+        4.000793014416003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        24,
+        22,
+        4
+      ],
+      "position": [
+        24.000017227296002,
+        21.992840520287974,
+        4.000793014416003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        24,
+        28,
+        4
+      ],
+      "position": [
+        24.000007930896004,
+        27.983724474511938,
+        4.0007926080160034
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        28,
+        28,
+        4
+      ],
+      "position": [
+        27.990908508911964,
+        27.999965336112002,
+        4.0007926080160034
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

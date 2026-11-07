@@ -1,0 +1,234 @@
+{
+  "status": "passed",
+  "checks": {
+    "footprint": true,
+    "c7": true,
+    "c7_end": true,
+    "corridors": true,
+    "openings": true,
+    "public_portals": true,
+    "west_room_bounds_names_doors": true,
+    "cibio_room_bounds_names_doors": true,
+    "stairs": true,
+    "drawio_entrance_terrace": true,
+    "all_non_basement_boxes": true,
+    "exterior_meshes": true,
+    "exterior_collision_meshes": true,
+    "standing_routes_both_directions": true
+  },
+  "route_samples": 5236,
+  "route_failures": [],
+  "finishes": {
+    "date": "2026-11-02",
+    "external_w_faces": [
+      {
+        "room": "west_W07",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          17.374736566186108,
+          20.282857142857143
+        ]
+      },
+      {
+        "room": "west_W08",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          14.466615989515073,
+          17.374736566186108
+        ]
+      },
+      {
+        "room": "west_W09",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          11.72005766710354,
+          14.466615989515073
+        ]
+      },
+      {
+        "room": "west_W10",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          8.690765399737877,
+          11.72005766710354
+        ]
+      },
+      {
+        "room": "west_W11",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          5.863425950196589,
+          8.690765399737877
+        ]
+      },
+      {
+        "room": "west_W12",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          2.9553053735255617,
+          5.863425950196589
+        ]
+      },
+      {
+        "room": "west_W13",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          0.04718479685451982,
+          2.9553053735255617
+        ]
+      },
+      {
+        "room": "west_W14",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          -2.780154652686761,
+          0.04718479685451982
+        ]
+      },
+      {
+        "room": "west_W15",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          -5.567103538663176,
+          -2.780154652686761
+        ]
+      },
+      {
+        "room": "west_W16",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          -8.434833551769323,
+          -5.567103538663176
+        ]
+      },
+      {
+        "room": "west_W17",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          -11.262173001310614,
+          -8.434833551769323
+        ]
+      },
+      {
+        "room": "west_W18",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          -14.4126369593709,
+          -11.262173001310614
+        ]
+      },
+      {
+        "room": "west_W19",
+        "axis": 0,
+        "fixed": -23.74285714285714,
+        "span": [
+          14.694374282433985,
+          17.692307692307693
+        ]
+      },
+      {
+        "room": "west_W19",
+        "axis": 1,
+        "fixed": 17.692307692307693,
+        "span": [
+          -23.74285714285714,
+          -17.23997640891219
+        ]
+      },
+      {
+        "room": "west_W20",
+        "axis": 0,
+        "fixed": -23.74285714285714,
+        "span": [
+          11.69644087256028,
+          14.694374282433985
+        ]
+      },
+      {
+        "room": "west_W21",
+        "axis": 0,
+        "fixed": -23.74285714285714,
+        "span": [
+          8.69850746268656,
+          11.69644087256028
+        ]
+      },
+      {
+        "room": "west_W22",
+        "axis": 0,
+        "fixed": -23.74285714285714,
+        "span": [
+          5.747416762342141,
+          8.69850746268656
+        ]
+      },
+      {
+        "room": "west_W23",
+        "axis": 0,
+        "fixed": -23.74285714285714,
+        "span": [
+          2.0,
+          5.747416762342141
+        ]
+      },
+      {
+        "room": "west_W23",
+        "axis": 1,
+        "fixed": 2.0,
+        "span": [
+          -23.74285714285714,
+          -14.4126369593709
+        ]
+      }
+    ],
+    "cibio_glass_side": "opposite exterior wall",
+    "workstations": {
+      "west_W01": 7,
+      "west_W02": 7,
+      "west_W04": 5,
+      "west_W05": 1,
+      "west_W06": 1,
+      "west_W07": 1,
+      "west_W08": 1,
+      "west_W09": 1,
+      "west_W10": 1,
+      "west_W11": 1,
+      "west_W12": 1,
+      "west_W13": 1,
+      "west_W14": 1,
+      "west_W15": 1,
+      "west_W16": 1,
+      "west_W17": 1,
+      "west_W18": 1,
+      "west_W19": 1,
+      "west_W20": 1,
+      "west_W21": 1,
+      "west_W22": 1,
+      "west_W23": 1,
+      "cibio_office_0": 6,
+      "cibio_office_1": 6
+    },
+    "empty_wi2_door": {
+      "centre": [
+        -13.91253604193971,
+        15.230769230769234
+      ],
+      "width": 0.95
+    },
+    "fixed_terrace_doors": 6,
+    "layout": "Definitive room/door/stair/terrace coordinates retained"
+  },
+  "finishing_source_sha256": "cc492516905055059ef3a08ca42d2ef1069c86119acc19b470b9a91ffbdcf384"
+}

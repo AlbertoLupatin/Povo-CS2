@@ -1,0 +1,35 @@
+{
+  "name": "stair_door_return",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        21.5,
+        22,
+        4
+      ],
+      "position": [
+        21.479070326085917,
+        21.999965677488003,
+        4.000793014416003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        24,
+        22,
+        4
+      ],
+      "position": [
+        23.978291438895916,
+        22.000009086088003,
+        4.000793014416003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

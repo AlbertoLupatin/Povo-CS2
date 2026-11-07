@@ -1,0 +1,35 @@
+{
+  "name": "stair_door",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        21.5,
+        22,
+        4
+      ],
+      "position": [
+        21.50660199568603,
+        21.999976523288,
+        4.000793014416003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        19.2,
+        22,
+        4
+      ],
+      "position": [
+        19.215385242076863,
+        21.999999789688,
+        4.000793014416003
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

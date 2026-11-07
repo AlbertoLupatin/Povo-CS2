@@ -54,7 +54,9 @@ def playtest(*, routes=None, output=None, package=None, port=27400,map_name='tre
             if stalled>=6:break
         raise RuntimeError('Normal walking stalled near '+str(position())+' towards '+str(target))
     if routes is None:
-        upper=json.loads((ROOT/'config/povo_exterior.json').read_text())['east_approach']['upper_z']
+        approach=json.loads((ROOT/'config/povo_exterior.json').read_text())['east_approach']
+        upper=approach['upper_z']
+        stair_bottom, _, stair_top, _ = approach['stairs']
         try:
             from .audit_povo_exterior_integrated import exterior_routes
         except ImportError:
@@ -66,8 +68,8 @@ def playtest(*, routes=None, output=None, package=None, port=27400,map_name='tre
         ('straight_ramp_down',(-29,-3.5,3.1),[(-29,0,2.52),(-29,20,-1.3),(-29,33,-3.2)]),
         ('straight_ramp_up',(-29,33,-3.1),[(-29,20,-1.3),(-29,0,2.52),(-29,-3.5,3)]),
         ('garage_into_original_parking',(-29,36,-3.1),[(-5,36,-3.2),(18,36,-3.2),(18,27,-3.2),(17.8,22,-3.2)]),
-        ('povo1_external_stairs',(22,-73.73,4.1),[(26.5,-73.73,4),(36.5,-73.73,upper),(54,-73.73,upper)]),
-        ('povo1_external_stairs_return',(54,-73.73,upper+.1),[(36.5,-73.73,upper),(26.5,-73.73,4),(22,-73.73,4)]),
+        ('povo1_external_stairs',(22,-73.73,4.1),[(stair_bottom-.8,-73.73,4),(stair_top+.8,-73.73,upper),(54,-73.73,upper)]),
+        ('povo1_external_stairs_return',(54,-73.73,upper+.1),[(stair_top+.8,-73.73,upper),(stair_bottom-.8,-73.73,4),(22,-73.73,4)]),
         ('povo2_yard_outer_pavement',(57.5,31.35,4.22),source_routes['p2_yard_outer_pavement'][1:]),
         # Settle before turning through the narrow CIBIO opening; the long
         # southbound pulse can otherwise overshoot its centre beside the frame.

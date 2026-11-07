@@ -30,6 +30,9 @@ def extend_campus(boxes, levels, root, wall_height):
     cut(((a,-20.3,z-.01),(c,-19.7,z+2.8)))
     # The original first-floor slab/roof already supports the converted room area.
     add('p1_corridor_finish',(a,b,z+.001),(c,d,z+.012),'floor_circulation')
+    # The passage opens out to the west room wall at E16. The stock slab
+    # exposed along this edge should carry the same terrazzo as the route.
+    add('p1_corridor_finish_west',(16.,b,z+.001),(a,d,z+.012),'floor_circulation')
     # Cabinets and seats occupy the remaining east-side bay of former A203.
     for i in range(5):
         y=-31.8+i*1.9

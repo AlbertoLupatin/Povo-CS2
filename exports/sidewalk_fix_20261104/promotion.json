@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "package_sha256": "09396dc0e1bb6709c528335a44d3c66911f63dee549f33472acbc06634a87bac",
+  "copies": [
+    {
+      "path": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\package\\trento_povo_campus.vpk",
+      "sha256": "09396dc0e1bb6709c528335a44d3c66911f63dee549f33472acbc06634a87bac",
+      "previous_sha256": "18d154a01b9cdbe554db740657cd700899dab4ebc4ac8a5541ed4eaacafcd753",
+      "backup": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\sidewalk-fix-20261104\\previous-0.vpk"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo_addons\\trento_povo_campus_test\\maps\\trento_povo_campus.vpk",
+      "sha256": "09396dc0e1bb6709c528335a44d3c66911f63dee549f33472acbc06634a87bac",
+      "previous_sha256": "18d154a01b9cdbe554db740657cd700899dab4ebc4ac8a5541ed4eaacafcd753",
+      "backup": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\sidewalk-fix-20261104\\previous-1.vpk"
+    }
+  ],
+  "running_addon": "trento_povo_bundle_review",
+  "source_build": "C:\\Users\\Alberto\\Desktop\\trento_fps\\build\\local-benchmark\\20261104T212734Z",
+  "native_walk_routes": 10,
+  "native_walk_waypoints": 50
+}

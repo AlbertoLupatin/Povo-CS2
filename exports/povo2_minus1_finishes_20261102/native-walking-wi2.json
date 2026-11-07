@@ -1,0 +1,222 @@
+{
+  "status": "passed",
+  "routes": [
+    {
+      "id": "c7_to_empty_wi2_door",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -13.91253604193971,
+            14.480769230769234,
+            0.4
+          ],
+          "position": [
+            -13.912518225255651,
+            14.481816832657929,
+            0.4007930516016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -16.052845347313237,
+            14.480769230769234,
+            0.4
+          ],
+          "position": [
+            -16.035013497664142,
+            14.480818434857923,
+            0.4007930516016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    },
+    {
+      "id": "c7_to_empty_wi2_door_return",
+      "status": "passed",
+      "checks": [
+        {
+          "target": [
+            -13.91253604193971,
+            14.480769230769234,
+            0.4
+          ],
+          "position": [
+            -13.896119248655586,
+            14.480793619057925,
+            0.4007930516016032
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        },
+        {
+          "target": [
+            -13.91253604193971,
+            16.230769230769234,
+            0.4
+          ],
+          "position": [
+            -13.912364758455652,
+            16.212873949664854,
+            0.40079307700160316
+          ],
+          "passed": true,
+          "height_tolerance": 0.25
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W07_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W08_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W09_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W10_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W11_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W12_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W13_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W14_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W15_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W16_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W17_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W18_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W19_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W19_exterior_1_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W20_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W21_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W22_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W23_exterior_0_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_west_W23_exterior_1_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_cibio_office_0_exterior_glass",
+      "passed": true
+    },
+    {
+      "name": "povo_glass_p2_basement_fitout_cibio_office_1_exterior_glass",
+      "passed": true
+    },
+    {
+      "name": "p2_cibio_terrace_0_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_0_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_1_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_1_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_2_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_2_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_3_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_3_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_4_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_4_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_5_0",
+      "passed": true,
+      "expected": "No moving door entity"
+    },
+    {
+      "name": "p2_cibio_terrace_5_1",
+      "passed": true,
+      "expected": "No moving door entity"
+    }
+  ],
+  "movement": "One initial placement per route; ordinary standing movement thereafter",
+  "xy_tolerance_metres": 0.025,
+  "package_sha256": "96cfccfdd484f325ea239deae5dc9cd797ca7dbc7c3896ab40fced7b2a8e3f93"
+}

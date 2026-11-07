@@ -1,0 +1,35 @@
+{
+  "name": "lower_stair_approach",
+  "kind": "walk",
+  "status": "passed",
+  "checks": [
+    {
+      "target": [
+        43.8,
+        4,
+        -3.2
+      ],
+      "position": [
+        43.800021061375205,
+        4.017838471816072,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    },
+    {
+      "target": [
+        43.8,
+        1.2,
+        -3.2
+      ],
+      "position": [
+        43.799983850375206,
+        1.2193550416048775,
+        -3.199206276212797
+      ],
+      "passed": true,
+      "height_tolerance": 0.25
+    }
+  ]
+}

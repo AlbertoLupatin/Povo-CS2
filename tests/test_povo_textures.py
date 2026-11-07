@@ -54,6 +54,23 @@ class TextureSettingsTests(unittest.TestCase):
             self.assertRegex(path, r'^materials/[a-z0-9_/]+\.vmat$')
             self.assertFalse(path.startswith('materials/trento/'))
 
+    def test_repaired_sidewalks_and_plaza_joins_use_the_adjacent_finish(self):
+        cases = (
+            ('exterior_registered_via_footway_north_2','exterior_paving','exterior_dark_sidewalk'),
+            ('exterior_registered_via_footway_south_0_junction_2','exterior_paving','exterior_dark_sidewalk'),
+            ('exterior_registered_via_footway_south_1','exterior_paving','exterior_paving'),
+            ('exterior_registered_via_verge_2_1','exterior_concrete','exterior_paving'),
+            ('exterior_registered_footway_south_0','exterior_concrete','exterior_paving'),
+            ('exterior_registered_library_verge_2_1','exterior_concrete','exterior_concrete'),
+            ('campus_entry_landing','floor_circulation','exterior_paving'),
+            ('library_0_access_join','floor_p2_tile','exterior_paving'),
+            ('canteen_0_access','floor_p2_tile','exterior_paving'),
+            ('canteen_0_access_join','floor_p2_tile','exterior_paving'),
+        )
+        for name,source,expected in cases:
+            with self.subTest(name=name):
+                self.assertEqual(textures.renamed(name,source),expected)
+
     def test_campus_material_paths_follow_the_mapping(self):
         self.assertEqual(material_path('stair_red'), textures.PREFIX + 'red_floor.vmat')
         self.assertEqual(material_path('exterior_grass'), 'materials/de_overpass/nature/wild_grass_1.vmat')
