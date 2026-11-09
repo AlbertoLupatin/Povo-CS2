@@ -929,6 +929,8 @@ def build_registered_geometry(root=ROOT):
     settings, config, boxes, levels, stair = build_geometry(root)
     from tools.povo2_frontage_registration import apply
     boxes = apply(boxes, levels)
+    from tools.povo2_parking_continuity import apply as join_parking
+    boxes = join_parking(boxes, levels, root)
     return settings, config, boxes, levels, stair
 
 

@@ -446,7 +446,8 @@
     ],
     "width": 5.5,
     "user_confirmed": "IMG_2366 right-hand entrance goes directly to Povo 2 parking; ramp descends straight",
-    "uncertain": "Mouth position, heading, length, width, grade, level and portal dimensions are estimates. Exterior covered parking now meets the straight ramp. The separate interior parking source still requires reconciliation."
+    "uncertain": "Existing dimensions and grade remain estimates. Final registered assembly joins the interior parking, extends to the north terrace end and clears the terrace apertures; see tools/povo2_parking_continuity.py.",
+    "placement_confirmation": "User, 9 November 2026: placement is correct. Ramp belongs to one continuous parking area along the full side of Povo 2; visible through existing -1 terrace openings."
   },
   "east_approach": {
     "lower_plaza": [
