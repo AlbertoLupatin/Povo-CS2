@@ -19,12 +19,16 @@ try:
     from .build_povo_campus import export, MATERIAL_PREFIX
     from .package_cs2 import package_map
     from .povo_campus_finishes import write_png
+    from .povo1_lift import BRUSH_MATERIALS as LIFT_MATERIALS
+    from .povo1_lift import SCRIPT as LIFT_SCRIPT, insert as insert_lift
 except ImportError:
     import cs2_project as project
     import build_povo_radar as radar
     from build_povo_campus import export, MATERIAL_PREFIX
     from package_cs2 import package_map
     from povo_campus_finishes import write_png
+    from tools.povo1_lift import BRUSH_MATERIALS as LIFT_MATERIALS
+    from tools.povo1_lift import SCRIPT as LIFT_SCRIPT, insert as insert_lift
 
 ROOT=Path(__file__).resolve().parents[1]
 MAP='trento_povo_campus'
@@ -142,11 +146,11 @@ def box_entity(template,token,classname,box,ids,properties,material=None):
     return re.sub(r'("classname"\s+"string"\s+"'+classname+'")',lambda m:m[1]+props,block,count=1)
 
 
-def connection(token,output,target,inputname):
+def connection(token,output,target,inputname,value=''):
     """Hammer I/O row, with the field types of Valve's own cs_script_demo.vmap."""
     return (f'"DmeConnectionData"\n{{\n"id" "elementid" "{uuid.uuid5(uuid.NAMESPACE_URL,"trento-povo:"+token)}"\n'
             f'"outputName" "string" "{output}"\n"targetType" "int" "7"\n"targetName" "string" "{target}"\n'
-            f'"inputName" "string" "{inputname}"\n"overrideParam" "string" ""\n'
+            f'"inputName" "string" "{inputname}"\n"overrideParam" "string" "{value}"\n'
             '"delay" "float" "0"\n"timesToFire" "int" "-1"\n}')
 
 
@@ -403,7 +407,8 @@ def map_text(source,metadata,season='standard'):
         lights.extend(elevator['lights'])
         source=project._insert_point_entity(source,'campus-elevator-first-sign','point_worldtext',
             world(elevator['sign']),sign_properties('ASCENSORE'),angles='0 180 90')
-        source=add_ladder(source,'campus-elevator-ladder',elevator['ladder'])
+        if not elevator.get('service'):
+            source=add_ladder(source,'campus-elevator-ladder',elevator['ladder'])
     if metadata.get('exterior'):
         entrance = metadata['exterior']['entrance']
         _,south,_,north = entrance['lobby_bounds']
@@ -444,6 +449,8 @@ def map_text(source,metadata,season='standard'):
         from povo_interactions import insert_entities
         from povo_atmosphere import tune_map, insert_soundscapes, insert_winter
     source=insert_entities(source,metadata['interactions'])
+    if elevator and elevator.get('service'):
+        source=insert_lift(source,elevator['service'])
     # Add brush banks/panes after the point entities to avoid repeatedly
     # scanning hundreds of mesh blocks during each light/sign insertion.
     source=add_breakable_glass(source,metadata.get('breakable_glass',[]))
@@ -731,6 +738,8 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
     brush_materials.update(d['material'] for p in metadata.get('breakable_glass',[]) for d in p.get('decorations',[]))
     brush_materials.update(p['material'] for d in metadata.get('auto_doors',[]) for p in d['parts'])
     brush_materials.update(d['material'] for d in metadata['interactions']['doors'])
+    has_lift = (metadata.get('elevator') or {}).get('service')
+    if has_lift:brush_materials.update(LIFT_MATERIALS)
     # The packager also includes the addon's base materials. A clean campus
     # build must compile them even when the campus model does not use them.
     if pack:brush_materials.update(p.as_posix() for p in project.SYNC_CONTENT if p.suffix=='.vmat')
@@ -739,6 +748,8 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
         if path.is_file():compile_resource(path)
     compile_resource(content/'soundevents/soundevents_addon.vsndevts')
     compile_resource(content/FFA_SCRIPT.replace('.vjs','.js'))
+    if has_lift:
+        compile_resource(content/LIFT_SCRIPT.replace('.vjs','.js'))
     if 'winter' in seasons:
         compile_resource(content/'models/povo/povo_winter.vmdl')
         compile_resource(content/'particles/povo/snow.vpcf')
@@ -751,6 +762,7 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
         shutil.copyfile(radar_dir/(map_name+'.txt'),game/'resource/overviews'/(map_name+'.txt'))
         if pack:
             extras=['soundevents/soundevents_addon.vsndevts_c','maps/scripts/povo_ffa.vjs_c']
+            if has_lift:extras.append(LIFT_SCRIPT+'_c')
             if metadata.get('exterior'):extras+=['models/povo/povo1_campus_paving.vmdl_c']
             if chosen=='winter':extras+=['models/povo/povo_winter.vmdl_c','particles/povo/snow.vpcf_c']
             result=package_map(cs2_root,ROOT/'build/tools/vpkedit-4.4.2/vpkeditcli.exe',

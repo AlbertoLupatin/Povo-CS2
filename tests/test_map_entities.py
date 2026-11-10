@@ -134,6 +134,21 @@ class AutoDoorTests(unittest.TestCase):
 
 
 class LadderTests(unittest.TestCase):
+    def test_registered_cab_can_travel_through_all_three_floors(self):
+        from tools.build_povo_campus import build_registered_geometry, collision_boxes
+        _, _, boxes, levels, _ = build_registered_geometry(ROOT)
+        service = levels[0]['elevator']['service']
+        self.assertEqual(service['stops'], [4., 7.6, 11.2])
+        for actual, expected in zip(service['call_faces'], (12.814, 12.682, 12.45), strict=True):
+            self.assertAlmostEqual(actual, expected, places=3)
+        x0, y0, x1, y1 = service['cab']
+        minimum = (x0, y0, service['stops'][0] - .15)
+        maximum = (x1, y1, service['stops'][-1] + 2.1)
+        obstructions = [name for name, lo, hi, _ in collision_boxes(boxes)
+                        if all(lo[i] < maximum[i] - 1e-6 and hi[i] > minimum[i] + 1e-6
+                               for i in range(3))]
+        self.assertEqual(obstructions, [])
+
     def test_lift_ladders_clear_the_standing_player_at_every_floor_ledge(self):
         from tools.build_povo_campus import collision_boxes
         _, _, boxes, levels, _ = build_geometry(ROOT)

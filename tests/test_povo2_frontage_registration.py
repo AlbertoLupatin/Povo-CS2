@@ -60,6 +60,13 @@ class RegisteredFrontageTests(unittest.TestCase):
         cls.physics = campus.collision_boxes(cls.boxes)
         cls.byname = {n: (lo, hi, m) for n, lo, hi, m in cls.boxes}
 
+    def test_povo1_bus_side_recess_has_paved_collision(self):
+        for x in (11.15, 15., 19., 23.95):
+            for y in (-19.95, -18., -15.93):
+                self.assertTrue(any(lo[0] < x < hi[0] and lo[1] < y < hi[1] and hi[2] == 4.
+                                    and material == 'exterior_paving'
+                                    for _, lo, hi, material in self.physics), (x, y))
+
     def test_common_frontage_and_retained_room_order(self):
         ground = next(l for l in self.p2['levels'] if l['floor'] == 0)
         rooms = {r['id']: r for r in ground['rooms']}
@@ -92,6 +99,27 @@ class RegisteredFrontageTests(unittest.TestCase):
                 continue
             lo, hi, _ = self.byname['p2_ground_' + room['id'] + '_door_head']
             self.assertAlmostEqual(room['door_y'], (lo[1] + hi[1])/2, msg=room['id'])
+
+    def test_registered_west_rooms_have_full_fitouts_and_one_glazing_plane(self):
+        ground = next(l for l in self.p2['levels'] if l['floor'] == 0)
+        rooms = [r for r in ground['rooms'] if r['id'] in ('b106', 'b108', 'b109')]
+        for room in rooms:
+            name = room['id']
+            self.assertGreaterEqual(len(room['fitout']['rows']), 6, name)
+            self.assertLess(room['fitout']['rows'][-1]['bounds_local_metres'][0][1], 14., name)
+            panes = [b for b in self.boxes if b[0].startswith(f'p2_registered_{name}_front_pane_')]
+            self.assertGreater(len(panes), 4, name)
+            self.assertTrue(all(campus.is_breakable_glass(pane) and pane[3] == 'window_glass' for pane in panes))
+            for _, lo, hi, _ in panes:
+                self.assertAlmostEqual((lo[1]+hi[1])/2, 10.8)
+        self.assertFalse(any(b[0].startswith('facade_p2_south_l0_') and b[3] == 'window_glass'
+                             and b[2][0] > 2 and b[1][0] < 31 for b in self.boxes))
+
+    def test_registered_west_corridor_ceiling_has_no_lower_slabs(self):
+        for x, y in ((3., 25.5), (8., 26.45), (22., 24.7)):
+            visible = min(lo[2] for _, lo, hi, _ in self.boxes
+                          if lo[0] < x < hi[0] and lo[1] < y < hi[1] and lo[2] > 6.6)
+            self.assertAlmostEqual(visible, 7.28, msg=(x, y))
 
     def test_mixed_coordinate_and_interval_metadata(self):
         # The registered interval describes the actual inner doorway banks.

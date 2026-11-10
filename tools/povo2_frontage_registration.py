@@ -10,6 +10,7 @@ import math
 import random
 import re
 from .povo_room_fitout import subtract_box
+from .povo2_interiors import fit_ground_room
 from .povo_floor_surfaces import bounds, overlaps, subtract
 from .povo_stairs import railing
 from .povo_library_stair import WALL_Y, grass_z
@@ -97,10 +98,10 @@ def apply(boxes, levels):
     # Ground-floor room fronts remain at the common facade; the corridor and
     # north room walls follow the translated core. Furnishings keep their size.
     ground=next(l for l in p['levels'] if l['floor']==0)
-    for room in ground['rooms']:
-        if room['id'] in ROOMS:
-            room['bounds'][1]=FACADE
-            room['footprint_local_metres'][1]=FACADE
+    rooms = [room for room in ground['rooms'] if room['id'] in ROOMS]
+    for room in rooms:
+        room['bounds'][1]=FACADE
+        room['footprint_local_metres'][1]=FACADE
     cfg=p['additions']['config']
     for room in cfg['ground_rooms']:room['bounds'][1]=FACADE
     cfg['ground_registration'].update(facade_north=FACADE,stairwell_south=18+OFFSET,
@@ -126,7 +127,7 @@ def apply(boxes, levels):
             'exterior_library_library_street_fence_', 'exterior_library_library_street_extension_',
             'exterior_library_hedge_', 'exterior_p2_entry_floor_joint_',
             'exterior_library_sidewalk_corner',
-            'exterior_p2_entry_ceiling_joint_')
+            'exterior_p2_entry_ceiling_joint_', 'p2_basement_repair_former_shaft_ceiling_0')
     result=[]
     for name,lo,hi,material in boxes:
         if name.startswith(remove):continue
@@ -145,8 +146,6 @@ def apply(boxes, levels):
                     suffix=name[len(prefix):]
                     if suffix.startswith(('floor','ceiling','wall_west','wall_east')):
                         lo=(lo[0],lo[1]-OFFSET,lo[2])
-                    elif suffix.startswith(('wall_south','window_')):
-                        lo=(lo[0],lo[1]-OFFSET,lo[2]);hi=(hi[0],hi[1]-OFFSET,hi[2])
             if hi[2]<0 and name.startswith(('p2_parking_','p2_basement_')):
                 if hi[1]<=FACADE:continue
                 lo=(lo[0],max(lo[1],FACADE),lo[2])
@@ -179,6 +178,7 @@ def apply(boxes, levels):
         ext[key]=[m for m in ext[key] if not m['name'].startswith(('exterior_p2_roadside_',
             'exterior_user_fill_','exterior_p2_garden_'))]
     result=_carve_context(result,ext,holes)
+    result=_finish_ground_rooms(result, ground, rooms, cfg['ground_corridor'], levels[0]['facades'])
     _clear_garden_overhang(result,p['gardens']['garden'])
     _extend_garden_exit(result,ext,p,add)
     link['nav_seeds'].append([30.8,15.,-3.2])
@@ -198,6 +198,72 @@ def apply(boxes, levels):
         source='User confirms all floors align; no protruding frontage',
         metric_status='Fitted to confirmed topology and approximate grass/bush dimensions; not surveyed',
         preserve='Internal room/corridor relationships and stair directions; Povo 1 and external bridge span')
+    return result
+
+
+def _finish_ground_rooms(boxes, ground, rooms, corridor, facades):
+    """Rebuild the kits and glazing in the registered classroom footprint."""
+    west, east = corridor[0], corridor[2]
+    z = ground['z']
+    ceiling = next(hi[2] for n, _, hi, _ in boxes if n == 'p2_ground_left_extension_ceiling')
+    air = ((west, FACADE, z+3.1), (east, corridor[3], ceiling))
+    old_front = ((west, 9.7, z), (east, FACADE-.1, ceiling))
+    room_prefixes = tuple(f"p2_ground_{r['id']}_" for r in rooms)
+    kits = tuple(f"{ground['id']}_room_{r['id']}_" for r in rooms)
+    obsolete = kits + tuple(p+s for p in room_prefixes for s in ('monitor_', 'tier_', 'wall_south', 'window_'))
+    result = []
+    for box in boxes:
+        name = box[0]
+        if name.startswith(obsolete):
+            continue
+        if name.startswith('exterior_povo2_context'):
+            result.extend(subtract_box(box, air))
+        elif name.startswith('facade_p2_south_l0_'):
+            result.extend(subtract_box(box, old_front))
+        else:
+            result.append(box)
+
+    openings = facades['openings']
+    openings[:] = [r for r in openings if not (r['face'] == 'p2_south' and r['floor'] == -1
+                   and r['span'][0] < east and r['span'][1] > west)]
+    for room in rooms:
+        ident = room['id']
+        result.extend(fit_ground_room(ground, room, ceiling-z))
+        station_prefix = ident+'_aisle_'
+        stations = ground['audit_stations']
+        stations[:] = [s for s in stations if not s['id'].startswith(station_prefix)]
+        stations.extend(dict(id=station_prefix+str(i), point=list(q))
+                        for i, q in enumerate(room['fitout']['audit_points_local_metres']))
+        a, _, b, _ = room['bounds']
+        sill, head = z+.15, ceiling-.18
+        prefix = f'p2_registered_{ident}_front_'
+        for label, x0, x1, z0, z1 in (('sill', a, b, z, sill), ('head', a, b, head, ceiling),
+                                       ('west_jamb', a, a+.1, sill, head),
+                                       ('east_jamb', b-.1, b, sill, head)):
+            result.append((prefix+label, (x0, FACADE-.1, z0), (x1, FACADE+.1, z1), 'wall'))
+        width = b-a-.2
+        count = math.ceil(width/1.45)
+        for i in range(count):
+            left = a+.1 + i*width/count
+            right = a+.1 + (i+1)*width/count
+            if i:
+                result.append((prefix+f'mullion_{i}', (left-.025, FACADE-.05, sill),
+                               (left+.025, FACADE+.05, head), 'window_frame'))
+            lo = (left+(.025 if i else 0.), FACADE-.015, sill)
+            hi = (right-(.025 if i+1 < count else 0.), FACADE+.015, head)
+            name = prefix+f'pane_{i}'
+            result.append((name, lo, hi, 'window_glass'))
+            openings.append(dict(face='p2_south', floor=-1, bay=name, span=[lo[0], hi[0]],
+                                 glass=(lo, hi), material='window_glass', sealed=False))
+    # The old curtain-wall carve shortened the tips of the party walls.
+    for x in (west, *sorted(r['bounds'][0] for r in rooms if r['bounds'][0] > west)):
+        hi = (x+.1, FACADE+.4, ceiling)
+        lo = (x-.1, 10.025 if x == west else FACADE+.1, z)
+        tip = [(f'p2_registered_classroom_wall_tip_{x:g}', lo, hi, 'wall')]
+        for name, a, b, material in result:
+            if material == 'wall' and all(a[i] < hi[i] and b[i] > lo[i] for i in range(3)):
+                tip = [p for piece in tip for p in subtract_box(piece, (a, b))]
+        result.extend(tip)
     return result
 
 
@@ -486,6 +552,10 @@ def _road_and_landscape(result,ext,p,add,library_rails):
     # The old Povo 2 yard cut a rectangle out of the Povo 1 lower plaza.
     result.append(('exterior_registered_povo1_plaza_rejoin',
                    (24.,-22.02,3.78),(30.82,-15.88,4.),'exterior_paving'))
+    # The same obsolete excavation also cut the bridge apron beside Povo 1.
+    # Close the remaining rectangle between the glazed facade and the paving.
+    result.append(('exterior_registered_povo1_bus_side_infill',
+                   (11.08,-20.,3.78),(24.,-15.88,4.),'exterior_paving'))
     # Clear old context ground above/beside the rebuilt road surface.
     hole=((-23,ROAD_CENTRE-half-WALK_WIDTH,2.7),(50,PAVEMENT_EDGE,10.))
     kept=[]

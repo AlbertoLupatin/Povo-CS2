@@ -78,6 +78,56 @@ def furnish_b_rooms(boxes, ground, wall_height):
     return result
 
 
+def fit_ground_room(ground, room, wall_height):
+    """Fit the PC or raked classroom kit to the room's current footprint."""
+    import re
+
+    z = ground['z']
+    name = 'p2_ground_' + room['id']
+    computer = room['kind'] == 'computer'
+    settings = dict(teaching_side='north', window_side=None, side_aisle_metres=1.1,
+                    row_pitch_metres=1.4, first_row_metres=2.1,
+                    reference_ids=['P097'] if computer else ['P093', 'P094', 'P095', 'P096'],
+                    location_status='Povo 2 west corridor')
+    furniture, _, fitout = classroom_kit(ground, room, z, wall_height, .2, settings)
+    fitout['window_side'] = 'south'
+    room['fitout'] = fitout
+    if computer:
+        for row in fitout['rows']:
+            lo, hi = row['bounds_local_metres']
+            y = (lo[1] + hi[1]) / 2
+            for col in range(max(1, int((hi[0] - lo[0]) / 1.2))):
+                x = lo[0] + .6 + col * 1.2
+                prefix = f"{name}_monitor_{row['id']}_{col}"
+                furniture.extend([
+                    (prefix, (x-.22, y-.035, z+.87), (x+.22, y+.035, z+1.20), 'office_screen'),
+                    (prefix+'_stand', (x-.025, y-.025, z+.77), (x+.025, y+.025, z+.87), 'metal_dark'),
+                ])
+        fitout['furniture'] = ['computer desks', 'blank monitors', 'chairs']
+        return furniture
+
+    raised = []
+    tiers = {}
+    for boxname, lo, hi, material in furniture:
+        match = re.search(r'_(?:desk_row|chair)_(\d+)_', boxname)
+        rise = int(match[1]) * .12 if match else 0
+        if match:
+            tiers.setdefault(int(match[1]), []).append((lo, hi))
+        raised.append((boxname, (*lo[:2], lo[2]+rise), (*hi[:2], hi[2]+rise), material))
+    for row, parts in tiers.items():
+        if row:
+            x0, y0 = [min(part[0][i] for part in parts) for i in range(2)]
+            x1, y1 = [max(part[1][i] for part in parts) for i in range(2)]
+            raised.append((f'{name}_tier_{row}', (x0-.08, y0-.05, z),
+                           (x1+.08, y1+.05, z+row*.12), 'floor_wood'))
+    for row in fitout['rows']:
+        rise = row['id'] * .12
+        row['bounds_local_metres'] = tuple((*p[:2], p[2]+rise) for p in row['bounds_local_metres'])
+    fitout['riser_metres'] = .12
+    fitout['status'] = 'Photo-guided bamboo floor and raked seating; metric dimensions estimated'
+    return raised
+
+
 def extend_layout(boxes, levels, root, wall_height):
     """Expand the integrated campus without relocating its proven stairs/lifts."""
     import json
@@ -239,36 +289,7 @@ def extend_layout(boxes, levels, root, wall_height):
         room.update(footprint_local_metres=room['bounds'],door_side='u_max',
                     door_fraction=(door-a)/(c-a),door_width_metres=1.5,
                     playable=True,board_wall='north',sign_offset_metres=.16)
-        # Room kit faces away from full-height south-facing facade glazing.
-        settings=dict(teaching_side='north',window_side=None,side_aisle_metres=1.1,
-                      row_pitch_metres=1.4,first_row_metres=2.1,
-                      reference_ids=['P093','P094','P095','P096'],
-                      location_status='26 October left-corridor rooms; provisional labels')
-        # Door is offset to the side so it does not intersect the board.
-        if room['kind']=='computer':
-            settings.update(window_side=None,reference_ids=['P097'])
-        furniture,opening,fitout=classroom_kit(ground,room,z,wall_height,.2,settings)
-        if opening:cut(*opening,materials=('wall',))
-        if room['kind']=='classroom':
-            import re
-            raised=[]
-            tiers={}
-            for boxname,lo,hi,mat in furniture:
-                match=re.search(r'_(?:desk_row|chair)_(\d+)_',boxname)
-                rise=int(match[1])*.12 if match else 0
-                if match:
-                    tiers.setdefault(int(match[1]),[]).append((lo,hi))
-                raised.append((boxname,(lo[0],lo[1],lo[2]+rise),(hi[0],hi[1],hi[2]+rise),mat))
-            furniture=raised
-            for row,parts in tiers.items():
-                rise=row*.12
-                if not rise:continue
-                lo=[min(p[0][i] for p in parts) for i in range(2)]
-                hi=[max(p[1][i] for p in parts) for i in range(2)]
-                add(name+f'_tier_{row}',(lo[0]-.08,lo[1]-.05,z),(hi[0]+.08,hi[1]+.05,z+rise),'floor_wood')
-            fitout['riser_metres']=.12
-            fitout['status']='Photo-guided bamboo floor and raked seating; metric dimensions estimated'
-        result.extend(furniture)
+        result.extend(fit_ground_room(ground, room, wall_height))
         add(name+'_sign_plaque',(door-.63,d+.105,z+2.28),
             (door+.63,d+.12,z+2.6),'sign_blue')
         cut((a+.5,b-.25,z+.15),(c-.5,b+.25,z+wall_height-.18),materials=('wall',))
@@ -277,23 +298,11 @@ def extend_layout(boxes, levels, root, wall_height):
             x=a+.5+i
             if x<c-.45:
                 add(name+f'_window_mullion_{i}',(x-.025,b-.05,z+.15),(x+.025,b+.05,z+wall_height-.18),'window_frame')
-        fitout['window_side']='south'
-        room['fitout']=fitout
         ground.setdefault('rooms',[]).append(room)
         if spec['ground']['rooms'] is not ground['rooms']:spec['ground']['rooms'].append(room)
         station(ground,room['id']+'_door',door,d)
-        for i,p in enumerate(fitout['audit_points_local_metres']):
+        for i,p in enumerate(room['fitout']['audit_points_local_metres']):
             station(ground,room['id']+f'_aisle_{i}',*p)
-        if room['kind']=='computer':
-            # Reuse desk rows, add blank monitors/keyboards: no photographed text.
-            for i,row in enumerate(fitout['rows']):
-                lo,hi=row['bounds_local_metres']
-                for j in range(max(1,int((hi[0]-lo[0])/1.2))):
-                    x=lo[0]+.6+j*1.2;y=(lo[1]+hi[1])/2
-                    add(name+f'_monitor_{i}_{j}',(x-.22,y-.035,z+.82),(x+.22,y+.035,z+1.15),'desk_dark')
-                    add(name+f'_monitor_stand_{i}_{j}',(x-.025,y-.025,z+.77),(x+.025,y+.025,z+.85),'metal_dark')
-            fitout['furniture']=['computer desks','blank monitors','chairs']
-
     # Photo 14–15 lobby, followed by the authorized temporary aula magna.
     lobby=cfg['aula_lobby']; hall=cfg['aula_magna']
     shell('p2_ground_aula_lobby',lobby,z)
