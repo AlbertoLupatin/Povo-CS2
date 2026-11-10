@@ -931,6 +931,14 @@ def build_registered_geometry(root=ROOT):
     settings, config, boxes, levels, stair = build_geometry(root)
     from tools.povo2_frontage_registration import apply
     boxes = apply(boxes, levels)
+    if levels[0].get('elevator'):
+        from tools.povo1_lift import prepare as prepare_lift
+        boxes = prepare_lift(boxes, levels, settings['elevator'])
+    if levels[0].get('exterior') and settings.get('povo2_planimetry'):
+        from tools.povo2_parking_continuity import apply as join_parking
+        from tools.povo2_terrace_integration import extend
+        boxes = extend(boxes, levels, root)
+        boxes = join_parking(boxes, levels, root)
     return settings, config, boxes, levels, stair
 
 
@@ -1025,6 +1033,9 @@ def export(root=ROOT):
                 photo=manifest_file.parent/relative
                 if photo.is_file():survey_inputs.append(photo.relative_to(root).as_posix())
     metadata['inputs'].update({p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in survey_inputs})
+    if (metadata['elevator'] or {}).get('service'):
+        for relative in ('tools/povo1_lift.py', 'cs2/content/trento_povo/maps/scripts/povo1_lift.js'):
+            metadata['inputs'][relative]=hashlib.sha256((root/relative).read_bytes()).hexdigest()
     metadata['interactions']=levels[0]['interactions']
     metadata['facades']=levels[0]['facades']
     metadata['inputs'].update(metadata['facades']['input_hashes'])
