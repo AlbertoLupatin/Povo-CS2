@@ -29,6 +29,17 @@ earlier plan. A later user-requested layout change must be documented as a
 revision of this approved baseline. Approval here applies to Povo 2 −1;
 remaining work on other floors/buildings and exterior finishing stays separate.
 
+The [8 November exterior terrace revision](POVO2_TERRACE_INTEGRATION_20261108.md)
+extends the approved south strip to the west corner using the earlier user
+markup. It adds the marked west and north terrace sections around the
+existing interior and ties the exterior edges into the street and garage.
+The [terrace follow-up](POVO2_TERRACE_INTEGRATION_20261108.md#joined-west-terrace-and-office-frontage)
+joins those west decks into one walkable terrace at Z0.4. It keeps two guarded
+lightwells over the garage and retains the existing garage ramp and portal.
+The [9 November parking revision](POVO2_PARKING_CONTINUITY_20261109.md)
+joins the stair-accessed parking to the ramp-served garage and clears both
+lightwell shafts to the garage floor.
+
 ## Implementation and exact approved build
 
 The [2 November finishing pass](POVO2_MINUS1_FINISHES_20261102.md) adds the

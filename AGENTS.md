@@ -284,3 +284,24 @@ and compiled basement audits, 11 normal-lit views and 12 walks over 46 waypoints
 The [library stair and road record](docs/POVO_LIBRARY_ROAD_SPANS_20261107.md)
 supersedes the uniform sidewalk widths along the measured part of the bridge
 approach. It records the two separate spans, local pavement tapers and checks.
+
+## Povo 2 −1 exterior terrace revision
+
+The [terrace integration record](docs/POVO2_TERRACE_INTEGRATION_20261108.md)
+documents the integration of the corrected terrace drawing, the garage ramp
+and floor 0 edge repairs, and the status of the standard campus build.
+
+## Povo 2 parking continuity verified on 9 November 2026
+
+The [parking record](docs/POVO2_PARKING_CONTINUITY_20261109.md) documents the
+integration of `a3d82ff` with the installed terrace, the compiled lightwell and
+parking checks, and the solo playtest. The verified standard package is ready
+in the local workspace for `play_campus.cmd` and was uploaded to the existing
+friends-only Workshop item 3827904476.
+
+## Povo 1 bus-side paving and reception lift
+
+See [the Povo 1 repair record](docs/POVO1_BUS_PAVING_AND_LIFT_20261109.md) for the
+paved recess and the three-stop lift in the existing reception shaft. The
+standard local package passed four paving walks, seven lift rides and calls
+from all three landings in a fresh solo CS2 session.
