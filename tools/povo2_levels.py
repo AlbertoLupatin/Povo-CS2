@@ -31,6 +31,14 @@ _XS = [k[0] for k in _KNOTS]
 
 MAPPED = ('p2_', 'exterior_p2_', 'exterior_povo2_', 'facade_p2', 'exterior_garage_',
           'exterior_parking_continuous', 'academic_first_link_p2_')
+# Street-level frontage pieces built by the Povo 2 passes: they follow the
+# regraded street (tools/povo2_exterior_grade.py), not the storey profile.
+STREET = ('exterior_povo2_front_walk', 'exterior_povo2_front_green_strip', 'exterior_povo2_front_tree',
+          'exterior_povo2_front_lamp', 'exterior_povo2_left_terrace', 'exterior_povo2_old_yard',
+          'exterior_paving_povo2_north', 'exterior_p2_terrace_north_street', 'exterior_p2_terrace_north_bend',
+          'exterior_p2_terrace_exterior_p2_terrace_north_street', 'exterior_p2_terrace_exterior_p2_terrace_north_corner',
+          'exterior_p2_terrace_exterior_p2_terrace_north_garden_rim')
+STREET_RAILS = tuple(p.replace('exterior_p2_terrace_exterior_', 'exterior_') for p in STREET)
 RAMP_WORDS = ('ramp', 'driveway')
 # Ramp profile: road junction (N1, Z3.0) to the garage portal (N30, old Z-3.2).
 RAMP_TOP, RAMP_Y0, RAMP_Y1 = 3.0, 1., 30.
@@ -116,7 +124,7 @@ def _map_box(box):
     if is_ramp(n):
         y = (lo[1]+hi[1])/2
         return (n, (*lo[:2], _ramp_z(lo[2], y)), (*hi[:2], max(_ramp_z(hi[2], y), _ramp_z(lo[2], y)+1e-3)), m)
-    if not n.startswith(MAPPED) or lo[2] >= 10.9:
+    if not n.startswith(MAPPED) or n.startswith(STREET) or lo[2] >= 10.9:
         return box
     a, b = remap_z(lo[2]), remap_z(hi[2])
     return (n, (*lo[:2], a), (*hi[:2], max(b, a+1e-3)), m)
@@ -126,6 +134,8 @@ def _map_mesh(mesh):
     n = mesh['name']
     if is_ramp(n):
         mesh['vertices'] = [(x, y, _ramp_z(z, y)) for x, y, z in mesh['vertices']]
+    elif n.startswith(STREET):
+        return
     elif n.startswith(MAPPED):
         mesh['vertices'] = [(x, y, remap_z(z)) for x, y, z in mesh['vertices']]
     elif n.startswith('exterior_registered_'):
@@ -189,7 +199,8 @@ def apply(boxes, levels):
         group = _group(r['name'])
         for k in ('a', 'b'):
             x, y, zz = r[k]
-            r[k] = [x, y, _linear(zz, group) if group else _ramp_z(zz, y) if is_ramp(r['name']) else remap_z(zz)]
+            r[k] = [x, y, zz if r['name'].startswith(STREET_RAILS) else _linear(zz, group) if group
+                    else _ramp_z(zz, y) if is_ramp(r['name']) else remap_z(zz)]
     _map_meta(spec)
     # Ramp records follow the ramp profile, not the storey profile.
     cont = spec['parking'].get('continuous')
@@ -270,7 +281,7 @@ def _carve_exterior(boxes, spec):
     result = []
     for box in boxes:
         n, lo, hi, m = box
-        if not n.startswith('exterior_') or n.startswith(MAPPED) or is_ramp(n):
+        if not n.startswith('exterior_') or (n.startswith(MAPPED) and not n.startswith(STREET)) or is_ramp(n):
             result.append(box);continue
         parts = [box]
         for h in holes:

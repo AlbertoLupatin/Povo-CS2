@@ -945,6 +945,9 @@ def build_registered_geometry(root=ROOT):
     if settings.get('povo2_planimetry'):
         from tools.povo2_levels import apply as relevel_povo2
         boxes = relevel_povo2(boxes, levels)
+        if levels[0].get('exterior'):
+            from tools.povo2_exterior_grade import apply as regrade_streets
+            boxes = regrade_streets(boxes, levels)
     from tools.povo_elevators import apply as add_elevators
     boxes = add_elevators(boxes, levels, root)
     return settings, config, boxes, levels, stair

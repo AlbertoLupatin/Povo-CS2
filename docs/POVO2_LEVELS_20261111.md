@@ -34,6 +34,26 @@ Evidence and reasoning are in [Altitude_Corrections.md](../Altitude_Corrections.
   - Garage nav points and lights use the profile.
   - Radar sections: basement2 below 0.85, basement1 from 0.85 to 3.60, and "lower" above that. Povo 2 −1 (3.25) and Povo 1 −1 (4.0) are only 0.75 m apart.
 
+## Streets around Povo 2 regraded to the LiDAR
+
+`tools/povo2_exterior_grade.py` runs right after the re-levelling.
+
+- **Zones:**
+  - Via Sommarive and the area east of it, north of N−10 and E49.5–110. The east zone fades in between N−10 and N0, south of where the legacy via used to drop into its 4.0 hollow. South of the garden edge (N9.1), the fade runs E40–51 instead.
+  - North of Povo 2 from N101.5: the north garden rim, the north pavement, the roundabout and the village edges.
+- **What moves:** every exterior object not owned by the Povo 2 storeys, by dz = smoothed DTM ground − legacy model ground.
+  - The DTM uses ground cells only. The sunken gardens and terrace runs are masked out, and the DTM under the entrance canopy is anchored at floor 0 (8.05), because there it is interpolated.
+  - Large ground slabs inside the zones become 2 m terrain sheets, 12 cm below the paving.
+  - Walkable boxes are cut into 1 m tiles, other boxes into 4 m tiles.
+  - Road strips at the junction are subdivided so their seams match.
+- **Povo 2 street-level frontage:** the front walk, green strip, trees and lamps, the left terrace, the north pavement and the north garden rim/bend now follow the street (`STREET` in `tools/povo2_levels.py`) instead of the storey profile.
+- **Result:**
+  - The via and its footways are within about 0.5 m of the DTM, at 7.7–9.8 along Povo 2. They were 4 m too low.
+  - The front walk runs from 8.05 at the entrance to 8.5 further north.
+  - The north pavement climbs from about 3.1 to 6.8.
+  - The FBK and village backdrop rise with the hill; FBK roofs now land within about 1 m of the LiDAR building surface.
+- **South road east end (E40–51):** fades in gently, so it rises to the regraded junction at about 6 % more than before. The rest of that road is left for the altitude plan.
+
 ## Reception stair
 
 The user's counts are 1→0 13+13, 0→−1 3×10 and −1→−2 3×10. The layout is the one approved in chat on 11 November.
@@ -60,8 +80,7 @@ The user's counts are 1→0 13+13, 0→−1 3×10 and −1→−2 3×10. The lay
 
 ## Open
 
-- **Exterior:** the east street (Via Sommarive), its roundabout and the northern edges are still at the legacy 4.0. The DTM puts them at 8.1–10.4. The entrance, front walk and gardens now match the DTM, but the via does not. This belongs to the campus regrade in Altitude_Corrections.md.
 - **South footway near the UP stair:** about 1.3 m below the DTM. When it is regraded, retarget the UP stair top in `STAIR_GROUPS`.
 - **South −1 deck strip (E−12..12, N8–9):** the DTM is about −1.3 there, open ground. That suggests a lightwell down to garden level rather than a deck at −1. It is not changed; it needs a photo or site check.
-- **North terrace run (N112–113.7):** now at 3.25, next to the legacy north pavement at 4.0. The DTM there slopes from about 3.3 (E26) to 7 (E56), so that pavement also belongs to the regrade.
+- **North terrace run (N112–113.7):** at 3.25. The regraded north pavement now runs from about 3.1 at its west end to 6.8 east, so the step between them grows eastward.
 - **Measurements still wanted:** a 0↔+1 riser height, and the real step counts of the outdoor stairs.
