@@ -36,7 +36,7 @@ MODEL='povo1_campus'
 UNITS=39.37007874
 # Terrorists start in the Povo 2 entrance hall, between the reception and the
 # entrance doors, clear of the door sensors. Counter-terrorists hold Povo 1.
-T_STARTS=[(x,y,4.8) for y in (29,30.5,32) for x in (24.5,26.3)]
+T_STARTS=[(x,y,4.8) for y in (29,30.5,32) for x in (23.5,24.5)]
 CT_STARTS=[(x,-35.2,12.0) for x in (-2,0,2,4,6,8)]
 OBJECTIVE=(13.96,-57.6,11.8)
 
@@ -402,6 +402,7 @@ def map_text(source,metadata,season='standard'):
         lights.append((*core['mid'][:2],core['mid'][2]+2.5))
         for portal in core['enclosure']['portals']:
             x,y,z=portal['centre'];lights.append((x+(-2 if core['mirror_east'] else 2),y,z+2.8))
+    for bank in metadata.get('elevator_banks',[]):lights.extend(bank['lights'])
     elevator=metadata.get('elevator')
     if elevator:
         lights.extend(elevator['lights'])
@@ -451,6 +452,8 @@ def map_text(source,metadata,season='standard'):
     source=insert_entities(source,metadata['interactions'])
     if elevator and elevator.get('service'):
         source=insert_lift(source,elevator['service'])
+    from tools.povo_elevator_entities import insert_entities as insert_elevators
+    source=insert_elevators(source,metadata.get('elevator_banks',[]))
     # Add brush banks/panes after the point entities to avoid repeatedly
     # scanning hundreds of mesh blocks during each light/sign insertion.
     source=add_breakable_glass(source,metadata.get('breakable_glass',[]))
@@ -743,6 +746,8 @@ def build(cs2_root,*,compile_map=True,pack=True,season='standard',skip_model=Fal
     # The packager also includes the addon's base materials. A clean campus
     # build must compile them even when the campus model does not use them.
     if pack:brush_materials.update(p.as_posix() for p in project.SYNC_CONTENT if p.suffix=='.vmat')
+    from tools.povo_elevator_entities import entity_graph
+    brush_materials.update(part[2] for e in entity_graph(metadata.get('elevator_banks',[])) for part in e['parts'])
     for material in sorted(brush_materials):
         path=content/material
         if path.is_file():compile_resource(path)

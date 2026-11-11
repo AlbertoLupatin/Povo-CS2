@@ -40,7 +40,7 @@ class CampusGeometryTests(unittest.TestCase):
         for level in self.levels:
             for room in level['rooms']:
                 if room['kind']=='elevator':continue
-                if not room.get('playable',True) and level['user_floor']==1:
+                if not room.get('playable',True) and (level['user_floor']==1 or room['kind']=='service'):
                     self.assertIsInstance(room['fitout'],str)
                     continue
                 self.assertIsInstance(room['fitout'],dict,room['id'])

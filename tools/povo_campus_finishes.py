@@ -75,6 +75,8 @@ def png(color, pattern='plain', size=256):
             offset = (noise-.5)*4
             if x % 16 > 3 and y % 6 > 1:
                 offset -= 70
+        elif pattern == 'brushed':
+            offset = 7*math.sin(x*.67) + 3*math.sin(x*2.13) + (noise-.5)*2
         elif pattern == 'flat':
             offset = 0
         return bytes(round(max(0, min(255, c + offset))) for c in color)
@@ -94,11 +96,13 @@ def write_materials(directory, prefix, colors):
                    'floor_wood': 'wood', 'seat_wood': 'wood',
                    'ceiling_panel': 'ceiling', 'desk_panel': 'perforated',
                    'floor_p2_tile': 'tile', 'floor_p2_asphalt': 'asphalt',
-                   'floor_terrace': 'aggregate', 'floor_grating': 'grating'}.get(name, 'plain')
+                   'floor_terrace': 'aggregate', 'floor_grating': 'grating',
+                   'lift_steel': 'brushed', 'lift_dark_steel': 'brushed'}.get(name, 'plain')
         write_png(directory / (name + '.png'), png(color, pattern))
         roughness = 215 if name in ('wall', 'ceiling_panel', 'courtyard_wall') else 175
         if name in ('metal_dark', 'window_frame', 'floor_grating'):
             roughness = 135
+        if name in ('lift_steel','lift_dark_steel'):roughness=100 if name=='lift_steel' else 130
         write_png(directory / (name + '_rough.png'), png((roughness,) * 3, 'flat', 4))
         surface = ('wood' if name in ('floor_wood', 'seat_wood', 'seat_green', 'desk_dark', 'desk_panel')
                    else 'metal' if name in ('metal_dark', 'window_frame', 'floor_grating')
@@ -121,10 +125,14 @@ def write_materials(directory, prefix, colors):
                   '    SystemAttributes { PhysicsSurfaceProperties "glass" }\n}\n')
             (directory/(name+'.vmat')).write_text(text,encoding='utf-8')
             continue
+        if name in ('lift_steel','lift_dark_steel'):surface='metal'
+        if name=='lift_rubber':surface='rubber'
+        metal = 1 if name in ('lift_steel','lift_dark_steel') else 0
         text = (f'Layer0\n{{\n    shader "csgo_complex.vfx"\n'
                 f'    TextureColor "{prefix}{name}.png"\n'
                 f'    TextureNormal "{prefix}neutral_normal.png"\n'
-                f'    TextureRoughness "{prefix}{name}_rough.png"\n'
+                + (f'    F_METALNESS_TEXTURE 0\n    g_flMetalness "{metal}"\n' if name.startswith('lift_') else '')
+                + f'    TextureRoughness "{prefix}{name}_rough.png"\n'
                 '    g_vColorTint "[1 1 1 0]"\n    g_flModelTintAmount "1"\n'
                 f'    SystemAttributes {{ PhysicsSurfaceProperties "{surface}" }}\n}}\n')
         (directory / (name + '.vmat')).write_text(text, encoding='utf-8')

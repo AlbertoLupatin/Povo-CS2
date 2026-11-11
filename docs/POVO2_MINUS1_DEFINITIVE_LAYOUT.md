@@ -1,5 +1,7 @@
 # DEFINITIVE POVO 2 −1 MAP LAYOUT
 
+**10 November 2026 revision:** The user-approved [paired lift revision](POVO_ELEVATORS.md) supersedes only the C5 lift area, D1 position and former lower-junction stub described below. See that document for the revised lift bounds.
+
 **Status: FINAL — explicitly approved by the user in-game on 2 November 2026.**
 
 The user confirmed: **“map layout is perfect”** and instructed that this be

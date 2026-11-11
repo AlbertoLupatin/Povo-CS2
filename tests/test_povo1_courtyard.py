@@ -2,7 +2,7 @@
 import unittest
 
 from tools.build_povo_campus import build_geometry, collision_boxes
-from tools.povo1_courtyard_stair import (DOOR, EAST, FLIGHT_TREADS, LANDING_EDGE, LIFT_SPAN, PLANTERS,
+from tools.povo1_courtyard_stair import (DOOR, EAST, FLIGHT_TREADS, LANDING_EDGE, PLANTERS,
                                          PLANTER_SIZE, TERRACE_DOORS, WEST)
 
 
@@ -90,8 +90,6 @@ class CourtyardTests(unittest.TestCase):
             doors = TERRACE_DOORS[side]
             for i in range(1, 60):
                 y = y0+(y1-y0)*i/60
-                if x > 0 and LIFT_SPAN[0]-.1 <= y <= LIFT_SPAN[1]+.1:
-                    continue  # the enclosed lift shaft is the wall here
                 if any(a-.1 <= y <= b+.1 for a, b in doors):
                     continue
                 solid = [m for n, lo, hi, m in self.physics if lo[0] <= x <= hi[0] and lo[1] <= y <= hi[1]

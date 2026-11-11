@@ -58,6 +58,9 @@ COLORS = {**interior.COLORS, 'stair_red': (155, 43, 38),
           'canteen_orange': (220,109,47), 'canteen_blue': (43,81,142), 'floor_yard_grass': (95,121,65),
           'floor_grating': (122,128,130), 'floor_terrace': (148,144,138),
           'office_frost': (196,213,213),
+          'lift_steel': (160,164,168), 'lift_dark_steel': (82,87,94),
+          'lift_rubber': (40,44,50), 'lift_display': (15,17,19),
+          'lift_red': (230,20,12), 'lift_light': (222,238,248),
           # Outside faces of the Povo 1 perimeter walls (config/povo_textures.json).
           'stone_facade': (214,199,168)}
 
@@ -174,7 +177,7 @@ def stairs_and_roof(boxes, levels, settings, config, origin, *, continues_up=Fal
     def add(name, lo, hi, mat): boxes.append((name, tuple(lo), tuple(hi), mat))
     instances=(('se',False,False),('sw',True,False),('ne',False,True),('nw',True,True))
     voids=[mirror_rectangle(used,e,n) for _id,e,n in instances]
-    shaft=settings.get('elevator',{}).get('shaft')
+    shaft=settings.get('elevator',{}).get('shaft') if settings.get('elevator',{}).get('enabled',True) else None
     holes=voids+([tuple(shaft)] if shaft else [])
     # Replace the provisional registered reservations with the four identical
     # mirrored shafts, so their edges never retain a strip of blocking slab.
@@ -398,7 +401,7 @@ def elevator_shaft(boxes, levels, settings, config):
     ladder surface. Openings face the corridor on both floors.
     """
     spec=settings.get('elevator')
-    if not spec:return boxes,None
+    if not spec or not spec.get('enabled',True):return boxes,None
     x0,y0,x1,y1=spec['shaft'];zs=[l['floor_elevation_metres']-370 for l in levels];z0,z1=zs[0],zs[-1]
     top=z1+config['wall_height_metres'];y=spec['opening_centre_north_metres'];w=spec['opening_width_metres']/2
     # Clear the corner of the classroom above (and anything else in the way).
@@ -939,6 +942,8 @@ def build_registered_geometry(root=ROOT):
         from tools.povo2_terrace_integration import extend
         boxes = extend(boxes, levels, root)
         boxes = join_parking(boxes, levels, root)
+    from tools.povo_elevators import apply as add_elevators
+    boxes = add_elevators(boxes, levels, root)
     return settings, config, boxes, levels, stair
 
 
@@ -952,6 +957,8 @@ def export(root=ROOT):
     spawns=deathmatch_spawns(collision_boxes(boxes),levels)
     # Doors and breakable panes become separate map entities, so leave them out
     # of the static model and its collision. build_geometry() keeps them solid.
+    from tools.povo_elevators import static_boxes
+    boxes=static_boxes(boxes)
     doors,boxes=split_auto_doors(boxes)
     glass=[b for b in boxes if is_breakable_glass(b)]
     glass_decorations=[b for b in boxes if b[0].endswith('_finish_attached')]
@@ -1007,7 +1014,7 @@ def export(root=ROOT):
     metadata=dict(map_name=settings['map_name'],origin=[666250,5103800,370],settings=settings,
                   levels=levels,stair=stair,visual_boxes=len(boxes),collision_boxes=collision_count,
                   breakable_glass=[dict(name=n,lo=list(lo),hi=list(hi),material=material_path(m)) for n,lo,hi,m in glass],
-                  auto_doors=doors,elevator=levels[0].get('elevator'),
+                  auto_doors=doors,elevator=levels[0].get('elevator'),elevator_banks=levels[0].get('elevator_banks',[]),
                   assumptions=settings['assumptions'],
                   inputs={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in
                           ('config/povo1_campus.json',settings['interior_source'],'config/povo1_plan_alignment.json')})
@@ -1020,7 +1027,7 @@ def export(root=ROOT):
             pane['decorations']=[dict(lo=list(lo),hi=list(hi),material=material_path(m))
                 for n,lo,hi,m in glass_decorations if n.startswith(pane['name'].removesuffix('_glass')+'_band_')]
     # Keep original source bytes reproducible alongside derived geometry.
-    survey_inputs=['config/povo1_survey.json','config/povo2_survey.json',
+    survey_inputs=['config/povo_elevators.json','tools/povo_elevators.py','tools/povo_elevator_entities.py','config/povo1_survey.json','config/povo2_survey.json',
                    'config/povo_amenities_survey.json','config/povo_wings.json',
                    'data/reference/povo_photos/walk_2026-10-28/manifest.json',
                    'data/reference/povo_photos/walk_2026-10-27/manifest.json']

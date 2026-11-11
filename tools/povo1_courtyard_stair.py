@@ -34,8 +34,6 @@ GRATING = 'floor_grating'
 PLANTERS = ((-3.6, -70.5), (4.9, -64.0), (-3.6, -56.5), (4.9, -50.5))
 PLANTER_SIZE = 1.4
 WEST_TERRACE, EAST_TERRACE = (-10.73, -6.39), (7.99, 12.6)
-# The Povo 1 lift shaft rises through the east terrace; it stays enclosed.
-LIFT_SPAN = (-69.3, -67.0)
 # Corridor-to-terrace double doors, read off fire plan 22 (about 1.6 m clear).
 # West ones sit against the terrace ends; east ones further in, the south one
 # just short of the lift shaft.
@@ -178,10 +176,7 @@ def terraces(boxes, levels, origin, rails):
     # Glass towards each corridor, with plan 22's double doors, and across both terrace ends.
     (wa, wb), (ea, eb) = WEST_TERRACE, EAST_TERRACE
     _glass_wall_with_doors(add, 'west_corridor', wa, y0, y1, z, TERRACE_DOORS['west'])
-    _glass_wall_with_doors(add, 'east_corridor_south', eb, y0, LIFT_SPAN[0], z, TERRACE_DOORS['east'])
-    _glass_wall_with_doors(add, 'east_corridor_north', eb, LIFT_SPAN[1], y1, z, TERRACE_DOORS['east'])
-    for i, y in enumerate(LIFT_SPAN):  # close the strip between shaft and glazing
-        add(f'east_lift_closer_{i}', (12.45, y-.05, z), (eb+.05, y+.05, z+3.35), 'wall')
+    _glass_wall_with_doors(add, 'east_corridor', eb, y0, y1, z, TERRACE_DOORS['east'])
     for side, (a, b) in (('west', (wa+.05, wb)), ('east', (ea, eb-.05))):
         _glass_wall(add, side+'_south_end', (a, y0), (b, y0), z, 0)
         _glass_wall(add, side+'_north_end', (a, y1), (b, y1), z, 0)

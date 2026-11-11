@@ -160,7 +160,7 @@ def build_routes(metadata):
         add('p2_rebuilt_'+route['id'],route['points'],'p2_basement_route')
     for i,route in enumerate(metadata['povo2']['parking'].get('routes',[])):
         add('p2_rebuilt_vestibule_'+str(i),route['points'],'p2_basement_route')
-    for name,spec in [('p1',metadata['elevator']),('p2',metadata['povo2']['lift'])]:
+    for name,spec in [('p1',(metadata.get('elevator') or {'enabled': False})),('p2',metadata['povo2']['lift'])]:
         if not spec.get('enabled',True):continue
         lo,hi=spec['ladder'];axis=min(range(2),key=lambda i:hi[i]-lo[i]);start=[(a+b)/2 for a,b in zip(lo,hi)]
         start[axis]=hi[axis]+.4072;start[2]=lo[2]

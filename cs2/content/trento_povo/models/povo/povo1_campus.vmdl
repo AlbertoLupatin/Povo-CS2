@@ -110,6 +110,12 @@
                             { from = "campus_floor_grating" to = "materials/trento/povo/campus/floor_grating.vmat" },
                             { from = "campus_floor_terrace" to = "materials/trento/povo/campus/floor_terrace.vmat" },
                             { from = "campus_office_frost" to = "materials/trento/povo/campus/office_frost.vmat" },
+                            { from = "campus_lift_steel" to = "materials/trento/povo/campus/lift_steel.vmat" },
+                            { from = "campus_lift_dark_steel" to = "materials/trento/povo/campus/lift_dark_steel.vmat" },
+                            { from = "campus_lift_rubber" to = "materials/trento/povo/campus/lift_rubber.vmat" },
+                            { from = "campus_lift_display" to = "materials/trento/povo/campus/lift_display.vmat" },
+                            { from = "campus_lift_red" to = "materials/trento/povo/campus/lift_red.vmat" },
+                            { from = "campus_lift_light" to = "materials/trento/povo/campus/lift_light.vmat" },
                             { from = "campus_stone_facade" to = "materials/trento/povo/campus/textures/beige_stone.vmat" },
 							{
 								from = "terrain_reference"

@@ -151,8 +151,12 @@ def deathmatch_spawns(physics,levels):
     lift_specs=(levels[0].get('elevator',{}),
                 next((q['connection'] for q in levels if 'connection' in q),{}).get('povo2',{}).get('lift',{}))
     ladders=[s['ladder'] for s in lift_specs if s.get('enabled',True) and s.get('ladder')]
+    # Moving cabins are never stable spawn surfaces, even when parked.
+    banks=levels[0].get('elevator_banks',[])
+    physics=[v for v in physics if not v[0].startswith('lift_dynamic_')]
     meshes=levels[0].get('exterior',{}).get('collision_meshes',[])
     candidates=[(area,p) for area,p in interior_candidates(physics,levels)+exterior_candidates(physics,meshes)
+                if not any(b['bounds'][0]-.3<=p[0]<=b['bounds'][2]+.3 and b['bounds'][1]-.3<=p[1]<=b['bounds'][3]+.3 for b in banks)
                 if not any(lo[0]-1.5<=p[0]<=hi[0]+1.5 and lo[1]-1.5<=p[1]<=hi[1]+1.5
                            and lo[2]-.5<=p[2]<=hi[2] for lo,hi in ladders)]
     chosen=spread(candidates,start=(22,-73.73))

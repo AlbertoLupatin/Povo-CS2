@@ -93,7 +93,7 @@
       },
       {
         "id": "g_east2",
-        "label": "ASCENSORE",
+        "label": "Locale",
         "pixel_bounds": [
           1116,
           862,
@@ -102,7 +102,7 @@
         ],
         "door_side": "v_max",
         "teaching_side": "east",
-        "kind": "elevator",
+        "kind": "service",
         "playable": false,
         "door_fraction": 0.16
       },
@@ -462,6 +462,7 @@
     ],
     "opening_centre_north_metres": -68.15,
     "opening_width_metres": 1.2,
-    "note": "User 2026-10-26: an elevator replaces the studio right of the reception. A CS2 moving platform is untested, so the shaft holds a climbable ladder; the upper floor shaft takes the south-east corner of A214."
+    "note": "Retired reception/A214/terrace ladder shaft; replaced by corner pair in config/povo_elevators.json.",
+    "enabled": false
   }
 }

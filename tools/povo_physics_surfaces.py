@@ -15,6 +15,8 @@ except ImportError:
 
 
 def surface(material):
+    if material in ('lift_steel','lift_dark_steel'):return 'metal'
+    if material=='lift_rubber':return 'rubber'
     if material.startswith('exterior_'):
         m=material.removeprefix('exterior_')
         return ('glass' if m in ('entry_glass','canopy_glass','glass') else

@@ -137,23 +137,22 @@ class LadderTests(unittest.TestCase):
     def test_registered_cab_can_travel_through_all_three_floors(self):
         from tools.build_povo_campus import build_registered_geometry, collision_boxes
         _, _, boxes, levels, _ = build_registered_geometry(ROOT)
-        service = levels[0]['elevator']['service']
-        self.assertEqual(service['stops'], [4., 7.6, 11.2])
-        for actual, expected in zip(service['call_faces'], (12.814, 12.682, 12.45), strict=True):
-            self.assertAlmostEqual(actual, expected, places=3)
-        x0, y0, x1, y1 = service['cab']
-        minimum = (x0, y0, service['stops'][0] - .15)
-        maximum = (x1, y1, service['stops'][-1] + 2.1)
-        obstructions = [name for name, lo, hi, _ in collision_boxes(boxes)
-                        if all(lo[i] < maximum[i] - 1e-6 and hi[i] > minimum[i] + 1e-6
-                               for i in range(3))]
-        self.assertEqual(obstructions, [])
+        from tools.povo_elevators import static_boxes, overlap
+        fixed=collision_boxes(static_boxes(boxes))
+        bank=next(bank for bank in levels[0]['elevator_banks'] if bank['id']=='p1')
+        self.assertEqual([s['z'] for s in bank['stops']], [4., 7.6, 11.2])
+        for car in bank['cars']:
+            dz=bank['stops'][-1]['z']-bank['stops'][0]['z']
+            for name,lo,hi,material in car['parts']:
+                maximum=(hi[0],hi[1],hi[2]+dz)
+                obstructions=[n for n,a,b,m in fixed if overlap(lo,maximum,a,b)]
+                self.assertEqual(obstructions,[],name)
 
     def test_lift_ladders_clear_the_standing_player_at_every_floor_ledge(self):
         from tools.build_povo_campus import collision_boxes
         _, _, boxes, levels, _ = build_geometry(ROOT)
         physics = collision_boxes(boxes)
-        lifts=(levels[0]['elevator'],next(l['connection'] for l in levels if 'connection' in l)['povo2']['lift'])
+        lifts=(levels[0].get('elevator', {'enabled': False}),next(l['connection'] for l in levels if 'connection' in l)['povo2']['lift'])
         ladders=[s['ladder'] for s in lifts if s.get('enabled',True)]
         for lo, hi in ladders:
             axis = min(range(2), key=lambda i: hi[i] - lo[i])
@@ -189,9 +188,8 @@ class LadderTests(unittest.TestCase):
         self.assertIn(LADDER_MATERIAL, text.split('"world"')[1])
         self.assertIn(f'"{LADDER_MATERIAL}"', text.split('"world"')[0])
         self.assertIn(f'"{.3*UNITS:g} {.1*UNITS:g} {2*UNITS:g}"', text)
-        elevator = build_geometry(ROOT)[3][0]['elevator']
-        lo, hi = elevator['ladder']
-        self.assertGreater(hi[2] - lo[2], 3.6)
+        elevator = build_geometry(ROOT)[3][0].get('elevator', {'enabled': False})
+        self.assertFalse(elevator.get('enabled', True))  # Replaced by native paired lifts.
 
 
 class CampusEnclosureTests(unittest.TestCase):
