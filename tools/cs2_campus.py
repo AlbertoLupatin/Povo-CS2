@@ -21,6 +21,7 @@ try:
     from .povo_campus_finishes import write_png
     from .povo1_lift import BRUSH_MATERIALS as LIFT_MATERIALS
     from .povo1_lift import SCRIPT as LIFT_SCRIPT, insert as insert_lift
+    from .povo2_levels import NEW as P2_LEVELS, remap_z
 except ImportError:
     import cs2_project as project
     import build_povo_radar as radar
@@ -29,6 +30,7 @@ except ImportError:
     from povo_campus_finishes import write_png
     from tools.povo1_lift import BRUSH_MATERIALS as LIFT_MATERIALS
     from tools.povo1_lift import SCRIPT as LIFT_SCRIPT, insert as insert_lift
+    from tools.povo2_levels import NEW as P2_LEVELS, remap_z
 
 ROOT=Path(__file__).resolve().parents[1]
 MAP='trento_povo_campus'
@@ -36,7 +38,7 @@ MODEL='povo1_campus'
 UNITS=39.37007874
 # Terrorists start in the Povo 2 entrance hall, between the reception and the
 # entrance doors, clear of the door sensors. Counter-terrorists hold Povo 1.
-T_STARTS=[(x,y,4.8) for y in (29,30.5,32) for x in (23.5,24.5)]
+T_STARTS=[(x,y,P2_LEVELS[0]+.8) for y in (29,30.5,32) for x in (23.5,24.5)]
 CT_STARTS=[(x,-35.2,12.0) for x in (-2,0,2,4,6,8)]
 OBJECTIVE=(13.96,-57.6,11.8)
 
@@ -201,10 +203,10 @@ def skip_nav_analysis(source):
 
 
 def gameplay_points(metadata):
-    """Keep CT and the objective on the highest occupied Povo 1 storey."""
+    """T on Povo 2 floor 0; CT and the objective on the highest Povo 1 storey."""
     zs=[l['floor_elevation_metres']-370 for l in metadata['levels']]
     ground,upper=min(zs),max(zs)
-    return ([(x,y,ground+.8) for x,y,_ in T_STARTS],
+    return (list(T_STARTS),  # already on the re-levelled Povo 2 floor 0
             [(x,y,upper+.8) for x,y,_ in CT_STARTS],
             (OBJECTIVE[0],OBJECTIVE[1],upper+.6))
 
@@ -419,11 +421,11 @@ def map_text(source,metadata,season='standard'):
         lights.extend((inside+(outside-inside)*fraction,y,entrance['floor_z']+2.8)
                       for fraction in (.11,.37,.63,.89) for y in (south+1.5,north-1.5))
         lights.extend(((26,-73.73,7),(32,-73.73,8),(40,-73.73,8.8),(49,-73.73,8.8)))
-        lights.extend((x,y,-.25) for x in (-23,2,18) for y in (40,60,80,100))
+        lights.extend((x,y,remap_z(-.25)) for x in (-23,2,18) for y in (40,60,80,100))
         upper=metadata['exterior']['povo1_approach']['upper_z']
         for i,p in enumerate(((26.5,-73.73,4.15),(38,-73.73,upper+.15),(54,-50,upper+.15),(57.5,-5,upper+.15),
-                              (54,31.35,4.15),(42,31.35,4.15),(-29,0,1.85),(-29,30,-3.05),
-                              (-29,60,-3.05),(-5,36,-3.05),(-38,65,3.15),(-48,-65,3.15))):
+                              (54,31.35,remap_z(4.15)),(42,31.35,remap_z(4.15)),(-29,0,1.85),(-29,30,remap_z(-3.05)),
+                              (-29,60,remap_z(-3.05)),(-5,36,remap_z(-3.05)),(-38,65,3.15),(-48,-65,3.15))):
             source=project._insert_point_entity(source,f'exterior-nav-{i}','point_nav_walkable',world(p))
     wings=metadata.get('wings',{})
     lights.extend(wings.get('lights',[]))
@@ -621,13 +623,16 @@ def make_radar(metadata,map_name=MAP):
     zs=sorted(l['floor_elevation_metres']-370 for l in metadata['levels'])
     threshold=(zs[0]+zs[1])/2*UNITS
     upper_threshold=(zs[-2]+zs[-1])/2*UNITS
-    ground_min=str(2.2*UNITS) if p2 else '-10000'
+    # Povo 2 basements: split midway between its storeys; -1 (3.25) sits just
+    # below Povo 1 -1 (4.0), so 'lower' starts between them.
+    ground_min=str((P2_LEVELS[-1]+.35)*UNITS) if p2 else '-10000'
+    basement_split=(P2_LEVELS[-2]+P2_LEVELS[-1])/2
     text.extend([' "verticalsections"',' {','  "default" { "AltitudeMin" "'+str(upper_threshold)+'" "AltitudeMax" "10000" }',
                  '  "middle" { "AltitudeMin" "'+str(threshold)+'" "AltitudeMax" "'+str(upper_threshold)+'" }',
                  '  "lower" { "AltitudeMin" "'+ground_min+'" "AltitudeMax" "'+str(threshold)+'" }'])
     if p2:
-        text.extend(['  "basement1" { "AltitudeMin" "'+str(-1.4*UNITS)+'" "AltitudeMax" "'+ground_min+'" }',
-                     '  "basement2" { "AltitudeMin" "-10000" "AltitudeMax" "'+str(-1.4*UNITS)+'" }'])
+        text.extend(['  "basement1" { "AltitudeMin" "'+str(basement_split*UNITS)+'" "AltitudeMax" "'+ground_min+'" }',
+                     '  "basement2" { "AltitudeMin" "-10000" "AltitudeMax" "'+str(basement_split*UNITS)+'" }'])
     text.append(' }')
     t_starts,ct_starts,objective=gameplay_points(metadata)
     for label,p in [('CTSpawn',ct_starts[2]),('TSpawn',t_starts[2]),('bombA',objective)]:

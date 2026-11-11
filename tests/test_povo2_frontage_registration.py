@@ -9,6 +9,7 @@ from tools.audit_povo_exterior_integrated import standing
 from tools.audit_povo_interior import audit_level
 from tools.audit_povo_yard import audit_gardens
 from tools.povo2_frontage_registration import shift_metadata
+from tools.povo2_levels import NEW as LEVELS, remap_z
 
 
 class FrontageMetadataTests(unittest.TestCase):
@@ -81,7 +82,7 @@ class RegisteredFrontageTests(unittest.TestCase):
             self.assertAlmostEqual(floor[1][1], 24.2)
         # Each enclosed lower-floor slab shares the facade; the exterior
         # basement terrace deliberately extends south of it.
-        for prefix, z in [('p2_parking_', -3.2), ('p2_basement_', .4), ('p2_ground_', 4.)]:
+        for prefix, z in [('p2_parking_', LEVELS[-2]), ('p2_basement_', LEVELS[-1]), ('p2_ground_', LEVELS[0])]:
             slabs = [lo[1] for n,lo,hi,material in self.boxes if n.startswith(prefix)
                      and material.startswith('floor_') and material != 'floor_terrace'
                      and abs(hi[2]-z)<.02]
@@ -89,7 +90,7 @@ class RegisteredFrontageTests(unittest.TestCase):
             self.assertAlmostEqual(min(slabs), 10.8, msg=prefix)
         self.assertAlmostEqual(self.p2['parking']['bounds'][1], 10.8)
         for n, lo, hi, _ in self.boxes:
-            if n.startswith(('p2_parking_', 'p2_basement_')) and hi[2] < 0:
+            if n.startswith(('p2_parking_', 'p2_basement_')) and hi[2] < remap_z(0):
                 self.assertGreaterEqual(lo[1], 10.8 - 1e-8, n)
 
     def test_room_door_metadata_matches_actual_door_headers(self):
@@ -118,8 +119,8 @@ class RegisteredFrontageTests(unittest.TestCase):
     def test_registered_west_corridor_ceiling_has_no_lower_slabs(self):
         for x, y in ((3., 25.5), (8., 26.45), (22., 24.7)):
             visible = min(lo[2] for _, lo, hi, _ in self.boxes
-                          if lo[0] < x < hi[0] and lo[1] < y < hi[1] and lo[2] > 6.6)
-            self.assertAlmostEqual(visible, 7.28, msg=(x, y))
+                          if lo[0] < x < hi[0] and lo[1] < y < hi[1] and lo[2] > remap_z(6.6))
+            self.assertAlmostEqual(visible, remap_z(7.28), msg=(x, y))
 
     def test_mixed_coordinate_and_interval_metadata(self):
         # The registered interval describes the actual inner doorway banks.
@@ -136,17 +137,23 @@ class RegisteredFrontageTests(unittest.TestCase):
             self.assertAlmostEqual(actual, expected)
 
     def test_internal_stair_directions_and_sizes_are_retained(self):
-        self.assertEqual(self.p2['stairs']['well_bounds'], [11, 26.8, 20.5, 34.8])
-        # Tread sequence preserves the west, north, east flight directions.
+        # 11 November layout: two lanes, west end closed at E13.69.
+        self.assertEqual(self.p2['stairs']['well_bounds'], [13.69, 26.9, 20.39, 34.7])
+        # From 0 the first flight is on the left (west), so -1 is reached at the
+        # west end and -2 at the east end: W,E,W then E,W,E.
+        headings = {-1: (-1, 1, -1), -2: (1, -1, 1)}
         for route in self.p2['stairs']['path']:
             self.assertEqual(route['flight_counts'], [10, 10, 10])
+            self.assertAlmostEqual(route['rise'], .16)
             points = route['points']
             descending = [(a,b) for a,b in zip(points, points[1:]) if b[2] < a[2] - .01]
             self.assertEqual(len(descending), 30)
-            self.assertTrue(all(b[0] < a[0] for a,b in descending[:10]))
-            self.assertTrue(all(b[1] > a[1] for a,b in descending[10:20]))
-            self.assertTrue(all(b[0] > a[0] for a,b in descending[20:]))
-        self.assertEqual(self.p2['stairs']['portals'][1]['centre'], [19.2, 26.8, .4])
+            for i, sign in enumerate(headings[route['lower_floor']]):
+                self.assertTrue(all((b[0]-a[0])*sign > 0 for a,b in descending[10*i:10*i+10]))
+        portals = {p['floor']: p['centre'] for p in self.p2['stairs']['portals']}
+        self.assertEqual(portals[-1], [14.69, 26.8, LEVELS[-1]])
+        self.assertEqual(portals[-2], [19.2, 26.8, LEVELS[-2]])
+        self.assertEqual({tuple(p['centre'][:2]) for p in self.link['stair']['portals']}, {(20.5, 30.8)})
         self.assertAlmostEqual(self.p2['basement']['corridor'][3], 26.8)
 
     def test_stair_and_garden_routes_have_player_clearance(self):
@@ -176,11 +183,11 @@ class RegisteredFrontageTests(unittest.TestCase):
         self.assertEqual(exit['corridor_parts'],
             [[20.75,13.5,23.75,21.3],[22.25,13.5,31.8,16.5]])
         self.assertEqual(g['routes']['office_exit'],
-            [[22.25,26.8,-3.2],[22.25,15.,-3.2],[31.8,15.,-3.2],[33.3,15.,-3.2]])
+            [[22.25,26.8,LEVELS[-2]],[22.25,15.,LEVELS[-2]],[31.8,15.,LEVELS[-2]],[33.3,15.,LEVELS[-2]]])
         self.assertFalse(any(n.startswith('p2_registered_garden_exit_floor_')
             and lo[0] < 30.3 < hi[0] and lo[1] < 18. < hi[1]
             for n,lo,hi,_ in self.boxes))  # No former northward branch near W-30.
-        self.assertEqual(exit['door_centre'], [31.8, 15., -3.2])
+        self.assertEqual(exit['door_centre'], [31.8, 15., LEVELS[-2]])
         self.assertEqual(exit['outward_direction'], [1., 0., 0.])
         self.assertAlmostEqual(g['garden'][3], 20.34)
         lo, hi, _ = self.byname['p2_registered_garden_exit_ceiling_0']
@@ -192,7 +199,7 @@ class RegisteredFrontageTests(unittest.TestCase):
         self.assertEqual(len(doors), 2)
         for door in doors:
             self.assertEqual(door['pivot'][0], 31.8)
-            self.assertEqual(door['pivot'][2], -3.2)
+            self.assertEqual(door['pivot'][2], LEVELS[-2])
             self.assertEqual(door['material'], 'materials/trento/povo/campus/door_black.vmat')
         floor = next(f for f in self.p2['basement_rebuild']['levels'] if f['floor'] == -2)
         for key in ('areas', 'floor_pieces'):
@@ -204,7 +211,7 @@ class RegisteredFrontageTests(unittest.TestCase):
         self.assertEqual(failures, [])
         for x in (20.67, 23.83):
             self.assertTrue(any(lo[0] < x < hi[0] and lo[1] <= 17 <= hi[1]
-                and lo[2] < -2 < hi[2] for _,lo,hi,_ in self.physics))
+                and lo[2] < remap_z(-2) < hi[2] for _,lo,hi,_ in self.physics))
 
     def test_landscape_width_order_and_grade(self):
         reg = self.p2['frontage_registration']
@@ -226,20 +233,21 @@ class RegisteredFrontageTests(unittest.TestCase):
         for mesh in grass:
             road_left, road_right, toe_right, toe_left = mesh['vertices'][4:]
             for road, toe in ((road_left, toe_left), (road_right, toe_right)):
-                if toe[0] <= 31.8:
-                    self.assertAlmostEqual(road[2]-toe[2], 3.)
-                    self.assertLessEqual(toe[2]-.4, .73)
-                elif toe[0] >= 34.:
-                    self.assertAlmostEqual(toe[2], .4)
-        self.assertAlmostEqual(self.byname['p2_basement_drawio_terrace'][1][2], .4)
-        self.assertAlmostEqual(self.byname['p2_basement_drawio_terrace_retaining_west_south'][1][2], .4)
+                # Toes moved with the re-levelled -1 terrace; the road edge did not.
+                self.assertGreaterEqual(toe[2], LEVELS[-1]-1e-6)
+                self.assertGreaterEqual(road[2], toe[2])
+                if toe[0] >= 34.:
+                    self.assertAlmostEqual(toe[2], LEVELS[-1])
+        self.assertAlmostEqual(self.byname['p2_basement_drawio_terrace'][1][2], LEVELS[-1])
+        self.assertAlmostEqual(self.byname['p2_basement_drawio_terrace_retaining_west_south'][1][2], LEVELS[-1])
         steps = [b for b in self.boxes if b[0].startswith('p2_registered_up_step_')]
         self.assertEqual(len(steps), 20)
         up = self.p2['gardens']['routes']['up']
         self.assertTrue(all(b[1]<a[1] and b[2]>=a[2] for a,b in zip(up,up[1:])))
         down = self.p2['gardens']['down_stair']
         self.assertEqual(down[0], 31.8)
-        self.assertEqual(down[2], 40.55)
+        # 27 risers since the 11 November re-levelling: the run ends 2.47 m further east.
+        self.assertAlmostEqual(down[2], 43.0175)
         self.assertAlmostEqual(down[1], 9.09)
 
     def test_corner_apron_connects_both_sidewalks_at_street_grade(self):
@@ -277,7 +285,7 @@ class RegisteredFrontageTests(unittest.TestCase):
                 self.assertTrue(heights, (x,y))
                 self.assertGreaterEqual(max(heights), 3.99, (x,y))
         for x,y,z in ((53.,-7.,7.65),(47.,-4.97,7.45),(26.,-18.,4.),
-                      (19.,9.65,.4),(36.8,15.,-3.175)):
+                      (19.,9.65,LEVELS[-1]),(36.8,15.,remap_z(-3.175))):
             foot, obstacles = standing(x,y,z,self.physics,self.ext['collision_meshes'])
             self.assertIsNotNone(foot, (x,y,z))
             self.assertAlmostEqual(foot,z,delta=.18)
@@ -289,7 +297,7 @@ class RegisteredFrontageTests(unittest.TestCase):
         self.assertTrue(any(r['name']=='registered_street_guard_2_handrail'
                             for r in self.p2['stairs']['rails']))
         self.assertFalse(any(name.startswith('exterior_ground_') and lo[0]<36.8<hi[0]
-                             and lo[1]<15.<hi[1] and -3.2<hi[2]<4.
+                             and lo[1]<15.<hi[1] and LEVELS[-2]<hi[2]<LEVELS[0]
                              for name,lo,hi,_ in self.boxes))
 
     def test_carriageways_and_bridge_footways_keep_their_width(self):
@@ -430,7 +438,7 @@ class RegisteredFrontageTests(unittest.TestCase):
 
     def test_bridge_and_entrance_connections_have_clearance(self):
         bridge = [[18.25,9.,11.2],[18.25,20.,11.2],[22.25,20.,11.2],
-                  [22.25,28.8,11.2],[19.2,28.8,11.2]]
+                  [22.25,30.8,11.2],[19.39,30.8,11.2]]
         samples, failures = audit_stair_routes(self.physics,
             [dict(points=bridge), dict(points=bridge[::-1])])
         self.assertGreater(samples, 250)

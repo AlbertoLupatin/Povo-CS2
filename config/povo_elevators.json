@@ -3,7 +3,7 @@
   "reference_photo": "data/reference/povo_photos/walk_2026-10-26/originals/image00012.jpeg",
   "banks": [
     {"id": "p1", "bounds": [8.0, -85.2, 12.6, -79.2], "front": "east", "stops": [{"floor": -1, "z": 4.0}, {"floor": 0, "z": 7.6}, {"floor": 1, "z": 11.2}], "door_width": 1.25, "door_height": 2.2, "note": "Paired corner lifts opposite the entrance-side stair; approximate two-thirds of the plan's corner frontage."},
-    {"id": "p2", "bounds": [25.7, 26.8, 35.2, 34.8], "front": "west", "stops": [{"floor": -1, "z": 0.4}, {"floor": 0, "z": 4.0}], "door_width": 1.4, "door_height": 2.2, "note": "Combined bank matches the 8 by 9.5 m stair-core footprint. Other floors have not been positioned by the user."}
+    {"id": "p2", "bounds": [25.7, 26.8, 35.2, 34.8], "front": "west", "stops": [{"floor": -1, "z": 3.25}, {"floor": 0, "z": 8.05}], "door_width": 1.4, "door_height": 2.2, "note": "Combined bank matches the 8 by 9.5 m stair-core footprint. Other floors have not been positioned by the user."}
   ],
-  "povo2_lobby": {"bounds": [20.5, 26.8, 25.7, 36.0], "z": 0.4, "ceiling_z": 3.5, "d1_centre": [21.8, 36.0, 0.4], "d1_width": 1.65, "remain_locked": true, "retired_d2": "Old lower-junction door and overlapping corridor stub are superseded by the new bank; retain a solid cap on the remaining restricted corridor."}
+  "povo2_lobby": {"bounds": [20.5, 26.8, 25.7, 36.0], "z": 3.25, "ceiling_z": 6.95, "d1_centre": [21.8, 36.0, 3.25], "d1_width": 1.65, "remain_locked": true, "retired_d2": "Old lower-junction door and overlapping corridor stub are superseded by the new bank; retain a solid cap on the remaining restricted corridor."}
 }

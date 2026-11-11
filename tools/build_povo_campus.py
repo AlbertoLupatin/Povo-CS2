@@ -942,6 +942,9 @@ def build_registered_geometry(root=ROOT):
         from tools.povo2_terrace_integration import extend
         boxes = extend(boxes, levels, root)
         boxes = join_parking(boxes, levels, root)
+    if settings.get('povo2_planimetry'):
+        from tools.povo2_levels import apply as relevel_povo2
+        boxes = relevel_povo2(boxes, levels)
     from tools.povo_elevators import apply as add_elevators
     boxes = add_elevators(boxes, levels, root)
     return settings, config, boxes, levels, stair

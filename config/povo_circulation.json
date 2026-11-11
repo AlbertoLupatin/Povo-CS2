@@ -386,9 +386,22 @@
       ]
     }
   ],
+  "povo2_stair_flights": {
+    "source": "User-counted on site, restated in chat 2026-11-11 (0 to -1 corrected to three flights the same day)",
+    "unit": "steps (risers) per flight",
+    "1_to_0": [13, 13],
+    "0_to_minus1": [10, 10, 10],
+    "minus1_to_minus2": [10, 10, 10],
+    "tread_cm": 30,
+    "riser_cm": 16,
+    "dimension_source": "iPhone LiDAR, 2026-11-11, measured on a -1 to -2 flight: riser 16 cm on the step face; going 30 cm (31 cm to the nosing edge). An earlier 23 cm side reading was discarded.",
+    "landings_m_estimated": {"door_side": 2.0, "far_side_basement": 2.0, "far_side_0_to_1": 1.0},
+    "gap_between_flights_m_estimated": 0.2,
+    "see_also": "data/reference/user_feedback/2026-10-28/povo2_internal_stairs.md (same counts and door relationships, first recorded 28 October; implemented in tools/povo2_internal_stairs.py)"
+  },
   "caveats": [
     "Only Povo 2 floor 1 = Povo 1 floor 2 is confirmed as a cross-building elevation relation.",
-    "Floor-to-floor rises, absolute heights and full step counts are not measured.",
+    "Floor-to-floor rises and absolute heights are not measured. Povo 2 step counts per flight are user-counted (povo2_stair_flights); Povo 1 step counts are not.",
     "Photo 40 and 14 interpretations are contextual inferences, not explicit user identifications.",
     "Photo 16 has overlapping entrance/outward wording; keep it flagged.",
     "A211/A212 remains ambiguous.",

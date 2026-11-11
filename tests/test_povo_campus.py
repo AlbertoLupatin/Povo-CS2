@@ -240,14 +240,19 @@ class CampusGeometryTests(unittest.TestCase):
                 self.assertFalse(any(-24<=p[0]<=30 and -106<=p[1]<=-18 for p in points))
 
     def test_spawn_feet_and_objective_have_floor_support(self):
+        # T starts are on Povo 2, which only reaches its final levels in the
+        # registered export assembly (tools/povo2_levels.py).
+        from tools.build_povo_campus import build_registered_geometry
+        registered=build_registered_geometry(ROOT)[2]
         for point in [*T_STARTS,*CT_STARTS,OBJECTIVE]:
             x,y,z=point
-            support=[b for b in self.boxes if b[3].startswith('floor_')
+            boxes=registered if point in T_STARTS else self.boxes
+            support=[b for b in boxes if b[3].startswith('floor_')
                      and b[1][0]<=x<=b[2][0] and b[1][1]<=y<=b[2][1]
                      and 0<z-b[2][2]<1]
             self.assertTrue(support,point)
             floor=max(b[2][2] for b in support)
-            obstacles=[b[0] for b in collision_boxes(self.boxes) if not b[3].startswith('floor_')
+            obstacles=[b[0] for b in collision_boxes(boxes) if not b[3].startswith('floor_')
                        and b[1][0]-.41<x<b[2][0]+.41 and b[1][1]-.41<y<b[2][1]+.41
                        and b[2][2]>floor+.03 and b[1][2]<floor+1.85]
             self.assertFalse(obstacles,(point,obstacles))
