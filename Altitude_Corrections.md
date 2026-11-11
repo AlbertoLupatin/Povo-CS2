@@ -1,6 +1,6 @@
 # Altitude corrections: Povo 1 terrace, parking and campus road
 
-Last updated: 11 November 2026. Status: analysis and implementation plan. Povo 2 floor levels adopted in section 5b; other corrections not implemented.
+Last updated: 11 November 2026. Status: analysis and implementation plan. Campus floor levels (Povo 1, bridge, Povo 2) adopted in section 5b, together with the streets around Povo 2; other corrections not implemented.
 
 Analysis only. No geometry, interior floor, compiled package or approved Povo 2 layout was changed. This replaces the narrower preliminary interpretation from this chat, not an approved layout record.
 
@@ -94,7 +94,7 @@ The user's comparison is appropriate for the visual form: an upper hard surface,
 
 ## 5b. Povo 2 floor levels from the internal stair, photographs and DTM (11 November)
 
-Added after the analysis above. Unlike Povo 1, Povo 2 has three independent anchors that agree. This section therefore adopts new Povo 2 levels. Povo 1 and the bridge are not changed here.
+Added after the analysis above. Povo 2 has three independent anchors that agree, and Povo 1 then turns out to share the same levels. This section therefore adopts new levels for both buildings and the bridge.
 
 **Evidence**
 
@@ -116,16 +116,22 @@ Added after the analysis above. Unlike Povo 1, Povo 2 has three independent anch
 | Povo 2 −2 (parking, vestibule, gardens) | −3.20 | **−1.55** | Garden DTM; flush garden door |
 | Povo 2 −1 | 0.40 | **3.25** | −2 plus 30 × 0.16 m (measured flight) |
 | Povo 2 0 | 4.00 | **8.05** | −1 plus 30 × 0.16 m; street DTM 8.08–8.29 with a flush entrance |
-| Povo 2 +1 / bridge | 11.20 | 11.20 (unchanged) | Povo 1 and bridge kept fixed |
+| Povo 2 +1 / bridge | 11.20 | **12.21** | 0 plus 26 × 0.16 m; bridge DBM roof 15.66–15.73 = deck + 3.35 m bridge walls |
+| Povo 1 / library / canteen −1 | 4.00 | **3.25** | Entrance-plaza ground DTM 3.15–3.32 (E27–33, N−80/−65, open cells) |
+| Povo 1 / library / canteen 0 | 7.60 | **8.05** | Via Sommarive front DTM 8.00–8.09 at E52–54 for N−100..−15, where floor 0 meets the street |
+| Povo 1 +1 | 11.20 | **12.21** | Same deck as the bridge and Povo 2 +1 |
 
-- Agreement: the basement storeys, at 16 cm, land floor 0 within 0.05–0.25 m of the independently measured street. This closure is the reason the levels are adopted rather than left provisional.
-- **Open conflict at 0↔+1:** with the bridge at 11.20, the 26 upper risers become 12.1 cm. At 16 cm, floor +1 would be 12.21 m, 1.0 m above the current bridge. With that deck, the bridge's DBM roof leaves about 3.5 m from deck to roof surface, against 4.5 m now, which favours the higher deck. The same −1 level (≈3.3 m) also appears on Povo 1's terrace strip (section 2), which hints that the campus floor numbering shares absolute levels.
-- **Resolving it** needs an on-site measurement of one 0↔+1 riser. If it is about 16 cm, the bridge and Povo 1's upper floors are about 1 m too low, and that belongs to the Povo 1 work in this plan. Until then the model keeps the bridge fixed and builds the 0↔+1 flights with 12.1 cm risers, marked provisional.
-- **Consequences for this plan:**
-  - The Povo 2 east street and forecourt need to rise from about 4.0 to about 8.1–8.5.
-  - The south road's eastern half is 1–2 m low against the DTM, as section 4 already found.
-  - The south −1 terrace deck moves to 3.25, close to the western sidewalk's 3.0–3.6, so the UP stair from the −1 passage shortens.
-  - The gardens rise by 1.65 m, and the garage ramp now only has to reach −1.55.
+- **Agreement:** the basement storeys, at 16 cm, land Povo 2's floor 0 within 0.05–0.25 m of the independently measured street.
+- **Update, 11 November:** the 0↔+1 question is resolved by two independent checks:
+  - The bridge's DBM roof matches a 12.21 deck plus the model's 3.35 m bridge walls.
+  - Povo 1 lines up on the same three levels. Its entrance ground matches −1 and its Via Sommarive front matches 0, each within 0.1 m.
+- **Result:** both buildings share −1 3.25, 0 8.05 and +1 12.21. Povo 1's storeys become 4.8 m and 4.16 m.
+- **Povo 1 stairs:** their measured step counts were not available. They keep their modelled counts, with risers scaled uniformly per storey (×1.33, then ×1.16).
+- **Exterior consequences, implemented in [Povo 2 levels](docs/POVO2_LEVELS_20261111.md):**
+  - Via Sommarive, the roundabout, the north pavement and the south road between Povo 1 and Povo 2 are regraded to the DTM (`tools/povo2_exterior_grade.py`).
+  - The Povo 2 UP stair now climbs to the regraded south footway (5.43).
+  - The gardens and garage ramp follow −2.
+- **Still open for this plan:** the west parking, the Povo 1 terrace bank and the road-branch layout (sections 2–4) are not regraded.
 
 ## 6. Why no global vertical shift is established
 

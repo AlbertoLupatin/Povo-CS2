@@ -18,10 +18,13 @@ class RegisteredTerraceTests(unittest.TestCase):
         cls.terrace = cls.ext['terrace_integration']
         cls.p2 = next(l['connection']['povo2'] for l in levels if 'connection' in l)
 
-    def assert_walkable(self, x, y, z):
+    def assert_walkable(self, x, y, z, delta=None):
         foot, obstacles = standing(x, y, z, self.boxes, self.meshes)
         self.assertIsNotNone(foot, (x, y, z))
-        self.assertAlmostEqual(foot, z, places=5, msg=(x, y, z))
+        if delta is None:
+            self.assertAlmostEqual(foot, z, places=5, msg=(x, y, z))
+        else:
+            self.assertAlmostEqual(foot, z, delta=delta, msg=(x, y, z))
         self.assertFalse(obstacles, (x, y, z, obstacles))
 
     def test_south_extension_connects_to_the_approved_terrace(self):
@@ -84,7 +87,9 @@ class RegisteredTerraceTests(unittest.TestCase):
                 y = i / 4
                 # Same road junction; the ramp now ends at the re-levelled -2.
                 z = 3. if y <= 1 else max(LEVELS[-2], 3 - (3 - LEVELS[-2]) * (y - 1) / 29)
-                self.assert_walkable(x, y, z)
+                # The road junction meets the LiDAR-regraded south road, whose
+                # fade tilts the shared road triangles by about a millimetre here.
+                self.assert_walkable(x, y, z, delta=.005 if y <= 1 else None)
         for mesh in self.meshes:
             if mesh['material'] == 'exterior_paving':
                 self.assertFalse(height_at(mesh, -29., -.5), mesh['name'])

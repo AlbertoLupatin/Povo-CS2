@@ -16,17 +16,20 @@ from scipy import ndimage
 
 try:
     from .povo2_levels import MAPPED, STREET, STREET_RAILS, NEW, is_ramp, _carve_exterior as _carve
+    from .povo2_levels import P1_EXTERIOR, STREET_SPLIT, SPLIT_Z
     from .povo_room_fitout import subtract_box
 except ImportError:
     from povo2_levels import MAPPED, STREET, STREET_RAILS, NEW, is_ramp, _carve_exterior as _carve
+    from povo2_levels import P1_EXTERIOR, STREET_SPLIT, SPLIT_Z
     from povo_room_fitout import subtract_box
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = (666250., 5103800., 370.)
 X0, Y0, NX, NY = -60., -40., 201, 221          # 1 m grid, x -60..140, y -40..180
 TILE = 4.
+SOUTH_BAND = (-8., 4.1, -25., 56.)   # y0, y1, x0, x1: south road and its footways
 # Graded zones (x0, y0, x1, y1); weight() fades inside them.
-ZONES = ((49.5, -10., 110., 175.), (40., -10., 49.5, 9.1), (-30., 101.5, 49.5, 175.))
+ZONES = ((49.5, -10., 110., 175.), (40., -10., 49.5, 9.1), (-30., 101.5, 49.5, 175.), (-25., -16., 40., 9.1))
 # Surfaces that define "the ground" of the legacy model (fixtures excluded).
 _GROUND = ('via', 'road', 'footway', 'verge', 'walk', 'grounds', 'gardens', 'roundabout', 'island',
            'pavement', 'paving', 'green_strip', 'crosswalk', 'approach', 'branch', 'left_terrace',
@@ -44,7 +47,10 @@ def weight(x, y):
     across = clip((x-49.5)/1.5) if y >= 9.1 else clip((x-40)/11)
     east = across*clip((y+10)/10)*fade                 # Povo 2 front and Via Sommarive north of the junction
     north = clip((y-101.5)/1.)*clip((x+30)/10)*fade   # north garden rim, pavement and beyond
-    return max(east, north)
+    # South road (Via dei Valoni) between Povo 1/library and Povo 2's frontage,
+    # fading out toward the west branch and the Povo 1 / library north edge.
+    south = clip((x+25)/5)*clip((9.1-y)/.01)*clip((y+16)/3)   # west road (x < -25) left alone
+    return max(east, north, south)
 
 
 def _load(path):
@@ -76,6 +82,12 @@ def _dtm_grid(root, sunken=()):
     t = np.where(b-t < .3, t, np.nan)          # ground only: buildings/canopies are interpolated
     for a, b0, c, d in sunken:
         t[max(0, int(b0-1-Y0)):int(d+1-Y0)+1, max(0, int(a-1-X0)):int(c+1-X0)+1] = np.nan
+    # The south road is graded along its length only (one height per station),
+    # so its LiDAR crossfall between the banks does not tilt the carriageway.
+    j0, j1 = int(SOUTH_BAND[0]-Y0), int(SOUTH_BAND[1]-Y0)
+    for i in range(int(SOUTH_BAND[2]-X0), int(SOUTH_BAND[3]-X0)+1):
+        column = t[j0:j1+1, i]
+        if np.isfinite(column).any():t[j0:j1+1, i] = np.nanmedian(column)
     # The DTM under Povo 2's east canopy interpolates toward its courtyards;
     # anchor the facade line at the flush entrance floor instead.
     i0, i1 = int(50.5-X0), int(52-X0); j0, j1 = int(10-Y0), int(112-Y0)
@@ -213,9 +225,42 @@ def _densify(mesh, limit=1.):
     mesh['vertices'] = verts; mesh['faces'] = tuple(out)
 
 
+UP_TOP = (21.75, 4.2)          # where Povo 2's UP stair meets the south footway
+
+
+def _retarget_up_stair(boxes, link, field):
+    """The UP stair (from the -1 passage) now climbs to the regraded footway."""
+    p2 = link['povo2']; top_old = 4.0; bottom = NEW[-1]
+    top = top_old+field(*UP_TOP)
+    k = (top-bottom)/(top_old-bottom)
+    lin = lambda z: bottom+(z-bottom)*k
+    for i, (n, lo, hi, m) in enumerate(boxes):
+        if not n.startswith('p2_registered_up'):continue
+        if '_step_' in n or n.endswith('_top'):
+            boxes[i] = (n, (*lo[:2], lin(lo[2])), (*hi[:2], lin(hi[2])), m)
+        else:
+            dz = lin(lo[2])-lo[2];boxes[i] = (n, (*lo[:2], lo[2]+dz), (*hi[:2], hi[2]+dz), m)
+    for rail in p2['stairs']['rails']:
+        if rail['name'].startswith('registered_up'):
+            for key in ('a', 'b'):rail[key] = [*rail[key][:2], lin(rail[key][2])]
+    records = [p2.get('gardens', {}).get('routes', {}), p2.get('additions', {}).get('yard', {}).get('routes', {})]
+    for routes in {id(r): r for r in records}.values():
+        if 'up' in routes:routes['up'] = [[x, y, lin(z)] for x, y, z in routes['up']]
+    p2['gardens']['up_top_z'] = round(top, 3)
+
+
 def _graded(name):
-    return name.startswith('exterior_') and not is_ramp(name) and \
+    if name.startswith(STREET_SPLIT):return True
+    return name.startswith('exterior_') and not is_ramp(name) and not name.startswith(P1_EXTERIOR) and \
         (not name.startswith(MAPPED) or name.startswith(STREET))
+
+
+BUS = 'exterior_abandoned_bus'
+
+
+def _shift(name, z, dz):
+    """Library street pieces keep their yard-side (lower) heights."""
+    return z if name.startswith(STREET_SPLIT) and z <= SPLIT_Z else z+dz
 
 
 def apply(boxes, levels, root=ROOT):
@@ -223,10 +268,23 @@ def apply(boxes, levels, root=ROOT):
     meshes = ext.get('meshes', [])
     field = Field(boxes, meshes, root, _sunken(levels))
     result = []; terrain = []
+    bus = [b for b in boxes if b[0].startswith(BUS)]
+    bus_dz = 0
+    wheels = [m for m in ext.get('collision_meshes', []) if m['name'].startswith(BUS+'_wheel')]
+    if bus and wheels:   # road lift under the wheels
+        centres = [(sum(v[0] for v in m['vertices'])/len(m['vertices']), sum(v[1] for v in m['vertices'])/len(m['vertices']))
+                   for m in wheels]
+        bus_dz = max(field(x, y) for x, y in centres)   # rests on the highest wheel; none sink
     for box in boxes:
         n, lo, hi, m = box
         if not _graded(n) or hi[2] < 0:            # deep underlays stay put
             result.append(box);continue
+        if n.startswith(BUS):                      # the bus moves as one body
+            result.append((n, (*lo[:2], lo[2]+bus_dz), (*hi[:2], hi[2]+bus_dz), m));continue
+        if n.startswith(STREET_SPLIT):
+            dz = field((lo[0]+hi[0])/2, (lo[1]+hi[1])/2)
+            a, b = _shift(n, lo[2], dz), _shift(n, hi[2], dz)
+            result.append((n, (*lo[:2], a), (*hi[:2], max(b, a+1e-3)), m));continue
         pieces = [box]
         for zone in ZONES:
             rest = []
@@ -262,9 +320,17 @@ def apply(boxes, levels, root=ROOT):
         for mesh in ext.get(key, []):
             if id(mesh) in done or not _graded(mesh['name']):continue
             done.add(id(mesh))
+            # Big backdrop sheets reaching far outside the zones stay as built:
+            # moving only their in-zone vertices would tilt whole triangles.
+            ws = [weight(x, y) for x, y, _ in mesh['vertices']]
+            xs = [v[0] for v in mesh['vertices']]; ys = [v[1] for v in mesh['vertices']]
+            if (max(xs)-min(xs))*(max(ys)-min(ys)) > 2500 and min(ws) == 0:continue
             if _in_junction(mesh):_densify(mesh)   # sparse road strips cross the fade
-            low = NEW[-1]+.5 if mesh['name'].startswith('exterior_registered_') else -1e9
-            mesh['vertices'] = [(x, y, z if z < low else z+field(x, y)) for x, y, z in mesh['vertices']]
+            if mesh['name'].startswith(BUS):
+                mesh['vertices'] = [(x, y, z+bus_dz) for x, y, z in mesh['vertices']];continue
+            pinned = set(mesh.pop('pinned', ()))   # lower edges already on Povo 2's terrace
+            mesh['vertices'] = [(x, y, z if i in pinned else _shift(mesh['name'], z, field(x, y)))
+                                for i, (x, y, z) in enumerate(mesh['vertices'])]
     link = next(l['connection'] for l in levels if 'connection' in l)
     for rail in link['povo2']['stairs']['rails']+levels[0].get('library_stair', {}).get('rails', []):
         if rail['name'].startswith(('registered_', *STREET_RAILS)) or _graded(rail['name']):
@@ -272,7 +338,11 @@ def apply(boxes, levels, root=ROOT):
                 x, y, z = rail[k];rail[k] = [x, y, z+field(x, y)]
     # Lowered paving must not overhang Povo 2's sunken stairs and terraces.
     result = _carve(result, {})
+    _retarget_up_stair(result, link, field)
+    for tree in ext.get('edges', {}).get('stock_trees', []):   # CS2 prop trees stand on the regraded ground
+        x, y, z = tree['point'];tree['point'] = [x, y, z+field(x, y)]
     ext['grade'] = dict(zones=[list(z) for z in ZONES],
                         source='PAT DTM 0.5 m, ground cells only, 5 m smoothing',
-                        dz_range=[round(float(field.dz.min()), 2), round(float(field.dz.max()), 2)])
+                        dz_range=[round(float(field.dz.min()), 2), round(float(field.dz.max()), 2)],
+                        bus_dz=round(bus_dz, 6))
     return result

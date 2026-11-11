@@ -21,7 +21,7 @@ try:
     from .povo_campus_finishes import write_png
     from .povo1_lift import BRUSH_MATERIALS as LIFT_MATERIALS
     from .povo1_lift import SCRIPT as LIFT_SCRIPT, insert as insert_lift
-    from .povo2_levels import NEW as P2_LEVELS, remap_z
+    from .povo2_levels import NEW as P2_LEVELS, remap_z, p1_band
 except ImportError:
     import cs2_project as project
     import build_povo_radar as radar
@@ -30,7 +30,7 @@ except ImportError:
     from povo_campus_finishes import write_png
     from tools.povo1_lift import BRUSH_MATERIALS as LIFT_MATERIALS
     from tools.povo1_lift import SCRIPT as LIFT_SCRIPT, insert as insert_lift
-    from tools.povo2_levels import NEW as P2_LEVELS, remap_z
+    from tools.povo2_levels import NEW as P2_LEVELS, remap_z, p1_band
 
 ROOT=Path(__file__).resolve().parents[1]
 MAP='trento_povo_campus'
@@ -277,7 +277,8 @@ def map_text(source,metadata,season='standard'):
     ground=min(l['floor_elevation_metres']-370 for l in metadata['levels'])
     upper=max(l['floor_elevation_metres']-370 for l in metadata['levels'])
     spawns={'info_player_terrorist':iter(t_starts),'info_player_counterterrorist':iter(ct_starts)}
-    buy={'2':(25.4,30.5,ground+.6),'3':(3,-35.2,upper+.6),'0':objective}
+    buy={'2':(25.4,30.5,P2_LEVELS[0]+.6),  # T side: Povo 2 floor 0
+         '3':(3,-35.2,upper+.6),'0':objective}
     replacements=[]
     for start,end,classname,block in project._entity_ranges(source):
         updated=block
@@ -308,10 +309,10 @@ def map_text(source,metadata,season='standard'):
             updated=property_value(updated,'box_maxs','4900 3400 450' if metadata.get('exterior') else '4300 1800 450')
             updated=property_value(updated,'voxel_size','80')
         elif classname=='point_nav_walkable':
-            updated=project._replace_entity_transform(block,world((21,-72,4.15)))
+            updated=project._replace_entity_transform(block,world((21,-72,p1_band(4.15))))
         elif classname=='env_soundscape':updated=project._replace_entity_transform(block,world((0,-60,7)))
         elif classname=='cs_minimap_boundary':
-            p=((76,-118,12) if '2559.055' in block and '-2559.055' not in block else (-92,126,-5)) if metadata.get('exterior') else ((36,-109,12) if '2559.055' in block and '-2559.055' not in block else (-28,78,-5))
+            p=((76,-118,16) if '2559.055' in block and '-2559.055' not in block else (-92,126,-5)) if metadata.get('exterior') else ((36,-109,12) if '2559.055' in block and '-2559.055' not in block else (-28,78,-5))
             updated=project._replace_entity_transform(block,world(p))
         if updated!=block:replacements.append((start,end,updated))
     for start,end,replacement in reversed(replacements):source=source[:start]+replacement+source[end:]
@@ -377,11 +378,11 @@ def map_text(source,metadata,season='standard'):
                 source=project._insert_point_entity(source,'p2-sign-'+room['id'],
                     'point_worldtext',world(origin),sign_properties(room['label']),angles=angles)
         for room in p2.get('west_offices',{}).get('rooms',[]):
-            origin,angles=room_sign(room,.4)
+            origin,angles=room_sign(room,remap_z(.4))
             source=project._insert_point_entity(source,'p2-sign-'+room['id'],
                 'point_worldtext',world(origin),sign_properties(room['label']),angles=angles)
             a,b,c,d=room['bounds']
-            source=project._insert_point_entity(source,'p2-nav-'+room['id'],'point_nav_walkable',world(((a+c)/2,(b+d)/2,.55)))
+            source=project._insert_point_entity(source,'p2-nav-'+room['id'],'point_nav_walkable',world(((a+c)/2,(b+d)/2,remap_z(.55))))
         yard=p2.get('additions',{}).get('yard')
         if yard:
             for i,station in enumerate(yard['audit_stations']):
@@ -420,10 +421,10 @@ def map_text(source,metadata,season='standard'):
         # left south of the lobby when the double entrance moved north.
         lights.extend((inside+(outside-inside)*fraction,y,entrance['floor_z']+2.8)
                       for fraction in (.11,.37,.63,.89) for y in (south+1.5,north-1.5))
-        lights.extend(((26,-73.73,7),(32,-73.73,8),(40,-73.73,8.8),(49,-73.73,8.8)))
+        lights.extend((x,y,p1_band(z)) for x,y,z in ((26,-73.73,7),(32,-73.73,8),(40,-73.73,8.8),(49,-73.73,8.8)))
         lights.extend((x,y,remap_z(-.25)) for x in (-23,2,18) for y in (40,60,80,100))
         upper=metadata['exterior']['povo1_approach']['upper_z']
-        for i,p in enumerate(((26.5,-73.73,4.15),(38,-73.73,upper+.15),(54,-50,upper+.15),(57.5,-5,upper+.15),
+        for i,p in enumerate(((26.5,-73.73,p1_band(4.15)),(38,-73.73,upper+.15),(54,-50,upper+.15),(57.5,-5,upper+.15),
                               (54,31.35,remap_z(4.15)),(42,31.35,remap_z(4.15)),(-29,0,1.85),(-29,30,remap_z(-3.05)),
                               (-29,60,remap_z(-3.05)),(-5,36,remap_z(-3.05)),(-38,65,3.15),(-48,-65,3.15))):
             source=project._insert_point_entity(source,f'exterior-nav-{i}','point_nav_walkable',world(p))
@@ -530,6 +531,38 @@ def make_radar(metadata,map_name=MAP):
     def pixel(e,n):return ((-n*UNITS-overview['pos_x'])/overview['scale'],(overview['pos_y']-e*UNITS)/overview['scale'])
     def bounds(rect):
         x0,y0,x1,y1=rect;left,top=pixel(x1,y1);right,bottom=pixel(x0,y0);return left,top,right,bottom
+    p2_shapes={}
+    p2=metadata.get('povo2')
+    if p2:
+        for level in p2['levels'][:2]:
+            shapes=p2_shapes.setdefault(level['floor'],[])
+            if level['floor']==-2:
+                areas=p2['parking'].get('areas',[p2['parking']['bounds']])
+            elif p2.get('basement_rebuild'):
+                areas=next(l['areas'] for l in p2['basement_rebuild']['levels'] if l['floor']==-1)
+            else:areas=list(p2['basement'].values())
+            if level['floor']==-2 and p2.get('gardens'):
+                areas=[*areas,p2['gardens']['garden'],p2['gardens']['down_stair']]
+            if level['floor']==-2 and metadata.get('exterior'):areas=[*areas,metadata['exterior']['garage_bounds']]
+            for i,r in enumerate(areas):shapes.append((str(i),bounds(r),(160,175,181,255)))
+            if level['floor']==-1:
+                repair=p2.get('walkthrough_repairs',{})
+                terraces=[*repair.get('arrival_terrace',[])]
+                if repair.get('cibio_terrace'):terraces.append(repair['cibio_terrace'])
+                for i,r in enumerate(terraces):shapes.append(('repair_terrace_'+str(i),bounds(r),(145,169,164,255)))
+                for room in p2.get('west_offices',{}).get('rooms',[]):
+                    shapes.append((room['id'],bounds(room['bounds']),(177,157,122,255)))
+                for i,r in enumerate(p2.get('minus1_corrections',{}).get('closed_corridor_areas',[])):
+                    shapes.append(('closed_l_'+str(i),bounds(r),(104,88,88,255)))
+            if metadata.get('exterior'):
+                shapes.append(('garage_ramp',bounds((-31.75,-8,-26.25,30)),(116,146,149,255)))
+            shapes.append(('stairs',bounds(p2['stairs']['bounds']),(181,155,108,255)))
+            if level['floor']!=-2:continue   # -1 is drawn on the shared 'lower' image
+            section='basement2'
+            image=MAP+'_'+section+'_radar.png';write_png(out/image,radar.png_bytes(shapes))
+            for spectate in ('','_spectate'):
+                texture=MAP+'_'+section+'_radar'+spectate+'_tga.vtex'
+                (out/texture).write_text(radar.texture_text().replace('trento_povo_radar.png',image),encoding='utf-8')
     for level in metadata['levels']:
         shapes=[('floor',bounds((-23,-103,24,-20)),(84,97,104,255))]
         if metadata.get('exterior'):
@@ -568,7 +601,10 @@ def make_radar(metadata,map_name=MAP):
             shapes.append(('p2_compact_stair',bounds(metadata['connection']['stair']['bounds']),(158,160,156,255)))
         p2=metadata.get('povo2')
         if p2:
-            floor=0 if level.get('user_floor',-1)==-1 else 1 if level.get('user_floor')==1 else None
+            # Povo 2 floor 0 shares Povo 1 floor 0's altitude (8.05) since 11 Nov;
+            # its -1 shares Povo 1 -1 (3.25) and is drawn on the lower image.
+            floor=0 if level.get('user_floor',-1)==0 else 1 if level.get('user_floor')==1 else None
+            if level.get('user_floor',-1)==-1:shapes.extend(p2_shapes.get(-1,[]))
             if floor==0:
                 shapes.append(('p2_ground',bounds(p2['footprint']),(200,210,209,255)))
                 shapes.append(('reception',bounds(p2['ground']['reception']),(83,109,117,255)))
@@ -588,51 +624,20 @@ def make_radar(metadata,map_name=MAP):
         for spectate in ('','_spectate'):
             texture=MAP+suffix+'_radar'+spectate+'_tga.vtex'
             (out/texture).write_text(radar.texture_text().replace('trento_povo_radar.png',image),encoding='utf-8')
-    p2=metadata.get('povo2')
-    if p2:
-        for level in p2['levels'][:2]:
-            shapes=[]
-            if level['floor']==-2:
-                areas=p2['parking'].get('areas',[p2['parking']['bounds']])
-            elif p2.get('basement_rebuild'):
-                areas=next(l['areas'] for l in p2['basement_rebuild']['levels'] if l['floor']==-1)
-            else:areas=list(p2['basement'].values())
-            if level['floor']==-2 and p2.get('gardens'):
-                areas=[*areas,p2['gardens']['garden'],p2['gardens']['down_stair']]
-            if level['floor']==-2 and metadata.get('exterior'):areas=[*areas,metadata['exterior']['garage_bounds']]
-            for i,r in enumerate(areas):shapes.append((str(i),bounds(r),(160,175,181,255)))
-            if level['floor']==-1:
-                repair=p2.get('walkthrough_repairs',{})
-                terraces=[*repair.get('arrival_terrace',[])]
-                if repair.get('cibio_terrace'):terraces.append(repair['cibio_terrace'])
-                for i,r in enumerate(terraces):shapes.append(('repair_terrace_'+str(i),bounds(r),(145,169,164,255)))
-                for room in p2.get('west_offices',{}).get('rooms',[]):
-                    shapes.append((room['id'],bounds(room['bounds']),(177,157,122,255)))
-                for i,r in enumerate(p2.get('minus1_corrections',{}).get('closed_corridor_areas',[])):
-                    shapes.append(('closed_l_'+str(i),bounds(r),(104,88,88,255)))
-            if metadata.get('exterior'):
-                shapes.append(('garage_ramp',bounds((-31.75,-8,-26.25,30)),(116,146,149,255)))
-            shapes.append(('stairs',bounds(p2['stairs']['bounds']),(181,155,108,255)))
-            section='basement2' if level['floor']==-2 else 'basement1'
-            image=MAP+'_'+section+'_radar.png';write_png(out/image,radar.png_bytes(shapes))
-            for spectate in ('','_spectate'):
-                texture=MAP+'_'+section+'_radar'+spectate+'_tga.vtex'
-                (out/texture).write_text(radar.texture_text().replace('trento_povo_radar.png',image),encoding='utf-8')
     text=['// Campus overview: upper, ground and optional Povo 2 basements.',f'"{MAP}"','{',f' "material" "overviews/{MAP}"']
     text.extend(f' "{k}" "{v:.9f}"' for k,v in overview.items())
     zs=sorted(l['floor_elevation_metres']-370 for l in metadata['levels'])
     threshold=(zs[0]+zs[1])/2*UNITS
     upper_threshold=(zs[-2]+zs[-1])/2*UNITS
-    # Povo 2 basements: split midway between its storeys; -1 (3.25) sits just
-    # below Povo 1 -1 (4.0), so 'lower' starts between them.
-    ground_min=str((P2_LEVELS[-1]+.35)*UNITS) if p2 else '-10000'
+    # Both buildings share -1 / 0 / +1. Povo 2 -2 is the only basement band;
+    # 'lower' (both -1 floors) starts midway between Povo 2 -2 and -1.
     basement_split=(P2_LEVELS[-2]+P2_LEVELS[-1])/2
+    ground_min=str(basement_split*UNITS) if p2 else '-10000'
     text.extend([' "verticalsections"',' {','  "default" { "AltitudeMin" "'+str(upper_threshold)+'" "AltitudeMax" "10000" }',
                  '  "middle" { "AltitudeMin" "'+str(threshold)+'" "AltitudeMax" "'+str(upper_threshold)+'" }',
                  '  "lower" { "AltitudeMin" "'+ground_min+'" "AltitudeMax" "'+str(threshold)+'" }'])
     if p2:
-        text.extend(['  "basement1" { "AltitudeMin" "'+str(basement_split*UNITS)+'" "AltitudeMax" "'+ground_min+'" }',
-                     '  "basement2" { "AltitudeMin" "-10000" "AltitudeMax" "'+str(basement_split*UNITS)+'" }'])
+        text.append('  "basement2" { "AltitudeMin" "-10000" "AltitudeMax" "'+str(basement_split*UNITS)+'" }')
     text.append(' }')
     t_starts,ct_starts,objective=gameplay_points(metadata)
     for label,p in [('CTSpawn',ct_starts[2]),('TSpawn',t_starts[2]),('bombA',objective)]:

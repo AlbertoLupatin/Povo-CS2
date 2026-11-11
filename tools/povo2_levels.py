@@ -1,14 +1,17 @@
-"""Re-level Povo 2 to the 11 November evidence and rebuild its reception stair.
+"""Re-level Povo 1, the bridge and Povo 2 to the measured campus levels.
 
-Basis (Altitude_Corrections.md, section 5b): -2 from the flat garden DTM,
--1 and 0 from 30 measured 16 cm risers per basement storey, closing on the
-street DTM at the flush entrance. Povo 1 and the bridge (+1) stay fixed.
+Basis (Altitude_Corrections.md, section 5b): Povo 2 -2 from the flat garden
+DTM; -1 and 0 from 30 measured 16 cm risers per basement storey, closing on
+the street DTM at the flush entrance; +1 from 26 x 16 cm, matching the
+bridge's LiDAR roof. Povo 1 shares the levels: its entrance ground (DTM
+3.15-3.3) and its Via Sommarive front (DTM 8.0-8.1) agree with -1 and 0.
 
-The historical Povo 2 passes still build at 4.0 / 0.4 / -3.2. This final
-pass maps their heights through one monotonic profile, so every module moves
-together: storeys translate up to door-head height and the remainder of each
-storey stretches (basements, 3.6 -> 4.8 m) or compresses (0 -> +1, 7.2 ->
-3.15 m). Flights crossing those bands cannot be mapped, so the reception
+The historical passes still build at Povo 2 4.0 / 0.4 / -3.2 and Povo 1
+4.0 / 7.6 / 11.2. This final pass maps their heights through one monotonic
+profile per building, so every module moves together: storeys translate up
+to door-head height and the remainder of each storey stretches or
+compresses. Povo 1 stair treads and landings use a per-storey linear profile
+instead, keeping their step counts with uniformly taller risers. Flights crossing those bands cannot be mapped, so the reception
 stair is rebuilt here from the user's counts and the approved plan:
 two lanes with a 0.2 m gap, 2 m end landings (1.1 m far landing for 0-+1),
 doors 0 and +1 stacked on the east wall, -1 at the west end and -2 at the
@@ -24,10 +27,57 @@ except ImportError:
     from povo_stairs import railing
 
 OLD = {-2: -3.2, -1: .4, 0: 4., 1: 11.2}
-NEW = {-2: -1.55, -1: 3.25, 0: 8.05, 1: 11.2}
-# (old z, new z) knots: translate to old+2.6 m, then stretch/compress.
-_KNOTS = [(-0.6, 1.05), (0.4, 3.25), (3.0, 5.85), (4.0, 8.05), (6.6, 10.65), (11.2, 11.2)]
+NEW = {-2: -1.55, -1: 3.25, 0: 8.05, 1: 12.21}
+ABOVE = NEW[1]-OLD[1]                    # roofs and everything over +1
+# (old z, new z) knots: translate to door heads/ceilings, then stretch/compress.
+_KNOTS = [(-0.6, 1.05), (0.4, 3.25), (3.0, 5.85), (4.0, 8.05), (7.4, 11.45), (11.2, NEW[1])]
 _XS = [k[0] for k in _KNOTS]
+# Povo 1 (and library, canteen, bridge): -1 4.0, 0 7.6, +1 11.2 before.
+P1_OLD = {-1: 4., 0: 7.6, 1: 11.2}
+P1_BAND = [(4., NEW[-1]), (6.6, NEW[-1]+2.6), (7.6, NEW[0]), (10.2, NEW[0]+2.6), (11.2, NEW[1])]
+P1_LINEAR = [(4., NEW[-1]), (7.6, NEW[0]), (11.2, NEW[1])]
+P1_EXTERIOR = ('exterior_p1_', 'exterior_library_', 'exterior_canteen_', 'exterior_canopy',
+               'exterior_entry_', 'exterior_povo1_', 'exterior_paving_bridge', 'exterior_paving_povo1',
+               'exterior_registered_povo1')
+# Library street wall/guards/grass: bottoms in the library's -1 yard (Povo 1
+# profile), tops on the street (regraded). Split at old 4.3 m.
+STREET_SPLIT, SPLIT_Z = ('exterior_library_street_wall', 'exterior_library_library_street_extension',
+                         'exterior_library_library_stair_grass', 'exterior_library_library_grass_top',
+                         'exterior_library_tree'), 4.3
+# Parts of Povo 1 stairs that rise with the flights (doors/walls keep storey bands).
+_STAIRISH = ('stair', 'flight', 'nosing')
+_STAIR_STATIC = ('door', 'enclosure', 'jamb', 'head', 'hinge', 'leaf', 'pushbar', 'skirting',
+                 'wall', 'column', 'window', 'frame', 'glass', 'sign', '_light', 'lamp', 'planter', 'terrace',
+                 '_floor_')
+
+
+def _profile(knots, z):
+    xs = [k[0] for k in knots]
+    if z >= xs[-1]:return round(z+knots[-1][1]-knots[-1][0], 9)
+    if z <= xs[0]:return round(z+knots[0][1]-knots[0][0], 9)
+    i = bisect.bisect_right(xs, z)
+    (a, b), (c, d) = knots[i-1], knots[i]
+    return round(b+(z-a)*(d-b)/(c-a), 9)
+
+
+def p1_band(z):
+    return _profile(P1_BAND, z)
+
+
+def p1_linear(z):
+    return _profile(P1_LINEAR, z)
+
+
+def is_povo1(name):
+    return not name.startswith(('p2_', 'exterior_', 'lift_', 'academic_first_link_p2_')) \
+        or name.startswith(P1_EXTERIOR)
+
+
+def _p1_kind(name):
+    """'linear' for treads/landings, 'follow' for rail posts/clips/braces, else 'band'."""
+    if not any(k in name for k in _STAIRISH) or any(k in name for k in _STAIR_STATIC):return 'band'
+    if any(k in name for k in ('_clip', '_post', 'brace')):return 'follow'
+    return 'linear'
 
 MAPPED = ('p2_', 'exterior_p2_', 'exterior_povo2_', 'facade_p2', 'exterior_garage_',
           'exterior_parking_continuous', 'academic_first_link_p2_')
@@ -60,12 +110,8 @@ STAIR_PREFIXES = ('p2_internal_', 'p2_basement_new_core_floor_', 'p2_parking_new
 
 
 def remap_z(z):
-    """Old Povo 2 height -> adopted height (monotonic, identity above +1)."""
-    if z >= _XS[-1]:return z
-    if z <= _XS[0]:return round(z+(_KNOTS[0][1]-_KNOTS[0][0]), 9)
-    i = bisect.bisect_right(_XS, z)
-    (a, b), (c, d) = _KNOTS[i-1], _KNOTS[i]
-    return round(b+(z-a)*(d-b)/(c-a), 9)
+    """Old Povo 2 height -> adopted height (monotonic; +1.01 above the old +1)."""
+    return _profile(_KNOTS, z)
 
 
 # Outdoor stairs whose ends meet two re-levelled surfaces (or a fixed street)
@@ -93,7 +139,7 @@ def _linear(z, group):
 
 def unmap_z(z):
     """Inverse of remap_z (the profile is strictly increasing)."""
-    if z >= _KNOTS[-1][1]:return z
+    if z >= _KNOTS[-1][1]:return z-ABOVE
     if z <= _KNOTS[0][1]:return z-(_KNOTS[0][1]-_KNOTS[0][0])
     ys = [k[1] for k in _KNOTS]; i = bisect.bisect_right(ys, z)
     (a, b), (c, d) = _KNOTS[i-1], _KNOTS[i]
@@ -124,9 +170,23 @@ def _map_box(box):
     if is_ramp(n):
         y = (lo[1]+hi[1])/2
         return (n, (*lo[:2], _ramp_z(lo[2], y)), (*hi[:2], max(_ramp_z(hi[2], y), _ramp_z(lo[2], y)+1e-3)), m)
-    if not n.startswith(MAPPED) or n.startswith(STREET) or lo[2] >= 10.9:
+    if n.startswith(STREET):
         return box
-    a, b = remap_z(lo[2]), remap_z(hi[2])
+    if n.startswith(STREET_SPLIT):
+        a = p1_band(lo[2]) if lo[2] <= SPLIT_Z else lo[2]; b = p1_band(hi[2]) if hi[2] <= SPLIT_Z else hi[2]
+        return (n, (*lo[:2], a), (*hi[:2], max(b, a+1e-3)), m)
+    if n.startswith(MAPPED):
+        a, b = remap_z(lo[2]), remap_z(hi[2])
+    elif is_povo1(n):
+        kind = _p1_kind(n)
+        if kind == 'linear':
+            a, b = p1_linear(lo[2]), p1_linear(hi[2])
+        elif kind == 'follow':
+            a = p1_linear(lo[2]); b = hi[2]+a-lo[2]
+        else:
+            a, b = p1_band(lo[2]), p1_band(hi[2])
+    else:
+        return box
     return (n, (*lo[:2], a), (*hi[:2], max(b, a+1e-3)), m)
 
 
@@ -138,9 +198,15 @@ def _map_mesh(mesh):
         return
     elif n.startswith(MAPPED):
         mesh['vertices'] = [(x, y, remap_z(z)) for x, y, z in mesh['vertices']]
+    elif n.startswith(STREET_SPLIT):
+        mesh['vertices'] = [(x, y, p1_band(z) if z <= SPLIT_Z else z) for x, y, z in mesh['vertices']]
+    elif n.startswith(P1_EXTERIOR):
+        f = p1_linear if _p1_kind(n) == 'linear' else p1_band
+        mesh['vertices'] = [(x, y, f(z)) for x, y, z in mesh['vertices']]
     elif n.startswith('exterior_registered_'):
         # Frontage banks, grates and forecourt: their lower edges sit on the
         # Povo 2 terrace/garden; the street-side edges (>= 2.6) are road.
+        mesh['pinned'] = [i for i, v in enumerate(mesh['vertices']) if v[2] < 2.6]   # the regrade skips these
         mesh['vertices'] = [(x, y, remap_z(z) if z < 2.6 else z) for x, y, z in mesh['vertices']]
 
 
@@ -149,29 +215,30 @@ _SKIP_KEYS = {'entrance', 'source_entrance', 'flight_counts', 'outward_direction
 _Z_KEYS = {'z', 'floor_z', 'ceiling_z', 'yard_z', 'street_z', 'top', 'floor_elevation_local'}
 
 
-def _map_meta(obj, key='', seen=None):
+def _map_meta(obj, key='', seen=None, f=None):
     """Map z of every 3-D point and z-valued field; XY records are untouched.
 
     Records are shared between spec sections (e.g. gardens/yard routes), so
     each container is mapped once and its replacement reused.
     """
     if seen is None:seen = {}
+    f = f or remap_z
     if key in _SKIP_KEYS:return obj
     if id(obj) in seen:return seen[id(obj)][1]
     if isinstance(obj, dict):
         seen[id(obj)] = (obj, obj)
         for k, v in list(obj.items()):
             if k in _Z_KEYS and isinstance(v, (int, float)) and not isinstance(v, bool):
-                obj[k] = remap_z(v)
+                obj[k] = f(v)
             else:
-                obj[k] = _map_meta(v, k, seen)
+                obj[k] = _map_meta(v, k, seen, f)
         return obj
     if isinstance(obj, (list, tuple)):
         if len(obj) == 3 and all(isinstance(v, (int, float)) for v in obj):
-            point = [obj[0], obj[1], remap_z(obj[2])]
+            point = [obj[0], obj[1], f(obj[2])]
             result = tuple(point) if isinstance(obj, tuple) else point
         else:
-            items = [_map_meta(v, key, seen) for v in obj]
+            items = [_map_meta(v, key, seen, f) for v in obj]
             result = tuple(items) if isinstance(obj, tuple) else items
         seen[id(obj)] = (obj, result)  # keep obj alive: ids must not be reused
         return result
@@ -182,7 +249,33 @@ def _in_povo2(p):
     return p[1] > 12 and p[0] > -40
 
 
-def apply(boxes, levels):
+def _map_povo1_meta(levels, stair, link):
+    """Povo 1 records: floor elevations, stairs (linear), everything else (band)."""
+    seen = {}
+    stairish = ('courtyard_stair', 'library_stair', 'stairs')
+    for level in levels:
+        level['floor_elevation_metres'] = p1_band(level['floor_elevation_metres']-370)+370
+        for key, value in list(level.items()):
+            if key in ('connection', 'exterior', 'floor_elevation_metres', 'elevator_banks'):continue
+            if key == 'wings':
+                for k, v in value.items():   # ('stairs' is a skipped key for Povo 2 records)
+                    value[k] = _map_meta(v, 'wing_'+k, seen, p1_linear if k in stairish else p1_band)
+                continue
+            level[key] = _map_meta(value, key, seen, p1_linear if key in stairish else p1_band)
+    ext = levels[0].get('exterior', {})
+    approach = ext.get('povo1_approach')
+    if approach:
+        for k in ('lower_z', 'upper_z'):
+            if k in approach:approach[k] = p1_band(approach[k])
+    if stair is not None:
+        for k, v in list(stair.items()):stair[k] = _map_meta(v, k, seen, p1_linear)
+    link['floor_local_metres'] = NEW[1]
+    for key in ('lights', 'nav_seeds'):
+        link[key] = [[p[0], p[1], remap_z(p[2]) if _in_povo2(p) else p1_band(p[2])] for p in link.get(key, [])]
+    for key in ('povo1_corridor',):pass   # 2-D records
+
+
+def apply(boxes, levels, stair=None):
     link = next(l['connection'] for l in levels if 'connection' in l)
     spec = link['povo2']
     boxes = [b for b in boxes if not b[0].startswith(STAIR_PREFIXES)]
@@ -222,13 +315,13 @@ def apply(boxes, levels):
             routes['up'] = [[x, y, _linear(unmap_z(z), up)] for x, y, z in routes['up']]
     for level in spec['levels']:level['z'] = NEW[level['floor']]
     link['ground']['floor_elevation_local'] = NEW[0]
-    for key in ('lights', 'nav_seeds'):
-        link[key] = [[p[0], p[1], remap_z(p[2])] if _in_povo2(p) else p for p in link.get(key, [])]
+    _map_povo1_meta(levels, stair, link)
     boxes = _rebuild_garden_stairs(boxes, spec, terrace)
     boxes = _carve_exterior(boxes, spec)
     boxes = _rebuild_stair(boxes, link, spec)
     spec['level_profile'] = dict(old=OLD, new=NEW, knots=_KNOTS,
-        basis='Altitude_Corrections.md section 5b: garden DTM, 16 cm measured risers, street DTM; +1 fixed')
+        basis='Altitude_Corrections.md section 5b: garden DTM, 16 cm risers, street DTM, bridge LiDAR roof',
+        povo1=dict(old=P1_OLD, band=P1_BAND, linear=P1_LINEAR))
     return boxes
 
 
@@ -311,7 +404,7 @@ def _rebuild_stair(boxes, link, spec):
         result = [p for b in result for p in (subtract_box(b, hole) if b[3] in materials else [b])]
 
     # Enclosure, full height, keeps closing the old west strip.
-    bottom, top = z[-2]-.22, 14.55
+    bottom, top = z[-2]-.22, 14.55+ABOVE
     add('p2_stair_well_wall_south', (WELL_X0-.11, SOUTH_WALL_Y-.1, bottom), (WELL_X1+.21, SOUTH_WALL_Y+.1, top))
     add('p2_stair_well_wall_north', (WELL_X0-.11, WELL_Y1, bottom), (WELL_X1+.21, WELL_Y1+.2, top))
     add('p2_stair_well_wall_east', (WELL_X1+.01, WELL_Y0, bottom), (WELL_X1+.21, WELL_Y1, top))

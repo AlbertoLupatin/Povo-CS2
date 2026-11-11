@@ -265,7 +265,7 @@ class CampusGeometryTests(unittest.TestCase):
             values=overview_values((output/'trento_povo_campus.txt').read_bytes(),'trento_povo_campus')
             self.assertEqual(values['verticalsections.lower.altitudemax'],values['verticalsections.middle.altitudemin'])
             self.assertEqual(values['verticalsections.middle.altitudemax'],values['verticalsections.default.altitudemin'])
-            for suffix in ('_lower','_middle','','_basement1','_basement2'):
+            for suffix in ('_lower','_middle','','_basement2'):
                 self.assertTrue((output/('trento_povo_campus'+suffix+'_radar.png')).is_file())
 
     def test_terrorists_start_in_povo2_and_counter_terrorists_in_povo1(self):

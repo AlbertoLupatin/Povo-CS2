@@ -9,7 +9,7 @@ from tools.audit_povo_exterior_integrated import standing
 from tools.audit_povo_interior import audit_level
 from tools.audit_povo_yard import audit_gardens
 from tools.povo2_frontage_registration import shift_metadata
-from tools.povo2_levels import NEW as LEVELS, remap_z
+from tools.povo2_levels import NEW as LEVELS, remap_z, p1_band
 
 
 class FrontageMetadataTests(unittest.TestCase):
@@ -64,7 +64,7 @@ class RegisteredFrontageTests(unittest.TestCase):
     def test_povo1_bus_side_recess_has_paved_collision(self):
         for x in (11.15, 15., 19., 23.95):
             for y in (-19.95, -18., -15.93):
-                self.assertTrue(any(lo[0] < x < hi[0] and lo[1] < y < hi[1] and hi[2] == 4.
+                self.assertTrue(any(lo[0] < x < hi[0] and lo[1] < y < hi[1] and hi[2] == p1_band(4.)
                                     and material == 'exterior_paving'
                                     for _, lo, hi, material in self.physics), (x, y))
 
@@ -284,7 +284,8 @@ class RegisteredFrontageTests(unittest.TestCase):
                            for z in height_at(mesh, x, y)]
                 self.assertTrue(heights, (x,y))
                 self.assertGreaterEqual(max(heights), 3.99, (x,y))
-        for x,y,z in ((53.,-7.,7.65),(47.,-4.97,7.45),(26.,-18.,4.),
+        # South road and junction regraded to the LiDAR on 11 November.
+        for x,y,z in ((53.,-7.,7.947),(47.,-4.97,7.582),(26.,-18.,p1_band(4.)),
                       (19.,9.65,LEVELS[-1]),(36.8,15.,remap_z(-3.175))):
             foot, obstacles = standing(x,y,z,self.physics,self.ext['collision_meshes'])
             self.assertIsNotNone(foot, (x,y,z))
@@ -323,8 +324,8 @@ class RegisteredFrontageTests(unittest.TestCase):
             self.assertTrue(has('exterior_registered_via_road_',58.51,y), y)
             self.assertFalse(has('exterior_registered_via_footway_',57.8,y), y)
         for x in (57.1,57.8,58.4):
-            foot, obstacles = standing(x,-9.7,7.72,self.physics,meshes)
-            self.assertAlmostEqual(foot,7.72,delta=.05)
+            foot, obstacles = standing(x,-9.7,8.37,self.physics,meshes)   # LiDAR-regraded junction
+            self.assertAlmostEqual(foot,8.37,delta=.05)
             self.assertFalse(obstacles)
         self.assertTrue(any(mesh['name'].startswith('exterior_registered_footway_south_0') and
                             mesh['material']=='exterior_concrete' for mesh in meshes))
@@ -409,13 +410,16 @@ class RegisteredFrontageTests(unittest.TestCase):
             moved_lo,moved_hi,actual_material = actual[name]
             self.assertEqual(actual_material, material)
             for original,moved in ((lo,moved_lo),(hi,moved_hi)):
-                self.assertEqual((moved[0],moved[2]), (original[0],original[2]))
+                # Rigid: the whole bus rides the LiDAR-regraded road by one offset.
+                self.assertEqual(moved[0], original[0])
+                self.assertAlmostEqual(moved[2]-original[2], self.ext['grade']['bus_dz'])
                 self.assertAlmostEqual(moved[1]-original[1], 1.8)
         wheels = [m for m in self.ext['collision_meshes'] if 'abandoned_bus_wheel_' in m['name']]
         self.assertEqual(len(wheels), 4)
-        for x,y,z in ((25.,-6.2,4.67),(25.,-1.675,4.67),(27.7,-1.675,4.)):
+        bus = self.ext['grade']['bus_dz']
+        for x,y,z in ((25.,-6.2,4.67+bus),(25.,-1.675,4.67+bus),(27.7,-1.675,5.728)):
             foot, obstacles = standing(x,y,z,self.physics,self.ext['collision_meshes'])
-            self.assertAlmostEqual(foot,z)
+            self.assertAlmostEqual(foot,z,delta=.01)
             self.assertEqual(obstacles, [], (x,y,z))
 
     def test_registered_walkways_and_vestibule_keep_continuous_finishes(self):
@@ -437,8 +441,7 @@ class RegisteredFrontageTests(unittest.TestCase):
         self.assertFalse(any(m['name'].startswith('exterior_library_hedge_') for m in self.ext['collision_meshes']))
 
     def test_bridge_and_entrance_connections_have_clearance(self):
-        bridge = [[18.25,9.,11.2],[18.25,20.,11.2],[22.25,20.,11.2],
-                  [22.25,30.8,11.2],[19.39,30.8,11.2]]
+        bridge = [[x, y, LEVELS[1]] for x, y in ((18.25,9.),(18.25,20.),(22.25,20.),(22.25,30.8),(19.39,30.8))]
         samples, failures = audit_stair_routes(self.physics,
             [dict(points=bridge), dict(points=bridge[::-1])])
         self.assertGreater(samples, 250)

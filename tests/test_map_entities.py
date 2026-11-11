@@ -140,7 +140,7 @@ class LadderTests(unittest.TestCase):
         from tools.povo_elevators import static_boxes, overlap
         fixed=collision_boxes(static_boxes(boxes))
         bank=next(bank for bank in levels[0]['elevator_banks'] if bank['id']=='p1')
-        self.assertEqual([s['z'] for s in bank['stops']], [4., 7.6, 11.2])
+        self.assertEqual([s['z'] for s in bank['stops']], [3.25, 8.05, 12.21])   # LiDAR-anchored levels
         for car in bank['cars']:
             dz=bank['stops'][-1]['z']-bank['stops'][0]['z']
             for name,lo,hi,material in car['parts']:
