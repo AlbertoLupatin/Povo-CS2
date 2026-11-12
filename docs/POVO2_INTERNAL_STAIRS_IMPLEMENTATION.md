@@ -1,5 +1,8 @@
 # Povo 2 internal stair correction — 28 October 2026
 
+**11 November 2026 revision:** the stair is rebuilt in the final registered frame by `tools/povo2_levels.py`, at the new measured levels. See [Povo 2 levels](POVO2_LEVELS_20261111.md). The counts below are unchanged. The geometry, door positions and riser heights in this record are superseded.
+
+
 **Later corridor correction:** the 29 October user markup supersedes the older
 instruction to retain the entire -1 layout. The stair core and its interface
 are retained; the longer/narrower lab corridor, lower exit connection and two

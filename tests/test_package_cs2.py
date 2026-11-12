@@ -23,7 +23,7 @@ class PackageMapTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        self.root = Path(self.tmp.name)
+        self.root = Path(self.tmp.name).resolve()  # package_map resolves; macOS /var and Windows 8.3 names differ
         self.cs2 = self.root / 'cs2'
         self.addon = self.cs2 / 'game/csgo_addons/trento_povo'
         self.source = self.addon / 'maps/trento_povo.vpk'

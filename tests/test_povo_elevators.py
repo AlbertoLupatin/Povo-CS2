@@ -8,6 +8,7 @@ from tools.build_povo_campus import build_registered_geometry, COLORS
 from tools.povo_campus_finishes import write_materials
 from tools import cs2_project
 from tests.test_map_entities import minimal_map
+from tools.povo2_levels import NEW as LEVELS
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -62,8 +63,8 @@ class LiftGeometryTests(unittest.TestCase):
         from tools.build_povo_campus import collision_boxes
         physics=collision_boxes(self.boxes)
         for x,y,z in T_STARTS:
-            foot,obstacles=standing(x,y,4,physics,self.levels[0]['exterior']['collision_meshes'])
-            self.assertAlmostEqual(foot,4)
+            foot,obstacles=standing(x,y,LEVELS[0],physics,self.levels[0]['exterior']['collision_meshes'])
+            self.assertAlmostEqual(foot,LEVELS[0])
             self.assertFalse(obstacles,(x,y,obstacles))
             for bank in self.banks:
                 a,b,c,d=bank['bounds']
@@ -84,18 +85,18 @@ class LiftGeometryTests(unittest.TestCase):
         physics=collision_boxes(self.boxes)
         support=[(level['id']+'_alias_'+n,a,b,m) for n,a,b,m in physics
                  if n.startswith(('p2_','academic_first_link_p2'))
-                 and m.startswith('floor_') and abs(b[2]-.4)<.02]
+                 and m.startswith('floor_') and abs(b[2]-LEVELS[-1])<.02]
         stations=[*level['audit_stations'],dict(id='lift1_approach',point=[24.6,28.8]),
                   dict(id='lift2_approach',point=[24.6,32.8]),dict(id='d1_approach',point=[22,35.2])]
-        report,_,_=audit_level(physics+support,dict(id=level['id'],floor_elevation_local=.4),stations)
+        report,_,_=audit_level(physics+support,dict(id=level['id'],floor_elevation_local=LEVELS[-1]),stations)
         self.assertEqual(report['status'],'passed',report)
 
     def test_new_lobby_floor_and_sealed_restricted_boundaries(self):
-        for point in [(22,35,.4),(24,30,.4)]:
+        for point in [(22,35,LEVELS[-1]),(24,30,LEVELS[-1])]:
             self.assertTrue(any(a[0]<=point[0]<=b[0] and a[1]<=point[1]<=b[1] and abs(b[2]-point[2])<.001
                 for n,a,b,m in self.boxes if 'floor' in m))
         p=next(l['connection']['povo2'] for l in self.levels if 'connection'in l)
-        self.assertEqual(p['minus1_corrections']['c5_north_junction_door']['centre'],[21.8,36,.4])
+        self.assertEqual(p['minus1_corrections']['c5_north_junction_door']['centre'],[21.8,36,LEVELS[-1]])
         self.assertNotIn('lower_junction_door',p['minus1_corrections'])
         self.assertTrue(any(n=='p2_lifts_restricted_corridor_cap' for n,*_ in self.boxes))
 

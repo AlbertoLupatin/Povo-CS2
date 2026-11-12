@@ -107,12 +107,13 @@ class Povo2PlanimetryTests(TestCase):
             out=make_radar(metadata)
             values=overview_values((out/'trento_povo_campus.txt').read_bytes(),'trento_povo_campus')
             sections={k.split('.')[1] for k in values if k.startswith('verticalsections.')}
-            self.assertEqual(sections,{'default','middle','lower','basement1','basement2'})
+            # Since 11 Nov both buildings share -1/0/+1; Povo 2 -2 is the only basement band.
+            self.assertEqual(sections,{'default','middle','lower','basement2'})
             files,aliases=radar_layout('trento_povo_campus',sections=sections)
-            self.assertEqual(len(files),21)
-            self.assertEqual(len(aliases),10)
-            self.assertEqual(len(list(out.glob('*.vtex'))),10)
-            ordered=['basement2','basement1','lower','middle','default']
+            self.assertEqual(len(files),17)
+            self.assertEqual(len(aliases),8)
+            self.assertEqual(len(list(out.glob('*.vtex'))),8)
+            ordered=['basement2','lower','middle','default']
             for first,second in zip(ordered,ordered[1:]):
                 self.assertEqual(values[f'verticalsections.{first}.altitudemax'],
                                  values[f'verticalsections.{second}.altitudemin'])

@@ -1,5 +1,7 @@
 # DEFINITIVE POVO 2 −1 MAP LAYOUT
 
+**11 November 2026 revision (levels and stair door):** Povo 2 is re-levelled from measured evidence: −2 −1.55, −1 3.25, 0 8.05 (previously −3.2 / 0.4 / 4.0). On −1 the stair door moves from the east end of the stair's south wall to its west end, as the user stated on 11 November. The −1 corridors, rooms and the approach plate south of the stair keep their plan. See [Povo 2 levels](POVO2_LEVELS_20261111.md).
+
 **10 November 2026 revision:** The user-approved [paired lift revision](POVO_ELEVATORS.md) supersedes only the C5 lift area, D1 position and former lower-junction stub described below. See that document for the revised lift bounds.
 
 **Status: FINAL — explicitly approved by the user in-game on 2 November 2026.**
